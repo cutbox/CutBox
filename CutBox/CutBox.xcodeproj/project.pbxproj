@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96564BD6205D495B00A95E02 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; };
+		96564BD7205D495B00A95E02 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; };
+		96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
+		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
+		96E1E59D205D243400F994ED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* MainMenu.xib */; };
+		96E1E5A9205D243400F994ED /* StatusMenuControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5A8205D243400F994ED /* StatusMenuControllerSpec.swift */; };
+		96E1E5B4205D243400F994ED /* CutBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5B3205D243400F994ED /* CutBoxUITests.swift */; };
+		96E1E5C5205D297900F994ED /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* StatusMenuController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96E1E5A5205D243400F994ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96E1E593205D243400F994ED;
+			remoteInfo = CutBox;
+		};
+		96E1E5B0205D243400F994ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96E1E593205D243400F994ED;
+			remoteInfo = CutBox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96564BD8205D497D00A95E02 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */,
+				96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		96564BD4205D495B00A95E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
+		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96E1E59C205D243400F994ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		96E1E59E205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
+		96E1E5A4205D243400F994ED /* CutBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96E1E5A8205D243400F994ED /* StatusMenuControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuControllerSpec.swift; sourceTree = "<group>"; };
+		96E1E5AA205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96E1E5B3205D243400F994ED /* CutBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxUITests.swift; sourceTree = "<group>"; };
+		96E1E5B5205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96E1E5C4205D297900F994ED /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96E1E591205D243400F994ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E1E5A1205D243400F994ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96564BD6205D495B00A95E02 /* Nimble.framework in Frameworks */,
+				96564BD7205D495B00A95E02 /* Quick.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E1E5AC205D243400F994ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96564BD3205D495A00A95E02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96564BD4205D495B00A95E02 /* Nimble.framework */,
+				96564BD5205D495B00A95E02 /* Quick.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96E1E58B205D243400F994ED = {
+			isa = PBXGroup;
+			children = (
+				96E1E596205D243400F994ED /* CutBox */,
+				96E1E5A7205D243400F994ED /* CutBoxTests */,
+				96E1E5B2205D243400F994ED /* CutBoxUITests */,
+				96E1E595205D243400F994ED /* Products */,
+				96564BD3205D495A00A95E02 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		96E1E595205D243400F994ED /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E594205D243400F994ED /* CutBox.app */,
+				96E1E5A4205D243400F994ED /* CutBoxTests.xctest */,
+				96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96E1E596205D243400F994ED /* CutBox */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E5C3205D295000F994ED /* statusMenu */,
+				96E1E597205D243400F994ED /* AppDelegate.swift */,
+				96E1E599205D243400F994ED /* Assets.xcassets */,
+				96E1E59B205D243400F994ED /* MainMenu.xib */,
+				96E1E59E205D243400F994ED /* Info.plist */,
+				96E1E59F205D243400F994ED /* CutBox.entitlements */,
+			);
+			path = CutBox;
+			sourceTree = "<group>";
+		};
+		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E5A8205D243400F994ED /* StatusMenuControllerSpec.swift */,
+				96E1E5AA205D243400F994ED /* Info.plist */,
+			);
+			path = CutBoxTests;
+			sourceTree = "<group>";
+		};
+		96E1E5B2205D243400F994ED /* CutBoxUITests */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E5B3205D243400F994ED /* CutBoxUITests.swift */,
+				96E1E5B5205D243400F994ED /* Info.plist */,
+			);
+			path = CutBoxUITests;
+			sourceTree = "<group>";
+		};
+		96E1E5C3205D295000F994ED /* statusMenu */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E5C4205D297900F994ED /* StatusMenuController.swift */,
+			);
+			path = statusMenu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96E1E593205D243400F994ED /* CutBox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */;
+			buildPhases = (
+				96E1E590205D243400F994ED /* Sources */,
+				96E1E591205D243400F994ED /* Frameworks */,
+				96E1E592205D243400F994ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CutBox;
+			productName = CutBox;
+			productReference = 96E1E594205D243400F994ED /* CutBox.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96E1E5A3205D243400F994ED /* CutBoxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96E1E5BB205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxTests" */;
+			buildPhases = (
+				96E1E5A0205D243400F994ED /* Sources */,
+				96E1E5A1205D243400F994ED /* Frameworks */,
+				96E1E5A2205D243400F994ED /* Resources */,
+				96564BD8205D497D00A95E02 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96E1E5A6205D243400F994ED /* PBXTargetDependency */,
+			);
+			name = CutBoxTests;
+			productName = CutBoxTests;
+			productReference = 96E1E5A4205D243400F994ED /* CutBoxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		96E1E5AE205D243400F994ED /* CutBoxUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96E1E5BE205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxUITests" */;
+			buildPhases = (
+				96E1E5AB205D243400F994ED /* Sources */,
+				96E1E5AC205D243400F994ED /* Frameworks */,
+				96E1E5AD205D243400F994ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96E1E5B1205D243400F994ED /* PBXTargetDependency */,
+			);
+			name = CutBoxUITests;
+			productName = CutBoxUITests;
+			productReference = 96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96E1E58C205D243400F994ED /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = ocodo;
+				TargetAttributes = {
+					96E1E593205D243400F994ED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					96E1E5A3205D243400F994ED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 96E1E593205D243400F994ED;
+					};
+					96E1E5AE205D243400F994ED = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 96E1E593205D243400F994ED;
+					};
+				};
+			};
+			buildConfigurationList = 96E1E58F205D243400F994ED /* Build configuration list for PBXProject "CutBox" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96E1E58B205D243400F994ED;
+			productRefGroup = 96E1E595205D243400F994ED /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96E1E593205D243400F994ED /* CutBox */,
+				96E1E5A3205D243400F994ED /* CutBoxTests */,
+				96E1E5AE205D243400F994ED /* CutBoxUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96E1E592205D243400F994ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
+				96E1E59D205D243400F994ED /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E1E5A2205D243400F994ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E1E5AD205D243400F994ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96E1E590205D243400F994ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96E1E5C5205D297900F994ED /* StatusMenuController.swift in Sources */,
+				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E1E5A0205D243400F994ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96E1E5A9205D243400F994ED /* StatusMenuControllerSpec.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96E1E5AB205D243400F994ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96E1E5B4205D243400F994ED /* CutBoxUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96E1E5A6205D243400F994ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96E1E593205D243400F994ED /* CutBox */;
+			targetProxy = 96E1E5A5205D243400F994ED /* PBXContainerItemProxy */;
+		};
+		96E1E5B1205D243400F994ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96E1E593205D243400F994ED /* CutBox */;
+			targetProxy = 96E1E5B0205D243400F994ED /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		96E1E59B205D243400F994ED /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96E1E59C205D243400F994ED /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96E1E5B6205D243400F994ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96E1E5B7205D243400F994ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		96E1E5B9205D243400F994ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CutBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		96E1E5BA205D243400F994ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CutBox/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		96E1E5BC205D243400F994ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = CutBoxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CutBox.app/Contents/MacOS/CutBox";
+			};
+			name = Debug;
+		};
+		96E1E5BD205D243400F994ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = CutBoxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CutBox.app/Contents/MacOS/CutBox";
+			};
+			name = Release;
+		};
+		96E1E5BF205D243400F994ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CutBoxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = CutBox;
+			};
+			name = Debug;
+		};
+		96E1E5C0205D243400F994ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CutBoxUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = CutBox;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96E1E58F205D243400F994ED /* Build configuration list for PBXProject "CutBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96E1E5B6205D243400F994ED /* Debug */,
+				96E1E5B7205D243400F994ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96E1E5B9205D243400F994ED /* Debug */,
+				96E1E5BA205D243400F994ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96E1E5BB205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96E1E5BC205D243400F994ED /* Debug */,
+				96E1E5BD205D243400F994ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96E1E5BE205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96E1E5BF205D243400F994ED /* Debug */,
+				96E1E5C0205D243400F994ED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96E1E58C205D243400F994ED /* Project object */;
+}
