@@ -12,6 +12,14 @@ class StatusMenuController: NSObject {
     @IBOutlet weak var statusMenu: NSMenu!
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+
+    @IBAction func pasteClicked(_ sender: NSMenuItem) {
+        // Show recent paste board items
+    }
+
+    @IBAction func quitClicked(_ sender:  NSMenuItem) {
+        NSApplication.shared.terminate(self)
+    }
     
     override func awakeFromNib() {
         let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
@@ -20,7 +28,4 @@ class StatusMenuController: NSObject {
         statusItem.menu = statusMenu
     }
     
-    @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        NSApplication.shared.terminate(self)
-    }
 }
