@@ -10,11 +10,12 @@ import Cocoa
 
 class StatusMenuController: NSObject {
     @IBOutlet weak var statusMenu: NSMenu!
-    
+
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
 
-    @IBAction func pasteClicked(_ sender: NSMenuItem) {
-        // Show recent paste board items
+    @IBAction func searchClicked(_ sender: NSMenuItem) {
+        // Search recent paste board items
+
     }
 
     @IBAction func quitClicked(_ sender:  NSMenuItem) {
@@ -27,5 +28,4 @@ class StatusMenuController: NSObject {
         statusItem.image = icon
         statusItem.menu = statusMenu
     }
-    
 }

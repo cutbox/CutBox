@@ -13,7 +13,7 @@
 		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
-		96E1E59D205D243400F994ED /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* MainMenu.xib */; };
+		96E1E59D205D243400F994ED /* CutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBox.xib */; };
 		96E1E5A9205D243400F994ED /* StatusMenuControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5A8205D243400F994ED /* StatusMenuControllerSpec.swift */; };
 		96E1E5B4205D243400F994ED /* CutBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5B3205D243400F994ED /* CutBoxUITests.swift */; };
 		96E1E5C5205D297900F994ED /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* StatusMenuController.swift */; };
@@ -56,7 +56,7 @@
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		96E1E59C205D243400F994ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		96E1E59C205D243400F994ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CutBox.xib; sourceTree = "<group>"; };
 		96E1E59E205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
 		96E1E5A4205D243400F994ED /* CutBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +104,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		96901E7E205DFD7400566EC2 /* searchPanel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = searchPanel;
+			sourceTree = "<group>";
+		};
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +135,11 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
+				96901E7E205DFD7400566EC2 /* searchPanel */,
 				96E1E5C3205D295000F994ED /* statusMenu */,
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
-				96E1E59B205D243400F994ED /* MainMenu.xib */,
+				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96E1E59E205D243400F994ED /* Info.plist */,
 				96E1E59F205D243400F994ED /* CutBox.entitlements */,
 			);
@@ -273,7 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
-				96E1E59D205D243400F994ED /* MainMenu.xib in Resources */,
+				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,12 +343,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		96E1E59B205D243400F994ED /* MainMenu.xib */ = {
+		96E1E59B205D243400F994ED /* CutBox.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				96E1E59C205D243400F994ED /* Base */,
 			);
-			name = MainMenu.xib;
+			name = CutBox.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

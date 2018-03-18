@@ -20,10 +20,10 @@
         </customObject>
         <menu id="r5R-nF-u2D">
             <items>
-                <menuItem title="Paste" id="eRd-Us-nbh">
+                <menuItem title="Search" id="eRd-Us-nbh">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
-                        <action selector="pasteClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
+                        <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Quit" id="akv-B8-OIW">
