@@ -9,7 +9,6 @@
 import Cocoa
 
 class SearchView: NSView {
-
     override init(frame: NSRect) {
         super.init(frame: frame)
     }
@@ -23,26 +22,8 @@ class SearchView: NSView {
     }
 
     override func keyDown(with event: NSEvent) {
-        let (keyCode, modifier) = (KeyCode(rawValue: event.keyCode), event.modifierFlags.getModifierKey())
-
-        guard let key = keyCode else { return }
-
-        switch (key, modifier) {
-        case (.slash, .shift?):
-            debugPrint("question mark")
-        case (.slash, nil):
-            debugPrint("slash")
-        case (.up, nil):
-            debugPrint("up")
-        case (.down, nil):
-            debugPrint("down")
-        case (.left, nil):
-            debugPrint("left")
-        case (.right, nil):
-            debugPrint("right")
-        default:
-            debugPrint(event.keyCode, modifier as Any)
-            super.keyDown(with: event)
-        }
+        let (key, modifiers) = (event.keyCode, event.modifierFlags)
+        debugPrint(key, modifiers)
+        super.keyDown(with: event)
     }
 }
