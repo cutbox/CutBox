@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
+		961A49B22065D85D005BC79D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchView.swift */; };
+		961A49B42065D878005BC79D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B32065D878005BC79D /* SearchController.swift */; };
+		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
+		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
 		96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965B2AD72065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */; };
 		965B2ADB2065573500A2BDBD /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B2ADA2065573500A2BDBD /* KeyCode.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
-		9662D3632064BA3400F8A9D5 /* UsePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3612064BA3400F8A9D5 /* UsePopup.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBox.xib */; };
@@ -60,12 +63,15 @@
 		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
+		961A49B12065D85D005BC79D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		961A49B32065D878005BC79D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
+		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
 		96564BD4205D495B00A95E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent.ModifierFlags+StandardModifierKeys.swift"; sourceTree = "<group>"; };
 		965B2ADA2065573500A2BDBD /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
-		9662D3612064BA3400F8A9D5 /* UsePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsePopup.swift; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +133,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		961A49AF2065D442005BC79D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				96564BD4205D495B00A95E02 /* Nimble.framework */,
+				96564BD5205D495B00A95E02 /* Quick.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		961A49B02065D72F005BC79D /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				961A49B92065DC1E005BC79D /* Search */,
+				9662D3602064BA3400F8A9D5 /* PopupController.swift */,
+				961A49B52065D8B1005BC79D /* PopupPanel.swift */,
+				961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		961A49B92065DC1E005BC79D /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				961A49B32065D878005BC79D /* SearchController.swift */,
+				961A49B12065D85D005BC79D /* SearchView.swift */,
+				965B2ADA2065573500A2BDBD /* KeyCode.swift */,
+				965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +183,7 @@
 				96E1E595205D243400F994ED /* Products */,
 				96564BD3205D495A00A95E02 /* Frameworks */,
 				673FB9B3BF3E444A726CCE1F /* Pods */,
+				961A49AF2065D442005BC79D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,8 +200,7 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
-				965B2ADA2065573500A2BDBD /* KeyCode.swift */,
-				965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */,
+				961A49B02065D72F005BC79D /* Popup */,
 				96E1E5C3205D295000F994ED /* StatusMenu */,
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
@@ -195,8 +232,6 @@
 		96E1E5C3205D295000F994ED /* StatusMenu */ = {
 			isa = PBXGroup;
 			children = (
-				9662D3602064BA3400F8A9D5 /* PopupController.swift */,
-				9662D3612064BA3400F8A9D5 /* UsePopup.swift */,
 				96E1E5C4205D297900F994ED /* StatusMenuController.swift */,
 			);
 			path = StatusMenu;
@@ -508,9 +543,12 @@
 				965B2AD72065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift in Sources */,
 				96E1E5C5205D297900F994ED /* StatusMenuController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
-				9662D3632064BA3400F8A9D5 /* UsePopup.swift in Sources */,
+				961A49B42065D878005BC79D /* SearchController.swift in Sources */,
 				965B2ADB2065573500A2BDBD /* KeyCode.swift in Sources */,
+				961A49B22065D85D005BC79D /* SearchView.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
+				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
+				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
