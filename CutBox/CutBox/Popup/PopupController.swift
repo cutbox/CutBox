@@ -44,8 +44,8 @@ public class PopupController: NSWindowController {
     var lastKeyDownEvent: NSEvent?
     var keyDownEventMonitor: Any?
 
-    public init(contentView: NSView) {
-        self.contentView = contentView
+    public init(content: NSView) {
+        self.contentView = content
         super.init(window: panel)
         setup()
     }

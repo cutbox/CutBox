@@ -8,13 +8,25 @@
 
 import Cocoa
 
-class SearchView: NSView {
+class SearchViewTableCell: NSTableCellView {
+
+}
+
+class SearchView: NSView, NSTableViewDelegate, NSTableViewDataSource {
+
+    @IBOutlet weak var searchField: NSTextField!
+    @IBOutlet weak var clipboardItemsTable: NSTableView!
+
+    override func awakeFromNib() {
+//        self.searchField.
+    }
+
     override init(frame: NSRect) {
         super.init(frame: frame)
     }
 
     required init?(coder decoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: decoder)
     }
 
     override var acceptsFirstResponder: Bool {
@@ -26,4 +38,5 @@ class SearchView: NSView {
         debugPrint(key, modifiers)
         super.keyDown(with: event)
     }
+
 }
