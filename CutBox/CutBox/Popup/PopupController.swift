@@ -8,9 +8,6 @@
 
 import Cocoa
 
-import RxSwift
-import RxCocoa
-
 public class PopupController: NSWindowController {
 
     public let panel = PopupPanel()
