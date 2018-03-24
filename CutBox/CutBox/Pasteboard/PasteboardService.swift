@@ -61,7 +61,8 @@ class PasteboardService {
     @objc func pollPasteboard() {
         if let clip = self.checkClip() {
             self.pasteStore.append(clip)
-            debugPrint(self.pasteStore.count)
+            debugPrint("--------- --------- --------")
+            debugPrint(self.pasteStore)
         }
     }
 }
