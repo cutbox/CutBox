@@ -1,0 +1,19 @@
+target 'CutBox' do
+  use_frameworks!
+  platform :osx, '10.10'
+
+  pod 'HotKey'
+
+  abstract_target 'Testing' do
+    platform :osx, '10.13'
+
+    pod 'Quick'
+    pod 'Nimble'
+
+    target 'CutBoxTests' do
+    end
+
+    target 'CutBoxUITests' do
+    end
+  end
+end

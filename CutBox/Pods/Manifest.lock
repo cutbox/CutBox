@@ -1,0 +1,18 @@
+PODS:
+  - HotKey (0.1.0)
+  - Nimble (7.0.3)
+  - Quick (1.2.0)
+
+DEPENDENCIES:
+  - HotKey
+  - Nimble
+  - Quick
+
+SPEC CHECKSUMS:
+  HotKey: aa2b99ed0a4d7026e1bc15b6ae206a70e9a1851f
+  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
+
+PODFILE CHECKSUM: 8943207bebf3524994d1b9b279558ea43a47add2
+
+COCOAPODS: 1.4.0

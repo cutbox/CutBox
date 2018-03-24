@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
 		96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965B2AD72065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */; };
@@ -19,6 +20,8 @@
 		96E1E5A9205D243400F994ED /* StatusMenuControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5A8205D243400F994ED /* StatusMenuControllerSpec.swift */; };
 		96E1E5B4205D243400F994ED /* CutBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5B3205D243400F994ED /* CutBoxUITests.swift */; };
 		96E1E5C5205D297900F994ED /* StatusMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* StatusMenuController.swift */; };
+		E6994FEB1285D5DA13B1AF8E /* Pods_Testing_CutBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D664B206BC0907A3DA03C7 /* Pods_Testing_CutBoxUITests.framework */; };
+		EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86977FBC73098A02A097D0D /* Pods_CutBox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
+		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96564BD4205D495B00A95E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent.ModifierFlags+StandardModifierKeys.swift"; sourceTree = "<group>"; };
@@ -72,6 +79,11 @@
 		96E1E5B3205D243400F994ED /* CutBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxUITests.swift; sourceTree = "<group>"; };
 		96E1E5B5205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E5C4205D297900F994ED /* StatusMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusMenuController.swift; sourceTree = "<group>"; };
+		97D664B206BC0907A3DA03C7 /* Pods_Testing_CutBoxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A86977FBC73098A02A097D0D /* Pods_CutBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CutBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
+		B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
+		E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,15 +107,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6994FEB1285D5DA13B1AF8E /* Pods_Testing_CutBoxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		673FB9B3BF3E444A726CCE1F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */,
+				AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */,
+				E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */,
+				B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */,
+				3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */,
+				3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A86977FBC73098A02A097D0D /* Pods_CutBox.framework */,
+				2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */,
+				97D664B206BC0907A3DA03C7 /* Pods_Testing_CutBoxUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,6 +145,7 @@
 				96E1E5B2205D243400F994ED /* CutBoxUITests */,
 				96E1E595205D243400F994ED /* Products */,
 				96564BD3205D495A00A95E02 /* Frameworks */,
+				673FB9B3BF3E444A726CCE1F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,9 +209,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */;
 			buildPhases = (
+				8845782D45805C1DC9FDD6CC /* [CP] Check Pods Manifest.lock */,
 				96E1E590205D243400F994ED /* Sources */,
 				96E1E591205D243400F994ED /* Frameworks */,
 				96E1E592205D243400F994ED /* Resources */,
+				CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */,
+				0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -194,10 +229,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96E1E5BB205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxTests" */;
 			buildPhases = (
+				8C664551400D477B7EC9D50E /* [CP] Check Pods Manifest.lock */,
 				96E1E5A0205D243400F994ED /* Sources */,
 				96E1E5A1205D243400F994ED /* Frameworks */,
 				96E1E5A2205D243400F994ED /* Resources */,
 				96564BD8205D497D00A95E02 /* CopyFiles */,
+				DC2171150C1C0377430C4859 /* [CP] Embed Pods Frameworks */,
+				723EAB8C8D1270181AC31148 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,9 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96E1E5BE205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxUITests" */;
 			buildPhases = (
+				DF1DD94D25E2F2874D70BCFF /* [CP] Check Pods Manifest.lock */,
 				96E1E5AB205D243400F994ED /* Sources */,
 				96E1E5AC205D243400F994ED /* Frameworks */,
 				96E1E5AD205D243400F994ED /* Resources */,
+				35EE74ECB9E534768DFF1A7A /* [CP] Embed Pods Frameworks */,
+				1260C97E310BDFB8236AD8DB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -298,6 +339,166 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1260C97E310BDFB8236AD8DB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35EE74ECB9E534768DFF1A7A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		723EAB8C8D1270181AC31148 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8845782D45805C1DC9FDD6CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CutBox-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C664551400D477B7EC9D50E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Testing-CutBoxTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HotKey.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC2171150C1C0377430C4859 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF1DD94D25E2F2874D70BCFF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Testing-CutBoxUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		96E1E590205D243400F994ED /* Sources */ = {
@@ -464,6 +665,7 @@
 		};
 		96E1E5B9205D243400F994ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
@@ -480,6 +682,7 @@
 		};
 		96E1E5BA205D243400F994ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
@@ -496,6 +699,7 @@
 		};
 		96E1E5BC205D243400F994ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -513,6 +717,7 @@
 		};
 		96E1E5BD205D243400F994ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -530,6 +735,7 @@
 		};
 		96E1E5BF205D243400F994ED /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -545,6 +751,7 @@
 		};
 		96E1E5C0205D243400F994ED /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

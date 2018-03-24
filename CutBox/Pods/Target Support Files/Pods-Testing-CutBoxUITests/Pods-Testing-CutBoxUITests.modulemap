@@ -1,0 +1,6 @@
+framework module Pods_Testing_CutBoxUITests {
+  umbrella header "Pods-Testing-CutBoxUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
