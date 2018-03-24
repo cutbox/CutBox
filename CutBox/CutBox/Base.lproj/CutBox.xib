@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
     </dependencies>
     <objects>
@@ -20,8 +21,8 @@
         </customObject>
         <menu id="r5R-nF-u2D">
             <items>
-                <menuItem title="Search" id="eRd-Us-nbh">
-                    <modifierMask key="keyEquivalentModifierMask"/>
+                <menuItem title="Search" keyEquivalent="v" id="eRd-Us-nbh">
+                    <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES" command="YES"/>
                     <connections>
                         <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
                     </connections>

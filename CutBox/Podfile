@@ -3,6 +3,8 @@ target 'CutBox' do
   platform :osx, '10.10'
 
   pod 'HotKey'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   abstract_target 'Testing' do
     platform :osx, '10.13'

@@ -8,6 +8,9 @@
 
 import Cocoa
 
+import RxSwift
+import RxCocoa
+
 public class PopupController: NSWindowController {
 
     public let panel = PopupPanel()
@@ -40,6 +43,9 @@ public class PopupController: NSWindowController {
     var lastMouseDownEvent: NSEvent?
     var mouseDownEventMonitor: Any?
     var mouseUpEventMonitor: Any?
+
+    var lastKeyDownEvent: NSEvent?
+    var keyDownEventMonitor: Any?
 
     public init(contentView: NSView) {
         self.contentView = contentView

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D1756E6B0F9A48ED341E698CCA061B7C"
+               BlueprintIdentifier = "D309CC87B7E59F63CE8C3BFD82123CDC"
                BuildableName = "Pods_CutBox.framework"
                BlueprintName = "Pods-CutBox"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D1756E6B0F9A48ED341E698CCA061B7C"
+            BlueprintIdentifier = "D309CC87B7E59F63CE8C3BFD82123CDC"
             BuildableName = "Pods_CutBox.framework"
             BlueprintName = "Pods-CutBox"
             ReferencedContainer = "container:Pods.xcodeproj">

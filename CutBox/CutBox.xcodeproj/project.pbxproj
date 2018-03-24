@@ -145,7 +145,6 @@
 		961A49B02065D72F005BC79D /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				961A49B92065DC1E005BC79D /* Search */,
 				9662D3602064BA3400F8A9D5 /* PopupController.swift */,
 				961A49B52065D8B1005BC79D /* PopupPanel.swift */,
 				961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */,
@@ -200,9 +199,10 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
-				961A49B02065D72F005BC79D /* Popup */,
-				96E1E5C3205D295000F994ED /* StatusMenu */,
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
+				96E1E5C3205D295000F994ED /* StatusMenu */,
+				961A49B02065D72F005BC79D /* Popup */,
+				961A49B92065DC1E005BC79D /* Search */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
 				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96E1E59E205D243400F994ED /* Info.plist */,
@@ -485,10 +485,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HotKey.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
