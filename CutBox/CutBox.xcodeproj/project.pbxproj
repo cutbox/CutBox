@@ -7,13 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96564BD6205D495B00A95E02 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; };
-		96564BD7205D495B00A95E02 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; };
 		96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965B2AD72065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */; };
 		965B2ADB2065573500A2BDBD /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B2ADA2065573500A2BDBD /* KeyCode.swift */; };
-		965B2ADD20655A2F00A2BDBD /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 965B2ADC20655A2E00A2BDBD /* Cartfile */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
 		9662D3632064BA3400F8A9D5 /* UsePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3612064BA3400F8A9D5 /* UsePopup.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
@@ -60,7 +57,6 @@
 		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		965B2AD62065428500A2BDBD /* NSEvent.ModifierFlags+StandardModifierKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent.ModifierFlags+StandardModifierKeys.swift"; sourceTree = "<group>"; };
 		965B2ADA2065573500A2BDBD /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
-		965B2ADC20655A2E00A2BDBD /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		9662D3612064BA3400F8A9D5 /* UsePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsePopup.swift; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,8 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96564BD6205D495B00A95E02 /* Nimble.framework in Frameworks */,
-				96564BD7205D495B00A95E02 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +102,6 @@
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				96564BD4205D495B00A95E02 /* Nimble.framework */,
-				96564BD5205D495B00A95E02 /* Quick.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -117,7 +109,6 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				965B2ADC20655A2E00A2BDBD /* Cartfile */,
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				96E1E5B2205D243400F994ED /* CutBoxUITests */,
@@ -287,7 +278,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965B2ADD20655A2F00A2BDBD /* Cartfile in Resources */,
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 			);
@@ -511,10 +501,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CutBoxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxTests;
@@ -531,10 +518,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CutBoxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxTests;
