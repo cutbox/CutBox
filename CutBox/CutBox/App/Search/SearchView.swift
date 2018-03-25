@@ -12,17 +12,17 @@ class SearchViewTableCell: NSTableCellView {
 
 }
 
-class SearchView: NSView, NSTableViewDelegate, NSTableViewDataSource {
+class SearchView: NSView {
 
-    @IBOutlet weak var searchField: NSTextField!
+    @IBOutlet weak var searchText: NSTextView!
     @IBOutlet weak var clipboardItemsTable: NSTableView!
 
     override func awakeFromNib() {
-        let color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        let font = NSFont.systemFont(ofSize: 18)
-        let attrs = [NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: font]
-        let placeHolder = NSAttributedString(string: "Search Copied Items", attributes: attrs)
-        self.searchField.placeholderAttributedString = placeHolder
+        searchText.textColor = NSColor.white
+        searchText.font = NSFont(
+            name: "Helvetica Neue",
+            size: 28
+        )
     }
 
     override init(frame: NSRect) {
@@ -42,5 +42,5 @@ class SearchView: NSView, NSTableViewDelegate, NSTableViewDataSource {
         debugPrint(key, modifiers)
         super.keyDown(with: event)
     }
-
 }
+

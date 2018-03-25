@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PasteboardService {
+class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
     var newItem = false
@@ -52,6 +52,18 @@ class PasteboardService {
 
     deinit {
         self.stopTimer()
+    }
+
+    func getItem(_ atIndex: Int) -> String? {
+        if pasteStore.count > 0 && pasteStore.count >= atIndex + 1 {
+            guard let item = pasteStore[atIndex] else { return nil }
+            return item
+        }
+        return nil
+    }
+
+    func count() -> Int {
+        return pasteStore.count
     }
 
     func clipboardContent() -> String? {
