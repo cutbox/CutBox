@@ -17,8 +17,12 @@ extension SearchView: NSTextViewDelegate {
         self.filterText.onNext(self.searchText.string)
     }
 
-    func textDidEndEditing(_ notification: Notification) {
-        self.events.onNext(.closeAndPaste)
+    func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            self.events.onNext(.closeAndPaste)
+            return true
+        }
+        return false
     }
 }
 

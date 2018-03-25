@@ -62,9 +62,10 @@ class CutBoxController: NSObject {
     }
 
     func pasteTopClipToPasteboard() {
-        guard let topClip = self.pasteboardService.items.first else
-        { return }
+        guard let topClip = self.pasteboardService.items.first
+            else { return }
 
+        NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(topClip, forType: .string)
     }
 
