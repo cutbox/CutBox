@@ -2,23 +2,30 @@
 //  SearchView.swift
 //  CutBox
 //
-//  Created by Jason on 24/3/18.
+//  Created by Jason Milkins on 24/3/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
 import Cocoa
+import RxSwift
+import RxCocoa
 
-class SearchViewTableCell: NSTableCellView {
-
+extension SearchView: NSTextViewDelegate {
+    func textDidChange(_ notification: Notification) {
+        self.filterText.onNext(self.searchText.string)
+    }
 }
 
 class SearchView: NSView {
-
     @IBOutlet weak var searchText: NSTextView!
     @IBOutlet weak var clipboardItemsTable: NSTableView!
 
+    var filterText = PublishSubject<String>()
+
     override func awakeFromNib() {
+        searchText.delegate = self
         searchText.textColor = NSColor.white
+        searchText.isFieldEditor = true
         searchText.font = NSFont(
             name: "Helvetica Neue",
             size: 28

@@ -2,24 +2,24 @@
 //  PopupController.swift
 //  CutBox
 //
-//  Created by jason on 17/3/18.
+//  Created by Jason Milkins on 17/3/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
 import Cocoa
 
-public class PopupController: NSWindowController {
+class PopupController: NSWindowController {
 
-    public let panel = PopupPanel()
+    let panel = PopupPanel()
 
-    public let backgroundView = PopupBackgroundView()
-    public let containerView = PopupContainerView()
-    public var contentView: NSView
+    let backgroundView = PopupBackgroundView()
+    let containerView = PopupContainerView()
+    var contentView: NSView
 
-    public var openDuration: TimeInterval = 0.15
-    public var closeDuration: TimeInterval = 0.2
+    var openDuration: TimeInterval = 0.15
+    var closeDuration: TimeInterval = 0.2
 
-    public var contentInset: CGFloat {
+    var contentInset: CGFloat {
         get { return containerView.contentInset }
         set {
             let size = containerView.frame.size
@@ -28,14 +28,14 @@ public class PopupController: NSWindowController {
         }
     }
 
-    private(set) public var isOpen: Bool = false
+    private(set)  var isOpen: Bool = false
 
     fileprivate var isOpening: Bool = false
 
-    public var willOpenPopup: (()->(Void))?
-    public var didOpenPopup: (()->(Void))?
-    public var willClosePopup: (()->(Void))?
-    public var didClosePopup: (()->(Void))?
+    var willOpenPopup: (()->(Void))?
+    var didOpenPopup: (()->(Void))?
+    var willClosePopup: (()->(Void))?
+    var didClosePopup: (()->(Void))?
 
     var lastMouseDownEvent: NSEvent?
     var mouseDownEventMonitor: Any?
@@ -44,13 +44,13 @@ public class PopupController: NSWindowController {
     var lastKeyDownEvent: NSEvent?
     var keyDownEventMonitor: Any?
 
-    public init(content: NSView) {
+    init(content: NSView) {
         self.contentView = content
         super.init(window: panel)
         setup()
     }
 
-    required public init?(coder: NSCoder) {
+    required  init?(coder: NSCoder) {
         self.contentView = coder.decodeObject(forKey: "contentView") as? NSView ?? NSView()
         super.init(coder: coder)
         self.window = panel
@@ -83,26 +83,26 @@ public class PopupController: NSWindowController {
                     height: contentSize.height)
     }
 
-    public func openPopup() {
+    func openPopup() {
         openPanel()
     }
 
-    public func closePopup() {
+    func closePopup() {
         closePanel()
     }
 
-    public func togglePopup() {
+    func togglePopup() {
         isOpen ? closePanel() : openPanel()
     }
 
-    public func resizePopup(width: CGFloat, height: CGFloat) {
+    func resizePopup(width: CGFloat, height: CGFloat) {
         var frame = panel.frame
         var newSize = CGSize(width: width,
                              height: height)
 
         newSize.height += contentInset * 2
         newSize.width += contentInset * 2
-        frame.origin.y -= newSize.height - frame.size.height
+        frame.origin.y -= newSize.height - (frame.size.height + (frame.size.height / 2))
         frame.size.height = newSize.height
 
         let widthDifference = newSize.width - frame.size.width
@@ -115,11 +115,11 @@ public class PopupController: NSWindowController {
         panel.setFrame(frame, display: true, animate: panel.isVisible)
     }
 
-    public func resizePopup(width: CGFloat) {
+    func resizePopup(width: CGFloat) {
         resizePopup(width: width, height: contentView.frame.size.height)
     }
 
-    public func resizePopup(height: CGFloat) {
+    func resizePopup(height: CGFloat) {
         resizePopup(width: contentView.frame.size.width, height: height)
     }
 
@@ -180,19 +180,19 @@ public class PopupController: NSWindowController {
 }
 
 extension PopupController: NSWindowDelegate {
-    public func windowWillClose(_ notification: Notification) {
+    func windowWillClose(_ notification: Notification) {
         closePopup()
     }
 
-    public func windowDidResignKey(_ notification: Notification) {
+    func windowDidResignKey(_ notification: Notification) {
         if window?.isVisible == true && !isOpening {
             closePopup()
         }
     }
 }
 
-public class PopupContainerView: NSView {
-    public var contentInset: CGFloat = 1
+class PopupContainerView: NSView {
+    var contentInset: CGFloat = 1
 
     var contentView: NSView? {
         didSet {

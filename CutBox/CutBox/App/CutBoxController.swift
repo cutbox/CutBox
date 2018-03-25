@@ -1,15 +1,16 @@
 //
-//  StatusMenuController.swift
+//  CutBoxController.swift
 //  CutBox
 //
-//  Created by jason on 17/3/18.
+//  Created by Jason Milkins on 17/3/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
-// Setup the status item (linked in CutBox.xib)
-// ini the popup controller and search view
+// Central controller object, binds things together and runs the status item
 
 import Cocoa
+import RxSwift
+import RxCocoa
 import HotKey
 
 class CutBoxController: NSObject {
@@ -21,6 +22,7 @@ class CutBoxController: NSObject {
     var width: CGFloat
     var minHeight: CGFloat
     var maxHeight: CGFloat
+    let disposeBag = DisposeBag()
 
     @IBOutlet weak var statusMenu: NSMenu!
 
@@ -35,6 +37,8 @@ class CutBoxController: NSObject {
             fatalError("Unable to get main screen")
         }
 
+        // Read from keychain
+
         self.pasteboardService = PasteboardService()
         self.pasteboardService.startTimer()
         self.screen = mainScreen
@@ -44,16 +48,13 @@ class CutBoxController: NSObject {
 
         self.searchView = SearchView.fromNib() ?? SearchView()
 
-
         self.popupController = PopupController(
             content: self.searchView
         )
 
         super.init()
 
-        self.searchView.clipboardItemsTable.dataSource = self
-        self.searchView.clipboardItemsTable.delegate = self
-
+        setupFilterBinding()
         setupPopup()
         setupHotkey()
     }
@@ -73,8 +74,25 @@ class CutBoxController: NSObject {
         statusItem.menu = statusMenu
     }
 
+    private func setupFilterBinding() {
+        self.searchView.clipboardItemsTable.dataSource = self
+        self.searchView.clipboardItemsTable.delegate = self
+        self.searchView.filterText
+            .bind {
+                self.pasteboardService.filterText = $0
+                self.searchView.clipboardItemsTable.reloadData()
+            }
+            .disposed(by: self.disposeBag)
+    }
+
     private func setupHotkey() {
         self.hotKey.keyDownHandler = self.popupController.togglePopup
+    }
+
+    private func resetSearchText() {
+        self.searchView.searchText.string = ""
+        self.searchView.filterText.onNext("")
+        self.searchView.clipboardItemsTable.reloadData()
     }
 
     private func setupPopup() {
@@ -92,35 +110,38 @@ class CutBoxController: NSObject {
 
         self.popupController
             .didOpenPopup = {
-                self.searchView.clipboardItemsTable.reloadData()
-                debugPrint("Opened popup")
+                self.resetSearchText()
+                self.searchView
+                    .searchText
+                    .window?
+                    .makeFirstResponder(self.searchView.searchText)
         }
 
         self.popupController
-            .didClosePopup = {
-            debugPrint("Closed popup")
+            .willClosePopup = {
+                self.resetSearchText()
         }
     }
 }
 
-extension NSView {
-    class func fromNib<T: NSView>() -> T? {
-        var viewArray: NSArray? = nil
-        guard Bundle.main.loadNibNamed(NSNib.Name(rawValue: String(describing: T.self)),
-                                       owner: nil,
-                                       topLevelObjects: &viewArray) else { return nil }
-        return viewArray?.first(where: { $0 is T }) as? T
+extension CutBoxController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        let count = self.pasteboardService.count
+        return count
+    }
+
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        guard let value = self.pasteboardService[row] else { return nil }
+
+        return value
     }
 }
 
-extension CutBoxController: NSTableViewDataSource, NSTableViewDelegate {
-
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.pasteboardService.count()
-    }
-
+extension CutBoxController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: "TextItem")
+        guard let _ = self.pasteboardService[row] else { return nil }
+
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: "pasteBoardItemsTableTextField")
         var textField: NSTextField? = tableView.makeView(withIdentifier: identifier, owner: self) as? NSTextField
 
         if textField == nil {
@@ -131,14 +152,15 @@ extension CutBoxController: NSTableViewDataSource, NSTableViewDelegate {
             textField?.cell?.isBordered = false
             textField?.cell?.backgroundStyle = .dark
             textField?.backgroundColor = NSColor.clear
+            textField?.isBordered = false
+            textField?.isSelectable = false
+            textField?.isEditable = false
+            textField?.bezelStyle = .roundedBezel
             textField?.identifier = identifier
         }
-
-        let value = self.pasteboardService.getItem(row) ?? "empty"
-
-        textField?.stringValue = value
 
         return textField
     }
 }
+
 

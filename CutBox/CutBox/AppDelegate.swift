@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CutBox
 //
-//  Created by jason on 17/3/18.
+//  Created by Jason Milkins on 17/3/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  PasteboardService.swift
 //  CutBox
 //
-//  Created by Jason on 24/3/18.
+//  Created by Jason Milkins on 24/3/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
@@ -11,13 +11,30 @@ import Cocoa
 class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
+    var filterText: String?
     var newItem = false
 
-    private var pasteStore: [String?] = []
+    private var pasteStore: [String] = []
+
+    var items: [String] {
+        guard let filterText = self.filterText,
+            filterText != "" else { return pasteStore }
+
+        return pasteStore
+            .flatMap { $0.lowercased().contains(filterText.lowercased()) ? $0 : nil }
+    }
+
+    var count: Int {
+        return items.count
+    }
+
+    subscript (index: Int) -> String? {
+        return items[safe: index]
+    }
 
     func startTimer() {
         guard pollingTimer == nil else { return }
-        pollingTimer = Timer.scheduledTimer(timeInterval: 1,
+        pollingTimer = Timer.scheduledTimer(timeInterval: 0.1,
                                             target: self,
                                             selector: #selector(pollPasteboard),
                                             userInfo: nil,
@@ -36,7 +53,7 @@ class PasteboardService: NSObject {
             return nil
         }
 
-        guard let latestStored = self.pasteStore.last else {
+        guard let latestStored = self.pasteStore.first else {
             self.newItem = true
             return currentClip
         }
@@ -54,27 +71,13 @@ class PasteboardService: NSObject {
         self.stopTimer()
     }
 
-    func getItem(_ atIndex: Int) -> String? {
-        if pasteStore.count > 0 && pasteStore.count >= atIndex + 1 {
-            guard let item = pasteStore[atIndex] else { return nil }
-            return item
-        }
-        return nil
-    }
-
-    func count() -> Int {
-        return pasteStore.count
-    }
-
     func clipboardContent() -> String? {
         return NSPasteboard.general.pasteboardItems?.first?.string(forType: .string)
     }
 
     @objc func pollPasteboard() {
         if let clip = self.checkClip() {
-            self.pasteStore.append(clip)
-            debugPrint("--------- --------- --------")
-            debugPrint(self.pasteStore)
+            self.pasteStore.insert(clip, at: 0)
         }
     }
 }
