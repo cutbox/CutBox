@@ -70,7 +70,7 @@
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
 		964766632067A5F100E7026F /* NSView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
-		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DisableScrollView.swift; path = CutBox/MacosExtensions/DisableScrollView.swift; sourceTree = "<group>"; };
+		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
 		96564BD4205D495B00A95E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
@@ -168,6 +168,7 @@
 		964766652067A63700E7026F /* MacosExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				964766682067B82900E7026F /* DisableScrollView.swift */,
 				964766632067A5F100E7026F /* NSView+fromNib.swift */,
 				964766662067A68000E7026F /* Collection+Safe.swift */,
 			);
@@ -195,7 +196,6 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				964766682067B82900E7026F /* DisableScrollView.swift */,
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				96E1E5B2205D243400F994ED /* CutBoxUITests */,

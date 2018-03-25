@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="721" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsUndo="YES" id="yJ6-38-lEV">
+                            <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" fieldEditor="YES" allowsUndo="YES" id="yJ6-38-lEV">
                                 <rect key="frame" x="0.0" y="-1" width="721" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

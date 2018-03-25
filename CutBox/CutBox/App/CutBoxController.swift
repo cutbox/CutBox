@@ -6,7 +6,8 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
-// Central controller object, binds things together and runs the status item
+// Central controller object, binds things together
+// and runs the status item
 
 import Cocoa
 import RxSwift
@@ -54,9 +55,37 @@ class CutBoxController: NSObject {
 
         super.init()
 
+        setupSearchTextEventBindings()
         setupFilterBinding()
         setupPopup()
         setupHotkey()
+    }
+
+    func pasteTopClipToPasteboard() {
+        guard let topClip = self.pasteboardService.items.first else
+        { return }
+
+        NSPasteboard.general.setString(topClip, forType: .string)
+    }
+
+    func fakePaste() {
+        let NSKeyCode_V: UInt16 = 9
+
+        let keyDownEvent = CGEvent(
+            keyboardEventSource: nil,
+            virtualKey: NSKeyCode_V,
+            keyDown: true)
+
+        keyDownEvent?.flags = CGEventFlags.maskCommand
+        keyDownEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+
+        let keyUpEvent = CGEvent(
+            keyboardEventSource: nil,
+            virtualKey: NSKeyCode_V,
+            keyDown: false)
+
+        keyUpEvent?.flags = CGEventFlags.maskCommand
+        keyUpEvent?.post(tap: CGEventTapLocation.cghidEventTap)
     }
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
@@ -68,11 +97,29 @@ class CutBoxController: NSObject {
         NSApplication.shared.terminate(self)
     }
 
+    private func closeAndPaste() {
+        self.pasteTopClipToPasteboard()
+        self.popupController.closePopup()
+        self.fakePaste()
+    }
+
     override func awakeFromNib() {
         let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
         icon.isTemplate = true // best for dark mode
         statusItem.image = icon
         statusItem.menu = statusMenu
+    }
+
+    private func setupSearchTextEventBindings() {
+        self.searchView
+            .events
+            .bind { event in
+                switch event {
+                case .closeAndPaste:
+                    self.closeAndPaste()
+                }
+            }
+            .disposed(by: disposeBag)
     }
 
     private func setupFilterBinding() {
@@ -139,16 +186,25 @@ extension CutBoxController: NSTableViewDataSource {
 }
 
 extension CutBoxController: NSTableViewDelegate {
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView,
+                   viewFor tableColumn: NSTableColumn?,
+                   row: Int) -> NSView? {
         guard let _ = self.pasteboardService[row] else { return nil }
 
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: "pasteBoardItemsTableTextField")
-        var textField: NSTextField? = tableView.makeView(withIdentifier: identifier, owner: self) as? NSTextField
+        let identifier = NSUserInterfaceItemIdentifier(
+            rawValue: "pasteBoardItemsTableTextField")
+
+        var textField: NSTextField? = tableView.makeView(
+            withIdentifier: identifier, owner: self) as? NSTextField
 
         if textField == nil {
-            textField = NSTextField(frame: CGRect(x: 0, y: 0,
-                                                  width: tableView.frame.width,
-                                                  height: 20))
+            let textWidth = Int(tableView.frame.width)
+            let textHeight = 20
+            let textFrame = CGRect(x: 0, y: 0,
+                                   width: textWidth,
+                                   height: textHeight)
+
+            textField = NSTextField(frame: textFrame)
             textField?.textColor = NSColor.white
             textField?.cell?.isBordered = false
             textField?.cell?.backgroundStyle = .dark

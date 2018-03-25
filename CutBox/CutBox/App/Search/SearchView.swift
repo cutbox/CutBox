@@ -10,16 +10,27 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
+
+
 extension SearchView: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         self.filterText.onNext(self.searchText.string)
     }
+
+    func textDidEndEditing(_ notification: Notification) {
+        self.events.onNext(.closeAndPaste)
+    }
+}
+
+enum SearchViewEvents {
+    case closeAndPaste
 }
 
 class SearchView: NSView {
     @IBOutlet weak var searchText: NSTextView!
     @IBOutlet weak var clipboardItemsTable: NSTableView!
 
+    var events = PublishSubject<SearchViewEvents>()
     var filterText = PublishSubject<String>()
 
     override func awakeFromNib() {
