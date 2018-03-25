@@ -10,11 +10,25 @@ import Cocoa
 
 class PasteboardService: NSObject {
 
+
     var pollingTimer: Timer?
     var filterText: String?
     var newItem = false
+    
+    private var kPasteStoreKey = "pasteStore"
+    private var pasteStore: [String]
 
-    private var pasteStore: [String] = []
+    override init() {
+        if let pasteStore = NSUserDefaultsController
+            .shared
+            .defaults
+            .array(forKey: kPasteStoreKey) {
+            self.pasteStore = pasteStore as! [String]
+        } else {
+            self.pasteStore = []
+        }
+        super.init()
+    }
 
     var items: [String] {
         guard let filterText = self.filterText,
@@ -65,6 +79,14 @@ class PasteboardService: NSObject {
             self.newItem = false
             return nil
         }
+    }
+
+    func saveToDefaults() {
+        NSUserDefaultsController
+            .shared
+            .defaults
+            .set(self.pasteStore,
+                 forKey: kPasteStoreKey)
     }
 
     deinit {

@@ -64,6 +64,7 @@ class CutBoxController: NSObject {
     }
 
     @IBAction func quitClicked(_ sender:  NSMenuItem) {
+        pasteboardService.saveToDefaults()
         NSApplication.shared.terminate(self)
     }
 
