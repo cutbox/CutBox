@@ -15,32 +15,6 @@ import RxSwift
 import RxCocoa
 import HotKey
 
-class FakeKey {
-    static func send(_ keyCode: Int, withCommandFlag setFlag: Bool) {
-        let keyCode = keyCode as NSNumber
-        let sourceRef = CGEventSource(stateID: .combinedSessionState)
-        if sourceRef == nil {
-            NSLog("No event source")
-            return
-        }
-        let veeCode = CGKeyCode(truncating: keyCode)
-
-        let eventDown = CGEvent(keyboardEventSource: sourceRef,
-                                virtualKey: veeCode,
-                                keyDown: true)
-        if setFlag {
-            eventDown?.flags = .maskCommand
-        }
-
-        let eventUp = CGEvent(keyboardEventSource: sourceRef,
-                              virtualKey: veeCode,
-                              keyDown: false)
-
-        eventDown?.post(tap: .cghidEventTap)
-        eventUp?.post(tap: .cghidEventTap)
-    }
-}
-
 class CutBoxPreferences {
     var searchViewBackgroundColor: NSColor?
     var searchViewTextFieldFont: NSFont?
@@ -111,7 +85,7 @@ class CutBoxController: NSObject {
     }
 
     @objc func fakePaste() {
-        FakeKey.send(kVK_ANSI_V, withCommandFlag: true)
+        FakeKey.send(UInt16(9), withCommandFlag: true)
     }
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
@@ -127,7 +101,7 @@ class CutBoxController: NSObject {
         self.pasteTopClipToPasteboard()
         self.popupController.closePopup()
         perform(#selector(hideApp), with: self, afterDelay: 0.1)
-        perform(#selector(fakePaste), with: self, afterDelay: 0.1)
+        perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
     override func awakeFromNib() {
