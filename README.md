@@ -12,12 +12,12 @@
 - [x] Display spotlight/alfred style UI
 - [x] List filtered by typed text
 - [x] Case insensitive matching
-- [ ] Store clipboard items between sessions... (maybe)
-- [ ] Paste to current app
+- [x] Store clipboard items between sessions... (maybe)
 - [ ] Use https://github.com/yichizhang/SwiftyStringScore for fuzzy filtering
+- [ ] Paste to current app
 - [ ] Keyboard controls (TODO: Add sub items)
   - [x] Global hotkey to show/hide popup
-  - [ ] Enter to paste selected item (default to top item)
+  - [ ] Enter to paste selected item (default to top item) WIP
   - [ ] up and down arrow to select pasteboard items shown
 - [ ] Make app an auto-start at login item
 
