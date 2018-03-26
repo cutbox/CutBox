@@ -9,10 +9,47 @@
 // Central controller object, binds things together
 // and runs the status item
 
+import Carbon.HIToolbox
 import Cocoa
 import RxSwift
 import RxCocoa
 import HotKey
+
+class FakeKey {
+    static func send(_ keyCode: Int, withCommandFlag setFlag: Bool) {
+        let keyCode = keyCode as NSNumber
+        let sourceRef = CGEventSource(stateID: .combinedSessionState)
+        if sourceRef == nil {
+            NSLog("No event source")
+            return
+        }
+        let veeCode = CGKeyCode(truncating: keyCode)
+
+        let eventDown = CGEvent(keyboardEventSource: sourceRef,
+                                virtualKey: veeCode,
+                                keyDown: true)
+        if setFlag {
+            eventDown?.flags = .maskCommand
+        }
+
+        let eventUp = CGEvent(keyboardEventSource: sourceRef,
+                              virtualKey: veeCode,
+                              keyDown: false)
+
+        eventDown?.post(tap: .cghidEventTap)
+        eventUp?.post(tap: .cghidEventTap)
+    }
+}
+
+class CutBoxPreferences {
+    var searchViewBackgroundColor: NSColor?
+    var searchViewTextFieldFont: NSFont?
+    var searchViewTextFieldBackgroundColor: NSColor?
+    var searchViewTextFieldTextColor: NSColor?
+    var searchViewClipItemsFont: NSFont?
+    var searchViewClipItemsTextColor: NSColor?
+    var searchViewClipItemsHighlightColor: NSColor?
+}
 
 class CutBoxController: NSObject {
 
@@ -69,24 +106,12 @@ class CutBoxController: NSObject {
         NSPasteboard.general.setString(topClip, forType: .string)
     }
 
-    func fakePaste() {
-        let NSKeyCode_V: UInt16 = 9
+    @objc func hideApp() {
+        NSApp.hide(self)
+    }
 
-        let keyDownEvent = CGEvent(
-            keyboardEventSource: nil,
-            virtualKey: NSKeyCode_V,
-            keyDown: true)
-
-        keyDownEvent?.flags = CGEventFlags.maskCommand
-        keyDownEvent?.post(tap: CGEventTapLocation.cghidEventTap)
-
-        let keyUpEvent = CGEvent(
-            keyboardEventSource: nil,
-            virtualKey: NSKeyCode_V,
-            keyDown: false)
-
-        keyUpEvent?.flags = CGEventFlags.maskCommand
-        keyUpEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+    @objc func fakePaste() {
+        FakeKey.send(kVK_ANSI_V, withCommandFlag: true)
     }
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
@@ -101,7 +126,8 @@ class CutBoxController: NSObject {
     private func closeAndPaste() {
         self.pasteTopClipToPasteboard()
         self.popupController.closePopup()
-        self.fakePaste()
+        perform(#selector(hideApp), with: self, afterDelay: 0.2)
+        perform(#selector(fakePaste), with: self, afterDelay: 0.2)
     }
 
     override func awakeFromNib() {

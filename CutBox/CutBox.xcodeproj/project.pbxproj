@@ -337,7 +337,12 @@
 				TargetAttributes = {
 					96E1E593205D243400F994ED = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					96E1E5A3205D243400F994ED = {
 						CreatedOnToolsVersion = 9.2;
@@ -734,9 +739,8 @@
 			baseConfigurationReference = 1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				INFOPLIST_FILE = CutBox/Info.plist;
@@ -754,9 +758,8 @@
 			baseConfigurationReference = AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				INFOPLIST_FILE = CutBox/Info.plist;
