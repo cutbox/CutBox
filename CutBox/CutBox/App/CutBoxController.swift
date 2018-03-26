@@ -126,8 +126,8 @@ class CutBoxController: NSObject {
     private func closeAndPaste() {
         self.pasteTopClipToPasteboard()
         self.popupController.closePopup()
-        perform(#selector(hideApp), with: self, afterDelay: 0.2)
-        perform(#selector(fakePaste), with: self, afterDelay: 0.2)
+        perform(#selector(hideApp), with: self, afterDelay: 0.1)
+        perform(#selector(fakePaste), with: self, afterDelay: 0.1)
     }
 
     override func awakeFromNib() {
