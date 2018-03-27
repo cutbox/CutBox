@@ -9,21 +9,10 @@
 // Central controller object, binds things together
 // and runs the status item
 
-import Carbon.HIToolbox
 import Cocoa
 import RxSwift
 import RxCocoa
 import HotKey
-
-class CutBoxPreferences {
-    var searchViewBackgroundColor: NSColor?
-    var searchViewTextFieldFont: NSFont?
-    var searchViewTextFieldBackgroundColor: NSColor?
-    var searchViewTextFieldTextColor: NSColor?
-    var searchViewClipItemsFont: NSFont?
-    var searchViewClipItemsTextColor: NSColor?
-    var searchViewClipItemsHighlightColor: NSColor?
-}
 
 class CutBoxController: NSObject {
 
@@ -85,7 +74,7 @@ class CutBoxController: NSObject {
     }
 
     @objc func fakePaste() {
-        FakeKey.send(UInt16(9), withCommandFlag: true)
+        FakeKey.send(UInt16(9), useCommandFlag: true)
     }
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {

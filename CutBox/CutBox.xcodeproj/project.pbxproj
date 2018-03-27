@@ -20,6 +20,7 @@
 		968A97BE2066745D00D36B50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
+		96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBox.xib */; };
@@ -78,6 +79,7 @@
 		968A97BD2066745D00D36B50 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeKey.swift; path = CutBox/App/Pasteboard/FakeKey.swift; sourceTree = "<group>"; };
+		96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutBoxPreferences.swift; path = CutBox/App/CutBoxPreferences.swift; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
+				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96CFA6B22069278700BAFABB /* FakeKey.swift */,
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
@@ -584,6 +587,7 @@
 				961A49B22065D85D005BC79D /* SearchView.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
+				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
 			);
