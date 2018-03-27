@@ -9,7 +9,7 @@
 import Foundation
 
 class FakeKey {
-    static func send(_ keyCode: CGKeyCode, withCommandFlag setFlag: Bool) {
+    static func send(_ keyCode: CGKeyCode, useCommandFlag: Bool) {
         let sourceRef = CGEventSource(stateID: .combinedSessionState)
 
         if sourceRef == nil {
@@ -17,18 +17,18 @@ class FakeKey {
             return
         }
 
-        let eventDown = CGEvent(keyboardEventSource: sourceRef,
+        let keyDownEvent = CGEvent(keyboardEventSource: sourceRef,
                                 virtualKey: keyCode,
                                 keyDown: true)
-        if setFlag {
-            eventDown?.flags = .maskCommand
+        if useCommandFlag {
+            keyDownEvent?.flags = .maskCommand
         }
 
-        let eventUp = CGEvent(keyboardEventSource: sourceRef,
+        let keyUpEvent = CGEvent(keyboardEventSource: sourceRef,
                               virtualKey: keyCode,
                               keyDown: false)
 
-        eventDown?.post(tap: .cghidEventTap)
-        eventUp?.post(tap: .cghidEventTap)
+        keyDownEvent?.post(tap: .cghidEventTap)
+        keyUpEvent?.post(tap: .cghidEventTap)
     }
 }
