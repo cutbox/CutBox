@@ -10,13 +10,13 @@ import Cocoa
 
 class PasteboardService: NSObject {
 
-
     var pollingTimer: Timer?
     var filterText: String?
     var newItem = false
-    
+    var allowDuplicates = false
+
     private var kPasteStoreKey = "pasteStore"
-    private var pasteStore: [String]
+    private var pasteStore: [String] = []
 
     override init() {
         if let pasteStore = NSUserDefaultsController
@@ -61,6 +61,10 @@ class PasteboardService: NSObject {
         pollingTimer = nil
     }
 
+    func isDuplicate(_ clip: String) -> Bool {
+        return pasteStore.contains(clip)
+    }
+
     func checkClip() -> String? {
         guard let currentClip = clipboardContent() else {
             self.newItem = false
@@ -72,13 +76,29 @@ class PasteboardService: NSObject {
             return currentClip
         }
 
+        if isDuplicate(currentClip) && (!allowDuplicates) {
+            return nil
+        }
+
+        if isDuplicate(currentClip) && allowDuplicates {
+            self.newItem = false
+            return currentClip
+        }
+
         if latestStored != currentClip {
             self.newItem = true
             return currentClip
-        } else {
-            self.newItem = false
-            return nil
         }
+
+        self.newItem = false
+        return nil
+    }
+
+    func clearDefaults() {
+        NSUserDefaultsController
+            .shared
+            .defaults
+            .removeObject(forKey: kPasteStoreKey)
     }
 
     func saveToDefaults() {

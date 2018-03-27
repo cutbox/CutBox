@@ -18,6 +18,8 @@ class PopupController: NSWindowController {
 
     var openDuration: TimeInterval = 0.15
     var closeDuration: TimeInterval = 0.2
+    var currentHeight: CGFloat = 0
+    var currentWidth: CGFloat = 0
 
     var contentInset: CGFloat {
         get { return containerView.contentInset }
@@ -102,12 +104,12 @@ class PopupController: NSWindowController {
 
         newSize.height += contentInset * 2
         newSize.width += contentInset * 2
-        frame.origin.y -= newSize.height - (frame.size.height + (frame.size.height / 2))
+//        frame.origin.y -= newSize.height - (frame.size.height + (frame.size.height / 2))
         frame.size.height = newSize.height
 
         let widthDifference = newSize.width - frame.size.width
         if widthDifference != 0 {
-            frame.origin.x -= widthDifference / 2
+//            frame.origin.x -= widthDifference / 2
             frame.size.width = newSize.width
         }
 
@@ -116,11 +118,17 @@ class PopupController: NSWindowController {
     }
 
     func resizePopup(width: CGFloat) {
-        resizePopup(width: width, height: contentView.frame.size.height)
+        if width != currentWidth {
+            currentWidth = width
+            resizePopup(width: width, height: contentView.frame.size.height)
+        }
     }
 
     func resizePopup(height: CGFloat) {
-        resizePopup(width: contentView.frame.size.width, height: height)
+        if height != currentHeight {
+            currentHeight = height
+            resizePopup(width: contentView.frame.size.width, height: height)
+        }
     }
 
     private func openPanel() {

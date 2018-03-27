@@ -9,11 +9,19 @@
 import Cocoa
 
 class CutBoxPreferences {
-    var searchViewBackgroundColor: NSColor?
+
+    static let shared = CutBoxPreferences()
+
+    var searchViewBackgroundColor = NSColor.lightGray
+    var searchViewBackgroundAlpha = CGFloat(0.9)
     var searchViewTextFieldFont: NSFont?
-    var searchViewTextFieldBackgroundColor: NSColor?
-    var searchViewTextFieldTextColor: NSColor?
-    var searchViewClipItemsFont: NSFont?
-    var searchViewClipItemsTextColor: NSColor?
+    var searchViewTextFieldBackgroundColor = NSColor.textBackgroundColor
+    var searchViewTextFieldCursorColor = NSColor.textColor
+    var searchViewTextFieldTextColor = NSColor.textColor
+
+    var searchViewPlaceholderTextColor = NSColor.lightGray
+
+    var searchViewClipItemsFont = NSFont(name: "Helvetica Neue", size: 16)
+    var searchViewClipItemsTextColor = NSColor.textColor
     var searchViewClipItemsHighlightColor: NSColor?
 }

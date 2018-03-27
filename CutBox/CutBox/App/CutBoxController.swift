@@ -44,8 +44,8 @@ class CutBoxController: NSObject {
         self.pasteboardService.startTimer()
         self.screen = mainScreen
         self.width = self.screen.frame.width / 2.5
-        self.minHeight = self.screen.frame.width / 8
-        self.maxHeight = self.screen.frame.width / 2.5
+        self.minHeight = self.screen.frame.height / 12
+        self.maxHeight = self.screen.frame.height / 3
 
         self.searchView = SearchView.fromNib() ?? SearchView()
 
@@ -118,6 +118,11 @@ class CutBoxController: NSObject {
         self.searchView.filterText
             .bind {
                 self.pasteboardService.filterText = $0
+
+                $0.isEmpty ?
+                    self.popupController.resizePopup(height: self.minHeight) :
+                    self.popupController.resizePopup(height: self.maxHeight)
+
                 self.searchView.clipboardItemsTable.reloadData()
             }
             .disposed(by: self.disposeBag)
@@ -136,11 +141,11 @@ class CutBoxController: NSObject {
     private func setupPopup() {
         self.popupController
             .backgroundView
-            .backgroundColor = NSColor.black
+            .backgroundColor = CutBoxPreferences.shared.searchViewBackgroundColor
 
         self.popupController
             .backgroundView
-            .alphaValue = 0.8
+            .alphaValue = CutBoxPreferences.shared.searchViewBackgroundAlpha
 
         self.popupController
             .resizePopup(width: self.width,
@@ -176,6 +181,24 @@ extension CutBoxController: NSTableViewDataSource {
 }
 
 extension CutBoxController: NSTableViewDelegate {
+
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 30
+    }
+
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
+        debugPrint(proposedSelectionIndexes)
+        return proposedSelectionIndexes
+    }
+
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        debugPrint(notification)
+    }
+
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?,
                    row: Int) -> NSView? {
@@ -189,13 +212,13 @@ extension CutBoxController: NSTableViewDelegate {
 
         if textField == nil {
             let textWidth = Int(tableView.frame.width)
-            let textHeight = 20
+            let textHeight = 30
             let textFrame = CGRect(x: 0, y: 0,
                                    width: textWidth,
                                    height: textHeight)
 
             textField = NSTextField(frame: textFrame)
-            textField?.textColor = NSColor.white
+            textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
             textField?.cell?.isBordered = false
             textField?.cell?.backgroundStyle = .dark
             textField?.backgroundColor = NSColor.clear
@@ -203,6 +226,7 @@ extension CutBoxController: NSTableViewDelegate {
             textField?.isSelectable = false
             textField?.isEditable = false
             textField?.bezelStyle = .roundedBezel
+            textField?.font = CutBoxPreferences.shared.searchViewClipItemsFont
             textField?.identifier = identifier
         }
 
