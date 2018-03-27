@@ -12,7 +12,6 @@ class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
     var filterText: String?
-    var newItem = false
     var allowDuplicates = false
 
     private var kPasteStoreKey = "pasteStore"
@@ -67,30 +66,27 @@ class PasteboardService: NSObject {
 
     func checkClip() -> String? {
         guard let currentClip = clipboardContent() else {
-            self.newItem = false
             return nil
         }
 
-        guard let latestStored = self.pasteStore.first else {
-            self.newItem = true
+        let duplicate = isDuplicate(currentClip)
+
+        if duplicate && !allowDuplicates {
+            return nil
+        }
+
+        if duplicate && allowDuplicates {
             return currentClip
         }
 
-        if isDuplicate(currentClip) && (!allowDuplicates) {
-            return nil
-        }
-
-        if isDuplicate(currentClip) && allowDuplicates {
-            self.newItem = false
+        guard let latestStored = self.pasteStore.first else {
             return currentClip
         }
 
         if latestStored != currentClip {
-            self.newItem = true
             return currentClip
         }
 
-        self.newItem = false
         return nil
     }
 
