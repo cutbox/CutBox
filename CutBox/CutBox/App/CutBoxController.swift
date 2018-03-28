@@ -218,6 +218,13 @@ extension CutBoxController: NSTableViewDelegate {
         return true
     }
 
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        let row = self.searchView.clipboardItemsTable.selectedRow
+        guard let clip = self.pasteboardService[row] else { return }
+
+        self.searchView.previewClip.string = clip
+    }
+
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         return SearchViewTableRowView()
     }
@@ -280,8 +287,8 @@ class SearchViewTableRowView: NSTableRowView {
 
     override func drawSelection(in dirtyRect: NSRect) {
         if self.selectionHighlightStyle != .none {
-            let selectionRect = NSInsetRect(self.bounds, 2.5, 2.5)
-            NSColor.selectedMenuItemColor.setFill()
+            let selectionRect = self.bounds
+            CutBoxPreferences.shared.searchViewClipItemsHighlightColor.setFill()
             let selectionPath = NSBezierPath.init(rect: selectionRect)
             selectionPath.fill()
         }

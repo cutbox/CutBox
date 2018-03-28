@@ -30,7 +30,7 @@ extension SearchView: NSTextViewDelegate {
             return false
         }
 
-//        return false
+        return false
     }
 }
 
@@ -45,6 +45,7 @@ class SearchView: NSView {
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
     @IBOutlet weak var searchText: NSTextView!
     @IBOutlet weak var clipboardItemsTable: NSTableView!
+    @IBOutlet weak var previewClip: NSTextView!
 
     var events = PublishSubject<SearchViewEvents>()
     var filterText = PublishSubject<String>()
@@ -91,6 +92,7 @@ class SearchView: NSView {
         let total = self.clipboardItemsTable.numberOfRows
         let selectedRow = closure(row, total)
         let indexSet: IndexSet = NSIndexSet(index: selectedRow) as IndexSet
+
         self.clipboardItemsTable.selectRowIndexes(indexSet, byExtendingSelection: false)
     }
 
