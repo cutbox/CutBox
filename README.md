@@ -22,12 +22,12 @@ search popup.
 
 # Development TODO
 
-- [ ] Mouse/keyboard selection of secondary items from list
-- [ ] preview full text item (like spotlight preview panel)
+- [ ] Mouse selection of secondary items from list
 - [ ] preferences panel
   - [ ] limit number of copied items to store in history (NSUserDefaults)
   - [ ] customise hotkeys(s)
 - [ ] Make app an auto-start at login item
+- [ ] Improve styling
 
 If you have suggestions or bugs, please add to https://github.com/jasonm23/CutBox/issues
 
