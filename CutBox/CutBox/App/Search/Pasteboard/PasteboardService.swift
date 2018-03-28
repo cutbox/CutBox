@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftyStringScore
 
 class PasteboardService: NSObject {
 
@@ -34,7 +35,10 @@ class PasteboardService: NSObject {
             filterText != "" else { return pasteStore }
 
         return pasteStore
-            .flatMap { $0.lowercased().contains(filterText.lowercased()) ? $0 : nil }
+            .map { ($0, $0.score(word: filterText)) }
+            .filter { $0.1 > 0.1 }
+            .sorted { $0.1 > $1.1 }
+            .map { $0.0 }
     }
 
     var count: Int {

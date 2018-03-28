@@ -5,6 +5,7 @@ target 'CutBox' do
   pod 'HotKey'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SwiftyStringScore',  git: 'git@github.com:yichizhang/SwiftyStringScore'
 
   abstract_target 'Testing' do
     platform :osx, '10.13'

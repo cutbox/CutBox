@@ -163,6 +163,7 @@
 		961A49B92065DC1E005BC79D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				968A97BF20667CDC00D36B50 /* Pasteboard */,
 				961A49B12065D85D005BC79D /* SearchView.swift */,
 				968A97BD2066745D00D36B50 /* SearchView.xib */,
 			);
@@ -258,7 +259,6 @@
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				96E1E59B205D243400F994ED /* CutBox.xib */,
-				968A97BF20667CDC00D36B50 /* Pasteboard */,
 				961A49B02065D72F005BC79D /* Popup */,
 				961A49B92065DC1E005BC79D /* Search */,
 			);
@@ -521,12 +521,14 @@
 				"${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStringScore/SwiftyStringScore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HotKey.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStringScore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
