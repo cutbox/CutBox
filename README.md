@@ -8,6 +8,8 @@ anything back to your current app by fuzzy searching for items.
 
 CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
+![](CutBox/cutbox-preview.png)
+
 ## How to use CutBox
 
 CutBox will be available from the Macos top menu and a global hotkey
@@ -22,13 +24,13 @@ search popup.
 
 # Development TODO
 
-- [ ] No search filter allows selection from unsorted list
+- [x] No search filter allows selection from unsorted list
+- [ ] Improve styling
 - [ ] Mouse selection of items from list triggers hide and paste
 - [ ] preferences panel
   - [ ] limit number of copied items to store in history (NSUserDefaults)
   - [ ] customise hotkeys(s)
 - [ ] Make app an auto-start at login item
-- [ ] Improve styling
 
 If you have suggestions or bugs, please add to https://github.com/jasonm23/CutBox/issues
 
