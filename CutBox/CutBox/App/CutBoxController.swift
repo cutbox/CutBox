@@ -43,6 +43,9 @@ class CutBoxController: NSObject {
         self.width = self.screen.frame.width / 1.2
         self.height = self.screen.frame.height / 1.8
 
+        // TODO: Refactor
+        // Hook up search view to pasteboard service so that it's
+        // running it's own table delegates/datasource
         self.searchView = SearchView.fromNib() ?? SearchView()
 
         self.popupController = PopupController(
@@ -286,4 +289,3 @@ class SearchViewTableRowView: NSTableRowView {
         }
     }
 }
-
