@@ -190,13 +190,8 @@ extension CutBoxController: NSTableViewDelegate {
         return true
     }
 
-    func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
-        debugPrint(proposedSelectionIndexes)
-        return proposedSelectionIndexes
-    }
-
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        debugPrint(notification)
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        return SearchViewTableRowView()
     }
 
     func tableView(_ tableView: NSTableView,
@@ -234,4 +229,34 @@ extension CutBoxController: NSTableViewDelegate {
     }
 }
 
+class SearchViewTableRowView: NSTableRowView {
+
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        self.layer?.backgroundColor = NSColor.clear.cgColor
+    }
+
+    override var isEmphasized: Bool {
+        set {}
+        get {
+            return false
+        }
+    }
+
+    override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
+        set {}
+        get {
+            return .regular
+        }
+    }
+
+    override func drawSelection(in dirtyRect: NSRect) {
+        if self.selectionHighlightStyle != .none {
+            let selectionRect = NSInsetRect(self.bounds, 2.5, 2.5)
+            NSColor.selectedMenuItemColor.setFill()
+            let selectionPath = NSBezierPath.init(rect: selectionRect)
+            selectionPath.fill()
+        }
+    }
+}
 

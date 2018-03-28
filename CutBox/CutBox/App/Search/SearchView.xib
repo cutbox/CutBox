@@ -84,7 +84,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="719" height="155"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" enabled="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" id="0vd-d6-rKt">
+                                        <tableView verticalHuggingPriority="750" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" id="0vd-d6-rKt">
                                             <rect key="frame" x="0.0" y="0.0" width="721" height="155"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -92,14 +92,14 @@
                                             <color key="gridColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="718" minWidth="40" maxWidth="1000" id="61V-If-lcN">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" enabled="NO" borderStyle="border">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" enabled="NO" borderStyle="bezel" usesSingleLineMode="YES" id="Bno-ls-38z">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" borderStyle="bezel" usesSingleLineMode="YES" id="Bno-ls-38z">
                                                         <font key="font" size="15" name="HelveticaNeue"/>
-                                                        <color key="textColor" red="0.7877428756" green="0.7877428756" blue="0.7877428756" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                     </textFieldCell>
                                                 </tableColumn>
