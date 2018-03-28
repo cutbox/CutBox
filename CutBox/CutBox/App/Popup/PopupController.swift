@@ -16,8 +16,8 @@ class PopupController: NSWindowController {
     let containerView = PopupContainerView()
     var contentView: NSView
 
-    var openDuration: TimeInterval = 0.15
-    var closeDuration: TimeInterval = 0.2
+    var openDuration: TimeInterval = 0.1
+    var closeDuration: TimeInterval = 0.1
     var currentHeight: CGFloat = 0
     var currentWidth: CGFloat = 0
 
@@ -97,19 +97,25 @@ class PopupController: NSWindowController {
         isOpen ? closePanel() : openPanel()
     }
 
+    var yPadding: CGFloat = 100
+
     func resizePopup(width: CGFloat, height: CGFloat) {
+
         var frame = panel.frame
         var newSize = CGSize(width: width,
                              height: height)
 
         newSize.height += contentInset * 2
         newSize.width += contentInset * 2
-//        frame.origin.y -= newSize.height - (frame.size.height + (frame.size.height / 2))
+
+        frame.origin.y = ((NSScreen.main?.frame.height ?? height)
+            - height)
+            - self.yPadding
+
         frame.size.height = newSize.height
 
         let widthDifference = newSize.width - frame.size.width
         if widthDifference != 0 {
-//            frame.origin.x -= widthDifference / 2
             frame.size.width = newSize.width
         }
 
