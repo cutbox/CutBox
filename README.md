@@ -22,7 +22,8 @@ search popup.
 
 # Development TODO
 
-- [ ] Mouse selection of secondary items from list
+- [ ] No search filter allows selection from unsorted list
+- [ ] Mouse selection of items from list triggers hide and paste
 - [ ] preferences panel
   - [ ] limit number of copied items to store in history (NSUserDefaults)
   - [ ] customise hotkeys(s)

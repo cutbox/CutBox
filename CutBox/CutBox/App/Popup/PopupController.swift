@@ -97,7 +97,7 @@ class PopupController: NSWindowController {
         isOpen ? closePanel() : openPanel()
     }
 
-    var yPadding: CGFloat = 100
+    var yPadding: CGFloat = 30
 
     func resizePopup(width: CGFloat, height: CGFloat) {
 

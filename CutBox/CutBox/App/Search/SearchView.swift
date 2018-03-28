@@ -64,10 +64,11 @@ class SearchView: NSView {
         searchText.font = prefs.searchViewTextFieldFont
 
         searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
-
         searchTextPlaceholder.font = prefs.searchViewTextFieldFont
-
         searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
+
+        previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
+        previewClip.textColor = prefs.searchViewClipPreviewTextColor
 
         filterText
             .map { $0.isEmpty ? "Search cut/copy history" : "" }

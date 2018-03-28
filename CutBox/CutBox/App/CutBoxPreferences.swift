@@ -37,4 +37,8 @@ class CutBoxPreferences {
     var searchViewClipItemsHighlightColor = NSColor.black
 
     var searchFuzzyMatchMinScore = 0.1
+
+    var searchViewClipPreviewBackgroundColor = NSColor.black
+
+    var searchViewClipPreviewTextColor = NSColor.lightGray
 }

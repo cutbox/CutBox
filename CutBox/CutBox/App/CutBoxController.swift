@@ -21,8 +21,7 @@ class CutBoxController: NSObject {
     let searchView: SearchView
     var screen: NSScreen
     var width: CGFloat
-    var minHeight: CGFloat
-    var maxHeight: CGFloat
+    var height: CGFloat
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var statusMenu: NSMenu!
@@ -38,14 +37,11 @@ class CutBoxController: NSObject {
             fatalError("Unable to get main screen")
         }
 
-        // Read from keychain
-
         self.pasteboardService = PasteboardService()
         self.pasteboardService.startTimer()
         self.screen = mainScreen
-        self.width = self.screen.frame.width / 2.5
-        self.minHeight = self.screen.frame.height / 12
-        self.maxHeight = self.screen.frame.height / 3
+        self.width = self.screen.frame.width / 1.2
+        self.height = self.screen.frame.height / 1.8
 
         self.searchView = SearchView.fromNib() ?? SearchView()
 
@@ -145,12 +141,8 @@ class CutBoxController: NSObject {
         self.searchView.clipboardItemsTable.delegate = self
         self.searchView.filterText
             .bind {
+                self.popupController.resizePopup(height: self.height)
                 self.pasteboardService.filterText = $0
-
-                $0.isEmpty ?
-                    self.popupController.resizePopup(height: self.minHeight) :
-                    self.popupController.resizePopup(height: self.maxHeight)
-
                 self.searchView.clipboardItemsTable.reloadData()
             }
             .disposed(by: self.disposeBag)
@@ -177,7 +169,7 @@ class CutBoxController: NSObject {
 
         self.popupController
             .resizePopup(width: self.width,
-                         height: self.minHeight)
+                         height: self.height)
 
         self.popupController
             .didOpenPopup = {
