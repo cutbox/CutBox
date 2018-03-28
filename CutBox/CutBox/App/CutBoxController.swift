@@ -61,12 +61,28 @@ class CutBoxController: NSObject {
         setupHotkey()
     }
 
-    func pasteTopClipToPasteboard() {
-        guard let topClip = self.pasteboardService.items.first
+    func pasteSelectedClipToPasteboard() {
+        guard let selectedClip = self
+            .pasteboardService[
+                self.searchView
+                .clipboardItemsTable
+                .selectedRow
+            ]
+
             else { return }
 
+        pasteToPasteboard(selectedClip)
+    }
+
+    func pasteTopClipToPasteboard() {
+        guard let topClip = self.pasteboardService[0]
+            else { return }
+        pasteToPasteboard(topClip)
+    }
+
+    private func pasteToPasteboard(_ clip: String) {
         NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(topClip, forType: .string)
+        NSPasteboard.general.setString(clip, forType: .string)
     }
 
     @objc func hideApp() {
@@ -87,7 +103,7 @@ class CutBoxController: NSObject {
     }
 
     private func closeAndPaste() {
-        self.pasteTopClipToPasteboard()
+        self.pasteSelectedClipToPasteboard()
         self.popupController.closePopup()
         perform(#selector(hideApp), with: self, afterDelay: 0.1)
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
@@ -107,9 +123,21 @@ class CutBoxController: NSObject {
                 switch event {
                 case .closeAndPaste:
                     self.closeAndPaste()
+                case .itemSelectUp:
+                    self.itemSelectUp()
+                case .itemSelectDown:
+                    self.itemSelectDown()
                 }
             }
             .disposed(by: disposeBag)
+    }
+
+    private func itemSelectUp() {
+        self.searchView.itemSelectUp()
+    }
+
+    private func itemSelectDown() {
+        self.searchView.itemSelectDown()
     }
 
     private func setupFilterBinding() {

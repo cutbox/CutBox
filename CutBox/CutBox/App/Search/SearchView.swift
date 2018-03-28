@@ -16,16 +16,28 @@ extension SearchView: NSTextViewDelegate {
     }
 
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+        switch commandSelector {
+        case #selector(NSResponder.moveUp(_:)):
+            self.events.onNext(.itemSelectUp)
+            return true
+        case #selector(NSResponder.moveDown(_:)):
+            self.events.onNext(.itemSelectDown)
+            return true
+        case #selector(NSResponder.insertNewline(_:)):
             self.events.onNext(.closeAndPaste)
             return true
+        default:
+            return false
         }
-        return false
+
+//        return false
     }
 }
 
 enum SearchViewEvents {
     case closeAndPaste
+    case itemSelectUp
+    case itemSelectDown
 }
 
 class SearchView: NSView {
@@ -52,15 +64,12 @@ class SearchView: NSView {
 
         searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
 
-        searchTextPlaceholder.font = NSFont(
-            name: "Helvetica Neue",
-            size: 28
-        )
+        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
 
         searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
 
         filterText
-            .map { $0.isEmpty ? "Search cut/copy history" : $0 }
+            .map { $0.isEmpty ? "Search cut/copy history" : "" }
             .bind(to: self.searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }
@@ -75,6 +84,22 @@ class SearchView: NSView {
 
     override var acceptsFirstResponder: Bool {
         return true
+    }
+
+    func itemSelect(closure: (Int, Int) -> Int) {
+        let row = self.clipboardItemsTable.selectedRow
+        let total = self.clipboardItemsTable.numberOfRows
+        let selectedRow = closure(row, total)
+        let indexSet: IndexSet = NSIndexSet(index: selectedRow) as IndexSet
+        self.clipboardItemsTable.selectRowIndexes(indexSet, byExtendingSelection: false)
+    }
+
+    func itemSelectUp() {
+        itemSelect {(i, t) in i > 0 ? i - 1 : i }
+    }
+
+    func itemSelectDown() {
+        itemSelect {(i, t) in i < t ? i + 1 : i }
     }
 
     override func keyDown(with event: NSEvent) {
