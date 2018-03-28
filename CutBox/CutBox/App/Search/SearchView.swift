@@ -48,10 +48,7 @@ class SearchView: NSView {
         searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor
         searchText.isFieldEditor = true
 
-        searchText.font = NSFont(
-            name: "Helvetica Neue",
-            size: 28
-        )
+        searchText.font = prefs.searchViewTextFieldFont
 
         searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
 

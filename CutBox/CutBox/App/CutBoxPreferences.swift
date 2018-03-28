@@ -12,16 +12,29 @@ class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
 
+    var searchViewTextFieldFont = NSFont(
+        name: "Helvetica Neue",
+        size: 28)
+
+    var searchViewClipItemsFont = NSFont(
+        name: "Helvetica Neue",
+        size: 16)
+
     var searchViewBackgroundColor = NSColor.lightGray
+
     var searchViewBackgroundAlpha = CGFloat(0.9)
-    var searchViewTextFieldFont: NSFont?
+
     var searchViewTextFieldBackgroundColor = NSColor.textBackgroundColor
+
     var searchViewTextFieldCursorColor = NSColor.textColor
+
     var searchViewTextFieldTextColor = NSColor.textColor
 
     var searchViewPlaceholderTextColor = NSColor.lightGray
 
-    var searchViewClipItemsFont = NSFont(name: "Helvetica Neue", size: 16)
     var searchViewClipItemsTextColor = NSColor.textColor
+
     var searchViewClipItemsHighlightColor: NSColor?
+
+    var searchFuzzyMatchMinScore = 0.1
 }

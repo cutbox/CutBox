@@ -31,12 +31,15 @@ class PasteboardService: NSObject {
     }
 
     var items: [String] {
-        guard let filterText = self.filterText,
-            filterText != "" else { return pasteStore }
+        guard let search = self.filterText,
+            search != "" else { return pasteStore }
+        let minScore = CutBoxPreferences
+                .shared
+                .searchFuzzyMatchMinScore
 
         return pasteStore
-            .map { ($0, $0.score(word: filterText)) }
-            .filter { $0.1 > 0.1 }
+            .map { ($0, $0.score(word: search)) }
+            .filter { $0.1 > minScore }
             .sorted { $0.1 > $1.1 }
             .map { $0.0 }
     }
@@ -69,27 +72,16 @@ class PasteboardService: NSObject {
     }
 
     func checkClip() -> String? {
-        guard let currentClip = clipboardContent() else {
-            return nil
-        }
-
+        guard let currentClip = clipboardContent() else { return nil }
         let duplicate = isDuplicate(currentClip)
 
-        if duplicate && !allowDuplicates {
-            return nil
-        }
+        if duplicate && !allowDuplicates { return nil }
 
-        if duplicate && allowDuplicates {
-            return currentClip
-        }
+        if duplicate && allowDuplicates { return currentClip }
 
-        guard let latestStored = self.pasteStore.first else {
-            return currentClip
-        }
+        guard let latestStored = self.pasteStore.first else { return currentClip }
 
-        if latestStored != currentClip {
-            return currentClip
-        }
+        if latestStored != currentClip { return currentClip }
 
         return nil
     }
@@ -114,7 +106,11 @@ class PasteboardService: NSObject {
     }
 
     func clipboardContent() -> String? {
-        return NSPasteboard.general.pasteboardItems?.first?.string(forType: .string)
+        return NSPasteboard
+            .general
+            .pasteboardItems?
+            .first?
+            .string(forType: .string)
     }
 
     @objc func pollPasteboard() {
