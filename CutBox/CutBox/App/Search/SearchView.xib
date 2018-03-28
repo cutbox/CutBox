@@ -26,9 +26,9 @@
                                     <rect key="frame" x="1" y="1" width="717" height="48"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Y7-w6T">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Y7-w6T">
                                             <rect key="frame" x="8" y="5" width="706" height="38"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Placeholder" id="ALO-u1-b9U">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Placeholder" id="ALO-u1-b9U">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

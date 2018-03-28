@@ -1,30 +1,32 @@
 
 # CutBox
 
-a pasteboard helper inspired by [Flycut](https://github.com/TermiT/Flycut)
+## About CutBox
 
-CutBox saves and pastes any text copied or cut to the Mac pasteboard.
+CutBox keeps your pasteboard cut/copy history and lets you paste
+anything back to your current app by fuzzy searching for items.
 
-When you activate it, it'll allow you to type text to search for and
-pastes the top match when you press enter.
+CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
-Right now CutBox is Alpha/minimum viable product and doesn't do much,
-I'll be adding a richer visual UI and more control to allow selection
-and previewing of your copied text.
+## How to use CutBox
 
+CutBox will be available from the Macos top menu and a global hotkey
+combo **Cmd** + **Opt** + **Ctrl** + **V**
 
-# Dev Task list
+Start searching and paste the item you want to paste by pressing Enter
+(currently just the top match, selecting other candidates coming
+shortly)
 
-- [ ] Use https://github.com/yichizhang/SwiftyStringScore for fuzzy search
-- [ ] More Keyboard controls
-  - [x] Global hotkey to show/hide popup
-  - [x] Enter to paste selected item (default to top item)
-  - [ ] TODO: up and down arrow to select pasteboard items shown
+To quit without pasting press **Esc** or click the mouse away from the
+search popup.
+
+# Development TODO
+
+- [ ] Mouse/keyboard selection of secondary items from list
 - [ ] preview full text item (like spotlight preview panel)
-- [ ] mouse selection of items from list
 - [ ] preferences panel
-  - [ ] limit number of copied items
-  - [ ] customise hotkeys
+  - [ ] limit number of copied items to store in history (NSUserDefaults)
+  - [ ] customise hotkeys(s)
 - [ ] Make app an auto-start at login item
 
 If you have suggestions or bugs, please add to https://github.com/jasonm23/CutBox/issues
