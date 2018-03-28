@@ -18,7 +18,7 @@ class CutBoxPreferences {
 
     var searchViewClipItemsFont = NSFont(
         name: "Helvetica Neue",
-        size: 19)
+        size: 16)
 
     var searchViewBackgroundColor = NSColor.darkGray
 
