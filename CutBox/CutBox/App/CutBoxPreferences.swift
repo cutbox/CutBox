@@ -20,6 +20,10 @@ class CutBoxPreferences {
         name: "Helvetica Neue",
         size: 16)
 
+    var searchViewClipPreviewFont = NSFont(
+        name: "Menlo",
+        size: 14)
+
     var searchViewBackgroundColor = NSColor.darkGray
 
     var searchViewBackgroundAlpha = CGFloat(1.0)
@@ -40,5 +44,5 @@ class CutBoxPreferences {
 
     var searchViewClipPreviewBackgroundColor = NSColor.black
 
-    var searchViewClipPreviewTextColor = NSColor.lightGray
+    var searchViewClipPreviewTextColor = NSColor.white
 }

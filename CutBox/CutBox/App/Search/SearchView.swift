@@ -29,8 +29,6 @@ extension SearchView: NSTextViewDelegate {
         default:
             return false
         }
-
-        return false
     }
 }
 
@@ -69,6 +67,7 @@ class SearchView: NSView {
 
         previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
         previewClip.textColor = prefs.searchViewClipPreviewTextColor
+        previewClip.font = prefs.searchViewClipPreviewFont
 
         filterText
             .map { $0.isEmpty ? "Search cut/copy history" : "" }
