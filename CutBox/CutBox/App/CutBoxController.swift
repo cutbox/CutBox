@@ -101,6 +101,10 @@ class CutBoxController: NSObject {
         NSApplication.shared.terminate(self)
     }
 
+    @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
+        pasteboardService.clear()
+    }
+
     private func closeAndPaste() {
         self.pasteSelectedClipToPasteboard()
         self.popupController.closePopup()

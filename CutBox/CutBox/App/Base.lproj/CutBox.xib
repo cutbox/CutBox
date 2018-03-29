@@ -27,6 +27,12 @@
                         <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
                     </connections>
                 </menuItem>
+                <menuItem title="Clear History" id="acC-HV-LZV">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="clearHistoryClicked:" target="4hl-ia-0EP" id="9Sd-8I-Ob6"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="About CutBox" id="PGF-kb-JSD">
                     <modifierMask key="keyEquivalentModifierMask"/>
                 </menuItem>
@@ -38,6 +44,7 @@
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="139" y="165.5"/>
         </menu>
     </objects>
 </document>

@@ -86,6 +86,11 @@ class PasteboardService: NSObject {
         return nil
     }
 
+    func clear() {
+        clearDefaults()
+        pasteStore = []
+    }
+
     func clearDefaults() {
         NSUserDefaultsController
             .shared
