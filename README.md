@@ -10,7 +10,7 @@ anything back to your current app by fuzzy searching for items.
 
 CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
-![](CutBox/GraphicAssets/cutbox-preview.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-preview.png)
 
 ## How to use CutBox
 
@@ -19,7 +19,7 @@ combo <kbd>**Cmd**</kbd> + <kbd>**Opt**</kbd> + <kbd>**Ctrl**</kbd> + <kbd>**V**
 
 Start searching / selecting from the cut/copy history (by typing / navigating up and down)
 
-![](CutBox/GraphicAssets/cutbox-preview-search.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-preview-search.png)
 
 You can paste the selected item by pressing Enter.
 
@@ -28,13 +28,13 @@ search popup.
 
 # Development TODO
 
-- [x] No search filter allows selection from unsorted list
-- [ ] Improve styling
+- [x] When there's no search filter allows selection from unsorted list
+- [x] Improve styling icon / panel styling
 - [ ] Mouse selection of items from list triggers hide and paste
 - [ ] preferences panel
   - [ ] limit number of copied items to store in history (NSUserDefaults)
   - [ ] customise hotkeys(s)
-- [ ] Make app an auto-start at login item
+- [ ] Allow app auto-start at login item
 
 If you have suggestions or bugs, please add to https://github.com/jasonm23/CutBox/issues
 
