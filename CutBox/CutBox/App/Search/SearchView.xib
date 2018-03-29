@@ -122,23 +122,23 @@
                                         </scroller>
                                     </scrollView>
                                     <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="PqF-0i-OXy">
-                                        <rect key="frame" x="456" y="76" width="448" height="114"/>
+                                        <rect key="frame" x="456" y="7" width="448" height="183"/>
                                         <view key="contentView" id="gtu-s3-I3G">
-                                            <rect key="frame" x="1" y="1" width="446" height="112"/>
+                                            <rect key="frame" x="1" y="1" width="446" height="181"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfp-9E-05R">
-                                                    <rect key="frame" x="10" y="10" width="426" height="92"/>
+                                                    <rect key="frame" x="10" y="10" width="426" height="161"/>
                                                     <clipView key="contentView" copiesOnScroll="NO" id="UO5-NP-mCp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="426" height="92"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="426" height="161"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView editable="NO" selectable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="NO" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="eKA-mf-B4d">
-                                                                <rect key="frame" x="0.0" y="0.0" width="426" height="92"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="426" height="161"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="426" height="92"/>
+                                                                <size key="minSize" width="426" height="161"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
@@ -150,7 +150,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
-                                                        <rect key="frame" x="410" y="0.0" width="16" height="92"/>
+                                                        <rect key="frame" x="410" y="0.0" width="16" height="161"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -202,7 +202,7 @@
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>
             </connections>
-            <point key="canvasLocation" x="141.5" y="168"/>
+            <point key="canvasLocation" x="141" y="168"/>
         </customView>
     </objects>
 </document>

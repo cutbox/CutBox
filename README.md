@@ -1,6 +1,8 @@
 
 # CutBox
 
+![](CutBox/cutbox-icon-preview.png)
+
 ## About CutBox
 
 CutBox keeps your pasteboard cut/copy history and lets you paste
