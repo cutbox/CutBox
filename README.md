@@ -28,13 +28,7 @@ If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 (If you click the mouse away from the search popup it'll exit too.)
 
-# Development TODO
-
-- [ ] Mouse selection of items from list triggers hide and paste
-- [ ] preferences panel
-  - [ ] limit number of copied items to store in history (NSUserDefaults)
-  - [ ] customise hotkeys(s)
-- [ ] Allow app auto-start at login item
+# Development note
 
 If you have suggestions or bugs, please add to https://github.com/jasonm23/CutBox/issues
 
