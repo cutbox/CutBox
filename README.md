@@ -13,13 +13,15 @@ CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](htt
 ## How to use CutBox
 
 CutBox will be available from the Macos top menu and a global hotkey
-combo **Cmd** + **Opt** + **Ctrl** + **V**
+combo <kbd>**Cmd**</kbd> + <kbd>**Opt**</kbd> + <kbd>**Ctrl**</kbd> + <kbd>**V**</kbd>
 
-Start searching and paste the item you want to paste by pressing Enter
-(currently just the top match, selecting other candidates coming
-shortly)
+Start searching / selecting from the cut/copy history (by typing / navigating up and down)
 
-To quit without pasting press **Esc** or click the mouse away from the
+![](CutBox/cutbox-preview-search.png)
+
+You can paste the selected item by pressing Enter.
+
+To exit without pasting press <kbd>**Esc**</kbd> or click the mouse away from the
 search popup.
 
 # Development TODO
