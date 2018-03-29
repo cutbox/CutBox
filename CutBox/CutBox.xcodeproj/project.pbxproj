@@ -8,12 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
-		96085E3B206C72B500CA77BB /* cutbox-icon-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E36206C72B500CA77BB /* cutbox-icon-preview.png */; };
-		96085E3C206C72B500CA77BB /* cutbox.svg in Resources */ = {isa = PBXBuildFile; fileRef = 96085E37206C72B500CA77BB /* cutbox.svg */; };
-		96085E3D206C72B500CA77BB /* cutbox-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E38206C72B500CA77BB /* cutbox-preview.png */; };
-		96085E3E206C72B500CA77BB /* cutbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E39206C72B500CA77BB /* cutbox.png */; };
-		96085E3F206C72B500CA77BB /* cutbox-preview-search.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E3A206C72B500CA77BB /* cutbox-preview-search.png */; };
 		96085E41206C72CA00CA77BB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96085E40206C72C900CA77BB /* README.md */; };
+		96085E47206CFB4800CA77BB /* cutbox-status.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E44206CFB4800CA77BB /* cutbox-status.png */; };
+		96085E49206CFB4800CA77BB /* cutbox-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E46206CFB4800CA77BB /* cutbox-icon.png */; };
 		961A49B22065D85D005BC79D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
@@ -73,12 +70,9 @@
 		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
-		96085E36206C72B500CA77BB /* cutbox-icon-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-icon-preview.png"; sourceTree = "<group>"; };
-		96085E37206C72B500CA77BB /* cutbox.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cutbox.svg; sourceTree = "<group>"; };
-		96085E38206C72B500CA77BB /* cutbox-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-preview.png"; sourceTree = "<group>"; };
-		96085E39206C72B500CA77BB /* cutbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cutbox.png; sourceTree = "<group>"; };
-		96085E3A206C72B500CA77BB /* cutbox-preview-search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-preview-search.png"; sourceTree = "<group>"; };
 		96085E40206C72C900CA77BB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		96085E44206CFB4800CA77BB /* cutbox-status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-status.png"; sourceTree = "<group>"; };
+		96085E46206CFB4800CA77BB /* cutbox-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-icon.png"; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
@@ -156,11 +150,8 @@
 		96085E35206C727000CA77BB /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
-				96085E36206C72B500CA77BB /* cutbox-icon-preview.png */,
-				96085E3A206C72B500CA77BB /* cutbox-preview-search.png */,
-				96085E38206C72B500CA77BB /* cutbox-preview.png */,
-				96085E39206C72B500CA77BB /* cutbox.png */,
-				96085E37206C72B500CA77BB /* cutbox.svg */,
+				96085E46206CFB4800CA77BB /* cutbox-icon.png */,
+				96085E44206CFB4800CA77BB /* cutbox-status.png */,
 			);
 			path = GraphicAssets;
 			sourceTree = "<group>";
@@ -413,13 +404,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96085E3B206C72B500CA77BB /* cutbox-icon-preview.png in Resources */,
-				96085E3C206C72B500CA77BB /* cutbox.svg in Resources */,
-				96085E3E206C72B500CA77BB /* cutbox.png in Resources */,
-				96085E3F206C72B500CA77BB /* cutbox-preview-search.png in Resources */,
+				96085E47206CFB4800CA77BB /* cutbox-status.png in Resources */,
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
-				96085E3D206C72B500CA77BB /* cutbox-preview.png in Resources */,
 				96085E41206C72CA00CA77BB /* README.md in Resources */,
+				96085E49206CFB4800CA77BB /* cutbox-icon.png in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchView.xib in Resources */,
 			);
