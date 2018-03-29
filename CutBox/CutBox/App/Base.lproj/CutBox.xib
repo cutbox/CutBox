@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
     </dependencies>
     <objects>
@@ -26,6 +27,10 @@
                         <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
                     </connections>
                 </menuItem>
+                <menuItem title="About CutBox" id="PGF-kb-JSD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="cTR-7r-05t"/>
                 <menuItem title="Quit" id="akv-B8-OIW">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
