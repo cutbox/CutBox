@@ -17,19 +17,19 @@ CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](htt
 CutBox will be available from the Macos top menu and a global hotkey
 combo <kbd>**Cmd**</kbd> + <kbd>**Opt**</kbd> + <kbd>**Ctrl**</kbd> + <kbd>**V**</kbd>
 
-Start searching / selecting from the cut/copy history (by typing / navigating up and down)
+Search the cut/copy history by typing (search uses fuzzy matching)
+Select from the search results using <kbd>**up**</kbd> and <kbd>**down**</kbd>.
+
+Press <kbd>**Enter**</kbd> to paste the selected text.
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-preview-search.png)
 
-You can paste the selected item by pressing Enter.
+If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
-To exit without pasting press <kbd>**Esc**</kbd> or click the mouse away from the
-search popup.
+(If you click the mouse away from the search popup it'll exit too.)
 
 # Development TODO
 
-- [x] When there's no search filter allows selection from unsorted list
-- [x] Improve styling icon / panel styling
 - [ ] Mouse selection of items from list triggers hide and paste
 - [ ] preferences panel
   - [ ] limit number of copied items to store in history (NSUserDefaults)
