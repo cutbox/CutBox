@@ -1,7 +1,7 @@
 
 # CutBox
 
-![](CutBox/GraphicAssets/cutbox-icon-preview.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-icon-preview.png)
 
 ## About CutBox
 
