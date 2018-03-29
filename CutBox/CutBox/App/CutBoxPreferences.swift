@@ -24,7 +24,11 @@ class CutBoxPreferences {
         name: "Menlo",
         size: 14)
 
-    var searchViewBackgroundColor = NSColor.darkGray
+    var searchViewBackgroundColor = NSColor(
+        calibratedRed: 0x24/0xff,
+        green: 0x1C/0xff,
+        blue: 0x1C/0xff,
+        alpha: 1.0) // #241C1C
 
     var searchViewBackgroundAlpha = CGFloat(1.0)
 

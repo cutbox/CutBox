@@ -1,7 +1,7 @@
 
 # CutBox
 
-![](CutBox/cutbox-icon-preview.png)
+![](CutBox/GraphicAssets/cutbox-icon-preview.png)
 
 ## About CutBox
 
@@ -10,7 +10,7 @@ anything back to your current app by fuzzy searching for items.
 
 CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
-![](CutBox/cutbox-preview.png)
+![](CutBox/GraphicAssets/cutbox-preview.png)
 
 ## How to use CutBox
 
@@ -19,7 +19,7 @@ combo <kbd>**Cmd**</kbd> + <kbd>**Opt**</kbd> + <kbd>**Ctrl**</kbd> + <kbd>**V**
 
 Start searching / selecting from the cut/copy history (by typing / navigating up and down)
 
-![](CutBox/cutbox-preview-search.png)
+![](CutBox/GraphicAssets/cutbox-preview-search.png)
 
 You can paste the selected item by pressing Enter.
 
