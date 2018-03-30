@@ -1,0 +1,10 @@
+#!/bin/sh
+
+APP_VERSION=$(/usr/libexec/PlistBuddy  -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
+# If there's a new version which isn't git tagged show a warning:
+LATEST_TAG=$(git tag | tail -1)
+
+if [[ "${APP_VERSION}" != "${LATEST_TAG}" ]]; then
+  echo "warning: CutBox version: ${APP_VERSION} newer than latest git tag: ${LATEST_TAG}
+(Cut a new release?)"
+fi

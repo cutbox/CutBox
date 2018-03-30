@@ -295,7 +295,8 @@
 				96E1E592205D243400F994ED /* Resources */,
 				CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */,
 				0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */,
-				96085E4C206E37B200CA77BB /* Tag for new version number */,
+				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
+				96085E4C206E37B200CA77BB /* Release notification warning */,
 				96085E4A206E36CC00CA77BB /* Bump build number */,
 			);
 			buildRules = (
@@ -547,19 +548,33 @@
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
-		96085E4C206E37B200CA77BB /* Tag for new version number */ = {
+		96085E4C206E37B200CA77BB /* Release notification warning */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Tag for new version number";
+			name = "Release notification warning";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# If there's a new version which isn't git tagged,\n# check if the stage / working space is clean\n# then create the new version tag.\n\nAPP_VERSION=$(/usr/libexec/PlistBuddy  -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\U0013\nLATEST_TAG=$(git tag | tail -1)\n\nif [[ $(git status -s) == \"\" ]]; then\n  if [[ \"${APP_VERSION}\" != \"${LATEST_TAG}\" ]]; then\n    git tag \"${APP_VERSION}\"\n  fi\nfi\n";
+			shellScript = "\"${PROJECT_DIR}/../bin/warn_do_release\"";
+		};
+		96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Warn TODO / FIXME";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PROJECT_DIR}/../bin/warn_tag_words\"";
 		};
 		CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
