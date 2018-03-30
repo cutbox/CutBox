@@ -4,7 +4,9 @@
 # TODO : check date/time of last build... (get from latest xcarchive date)
 # if the build didn't happen < 10mins ago quit.
 
-if [[ $# != 2 ]]; then
+if [[ $# > 1 && $# < 4 ]]; then
+  echo "Initialize hub release: ${@}"
+else
   echo "Usage: $0 {version} {dmg} [release_notes.md|message]"
   exit 1
 fi
@@ -14,30 +16,48 @@ if [[ -z $GITHUB_TOKEN ]]; then
   exit 2
 fi
 
-version=${1// /_}
+version=$1
+
+if [[ $version =~ [0-9]+\.[0-9]+\.[0-9]+ ]]; then
+  echo "Version: ${version}"
+else
+  echo "Aborting: Version: ${version} is not valid (use semver)"
+  exit 3
+fi
+
 dmg=$2
 
 if [ -z $3 ]; then
-  message=-m "CutBox version ${version}"
+  message="CutBox version ${version}"
 else
   if [ -f "$3" ]; then
-    message=-f $3
+    file=$3
   else
-    message=-m "$3"
+    message="$3"
   fi
 fi
 
 echo "Setup a new release tag and upload current dmg"
 
 if [[ -f "$dmg" ]]; then
+  if [[ -z $message || $message == "" ]]; then
+    echo "Using: [$file]"
 
-  hub release create -p \
-      $message \
-      $version \
-      -a "$dmg" \
-      -o
+    hub release create -p \
+        -f "$file" \
+        -a "$dmg" \
+        $version
 
+  else
+    echo "Using message \"$message\""
+
+    hub release create -p \
+        -m "$message" \
+        -a "$dmg" \
+        $version
+
+  fi
 else
   echo "dmg file: ${dmg} : not found"
-  exit 3
+  exit 4
 fi
