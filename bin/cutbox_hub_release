@@ -1,0 +1,43 @@
+#!/bin/sh
+# -*- mode: sh -*-
+
+# TODO : check date/time of last build... (get from latest xcarchive date)
+# if the build didn't happen < 10mins ago quit.
+
+if [[ $# != 2 ]]; then
+  echo "Usage: $0 {version} {dmg} [release_notes.md|message]"
+  exit 1
+fi
+
+if [[ -z $GITHUB_TOKEN ]]; then
+  echo "GITHUB_TOKEN environment var is required"
+  exit 2
+fi
+
+version=${1// /_}
+dmg=$2
+
+if [ -z $3 ]; then
+  message=-m "CutBox version ${version}"
+else
+  if [ -f "$3" ]; then
+    message=-f $3
+  else
+    message=-m "$3"
+  fi
+fi
+
+echo "Setup a new release tag and upload current dmg"
+
+if [[ -f "$dmg" ]]; then
+
+  hub release create -p \
+      $message \
+      $version \
+      -a "$dmg" \
+      -o
+
+else
+  echo "dmg file: ${dmg} : not found"
+  exit 3
+fi
