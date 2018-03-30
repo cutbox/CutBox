@@ -1,0 +1,26 @@
+#!/bin/sh
+# -*- mode: sh -*-
+if [ $# == 0 ]; then
+  echo "$0 {appiconset} {master.png}"
+  exit 1
+fi
+
+appiconset="${1}"
+contents_json="${appiconset}/Contents.json"
+cutbox_icon="${2}"
+
+# Contents.json filenames are expected to be in the format {size}.png
+# e.g. 128.png or anything with size as the first number in the filename
+# 128-cutbox.png, 64icon_image.png, 512filename_anything etc.
+
+jq '.images | .[] | .filename' $contents_json \
+  | uniq \
+  | tr -d '"' \
+  | \
+  while read file; do
+    size=$(sed -E 's/^"([0-9]+).*/\1/' <<< "$file")
+    # Any sips compatible input image
+    sips -Z $size "$cutbox_icon" --out "$file"
+    # We will replace the current images with the new ones (no undo)
+    mv -v "$file" "$appiconset"
+  done

@@ -1,4 +1,5 @@
 #!/bin/sh
+# -*- mode: sh -*-
 
 if [[ $(which appdmg) =~ "not found" ]]; then
   echo "node-appdmg required."
