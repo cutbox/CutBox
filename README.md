@@ -1,6 +1,8 @@
 
 # CutBox
 
+a nice little pasteboard timemachine
+
 ![](CutBox/CutBox/GraphicAssets/cutbox-icon-preview.png)
 
 ## About CutBox
