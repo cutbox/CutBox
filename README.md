@@ -32,7 +32,7 @@ If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 # Development note
 
-If you have suggestions or bugs, please add to https://github.com/jasonm23/CutBox/issues
+If you have suggestions or bugs, please add to https://github.com/ocodo/CutBox/issues
 
 # Licence
 
