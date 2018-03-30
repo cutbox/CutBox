@@ -1,0 +1,14 @@
+#!/bin/sh
+version=$(git tag | tail -1)
+
+if [ -f release_notes.md ]; then
+  message=release_notes.md
+else
+  message="CutBox version $version"
+fi
+
+bin/cutbox_make_dmg && \
+bin/cutbox_hub_release $version CutBox.dmg "$message" && \
+bin/clean_release_files
+
+echo "Released CutBox version: $version"

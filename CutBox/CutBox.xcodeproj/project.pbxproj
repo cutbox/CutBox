@@ -295,6 +295,8 @@
 				96E1E592205D243400F994ED /* Resources */,
 				CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */,
 				0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */,
+				96085E4C206E37B200CA77BB /* Tag for new version number */,
+				96085E4A206E36CC00CA77BB /* Bump build number */,
 			);
 			buildRules = (
 			);
@@ -530,6 +532,34 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		96085E4A206E36CC00CA77BB /* Bump build number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Bump build number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+		96085E4C206E37B200CA77BB /* Tag for new version number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Tag for new version number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# If there's a new version which isn't git tagged,\n# check if the stage / working space is clean\n# then create the new version tag.\n\nAPP_VERSION=$(/usr/libexec/PlistBuddy  -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\n\U0013\nLATEST_TAG=$(git tag | tail -1)\n\nif [[ $(git status -s) == \"\" ]]; then\n  if [[ \"${APP_VERSION}\" != \"${LATEST_TAG}\" ]]; then\n    git tag \"${APP_VERSION}\"\n  fi\nfi\n";
 		};
 		CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
