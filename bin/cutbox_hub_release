@@ -27,7 +27,7 @@ fi
 
 dmg=$2
 
-if [ -z $3 ]; then
+if [[ -z "$3" ]]; then
   message="CutBox version ${version}"
 else
   if [ -f "$3" ]; then
