@@ -9,11 +9,14 @@
 import Cocoa
 import SwiftyStringScore
 
+enum PasteboardServiceEvents {
+    case replacedItem
+}
+
 class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
     var filterText: String?
-    var allowDuplicates = false
 
     private var kPasteStoreKey = "pasteStore"
     private var pasteStore: [String] = []
@@ -67,23 +70,18 @@ class PasteboardService: NSObject {
         pollingTimer = nil
     }
 
-    func isDuplicate(_ clip: String) -> Bool {
-        return pasteStore.contains(clip)
+    func hasAtIndex(_ clip: String) -> Int? {
+        return pasteStore.index(of: clip)
     }
 
-    func checkClip() -> String? {
+    func replaceWithLatest() -> String? {
         guard let currentClip = clipboardContent() else { return nil }
-        let duplicate = isDuplicate(currentClip)
 
-        if duplicate && !allowDuplicates { return nil }
+        if let indexOfClip = hasAtIndex(currentClip) {
+            pasteStore.remove(at: indexOfClip)
+        }
 
-        if duplicate && allowDuplicates { return currentClip }
-
-        guard let latestStored = self.pasteStore.first else { return currentClip }
-
-        if latestStored != currentClip { return currentClip }
-
-        return nil
+        return currentClip
     }
 
     func clear() {
@@ -119,8 +117,9 @@ class PasteboardService: NSObject {
     }
 
     @objc func pollPasteboard() {
-        if let clip = self.checkClip() {
+        if let clip = self.replaceWithLatest() {
             self.pasteStore.insert(clip, at: 0)
         }
     }
 }
+
