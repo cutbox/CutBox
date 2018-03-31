@@ -1,15 +1,34 @@
 #!/bin/sh
-version=$(git tag | tail -1)
 
-if [ -f release_notes.md ]; then
-  message=release_notes.md
+PROJECT_DIR=$(git rev-parse --show-toplevel)
+RELEASE_NOTES="${PROJECT_DIR}/release_notes.md"
+INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
+
+VERSION=$(/usr/libexec/PlistBuddy -c \
+                                  "Print CFBundleShortVersionString" \
+                                  "${PROJECT_DIR}/${INFOPLIST_FILE}")
+
+if [ "${VERSION}" == "$(git tag | tail -1)" ]; then
+
+  echo "ERROR: Current version and latest git tag match."
+  exit 1
+
 else
-  message="CutBox version $version"
+
+  if [ -f "${RELEASE_NOTES}" ]; then
+    MESSAGE=$(< "${RELEASE_NOTES}")
+  else
+    MESSAGE="CutBox version ${VERSION}"
+  fi
+
+  bin/cutbox_make_dmg && \
+    mv CutBox.dmg "CutBox.${VERSION}.dmg" && \
+    bin/cutbox_hub_release \
+      ${VERSION} \
+      "CutBox.${VERSION}.dmg" \
+      "${MESSAGE}" && \
+    bin/clean_release_files
+
+  echo "Released CutBox version: ${VERSION}"
+
 fi
-
-bin/cutbox_make_dmg && \
-mv CutBox.dmg "CutBox.${version}.dmg"
-bin/cutbox_hub_release $version "CutBox.${version}.dmg" "$message" && \
-bin/clean_release_files
-
-echo "Released CutBox version: $version"
