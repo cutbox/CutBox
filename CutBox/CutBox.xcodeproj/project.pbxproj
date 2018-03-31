@@ -9,16 +9,12 @@
 /* Begin PBXBuildFile section */
 		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
 		96085E41206C72CA00CA77BB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96085E40206C72C900CA77BB /* README.md */; };
-		96085E47206CFB4800CA77BB /* cutbox-status.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E44206CFB4800CA77BB /* cutbox-status.png */; };
-		96085E49206CFB4800CA77BB /* cutbox-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 96085E46206CFB4800CA77BB /* cutbox-icon.png */; };
 		961A49B22065D85D005BC79D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
 		964766642067A5F100E7026F /* NSView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSView+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
-		96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */; };
@@ -26,6 +22,7 @@
 		965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076D206F58A40032DACD /* SearchViewEvents.swift */; };
 		965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076F206F9AF30032DACD /* PopupContainerView.swift */; };
 		965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */; };
+		965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0783206FC4F60032DACD /* PreferencesWindow.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
 		968A97BE2066745D00D36B50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
@@ -65,8 +62,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */,
-				96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,16 +73,12 @@
 		3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96085E40206C72C900CA77BB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		96085E44206CFB4800CA77BB /* cutbox-status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-status.png"; sourceTree = "<group>"; };
-		96085E46206CFB4800CA77BB /* cutbox-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-icon.png"; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
 		964766632067A5F100E7026F /* NSView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
-		96564BD4205D495B00A95E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
-		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -95,6 +86,7 @@
 		965F076D206F58A40032DACD /* SearchViewEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEvents.swift; sourceTree = "<group>"; };
 		965F076F206F9AF30032DACD /* PopupContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerView.swift; sourceTree = "<group>"; };
 		965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupControllerWindowDelegate.swift; sourceTree = "<group>"; };
+		965F0783206FC4F60032DACD /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
@@ -159,24 +151,6 @@
 				3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		96085E35206C727000CA77BB /* GraphicAssets */ = {
-			isa = PBXGroup;
-			children = (
-				96085E46206CFB4800CA77BB /* cutbox-icon.png */,
-				96085E44206CFB4800CA77BB /* cutbox-status.png */,
-			);
-			path = GraphicAssets;
-			sourceTree = "<group>";
-		};
-		961A49AF2065D442005BC79D /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				96564BD4205D495B00A95E02 /* Nimble.framework */,
-				96564BD5205D495B00A95E02 /* Quick.framework */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		961A49B02065D72F005BC79D /* Popup */ = {
@@ -244,7 +218,6 @@
 				96E1E595205D243400F994ED /* Products */,
 				96564BD3205D495A00A95E02 /* Frameworks */,
 				673FB9B3BF3E444A726CCE1F /* Pods */,
-				961A49AF2065D442005BC79D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -263,7 +236,6 @@
 			children = (
 				96085E40206C72C900CA77BB /* README.md */,
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
-				96085E35206C727000CA77BB /* GraphicAssets */,
 				964766652067A63700E7026F /* MacosExtensions */,
 				96E1E5C3205D295000F994ED /* App */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
@@ -295,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				96E1E59B205D243400F994ED /* CutBox.xib */,
+				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				961A49B02065D72F005BC79D /* Popup */,
@@ -429,10 +402,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96085E47206CFB4800CA77BB /* cutbox-status.png in Resources */,
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
 				96085E41206C72CA00CA77BB /* README.md in Resources */,
-				96085E49206CFB4800CA77BB /* cutbox-icon.png in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchView.xib in Resources */,
 			);
@@ -699,6 +670,7 @@
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
+				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,

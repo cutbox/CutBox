@@ -30,9 +30,13 @@ extension NSColor {
     }
 }
 
+import HotKey
+
 class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
+
+    var globalHotkey: KeyCombo = KeyCombo(key: .v, modifiers: [.command, .shift])
 
     var searchViewTextFieldFont = NSFont(
         name: "Helvetica Neue",

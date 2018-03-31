@@ -16,6 +16,7 @@ import HotKey
 
 class CutBoxController: NSObject {
 
+    let preferences = CutBoxPreferences.shared
     let popupController: PopupController
     let pasteboardService: PasteboardService
     let searchView: SearchView
@@ -24,22 +25,27 @@ class CutBoxController: NSObject {
     var height: CGFloat
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var preferencesWindow: NSWindow!
     @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
-        popupController.togglePopup()
+        self.popupController.togglePopup()
     }
 
     @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        pasteboardService.saveToDefaults()
+        self.pasteboardService.saveToDefaults()
         NSApplication.shared.terminate(self)
     }
 
     @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
-        pasteboardService.clear()
+        self.pasteboardService.clear()
     }
 
-    let hotKey = HotKey(key: .v, modifiers: [.shift, .command])
+    @IBAction func openPreferences(_ sender: NSMenuItem) {
+        self.preferencesWindow.makeKeyAndOrderFront(self)
+    }
+
+    var hotKey: HotKey
 
     let statusItem: NSStatusItem = NSStatusBar
         .system
@@ -49,6 +55,8 @@ class CutBoxController: NSObject {
         guard let mainScreen = NSScreen.main else {
             fatalError("Unable to get main screen")
         }
+
+        self.hotKey = HotKey(keyCombo: preferences.globalHotkey)
 
         self.pasteboardService = PasteboardService()
         self.pasteboardService.startTimer()
@@ -113,8 +121,8 @@ class CutBoxController: NSObject {
     override func awakeFromNib() {
         let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
         icon.isTemplate = true // best for dark mode
-        statusItem.image = icon
-        statusItem.menu = statusMenu
+        self.statusItem.image = icon
+        self.statusItem.menu = statusMenu
 
         setupAboutItem()
     }
