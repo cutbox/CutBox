@@ -1,0 +1,44 @@
+{
+  "name": "ShortcutRecorder",
+  "homepage": "https://github.com/Kentzo/ShortcutRecorder",
+  "summary": "The only user interface control to record shortcuts. For Mac OS X 10.6+, 64bit",
+  "version": "2.17",
+  "source": {
+    "git": "git://github.com/Kentzo/ShortcutRecorder.git",
+    "branch": "master"
+  },
+  "authors": {
+    "Ilya Kulakov": "kulakov.ilya@gmail.com"
+  },
+  "frameworks": [
+    "Carbon",
+    "Cocoa"
+  ],
+  "platforms": {
+    "osx": "10.6"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Library/*.{h,m}",
+      "resource_bundles": {
+        "ShortcutRecorder": [
+          "Resources/*.lproj",
+          "Resources/*.png"
+        ]
+      },
+      "requires_arc": true,
+      "prefix_header_file": "Library/Prefix.pch"
+    },
+    {
+      "name": "PTHotKey",
+      "source_files": "PTHotKey/*.{h,m}",
+      "requires_arc": false,
+      "dependencies": {
+        "ShortcutRecorder/Core": [
+
+        ]
+      }
+    }
+  ]
+}
