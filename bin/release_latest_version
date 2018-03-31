@@ -1,13 +1,14 @@
 #!/bin/sh
 
-PROJECT_DIR=$(git rev-parse --show-toplevel)
+PROJECT_DIR="$(git rev-parse --show-toplevel)"
 RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
 INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
-VERSION=$(/usr/libexec/PlistBuddy -c \
+OLD_VERSION="$(git tag | tail -1)"
+VERSION="$(/usr/libexec/PlistBuddy -c \
                                   "Print CFBundleShortVersionString" \
-                                  "${INFOPLIST_FILE}")
+                                  "${INFOPLIST_FILE}")"
 
-if [ "${VERSION}" == "$(git tag | tail -1)" ]; then
+if [ "${VERSION}" == "${OLD_VERSION}" ]; then
 
   echo "ERROR: Current version and latest git tag match."
   exit 1
@@ -21,6 +22,7 @@ else
   fi
 
   bin/cutbox_make_dmg && \
+    bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" && \
     bin/cutbox_hub_release \
       ${VERSION} \
       CutBox.dmg \

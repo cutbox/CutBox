@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if [[ $# != 2 ]]; then
+  echo "Usage: $0 $1:OLD_VERSION $2:NEW_VERSION"
+fi
+
+OLD_VERSION=$1
+NEW_VERSION=$2
+PROJECT_DIR="$(git rev-parse --show-toplevel)"
+README="${PROJECT_DIR}/README.md"
+TEMPFILE=$(mktemp -t CutBoxReadme)
+
+echo "$(sed "s|/download/${OLD_VERSION}|/download/${NEW_VERSION}|" < ${README})" > "${TEMPFILE}"
+
+cat "${TEMPFILE}" > "${README}"
+
+rm "${TEMPFILE}"
