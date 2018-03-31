@@ -289,6 +289,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */;
 			buildPhases = (
+				96085E4A206E36CC00CA77BB /* Bump build number */,
+				965F0762206F29600032DACD /* Bump version number on archive */,
 				8845782D45805C1DC9FDD6CC /* [CP] Check Pods Manifest.lock */,
 				96E1E590205D243400F994ED /* Sources */,
 				96E1E591205D243400F994ED /* Frameworks */,
@@ -297,8 +299,6 @@
 				0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */,
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
 				96085E4C206E37B200CA77BB /* Release notification warning */,
-				96085E4A206E36CC00CA77BB /* Bump build number */,
-				965F0762206F29600032DACD /* Bump version number on archive */,
 			);
 			buildRules = (
 			);
@@ -364,7 +364,7 @@
 				TargetAttributes = {
 					96E1E593205D243400F994ED = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -830,7 +830,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				INFOPLIST_FILE = CutBox/Info.plist;
@@ -849,7 +849,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				INFOPLIST_FILE = CutBox/Info.plist;
