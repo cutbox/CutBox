@@ -1,5 +1,3 @@
-[![release](http://github-release-version.herokuapp.com/github/ocodo/CutBox/release.svg?style=flat)](https://github.com/ocodo/CutBox/releases/latest)
-
 # CutBox
 
 a nice little pasteboard timemachine
