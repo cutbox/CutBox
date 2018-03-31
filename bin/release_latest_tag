@@ -6,7 +6,7 @@ INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
 
 VERSION=$(/usr/libexec/PlistBuddy -c \
                                   "Print CFBundleShortVersionString" \
-                                  "${PROJECT_DIR}/${INFOPLIST_FILE}")
+                                  "${INFOPLIST_FILE}")
 
 if [ "${VERSION}" == "$(git tag | tail -1)" ]; then
 
