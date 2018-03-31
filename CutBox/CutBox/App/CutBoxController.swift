@@ -26,6 +26,19 @@ class CutBoxController: NSObject {
 
     @IBOutlet weak var statusMenu: NSMenu!
 
+    @IBAction func searchClicked(_ sender: NSMenuItem) {
+        popupController.togglePopup()
+    }
+
+    @IBAction func quitClicked(_ sender:  NSMenuItem) {
+        pasteboardService.saveToDefaults()
+        NSApplication.shared.terminate(self)
+    }
+
+    @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
+        pasteboardService.clear()
+    }
+
     let hotKey = HotKey(key: .v, modifiers: [.shift, .command])
 
     let statusItem: NSStatusItem = NSStatusBar
@@ -90,19 +103,6 @@ class CutBoxController: NSObject {
         FakeKey.send(UInt16(9), useCommandFlag: true)
     }
 
-    @IBAction func searchClicked(_ sender: NSMenuItem) {
-        popupController.togglePopup()
-    }
-
-    @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        pasteboardService.saveToDefaults()
-        NSApplication.shared.terminate(self)
-    }
-
-    @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
-        pasteboardService.clear()
-    }
-
     private func closeAndPaste() {
         self.pasteSelectedClipToPasteboard()
         self.popupController.closePopup()
@@ -134,11 +134,11 @@ class CutBoxController: NSObject {
     }
 
     private func setupAboutItem() {
-        let aboutTitle = "About CutBox"
+        let aboutTitle = "CutBox"
         let aboutItem = NSMenuItem()
         aboutItem.title = aboutTitle
 
-        self.statusMenu.addItem(aboutItem)
+        self.statusMenu.insertItem(aboutItem, at: 2)
 
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
             return
