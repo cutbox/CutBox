@@ -23,6 +23,7 @@ else
 
   bin/cutbox_make_dmg && \
     bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" && \
+    git push origin head && \
     bin/cutbox_hub_release \
       ${VERSION} \
       CutBox.dmg \
