@@ -11,7 +11,6 @@ import Cocoa
 class LinkText: NSTextField {
 
     override func mouseDown(with event: NSEvent) {
-        debugPrint("Hello")
         NSWorkspace
             .shared
             .open(
