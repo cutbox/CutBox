@@ -64,11 +64,12 @@ class SearchView: NSView {
         let row = self.clipboardItemsTable.selectedRow
         let total = self.clipboardItemsTable.numberOfRows
         let selectedRow = lambda(row, total)
-        let indexSet: IndexSet = NSIndexSet(index: selectedRow) as IndexSet
 
         self.clipboardItemsTable
-            .selectRowIndexes(indexSet,
+            .selectRowIndexes([selectedRow],
                               byExtendingSelection: false)
+        self.clipboardItemsTable
+            .scrollRowToVisible(selectedRow)
     }
 
     func itemSelectUp() {
