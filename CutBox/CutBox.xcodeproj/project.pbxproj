@@ -289,9 +289,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */;
 			buildPhases = (
+				8845782D45805C1DC9FDD6CC /* [CP] Check Pods Manifest.lock */,
 				96085E4A206E36CC00CA77BB /* Bump build number */,
 				965F0762206F29600032DACD /* Bump version number on archive */,
-				8845782D45805C1DC9FDD6CC /* [CP] Check Pods Manifest.lock */,
 				96E1E590205D243400F994ED /* Sources */,
 				96E1E591205D243400F994ED /* Frameworks */,
 				96E1E592205D243400F994ED /* Resources */,
