@@ -21,8 +21,7 @@
         </customObject>
         <menu id="r5R-nF-u2D">
             <items>
-                <menuItem title="Search" keyEquivalent="v" id="eRd-Us-nbh">
-                    <modifierMask key="keyEquivalentModifierMask" control="YES" option="YES" command="YES"/>
+                <menuItem title="Search" keyEquivalent="V" id="eRd-Us-nbh">
                     <connections>
                         <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
                     </connections>

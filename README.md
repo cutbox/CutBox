@@ -30,7 +30,7 @@ As a side note, CutBox will not be on the Mac AppStore.
 ## How to use CutBox
 
 CutBox will be available from the Macos top menu and a global hotkey
-combo <kbd>**Cmd**</kbd> + <kbd>**Opt**</kbd> + <kbd>**Ctrl**</kbd> + <kbd>**V**</kbd>
+combo <kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd> (the same as the [Flycut](https://github.com/TermiT/Flycut) default)
 
 Search the cut/copy history by typing (search uses fuzzy matching)
 Select from the search results using <kbd>**up**</kbd> and <kbd>**down**</kbd>, or select with the mouse.
@@ -42,7 +42,6 @@ Once you've selected an item, press <kbd>**Enter**</kbd> to paste it to the curr
 If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 (If you click the mouse away from the search popup it'll exit too.)
-
 
 # Development note
 

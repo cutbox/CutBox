@@ -26,7 +26,7 @@ class CutBoxController: NSObject {
 
     @IBOutlet weak var statusMenu: NSMenu!
 
-    let hotKey = HotKey(key: .v, modifiers: [.control, .command, .option])
+    let hotKey = HotKey(key: .v, modifiers: [.shift, .command])
 
     let statusItem: NSStatusItem = NSStatusBar
         .system
