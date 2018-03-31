@@ -10,6 +10,8 @@ PROJECT_DIR="$(git rev-parse --show-toplevel)"
 README="${PROJECT_DIR}/README.md"
 TEMPFILE=$(mktemp -t CutBoxReadme)
 
+echo "Release: $OLD_VERSION -> $NEW_VERSION"
+
 echo "$(sed "s|/download/${OLD_VERSION}|/download/${NEW_VERSION}|" < ${README})" > "${TEMPFILE}"
 
 cat "${TEMPFILE}" > "${README}"
