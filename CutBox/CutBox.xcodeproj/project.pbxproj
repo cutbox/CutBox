@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
-		96085E41206C72CA00CA77BB /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 96085E40206C72C900CA77BB /* README.md */; };
 		961A49B22065D85D005BC79D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
@@ -420,7 +419,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
-				96085E41206C72CA00CA77BB /* README.md in Resources */,
 				965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchView.xib in Resources */,
@@ -589,7 +587,7 @@
 		};
 		965F0762206F29600032DACD /* Bump version number on archive */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -597,9 +595,9 @@
 			name = "Bump version number on archive";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "VERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nNEWSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($NEWSUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "echo \"warning: You turned off version bump... put it back\"";
 		};
 		CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
