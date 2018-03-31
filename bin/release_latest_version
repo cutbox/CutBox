@@ -1,9 +1,8 @@
 #!/bin/sh
 
 PROJECT_DIR=$(git rev-parse --show-toplevel)
-RELEASE_NOTES="${PROJECT_DIR}/release_notes.md"
+RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
 INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
-
 VERSION=$(/usr/libexec/PlistBuddy -c \
                                   "Print CFBundleShortVersionString" \
                                   "${INFOPLIST_FILE}")
@@ -22,10 +21,9 @@ else
   fi
 
   bin/cutbox_make_dmg && \
-    mv CutBox.dmg "CutBox.${VERSION}.dmg" && \
     bin/cutbox_hub_release \
       ${VERSION} \
-      "CutBox.${VERSION}.dmg" \
+      CutBox.dmg \
       "${MESSAGE}" && \
     bin/clean_release_files
 

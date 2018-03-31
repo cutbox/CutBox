@@ -1,3 +1,5 @@
+![Latest release](https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg)
+
 # CutBox
 
 a nice little pasteboard timemachine
