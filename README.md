@@ -45,7 +45,7 @@ If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 (If you click the mouse away from the search popup it'll exit too.)
 
-The status menu also let's you clear the CutBox history.
+The status menu also lets you clear the CutBox history.
 
 # Development note
 
