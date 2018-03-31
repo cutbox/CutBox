@@ -64,19 +64,24 @@
             <rect key="contentRect" x="196" y="207" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="A5o-FS-zqn">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="505" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-OI-hMT">
-                        <rect key="frame" x="18" y="211" width="37" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="351-Qc-Yxl">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-OI-hMT">
+                        <rect key="frame" x="28" y="30" width="449" height="17"/>
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="CutBox preferences are coming soon... what would you like to customize?" id="351-Qc-Yxl">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="iWk-OI-hMT" firstAttribute="leading" secondItem="A5o-FS-zqn" secondAttribute="leading" constant="30" id="0Av-ex-EXW"/>
+                    <constraint firstAttribute="trailing" secondItem="iWk-OI-hMT" secondAttribute="trailing" constant="30" id="4dP-Rh-2p5"/>
+                    <constraint firstAttribute="bottom" secondItem="iWk-OI-hMT" secondAttribute="bottom" constant="30" id="u2o-Au-YAO"/>
+                    <constraint firstItem="iWk-OI-hMT" firstAttribute="top" secondItem="A5o-FS-zqn" secondAttribute="top" constant="30" id="v7y-zh-7na"/>
+                </constraints>
             </view>
             <point key="canvasLocation" x="-69" y="-122"/>
         </window>
