@@ -7,9 +7,8 @@ else
   message="CutBox version $version"
 fi
 
-mv CutBox.dmg "CutBox.${version}.dmg"
-
 bin/cutbox_make_dmg && \
+mv CutBox.dmg "CutBox.${version}.dmg"
 bin/cutbox_hub_release $version "CutBox.${version}.dmg" "$message" && \
 bin/clean_release_files
 
