@@ -15,3 +15,7 @@ echo "$(sed "s|/download/${OLD_VERSION}|/download/${NEW_VERSION}|" < ${README})"
 cat "${TEMPFILE}" > "${README}"
 
 rm "${TEMPFILE}"
+
+git add "${README}"
+
+git commit -m "Update README to ${NEW_VERSION}"
