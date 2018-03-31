@@ -8,9 +8,6 @@ a nice little pasteboard timemachine
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-icon-preview.png)
 
-
-[![CutBox on YouTube](https://img.youtube.com/vi/e3vYfOrFD2A/0.jpg)](https://www.youtube.com/watch?v=e3vYfOrFD2A)
-
 ## About CutBox
 
 CutBox keeps your pasteboard cut/copy history and lets you paste
@@ -32,8 +29,10 @@ As a side note, CutBox will not be on the Mac AppStore.
 
 ## How to use CutBox
 
-CutBox will be available from the Macos top menu and a global hotkey
-combo <kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd> (the same as the [Flycut](https://github.com/TermiT/Flycut) default)
+[![CutBox on YouTube](https://img.youtube.com/vi/e3vYfOrFD2A/0.jpg)](https://www.youtube.com/watch?v=e3vYfOrFD2A)
+
+CutBox starts a new macos status menu icon and a global hotkey
+combo <kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
 
 Search the cut/copy history by typing (search uses fuzzy matching)
 Select from the search results using <kbd>**up**</kbd> and <kbd>**down**</kbd>, or select with the mouse.
@@ -45,6 +44,8 @@ Once you've selected an item, press <kbd>**Enter**</kbd> to paste it to the curr
 If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 (If you click the mouse away from the search popup it'll exit too.)
+
+The status menu also let's you clear the CutBox history.
 
 # Development note
 
