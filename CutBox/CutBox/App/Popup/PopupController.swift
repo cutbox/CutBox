@@ -16,8 +16,6 @@ class PopupController: NSWindowController {
     let containerView = PopupContainerView()
     var contentView: NSView
 
-    var openDuration: TimeInterval = 0
-    var closeDuration: TimeInterval = 0
     var currentHeight: CGFloat = 0
     var currentWidth: CGFloat = 0
 
@@ -34,7 +32,7 @@ class PopupController: NSWindowController {
 
     private(set)  var isOpen: Bool = false
 
-    fileprivate var isOpening: Bool = false
+    var isOpening: Bool = false
 
     var willOpenPopup: (()->(Void))?
     var didOpenPopup: (()->(Void))?
@@ -78,13 +76,9 @@ class PopupController: NSWindowController {
         panel.contentView = backgroundView
         backgroundView.addSubview(containerView)
 
-        let contentSize = contentView.frame.size
         containerView.setup()
         containerView.contentView = contentView
         panel.initialFirstResponder = contentView
-
-        resizePopup(width: contentSize.width,
-                    height: contentSize.height)
     }
 
     func openPopup() {
@@ -101,7 +95,6 @@ class PopupController: NSWindowController {
 
 
     func resizePopup(width: CGFloat, height: CGFloat) {
-
         var frame = panel.frame
         var newSize = CGSize(width: width,
                              height: height)
@@ -147,35 +140,25 @@ class PopupController: NSWindowController {
 
         NSApp.activate(ignoringOtherApps: false)
 
-        self.panel.alphaValue = 0
         self.panel.setFrame(panelRect, display: true)
         self.panel.makeKeyAndOrderFront(self)
-
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = self.openDuration
-            self.panel.animator().alphaValue = 1
-        }, completionHandler: {
-            self.isOpening = false
-            if self.isOpen {
-                self.didOpenPopup?()
-                self.panel.makeKeyAndOrderFront(self)
-            }
-        })
+        self.panel.alphaValue = 1
+        self.isOpening = false
+        if self.isOpen {
+            self.didOpenPopup?()
+            self.panel.makeKeyAndOrderFront(self)
+        }
     }
 
     private func closePanel() {
         willClosePopup?()
         self.isOpen = false
         contentView.isHidden = true
-
-        NSAnimationContext.runAnimationGroup({ context in
-            context.duration = closeDuration
-            self.panel.animator().alphaValue = 0
-        }, completionHandler: {
-            guard !self.isOpen else { return }
+        self.panel.alphaValue = 0
+        if !self.isOpen {
             self.panel.orderOut(nil)
             self.didClosePopup?()
-        })
+        }
     }
 
     private func rect(forPanel panel: NSPanel) ->  CGRect {
@@ -195,70 +178,3 @@ class PopupController: NSWindowController {
         return panelRect
     }
 }
-
-extension PopupController: NSWindowDelegate {
-    func windowWillClose(_ notification: Notification) {
-        closePopup()
-    }
-
-    func windowDidResignKey(_ notification: Notification) {
-        if window?.isVisible == true && !isOpening {
-            closePopup()
-        }
-    }
-}
-
-class PopupContainerView: NSView {
-    var contentInset: CGFloat = 1
-
-    var contentView: NSView? {
-        didSet {
-            removeConstraints(constraints)
-            guard let contentView = contentView
-                else { return }
-
-            contentView.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(contentView)
-            ["H:|-0-[contentView]-0-|", "V:|-0-[contentView]-0-|"].forEach {
-                addConstraints(NSLayoutConstraint.constraints(withVisualFormat: $0,
-                                                              options: .directionLeadingToTrailing,
-                                                              metrics: nil,
-                                                              views: ["contentView": contentView]))
-            }
-        }
-    }
-
-    var superviewConstraints = [NSLayoutConstraint]()
-
-    func setup() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        resetConstraints()
-    }
-
-    func resetConstraints() {
-        guard let superview = superview as? PopupBackgroundView
-            else { return }
-
-        superview.removeConstraints(superviewConstraints)
-
-        let horizontalFormat = "H:|-\(contentInset)-[containerView]-\(contentInset)-|"
-        let verticalFormat = "V:|-\(contentInset)-[containerView]-\(contentInset)-|"
-
-        let horizontalConstraints = NSLayoutConstraint
-            .constraints(withVisualFormat: horizontalFormat,
-                         options: .directionLeadingToTrailing,
-                         metrics: nil,
-                         views: ["containerView" : self])
-
-        let verticalConstraints = NSLayoutConstraint
-            .constraints(withVisualFormat: verticalFormat,
-                         options: .directionLeadingToTrailing,
-                         metrics: nil,
-                         views: ["containerView" : self])
-
-        self.superviewConstraints = horizontalConstraints + verticalConstraints
-        superview.addConstraints(superviewConstraints)
-    }
-}
-
-

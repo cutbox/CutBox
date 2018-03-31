@@ -29,7 +29,7 @@ class SearchView: NSView {
 
         searchText.delegate = self
         searchText.textColor = prefs.searchViewTextFieldTextColor
-        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor
+        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor        
         searchText.isFieldEditor = true
 
         searchText.font = prefs.searchViewTextFieldFont
@@ -43,7 +43,7 @@ class SearchView: NSView {
         previewClip.font = prefs.searchViewClipPreviewFont
 
         filterText
-            .map { $0.isEmpty ? "Search cut/copy history" : "" }
+            .map { $0.isEmpty ? prefs.searchViewPlaceholderText : "" }
             .bind(to: self.searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }

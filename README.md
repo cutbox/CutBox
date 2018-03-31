@@ -8,6 +8,9 @@ a nice little pasteboard timemachine
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-icon-preview.png)
 
+
+[![CutBox on YouTube](https://img.youtube.com/vi/e3vYfOrFD2A/0.jpg)](https://www.youtube.com/watch?v=e3vYfOrFD2A)
+
 ## About CutBox
 
 CutBox keeps your pasteboard cut/copy history and lets you paste

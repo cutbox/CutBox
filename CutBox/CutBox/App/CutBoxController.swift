@@ -153,7 +153,6 @@ class CutBoxController: NSObject {
 
         self.searchView.filterText
             .bind {
-                self.popupController.resizePopup(height: self.height)
                 self.pasteboardService.filterText = $0
                 self.searchView.clipboardItemsTable.reloadData()
             }
@@ -195,10 +194,6 @@ class CutBoxController: NSObject {
 
         self.popupController
             .didOpenPopup = {
-                self.popupController
-                    .resizePopup(width: self.width,
-                                 height: self.height)
-
                 self.resetSearchText()
                 self.searchView
                     .searchText
