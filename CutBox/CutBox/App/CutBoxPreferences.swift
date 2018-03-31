@@ -73,4 +73,6 @@ class CutBoxPreferences {
     var searchViewPlaceholderText = "Search CutBox History"
     var searchFuzzyMatchMinScore = 0.1
 
+    var url = "https://github.com/ocodo/CutBox"
+
 }

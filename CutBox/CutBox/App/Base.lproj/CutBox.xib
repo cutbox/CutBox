@@ -17,6 +17,7 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="4hl-ia-0EP" customClass="CutBoxController" customModule="CutBox" customModuleProvider="target">
             <connections>
+                <outlet property="aboutPanel" destination="4YT-4Z-paf" id="hyI-uA-eiX"/>
                 <outlet property="preferencesWindow" destination="Zvy-s4-5cL" id="ggr-SZ-p5c"/>
                 <outlet property="statusMenu" destination="r5R-nF-u2D" id="QbZ-3b-K66"/>
             </connections>
@@ -42,6 +43,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="3hp-KI-Agg"/>
+                <menuItem title="About CutBox" id="RbH-nQ-xiH">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openAboutPanel:" target="4hl-ia-0EP" id="We0-3H-X3a"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Quit" id="akv-B8-OIW">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -49,18 +56,127 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="139" y="175.5"/>
+            <point key="canvasLocation" x="143" y="216.5"/>
         </menu>
-        <window title="CutBox Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Zvy-s4-5cL">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+        <window title="CutBox Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="Zvy-s4-5cL">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="207" width="480" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="A5o-FS-zqn">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-OI-hMT">
+                        <rect key="frame" x="18" y="211" width="37" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="351-Qc-Yxl">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
             </view>
             <point key="canvasLocation" x="-69" y="-122"/>
         </window>
+        <window title="About CutBox" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="4YT-4Z-paf" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="112" width="276" height="150"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <view key="contentView" id="60P-un-z8e" customClass="AboutView" customModule="CutBox" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="276" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3oM-Bj-sCT">
+                        <rect key="frame" x="20" y="20" width="110" height="110"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="KPT-ql-2Wx"/>
+                            <constraint firstAttribute="height" constant="110" id="hjt-ac-2dK"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-preview-256" id="tcs-hK-OoP"/>
+                    </imageView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Xc-8y-wse">
+                        <rect key="frame" x="166" y="117" width="48" height="0.0"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="KFC-1t-blZ"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pcK-Px-BB2"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ps3-QA-9IX">
+                        <rect key="frame" x="138" y="113" width="120" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="qXc-73-MuV"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="CutBox" usesSingleLineMode="YES" id="00K-DV-VA4">
+                            <font key="font" size="15" name="AvenirNext-Bold"/>
+                            <color key="textColor" red="0.058500000000000003" green="0.10854999999999999" blue="0.13" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sRt-1v-eme">
+                        <rect key="frame" x="138" y="95" width="110" height="17"/>
+                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="yvK-PH-u83">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrL-dW-5Pv" customClass="LinkText" customModule="CutBox" customModuleProvider="target">
+                        <rect key="frame" x="138" y="68" width="120" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="T08-Bc-ho7"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="e4U-1Z-7py">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Y8-Wy-lxf">
+                        <rect key="frame" x="138" y="20" width="120" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="m62-Kb-9t6"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="mini" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="k53-KC-ZuB">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="sRt-1v-eme" firstAttribute="top" secondItem="7Xc-8y-wse" secondAttribute="bottom" constant="5" id="0iq-nz-dqD"/>
+                    <constraint firstAttribute="trailing" secondItem="3Y8-Wy-lxf" secondAttribute="trailing" constant="20" id="4r8-8e-NWf"/>
+                    <constraint firstItem="wrL-dW-5Pv" firstAttribute="top" secondItem="sRt-1v-eme" secondAttribute="bottom" constant="10" id="Aaz-Bc-WX4"/>
+                    <constraint firstItem="3oM-Bj-sCT" firstAttribute="top" secondItem="60P-un-z8e" secondAttribute="top" constant="20" id="CUP-tr-Cxf"/>
+                    <constraint firstAttribute="trailing" secondItem="wrL-dW-5Pv" secondAttribute="trailing" constant="20" id="IZq-in-OaN"/>
+                    <constraint firstItem="sRt-1v-eme" firstAttribute="top" secondItem="ps3-QA-9IX" secondAttribute="bottom" constant="1" id="KRi-Zb-NhS"/>
+                    <constraint firstItem="3oM-Bj-sCT" firstAttribute="leading" secondItem="60P-un-z8e" secondAttribute="leading" constant="20" id="Met-QD-5He"/>
+                    <constraint firstItem="3Y8-Wy-lxf" firstAttribute="leading" secondItem="3oM-Bj-sCT" secondAttribute="trailing" constant="10" id="Q2X-Cl-hHD"/>
+                    <constraint firstAttribute="trailing" secondItem="sRt-1v-eme" secondAttribute="trailing" constant="30" id="XOK-5g-tDd"/>
+                    <constraint firstAttribute="bottom" secondItem="3oM-Bj-sCT" secondAttribute="bottom" constant="20" id="bHL-FO-tKI"/>
+                    <constraint firstItem="ps3-QA-9IX" firstAttribute="leading" secondItem="3oM-Bj-sCT" secondAttribute="trailing" constant="10" id="db9-KK-Cwn"/>
+                    <constraint firstItem="ps3-QA-9IX" firstAttribute="top" secondItem="60P-un-z8e" secondAttribute="top" constant="20" id="gMh-YH-tWW"/>
+                    <constraint firstAttribute="trailing" secondItem="ps3-QA-9IX" secondAttribute="trailing" constant="20" id="hie-YC-bOL"/>
+                    <constraint firstItem="wrL-dW-5Pv" firstAttribute="leading" secondItem="3oM-Bj-sCT" secondAttribute="trailing" constant="10" id="lhj-co-Fbb"/>
+                    <constraint firstAttribute="trailing" secondItem="7Xc-8y-wse" secondAttribute="trailing" constant="62" id="qAx-Ui-o4J"/>
+                    <constraint firstAttribute="bottom" secondItem="3Y8-Wy-lxf" secondAttribute="bottom" constant="20" id="r6i-1q-ppk"/>
+                    <constraint firstItem="sRt-1v-eme" firstAttribute="leading" secondItem="ps3-QA-9IX" secondAttribute="leading" id="tv0-yS-Z9y"/>
+                    <constraint firstAttribute="bottom" secondItem="sRt-1v-eme" secondAttribute="bottom" constant="95" id="vLf-zY-5Hh"/>
+                </constraints>
+                <connections>
+                    <outlet property="productInfo" destination="wrL-dW-5Pv" id="myF-iP-319"/>
+                    <outlet property="productLicense" destination="3Y8-Wy-lxf" id="UAC-gZ-EtB"/>
+                    <outlet property="productTitle" destination="ps3-QA-9IX" id="fKp-PC-yHc"/>
+                    <outlet property="productVersion" destination="sRt-1v-eme" id="7Sn-hi-xKL"/>
+                </connections>
+            </view>
+            <point key="canvasLocation" x="413" y="-150"/>
+        </window>
     </objects>
+    <resources>
+        <image name="cutbox-icon-preview-256" width="50.36065673828125" height="50.36065673828125"/>
+    </resources>
 </document>

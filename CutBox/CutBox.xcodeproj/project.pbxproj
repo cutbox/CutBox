@@ -23,6 +23,8 @@
 		965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076F206F9AF30032DACD /* PopupContainerView.swift */; };
 		965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */; };
 		965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0783206FC4F60032DACD /* PreferencesWindow.swift */; };
+		965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
+		965F078D206FD1890032DACD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F078C206FD1890032DACD /* AboutView.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
 		968A97BE2066745D00D36B50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
@@ -87,6 +89,8 @@
 		965F076F206F9AF30032DACD /* PopupContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerView.swift; sourceTree = "<group>"; };
 		965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupControllerWindowDelegate.swift; sourceTree = "<group>"; };
 		965F0783206FC4F60032DACD /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
+		965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-icon-preview-256.png"; sourceTree = "<group>"; };
+		965F078C206FD1890032DACD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
@@ -200,6 +204,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		965F0785206FCDC60032DACD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		968A97BF20667CDC00D36B50 /* Pasteboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +246,7 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
+				965F0785206FCDC60032DACD /* Images */,
 				96085E40206C72C900CA77BB /* README.md */,
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 				964766652067A63700E7026F /* MacosExtensions */,
@@ -270,6 +283,7 @@
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
+				965F078C206FD1890032DACD /* AboutView.swift */,
 				961A49B02065D72F005BC79D /* Popup */,
 				961A49B92065DC1E005BC79D /* Search */,
 			);
@@ -352,6 +366,9 @@
 		96E1E58C205D243400F994ED /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					cutboxLogo,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = ocodo;
@@ -404,6 +421,7 @@
 			files = (
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
 				96085E41206C72CA00CA77BB /* README.md in Resources */,
+				965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchView.xib in Resources */,
 			);
@@ -655,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */,
+				965F078D206FD1890032DACD /* AboutView.swift in Sources */,
 				968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,

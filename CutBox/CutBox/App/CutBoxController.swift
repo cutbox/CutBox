@@ -25,8 +25,9 @@ class CutBoxController: NSObject {
     var height: CGFloat
     let disposeBag = DisposeBag()
 
-    @IBOutlet weak var preferencesWindow: NSWindow!
     @IBOutlet weak var statusMenu: NSMenu!
+    @IBOutlet weak var preferencesWindow: NSWindow!
+    @IBOutlet weak var aboutPanel: NSPanel!
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
         self.popupController.togglePopup()
@@ -43,6 +44,10 @@ class CutBoxController: NSObject {
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
         self.preferencesWindow.makeKeyAndOrderFront(self)
+    }
+
+    @IBAction func openAboutPanel(_ sender: NSMenuItem) {
+        self.aboutPanel.makeKeyAndOrderFront(self)
     }
 
     var hotKey: HotKey
@@ -123,8 +128,6 @@ class CutBoxController: NSObject {
         icon.isTemplate = true // best for dark mode
         self.statusItem.image = icon
         self.statusItem.menu = statusMenu
-
-        setupAboutItem()
     }
 
     private func itemSelectUp() {
@@ -139,20 +142,6 @@ class CutBoxController: NSObject {
         self.searchView.searchText.string = ""
         self.searchView.filterText.onNext("")
         self.searchView.clipboardItemsTable.reloadData()
-    }
-
-    private func setupAboutItem() {
-        let aboutTitle = "CutBox"
-        let aboutItem = NSMenuItem()
-        aboutItem.title = aboutTitle
-
-        self.statusMenu.insertItem(aboutItem, at: 2)
-
-        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
-            return
-        }
-
-        aboutItem.title = aboutTitle + " \(String(describing: version))"
     }
 
     private func setupSearchViewAndFilterBinding() {
