@@ -10,35 +10,8 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-extension SearchView: NSTextViewDelegate {
-    func textDidChange(_ notification: Notification) {
-        self.filterText.onNext(self.searchText.string)
-    }
-
-    func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        switch commandSelector {
-        case #selector(NSResponder.moveUp(_:)):
-            self.events.onNext(.itemSelectUp)
-            return true
-        case #selector(NSResponder.moveDown(_:)):
-            self.events.onNext(.itemSelectDown)
-            return true
-        case #selector(NSResponder.insertNewline(_:)):
-            self.events.onNext(.closeAndPaste)
-            return true
-        default:
-            return false
-        }
-    }
-}
-
-enum SearchViewEvents {
-    case closeAndPaste
-    case itemSelectUp
-    case itemSelectDown
-}
-
 class SearchView: NSView {
+
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
     @IBOutlet weak var searchText: NSTextView!
@@ -87,13 +60,15 @@ class SearchView: NSView {
         return true
     }
 
-    func itemSelect(closure: (_ index: Int, _ total: Int) -> Int) {
+    func itemSelect(lambda: (_ index: Int, _ total: Int) -> Int) {
         let row = self.clipboardItemsTable.selectedRow
         let total = self.clipboardItemsTable.numberOfRows
-        let selectedRow = closure(row, total)
+        let selectedRow = lambda(row, total)
         let indexSet: IndexSet = NSIndexSet(index: selectedRow) as IndexSet
 
-        self.clipboardItemsTable.selectRowIndexes(indexSet, byExtendingSelection: false)
+        self.clipboardItemsTable
+            .selectRowIndexes(indexSet,
+                              byExtendingSelection: false)
     }
 
     func itemSelectUp() {
@@ -122,4 +97,3 @@ class SearchView: NSView {
         }
     }
 }
-

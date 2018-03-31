@@ -40,7 +40,7 @@ class CutBoxController: NSObject {
         self.pasteboardService = PasteboardService()
         self.pasteboardService.startTimer()
         self.screen = mainScreen
-        self.width = self.screen.frame.width / 1.2
+        self.width = self.screen.frame.width / 1.8
         self.height = self.screen.frame.height / 1.8
 
         // TODO: Refactor: Hook up search view to pasteboard service so it can implement the table delegate/datasource
@@ -53,7 +53,7 @@ class CutBoxController: NSObject {
         super.init()
 
         setupSearchTextEventBindings()
-        setupFilterBinding()
+        setupSearchViewAndFilterBinding()
         setupPopup()
         setupHotkey()
     }
@@ -115,6 +115,49 @@ class CutBoxController: NSObject {
         icon.isTemplate = true // best for dark mode
         statusItem.image = icon
         statusItem.menu = statusMenu
+
+        setupAboutItem()
+    }
+
+    private func itemSelectUp() {
+        self.searchView.itemSelectUp()
+    }
+
+    private func itemSelectDown() {
+        self.searchView.itemSelectDown()
+    }
+
+    private func resetSearchText() {
+        self.searchView.searchText.string = ""
+        self.searchView.filterText.onNext("")
+        self.searchView.clipboardItemsTable.reloadData()
+    }
+
+    private func setupAboutItem() {
+        let aboutTitle = "About CutBox"
+        let aboutItem = NSMenuItem()
+        aboutItem.title = aboutTitle
+
+        self.statusMenu.addItem(aboutItem)
+
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else {
+            return
+        }
+
+        aboutItem.title = aboutTitle + " \(String(describing: version))"
+    }
+
+    private func setupSearchViewAndFilterBinding() {
+        self.searchView.clipboardItemsTable.dataSource = self
+        self.searchView.clipboardItemsTable.delegate = self
+
+        self.searchView.filterText
+            .bind {
+                self.popupController.resizePopup(height: self.height)
+                self.pasteboardService.filterText = $0
+                self.searchView.clipboardItemsTable.reloadData()
+            }
+            .disposed(by: self.disposeBag)
     }
 
     private func setupSearchTextEventBindings() {
@@ -133,34 +176,8 @@ class CutBoxController: NSObject {
             .disposed(by: disposeBag)
     }
 
-    private func itemSelectUp() {
-        self.searchView.itemSelectUp()
-    }
-
-    private func itemSelectDown() {
-        self.searchView.itemSelectDown()
-    }
-
-    private func setupFilterBinding() {
-        self.searchView.clipboardItemsTable.dataSource = self
-        self.searchView.clipboardItemsTable.delegate = self
-        self.searchView.filterText
-            .bind {
-                self.popupController.resizePopup(height: self.height)
-                self.pasteboardService.filterText = $0
-                self.searchView.clipboardItemsTable.reloadData()
-            }
-            .disposed(by: self.disposeBag)
-    }
-
     private func setupHotkey() {
         self.hotKey.keyDownHandler = self.popupController.togglePopup
-    }
-
-    private func resetSearchText() {
-        self.searchView.searchText.string = ""
-        self.searchView.filterText.onNext("")
-        self.searchView.clipboardItemsTable.reloadData()
     }
 
     private func setupPopup() {
@@ -192,106 +209,6 @@ class CutBoxController: NSObject {
         self.popupController
             .willClosePopup = {
                 self.resetSearchText()
-        }
-    }
-}
-
-extension CutBoxController: NSTableViewDataSource {
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        let count = self.pasteboardService.count
-        return count
-    }
-
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        guard let value = self.pasteboardService[row] else { return nil }
-
-        return value
-    }
-}
-
-extension CutBoxController: NSTableViewDelegate {
-
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        return 30
-    }
-
-    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        return true
-    }
-
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        let row = self.searchView.clipboardItemsTable.selectedRow
-        guard let clip = self.pasteboardService[row] else { return }
-
-        self.searchView.previewClip.string = clip
-    }
-
-    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        return SearchViewTableRowView()
-    }
-
-    func tableView(_ tableView: NSTableView,
-                   viewFor tableColumn: NSTableColumn?,
-                   row: Int) -> NSView? {
-        guard let _ = self.pasteboardService[row] else { return nil }
-
-        let identifier = NSUserInterfaceItemIdentifier(
-            rawValue: "pasteBoardItemsTableTextField")
-
-        var textField: NSTextField? = tableView.makeView(
-            withIdentifier: identifier, owner: self) as? NSTextField
-
-        if textField == nil {
-            let textWidth = Int(tableView.frame.width)
-            let textHeight = 30
-            let textFrame = CGRect(x: 0, y: 0,
-                                   width: textWidth,
-                                   height: textHeight)
-
-            textField = NSTextField(frame: textFrame)
-            textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
-            textField?.cell?.isBordered = false
-            textField?.cell?.backgroundStyle = .dark
-            textField?.backgroundColor = NSColor.clear
-            textField?.isBordered = false
-            textField?.isSelectable = false
-            textField?.isEditable = false
-            textField?.bezelStyle = .roundedBezel
-            textField?.font = CutBoxPreferences.shared.searchViewClipItemsFont
-            textField?.identifier = identifier
-        }
-
-        return textField
-    }
-}
-
-class SearchViewTableRowView: NSTableRowView {
-
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-        self.layer?.backgroundColor = NSColor.clear.cgColor
-    }
-
-    override var isEmphasized: Bool {
-        set {}
-        get {
-            return false
-        }
-    }
-
-    override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
-        set {}
-        get {
-            return .regular
-        }
-    }
-
-    override func drawSelection(in dirtyRect: NSRect) {
-        if self.selectionHighlightStyle != .none {
-            let selectionRect = self.bounds
-            CutBoxPreferences.shared.searchViewClipItemsHighlightColor.setFill()
-            let selectionPath = NSBezierPath.init(rect: selectionRect)
-            selectionPath.fill()
         }
     }
 }

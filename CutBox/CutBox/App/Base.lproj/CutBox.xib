@@ -33,9 +33,6 @@
                         <action selector="clearHistoryClicked:" target="4hl-ia-0EP" id="9Sd-8I-Ob6"/>
                     </connections>
                 </menuItem>
-                <menuItem title="About CutBox" id="PGF-kb-JSD">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
                 <menuItem isSeparatorItem="YES" id="cTR-7r-05t"/>
                 <menuItem title="Quit" id="akv-B8-OIW">
                     <modifierMask key="keyEquivalentModifierMask"/>

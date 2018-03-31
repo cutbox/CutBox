@@ -19,6 +19,11 @@
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
 		96564BD9205D49B900A95E02 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD4205D495B00A95E02 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96564BDA205D49B900A95E02 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96564BD5205D495B00A95E02 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
+		965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */; };
+		965F076A206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */; };
+		965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */; };
+		965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076D206F58A40032DACD /* SearchViewEvents.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
 		968A97BE2066745D00D36B50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
@@ -81,6 +86,11 @@
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
 		96564BD4205D495B00A95E02 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/Mac/Nimble.framework; sourceTree = "<group>"; };
 		96564BD5205D495B00A95E02 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/Mac/Quick.framework; sourceTree = "<group>"; };
+		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
+		965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerTableViewDelegate.swift; sourceTree = "<group>"; };
+		965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerTableViewDataSource.swift; sourceTree = "<group>"; };
+		965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextViewDelegate.swift; sourceTree = "<group>"; };
+		965F076D206F58A40032DACD /* SearchViewEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEvents.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
@@ -179,8 +189,13 @@
 			isa = PBXGroup;
 			children = (
 				968A97BF20667CDC00D36B50 /* Pasteboard */,
-				961A49B12065D85D005BC79D /* SearchView.swift */,
 				968A97BD2066745D00D36B50 /* SearchView.xib */,
+				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
+				961A49B12065D85D005BC79D /* SearchView.swift */,
+				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
+				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
+				965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */,
+				965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -273,9 +288,9 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
+				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
-				96E1E59B205D243400F994ED /* CutBox.xib */,
 				961A49B02065D72F005BC79D /* Popup */,
 				961A49B92065DC1E005BC79D /* Search */,
 			);
@@ -660,15 +675,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */,
 				968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
 				964766642067A5F100E7026F /* NSView+fromNib.swift in Sources */,
+				965F076A206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift in Sources */,
+				965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */,
 				961A49B22065D85D005BC79D /* SearchView.swift in Sources */,
+				965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
+				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,

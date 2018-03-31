@@ -16,10 +16,12 @@ class PopupController: NSWindowController {
     let containerView = PopupContainerView()
     var contentView: NSView
 
-    var openDuration: TimeInterval = 0.1
-    var closeDuration: TimeInterval = 0.1
+    var openDuration: TimeInterval = 0
+    var closeDuration: TimeInterval = 0
     var currentHeight: CGFloat = 0
     var currentWidth: CGFloat = 0
+
+    var yPadding: CGFloat = 0
 
     var contentInset: CGFloat {
         get { return containerView.contentInset }
@@ -52,7 +54,7 @@ class PopupController: NSWindowController {
         setup()
     }
 
-    required  init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         self.contentView = coder.decodeObject(forKey: "contentView") as? NSView ?? NSView()
         super.init(coder: coder)
         self.window = panel
@@ -97,7 +99,6 @@ class PopupController: NSWindowController {
         isOpen ? closePanel() : openPanel()
     }
 
-    var yPadding: CGFloat = 30
 
     func resizePopup(width: CGFloat, height: CGFloat) {
 
@@ -141,16 +142,17 @@ class PopupController: NSWindowController {
         self.isOpening = true
         willOpenPopup?()
         self.isOpen = true
-        contentView.isHidden = false
-        let panelRect = rect(forPanel: panel)
+        self.contentView.isHidden = false
+        let panelRect = rect(forPanel: self.panel)
 
         NSApp.activate(ignoringOtherApps: false)
-        panel.alphaValue = 0
-        panel.setFrame(panelRect, display: true)
-        panel.makeKeyAndOrderFront(self)
+
+        self.panel.alphaValue = 0
+        self.panel.setFrame(panelRect, display: true)
+        self.panel.makeKeyAndOrderFront(self)
 
         NSAnimationContext.runAnimationGroup({ context in
-            context.duration = openDuration
+            context.duration = self.openDuration
             self.panel.animator().alphaValue = 1
         }, completionHandler: {
             self.isOpening = false
@@ -182,8 +184,9 @@ class PopupController: NSWindowController {
 
         let screenRect = screen.frame
         var panelRect = panel.frame
+
+        panelRect.origin.y = screenRect.height - panelRect.height - self.yPadding
         panelRect.origin.x = round(screenRect.midX - panelRect.width / 2)
-        panelRect.origin.y = round(screenRect.midY - panelRect.height / 2)
 
         if panelRect.maxX > screenRect.maxX {
             panelRect.origin.x -= panelRect.maxX - screenRect.maxX
