@@ -14,21 +14,32 @@ CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](htt
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-preview.png)
 
+# Download / install...
+
+You can find the latest release here: https://github.com/ocodo/CutBox/releases/latest
+
+Please note, CutBox.app is built as "Mac Developer" so when you
+install, Macos will give a security warning, that it was built
+by an unidentified developer.  [I am that unidentified developer!](https://github.com/jasonm23)
+
+As a side note, CutBox will not be on the Mac AppStore.
+
 ## How to use CutBox
 
 CutBox will be available from the Macos top menu and a global hotkey
 combo <kbd>**Cmd**</kbd> + <kbd>**Opt**</kbd> + <kbd>**Ctrl**</kbd> + <kbd>**V**</kbd>
 
 Search the cut/copy history by typing (search uses fuzzy matching)
-Select from the search results using <kbd>**up**</kbd> and <kbd>**down**</kbd>.
+Select from the search results using <kbd>**up**</kbd> and <kbd>**down**</kbd>, or select with the mouse.
 
-Press <kbd>**Enter**</kbd> to paste the selected text.
+Once you've selected an item, press <kbd>**Enter**</kbd> to paste it to the current app.
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-preview-search.png)
 
 If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 (If you click the mouse away from the search popup it'll exit too.)
+
 
 # Development note
 

@@ -5,6 +5,6 @@ APP_VERSION=$(/usr/libexec/PlistBuddy  -c "Print CFBundleShortVersionString" "${
 LATEST_TAG=$(git tag | tail -1)
 
 if [[ "${APP_VERSION}" != "${LATEST_TAG}" ]]; then
-  echo "warning: CutBox version: ${APP_VERSION} newer than latest git tag: ${LATEST_TAG}
-(Cut a new release?)"
+  echo "warning: CutBox current version: ${APP_VERSION} (latest git tag: ${LATEST_TAG})
+(Is it time to cut a new .app build for release?)"
 fi

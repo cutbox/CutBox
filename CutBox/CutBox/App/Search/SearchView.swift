@@ -87,7 +87,7 @@ class SearchView: NSView {
         return true
     }
 
-    func itemSelect(closure: (Int, Int) -> Int) {
+    func itemSelect(closure: (_ index: Int, _ total: Int) -> Int) {
         let row = self.clipboardItemsTable.selectedRow
         let total = self.clipboardItemsTable.numberOfRows
         let selectedRow = closure(row, total)
@@ -97,17 +97,29 @@ class SearchView: NSView {
     }
 
     func itemSelectUp() {
-        itemSelect {(i, t) in i > 0 ? i - 1 : i }
+        itemSelect { index, _ in
+            index > 0
+                ? index - 1
+                : index
+        }
     }
 
     func itemSelectDown() {
-        itemSelect {(i, t) in i < t ? i + 1 : i }
+        itemSelect { index, total in
+            index < total
+                ? index + 1
+                : index
+        }
     }
 
     override func keyDown(with event: NSEvent) {
-        let (key, modifiers) = (event.keyCode, event.modifierFlags)
-        debugPrint(key, modifiers)
-        super.keyDown(with: event)
+        switch event.keyCode {
+        case 36: // Enter key
+            self.events
+                .onNext(.closeAndPaste)
+        default:
+            return
+        }
     }
 }
 
