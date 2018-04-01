@@ -14,6 +14,10 @@ import RxSwift
 import RxCocoa
 import HotKey
 
+class PreferencesWindow: NSWindow {
+    
+}
+
 class CutBoxController: NSObject {
 
     let preferences = CutBoxPreferences.shared
@@ -26,7 +30,7 @@ class CutBoxController: NSObject {
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var statusMenu: NSMenu!
-    @IBOutlet weak var preferencesWindow: NSWindow!
+    @IBOutlet weak var preferencesWindow: PreferencesWindow!
     @IBOutlet weak var aboutPanel: NSPanel!
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
