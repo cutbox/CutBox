@@ -1,9 +1,6 @@
 #!/bin/sh
 # -*- mode: sh -*-
 
-# TODO : check date/time of last build... (get from latest xcarchive date)
-# if the build didn't happen < 10mins ago quit.
-
 if [[ $# > 1 && $# < 4 ]]; then
   echo "Initialize hub release: ${@}"
 else

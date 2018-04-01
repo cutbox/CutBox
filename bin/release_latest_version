@@ -2,6 +2,7 @@
 
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
+DMG_FILE="${PROJECT_DIR}/CutBox.dmg"
 INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
 OLD_VERSION="$(git tag | tail -1)"
 VERSION="$(/usr/libexec/PlistBuddy -c \
@@ -10,26 +11,39 @@ VERSION="$(/usr/libexec/PlistBuddy -c \
 
 if [ "${VERSION}" == "${OLD_VERSION}" ]; then
 
-  echo "ERROR: Current version and latest git tag match."
-  exit 1
-
-else
-
-  if [ -f "${RELEASE_NOTES}" ]; then
-    MESSAGE=$(< "${RELEASE_NOTES}")
-  else
-    MESSAGE="CutBox version ${VERSION}"
-  fi
-
-  bin/cutbox_make_dmg && \
-    bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" && \
-    git push origin head && \
-    bin/cutbox_hub_release \
-      ${VERSION} \
-      CutBox.dmg \
-      "${MESSAGE}" && \
-    bin/clean_release_files
-
-  echo "Released CutBox version: ${VERSION}"
+  echo "Warning: Current version and latest git tag match."
+  DRY_RUN="TRUE"
+  echo "Notice: Dry run mode."
 
 fi
+
+[[ ! -z $DRY_RUN ]] && echo "Dry run..."
+
+if [[ -f $DMG_FILE ]]; then
+  echo "Aborting: CutBox.dmg already exists"
+  exit 1
+fi
+
+if [ -f "${RELEASE_NOTES}" ]; then
+  MESSAGE=$(< "${RELEASE_NOTES}")
+else
+  MESSAGE="CutBox version ${VERSION}"
+fi
+
+bin/cutbox_make_dmg \
+  && \
+  [[ -z $DRY_RUN ]] \
+  && bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" \
+  && \
+  git push origin head \
+  1&& \
+  bin/cutbox_hub_release \
+    ${VERSION} \
+    CutBox.dmg \
+    "${MESSAGE}" \
+  && \
+  git pull --rebase \
+  && \
+  bin/clean_release_files
+
+echo "Released CutBox version: ${VERSION}"

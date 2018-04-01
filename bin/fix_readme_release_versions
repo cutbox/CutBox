@@ -2,6 +2,7 @@
 
 if [[ $# != 2 ]]; then
   echo "Usage: $0 $1:OLD_VERSION $2:NEW_VERSION"
+  exit
 fi
 
 OLD_VERSION=$1
