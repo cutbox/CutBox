@@ -171,8 +171,8 @@
 		961A49B92065DC1E005BC79D /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				965F0790207121800032DACD /* FakeKey */,
 				968A97BF20667CDC00D36B50 /* Pasteboard */,
-				968A97BD2066745D00D36B50 /* SearchView.xib */,
 				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
 				961A49B12065D85D005BC79D /* SearchView.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
@@ -183,14 +183,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		964766652067A63700E7026F /* MacosExtensions */ = {
+		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				964766682067B82900E7026F /* DisableScrollView.swift */,
 				964766632067A5F100E7026F /* NSView+fromNib.swift */,
 				964766662067A68000E7026F /* Collection+Safe.swift */,
 			);
-			path = MacosExtensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
@@ -211,10 +211,36 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		968A97BF20667CDC00D36B50 /* Pasteboard */ = {
+		965F078E207120DB0032DACD /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E5C3205D295000F994ED /* App */,
+				964766652067A63700E7026F /* Extensions */,
+				96E1E597205D243400F994ED /* AppDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		965F078F2071214E0032DACD /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				96E1E59B205D243400F994ED /* CutBox.xib */,
+				968A97BD2066745D00D36B50 /* SearchView.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		965F0790207121800032DACD /* FakeKey */ = {
 			isa = PBXGroup;
 			children = (
 				96CFA6B22069278700BAFABB /* FakeKey.swift */,
+			);
+			path = FakeKey;
+			sourceTree = "<group>";
+		};
+		968A97BF20667CDC00D36B50 /* Pasteboard */ = {
+			isa = PBXGroup;
+			children = (
 				968A97C020667CF800D36B50 /* PasteboardService.swift */,
 			);
 			path = Pasteboard;
@@ -245,11 +271,10 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
-				965F0785206FCDC60032DACD /* Images */,
 				96085E40206C72C900CA77BB /* README.md */,
-				96E1E597205D243400F994ED /* AppDelegate.swift */,
-				964766652067A63700E7026F /* MacosExtensions */,
-				96E1E5C3205D295000F994ED /* App */,
+				965F078F2071214E0032DACD /* Xib */,
+				965F078E207120DB0032DACD /* Source */,
+				965F0785206FCDC60032DACD /* Images */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
 				96E1E59E205D243400F994ED /* Info.plist */,
 				96E1E59F205D243400F994ED /* CutBox.entitlements */,
@@ -278,7 +303,6 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
-				96E1E59B205D243400F994ED /* CutBox.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
@@ -606,18 +630,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/HotKey/HotKey.framework",
+				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
+				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ShortcutRecorder/ShortcutRecorder.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStringScore/SwiftyStringScore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HotKey.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ShortcutRecorder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStringScore.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>HotKey.xcscheme</key>
+		<key>KeyHolder-KeyHolder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KeyHolder.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Magnet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -40,16 +50,6 @@
 			<false/>
 		</dict>
 		<key>RxSwift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ShortcutRecorder-ShortcutRecorder.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ShortcutRecorder.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
