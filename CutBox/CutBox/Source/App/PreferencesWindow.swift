@@ -11,17 +11,32 @@ import KeyHolder
 import Magnet
 
 class PreferencesWindow: NSWindow, RecordViewDelegate {
-    func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
-        debugPrint("recordView::recordViewShouldBeginRecording")
+
+    func recordView(_ recordView: RecordView, canRecordKeyCombo keyCombo: KeyCombo) -> Bool {
         return true
     }
 
-    func recordView(_ recordView: RecordView, canRecordKeyCombo keyCombo: KeyCombo) -> Bool {
-        debugPrint("recordView::canRecordKeyCombo")
+    func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
+        debugPrint("recordView::recordViewShouldBeginRecording")
+        HotKeyCenter
+            .shared
+            .unregisterHotKey(with: "ToggleSearchPanel")
         return true
+    }
+
+    func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
+        debugPrint("recordView::didChangeKeyCombo")
+        switch recordView {
+        case keyRecorder:
+            CutBoxPreferences
+                .shared
+                .changeGlobalToggle(keyCombo: keyCombo)
+        default: break
+        }
     }
 
     func recordViewDidClearShortcut(_ recordView: RecordView) {
+        CutBoxPreferences.shared.resetDefaultGlobalToggle()
         debugPrint("recordView::recordViewDidClearShortcut")
     }
 
@@ -29,16 +44,16 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
         debugPrint("recordView::recordViewDidEndRecording")
     }
 
-
     @IBOutlet weak var keyRecorder: RecordView!
 
     override func awakeFromNib() {
-        keyRecorder.keyCombo = CutBoxPreferences.shared.globalHotkey
+        if #available(OSX 10.10, *) {
+            self.titlebarAppearsTransparent = true
+        }
 
+        keyRecorder.delegate = self
+        keyRecorder.keyCombo = CutBoxPreferences.shared.globalKeyCombo
     }
 
-    func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
-        debugPrint("recordView::didChangeKeyCombo")
-//        HotKeyCenter.shared.unregisterHotKey(with: "a")
-    }
+
 }

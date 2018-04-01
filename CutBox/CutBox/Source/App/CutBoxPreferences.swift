@@ -33,11 +33,21 @@ extension NSColor {
 import Magnet
 import Carbon.HIToolbox
 
+class CutBoxEnvironment {
+    var mainController: CutBoxController?
+
+    func setup(mainController: CutBoxController) {
+        self.mainController = mainController
+    }
+}
+
 class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
 
-    var globalHotkey: KeyCombo = KeyCombo(
+    let environment = CutBoxEnvironment()
+
+    var globalKeyCombo: KeyCombo = KeyCombo(
         keyCode: 9,
         cocoaModifiers: [.command, .shift])!
 
@@ -78,4 +88,22 @@ class CutBoxPreferences {
 
     var url = "https://github.com/ocodo/CutBox"
 
+    func resetDefaultGlobalToggle() {
+        changeGlobalToggle(keyCombo: globalKeyCombo)
+    }
+
+    func changeGlobalToggle(keyCombo: KeyCombo) {
+        guard let controller = environment.mainController else {
+            fatalError("CutBoxEnvironment needs mainController configured (CutBoxController)")
+        }
+
+        let hotKey = HotKey(
+            identifier: "ToggleSearchPanel",
+            keyCombo: keyCombo,
+            target: controller,
+            action: #selector(controller.searchClicked(_:))
+        )
+
+        hotKey.register()
+    }
 }

@@ -77,17 +77,23 @@ class CutBoxController: NSObject {
 
         super.init()
 
-        let hotKey = HotKey(
-            identifier: "Global toggle cutbox",
-            keyCombo: preferences.globalHotkey,
-            target: self,
-            action: #selector(searchClicked(_:))
-        )
-        hotKey.register()
-
+        setupPreferencesEnvironment()
+        setupDefaultHotKey()
         setupSearchTextEventBindings()
         setupSearchViewAndFilterBinding()
         setupPopup()
+    }
+
+    private func setupPreferencesEnvironment() {
+        CutBoxPreferences
+            .shared
+            .environment.setup(mainController: self)
+    }
+
+    private func setupDefaultHotKey() {
+        CutBoxPreferences
+            .shared
+            .resetDefaultGlobalToggle()
     }
 
     func pasteSelectedClipToPasteboard() {
@@ -181,11 +187,15 @@ class CutBoxController: NSObject {
     private func setupPopup() {
         self.popupController
             .backgroundView
-            .backgroundColor = CutBoxPreferences.shared.searchViewBackgroundColor
+            .backgroundColor = CutBoxPreferences
+                .shared
+                .searchViewBackgroundColor
 
         self.popupController
             .backgroundView
-            .alphaValue = CutBoxPreferences.shared.searchViewBackgroundAlpha
+            .alphaValue = CutBoxPreferences
+                .shared
+                .searchViewBackgroundAlpha
 
         self.popupController
             .resizePopup(width: self.width,

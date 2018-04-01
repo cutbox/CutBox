@@ -28,6 +28,7 @@ class AboutView: NSView {
     @IBOutlet weak var productLicense: NSTextField!
 
     override func awakeFromNib() {
+
         productTitle.stringValue = "CutBox"
 
         productInfo.stringValue = "https://github.com/ocodo/CutBox"

@@ -68,16 +68,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="azf-tF-ydF">
-                        <rect key="frame" x="18" y="213" width="444" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Show / Hide CutBox" id="KiW-H4-HAT">
-                            <font key="font" metaFont="systemBold"/>
+                        <rect key="frame" x="18" y="213" width="202" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Show/Hide CutBox Shortcut key" id="KiW-H4-HAT">
+                            <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFI-Kn-Srb" customClass="RecordView" customModule="KeyHolder">
-                        <rect key="frame" x="55" y="153" width="392" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="xFI-Kn-Srb" customClass="RecordView" customModule="KeyHolder">
+                        <rect key="frame" x="228" y="209" width="232" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="iOQ-hP-4jv"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="6"/>
@@ -92,13 +94,15 @@
                     </customView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="azf-tF-ydF" firstAttribute="top" secondItem="A5o-FS-zqn" secondAttribute="top" constant="40" id="GFS-Of-AKc"/>
+                    <constraint firstItem="xFI-Kn-Srb" firstAttribute="leading" secondItem="azf-tF-ydF" secondAttribute="trailing" constant="10" id="8fh-bB-Onu"/>
                     <constraint firstItem="azf-tF-ydF" firstAttribute="leading" secondItem="A5o-FS-zqn" secondAttribute="leading" constant="20" id="UA6-Ci-PFT"/>
-                    <constraint firstAttribute="trailing" secondItem="azf-tF-ydF" secondAttribute="trailing" constant="20" id="lQW-Fo-5c9"/>
+                    <constraint firstItem="xFI-Kn-Srb" firstAttribute="centerY" secondItem="azf-tF-ydF" secondAttribute="centerY" id="bMf-s4-XxK"/>
+                    <constraint firstItem="azf-tF-ydF" firstAttribute="top" secondItem="A5o-FS-zqn" secondAttribute="top" constant="40" id="bXb-ry-KOz"/>
+                    <constraint firstAttribute="trailing" secondItem="xFI-Kn-Srb" secondAttribute="trailing" constant="20" id="dDr-iF-ajr"/>
                 </constraints>
             </view>
             <connections>
-                <outlet property="keyRecorder" destination="xFI-Kn-Srb" id="Mnf-fj-TB4"/>
+                <outlet property="keyRecorder" destination="xFI-Kn-Srb" id="K87-B1-Pfq"/>
             </connections>
             <point key="canvasLocation" x="-69" y="-122"/>
         </window>
