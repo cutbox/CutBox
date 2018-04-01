@@ -49,6 +49,7 @@ class CutBoxController: NSObject {
 
     @IBAction func openAboutPanel(_ sender: NSMenuItem) {
         self.aboutPanel.makeKeyAndOrderFront(self)
+        self.aboutPanel.center()
     }
 
     var hotKey: HotKey
