@@ -43,6 +43,7 @@ class CutBoxController: NSObject {
     }
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
         self.preferencesWindow.makeKeyAndOrderFront(self)
         self.preferencesWindow.center()
     }
