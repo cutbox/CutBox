@@ -44,6 +44,7 @@ class CutBoxController: NSObject {
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
         self.preferencesWindow.makeKeyAndOrderFront(self)
+        self.preferencesWindow.center()
     }
 
     @IBAction func openAboutPanel(_ sender: NSMenuItem) {
