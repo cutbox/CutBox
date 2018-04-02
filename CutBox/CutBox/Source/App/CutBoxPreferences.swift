@@ -7,6 +7,7 @@
 //
 
 import Magnet
+import RxSwift
 
 class CutBoxEnvironment {
     var mainController: CutBoxController?
@@ -20,23 +21,24 @@ class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
 
-    var cutBoxVersionString: String {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
-            let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] {
-            return "version: \(version) (\(buildNumber))"
-        }
-        return "ERROR: Cannot get version"
-    }
-
-    let searchUserDefaultKey = "CutBoxToggleSearchPanelHotKey"
-    
-    var searchCustomKeyCombo: KeyCombo?
-
+    let disposeBag = DisposeBag()
     let environment = CutBoxEnvironment()
 
-    var globalKeyCombo: KeyCombo = KeyCombo(
-        keyCode: 9,
-        cocoaModifiers: [.command, .shift])!
+    var searchCustomKeyCombo = PublishSubject<KeyCombo>()
+
+    init() {
+        self.searchCustomKeyCombo
+            .distinctUntilChanged {
+                $0.keyCode == $1.keyCode
+                    && $0.modifiers == $1.modifiers
+            }
+            .subscribe(onNext: { self.changeGlobalToggle(keyCombo: $0) })
+            .disposed(by: disposeBag)
+    }
+
+    let searchKeyComboUserDefaults = "CutBoxToggleSearchPanelHotKey"
+
+    let globalDefaultKeyCombo = KeyCombo(keyCode: 9, cocoaModifiers: [.shift, .command])
 
     var searchViewTextFieldFont = NSFont(
         name: "Helvetica Neue",
@@ -52,7 +54,7 @@ class CutBoxPreferences {
 
     var searchViewBackgroundAlpha = CGFloat(1.0)
 
-    var searchViewBackgroundColor            = #colorLiteral(red: 0.0585, green: 0.10855, blue: 0.13, alpha: 1)
+    var searchViewBackgroundColor            = #colorLiteral(red: 0.07675106282, green: 0.1590322896, blue: 0.2066685268, alpha: 1)
 
     var searchViewTextFieldCursorColor       = #colorLiteral(red: 0.05882352941, green: 0.1098039216, blue: 0.1294117647, alpha: 1)
 
@@ -77,27 +79,46 @@ class CutBoxPreferences {
     let cutBoxCopyrightLicense = "Copyright © 2018 Jason Milkins\nLicensed under GNU GPL3"
 
     var searchViewPlaceholderText = "Search CutBox History"
+
     var searchFuzzyMatchMinScore = 0.1
 
-    var url = "https://github.com/ocodo/CutBox"
+}
+
+extension CutBoxPreferences {
+    var cutBoxVersionString: String {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
+            let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] {
+            return "version: \(version) (\(buildNumber))"
+        }
+        return "ERROR: Cannot get version"
+    }
+}
+
+extension CutBoxPreferences {
 
     func resetDefaultGlobalToggle() {
-        changeGlobalToggle(keyCombo: globalKeyCombo)
+        if let savedKeyCombo = KeyCombo.loadFromUserDefaults(identifier: searchKeyComboUserDefaults) {
+            self.searchCustomKeyCombo.onNext(savedKeyCombo)
+        } else {
+            self.searchCustomKeyCombo.onNext(globalDefaultKeyCombo!)
+        }
     }
 
-    func changeGlobalToggle(keyCombo: KeyCombo) {
+    fileprivate func changeGlobalToggle(keyCombo: KeyCombo) {
         guard let controller = environment.mainController else {
             fatalError("CutBoxEnvironment needs mainController configured (CutBoxController)")
         }
 
         let hotKey = HotKey(
-            identifier: "CutBoxToggleSearchPanelHotKey",
+            identifier: self.searchKeyComboUserDefaults,
             keyCombo: keyCombo,
             target: controller,
             action: #selector(controller.searchClicked(_:))
         )
 
-        self.searchCustomKeyCombo = keyCombo
         hotKey.register()
+
+        keyCombo.saveToUserDefaults(identifier: self.searchKeyComboUserDefaults)
     }
 }
+

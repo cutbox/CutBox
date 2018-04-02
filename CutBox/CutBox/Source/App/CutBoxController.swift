@@ -99,17 +99,16 @@ class CutBoxController: NSObject {
     }
 
     private func setupDefaultHotKey() {
-        CutBoxPreferences
-            .shared
-            .resetDefaultGlobalToggle()
+        let prefs = CutBoxPreferences.shared
+        prefs.resetDefaultGlobalToggle()
     }
 
     func pasteSelectedClipToPasteboard() {
         guard let selectedClip = self
             .pasteboardService[
                 self.searchView
-                .clipboardItemsTable
-                .selectedRow
+                    .clipboardItemsTable
+                    .selectedRow
             ]
 
             else { return }
@@ -215,7 +214,9 @@ class CutBoxController: NSObject {
                 self.searchView
                     .searchText
                     .window?
-                    .makeFirstResponder(self.searchView.searchText)
+                    .makeFirstResponder(self
+                        .searchView
+                        .searchText)
         }
 
         self.popupController

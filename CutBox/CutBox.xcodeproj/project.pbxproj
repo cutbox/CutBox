@@ -12,7 +12,7 @@
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
-		963AA6462071E15900779697 /* NSCoding+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* NSCoding+Archive.swift */; };
+		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
 		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
 		964766642067A5F100E7026F /* NSResponder+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSResponder+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
@@ -95,7 +95,7 @@
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
-		963AA6452071E15900779697 /* NSCoding+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCoding+Archive.swift"; sourceTree = "<group>"; };
+		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyHolder.xcodeproj; path = DependencySubmodules/KeyHolder/Lib/KeyHolder.xcodeproj; sourceTree = SOURCE_ROOT; };
 		964766632067A5F100E7026F /* NSResponder+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSResponder+fromNib.swift"; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				963AA6452071E15900779697 /* NSCoding+Archive.swift */,
+				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
 				964766682067B82900E7026F /* DisableScrollView.swift */,
 				964766632067A5F100E7026F /* NSResponder+fromNib.swift */,
 				964766662067A68000E7026F /* Collection+Safe.swift */,
@@ -275,13 +275,6 @@
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		965F078F2071214E0032DACD /* Xib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Xib;
 			sourceTree = "<group>";
 		};
 		965F0790207121800032DACD /* FakeKey */ = {
@@ -327,7 +320,6 @@
 			children = (
 				963AA64B2071FD1500779697 /* DependencySubmodules */,
 				96085E40206C72C900CA77BB /* README.md */,
-				965F078F2071214E0032DACD /* Xib */,
 				965F078E207120DB0032DACD /* Source */,
 				965F0785206FCDC60032DACD /* Images */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
@@ -794,7 +786,7 @@
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
-				963AA6462071E15900779697 /* NSCoding+Archive.swift in Sources */,
+				963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
