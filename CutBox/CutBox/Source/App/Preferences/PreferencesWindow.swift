@@ -20,7 +20,7 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
         debugPrint("recordView::recordViewShouldBeginRecording")
         HotKeyCenter
             .shared
-            .unregisterHotKey(with: "ToggleSearchPanel")
+            .unregisterHotKey(with: "CutBoxToggleSearchPanel")
         return true
     }
 
@@ -36,12 +36,17 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
     }
 
     func recordViewDidClearShortcut(_ recordView: RecordView) {
-        CutBoxPreferences.shared.resetDefaultGlobalToggle()
-        debugPrint("recordView::recordViewDidClearShortcut")
+
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
-        debugPrint("recordView::recordViewDidEndRecording")
+        guard HotKeyCenter.shared.hotKey("CutBoxToggleSearchPanel") != nil else {
+
+            CutBoxPreferences.shared.resetDefaultGlobalToggle()
+            self.keyRecorder.keyCombo = CutBoxPreferences.shared.globalKeyCombo
+
+            return
+        }
     }
 
     @IBOutlet weak var keyRecorder: RecordView!

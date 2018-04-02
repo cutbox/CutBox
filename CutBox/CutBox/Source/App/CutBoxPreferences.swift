@@ -20,7 +20,16 @@ class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
 
+    var cutBoxVersionString: String {
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
+            let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] {
+            return "version: \(version) (\(buildNumber))"
+        }
+        return "ERROR: Cannot get version"
+    }
+
     let searchUserDefaultKey = "kCutBoxHotKeySearchKeyCombo"
+    var searchCustomKeyCombo: KeyCombo?
 
     let environment = CutBoxEnvironment()
 
@@ -41,7 +50,7 @@ class CutBoxPreferences {
         size: 14)
 
     var searchViewBackgroundAlpha = CGFloat(1.0)
-    
+
     var searchViewBackgroundColor            = #colorLiteral(red: 0.0585, green: 0.10855, blue: 0.13, alpha: 1)
 
     var searchViewTextFieldCursorColor       = #colorLiteral(red: 0.05882352941, green: 0.1098039216, blue: 0.1294117647, alpha: 1)
@@ -60,6 +69,12 @@ class CutBoxPreferences {
 
     var searchViewClipPreviewBackgroundColor = #colorLiteral(red: 0.02545906228, green: 0.02863771868, blue: 0.03, alpha: 1)
 
+    let cutBoxProductTitle = "CutBox"
+
+    let cutBoxProductHomeUrl = "https://github.com/ocodo/CutBox"
+
+    let cutBoxCopyrightLicense = "Copyright © 2018 Jason Milkins\nLicensed under GNU GPL3"
+
     var searchViewPlaceholderText = "Search CutBox History"
     var searchFuzzyMatchMinScore = 0.1
 
@@ -75,12 +90,13 @@ class CutBoxPreferences {
         }
 
         let hotKey = HotKey(
-            identifier: "ToggleSearchPanel",
+            identifier: "CutBoxToggleSearchPanel",
             keyCombo: keyCombo,
             target: controller,
             action: #selector(controller.searchClicked(_:))
         )
 
+        self.searchCustomKeyCombo = keyCombo
         hotKey.register()
     }
 }

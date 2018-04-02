@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="About CutBox" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="cj6-GZ-QX0" customClass="AboutPanel" customModule="CutBox" customModuleProvider="target">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="112" width="276" height="150"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <view key="contentView" id="rS7-ly-uMb">
+                <rect key="frame" x="0.0" y="0.0" width="276" height="150"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ai2-LU-pGD">
+                        <rect key="frame" x="20" y="20" width="110" height="110"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="110" id="9hb-5d-Cg0"/>
+                            <constraint firstAttribute="width" constant="110" id="DXR-MC-TZf"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-preview-256" id="ych-ZH-c7d"/>
+                    </imageView>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V9d-ea-Gec">
+                        <rect key="frame" x="166" y="117" width="48" height="0.0"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="dNe-i7-1BT"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="CEw-fR-fWZ"/>
+                    </imageView>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7O-CG-thr">
+                        <rect key="frame" x="138" y="113" width="120" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="po9-3J-eRF"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="CutBox" usesSingleLineMode="YES" id="9eH-Xf-fhH">
+                            <font key="font" size="15" name="AvenirNext-Bold"/>
+                            <color key="textColor" red="0.058500000000000003" green="0.10854999999999999" blue="0.13" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SYm-gs-NbI">
+                        <rect key="frame" x="138" y="95" width="110" height="17"/>
+                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="nD5-lh-lUa">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEU-RL-OJo" customClass="LinkText" customModule="CutBox" customModuleProvider="target">
+                        <rect key="frame" x="138" y="68" width="120" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="17" id="eHo-wR-cQp"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="adQ-QD-aH5">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RsQ-ZA-7Ke">
+                        <rect key="frame" x="138" y="20" width="120" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="msw-yV-CCt"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="mini" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="HiB-Dz-qkr">
+                            <font key="font" metaFont="miniSystem"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="g7O-CG-thr" firstAttribute="top" secondItem="rS7-ly-uMb" secondAttribute="top" constant="20" id="0YD-sN-TuA"/>
+                    <constraint firstAttribute="bottom" secondItem="SYm-gs-NbI" secondAttribute="bottom" constant="95" id="C0h-Uz-U8R"/>
+                    <constraint firstAttribute="bottom" secondItem="ai2-LU-pGD" secondAttribute="bottom" constant="20" id="Cao-vJ-808"/>
+                    <constraint firstAttribute="trailing" secondItem="V9d-ea-Gec" secondAttribute="trailing" constant="62" id="Gfz-FF-vPz"/>
+                    <constraint firstItem="SYm-gs-NbI" firstAttribute="top" secondItem="V9d-ea-Gec" secondAttribute="bottom" constant="5" id="VUT-a1-Dk2"/>
+                    <constraint firstItem="g7O-CG-thr" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="Vx8-Tn-CLk"/>
+                    <constraint firstAttribute="trailing" secondItem="SYm-gs-NbI" secondAttribute="trailing" constant="30" id="WZE-1C-EED"/>
+                    <constraint firstAttribute="trailing" secondItem="RsQ-ZA-7Ke" secondAttribute="trailing" constant="20" id="dfq-4q-kMG"/>
+                    <constraint firstItem="xEU-RL-OJo" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="eDz-OO-Xbf"/>
+                    <constraint firstAttribute="trailing" secondItem="g7O-CG-thr" secondAttribute="trailing" constant="20" id="fkV-Ic-I8W"/>
+                    <constraint firstItem="xEU-RL-OJo" firstAttribute="top" secondItem="SYm-gs-NbI" secondAttribute="bottom" constant="10" id="jtA-hi-klj"/>
+                    <constraint firstItem="ai2-LU-pGD" firstAttribute="top" secondItem="rS7-ly-uMb" secondAttribute="top" constant="20" id="og4-3k-1dR"/>
+                    <constraint firstItem="SYm-gs-NbI" firstAttribute="leading" secondItem="g7O-CG-thr" secondAttribute="leading" id="tHd-zh-Pmi"/>
+                    <constraint firstAttribute="trailing" secondItem="xEU-RL-OJo" secondAttribute="trailing" constant="20" id="tOF-nJ-m2J"/>
+                    <constraint firstItem="SYm-gs-NbI" firstAttribute="top" secondItem="g7O-CG-thr" secondAttribute="bottom" constant="1" id="tRb-vF-Eg5"/>
+                    <constraint firstItem="RsQ-ZA-7Ke" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="tsZ-gx-FHN"/>
+                    <constraint firstAttribute="bottom" secondItem="RsQ-ZA-7Ke" secondAttribute="bottom" constant="20" id="zij-wH-2xf"/>
+                    <constraint firstItem="ai2-LU-pGD" firstAttribute="leading" secondItem="rS7-ly-uMb" secondAttribute="leading" constant="20" id="zuh-c5-ykw"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="productHomeUrl" destination="xEU-RL-OJo" id="1MQ-4s-NrC"/>
+                <outlet property="productLicense" destination="RsQ-ZA-7Ke" id="YcE-D6-xBf"/>
+                <outlet property="productTitle" destination="g7O-CG-thr" id="U2P-Bv-7Xa"/>
+                <outlet property="productVersion" destination="SYm-gs-NbI" id="5jy-DJ-zvE"/>
+            </connections>
+            <point key="canvasLocation" x="413" y="-150"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="cutbox-icon-preview-256" width="50.36065673828125" height="50.36065673828125"/>
+    </resources>
+</document>

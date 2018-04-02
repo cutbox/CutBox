@@ -11,6 +11,9 @@
 		961A49B22065D85D005BC79D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
+		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
+		963AA6462071E15900779697 /* NSCoding+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* NSCoding+Archive.swift */; };
+		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
 		964766642067A5F100E7026F /* NSView+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSView+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
@@ -23,7 +26,7 @@
 		965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */; };
 		965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0783206FC4F60032DACD /* PreferencesWindow.swift */; };
 		965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
-		965F078D206FD1890032DACD /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F078C206FD1890032DACD /* AboutView.swift */; };
+		965F078D206FD1890032DACD /* AboutPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F078C206FD1890032DACD /* AboutPanel.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
 		968A97BE2066745D00D36B50 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
@@ -77,6 +80,9 @@
 		961A49B12065D85D005BC79D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
+		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
+		963AA6452071E15900779697 /* NSCoding+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCoding+Archive.swift"; sourceTree = "<group>"; };
+		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		964766632067A5F100E7026F /* NSView+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
@@ -89,7 +95,7 @@
 		965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupControllerWindowDelegate.swift; sourceTree = "<group>"; };
 		965F0783206FC4F60032DACD /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-icon-preview-256.png"; sourceTree = "<group>"; };
-		965F078C206FD1890032DACD /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		965F078C206FD1890032DACD /* AboutPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPanel.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
@@ -171,8 +177,7 @@
 		961A49B92065DC1E005BC79D /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				965F0790207121800032DACD /* FakeKey */,
-				968A97BF20667CDC00D36B50 /* Pasteboard */,
+				968A97BD2066745D00D36B50 /* SearchView.xib */,
 				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
 				961A49B12065D85D005BC79D /* SearchView.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
@@ -183,9 +188,28 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		963AA6472071EDEB00779697 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				965F078C206FD1890032DACD /* AboutPanel.swift */,
+				963AA6432071C95000779697 /* AboutPanel.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		963AA6482071EE0600779697 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				963AA6492071EE4800779697 /* PreferencesWindow.xib */,
+				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				963AA6452071E15900779697 /* NSCoding+Archive.swift */,
 				964766682067B82900E7026F /* DisableScrollView.swift */,
 				964766632067A5F100E7026F /* NSView+fromNib.swift */,
 				964766662067A68000E7026F /* Collection+Safe.swift */,
@@ -224,8 +248,6 @@
 		965F078F2071214E0032DACD /* Xib */ = {
 			isa = PBXGroup;
 			children = (
-				96E1E59B205D243400F994ED /* CutBox.xib */,
-				968A97BD2066745D00D36B50 /* SearchView.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -303,11 +325,14 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
-				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
+				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
-				965F078C206FD1890032DACD /* AboutView.swift */,
+				963AA6472071EDEB00779697 /* About */,
+				965F0790207121800032DACD /* FakeKey */,
+				968A97BF20667CDC00D36B50 /* Pasteboard */,
 				961A49B02065D72F005BC79D /* Popup */,
+				963AA6482071EE0600779697 /* Preferences */,
 				961A49B92065DC1E005BC79D /* Search */,
 			);
 			path = App;
@@ -444,7 +469,9 @@
 			files = (
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
 				965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */,
+				963AA6442071C95000779697 /* AboutPanel.xib in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
+				963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -695,7 +722,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */,
-				965F078D206FD1890032DACD /* AboutView.swift in Sources */,
+				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
 				968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,
@@ -715,6 +742,7 @@
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
+				963AA6462071E15900779697 /* NSCoding+Archive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

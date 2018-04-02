@@ -26,8 +26,8 @@ class CutBoxController: NSObject {
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var statusMenu: NSMenu!
-    @IBOutlet weak var preferencesWindow: PreferencesWindow!
-    @IBOutlet weak var aboutPanel: NSPanel!
+    let preferencesWindow: PreferencesWindow? = PreferencesWindow.fromNib()
+    let aboutPanel: AboutPanel? = AboutPanel.fromNib()
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
         self.popupController.togglePopup()
@@ -43,14 +43,22 @@ class CutBoxController: NSObject {
     }
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
+        guard let preferencesWindow = self.preferencesWindow else {
+            return
+        }
+
         NSApplication.shared.activate(ignoringOtherApps: true)
-        self.preferencesWindow.makeKeyAndOrderFront(self)
-        self.preferencesWindow.center()
+        preferencesWindow.makeKeyAndOrderFront(self)
+        preferencesWindow.center()
     }
 
     @IBAction func openAboutPanel(_ sender: NSMenuItem) {
-        self.aboutPanel.makeKeyAndOrderFront(self)
-        self.aboutPanel.center()
+        guard let aboutPanel = self.aboutPanel else {
+            return
+        }
+
+        aboutPanel.makeKeyAndOrderFront(self)
+        aboutPanel.center()
     }
 
     let statusItem: NSStatusItem = NSStatusBar
