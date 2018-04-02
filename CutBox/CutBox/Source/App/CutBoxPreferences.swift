@@ -6,32 +6,7 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
-import Cocoa
-
-extension NSColor {
-    convenience init(rgb: Int, a: CGFloat) {
-        let mask = 0xFF
-
-        let r = (rgb >> 24) & mask
-        let g = (rgb >> 16) & mask
-        let b = (rgb >> 8)  & mask
-
-        self.init(r: CGFloat(r),
-                  g: CGFloat(g),
-                  b: CGFloat(b),
-                  a: a)
-    }
-
-    convenience init (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        self.init(calibratedRed: r/0xff,
-                   green:        g/0xff,
-                   blue:         b/0xff,
-                   alpha: a)
-    }
-}
-
 import Magnet
-import Carbon.HIToolbox
 
 class CutBoxEnvironment {
     var mainController: CutBoxController?
@@ -44,6 +19,8 @@ class CutBoxEnvironment {
 class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
+
+    let searchUserDefaultKey = "kCutBoxHotKeySearchKeyCombo"
 
     let environment = CutBoxEnvironment()
 
