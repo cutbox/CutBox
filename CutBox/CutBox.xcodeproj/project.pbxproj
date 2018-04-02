@@ -206,6 +206,13 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		963AA64B2071FD1500779697 /* DependencySubmodules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DependencySubmodules;
+			sourceTree = "<group>";
+		};
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +300,7 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
+				963AA64B2071FD1500779697 /* DependencySubmodules */,
 				96085E40206C72C900CA77BB /* README.md */,
 				965F078F2071214E0032DACD /* Xib */,
 				965F078E207120DB0032DACD /* Source */,
@@ -657,16 +665,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
-				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStringScore/SwiftyStringScore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStringScore.framework",

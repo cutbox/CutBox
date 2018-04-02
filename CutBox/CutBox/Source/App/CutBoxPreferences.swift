@@ -28,7 +28,7 @@ class CutBoxPreferences {
         return "ERROR: Cannot get version"
     }
 
-    let searchUserDefaultKey = "kCutBoxHotKeySearchKeyCombo"
+    let searchUserDefaultKey = "CutBoxToggleSearchPanelHotKey"
     var searchCustomKeyCombo: KeyCombo?
 
     let environment = CutBoxEnvironment()
@@ -90,7 +90,7 @@ class CutBoxPreferences {
         }
 
         let hotKey = HotKey(
-            identifier: "CutBoxToggleSearchPanel",
+            identifier: "CutBoxToggleSearchPanelHotKey",
             keyCombo: keyCombo,
             target: controller,
             action: #selector(controller.searchClicked(_:))
