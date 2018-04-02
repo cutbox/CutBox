@@ -28,9 +28,7 @@ class AboutPanel: NSPanel {
     @IBOutlet weak var productLicense: NSTextField!
 
     override func awakeFromNib() {
-        if #available(OSX 10.10, *) {
-            self.titlebarAppearsTransparent = true
-        }
+        self.titlebarAppearsTransparent = true
 
         let prefs = CutBoxPreferences.shared
 

@@ -52,9 +52,7 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
     @IBOutlet weak var keyRecorder: RecordView!
 
     override func awakeFromNib() {
-        if #available(OSX 10.10, *) {
-            self.titlebarAppearsTransparent = true
-        }
+        self.titlebarAppearsTransparent = true
 
         keyRecorder.delegate = self
         keyRecorder.keyCombo = CutBoxPreferences.shared.globalKeyCombo

@@ -9,7 +9,7 @@
 import Cocoa
 
 public class PopupBackgroundView: NSView {
-    public var cornerRadius: CGFloat = 4
+    public var cornerRadius: CGFloat = 0
     public var backgroundColor = NSColor.clear
 
     public override func draw(_ dirtyRect: NSRect) {

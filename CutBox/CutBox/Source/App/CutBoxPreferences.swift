@@ -29,6 +29,7 @@ class CutBoxPreferences {
     }
 
     let searchUserDefaultKey = "CutBoxToggleSearchPanelHotKey"
+    
     var searchCustomKeyCombo: KeyCombo?
 
     let environment = CutBoxEnvironment()
