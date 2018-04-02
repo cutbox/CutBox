@@ -14,6 +14,8 @@
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
 		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
+		963AA65920725D0E00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
+		963AA65B20725D0E00779697 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; };
 		964766642067A5F100E7026F /* NSResponder+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSResponder+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
@@ -98,6 +100,7 @@
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyHolder.xcodeproj; path = DependencySubmodules/KeyHolder/Lib/KeyHolder.xcodeproj; sourceTree = SOURCE_ROOT; };
+		963AA65A20725D0E00779697 /* Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964766632067A5F100E7026F /* NSResponder+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSResponder+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963AA65B20725D0E00779697 /* KeyHolder.framework in Frameworks */,
+				963AA65920725D0E00779697 /* Magnet.framework in Frameworks */,
 				EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +257,7 @@
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				963AA65A20725D0E00779697 /* Magnet.framework */,
 				A86977FBC73098A02A097D0D /* Pods_CutBox.framework */,
 				2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */,
 				97D664B206BC0907A3DA03C7 /* Pods_Testing_CutBoxUITests.framework */,
