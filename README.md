@@ -1,6 +1,7 @@
 [![CutBox](https://img.shields.io/github/release/ocodo/CutBox.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.10/CutBox.dmg)
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg)
 [![Latest release](https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.10/CutBox.dmg)
+[![Enhancements pipeline](https://img.shields.io/github/issues/badges/ocodo/CutBox-enhancements.svg)](https://github.com/Ocodo/CutBox/issues)
 
 # CutBox
 
