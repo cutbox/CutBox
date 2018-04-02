@@ -13,9 +13,10 @@ class LinkText: NSTextField {
     override func mouseDown(with event: NSEvent) {
         NSWorkspace
             .shared
-            .open(
-                URL(string: CutBoxPreferences
-                    .shared.url)!)
+            .open(URL(string:
+                CutBoxPreferences
+                    .shared
+                    .cutBoxProductHomeUrl)!)
     }
 
 }
