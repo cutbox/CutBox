@@ -14,8 +14,10 @@
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
 		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
-		963AA65920725D0E00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
-		963AA65B20725D0E00779697 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; };
+		963AA663207269CE00779697 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; };
+		963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		963AA667207269CE00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
+		963AA668207269CE00779697 /* Magnet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		964766642067A5F100E7026F /* NSResponder+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSResponder+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
@@ -59,6 +61,13 @@
 			remoteGlobalIDString = 312C0FE51D13AA1F00973348;
 			remoteInfo = KeyHolderTests;
 		};
+		963AA665207269CE00779697 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 312C0FDA1D13AA1F00973348;
+			remoteInfo = KeyHolder;
+		};
 		96E1E5A5205D243400F994ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
@@ -76,6 +85,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		963AA669207269CE00779697 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				963AA668207269CE00779697 /* Magnet.framework in Embed Frameworks */,
+				963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96564BD8205D497D00A95E02 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,8 +165,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				963AA65B20725D0E00779697 /* KeyHolder.framework in Frameworks */,
-				963AA65920725D0E00779697 /* Magnet.framework in Frameworks */,
+				963AA663207269CE00779697 /* KeyHolder.framework in Frameworks */,
+				963AA667207269CE00779697 /* Magnet.framework in Frameworks */,
 				EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,10 +407,12 @@
 				0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */,
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
 				96085E4C206E37B200CA77BB /* Release notification warning */,
+				963AA669207269CE00779697 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				963AA666207269CE00779697 /* PBXTargetDependency */,
 			);
 			name = CutBox;
 			productName = CutBox;
@@ -815,6 +838,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		963AA666207269CE00779697 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KeyHolder;
+			targetProxy = 963AA665207269CE00779697 /* PBXContainerItemProxy */;
+		};
 		96E1E5A6205D243400F994ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96E1E593205D243400F994ED /* CutBox */;
@@ -949,6 +977,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -968,6 +997,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
