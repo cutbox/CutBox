@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <Group
+      location = "group:DependencySubmodules/KeyHolder/Lib/KeyHolder/Resources"
+      name = "Resources">
+      <FileRef
+         location = "group:clear-off.png">
+      </FileRef>
+      <FileRef
+         location = "group:clear-off@2x.png">
+      </FileRef>
+      <FileRef
+         location = "group:clear-on.png">
+      </FileRef>
+      <FileRef
+         location = "group:clear-on@2x.png">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:CutBox.xcodeproj">
    </FileRef>
