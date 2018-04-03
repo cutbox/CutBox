@@ -13,6 +13,7 @@
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
 		962D6D492073544F007E3785 /* HotKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D482073544F007E3785 /* HotKeyService.swift */; };
 		962D6D4B207356DA007E3785 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4A207356DA007E3785 /* Constants.swift */; };
+		962D6D4D207357ED007E3785 /* VersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4C207357ED007E3785 /* VersionService.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
 		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
@@ -121,6 +122,7 @@
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
 		962D6D482073544F007E3785 /* HotKeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyService.swift; sourceTree = "<group>"; };
 		962D6D4A207356DA007E3785 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		962D6D4C207357ED007E3785 /* VersionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionService.swift; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			children = (
 				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
+				962D6D4C207357ED007E3785 /* VersionService.swift */,
 				962D6D4A207356DA007E3785 /* Constants.swift */,
 				962D6D482073544F007E3785 /* HotKeyService.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
@@ -800,6 +803,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				962D6D4D207357ED007E3785 /* VersionService.swift in Sources */,
 				965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */,
 				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
 				968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */,

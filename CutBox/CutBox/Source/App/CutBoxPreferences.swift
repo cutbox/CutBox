@@ -9,16 +9,6 @@
 import Cocoa
 import Magnet
 
-struct VersionService  {
-    static var version: String {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
-            let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] {
-            return "version: \(version) (\(buildNumber))"
-        }
-        return "ERROR: Cannot get version"
-    }
-}
-
 class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
