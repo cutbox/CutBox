@@ -10,7 +10,7 @@ import Cocoa
 
 class SearchViewTableRowView: NSTableRowView {
 
-    var searchView: SearchView?
+    var searchView: SearchAndPreviewView?
 
     override func mouseDown(with event: NSEvent) {
         if event.clickCount == 2 {

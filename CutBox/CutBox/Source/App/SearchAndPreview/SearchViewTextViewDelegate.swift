@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension SearchView: NSTextViewDelegate {
+extension SearchAndPreviewView: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         self.filterText.onNext(self.searchText.string)
     }

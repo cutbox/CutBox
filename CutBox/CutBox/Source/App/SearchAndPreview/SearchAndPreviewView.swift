@@ -10,7 +10,7 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-class SearchView: NSView {
+class SearchAndPreviewView: NSView {
 
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
@@ -41,6 +41,7 @@ class SearchView: NSView {
         previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
         previewClip.textColor = prefs.searchViewClipPreviewTextColor
         previewClip.font = prefs.searchViewClipPreviewFont
+        previewClip.selectedTextAttributes[NSAttributedStringKey.backgroundColor] = prefs.searchViewBackgroundColor
 
         filterText
             .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }

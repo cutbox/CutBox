@@ -22,7 +22,7 @@ class CutBoxController: NSObject {
 
     let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
-    let searchView: SearchView
+    let searchView: SearchAndPreviewView
 
     let hotKeyService = HotKeyService.shared
     let popupController: PopupController
@@ -64,7 +64,7 @@ class CutBoxController: NSObject {
         self.pasteboardService.startTimer()
 
         // TODO: Refactor: Hook up search view to pasteboard service so it can implement the table delegate/datasource
-        self.searchView = SearchView.fromNib() ?? SearchView()
+        self.searchView = SearchAndPreviewView.fromNib() ?? SearchAndPreviewView()
 
         self.popupController = PopupController(
             content: self.searchView
