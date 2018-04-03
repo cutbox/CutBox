@@ -18,7 +18,7 @@
 		963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		963AA667207269CE00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
 		963AA668207269CE00779697 /* Magnet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		964766642067A5F100E7026F /* NSResponder+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSResponder+fromNib.swift */; };
+		964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSObject+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
@@ -122,7 +122,7 @@
 		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyHolder.xcodeproj; path = DependencySubmodules/KeyHolder/Lib/KeyHolder.xcodeproj; sourceTree = SOURCE_ROOT; };
 		963AA65A20725D0E00779697 /* Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		964766632067A5F100E7026F /* NSResponder+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSResponder+fromNib.swift"; sourceTree = "<group>"; };
+		964766632067A5F100E7026F /* NSObject+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 			children = (
 				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
 				964766682067B82900E7026F /* DisableScrollView.swift */,
-				964766632067A5F100E7026F /* NSResponder+fromNib.swift */,
+				964766632067A5F100E7026F /* NSObject+fromNib.swift */,
 				964766662067A68000E7026F /* Collection+Safe.swift */,
 			);
 			path = Extensions;
@@ -802,7 +802,7 @@
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
-				964766642067A5F100E7026F /* NSResponder+fromNib.swift in Sources */,
+				964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */,
 				965F076A206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift in Sources */,
 				965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */,
 				965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */,

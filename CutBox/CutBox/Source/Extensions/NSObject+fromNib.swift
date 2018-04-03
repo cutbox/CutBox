@@ -1,5 +1,5 @@
 //
-//  NSResponder+fromNib.swift
+//  NSObject+fromNib.swift
 //  CutBox
 //
 //  Created by Jason Milkins on 25/3/18.
@@ -8,16 +8,16 @@
 
 import Cocoa
 
-extension NSResponder {
+extension NSObject {
     class func fromNib<T>() -> T? {
-        var windowArray: NSArray? = nil
+        var objectArray: NSArray? = nil
         let name = String(describing: T.self)
         guard Bundle.main.loadNibNamed(
             NSNib.Name(rawValue: name),
             owner: nil,
-            topLevelObjects: &windowArray) else {
+            topLevelObjects: &objectArray) else {
                 fatalError("Unable to load Window from nib: \(name)")
         }
-        return windowArray?.first(where: { $0 is T }) as? T
+        return objectArray?.first(where: { $0 is T }) as? T
     }
 }
