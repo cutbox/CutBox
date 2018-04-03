@@ -43,7 +43,7 @@ class SearchView: NSView {
         previewClip.font = prefs.searchViewClipPreviewFont
 
         filterText
-            .map { $0.isEmpty ? prefs.searchViewPlaceholderText : "" }
+            .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }
             .bind(to: self.searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }

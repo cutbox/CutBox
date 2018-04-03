@@ -38,9 +38,7 @@ class PasteboardService: NSObject {
     var items: [String] {
         guard let search = self.filterText,
             search != "" else { return pasteStore }
-        let minScore = CutBoxPreferences
-                .shared
-                .searchFuzzyMatchMinScore
+        let minScore = Constants.searchFuzzyMatchMinScore
 
         return pasteStore
             .map { ($0, $0.score(word: search)) }

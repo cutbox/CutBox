@@ -13,8 +13,23 @@ import RxSwift
 
 class PreferencesWindow: NSWindow, RecordViewDelegate {
 
-    let prefs = CutBoxPreferences.shared
+    let searchKeyComboUserDefaults = Constants.searchKeyComboUserDefaults
+    let hotKeyService = HotKeyService.shared
+
     let disposeBag = DisposeBag()
+
+    @IBOutlet weak var keyRecorder: RecordView!
+
+    override func awakeFromNib() {
+        self.titlebarAppearsTransparent = true
+
+        keyRecorder.delegate = self
+
+        hotKeyService
+            .searchCustomKeyCombo
+            .subscribe(onNext: { self.keyRecorder.keyCombo = $0 })
+            .disposed(by: disposeBag)
+    }
 
     func recordView(_ recordView: RecordView, canRecordKeyCombo keyCombo: KeyCombo) -> Bool {
         return true
@@ -23,14 +38,15 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
     func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
         HotKeyCenter
             .shared
-            .unregisterHotKey(with: prefs.searchKeyComboUserDefaults)
+            .unregisterHotKey(with: searchKeyComboUserDefaults)
         return true
     }
 
     func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
         switch recordView {
         case keyRecorder:
-            prefs.searchCustomKeyCombo
+            hotKeyService
+                .searchCustomKeyCombo
                 .onNext(keyCombo)
         default: break
         }
@@ -41,22 +57,8 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
-        if HotKeyCenter.shared.hotKey(prefs.searchKeyComboUserDefaults) == nil {
-            self.prefs.resetDefaultGlobalToggle()
+        if HotKeyCenter.shared.hotKey(searchKeyComboUserDefaults) == nil {
+            hotKeyService.resetDefaultGlobalToggle()
         }
-    }
-
-    @IBOutlet weak var keyRecorder: RecordView!
-
-    override func awakeFromNib() {
-        self.titlebarAppearsTransparent = true
-
-        keyRecorder.delegate = self
-        CutBoxPreferences.shared
-            .searchCustomKeyCombo
-            .subscribe(onNext: {
-                self.keyRecorder.keyCombo = $0
-            })
-            .disposed(by: disposeBag)
     }
 }

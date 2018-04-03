@@ -16,18 +16,19 @@ import Magnet
 
 class CutBoxController: NSObject {
 
-    let preferences = CutBoxPreferences.shared
-    let popupController: PopupController
-    let pasteboardService: PasteboardService
-    let searchView: SearchView
-    var screen: NSScreen
-    var width: CGFloat
-    var height: CGFloat
-    let disposeBag = DisposeBag()
+    static var shared: CutBoxController?
 
     @IBOutlet weak var statusMenu: NSMenu!
-    let preferencesWindow: PreferencesWindow? = PreferencesWindow.fromNib()
-    let aboutPanel: AboutPanel? = AboutPanel.fromNib()
+
+    let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
+    let aboutPanel: AboutPanel = AboutPanel.fromNib()!
+    let searchView: SearchView
+
+    let hotKeyService = HotKeyService.shared
+    let popupController: PopupController
+    let pasteboardService: PasteboardService
+
+    let disposeBag = DisposeBag()
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
         self.popupController.togglePopup()
@@ -43,20 +44,12 @@ class CutBoxController: NSObject {
     }
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
-        guard let preferencesWindow = self.preferencesWindow else {
-            return
-        }
-
         NSApplication.shared.activate(ignoringOtherApps: true)
         preferencesWindow.makeKeyAndOrderFront(self)
         preferencesWindow.center()
     }
 
     @IBAction func openAboutPanel(_ sender: NSMenuItem) {
-        guard let aboutPanel = self.aboutPanel else {
-            return
-        }
-
         aboutPanel.makeKeyAndOrderFront(self)
         aboutPanel.center()
     }
@@ -66,15 +59,9 @@ class CutBoxController: NSObject {
         .statusItem(withLength: NSStatusItem.variableLength)
 
     override init() {
-        guard let mainScreen = NSScreen.main else {
-            fatalError("Unable to get main screen")
-        }
 
         self.pasteboardService = PasteboardService()
         self.pasteboardService.startTimer()
-        self.screen = mainScreen
-        self.width = self.screen.frame.width / 1.8
-        self.height = self.screen.frame.height / 1.8
 
         // TODO: Refactor: Hook up search view to pasteboard service so it can implement the table delegate/datasource
         self.searchView = SearchView.fromNib() ?? SearchView()
@@ -85,22 +72,12 @@ class CutBoxController: NSObject {
 
         super.init()
 
-        setupPreferencesEnvironment()
-        setupDefaultHotKey()
+        self.hotKeyService.configure(controller: self)
+        self.hotKeyService.resetDefaultGlobalToggle()
+
         setupSearchTextEventBindings()
         setupSearchViewAndFilterBinding()
         setupPopup()
-    }
-
-    private func setupPreferencesEnvironment() {
-        CutBoxPreferences
-            .shared
-            .environment.setup(mainController: self)
-    }
-
-    private func setupDefaultHotKey() {
-        let prefs = CutBoxPreferences.shared
-        prefs.resetDefaultGlobalToggle()
     }
 
     func pasteSelectedClipToPasteboard() {
@@ -192,6 +169,14 @@ class CutBoxController: NSObject {
     }
 
     private func setupPopup() {
+        guard let mainScreen = NSScreen.main else {
+            fatalError("Unable to get main screen")
+        }
+
+        let screen = mainScreen
+        let width = screen.frame.width / 1.6
+        let height = screen.frame.height / 1.8
+
         self.popupController
             .backgroundView
             .backgroundColor = CutBoxPreferences
@@ -205,8 +190,8 @@ class CutBoxController: NSObject {
                 .searchViewBackgroundAlpha
 
         self.popupController
-            .resizePopup(width: self.width,
-                         height: self.height)
+            .resizePopup(width: width,
+                         height: height)
 
         self.popupController
             .didOpenPopup = {

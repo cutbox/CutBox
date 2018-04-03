@@ -229,22 +229,22 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		963AA6472071EDEB00779697 /* About */ = {
+		963AA6472071EDEB00779697 /* AboutPanel */ = {
 			isa = PBXGroup;
 			children = (
 				965F078C206FD1890032DACD /* AboutPanel.swift */,
 				963AA6432071C95000779697 /* AboutPanel.xib */,
 			);
-			path = About;
+			path = AboutPanel;
 			sourceTree = "<group>";
 		};
-		963AA6482071EE0600779697 /* Preferences */ = {
+		963AA6482071EE0600779697 /* PreferencesWindow */ = {
 			isa = PBXGroup;
 			children = (
 				963AA6492071EE4800779697 /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
 			);
-			path = Preferences;
+			path = PreferencesWindow;
 			sourceTree = "<group>";
 		};
 		963AA64B2071FD1500779697 /* DependencySubmodules */ = {
@@ -380,11 +380,11 @@
 				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
-				963AA6472071EDEB00779697 /* About */,
+				963AA6472071EDEB00779697 /* AboutPanel */,
 				965F0790207121800032DACD /* FakeKey */,
 				968A97BF20667CDC00D36B50 /* Pasteboard */,
 				961A49B02065D72F005BC79D /* Popup */,
-				963AA6482071EE0600779697 /* Preferences */,
+				963AA6482071EE0600779697 /* PreferencesWindow */,
 				961A49B92065DC1E005BC79D /* Search */,
 			);
 			path = App;
