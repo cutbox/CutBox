@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension CutBoxController: NSTableViewDataSource {
+extension SearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         let count = self.pasteboardService.count
         return count

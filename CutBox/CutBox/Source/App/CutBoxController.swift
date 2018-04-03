@@ -16,31 +16,26 @@ import Magnet
 
 class CutBoxController: NSObject {
 
-    static var shared: CutBoxController?
-
     @IBOutlet weak var statusMenu: NSMenu!
 
+    let searchViewController: SearchViewController
     let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
-    let searchView: SearchAndPreviewView
-
     let hotKeyService = HotKeyService.shared
-    let popupController: PopupController
-    let pasteboardService: PasteboardService
 
     let disposeBag = DisposeBag()
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
-        self.popupController.togglePopup()
+        self.searchViewController.togglePopup()
     }
 
     @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        self.pasteboardService.saveToDefaults()
+        self.searchViewController.pasteboardService.saveToDefaults()
         NSApplication.shared.terminate(self)
     }
 
     @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
-        self.pasteboardService.clear()
+        self.searchViewController.pasteboardService.clear()
     }
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
@@ -59,64 +54,10 @@ class CutBoxController: NSObject {
         .statusItem(withLength: NSStatusItem.variableLength)
 
     override init() {
-
-        self.pasteboardService = PasteboardService()
-        self.pasteboardService.startTimer()
-
-        // TODO: Refactor: Hook up search view to pasteboard service so it can implement the table delegate/datasource
-        self.searchView = SearchAndPreviewView.fromNib() ?? SearchAndPreviewView()
-
-        self.popupController = PopupController(
-            content: self.searchView
-        )
-
+        self.searchViewController = SearchViewController()
         super.init()
-
         self.hotKeyService.configure(controller: self)
         self.hotKeyService.resetDefaultGlobalToggle()
-
-        setupSearchTextEventBindings()
-        setupSearchViewAndFilterBinding()
-        setupPopup()
-    }
-
-    func pasteSelectedClipToPasteboard() {
-        guard let selectedClip = self
-            .pasteboardService[
-                self.searchView
-                    .clipboardItemsTable
-                    .selectedRow
-            ]
-
-            else { return }
-
-        pasteToPasteboard(selectedClip)
-    }
-
-    func pasteTopClipToPasteboard() {
-        guard let topClip = self.pasteboardService[0]
-            else { return }
-        pasteToPasteboard(topClip)
-    }
-
-    private func pasteToPasteboard(_ clip: String) {
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(clip, forType: .string)
-    }
-
-    @objc func hideApp() {
-        NSApp.hide(self)
-    }
-
-    @objc func fakePaste() {
-        FakeKey.send(UInt16(9), useCommandFlag: true)
-    }
-
-    private func closeAndPaste() {
-        self.pasteSelectedClipToPasteboard()
-        self.popupController.closePopup()
-        perform(#selector(hideApp), with: self, afterDelay: 0.1)
-        perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
     override func awakeFromNib() {
@@ -124,89 +65,5 @@ class CutBoxController: NSObject {
         icon.isTemplate = true // best for dark mode
         self.statusItem.image = icon
         self.statusItem.menu = statusMenu
-    }
-
-    private func itemSelectUp() {
-        self.searchView.itemSelectUp()
-    }
-
-    private func itemSelectDown() {
-        self.searchView.itemSelectDown()
-    }
-
-    private func resetSearchText() {
-        self.searchView.searchText.string = ""
-        self.searchView.filterText.onNext("")
-        self.searchView.clipboardItemsTable.reloadData()
-    }
-
-    private func setupSearchViewAndFilterBinding() {
-        self.searchView.clipboardItemsTable.dataSource = self
-        self.searchView.clipboardItemsTable.delegate = self
-
-        self.searchView.filterText
-            .bind {
-                self.pasteboardService.filterText = $0
-                self.searchView.clipboardItemsTable.reloadData()
-            }
-            .disposed(by: self.disposeBag)
-    }
-
-    private func setupSearchTextEventBindings() {
-        self.searchView
-            .events
-            .bind { event in
-                switch event {
-                case .closeAndPaste:
-                    self.closeAndPaste()
-                case .itemSelectUp:
-                    self.itemSelectUp()
-                case .itemSelectDown:
-                    self.itemSelectDown()
-                }
-            }
-            .disposed(by: disposeBag)
-    }
-
-    private func setupPopup() {
-        guard let mainScreen = NSScreen.main else {
-            fatalError("Unable to get main screen")
-        }
-
-        let screen = mainScreen
-        let width = screen.frame.width / 1.6
-        let height = screen.frame.height / 1.8
-
-        self.popupController
-            .backgroundView
-            .backgroundColor = CutBoxPreferences
-                .shared
-                .searchViewBackgroundColor
-
-        self.popupController
-            .backgroundView
-            .alphaValue = CutBoxPreferences
-                .shared
-                .searchViewBackgroundAlpha
-
-        self.popupController
-            .resizePopup(width: width,
-                         height: height)
-
-        self.popupController
-            .didOpenPopup = {
-                self.resetSearchText()
-                self.searchView
-                    .searchText
-                    .window?
-                    .makeFirstResponder(self
-                        .searchView
-                        .searchText)
-        }
-
-        self.popupController
-            .willClosePopup = {
-                self.resetSearchText()
-        }
     }
 }

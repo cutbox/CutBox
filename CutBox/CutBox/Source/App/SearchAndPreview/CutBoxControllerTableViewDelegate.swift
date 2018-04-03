@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension CutBoxController: NSTableViewDelegate {
+extension SearchViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 30
