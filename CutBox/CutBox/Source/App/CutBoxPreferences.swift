@@ -19,8 +19,6 @@ struct VersionService  {
     }
 }
 
-
-
 class CutBoxPreferences {
 
     static let shared = CutBoxPreferences()
@@ -39,7 +37,7 @@ class CutBoxPreferences {
 
     var searchViewBackgroundAlpha = CGFloat(1.0)
 
-    var searchViewBackgroundColor            = #colorLiteral(red: 0.1296178, green: 0.2685749845, blue: 0.3490234375, alpha: 1)
+    var searchViewBackgroundColor            = #colorLiteral(red: 0.0864074271, green: 0.1963072013, blue: 0.2599330357, alpha: 1)
 
     var searchViewTextFieldCursorColor       = #colorLiteral(red: 0.05882352941, green: 0.1098039216, blue: 0.1294117647, alpha: 1)
 
