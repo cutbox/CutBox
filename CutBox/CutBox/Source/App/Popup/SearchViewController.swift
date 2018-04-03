@@ -9,6 +9,8 @@
 import Cocoa
 import RxSwift
 
+
+
 class SearchViewController: NSObject {
 
     let pasteboardService: PasteboardService
@@ -62,21 +64,14 @@ class SearchViewController: NSObject {
     }
 
     func pasteSelectedClipToPasteboard() {
-        guard let selectedClip = self
-            .pasteboardService[
-                self.searchView
-                    .clipboardItemsTable
-                    .selectedRow
-            ]
-
-            else { return }
-
-        pasteToPasteboard(selectedClip)
+        let index = self.searchView.clipboardItemsTable.selectedRow
+        if let selectedClip = self.pasteboardService[index] {
+            pasteToPasteboard(selectedClip)
+        }
     }
 
     func pasteTopClipToPasteboard() {
-        guard let topClip = self.pasteboardService[0]
-            else { return }
+        guard let topClip = self.pasteboardService[0] else { return }
         pasteToPasteboard(topClip)
     }
 
