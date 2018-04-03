@@ -1,8 +1,10 @@
 #!/bin/sh
+[[ "$(which npm)" == "npm not found" ]] && echo "Warning: install node & npm" exit 1
+[[ "$(which semver)" == "semver not found" ]] && npm install -g semver
 
 APP_VERSION=$(/usr/libexec/PlistBuddy  -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
 # If there's a new version which isn't git tagged show a warning:
-LATEST_TAG=$(git tag | tail -1)
+LATEST_TAG=$(semver $(git tag) | tail -1)
 
 if [[ "${APP_VERSION}" != "${LATEST_TAG}" ]]; then
   echo "warning: CutBox current version: ${APP_VERSION} (latest git tag: ${LATEST_TAG})
