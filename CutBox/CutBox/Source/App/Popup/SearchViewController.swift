@@ -9,8 +9,6 @@
 import Cocoa
 import RxSwift
 
-
-
 class SearchViewController: NSObject {
 
     let pasteboardService: PasteboardService
