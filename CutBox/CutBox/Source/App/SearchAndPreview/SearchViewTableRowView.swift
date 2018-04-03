@@ -13,11 +13,24 @@ class SearchViewTableRowView: NSTableRowView {
     var searchView: SearchAndPreviewView?
 
     override func mouseDown(with event: NSEvent) {
-        if event.clickCount == 2 {
+        if event.clickCount == 2 &&
+            event.modifierFlags.contains(.option) &&
+            event.modifierFlags.contains(.command)
+        {
+            self.searchView?
+                .events
+                .onNext(.clearSelected)
+        }
+
+        if event.clickCount == 2 &&
+            !event.modifierFlags.contains(.option) &&
+            !event.modifierFlags.contains(.command)
+        {
             self.searchView?
                 .events
                 .onNext(.closeAndPaste)
         }
+
         super.mouseDown(with: event)
     }
 

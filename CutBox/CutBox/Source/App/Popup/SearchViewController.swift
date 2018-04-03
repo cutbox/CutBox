@@ -61,6 +61,14 @@ class SearchViewController: NSObject {
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
+    private func clearSelected() {
+        let index = self.searchView.clipboardItemsTable.selectedRow
+        if self.pasteboardService[index] != nil {
+            self.pasteboardService.remove(at: index)
+            self.searchView.clipboardItemsTable.reloadData()
+        }
+    }
+
     func pasteSelectedClipToPasteboard() {
         let index = self.searchView.clipboardItemsTable.selectedRow
         if let selectedClip = self.pasteboardService[index] {
@@ -102,6 +110,8 @@ class SearchViewController: NSObject {
                 switch event {
                 case .closeAndPaste:
                     self.closeAndPaste()
+                case .clearSelected:
+                    self.clearSelected()
                 case .itemSelectUp:
                     self.searchView.itemSelectUp()
                 case .itemSelectDown:

@@ -7,6 +7,7 @@
 //
 
 enum SearchViewEvents {
+    case clearSelected
     case closeAndPaste
     case itemSelectUp
     case itemSelectDown

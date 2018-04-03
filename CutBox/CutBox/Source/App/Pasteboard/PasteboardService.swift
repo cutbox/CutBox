@@ -81,6 +81,10 @@ class PasteboardService: NSObject {
         pasteStore = []
     }
 
+    func remove(at index: Int) {
+        pasteStore.remove(at: index)
+    }
+
     func clearDefaults() {
         defaults.removeObject(forKey: kPasteStoreKey)
     }
