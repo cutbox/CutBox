@@ -11,30 +11,32 @@ import RxSwift
 
 class HotKeyService {
 
-    private let disposeBag = DisposeBag()
-
     static let shared = HotKeyService()
 
-    var searchCustomKeyCombo = PublishSubject<KeyCombo>()
+    private let disposeBag = DisposeBag()
+
+    var searchKeyCombo = PublishSubject<KeyCombo>()
     var controller: CutBoxController?
 
     func configure(controller: CutBoxController) {
         self.controller = controller
 
-        self.searchCustomKeyCombo
-            .distinctUntilChanged {
-                $0.keyCode == $1.keyCode && $0.modifiers == $1.modifiers
-            }
-            .subscribe(onNext: { self.changeGlobalToggle(keyCombo: $0) })
+        self.searchKeyCombo
+            .distinctUntilChanged { $0 == $1 }
+            .subscribe(onNext: {
+                self.changeGlobalToggle(keyCombo: $0)
+            })
             .disposed(by: disposeBag)
+
+        self.resetDefaultGlobalToggle()
     }
 
     func resetDefaultGlobalToggle() {
-        if let savedKeyCombo = KeyCombo.loadFromUserDefaults(identifier: Constants.searchKeyComboUserDefaults) {
-            self.searchCustomKeyCombo
+        if let savedKeyCombo = KeyCombo.loadUserDefaults(identifier: Constants.searchKeyComboUserDefaults) {
+            self.searchKeyCombo
                 .onNext(savedKeyCombo)
         } else {
-            self.searchCustomKeyCombo
+            self.searchKeyCombo
                 .onNext(Constants.defaultSearchCustomKeyCombo)
         }
     }
@@ -53,6 +55,6 @@ class HotKeyService {
 
         hotKey.register()
 
-        keyCombo.saveToUserDefaults(identifier: Constants.searchKeyComboUserDefaults)
+        keyCombo.saveUserDefaults(identifier: Constants.searchKeyComboUserDefaults)
     }
 }
