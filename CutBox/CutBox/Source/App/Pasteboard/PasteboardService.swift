@@ -9,8 +9,14 @@
 import Cocoa
 import SwiftyStringScore
 
-enum PasteboardServiceEvents {
-    case replacedItem
+extension Array where Element == String {
+    func fuzzySearchRankedFiltered(search: String, score: Double) -> [String] {
+        return self
+            .map { ($0, $0.score(word: search)) }
+            .filter { $0.1 > score }
+            .sorted { $0.1 > $1.1 }
+            .map { $0.0 }
+    }
 }
 
 class PasteboardService: NSObject {
@@ -19,15 +25,13 @@ class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
     var filterText: String?
+    var defaults = NSUserDefaultsController.shared.defaults
 
     private var kPasteStoreKey = "pasteStore"
     private var pasteStore: [String] = []
 
     override init() {
-        if let pasteStore = NSUserDefaultsController
-            .shared
-            .defaults
-            .array(forKey: kPasteStoreKey) {
+        if let pasteStore = defaults.array(forKey: kPasteStoreKey) {
             self.pasteStore = pasteStore as! [String]
         } else {
             self.pasteStore = []
@@ -36,15 +40,13 @@ class PasteboardService: NSObject {
     }
 
     var items: [String] {
-        guard let search = self.filterText,
-            search != "" else { return pasteStore }
-        let minScore = Constants.searchFuzzyMatchMinScore
+        guard let search = self.filterText, search != ""
+            else { return pasteStore }
 
-        return pasteStore
-            .map { ($0, $0.score(word: search)) }
-            .filter { $0.1 > minScore }
-            .sorted { $0.1 > $1.1 }
-            .map { $0.0 }
+        return pasteStore.fuzzySearchRankedFiltered(
+            search: search,
+            score: Constants.searchFuzzyMatchMinScore
+        )
     }
 
     var count: Int {
@@ -57,9 +59,9 @@ class PasteboardService: NSObject {
 
     func startTimer() {
         guard pollingTimer == nil else { return }
-        pollingTimer = Timer.scheduledTimer(timeInterval: 0.1,
+        pollingTimer = Timer.scheduledTimer(timeInterval: 0.2,
                                             target: self,
-                                            selector: #selector(pollPasteboard),
+                                            selector: #selector(self.pollPasteboard),
                                             userInfo: nil,
                                             repeats: true)
     }
@@ -81,7 +83,7 @@ class PasteboardService: NSObject {
             pasteStore.remove(at: indexOfClip)
         }
 
-        return currentClip
+        return pasteStore.first == currentClip ? nil : currentClip
     }
 
     func clear() {
@@ -90,18 +92,11 @@ class PasteboardService: NSObject {
     }
 
     func clearDefaults() {
-        NSUserDefaultsController
-            .shared
-            .defaults
-            .removeObject(forKey: kPasteStoreKey)
+        defaults.removeObject(forKey: kPasteStoreKey)
     }
 
     func saveToDefaults() {
-        NSUserDefaultsController
-            .shared
-            .defaults
-            .set(self.pasteStore,
-                 forKey: kPasteStoreKey)
+        defaults.set(self.pasteStore, forKey: kPasteStoreKey)
     }
 
     deinit {
@@ -109,10 +104,8 @@ class PasteboardService: NSObject {
     }
 
     func clipboardContent() -> String? {
-        return NSPasteboard
-            .general
-            .pasteboardItems?
-            .first?
+        return NSPasteboard.general
+            .pasteboardItems?.first?
             .string(forType: .string)
     }
 

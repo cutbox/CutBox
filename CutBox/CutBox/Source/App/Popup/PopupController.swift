@@ -16,17 +16,18 @@ class PopupController: NSWindowController {
     let containerView = PopupContainerView()
     var contentView: NSView
 
-    var currentHeight: CGFloat = 0
-    var currentWidth: CGFloat = 0
+    var currentHeight: Double = 0
+    var currentWidth: Double = 0
 
-    var yPadding: CGFloat = 0
+    var yPadding: Double = 0
 
     var contentInset: CGFloat {
         get { return containerView.contentInset }
         set {
             let size = containerView.frame.size
             containerView.contentInset = newValue
-            resizePopup(width: size.width, height: size.height)
+            resizePopup(width: Double(size.width),
+                        height: Double(size.height))
         }
     }
 
@@ -94,7 +95,7 @@ class PopupController: NSWindowController {
     }
 
 
-    func resizePopup(width: CGFloat, height: CGFloat) {
+    func resizePopup(width: Double, height: Double) {
         var frame = panel.frame
         var newSize = CGSize(width: width,
                              height: height)
@@ -102,9 +103,9 @@ class PopupController: NSWindowController {
         newSize.height += contentInset * 2
         newSize.width += contentInset * 2
 
-        frame.origin.y = ((NSScreen.main?.frame.height ?? height)
-            - height)
-            - self.yPadding
+        frame.origin.y = ((NSScreen.main?.frame.height ?? CGFloat(height))
+            - CGFloat(height))
+            - CGFloat(self.yPadding)
 
         frame.size.height = newSize.height
 
@@ -117,17 +118,17 @@ class PopupController: NSWindowController {
         panel.setFrame(frame, display: true, animate: panel.isVisible)
     }
 
-    func resizePopup(width: CGFloat) {
+    func resizePopup(width: Double) {
         if width != currentWidth {
             currentWidth = width
-            resizePopup(width: width, height: contentView.frame.size.height)
+            resizePopup(width: width, height: Double(contentView.frame.size.height))
         }
     }
 
-    func resizePopup(height: CGFloat) {
+    func resizePopup(height: Double) {
         if height != currentHeight {
             currentHeight = height
-            resizePopup(width: contentView.frame.size.width, height: height)
+            resizePopup(width: Double(contentView.frame.size.width), height: height)
         }
     }
 
@@ -153,7 +154,7 @@ class PopupController: NSWindowController {
     private func closePanel() {
         willClosePopup?()
         self.isOpen = false
-        contentView.isHidden = true
+        self.contentView.isHidden = true
         self.panel.alphaValue = 0
         if !self.isOpen {
             self.panel.orderOut(nil)
@@ -168,7 +169,7 @@ class PopupController: NSWindowController {
         let screenRect = screen.frame
         var panelRect = panel.frame
 
-        panelRect.origin.y = screenRect.height - panelRect.height - self.yPadding
+        panelRect.origin.y = screenRect.height - panelRect.height - CGFloat(self.yPadding)
         panelRect.origin.x = round(screenRect.midX - panelRect.width / 2)
 
         if panelRect.maxX > screenRect.maxX {

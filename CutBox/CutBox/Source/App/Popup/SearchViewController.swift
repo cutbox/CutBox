@@ -125,7 +125,8 @@ class SearchViewController: NSObject {
         popupBackground.backgroundColor = prefs.searchViewBackgroundColor
         popupBackground.alphaValue = prefs.searchViewBackgroundAlpha
 
-        popup.resizePopup(width: width, height: height)
+        popup.resizePopup(width: Double(width),
+                          height: Double(height))
 
         popup.didOpenPopup = {
             guard let window = self.searchView.window else {

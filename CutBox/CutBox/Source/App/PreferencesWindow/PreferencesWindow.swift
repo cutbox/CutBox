@@ -26,7 +26,7 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
         keyRecorder.delegate = self
 
         hotKeyService
-            .searchCustomKeyCombo
+            .searchKeyCombo
             .subscribe(onNext: { self.keyRecorder.keyCombo = $0 })
             .disposed(by: disposeBag)
     }
@@ -46,7 +46,7 @@ class PreferencesWindow: NSWindow, RecordViewDelegate {
         switch recordView {
         case keyRecorder:
             hotKeyService
-                .searchCustomKeyCombo
+                .searchKeyCombo
                 .onNext(keyCombo)
         default: break
         }
