@@ -1,5 +1,5 @@
 //
-//  StatusMenuControllerSpec.swift
+//  CutBoxControllerSpec.swift
 //  CutBoxSpecs
 //
 //  Created by Jason Milkins on 17/3/18.
@@ -11,7 +11,7 @@ import Nimble
 
 @testable import CutBox
 
-class StatusMenuControllerSpec: QuickSpec {
+class CutBoxControllerSpec: QuickSpec {
     override func spec() {
         describe("StatusMenuController") {
             it("tests with quick and nimble") {
