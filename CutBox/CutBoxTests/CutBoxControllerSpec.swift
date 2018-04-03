@@ -13,8 +13,8 @@ import Nimble
 
 class CutBoxControllerSpec: QuickSpec {
     override func spec() {
-        describe("StatusMenuController") {
-            it("tests with quick and nimble") {
+        describe("CutBoxController") {
+            it("glues the app together... ") {
                 // Re-use this spec for something else,
                 // the controller should be dumb / wiring only.
                 expect(true).to(beTrue())
