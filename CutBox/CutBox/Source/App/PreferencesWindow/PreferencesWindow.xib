@@ -38,17 +38,14 @@
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swm-w6-LCN">
-                        <rect key="frame" x="38" y="209" width="104" height="18"/>
+                        <rect key="frame" x="38" y="209" width="124" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="MoL-Y7-Fu6"/>
+                            <constraint firstAttribute="width" constant="120" id="MoL-Y7-Fu6"/>
                         </constraints>
-                        <buttonCell key="cell" type="check" title="Start at Login" bezelStyle="regularSquare" imagePosition="right" alignment="left" inset="2" id="lkF-Lw-nKq">
+                        <buttonCell key="cell" type="check" title="Launch on Login" bezelStyle="regularSquare" imagePosition="right" alignment="left" inset="2" id="lkF-Lw-nKq">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <connections>
-                            <action selector="setAutoLoginWithSender:" target="atS-Pr-B8U" id="GOW-4T-ZUv"/>
-                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-QU-ZyK">
                         <rect key="frame" x="205" y="209" width="117" height="17"/>
@@ -69,6 +66,7 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="autoLoginCheckbox" destination="swm-w6-LCN" id="Rbl-88-wF9"/>
                 <outlet property="keyRecorder" destination="xBn-Kq-xbQ" id="gry-Ip-5A3"/>
             </connections>
             <point key="canvasLocation" x="-69" y="-122"/>
