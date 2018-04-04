@@ -18,18 +18,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-QU-ZyK">
-                        <rect key="frame" x="18" y="213" width="180" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="CutBox Universal Shortcut" id="UGB-4N-qyX">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Kq-xbQ" customClass="RecordView" customModule="KeyHolder">
-                        <rect key="frame" x="206" y="209" width="254" height="25"/>
+                        <rect key="frame" x="330" y="205" width="110" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="q0U-hj-4GG"/>
+                            <constraint firstAttribute="height" constant="25" id="0YU-c0-gLY"/>
+                            <constraint firstAttribute="width" constant="110" id="nrF-wa-Aue"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -45,18 +38,21 @@
                         </userDefinedRuntimeAttributes>
                     </customView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swm-w6-LCN">
-                        <rect key="frame" x="204" y="185" width="24" height="18"/>
+                        <rect key="frame" x="38" y="209" width="104" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="20" id="H5N-r0-9H9"/>
+                            <constraint firstAttribute="width" constant="100" id="MoL-Y7-Fu6"/>
                         </constraints>
-                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" inset="2" id="lkF-Lw-nKq">
+                        <buttonCell key="cell" type="check" title="Start at Login" bezelStyle="regularSquare" imagePosition="right" alignment="left" inset="2" id="lkF-Lw-nKq">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="setAutoLoginWithSender:" target="atS-Pr-B8U" id="GOW-4T-ZUv"/>
+                        </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oJg-K0-Eql">
-                        <rect key="frame" x="18" y="188" width="180" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Start CutBox when you Login" id="JWc-XK-UNN">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-QU-ZyK">
+                        <rect key="frame" x="205" y="209" width="117" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Universal Shortcut" id="UGB-4N-qyX">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -64,16 +60,12 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xBn-Kq-xbQ" firstAttribute="leading" secondItem="1vU-QU-ZyK" secondAttribute="trailing" constant="10" id="0U6-qg-L9R"/>
-                    <constraint firstItem="1vU-QU-ZyK" firstAttribute="top" secondItem="HKT-R0-bUl" secondAttribute="top" constant="40" id="2xv-DN-viJ"/>
-                    <constraint firstItem="xBn-Kq-xbQ" firstAttribute="centerY" secondItem="1vU-QU-ZyK" secondAttribute="centerY" id="LrA-OB-cjG"/>
-                    <constraint firstItem="1vU-QU-ZyK" firstAttribute="leading" secondItem="HKT-R0-bUl" secondAttribute="leading" constant="20" id="Pn9-BE-nzw"/>
-                    <constraint firstItem="swm-w6-LCN" firstAttribute="top" secondItem="xBn-Kq-xbQ" secondAttribute="bottom" constant="8" id="QSi-Vc-NdX"/>
-                    <constraint firstItem="oJg-K0-Eql" firstAttribute="width" secondItem="1vU-QU-ZyK" secondAttribute="width" id="RiX-CY-4pu"/>
-                    <constraint firstItem="swm-w6-LCN" firstAttribute="leading" secondItem="oJg-K0-Eql" secondAttribute="trailing" constant="10" id="Y1D-1y-Xgg"/>
-                    <constraint firstItem="oJg-K0-Eql" firstAttribute="top" secondItem="1vU-QU-ZyK" secondAttribute="bottom" constant="8" id="bFT-Et-fLq"/>
-                    <constraint firstAttribute="trailing" secondItem="xBn-Kq-xbQ" secondAttribute="trailing" constant="20" id="ewH-CD-Kv0"/>
-                    <constraint firstItem="oJg-K0-Eql" firstAttribute="leading" secondItem="HKT-R0-bUl" secondAttribute="leading" constant="20" id="rtH-wg-t0n"/>
+                    <constraint firstItem="xBn-Kq-xbQ" firstAttribute="top" secondItem="HKT-R0-bUl" secondAttribute="top" constant="40" id="2oA-gw-g1X"/>
+                    <constraint firstItem="1vU-QU-ZyK" firstAttribute="centerY" secondItem="xBn-Kq-xbQ" secondAttribute="centerY" id="83N-0Q-i5j"/>
+                    <constraint firstAttribute="trailing" secondItem="xBn-Kq-xbQ" secondAttribute="trailing" constant="40" id="Ga9-II-HsS"/>
+                    <constraint firstItem="xBn-Kq-xbQ" firstAttribute="leading" secondItem="1vU-QU-ZyK" secondAttribute="trailing" constant="10" id="IgU-xz-7xu"/>
+                    <constraint firstItem="swm-w6-LCN" firstAttribute="centerY" secondItem="1vU-QU-ZyK" secondAttribute="centerY" id="Op3-Mt-fHF"/>
+                    <constraint firstItem="swm-w6-LCN" firstAttribute="leading" secondItem="HKT-R0-bUl" secondAttribute="leading" constant="40" id="bWz-H1-9O1"/>
                 </constraints>
             </view>
             <connections>
