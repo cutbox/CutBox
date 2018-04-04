@@ -19,6 +19,7 @@ extension PreferencesWindow: RecordViewDelegate {
     }
 
     func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
+        // TODO: Send this change as an event.
         hotKeyCenter
             .unregisterHotKey(with: searchKeyComboUserDefaults)
         return true
@@ -27,6 +28,7 @@ extension PreferencesWindow: RecordViewDelegate {
     func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
         switch recordView {
         case keyRecorder:
+            // TODO: Send this change as an event.
             hotKeyService
                 .searchKeyCombo
                 .onNext(keyCombo)
@@ -39,6 +41,7 @@ extension PreferencesWindow: RecordViewDelegate {
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
+        // TODO: Send this change as an event.
         if hotKeyCenter.hotKey(searchKeyComboUserDefaults) == nil {
             hotKeyService.resetDefaultGlobalToggle()
         }
@@ -52,13 +55,15 @@ class PreferencesWindow: NSWindow {
     let hotKeyCenter = HotKeyCenter.shared
     let disposeBag = DisposeBag()
 
-    @IBOutlet weak var keyRecorder: RecordView!
+    @IBOutlet weak
+    var keyRecorder: RecordView!
 
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
 
         keyRecorder.delegate = self
 
+        // TODO: Send this change as an event.
         hotKeyService
             .searchKeyCombo
             .subscribe(onNext: { self.keyRecorder.keyCombo = $0 })
@@ -67,6 +72,7 @@ class PreferencesWindow: NSWindow {
 
     @IBAction func setAutoLogin(sender: NSButton) {
         let autoLogin = sender.state == .on
+        // TODO: Send this change as an event.
         let appBundleIdentifier = "info.ocodo.CutBoxHelper" as CFString
         if SMLoginItemSetEnabled(appBundleIdentifier, autoLogin) {
             NSLog("Successfully \(autoLogin ? "added" : "removed") login item \(appBundleIdentifier)")
