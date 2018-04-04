@@ -16,6 +16,11 @@
 		962D6D4D207357ED007E3785 /* VersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4C207357ED007E3785 /* VersionService.swift */; };
 		962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4E20735DF6007E3785 /* SearchViewController.swift */; };
 		962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */; };
+		962D6D7220746109007E3785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D7120746109007E3785 /* AppDelegate.m */; };
+		962D6D7420746109007E3785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962D6D7320746109007E3785 /* Assets.xcassets */; };
+		962D6D7720746109007E3785 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962D6D7520746109007E3785 /* MainMenu.xib */; };
+		962D6D7A20746109007E3785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D7920746109007E3785 /* main.m */; };
+		962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 962D6D6E20746109007E3785 /* CutBoxHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
 		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
@@ -90,6 +95,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		962D6D802074622A007E3785 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		963AA669207269CE00779697 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +142,14 @@
 		962D6D4C207357ED007E3785 /* VersionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionService.swift; sourceTree = "<group>"; };
 		962D6D4E20735DF6007E3785 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+String+SwiftyStringScore.swift"; sourceTree = "<group>"; };
+		962D6D6E20746109007E3785 /* CutBoxHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBoxHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		962D6D7020746109007E3785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		962D6D7120746109007E3785 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		962D6D7320746109007E3785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		962D6D7620746109007E3785 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		962D6D7820746109007E3785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		962D6D7920746109007E3785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		962D6D7B20746109007E3785 /* CutBoxHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBoxHelper.entitlements; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
@@ -171,6 +194,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		962D6D6B20746109007E3785 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96E1E591205D243400F994ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,6 +268,20 @@
 				965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */,
 			);
 			path = SearchAndPreview;
+			sourceTree = "<group>";
+		};
+		962D6D6F20746109007E3785 /* CutBoxHelper */ = {
+			isa = PBXGroup;
+			children = (
+				962D6D7020746109007E3785 /* AppDelegate.h */,
+				962D6D7120746109007E3785 /* AppDelegate.m */,
+				962D6D7320746109007E3785 /* Assets.xcassets */,
+				962D6D7520746109007E3785 /* MainMenu.xib */,
+				962D6D7820746109007E3785 /* Info.plist */,
+				962D6D7920746109007E3785 /* main.m */,
+				962D6D7B20746109007E3785 /* CutBoxHelper.entitlements */,
+			);
+			path = CutBoxHelper;
 			sourceTree = "<group>";
 		};
 		963AA6472071EDEB00779697 /* AboutPanel */ = {
@@ -338,6 +382,7 @@
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				96E1E5B2205D243400F994ED /* CutBoxUITests */,
+				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				96E1E595205D243400F994ED /* Products */,
 				96564BD3205D495A00A95E02 /* Frameworks */,
 				673FB9B3BF3E444A726CCE1F /* Pods */,
@@ -350,6 +395,7 @@
 				96E1E594205D243400F994ED /* CutBox.app */,
 				96E1E5A4205D243400F994ED /* CutBoxTests.xctest */,
 				96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */,
+				962D6D6E20746109007E3785 /* CutBoxHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -408,6 +454,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		962D6D6D20746109007E3785 /* CutBoxHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 962D6D7F20746109007E3785 /* Build configuration list for PBXNativeTarget "CutBoxHelper" */;
+			buildPhases = (
+				962D6D6A20746109007E3785 /* Sources */,
+				962D6D6B20746109007E3785 /* Frameworks */,
+				962D6D6C20746109007E3785 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CutBoxHelper;
+			productName = CutBoxHelper;
+			productReference = 962D6D6E20746109007E3785 /* CutBoxHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		96E1E593205D243400F994ED /* CutBox */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */;
@@ -423,6 +486,7 @@
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
 				96085E4C206E37B200CA77BB /* Release notification warning */,
 				963AA669207269CE00779697 /* Embed Frameworks */,
+				962D6D802074622A007E3785 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -490,6 +554,10 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = ocodo;
 				TargetAttributes = {
+					962D6D6D20746109007E3785 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
 					96E1E593205D243400F994ED = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -533,6 +601,7 @@
 				96E1E593205D243400F994ED /* CutBox */,
 				96E1E5A3205D243400F994ED /* CutBoxTests */,
 				96E1E5AE205D243400F994ED /* CutBoxUITests */,
+				962D6D6D20746109007E3785 /* CutBoxHelper */,
 			);
 		};
 /* End PBXProject section */
@@ -555,6 +624,15 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		962D6D6C20746109007E3785 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				962D6D7420746109007E3785 /* Assets.xcassets in Resources */,
+				962D6D7720746109007E3785 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96E1E592205D243400F994ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -805,6 +883,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		962D6D6A20746109007E3785 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				962D6D7A20746109007E3785 /* main.m in Sources */,
+				962D6D7220746109007E3785 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96E1E590205D243400F994ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -876,6 +963,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		962D6D7520746109007E3785 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				962D6D7620746109007E3785 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
 		96E1E59B205D243400F994ED /* CutBox.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -887,6 +982,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		962D6D7C20746109007E3785 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CutBoxHelper/CutBoxHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DDUM6CHDSV;
+				INFOPLIST_FILE = CutBoxHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		962D6D7D20746109007E3785 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CutBoxHelper/CutBoxHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DDUM6CHDSV;
+				INFOPLIST_FILE = CutBoxHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		96E1E5B6205D243400F994ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1104,6 +1235,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		962D6D7F20746109007E3785 /* Build configuration list for PBXNativeTarget "CutBoxHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				962D6D7C20746109007E3785 /* Debug */,
+				962D6D7D20746109007E3785 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		96E1E58F205D243400F994ED /* Build configuration list for PBXProject "CutBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
