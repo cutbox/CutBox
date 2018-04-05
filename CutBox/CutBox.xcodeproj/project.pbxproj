@@ -437,12 +437,10 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
-				96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */,
+				96E5A5022075D93400D24E41 /* Services */,
 				96E1E59B205D243400F994ED /* CutBox.xib */,
 				962D6D4A207356DA007E3785 /* Constants.swift */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
-				962D6D4C207357ED007E3785 /* VersionService.swift */,
-				962D6D482073544F007E3785 /* HotKeyService.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
 				965F0790207121800032DACD /* FakeKey */,
@@ -452,6 +450,16 @@
 				961A49B92065DC1E005BC79D /* SearchAndPreview */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		96E5A5022075D93400D24E41 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */,
+				962D6D4C207357ED007E3785 /* VersionService.swift */,
+				962D6D482073544F007E3785 /* HotKeyService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -821,7 +829,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(which semver)\" == \"semver not found\" ]]; then\n  echo \"Error: semver required (via Node/npm install -g semver)\"\n  exit 1\nfi\n\nTAG_VERSIONNUM=$(semver $(git tag) | tail -1)\nTAG_SUBVERSION=`echo $TAG_VERSIONNUM | awk -F \".\" '{print $3}'`\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nSUBVERSION=`echo $VERSIONNUM | awk -F \".\" '{print $3}'`\nNEWSUBVERSION=$(($SUBVERSION + 1))\nNEWVERSIONSTRING=`echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }'`\n\nif [[ $TAG_SUBVERSION == $SUBVERSION ]]; then\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nfi";
+			shellScript = "if [[ \"$(which semver)\" == \"semver not found\" ]]; then\n  echo \"Error: semver required (via Node/npm install -g semver)\"\n  exit 1\nfi\n\nTAG_VERSIONNUM=$(semver $(git tag) | tail -1)\nTAG_SUBVERSION=$(echo $TAG_VERSIONNUM | awk -F \".\" '{print $3}')\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nSUBVERSION=$(echo $VERSIONNUM | awk -F \".\" '{print $3}')\nNEWSUBVERSION=$(($SUBVERSION + 1))\nNEWVERSIONSTRING=$(echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }')\n\nif [[ $TAG_SUBVERSION == $SUBVERSION ]]; then\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nelse\n  echo \"warning: Version (${VERSIONNUM}) is already ahead of latest git tag (${TAG_VERSIONNUM})\"\nfi";
 		};
 		CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

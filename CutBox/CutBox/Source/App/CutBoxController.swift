@@ -39,11 +39,6 @@ class CutBoxController: NSObject {
         self.searchViewController.togglePopup()
     }
 
-    @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        self.searchViewController.pasteboardService.saveToDefaults()
-        NSApplication.shared.terminate(self)
-    }
-
     @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
         self.searchViewController.pasteboardService.clear()
     }
@@ -57,5 +52,10 @@ class CutBoxController: NSObject {
     @IBAction func openAboutPanel(_ sender: NSMenuItem) {
         aboutPanel.makeKeyAndOrderFront(self)
         aboutPanel.center()
+    }
+
+    @IBAction func quitClicked(_ sender:  NSMenuItem) {
+        self.searchViewController.pasteboardService.saveToDefaults()
+        NSApplication.shared.terminate(self)
     }
 }

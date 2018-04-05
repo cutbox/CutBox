@@ -12,6 +12,39 @@ import Magnet
 import RxSwift
 import RxCocoa
 
+class PreferencesWindow: NSWindow {
+
+    let loginItemsService = LoginItemsService.shared
+    let hotKeyService = HotKeyService.shared
+    let hotKeyCenter = HotKeyCenter.shared
+    let searchKeyComboUserDefaults = Constants.searchKeyComboUserDefaults
+    let disposeBag = DisposeBag()
+
+    @IBOutlet weak var autoLoginCheckbox: NSButton!
+    @IBOutlet weak var keyRecorder: RecordView!
+
+    override func awakeFromNib() {
+        self.titlebarAppearsTransparent = true
+
+        self.keyRecorder.delegate = self
+
+        self.hotKeyService
+            .searchKeyCombo
+            .subscribe(onNext: { self.keyRecorder.keyCombo = $0 })
+            .disposed(by: self.disposeBag)
+
+        self.loginItemsService
+            .autoLoginEnabled
+            .asObservable()
+            .bind(to: self.autoLoginCheckbox.rx.state )
+            .disposed(by: disposeBag)
+
+        self.autoLoginCheckbox.rx.state
+            .bind(to: self.loginItemsService.autoLoginEnabled)
+            .disposed(by: disposeBag)
+    }
+}
+
 extension PreferencesWindow: RecordViewDelegate {
 
     func recordView(_ recordView: RecordView, canRecordKeyCombo keyCombo: KeyCombo) -> Bool {
@@ -44,37 +77,3 @@ extension PreferencesWindow: RecordViewDelegate {
         }
     }
 }
-
-class PreferencesWindow: NSWindow {
-
-    let searchKeyComboUserDefaults = Constants.searchKeyComboUserDefaults
-    let hotKeyService = HotKeyService.shared
-    let hotKeyCenter = HotKeyCenter.shared
-    let loginItemsService = LoginItemsService.shared
-    let disposeBag = DisposeBag()
-
-    @IBOutlet weak var autoLoginCheckbox: NSButton!
-    @IBOutlet weak var keyRecorder: RecordView!
-
-    override func awakeFromNib() {
-        self.titlebarAppearsTransparent = true
-
-        self.keyRecorder.delegate = self
-
-        self.hotKeyService
-            .searchKeyCombo
-            .subscribe(onNext: { self.keyRecorder.keyCombo = $0 })
-            .disposed(by: self.disposeBag)
-
-        self.loginItemsService
-            .autoLoginEnabled
-            .asObservable()
-            .bind(to: self.autoLoginCheckbox.rx.state )
-            .disposed(by: disposeBag)
-
-        self.autoLoginCheckbox.rx.state
-            .bind(to: self.loginItemsService.autoLoginEnabled)
-            .disposed(by: disposeBag)
-    }
-}
-
