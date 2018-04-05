@@ -1,10 +1,15 @@
 #!/bin/sh
 
+if [[ "$(which semver)" == "semver not found" ]]; then
+  echo "semver required"
+  exit 1
+fi
+
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
 DMG_FILE="${PROJECT_DIR}/CutBox.dmg"
 INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
-OLD_VERSION="$(git tag | tail -1)"
+OLD_VERSION="$(semver $(git tag) | tail -1)"
 VERSION="$(/usr/libexec/PlistBuddy -c \
                                   "Print CFBundleShortVersionString" \
                                   "${INFOPLIST_FILE}")"
