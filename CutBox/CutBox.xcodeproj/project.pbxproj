@@ -437,17 +437,15 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
-				96E5A5022075D93400D24E41 /* Services */,
 				96E1E59B205D243400F994ED /* CutBox.xib */,
-				962D6D4A207356DA007E3785 /* Constants.swift */,
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
-				965F0790207121800032DACD /* FakeKey */,
 				968A97BF20667CDC00D36B50 /* Pasteboard */,
 				961A49B02065D72F005BC79D /* Popup */,
 				963AA6482071EE0600779697 /* PreferencesWindow */,
 				961A49B92065DC1E005BC79D /* SearchAndPreview */,
+				96E5A5022075D93400D24E41 /* Services */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -455,6 +453,8 @@
 		96E5A5022075D93400D24E41 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				965F0790207121800032DACD /* FakeKey */,
+				962D6D4A207356DA007E3785 /* Constants.swift */,
 				96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */,
 				962D6D4C207357ED007E3785 /* VersionService.swift */,
 				962D6D482073544F007E3785 /* HotKeyService.swift */,

@@ -22,31 +22,13 @@ class SearchAndPreviewView: NSView {
     var filterText = PublishSubject<String>()
     var placeholderText = PublishSubject<String>()
 
-    var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private let prefs = CutBoxPreferences.shared
 
     override func awakeFromNib() {
-        let prefs = CutBoxPreferences.shared
-
-        searchText.delegate = self
-        searchText.textColor = prefs.searchViewTextFieldTextColor
-        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor        
-        searchText.isFieldEditor = true
-
-        searchText.font = prefs.searchViewTextFieldFont
-
-        searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
-        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
-        searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
-
-        previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
-        previewClip.textColor = prefs.searchViewClipPreviewTextColor
-        previewClip.font = prefs.searchViewClipPreviewFont
-        previewClip.selectedTextAttributes[NSAttributedStringKey.backgroundColor] = prefs.searchViewBackgroundColor
-
-        filterText
-            .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }
-            .bind(to: self.searchTextPlaceholder.rx.text)
-            .disposed(by: disposeBag)
+        setupSearchText()
+        setupClipTextPreview()
+        setupPlaceholder()
     }
 
     override init(frame: NSRect) {
@@ -62,14 +44,15 @@ class SearchAndPreviewView: NSView {
     }
 
     func itemSelect(lambda: (_ index: Int, _ total: Int) -> Int) {
-        let row = self.clipboardItemsTable.selectedRow
-        let total = self.clipboardItemsTable.numberOfRows
+        let row = clipboardItemsTable.selectedRow
+        let total = clipboardItemsTable.numberOfRows
+
         let selectedRow = lambda(row, total)
 
-        self.clipboardItemsTable
+        clipboardItemsTable
             .selectRowIndexes([selectedRow],
                               byExtendingSelection: false)
-        self.clipboardItemsTable
+        clipboardItemsTable
             .scrollRowToVisible(selectedRow)
     }
 
@@ -98,4 +81,32 @@ class SearchAndPreviewView: NSView {
             return
         }
     }
+
+    private func setupPlaceholder() {
+        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
+        searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
+
+        filterText
+            .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }
+            .bind(to: searchTextPlaceholder.rx.text)
+            .disposed(by: disposeBag)
+    }
+
+    private func setupClipTextPreview() {
+        previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
+        previewClip.textColor = prefs.searchViewClipPreviewTextColor
+        previewClip.font = prefs.searchViewClipPreviewFont
+        previewClip.selectedTextAttributes[NSAttributedStringKey
+            .backgroundColor] = prefs.searchViewBackgroundColor
+    }
+
+    private func setupSearchText() {
+        searchText.delegate = self
+        searchText.isFieldEditor = true
+        searchText.font = prefs.searchViewTextFieldFont
+        searchText.textColor = prefs.searchViewTextFieldTextColor
+        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor
+        searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
+    }
+
 }

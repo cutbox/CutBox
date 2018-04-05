@@ -70,15 +70,22 @@ class SearchViewController: NSObject {
     }
 
     func pasteSelectedClipToPasteboard() {
-        let index = self.searchView.clipboardItemsTable.selectedRow
-        if let selectedClip = self.pasteboardService[index] {
-            pasteToPasteboard(selectedClip)
-        }
+        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
+        let selectedClips = self.pasteboardService[indexes]
+        guard !selectedClips.isEmpty else { return }
+
+        pasteToPasteboard(selectedClips)
     }
 
     func pasteTopClipToPasteboard() {
         guard let topClip = self.pasteboardService[0] else { return }
         pasteToPasteboard(topClip)
+    }
+
+    private func pasteToPasteboard(_ clips: [String]) {
+        let clip = clips.joined(separator: "\n")
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(clip, forType: .string)
     }
 
     private func pasteToPasteboard(_ clip: String) {

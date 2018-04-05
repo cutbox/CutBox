@@ -9,6 +9,18 @@
 import Cocoa
 import SwiftyStringScore
 
+fileprivate extension Array {
+    subscript (_ indexSet: IndexSet) -> [Element] {
+        var result: [Element] = []
+        indexSet.forEach {
+            if $0 < self.count && $0 > -1 {
+                result.append(self[$0])
+            }
+        }
+        return result
+    }
+}
+
 class PasteboardService: NSObject {
 
     static let shared = PasteboardService()
@@ -43,6 +55,10 @@ class PasteboardService: NSObject {
         return items.count
     }
 
+    subscript (indexes: IndexSet) -> [String] {
+        return items[indexes]
+    }
+
     subscript (index: Int) -> String? {
         return items[safe: index]
     }
@@ -62,14 +78,10 @@ class PasteboardService: NSObject {
         pollingTimer = nil
     }
 
-    func hasAtIndex(_ clip: String) -> Int? {
-        return pasteStore.index(of: clip)
-    }
-
     func replaceWithLatest() -> String? {
         guard let currentClip = clipboardContent() else { return nil }
 
-        if let indexOfClip = hasAtIndex(currentClip) {
+        if let indexOfClip = pasteStore.index(of: currentClip) {
             pasteStore.remove(at: indexOfClip)
         }
 

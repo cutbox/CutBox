@@ -19,10 +19,10 @@ extension SearchViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        let row = self.searchView.clipboardItemsTable.selectedRow
-        guard let clip = self.pasteboardService[row] else { return }
+        let rows = self.searchView.clipboardItemsTable.selectedRowIndexes
+        let preview = self.pasteboardService[rows].joined(separator: "\n")
 
-        self.searchView.previewClip.string = clip
+        self.searchView.previewClip.string = preview
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
@@ -45,19 +45,18 @@ extension SearchViewController: NSTableViewDelegate {
         if textField == nil {
             let textWidth = Int(tableView.frame.width)
             let textHeight = 30
+
             let textFrame = CGRect(x: 0, y: 0,
                                    width: textWidth,
                                    height: textHeight)
 
             textField = NSTextField(frame: textFrame)
+
             textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
-            textField?.cell?.isBordered = false
-            textField?.cell?.backgroundStyle = .dark
             textField?.backgroundColor = NSColor.clear
             textField?.isBordered = false
             textField?.isSelectable = false
             textField?.isEditable = false
-            textField?.bezelStyle = .roundedBezel
             textField?.font = CutBoxPreferences.shared.searchViewClipItemsFont
             textField?.identifier = identifier
         }
