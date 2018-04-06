@@ -36,6 +36,14 @@ class PreferencesWindow: NSWindow {
 
 extension PreferencesWindow {
     func setupJoinStringTextField()  {
+        let useJoinString = CutBoxPreferences.shared.useJoinString
+
+        joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0 )
+
+        if let joinString = CutBoxPreferences.shared.multiJoinString {
+            joinStringTextField.stringValue = joinString
+            joinStringTextField.isEnabled = useJoinString
+        }
 
         self.joinStringTextField.rx.text
             .distinctUntilChanged { lhs, rhs in rhs == lhs }
