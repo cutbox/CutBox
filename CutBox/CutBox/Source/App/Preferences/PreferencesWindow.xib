@@ -13,17 +13,17 @@
         <window title="CutBox Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="atS-Pr-B8U" customClass="PreferencesWindow" customModule="CutBox" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="207" width="440" height="324"/>
+            <rect key="contentRect" x="196" y="207" width="440" height="258"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="HKT-R0-bUl">
-                <rect key="frame" x="0.0" y="0.0" width="440" height="324"/>
+                <rect key="frame" x="0.0" y="0.0" width="440" height="258"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4zZ-Qh-BG2">
-                        <rect key="frame" x="50" y="20" width="340" height="264"/>
+                    <stackView distribution="equalCentering" orientation="vertical" alignment="centerX" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4zZ-Qh-BG2">
+                        <rect key="frame" x="50" y="20" width="340" height="198"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="swm-w6-LCN">
-                                <rect key="frame" x="103" y="237" width="134" height="29"/>
+                                <rect key="frame" x="103" y="171" width="134" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="130" id="MoL-Y7-Fu6"/>
                                     <constraint firstAttribute="height" constant="25" id="y74-Np-aoc"/>
@@ -34,22 +34,10 @@
                                 </buttonCell>
                             </button>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="SfQ-aw-ZyD">
-                                <rect key="frame" x="0.0" y="218" width="340" height="5"/>
+                                <rect key="frame" x="0.0" y="154" width="340" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-WD-bpb">
-                                <rect key="frame" x="18" y="177" width="304" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="6sT-JA-mzY"/>
-                                    <constraint firstAttribute="height" constant="25" id="NVl-au-95h"/>
-                                </constraints>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Shortcut" id="xAm-X9-Juq">
-                                    <font key="font" size="15" name=".AppleSystemUIFont"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFz-yK-ZSQ">
-                                <rect key="frame" x="20" y="142" width="300" height="25"/>
+                                <rect key="frame" x="20" y="115" width="300" height="25"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-QU-ZyK" userLabel="CutBox Shortcut TextField">
                                         <rect key="frame" x="-2" y="4" width="139" height="17"/>
@@ -96,10 +84,10 @@
                                 </customSpacing>
                             </stackView>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="yn8-ch-gT0">
-                                <rect key="frame" x="0.0" y="121" width="340" height="5"/>
+                                <rect key="frame" x="0.0" y="97" width="340" height="5"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ3-SD-QyO">
-                                <rect key="frame" x="18" y="85" width="304" height="16"/>
+                                <rect key="frame" x="18" y="62" width="304" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="TdI-PZ-E0H"/>
                                     <constraint firstAttribute="width" constant="300" id="w09-Hg-vmn"/>
@@ -111,12 +99,12 @@
                                 </textFieldCell>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Brq-w8-kKV">
-                                <rect key="frame" x="117" y="55" width="107" height="15"/>
+                                <rect key="frame" x="118" y="31" width="105" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="bNa-Xj-7Ty"/>
                                 </constraints>
-                                <segmentedCell key="cell" controlSize="mini" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="aUE-72-Pth">
-                                    <font key="font" metaFont="miniSystem"/>
+                                <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="smallSquare" trackingMode="selectOne" id="aUE-72-Pth">
+                                    <font key="font" metaFont="smallSystem"/>
                                     <segments>
                                         <segment label="Newline" width="50" selected="YES"/>
                                         <segment label="String" width="50" tag="1"/>
@@ -127,7 +115,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lSw-px-RTF">
-                                <rect key="frame" x="115" y="19" width="110" height="25"/>
+                                <rect key="frame" x="115" y="0.0" width="110" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="11W-n4-r0y"/>
                                     <constraint firstAttribute="height" constant="25" id="pPW-vu-vYN"/>
@@ -138,9 +126,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="SBI-4i-suH">
-                                <rect key="frame" x="0.0" y="-2" width="340" height="5"/>
-                            </box>
                         </subviews>
                         <visibilityPriorities>
                             <integer value="1000"/>
@@ -150,12 +135,8 @@
                             <integer value="1000"/>
                             <integer value="1000"/>
                             <integer value="1000"/>
-                            <integer value="1000"/>
-                            <integer value="1000"/>
                         </visibilityPriorities>
                         <customSpacing>
-                            <real value="3.4028234663852886e+38"/>
-                            <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
@@ -179,7 +160,7 @@
                 <outlet property="joinStyleSelector" destination="Brq-w8-kKV" id="tcf-Jt-Qkt"/>
                 <outlet property="mainKeyRecorder" destination="xBn-Kq-xbQ" id="UX8-7R-gQ4"/>
             </connections>
-            <point key="canvasLocation" x="93" y="-245"/>
+            <point key="canvasLocation" x="93" y="-278"/>
         </window>
     </objects>
 </document>
