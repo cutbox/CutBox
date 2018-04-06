@@ -78,8 +78,20 @@ class SearchViewController: NSObject {
         pasteToPasteboard(selectedClips)
     }
 
+    func prepareClips(_ clips: [String]) -> String {
+        var clip = clips.joined(separator: prefs.multiJoinString ?? "\n")
+
+        if prefs.useWrappingStrings {
+            let (start, end) = prefs.wrappingStrings
+            clip = "\(start ?? "")\(clip)\(end ?? "")"
+        }
+
+        return clip
+    }
+
     private func pasteToPasteboard(_ clips: [String]) {
-        let clip = clips.joined(separator: prefs.multiJoinString ?? "\n")
+        let clip = prepareClips(clips)
+
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
     }

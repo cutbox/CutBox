@@ -24,6 +24,9 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var joinStringTextField: NSTextField!
     @IBOutlet weak var autoLoginCheckbox: NSButton!
     @IBOutlet weak var mainKeyRecorder: RecordView!
+    @IBOutlet weak var shouldWrapMultipleSelection: NSButton!
+    @IBOutlet weak var wrapStartTextField: NSTextField!
+    @IBOutlet weak var wrapEndTextField: NSTextField!
 
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
@@ -31,10 +34,52 @@ class PreferencesWindow: NSWindow {
         setupKeyRecorders()
         setupAutoLoginControl()
         setupJoinStringTextField()
+        setupWrappingStringTextFields()
     }
 }
 
 extension PreferencesWindow {
+    func setupWrappingStringTextFields() {
+        let (start, end) = CutBoxPreferences.shared.wrappingStrings
+        self.wrapStartTextField.stringValue = start ?? ""
+        self.wrapEndTextField.stringValue = end ?? ""
+
+        let shouldWrapSaved = CutBoxPreferences.shared.useWrappingStrings
+        self.shouldWrapMultipleSelection.state = shouldWrapSaved ? .on : .off
+        updateWrappingMultipleSelection(shouldWrapSaved)
+
+        Observable
+            .combineLatest(self.wrapStartTextField.rx.text,
+                           self.wrapEndTextField.rx.text)
+            { ($0, $1) }
+            .skip(1)
+            .subscribe(onNext: { CutBoxPreferences.shared.wrappingStrings = $0 })
+            .disposed(by: disposeBag)
+
+        self.shouldWrapMultipleSelection.rx.state
+            .skip(1)
+            .map { $0 == .on }
+            .subscribe(onNext: { self.updateWrappingMultipleSelection($0) })
+            .disposed(by: disposeBag)
+    }
+
+    func updateWrappingMultipleSelection(_ bool: Bool) {
+        CutBoxPreferences.shared.useWrappingStrings = bool
+        [self.wrapStartTextField,
+         self.wrapEndTextField]
+            .forEach { $0?.isEnabled = bool }
+    }
+}
+
+extension PreferencesWindow {
+    @IBAction func joinStyleSelectorAction(_ sender: Any) {
+        if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
+            let bool = selector.selectedSegment == 1
+            joinStringTextField.isEnabled = bool
+            CutBoxPreferences.shared.useJoinString = bool
+        }
+    }
+
     func setupJoinStringTextField()  {
         let useJoinString = CutBoxPreferences.shared.useJoinString
 
@@ -53,17 +98,6 @@ extension PreferencesWindow {
                 }
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension PreferencesWindow {
-
-    @IBAction func joinStyleSelectorAction(_ sender: Any) {
-        if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
-            let bool = selector.selectedSegment == 1
-            joinStringTextField.isEnabled = bool
-            CutBoxPreferences.shared.useJoinString = bool
-        }
     }
 }
 

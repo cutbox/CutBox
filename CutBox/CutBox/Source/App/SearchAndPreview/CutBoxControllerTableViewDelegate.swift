@@ -19,9 +19,8 @@ extension SearchViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        let rows = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = self.pasteboardService[rows].joined(separator: prefs.multiJoinString ?? "\n")
-
+        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
+        let preview = self.prepareClips(self.pasteboardService[indexes])
         self.searchView.previewClip.string = preview
     }
 

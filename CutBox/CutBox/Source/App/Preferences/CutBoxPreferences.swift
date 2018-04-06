@@ -66,4 +66,31 @@ class CutBoxPreferences {
                 UserDefaults.standard.string(forKey: kMultiJoinSeparator) : nil
         }
     }
+
+    private var kUseWrappingStrings = "useWrappingStrings"
+    private var kWrapStringStart = "wrapStringStart"
+    private var kWrapStringEnd = "wrapStringEnd"
+
+    var useWrappingStrings: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: kUseWrappingStrings)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: kUseWrappingStrings)
+        }
+    }
+
+    var wrappingStrings: (String?, String?) {
+        set {
+            UserDefaults.standard.set(newValue.0, forKey: kWrapStringStart)
+            UserDefaults.standard.set(newValue.1, forKey: kWrapStringEnd)
+        }
+        get {
+            return useWrappingStrings ?
+                (
+                    UserDefaults.standard.string(forKey: kWrapStringStart),
+                    UserDefaults.standard.string(forKey: kWrapStringEnd)
+                ) : (nil, nil)
+        }
+    }
 }
