@@ -12,8 +12,9 @@ import RxSwift
 class SearchViewController: NSObject {
 
     let pasteboardService: PasteboardService
-    let popup: PopupController
     let searchView: SearchAndPreviewView
+    let prefs = CutBoxPreferences.shared
+    private let popup: PopupController
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
     }
@@ -77,13 +78,8 @@ class SearchViewController: NSObject {
         pasteToPasteboard(selectedClips)
     }
 
-    func pasteTopClipToPasteboard() {
-        guard let topClip = self.pasteboardService[0] else { return }
-        pasteToPasteboard(topClip)
-    }
-
     private func pasteToPasteboard(_ clips: [String]) {
-        let clip = clips.joined(separator: "\n")
+        let clip = clips.joined(separator: prefs.multiJoinString ?? "\n")
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
     }
@@ -133,7 +129,6 @@ class SearchViewController: NSObject {
             fatalError("Unable to get main screen")
         }
 
-        let prefs = CutBoxPreferences.shared
         let width = screen.frame.width / 1.6
         let height = screen.frame.height / 1.8
 

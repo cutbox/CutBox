@@ -44,7 +44,26 @@ class CutBoxPreferences {
     var searchViewClipPreviewTextColor       = #colorLiteral(red: 0.6820933223, green: 0.7646310925, blue: 0.803753078, alpha: 1)
 
     var searchViewClipPreviewBackgroundColor = #colorLiteral(red: 0.02545906228, green: 0.02863771868, blue: 0.03, alpha: 1)
+
+    private var kMultiJoinSeparator = "multiJoinSeparator"
+    private var kUseJoinSeparator = "useJoinSeparator"
+
+    var useJoinString: Bool {
+        set {
+            UserDefaults.standard.set(newValue, forKey: kUseJoinSeparator)
+        }
+        get {
+            return UserDefaults.standard.bool(forKey: kUseJoinSeparator)
+        }
+    }
+
+    var multiJoinString: String? {
+        set {
+            UserDefaults.standard.set(newValue, forKey: kMultiJoinSeparator)
+        }
+        get {
+            return useJoinString ?
+                UserDefaults.standard.string(forKey: kMultiJoinSeparator) : nil
+        }
+    }
 }
-
-
-

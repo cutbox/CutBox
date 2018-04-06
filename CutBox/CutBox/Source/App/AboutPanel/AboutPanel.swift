@@ -13,7 +13,7 @@ class LinkText: NSTextField {
     override func mouseDown(with event: NSEvent) {
         NSWorkspace
             .shared
-            .open(URL(string: Constants.cutBoxProductHomeUrl)!)
+            .open(URL(string: Constants.homeUrl)!)
     }
 
 }
@@ -28,9 +28,9 @@ class AboutPanel: NSPanel {
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
 
-        productTitle.stringValue = Constants.cutBoxProductTitle
-        productHomeUrl.stringValue = Constants.cutBoxProductHomeUrl
-        productLicense.stringValue = Constants.cutBoxCopyrightLicense
+        productTitle.stringValue = Constants.productTitle
+        productHomeUrl.stringValue = Constants.homeUrl
+        productLicense.stringValue = Constants.copyrightLicense
         productVersion.stringValue = VersionService.version
     }
 }

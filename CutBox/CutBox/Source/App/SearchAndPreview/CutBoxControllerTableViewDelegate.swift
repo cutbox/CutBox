@@ -20,7 +20,7 @@ extension SearchViewController: NSTableViewDelegate {
 
     func tableViewSelectionDidChange(_ notification: Notification) {
         let rows = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = self.pasteboardService[rows].joined(separator: "\n")
+        let preview = self.pasteboardService[rows].joined(separator: prefs.multiJoinString ?? "\n")
 
         self.searchView.previewClip.string = preview
     }

@@ -32,22 +32,22 @@ class HotKeyService {
     }
 
     func resetDefaultGlobalToggle() {
-        if let savedKeyCombo = KeyCombo.loadUserDefaults(identifier: Constants.searchKeyComboUserDefaults) {
+        if let savedKeyCombo = KeyCombo.loadUserDefaults(identifier: Constants.kCutBoxToggleKeyCombo) {
             self.searchKeyCombo
                 .onNext(savedKeyCombo)
         } else {
             self.searchKeyCombo
-                .onNext(Constants.defaultSearchCustomKeyCombo)
+                .onNext(Constants.defaultCutBoxToggleKeyCombo)
         }
     }
 
     fileprivate func changeGlobalToggle(keyCombo: KeyCombo) {
         guard let controller = self.controller else {
-            fatalError("HotKeyService")
+            fatalError("HotKeyService has no controller configured")
         }
 
         let hotKey = HotKey(
-            identifier: Constants.searchKeyComboUserDefaults,
+            identifier: Constants.kCutBoxToggleKeyCombo,
             keyCombo: keyCombo,
             target: controller,
             action: #selector(controller.searchClicked(_:))
@@ -55,6 +55,6 @@ class HotKeyService {
 
         hotKey.register()
 
-        keyCombo.saveUserDefaults(identifier: Constants.searchKeyComboUserDefaults)
+        keyCombo.saveUserDefaults(identifier: Constants.kCutBoxToggleKeyCombo)
     }
 }

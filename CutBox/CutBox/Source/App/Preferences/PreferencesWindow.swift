@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import AppKit
 import KeyHolder
 import Magnet
 import RxSwift
@@ -17,22 +18,60 @@ class PreferencesWindow: NSWindow {
     let loginItemsService = LoginItemsService.shared
     let hotKeyService = HotKeyService.shared
     let hotKeyCenter = HotKeyCenter.shared
-    let searchKeyComboUserDefaults = Constants.searchKeyComboUserDefaults
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
+    @IBOutlet weak var joinStringTextField: NSTextField!
     @IBOutlet weak var autoLoginCheckbox: NSButton!
-    @IBOutlet weak var keyRecorder: RecordView!
+    @IBOutlet weak var mainKeyRecorder: RecordView!
 
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
 
-        self.keyRecorder.delegate = self
+        setupKeyRecorders()
+        setupAutoLoginControl()
+        setupJoinStringTextField()
+    }
+}
+
+extension PreferencesWindow {
+    func setupJoinStringTextField()  {
+
+        self.joinStringTextField.rx.text
+            .distinctUntilChanged { lhs, rhs in rhs == lhs }
+            .subscribe(onNext: { text in
+                if self.joinStringTextField.isEnabled {
+                    CutBoxPreferences.shared.multiJoinString = text
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension PreferencesWindow {
+
+    @IBAction func joinStyleSelectorAction(_ sender: Any) {
+        if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
+            let bool = selector.selectedSegment == 1
+            joinStringTextField.isEnabled = bool
+            CutBoxPreferences.shared.useJoinString = bool
+        }
+    }
+}
+
+extension PreferencesWindow {
+    func setupKeyRecorders() {
+        self.mainKeyRecorder.delegate = self
 
         self.hotKeyService
             .searchKeyCombo
-            .subscribe(onNext: { self.keyRecorder.keyCombo = $0 })
+            .subscribe(onNext: { self.mainKeyRecorder.keyCombo = $0 })
             .disposed(by: self.disposeBag)
+    }
+}
 
+extension PreferencesWindow {
+    func setupAutoLoginControl() {
         self.loginItemsService
             .autoLoginEnabled
             .asObservable()
@@ -53,13 +92,13 @@ extension PreferencesWindow: RecordViewDelegate {
 
     func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
         hotKeyCenter
-            .unregisterHotKey(with: searchKeyComboUserDefaults)
+            .unregisterHotKey(with: Constants.kCutBoxToggleKeyCombo)
         return true
     }
 
     func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
         switch recordView {
-        case keyRecorder:
+        case mainKeyRecorder:
             hotKeyService
                 .searchKeyCombo
                 .onNext(keyCombo)
@@ -72,7 +111,7 @@ extension PreferencesWindow: RecordViewDelegate {
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
-        if hotKeyCenter.hotKey(searchKeyComboUserDefaults) == nil {
+        if hotKeyCenter.hotKey(Constants.kCutBoxToggleKeyCombo) == nil {
             hotKeyService.resetDefaultGlobalToggle()
         }
     }

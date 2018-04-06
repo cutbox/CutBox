@@ -38,6 +38,7 @@ class PasteboardService: NSObject {
         } else {
             self.pasteStore = []
         }
+
         super.init()
     }
 
