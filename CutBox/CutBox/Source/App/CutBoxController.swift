@@ -78,8 +78,6 @@ class CutBoxController: NSObject {
                 }
             })
             .disposed(by: disposeBag)
-
-
     }
 
     @IBAction func searchModeSelect(_ sender: NSMenuItem) {
