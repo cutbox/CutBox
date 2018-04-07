@@ -50,6 +50,7 @@ extension SearchViewController: NSTableViewDelegate {
                                    height: textHeight)
 
             textField = NSTextField(frame: textFrame)
+            textField?.cell = SearchViewTextFieldCell()
 
             textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
             textField?.backgroundColor = NSColor.clear

@@ -16,8 +16,6 @@ extension SearchViewController: NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         guard let value = self.pasteboardService[row] else { return nil }
-
-        // FIXME: Cheap hack to add left pad to the row.
-        return " " + value
+        return value
     }
 }

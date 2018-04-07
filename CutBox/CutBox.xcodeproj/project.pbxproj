@@ -42,6 +42,7 @@
 		965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		965F078D206FD1890032DACD /* AboutPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F078C206FD1890032DACD /* AboutPanel.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
+		9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
@@ -170,6 +171,7 @@
 		965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-icon-preview-256.png"; sourceTree = "<group>"; };
 		965F078C206FD1890032DACD /* AboutPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPanel.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
+		9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextFieldCell.swift; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
 				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
 				965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */,
+				9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */,
 				965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */,
 			);
 			path = SearchAndPreview;
@@ -926,6 +929,7 @@
 				965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */,
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,
 				965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */,
+				9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
