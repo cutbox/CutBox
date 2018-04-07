@@ -23,6 +23,30 @@ enum PasteboardSearchMode {
         }
     }
 
+    func axID() -> String {
+        switch self{
+        case .fuzzyMatch:
+            return "fuzzyMatch"
+        case .regexpAnyCase:
+            return "regexpAnyCase"
+        case .regexpStrictCase:
+            return "regexpStrictCase"
+        }
+    }
+
+    static func searchMode(from string: String) -> PasteboardSearchMode {
+        switch string {
+        case "fuzzyMatch":
+            return .fuzzyMatch
+        case "regexpAnyCase":
+            return .regexpAnyCase
+        case "regexpStrictCase":
+            return .regexpStrictCase
+        default:
+            return .fuzzyMatch
+        }
+    }
+
     mutating func next() -> PasteboardSearchMode {
         switch self{
         case .fuzzyMatch:
@@ -41,9 +65,23 @@ class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
     var filterText: String?
-    var searchMode: PasteboardSearchMode = .fuzzyMatch
+
+    private var _defaultSearchMode: PasteboardSearchMode = .fuzzyMatch
+
+    var searchMode: PasteboardSearchMode {
+        set {
+            self.defaults.set(newValue.axID(), forKey: kSearchModeKey)
+        }
+        get {
+            if let axID = self.defaults.string(forKey: kSearchModeKey) {
+                return PasteboardSearchMode.searchMode(from: axID)
+            }
+            return _defaultSearchMode
+        }
+    }
     var defaults = NSUserDefaultsController.shared.defaults
 
+    private var kSearchModeKey = "searchMode"
     private var kPasteStoreKey = "pasteStore"
     private var pasteStore: [String] = []
 
@@ -117,7 +155,6 @@ class PasteboardService: NSObject {
 
     func toggleSearchMode() {
         self.searchMode = self.searchMode.next()
-        debugPrint(self.searchMode.name())
     }
 
     func clear() {

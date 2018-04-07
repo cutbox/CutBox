@@ -41,7 +41,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="908" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" id="uWo-BC-ODB">
+                                                    <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" id="uWo-BC-ODB" customClass="SearchTextView" customModule="CutBox" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="908" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,8 +154,22 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ND-nL-P4f">
+                                                    <rect key="frame" x="8" y="10" width="441" height="11"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="11" id="w6z-TB-8an"/>
+                                                    </constraints>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Fuzzy Matching" id="Upx-Iq-0D4">
+                                                        <font key="font" metaFont="miniSystem"/>
+                                                        <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6ND-nL-P4f" secondAttribute="trailing" constant="10" id="Luq-H0-mjt"/>
+                                                <constraint firstAttribute="bottom" secondItem="6ND-nL-P4f" secondAttribute="bottom" constant="10" id="TJM-4m-4RM"/>
+                                                <constraint firstItem="6ND-nL-P4f" firstAttribute="leading" secondItem="gtu-s3-I3G" secondAttribute="leading" constant="10" id="WmL-QT-DAj"/>
                                                 <constraint firstAttribute="trailing" secondItem="yfp-9E-05R" secondAttribute="trailing" constant="10" id="X84-2q-7uS"/>
                                                 <constraint firstItem="yfp-9E-05R" firstAttribute="leading" secondItem="gtu-s3-I3G" secondAttribute="leading" constant="10" id="h6l-53-OzV"/>
                                                 <constraint firstItem="yfp-9E-05R" firstAttribute="top" secondItem="gtu-s3-I3G" secondAttribute="top" constant="10" id="rLC-FC-153"/>
@@ -198,6 +212,7 @@
             <connections>
                 <outlet property="clipboardItemsTable" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
                 <outlet property="previewClip" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
+                <outlet property="searchModeIndicator" destination="6ND-nL-P4f" id="NKI-Kw-M1H"/>
                 <outlet property="searchText" destination="uWo-BC-ODB" id="tbB-36-Blg"/>
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>

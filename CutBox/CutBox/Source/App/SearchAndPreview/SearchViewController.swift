@@ -123,9 +123,14 @@ class SearchViewController: NSObject {
         self.events
             .bind { event in
                 switch event {
+                case .setSearchMode(let mode):
+                    self.pasteboardService.searchMode = mode
+                    self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.searchModeIndicator.stringValue = mode.name()
                 case .toggleSearchMode:
                     self.pasteboardService.toggleSearchMode()
                     self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.searchModeIndicator.stringValue = self.pasteboardService.searchMode.name()
                 case .justClose:
                     self.closePopup()
                 case .closeAndPaste:

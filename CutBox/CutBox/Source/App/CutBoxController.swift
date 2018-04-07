@@ -8,9 +8,9 @@
 
 import Cocoa
 import Magnet
+import RxSwift
 
 class CutBoxController: NSObject {
-
 
     @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
     @IBOutlet weak var regexpModeItem: NSMenuItem!
@@ -22,11 +22,15 @@ class CutBoxController: NSObject {
         .system
         .statusItem(withLength: NSStatusItem.variableLength)
 
-    var searchModeSelector: [NSMenuItem]?
+    var searchModeSelectors: [NSMenuItem]?
+    var searchModeSelectorsDict: [String:NSMenuItem]?
+
     let searchViewController: SearchViewController
     let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
     let hotKeyService = HotKeyService.shared
+
+    private let disposeBag = DisposeBag()
 
     override init() {
         self.searchViewController = SearchViewController()
@@ -44,16 +48,52 @@ class CutBoxController: NSObject {
     }
 
     func setupModeSelectors() {
-        self.searchModeSelector = [fuzzyMatchModeItem,
-                                   regexpModeItem,
-                                   regexpCaseSensitiveModeItem]
+        self.searchModeSelectors =
+            [fuzzyMatchModeItem,
+             regexpModeItem,
+             regexpCaseSensitiveModeItem]
+
+        self.searchModeSelectorsDict =
+            [
+                "fuzzyMatch":fuzzyMatchModeItem,
+                "regexpAnyCase":regexpModeItem,
+                "regexpStrictCase":regexpCaseSensitiveModeItem
+        ]
+
+        checkSearchModeItem(
+            PasteboardService
+            .shared
+            .searchMode
+            .axID())
+
+        searchViewController
+            .events
+            .asObservable()
+            .subscribe(onNext: { event in
+                switch event {
+                case .setSearchMode(let mode):
+                    self.checkSearchModeItem(mode.axID())
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+
+
     }
 
-
     @IBAction func searchModeSelect(_ sender: NSMenuItem) {
-        modeSelectors?.forEach { $0.state = .off }
-        sender.state = .on
-        
+        searchModeSelect(sender.accessibilityIdentifier())
+    }
+
+    func searchModeSelect(_ axID: String) {
+        let mode = PasteboardSearchMode.searchMode(from: axID)
+        searchViewController.events.onNext(.setSearchMode(mode))
+    }
+
+    func checkSearchModeItem(_ axID: String) {
+        searchModeSelectors?.forEach { $0.state = .off }
+        searchModeSelectorsDict?[axID]?.state = .on
     }
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {

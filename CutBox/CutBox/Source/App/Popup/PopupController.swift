@@ -94,7 +94,6 @@ class PopupController: NSWindowController {
         isOpen ? closePanel() : openPanel()
     }
 
-
     func resizePopup(width: Double, height: Double) {
         var frame = panel.frame
         var newSize = CGSize(width: width,

@@ -37,20 +37,23 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="cTR-7r-05t"/>
-                <menuItem title="Fuzzy match" onStateImage="NSMenuOnStateTemplate" id="Zg3-A3-1CM">
+                <menuItem title="Fuzzy match" state="on" onStateImage="NSMenuOnStateTemplate" id="Zg3-A3-1CM">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <accessibility identifier="fuzzyMatch"/>
                     <connections>
                         <action selector="searchModeSelect:" target="4hl-ia-0EP" id="Jz5-Ww-2hQ"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Regexp any case" onStateImage="NSMenuOnStateTemplate" id="dFX-Ic-CdB">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <accessibility identifier="regexpAnyCase"/>
                     <connections>
                         <action selector="searchModeSelect:" target="4hl-ia-0EP" id="oa8-RE-9ob"/>
                     </connections>
                 </menuItem>
                 <menuItem title="Regexp case match" onStateImage="NSMenuOnStateTemplate" id="zPl-2W-1z9">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <accessibility identifier="regexpStrictCase"/>
                     <connections>
                         <action selector="searchModeSelect:" target="4hl-ia-0EP" id="riV-Ld-umH"/>
                     </connections>

@@ -18,6 +18,7 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var searchText: NSTextView!
     @IBOutlet weak var clipboardItemsTable: NSTableView!
     @IBOutlet weak var previewClip: NSTextView!
+    @IBOutlet weak var searchModeIndicator: NSTextField!
 
     var events = PublishSubject<SearchViewEvents>()
     var filterText = PublishSubject<String>()
@@ -30,6 +31,15 @@ class SearchAndPreviewView: NSView {
         setupSearchText()
         setupClipTextPreview()
         setupPlaceholder()
+//
+//        events
+//            .asObservable()
+//            .subscribe(onNext: {event in
+//                switch event {
+//                case .setSearchMode(let mode):
+//                    searchModeIndicator.stringValue = mode.name()
+//                }
+//            })
     }
 
     override init(frame: NSRect) {
