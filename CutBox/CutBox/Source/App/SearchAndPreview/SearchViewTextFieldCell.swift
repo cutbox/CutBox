@@ -12,8 +12,8 @@ class SearchViewTextFieldCell: NSTextFieldCell {
 
     override func drawingRect(forBounds rect: NSRect) -> NSRect {
         var newRect = super.drawingRect(forBounds: rect)
-        newRect.origin.y += 7
-        newRect.origin.x += 7
+        newRect.origin.y += 2
+        newRect.origin.x += 6
 
         return newRect
     }
