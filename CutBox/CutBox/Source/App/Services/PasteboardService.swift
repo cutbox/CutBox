@@ -9,15 +9,29 @@
 import Cocoa
 import SwiftyStringScore
 
-fileprivate extension Array {
-    subscript (_ indexSet: IndexSet) -> [Element] {
-        var result: [Element] = []
-        indexSet.forEach {
-            if $0 < self.count && $0 > -1 {
-                result.append(self[$0])
-            }
+enum PasteboardSearchMode {
+    case fuzzyMatch, regexpAnyCase, regexpStrictCase
+
+    func name() -> String {
+        switch self{
+        case .fuzzyMatch:
+            return "Fuzzy matching"
+        case .regexpAnyCase:
+            return "RegExp (case insensitive)"
+        case .regexpStrictCase:
+            return "RegExp (case sensitive)"
         }
-        return result
+    }
+
+    mutating func next() -> PasteboardSearchMode {
+        switch self{
+        case .fuzzyMatch:
+            return .regexpAnyCase
+        case .regexpAnyCase:
+            return .regexpStrictCase
+        case .regexpStrictCase:
+            return .fuzzyMatch
+        }
     }
 }
 
@@ -27,6 +41,7 @@ class PasteboardService: NSObject {
 
     var pollingTimer: Timer?
     var filterText: String?
+    var searchMode: PasteboardSearchMode = .fuzzyMatch
     var defaults = NSUserDefaultsController.shared.defaults
 
     private var kPasteStoreKey = "pasteStore"
@@ -46,10 +61,21 @@ class PasteboardService: NSObject {
         guard let search = self.filterText, search != ""
             else { return pasteStore }
 
-        return pasteStore.fuzzySearchRankedFiltered(
-            search: search,
-            score: Constants.searchFuzzyMatchMinScore
-        )
+        switch searchMode {
+        case .fuzzyMatch:
+            return pasteStore.fuzzySearchRankedFiltered(
+                search: search,
+                score: Constants.searchFuzzyMatchMinScore)
+        case .regexpAnyCase:
+            return pasteStore.regexpSearchFiltered(
+                search: search,
+                options: [.caseInsensitive])
+        case .regexpStrictCase:
+            return pasteStore.regexpSearchFiltered(
+                search: search,
+                options: [])
+
+        }
     }
 
     var count: Int {
@@ -87,6 +113,11 @@ class PasteboardService: NSObject {
         }
 
         return pasteStore.first == currentClip ? nil : currentClip
+    }
+
+    func toggleSearchMode() {
+        self.searchMode = self.searchMode.next()
+        debugPrint(self.searchMode.name())
     }
 
     func clear() {

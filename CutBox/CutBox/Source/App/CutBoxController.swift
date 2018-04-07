@@ -11,12 +11,18 @@ import Magnet
 
 class CutBoxController: NSObject {
 
+
+    @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
+    @IBOutlet weak var regexpModeItem: NSMenuItem!
+    @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
+
     @IBOutlet weak var statusMenu: NSMenu!
 
     let statusItem: NSStatusItem = NSStatusBar
         .system
         .statusItem(withLength: NSStatusItem.variableLength)
 
+    var searchModeSelector: [NSMenuItem]?
     let searchViewController: SearchViewController
     let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
@@ -33,6 +39,21 @@ class CutBoxController: NSObject {
         icon.isTemplate = true // best for dark mode
         self.statusItem.image = icon
         self.statusItem.menu = statusMenu
+
+        setupModeSelectors()
+    }
+
+    func setupModeSelectors() {
+        self.searchModeSelector = [fuzzyMatchModeItem,
+                                   regexpModeItem,
+                                   regexpCaseSensitiveModeItem]
+    }
+
+
+    @IBAction func searchModeSelect(_ sender: NSMenuItem) {
+        modeSelectors?.forEach { $0.state = .off }
+        sender.state = .on
+        
     }
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {

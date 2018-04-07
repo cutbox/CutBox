@@ -16,6 +16,9 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="4hl-ia-0EP" customClass="CutBoxController" customModule="CutBox" customModuleProvider="target">
             <connections>
+                <outlet property="fuzzyMatchModeItem" destination="Zg3-A3-1CM" id="x96-5T-wjT"/>
+                <outlet property="regexpCaseSensitiveModeItem" destination="zPl-2W-1z9" id="8HV-UL-WEx"/>
+                <outlet property="regexpModeItem" destination="dFX-Ic-CdB" id="LcG-2V-1tt"/>
                 <outlet property="statusMenu" destination="r5R-nF-u2D" id="QbZ-3b-K66"/>
             </connections>
         </customObject>
@@ -34,6 +37,25 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="cTR-7r-05t"/>
+                <menuItem title="Fuzzy match" onStateImage="NSMenuOnStateTemplate" id="Zg3-A3-1CM">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="searchModeSelect:" target="4hl-ia-0EP" id="Jz5-Ww-2hQ"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Regexp any case" onStateImage="NSMenuOnStateTemplate" id="dFX-Ic-CdB">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="searchModeSelect:" target="4hl-ia-0EP" id="oa8-RE-9ob"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Regexp case match" onStateImage="NSMenuOnStateTemplate" id="zPl-2W-1z9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="searchModeSelect:" target="4hl-ia-0EP" id="riV-Ld-umH"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="H3m-ta-Vrc"/>
                 <menuItem title="Preferences" id="7xP-Aa-bCL">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -54,7 +76,10 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="143" y="216.5"/>
+            <point key="canvasLocation" x="143" y="246.5"/>
         </menu>
     </objects>
+    <resources>
+        <image name="NSMenuOnStateTemplate" width="12" height="12"/>
+    </resources>
 </document>

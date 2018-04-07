@@ -17,3 +17,23 @@ extension Array where Element == String {
             .map { $0.0 }
     }
 }
+
+extension Array where Element == String {
+    func regexpSearchFiltered(search: String, options: NSRegularExpression.Options) -> [String] {
+        // We need a *do* block because the incoming
+        // search string might be an invalid regexp.
+        // Return an empty array in that case.
+        do {
+            let regexp: NSRegularExpression =
+                try NSRegularExpression(pattern: search,
+                                         options: options)
+            return self
+                .filter {
+                    let range = NSRange($0.startIndex..., in: $0)
+                    return regexp.numberOfMatches(in: $0, range: range) > 0
+            }
+        } catch {
+            return []
+        }
+    }
+}
