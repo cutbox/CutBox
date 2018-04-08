@@ -2,11 +2,11 @@
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg)
 [![Latest release](https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.14/CutBox.dmg)
 
+![](CutBox/CutBox/GraphicAssets/cutbox-icon-preview.png)
+
 # CutBox
 
 a nice little pasteboard timemachine
-
-![](CutBox/CutBox/GraphicAssets/cutbox-icon-preview.png)
 
 ## About CutBox
 
