@@ -11,6 +11,32 @@ import Magnet
 
 class CutBoxPreferences {
 
+    var theme: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: "theme")
+        }
+
+        get {
+            return UserDefaults.standard.integer(forKey: "theme")
+        }
+    }
+
+    var themes: [() -> ()]?
+
+    func setTheme(theme: Int) {
+        self.theme = theme
+        themes?[theme]()
+    }
+
+    init() {
+        themes = [
+        { self.darkTheme() },
+        { self.lightTheme() }
+        ]
+
+        themes?[theme]()
+    }
+
     static let shared = CutBoxPreferences()
 
     var searchViewTextFieldFont = NSFont(

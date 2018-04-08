@@ -28,6 +28,14 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var wrapStartTextField: NSTextField!
     @IBOutlet weak var wrapEndTextField: NSTextField!
 
+    @IBOutlet weak var themeSelector: NSSegmentedControl!
+
+    @IBAction func themeSelectorChanges(_ sender: NSSegmentedControl) {
+        let prefs = CutBoxPreferences.shared
+
+        prefs.setTheme(theme: sender.selectedSegment)
+    }
+
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
 
@@ -35,6 +43,11 @@ class PreferencesWindow: NSWindow {
         setupAutoLoginControl()
         setupJoinStringTextField()
         setupWrappingStringTextFields()
+        setupThemeSelector()
+    }
+
+    func setupThemeSelector() {
+        self.themeSelector.selectedSegment = CutBoxPreferences.shared.theme
     }
 }
 

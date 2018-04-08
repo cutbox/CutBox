@@ -49,6 +49,9 @@
                                         <segment label="Light" tag="1"/>
                                     </segments>
                                 </segmentedCell>
+                                <connections>
+                                    <action selector="themeSelectorChanges:" target="atS-Pr-B8U" id="H5c-Yv-d7a"/>
+                                </connections>
                             </segmentedControl>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="XDX-a0-e1k">
                                 <rect key="frame" x="35" y="204" width="441" height="5"/>
@@ -118,7 +121,7 @@
                                     </segments>
                                 </segmentedCell>
                                 <connections>
-                                    <action selector="joinStyleSelectorAction:" target="atS-Pr-B8U" id="DWy-dJ-gwT"/>
+                                    <action selector="themeSelectorChanges:" target="atS-Pr-B8U" id="DWy-dJ-gwT"/>
                                 </connections>
                             </segmentedControl>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lSw-px-RTF">
@@ -214,6 +217,7 @@
                 <outlet property="joinStyleSelector" destination="Brq-w8-kKV" id="tcf-Jt-Qkt"/>
                 <outlet property="mainKeyRecorder" destination="xBn-Kq-xbQ" id="UX8-7R-gQ4"/>
                 <outlet property="shouldWrapMultipleSelection" destination="g9c-8b-apa" id="ejs-ij-y78"/>
+                <outlet property="themeSelector" destination="uaK-ft-JaM" id="6h4-qM-aZ2"/>
                 <outlet property="wrapEndTextField" destination="Z4G-rR-jBA" id="B4j-rW-9cC"/>
                 <outlet property="wrapStartTextField" destination="bnt-h3-0sS" id="tzg-TO-BEn"/>
             </connections>
