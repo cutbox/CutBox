@@ -30,10 +30,31 @@
                                 </buttonCell>
                             </button>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="SfQ-aw-ZyD">
-                                <rect key="frame" x="35" y="259" width="441" height="5"/>
+                                <rect key="frame" x="35" y="267" width="441" height="5"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ3-SD-QyO">
+                                <rect key="frame" x="214" y="241" width="83" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Color theme" id="kWw-vJ-tzc">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uaK-ft-JaM">
+                                <rect key="frame" x="202" y="214" width="107" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="8wo-HW-D3a">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Dark" selected="YES"/>
+                                        <segment label="Light" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="XDX-a0-e1k">
+                                <rect key="frame" x="35" y="204" width="441" height="5"/>
                             </box>
                             <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFz-yK-ZSQ">
-                                <rect key="frame" x="106" y="221" width="300" height="25"/>
+                                <rect key="frame" x="106" y="174" width="300" height="25"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-QU-ZyK" userLabel="CutBox Shortcut TextField">
                                         <rect key="frame" x="-2" y="4" width="93" height="17"/>
@@ -77,18 +98,18 @@
                                 </customSpacing>
                             </stackView>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="yn8-ch-gT0">
-                                <rect key="frame" x="35" y="203" width="441" height="5"/>
+                                <rect key="frame" x="35" y="164" width="441" height="5"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZ3-SD-QyO">
-                                <rect key="frame" x="149" y="169" width="213" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Multiple selected clips joined by..." id="kWw-vJ-tzc">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-Ph-gKs">
+                                <rect key="frame" x="149" y="139" width="213" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Multiple selected clips joined by..." id="mIy-gc-0do">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Brq-w8-kKV">
-                                <rect key="frame" x="189" y="138" width="133" height="24"/>
+                                <rect key="frame" x="189" y="112" width="133" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="aUE-72-Pth">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -101,7 +122,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lSw-px-RTF">
-                                <rect key="frame" x="0.0" y="111" width="511" height="22"/>
+                                <rect key="frame" x="0.0" y="88" width="511" height="22"/>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Separator String" drawsBackground="YES" id="DPO-fx-MmT">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -109,10 +130,10 @@
                                 </textFieldCell>
                             </textField>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="CC0-g1-u4m">
-                                <rect key="frame" x="35" y="92" width="441" height="5"/>
+                                <rect key="frame" x="35" y="76" width="441" height="5"/>
                             </box>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-8b-apa">
-                                <rect key="frame" x="154" y="58" width="204" height="18"/>
+                                <rect key="frame" x="154" y="50" width="204" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="V2X-o7-kh6"/>
                                 </constraints>
@@ -120,12 +141,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
-                                <connections>
-                                    <action selector="shouldWrapMultipleSelectionCheckboxAction:" target="atS-Pr-B8U" id="cON-7W-sMv"/>
-                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bnt-h3-0sS">
-                                <rect key="frame" x="0.0" y="28" width="511" height="22"/>
+                                <rect key="frame" x="0.0" y="26" width="511" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Start" drawsBackground="YES" id="YfW-Xo-lv4">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -161,8 +179,14 @@
                             <integer value="1000"/>
                             <integer value="1000"/>
                             <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
                         </visibilityPriorities>
                         <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>
                             <real value="3.4028234663852886e+38"/>

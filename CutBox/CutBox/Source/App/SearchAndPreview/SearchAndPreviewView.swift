@@ -18,6 +18,7 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var searchText: NSTextView!
     @IBOutlet weak var clipboardItemsTable: NSTableView!
     @IBOutlet weak var previewClip: NSTextView!
+    @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeIndicator: NSTextField!
 
     var events = PublishSubject<SearchViewEvents>()
@@ -28,18 +29,9 @@ class SearchAndPreviewView: NSView {
     private let prefs = CutBoxPreferences.shared
 
     override func awakeFromNib() {
+        applyTheme()
         setupSearchText()
-        setupClipTextPreview()
         setupPlaceholder()
-//
-//        events
-//            .asObservable()
-//            .subscribe(onNext: {event in
-//                switch event {
-//                case .setSearchMode(let mode):
-//                    searchModeIndicator.stringValue = mode.name()
-//                }
-//            })
     }
 
     override init(frame: NSRect) {
@@ -104,30 +96,34 @@ class SearchAndPreviewView: NSView {
     }
 
     private func setupPlaceholder() {
-        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
-        searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
-
         filterText
             .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }
 
-    private func setupClipTextPreview() {
+    func applyTheme() {
+        clipboardItemsTable.backgroundColor = prefs.searchViewClipItemsBackgroundColor
+
+        previewClip.font = prefs.searchViewClipPreviewFont
+        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
+        searchText.font = prefs.searchViewTextFieldFont
+
+        searchText.textColor = prefs.searchViewTextFieldTextColor
+        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor
+        searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
+        searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
         previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
         previewClip.textColor = prefs.searchViewClipPreviewTextColor
-        previewClip.font = prefs.searchViewClipPreviewFont
         previewClip.selectedTextAttributes[NSAttributedStringKey
-            .backgroundColor] = prefs.searchViewBackgroundColor
+            .backgroundColor] = prefs.searchViewClipPreviewSelectedTextBackgroundColor
+        previewClip.selectedTextAttributes[NSAttributedStringKey
+            .foregroundColor] = prefs.searchViewClipPreviewBackgroundColor
+        previewClipContainer.fillColor = prefs.searchViewClipPreviewBackgroundColor
     }
 
     private func setupSearchText() {
         searchText.delegate = self
         searchText.isFieldEditor = true
-        searchText.font = prefs.searchViewTextFieldFont
-        searchText.textColor = prefs.searchViewTextFieldTextColor
-        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor
-        searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
     }
-
 }

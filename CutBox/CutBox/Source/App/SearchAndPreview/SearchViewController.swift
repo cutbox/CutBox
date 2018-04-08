@@ -36,6 +36,8 @@ class SearchViewController: NSObject {
     }
 
     func togglePopup() {
+        popup.backgroundView.backgroundColor = prefs.searchViewBackgroundColor
+        searchView.applyTheme()
         self.popup.togglePopup()
     }
 

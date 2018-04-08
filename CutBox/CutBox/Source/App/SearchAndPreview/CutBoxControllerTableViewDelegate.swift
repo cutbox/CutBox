@@ -14,10 +14,6 @@ extension SearchViewController: NSTableViewDelegate {
         return 30
     }
 
-    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        return true
-    }
-
     func tableViewSelectionDidChange(_ notification: Notification) {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
         let preview = self.prepareClips(self.pasteboardService[indexes])
@@ -52,7 +48,6 @@ extension SearchViewController: NSTableViewDelegate {
             textField = NSTextField(frame: textFrame)
             textField?.cell = SearchViewTextFieldCell()
 
-            textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
             textField?.backgroundColor = NSColor.clear
             textField?.isBordered = false
             textField?.isSelectable = false
@@ -60,6 +55,8 @@ extension SearchViewController: NSTableViewDelegate {
             textField?.font = CutBoxPreferences.shared.searchViewClipItemsFont
             textField?.identifier = identifier
         }
+
+        textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
 
         return textField
     }
