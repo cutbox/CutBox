@@ -45,6 +45,7 @@
 		9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */; };
 		9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF282078C2DE00E4571E /* Array+IndexSet.swift */; };
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
+		9672FF2F2079C89400E4571E /* PasteboardSearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* PasteboardSearchMode.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
@@ -176,6 +177,7 @@
 		9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextFieldCell.swift; sourceTree = "<group>"; };
 		9672FF282078C2DE00E4571E /* Array+IndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexSet.swift"; sourceTree = "<group>"; };
 		9672FF2C2078E5DC00E4571E /* SearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextView.swift; sourceTree = "<group>"; };
+		9672FF2E2079C89400E4571E /* PasteboardSearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardSearchMode.swift; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				962D6D482073544F007E3785 /* HotKeyService.swift */,
 				96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */,
 				968A97C020667CF800D36B50 /* PasteboardService.swift */,
+				9672FF2E2079C89400E4571E /* PasteboardSearchMode.swift */,
 				962D6D4C207357ED007E3785 /* VersionService.swift */,
 			);
 			path = Services;
@@ -937,6 +940,7 @@
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,
 				965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */,
 				9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */,
+				9672FF2F2079C89400E4571E /* PasteboardSearchMode.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
