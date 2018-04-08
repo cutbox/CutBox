@@ -15,20 +15,20 @@
             <rect key="frame" x="0.0" y="0.0" width="936" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <box boxType="custom" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-Bb-J8a" userLabel="search container">
+                <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-Bb-J8a" userLabel="search container">
                     <rect key="frame" x="0.0" y="0.0" width="936" height="272"/>
                     <view key="contentView" id="i1H-32-5c7">
-                        <rect key="frame" x="1" y="1" width="934" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="936" height="272"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="1" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="3Ur-r1-gus">
-                                <rect key="frame" x="5" y="215" width="924" height="50"/>
+                                <rect key="frame" x="5" y="217" width="926" height="50"/>
                                 <view key="contentView" id="V3j-H5-QGX">
-                                    <rect key="frame" x="1" y="1" width="922" height="48"/>
+                                    <rect key="frame" x="1" y="1" width="924" height="48"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Y7-w6T">
-                                            <rect key="frame" x="8" y="5" width="911" height="38"/>
+                                            <rect key="frame" x="8" y="5" width="913" height="38"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Placeholder" id="ALO-u1-b9U">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -36,17 +36,17 @@
                                             </textFieldCell>
                                         </textField>
                                         <scrollView wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZp-O6-8EL" userLabel="Text View" customClass="DisablableScrollView" customModule="CutBox" customModuleProvider="target">
-                                            <rect key="frame" x="5" y="5" width="912" height="38"/>
+                                            <rect key="frame" x="5" y="5" width="914" height="38"/>
                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Vjp-Gw-55f">
-                                                <rect key="frame" x="0.0" y="0.0" width="912" height="38"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="914" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" id="uWo-BC-ODB" customClass="SearchTextView" customModule="CutBox" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="912" height="38"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="914" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <size key="minSize" width="912" height="38"/>
-                                                        <size key="maxSize" width="912" height="10000000"/>
+                                                        <size key="minSize" width="914" height="38"/>
+                                                        <size key="maxSize" width="914" height="10000000"/>
                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     </textView>
                                                 </subviews>
@@ -57,7 +57,7 @@
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Sug-yv-iEb">
-                                                <rect key="frame" x="896" y="0.0" width="16" height="38"/>
+                                                <rect key="frame" x="898" y="0.0" width="16" height="38"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                         </scrollView>
@@ -80,16 +80,16 @@
                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                             </box>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-Z7-k0t">
-                                <rect key="frame" x="5" y="5" width="924" height="205"/>
+                                <rect key="frame" x="5" y="5" width="926" height="207"/>
                                 <subviews>
                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="0.0" verticalLineScroll="19" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" horizontalScrollElasticity="none" verticalScrollElasticity="allowed" translatesAutoresizingMaskIntoConstraints="NO" id="T18-14-tFk" userLabel="Table View">
-                                        <rect key="frame" x="0.0" y="0.0" width="460" height="205"/>
+                                        <rect key="frame" x="0.0" y="2" width="461" height="205"/>
                                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="BOQ-ox-zBD">
-                                            <rect key="frame" x="0.0" y="0.0" width="460" height="205"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="461" height="205"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" id="0vd-d6-rKt">
-                                                    <rect key="frame" x="0.0" y="0.0" width="460" height="205"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="461" height="205"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -122,23 +122,23 @@
                                         </scroller>
                                     </scrollView>
                                     <box boxType="custom" cornerRadius="1" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="PqF-0i-OXy">
-                                        <rect key="frame" x="465" y="0.0" width="459" height="205"/>
+                                        <rect key="frame" x="466" y="2" width="460" height="205"/>
                                         <view key="contentView" id="gtu-s3-I3G">
-                                            <rect key="frame" x="1" y="1" width="457" height="203"/>
+                                            <rect key="frame" x="1" y="1" width="458" height="203"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfp-9E-05R">
-                                                    <rect key="frame" x="10" y="10" width="437" height="183"/>
+                                                    <rect key="frame" x="10" y="10" width="438" height="183"/>
                                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="UO5-NP-mCp">
-                                                        <rect key="frame" x="0.0" y="0.0" width="437" height="183"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="438" height="183"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="NO" usesInspectorBar="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="eKA-mf-B4d">
-                                                                <rect key="frame" x="0.0" y="0.0" width="437" height="183"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="438" height="183"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="437" height="183"/>
+                                                                <size key="minSize" width="438" height="183"/>
                                                                 <size key="maxSize" width="463" height="10000000"/>
                                                                 <color key="insertionPointColor" red="0.94704241069999995" green="0.98524213800000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </textView>
@@ -150,12 +150,12 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
-                                                        <rect key="frame" x="421" y="0.0" width="16" height="183"/>
+                                                        <rect key="frame" x="422" y="0.0" width="16" height="183"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ND-nL-P4f">
-                                                    <rect key="frame" x="8" y="10" width="441" height="11"/>
+                                                    <rect key="frame" x="8" y="10" width="442" height="11"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="11" id="w6z-TB-8an"/>
                                                     </constraints>
@@ -214,6 +214,7 @@
                 <outlet property="clipboardItemsTable" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
                 <outlet property="previewClip" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
                 <outlet property="previewClipContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
+                <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>
                 <outlet property="searchModeIndicator" destination="6ND-nL-P4f" id="NKI-Kw-M1H"/>
                 <outlet property="searchText" destination="uWo-BC-ODB" id="tbB-36-Blg"/>
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>

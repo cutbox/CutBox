@@ -13,6 +13,7 @@ import Carbon.HIToolbox
 
 class SearchAndPreviewView: NSView {
 
+    @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
     @IBOutlet weak var searchText: NSTextView!
@@ -103,6 +104,8 @@ class SearchAndPreviewView: NSView {
     }
 
     func applyTheme() {
+        searchContainer.fillColor = prefs.searchViewBackgroundColor
+
         clipboardItemsTable.backgroundColor = prefs.searchViewClipItemsBackgroundColor
 
         previewClip.font = prefs.searchViewClipPreviewFont
