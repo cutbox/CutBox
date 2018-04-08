@@ -1,6 +1,6 @@
-[![CutBox](https://img.shields.io/github/release/ocodo/CutBox.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.13/CutBox.dmg)
+[![CutBox](https://img.shields.io/github/release/ocodo/CutBox.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.14/CutBox.dmg)
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg)
-[![Latest release](https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.13/CutBox.dmg)
+[![Latest release](https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg)](https://github.com/ocodo/CutBox/releases/download/1.0.14/CutBox.dmg)
 
 # CutBox
 
@@ -15,7 +15,13 @@ anything back to your current app by searching for items.
 
 CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
+Dark theme
+
 ![](CutBox/CutBox/GraphicAssets/cutbox-preview.png)
+
+or light theme
+
+![](CutBox/CutBox/GraphicAssets/cutbox-preview-light.png)
 
 # Download / install...
 
