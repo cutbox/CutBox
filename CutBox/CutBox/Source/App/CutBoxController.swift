@@ -114,7 +114,7 @@ class CutBoxController: NSObject {
     }
 
     @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        self.searchViewController.pasteboardService.saveToDefaults()
-        NSApplication.shared.terminate(self)
+        PasteboardService.shared.saveToDefaults()
+        NSApp.terminate(sender)
     }
 }

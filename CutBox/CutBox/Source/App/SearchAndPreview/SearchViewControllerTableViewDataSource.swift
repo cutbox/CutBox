@@ -1,5 +1,5 @@
 //
-//  CutBoxControllerTableViewDataSource.swift
+//  SearchViewControllerTableViewDataSource.swift
 //  CutBox
 //
 //  Created by Jason on 31/3/18.

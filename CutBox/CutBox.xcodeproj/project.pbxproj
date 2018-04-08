@@ -32,8 +32,8 @@
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
-		965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */; };
-		965F076A206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */; };
+		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
+		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
 		965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */; };
 		965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076D206F58A40032DACD /* SearchViewEvents.swift */; };
 		965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076F206F9AF30032DACD /* PopupContainerView.swift */; };
@@ -164,8 +164,8 @@
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
-		965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerTableViewDelegate.swift; sourceTree = "<group>"; };
-		965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerTableViewDataSource.swift; sourceTree = "<group>"; };
+		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
+		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
 		965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextViewDelegate.swift; sourceTree = "<group>"; };
 		965F076D206F58A40032DACD /* SearchViewEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEvents.swift; sourceTree = "<group>"; };
 		965F076F206F9AF30032DACD /* PopupContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerView.swift; sourceTree = "<group>"; };
@@ -274,9 +274,9 @@
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
 				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
-				965F0766206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift */,
+				965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */,
 				9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */,
-				965F0769206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift */,
+				965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */,
 				9672FF2C2078E5DC00E4571E /* SearchTextView.swift */,
 			);
 			path = SearchAndPreview;
@@ -920,7 +920,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				962D6D4D207357ED007E3785 /* VersionService.swift in Sources */,
-				965F0767206F4C2A0032DACD /* CutBoxControllerTableViewDelegate.swift in Sources */,
+				965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */,
 				962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */,
 				962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
@@ -934,7 +934,7 @@
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
 				964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */,
-				965F076A206F4C7A0032DACD /* CutBoxControllerTableViewDataSource.swift in Sources */,
+				965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */,
 				965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */,
 				965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */,
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,

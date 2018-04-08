@@ -118,7 +118,7 @@ class SearchAndPreviewView: NSView {
         previewClip.selectedTextAttributes[NSAttributedStringKey
             .backgroundColor] = prefs.searchViewClipPreviewSelectedTextBackgroundColor
         previewClip.selectedTextAttributes[NSAttributedStringKey
-            .foregroundColor] = prefs.searchViewClipPreviewBackgroundColor
+            .foregroundColor] = prefs.searchViewClipPreviewTextColor
         previewClipContainer.fillColor = prefs.searchViewClipPreviewBackgroundColor
     }
 

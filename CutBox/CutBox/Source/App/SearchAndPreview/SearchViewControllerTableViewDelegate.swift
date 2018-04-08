@@ -1,5 +1,5 @@
 //
-//  CutBoxControllerTableViewDelegate.swift
+//  SearchViewControllerTableViewDelegate.swift
 //  CutBox
 //
 //  Created by Jason on 31/3/18.
