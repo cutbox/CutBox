@@ -80,6 +80,10 @@ class SearchViewController: NSObject {
     }
 
     func prepareClips(_ clips: [String]) -> String {
+        if clips.count == 1 {
+            return clips.first!
+        }
+
         var clip = clips.joined(separator: prefs.multiJoinString ?? "\n")
 
         if prefs.useWrappingStrings {
