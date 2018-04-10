@@ -15,8 +15,31 @@ class CutBoxController: NSObject {
     @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
     @IBOutlet weak var regexpModeItem: NSMenuItem!
     @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
-
     @IBOutlet weak var statusMenu: NSMenu!
+
+    @IBAction func searchClicked(_ sender: NSMenuItem) {
+        self.searchViewController.togglePopup()
+    }
+
+    @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
+        self.searchViewController.pasteboardService.clear()
+    }
+
+    @IBAction func openPreferences(_ sender: NSMenuItem) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        preferencesWindow.makeKeyAndOrderFront(self)
+        preferencesWindow.center()
+    }
+
+    @IBAction func openAboutPanel(_ sender: NSMenuItem) {
+        aboutPanel.makeKeyAndOrderFront(self)
+        aboutPanel.center()
+    }
+
+    @IBAction func quitClicked(_ sender:  NSMenuItem) {
+        PasteboardService.shared.saveToDefaults()
+        NSApp.terminate(sender)
+    }
 
     let statusItem: NSStatusItem = NSStatusBar
         .system
@@ -92,29 +115,5 @@ class CutBoxController: NSObject {
     func checkSearchModeItem(_ axID: String) {
         searchModeSelectors?.forEach { $0.state = .off }
         searchModeSelectorsDict?[axID]?.state = .on
-    }
-
-    @IBAction func searchClicked(_ sender: NSMenuItem) {
-        self.searchViewController.togglePopup()
-    }
-
-    @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
-        self.searchViewController.pasteboardService.clear()
-    }
-
-    @IBAction func openPreferences(_ sender: NSMenuItem) {
-        NSApplication.shared.activate(ignoringOtherApps: true)
-        preferencesWindow.makeKeyAndOrderFront(self)
-        preferencesWindow.center()
-    }
-
-    @IBAction func openAboutPanel(_ sender: NSMenuItem) {
-        aboutPanel.makeKeyAndOrderFront(self)
-        aboutPanel.center()
-    }
-
-    @IBAction func quitClicked(_ sender:  NSMenuItem) {
-        PasteboardService.shared.saveToDefaults()
-        NSApp.terminate(sender)
     }
 }
