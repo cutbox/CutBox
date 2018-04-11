@@ -114,6 +114,7 @@ class PasteboardService: NSObject {
 
     func remove(at index: Int) {
         pasteStore.remove(at: index)
+        self.saveToDefaults()
     }
 
     func clearDefaults() {
@@ -137,6 +138,7 @@ class PasteboardService: NSObject {
     @objc func pollPasteboard() {
         if let clip = self.replaceWithLatest() {
             self.pasteStore.insert(clip, at: 0)
+            self.saveToDefaults()
         }
     }
 }
