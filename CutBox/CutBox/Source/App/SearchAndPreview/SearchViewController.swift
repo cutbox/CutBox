@@ -1,5 +1,5 @@
 //
-//  PopupWrapper.swift
+//  SearchViewController.swift
 //  CutBox
 //
 //  Created by Jason on 3/4/18.
