@@ -15,6 +15,7 @@ class SearchViewController: NSObject {
     let searchView: SearchAndPreviewView
     let prefs = CutBoxPreferences.shared
     private let popup: PopupController
+
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
     }
@@ -24,7 +25,6 @@ class SearchViewController: NSObject {
     override init() {
         self.pasteboardService = PasteboardService()
         self.pasteboardService.startTimer()
-
         self.searchView = SearchAndPreviewView.fromNib()!
         self.popup = PopupController(content: self.searchView)
 
@@ -126,7 +126,7 @@ class SearchViewController: NSObject {
 
     private func setupSearchTextEventBindings() {
         self.events
-            .bind { event in
+            .subscribe(onNext: { event in
                 switch event {
                 case .setSearchMode(let mode):
                     self.pasteboardService.searchMode = mode
@@ -147,7 +147,7 @@ class SearchViewController: NSObject {
                 case .itemSelectDown:
                     self.searchView.itemSelectDown()
                 }
-            }
+            })
             .disposed(by: disposeBag)
     }
 
