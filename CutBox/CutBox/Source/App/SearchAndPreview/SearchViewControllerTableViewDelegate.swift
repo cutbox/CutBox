@@ -56,7 +56,8 @@ extension SearchViewController: NSTableViewDelegate {
             textField?.identifier = identifier
         }
 
-        textField?.textColor = CutBoxPreferences.shared.searchViewClipItemsTextColor
+        let theme = CutBoxPreferences.shared.currentTheme
+        textField?.textColor = theme.clip.clipItemsTextColor
 
         return textField
     }

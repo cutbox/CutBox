@@ -159,10 +159,6 @@ class SearchViewController: NSObject {
         let width = screen.frame.width / 1.6
         let height = screen.frame.height / 1.8
 
-        let popupBackground = popup.backgroundView
-
-        popupBackground.alphaValue = prefs.searchViewBackgroundAlpha
-
         popup.resizePopup(width: Double(width),
                           height: Double(height))
 

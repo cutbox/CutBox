@@ -13,7 +13,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="112" width="276" height="150"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="rS7-ly-uMb">
                 <rect key="frame" x="0.0" y="0.0" width="276" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -24,14 +24,7 @@
                             <constraint firstAttribute="height" constant="110" id="9hb-5d-Cg0"/>
                             <constraint firstAttribute="width" constant="110" id="DXR-MC-TZf"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-preview-256" id="ych-ZH-c7d"/>
-                    </imageView>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V9d-ea-Gec">
-                        <rect key="frame" x="166" y="117" width="48" height="0.0"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="48" id="dNe-i7-1BT"/>
-                        </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="CEw-fR-fWZ"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-2-preview" id="ych-ZH-c7d"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7O-CG-thr">
                         <rect key="frame" x="138" y="113" width="120" height="17"/>
@@ -79,8 +72,6 @@
                     <constraint firstItem="g7O-CG-thr" firstAttribute="top" secondItem="rS7-ly-uMb" secondAttribute="top" constant="20" id="0YD-sN-TuA"/>
                     <constraint firstAttribute="bottom" secondItem="SYm-gs-NbI" secondAttribute="bottom" constant="95" id="C0h-Uz-U8R"/>
                     <constraint firstAttribute="bottom" secondItem="ai2-LU-pGD" secondAttribute="bottom" constant="20" id="Cao-vJ-808"/>
-                    <constraint firstAttribute="trailing" secondItem="V9d-ea-Gec" secondAttribute="trailing" constant="62" id="Gfz-FF-vPz"/>
-                    <constraint firstItem="SYm-gs-NbI" firstAttribute="top" secondItem="V9d-ea-Gec" secondAttribute="bottom" constant="5" id="VUT-a1-Dk2"/>
                     <constraint firstItem="g7O-CG-thr" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="Vx8-Tn-CLk"/>
                     <constraint firstAttribute="trailing" secondItem="SYm-gs-NbI" secondAttribute="trailing" constant="30" id="WZE-1C-EED"/>
                     <constraint firstAttribute="trailing" secondItem="RsQ-ZA-7Ke" secondAttribute="trailing" constant="20" id="dfq-4q-kMG"/>
@@ -106,6 +97,6 @@
         </window>
     </objects>
     <resources>
-        <image name="cutbox-icon-preview-256" width="50.36065673828125" height="50.36065673828125"/>
+        <image name="cutbox-icon-2-preview" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
 </document>

@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 class SearchAndPreviewView: NSView {
-
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
@@ -21,12 +20,13 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeIndicator: NSTextField!
 
+    internal let prefs = CutBoxPreferences.shared
+    
     var events = PublishSubject<SearchViewEvents>()
     var filterText = PublishSubject<String>()
     var placeholderText = PublishSubject<String>()
 
     private let disposeBag = DisposeBag()
-    private let prefs = CutBoxPreferences.shared
 
     override func awakeFromNib() {
         applyTheme()
@@ -75,35 +75,11 @@ class SearchAndPreviewView: NSView {
         }
     }
 
-
-
     private func setupPlaceholder() {
         filterText
             .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
-    }
-
-    func applyTheme() {
-        searchContainer.fillColor = prefs.searchViewBackgroundColor
-
-        clipboardItemsTable.backgroundColor = prefs.searchViewClipItemsBackgroundColor
-
-        previewClip.font = prefs.searchViewClipPreviewFont
-        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
-        searchText.font = prefs.searchViewTextFieldFont
-
-        searchText.textColor = prefs.searchViewTextFieldTextColor
-        searchText.insertionPointColor = prefs.searchViewTextFieldCursorColor
-        searchTextContainer.fillColor = prefs.searchViewTextFieldBackgroundColor
-        searchTextPlaceholder.textColor = prefs.searchViewPlaceholderTextColor
-        previewClip.backgroundColor = prefs.searchViewClipPreviewBackgroundColor
-        previewClip.textColor = prefs.searchViewClipPreviewTextColor
-        previewClip.selectedTextAttributes[NSAttributedStringKey
-            .backgroundColor] = prefs.searchViewClipPreviewSelectedTextBackgroundColor
-        previewClip.selectedTextAttributes[NSAttributedStringKey
-            .foregroundColor] = prefs.searchViewClipPreviewTextColor
-        previewClipContainer.fillColor = prefs.searchViewClipPreviewBackgroundColor
     }
 
     private func setupSearchText() {

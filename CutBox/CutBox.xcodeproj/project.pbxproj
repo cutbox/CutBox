@@ -32,6 +32,16 @@
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
 		964CA4E2207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA4E1207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift */; };
+		964CA500207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA4FF207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift */; };
+		964CA503207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */; };
+		964CA505207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */; };
+		964CA507207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */; };
+		964CA50C207E69F600B9F33E /* SearchAndPreviewView+ApplyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */; };
+		964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
+		964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */; };
+		964CA513207E6BAC00B9F33E /* CutBoxThemeLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA512207E6BAC00B9F33E /* CutBoxThemeLight.swift */; };
+		964CA515207E6BCA00B9F33E /* CutBoxThemeDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA514207E6BCA00B9F33E /* CutBoxThemeDark.swift */; };
+		964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -165,6 +175,16 @@
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
 		964CA4E1207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreview_KeyDownHandler.swift; sourceTree = "<group>"; };
+		964CA4FF207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+MultipleItemWrapping.swift"; sourceTree = "<group>"; };
+		964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+JoinItems.swift"; sourceTree = "<group>"; };
+		964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+KeyRecorder.swift"; sourceTree = "<group>"; };
+		964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+AutoLogin.swift"; sourceTree = "<group>"; };
+		964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchAndPreviewView+ApplyTheme.swift"; sourceTree = "<group>"; };
+		964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorTheme.swift; sourceTree = "<group>"; };
+		964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+SelectTheme.swift"; sourceTree = "<group>"; };
+		964CA512207E6BAC00B9F33E /* CutBoxThemeLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLight.swift; sourceTree = "<group>"; };
+		964CA514207E6BCA00B9F33E /* CutBoxThemeDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeDark.swift; sourceTree = "<group>"; };
+		964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cutbox-icon-2-preview.png"; path = "CutBox/GraphicAssets/cutbox-icon-2-preview.png"; sourceTree = SOURCE_ROOT; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -274,6 +294,7 @@
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
+				964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */,
 				964CA4E1207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
 				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
@@ -312,8 +333,16 @@
 			isa = PBXGroup;
 			children = (
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
+				964CA512207E6BAC00B9F33E /* CutBoxThemeLight.swift */,
+				964CA514207E6BCA00B9F33E /* CutBoxThemeDark.swift */,
+				964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */,
+				964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */,
 				963AA6492071EE4800779697 /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
+				964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */,
+				964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */,
+				964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */,
+				964CA4FF207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -362,6 +391,7 @@
 		965F0785206FCDC60032DACD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */,
 				965F0786206FCE170032DACD /* cutbox-icon-preview-256.png */,
 			);
 			path = Images;
@@ -383,13 +413,6 @@
 				96CFA6B22069278700BAFABB /* FakeKey.swift */,
 			);
 			path = FakeKey;
-			sourceTree = "<group>";
-		};
-		968A97BF20667CDC00D36B50 /* Pasteboard */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pasteboard;
 			sourceTree = "<group>";
 		};
 		96E1E58B205D243400F994ED = {
@@ -454,7 +477,6 @@
 				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
-				968A97BF20667CDC00D36B50 /* Pasteboard */,
 				961A49B02065D72F005BC79D /* Popup */,
 				963AA6482071EE0600779697 /* Preferences */,
 				961A49B92065DC1E005BC79D /* SearchAndPreview */,
@@ -665,6 +687,7 @@
 			files = (
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
 				965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */,
+				964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */,
 				963AA6442071C95000779697 /* AboutPanel.xib in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 				963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */,
@@ -924,14 +947,17 @@
 			files = (
 				962D6D4D207357ED007E3785 /* VersionService.swift in Sources */,
 				965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */,
+				964CA513207E6BAC00B9F33E /* CutBoxThemeLight.swift in Sources */,
 				962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */,
 				962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
 				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
+				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
 				968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */,
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
 				962D6D492073544F007E3785 /* HotKeyService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
+				964CA50C207E69F600B9F33E /* SearchAndPreviewView+ApplyTheme.swift in Sources */,
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
@@ -939,6 +965,8 @@
 				964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */,
 				965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */,
 				965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */,
+				964CA503207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift in Sources */,
+				964CA505207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift in Sources */,
 				964CA4E2207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift in Sources */,
 				965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */,
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,
@@ -947,13 +975,17 @@
 				9672FF2F2079C89400E4571E /* PasteboardSearchMode.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
+				964CA507207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
+				964CA500207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift in Sources */,
+				964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
 				9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */,
 				963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */,
+				964CA515207E6BCA00B9F33E /* CutBoxThemeDark.swift in Sources */,
 				962D6D4B207356DA007E3785 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
