@@ -8,6 +8,13 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <Group
+      location = "group:CutBox/../Sparkle"
+      name = "Sparkle">
+      <FileRef
+         location = "group:dsa_pub.pem">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:DependencySubmodules/KeyHolder/Lib/KeyHolder/Resources"
       name = "Resources">
       <FileRef

@@ -22,6 +22,7 @@
                 <outlet property="statusMenu" destination="r5R-nF-u2D" id="QbZ-3b-K66"/>
             </connections>
         </customObject>
+        <customObject id="gSk-na-fI8" customClass="SUUpdater"/>
         <menu id="r5R-nF-u2D">
             <items>
                 <menuItem title="Search CutBox" id="eRd-Us-nbh">
@@ -66,6 +67,12 @@
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="3hp-KI-Agg"/>
+                <menuItem title="Check for updates" id="MVu-fM-PnG">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="checkForUpdates:" target="gSk-na-fI8" id="Jls-RZ-Qnf"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="About CutBox" id="RbH-nQ-xiH">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
@@ -79,7 +86,7 @@
                     </connections>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="143" y="246.5"/>
+            <point key="canvasLocation" x="142.5" y="265.5"/>
         </menu>
     </objects>
     <resources>

@@ -46,6 +46,7 @@
 		964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */; };
 		964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
 		964CA525207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */; };
+		964CA530207F934F00B9F33E /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 964CA52F207F934E00B9F33E /* dsa_pub.pem */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -127,6 +128,16 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		964CA52D207F92AA00B9F33E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				964CA530207F934F00B9F33E /* dsa_pub.pem in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		96564BD8205D497D00A95E02 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +194,7 @@
 		964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
 		964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrap.swift"; sourceTree = "<group>"; };
 		964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrapSpec.swift"; sourceTree = "<group>"; };
+		964CA52F207F934E00B9F33E /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -364,6 +376,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		964CA52E207F92EA00B9F33E /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Sparkle;
+			path = ../Sparkle;
+			sourceTree = "<group>";
+		};
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,6 +425,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
+				964CA52F207F934E00B9F33E /* dsa_pub.pem */,
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
@@ -433,6 +454,7 @@
 				965F0785206FCDC60032DACD /* Images */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
 				96E1E59E205D243400F994ED /* Info.plist */,
+				964CA52E207F92EA00B9F33E /* Sparkle */,
 				96E1E59F205D243400F994ED /* CutBox.entitlements */,
 			);
 			path = CutBox;
@@ -513,6 +535,7 @@
 				96085E4C206E37B200CA77BB /* Release notification warning */,
 				963AA669207269CE00779697 /* Embed Frameworks */,
 				962D6D802074622A007E3785 /* CopyFiles */,
+				964CA52D207F92AA00B9F33E /* CopyFiles */,
 			);
 			buildRules = (
 			);
