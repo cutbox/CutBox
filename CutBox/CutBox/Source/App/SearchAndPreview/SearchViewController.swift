@@ -9,27 +9,6 @@
 import Cocoa
 import RxSwift
 
-extension SearchViewController {
-    func prepareClips(_ clips: [String]) -> String {
-        if clips.count == 1 {
-            return clips.first!
-        }
-
-        var clip = clips.joined(separator: "\n")
-
-        if prefs.useJoinString {
-             clip = clips.joined(separator: prefs.multiJoinString ?? "")
-        }
-
-        if prefs.useWrappingStrings {
-            let (start, end) = prefs.wrappingStrings
-            clip = "\(start ?? "")\(clip)\(end ?? "")"
-        }
-
-        return clip
-    }
-}
-
 class SearchViewController: NSObject {
 
     var searchView: SearchAndPreviewView
@@ -104,7 +83,7 @@ class SearchViewController: NSObject {
     }
 
     private func pasteToPasteboard(_ clips: [String]) {
-        let clip = prepareClips(clips)
+        let clip = prefs.prepareClips(clips)
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)

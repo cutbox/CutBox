@@ -11,6 +11,12 @@ import Magnet
 
 class CutBoxPreferences {
 
+    var defaults: UserDefaults!
+
+    init(defaults: UserDefaults = UserDefaults.standard) {
+        self.defaults = defaults
+    }
+
     static let shared = CutBoxPreferences()
 
     var currentTheme: CutBoxColorTheme { return themes[theme] }
@@ -32,20 +38,20 @@ class CutBoxPreferences {
 
     var useJoinString: Bool {
         set {
-            UserDefaults.standard.set(newValue, forKey: kUseJoinSeparator)
+            defaults.set(newValue, forKey: kUseJoinSeparator)
         }
         get {
-            return UserDefaults.standard.bool(forKey: kUseJoinSeparator)
+            return defaults.bool(forKey: kUseJoinSeparator)
         }
     }
 
     var multiJoinString: String? {
         set {
-            UserDefaults.standard.set(newValue, forKey: kMultiJoinSeparator)
+            defaults.set(newValue, forKey: kMultiJoinSeparator)
         }
         get {
             return useJoinString ?
-                UserDefaults.standard.string(forKey: kMultiJoinSeparator) : nil
+                defaults.string(forKey: kMultiJoinSeparator) : nil
         }
     }
 
@@ -55,23 +61,23 @@ class CutBoxPreferences {
 
     var useWrappingStrings: Bool {
         set {
-            UserDefaults.standard.set(newValue, forKey: kUseWrappingStrings)
+            defaults.set(newValue, forKey: kUseWrappingStrings)
         }
         get {
-            return UserDefaults.standard.bool(forKey: kUseWrappingStrings)
+            return defaults.bool(forKey: kUseWrappingStrings)
         }
     }
 
     var wrappingStrings: (String?, String?) {
         set {
-            UserDefaults.standard.set(newValue.0, forKey: kWrapStringStart)
-            UserDefaults.standard.set(newValue.1, forKey: kWrapStringEnd)
+            defaults.set(newValue.0, forKey: kWrapStringStart)
+            defaults.set(newValue.1, forKey: kWrapStringEnd)
         }
         get {
             return useWrappingStrings ?
                 (
-                    UserDefaults.standard.string(forKey: kWrapStringStart),
-                    UserDefaults.standard.string(forKey: kWrapStringEnd)
+                    defaults.string(forKey: kWrapStringStart),
+                    defaults.string(forKey: kWrapStringEnd)
                 ) : (nil, nil)
         }
     }

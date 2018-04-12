@@ -44,6 +44,8 @@
 		964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */; };
 		964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */; };
 		964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */; };
+		964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
+		964CA525207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -179,6 +181,8 @@
 		964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cutbox-icon-2-preview.png"; path = "CutBox/GraphicAssets/cutbox-icon-2-preview.png"; sourceTree = SOURCE_ROOT; };
 		964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceSpec.swift; sourceTree = "<group>"; };
 		964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
+		964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrap.swift"; sourceTree = "<group>"; };
+		964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrapSpec.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -274,7 +278,6 @@
 			children = (
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
-				964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */,
 				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
 				964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */,
@@ -326,6 +329,7 @@
 				964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */,
 				964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */,
 				964CA4FF207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift */,
+				964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -437,7 +441,9 @@
 		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
 			isa = PBXGroup;
 			children = (
+				964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */,
 				964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */,
+				964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */,
 				96E1E5AA205D243400F994ED /* Info.plist */,
 			);
 			path = CutBoxTests;
@@ -846,6 +852,7 @@
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
+				964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
 				964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */,
 				965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */,
@@ -880,6 +887,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */,
+				964CA525207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift in Sources */,
 				964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

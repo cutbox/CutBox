@@ -33,9 +33,9 @@ fileprivate func addToFakePasteboardAndPoll(string: String,
 
 class PasteboardServiceSpec: QuickSpec {
     override func spec() {
-        let subject: PasteboardService = PasteboardService()
-        let mockPasteboard = PasteboardWrapperMock()
-        let defaults = UserDefaults(suiteName: "PasteboardServiceSpec")!
+        var subject: PasteboardService!
+        var mockPasteboard: PasteboardWrapperMock
+        var defaults: UserDefaults!
 
         let fakeItems = [
             "Foo bar",
@@ -58,9 +58,19 @@ class PasteboardServiceSpec: QuickSpec {
         ]
 
         beforeEach {
+            subject = PasteboardService()
+
+            defaults = UserDefaults(suiteName: "PasteboardServiceSpec")!
             subject.defaults = defaults
+
+            mockPasteboard = PasteboardServiceMock()
             subject.pasteboard = mockPasteboard
+
             subject.clear()
+        }
+
+        afterEach {
+            defaults.removeSuite(named: "PasteboardServiceSpec")
         }
 
         it("starts with an empty pasteboard") {
