@@ -11,11 +11,11 @@ import Foundation
 extension CutBoxPreferences {
     var theme: Int {
         set {
-            UserDefaults.standard.set(newValue, forKey: "theme")
+            defaults.set(newValue, forKey: "theme")
         }
 
         get {
-            return UserDefaults.standard.integer(forKey: "theme")
+            return defaults.integer(forKey: "theme")
         }
     }
 

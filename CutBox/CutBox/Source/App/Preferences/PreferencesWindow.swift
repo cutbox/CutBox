@@ -15,9 +15,11 @@ import RxCocoa
 
 class PreferencesWindow: NSWindow {
 
-    let loginItemsService = LoginItemsService.shared
-    let hotKeyService = HotKeyService.shared
-    let hotKeyCenter = HotKeyCenter.shared
+    var loginItemsService: LoginItemsService!
+    var hotKeyService: HotKeyService!
+    var hotKeyCenter: HotKeyCenter!
+    var prefs: CutBoxPreferences!
+
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
@@ -30,12 +32,15 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var themeSelector: NSSegmentedControl!
 
     @IBAction func themeSelectorChanges(_ sender: NSSegmentedControl) {
-        let prefs = CutBoxPreferences.shared
-
         prefs.theme = sender.selectedSegment
     }
 
     override func awakeFromNib() {
+        self.loginItemsService = LoginItemsService.shared
+        self.hotKeyService = HotKeyService.shared
+        self.hotKeyCenter = HotKeyCenter.shared
+        self.prefs = CutBoxPreferences.shared
+
         self.titlebarAppearsTransparent = true
 
         setupKeyRecorders()
@@ -46,6 +51,6 @@ class PreferencesWindow: NSWindow {
     }
 
     func setupThemeSelector() {
-        self.themeSelector.selectedSegment = CutBoxPreferences.shared.theme
+        self.themeSelector.selectedSegment = prefs.theme
     }
 }

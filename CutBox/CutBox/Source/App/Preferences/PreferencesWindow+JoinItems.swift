@@ -14,16 +14,16 @@ extension PreferencesWindow {
         if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
             let bool = selector.selectedSegment == 1
             joinStringTextField.isEnabled = bool
-            CutBoxPreferences.shared.useJoinString = bool
+            prefs.useJoinString = bool
         }
     }
 
     func setupJoinStringTextField()  {
-        let useJoinString = CutBoxPreferences.shared.useJoinString
+        let useJoinString = prefs.useJoinString
 
         joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0 )
 
-        if let joinString = CutBoxPreferences.shared.multiJoinString {
+        if let joinString = prefs.multiJoinString {
             joinStringTextField.stringValue = joinString
             joinStringTextField.isEnabled = useJoinString
         }
@@ -32,7 +32,7 @@ extension PreferencesWindow {
             .distinctUntilChanged { lhs, rhs in rhs == lhs }
             .subscribe(onNext: { text in
                 if self.joinStringTextField.isEnabled {
-                    CutBoxPreferences.shared.multiJoinString = text
+                    self.prefs.multiJoinString = text
                 }
             })
             .disposed(by: disposeBag)

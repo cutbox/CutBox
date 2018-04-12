@@ -15,7 +15,7 @@ class LinkText: NSTextField {
             .shared
             .open(URL(string: Constants.homeUrl)!)
     }
-
+    
 }
 
 class AboutPanel: NSPanel {

@@ -11,11 +11,11 @@ import RxCocoa
 
 extension PreferencesWindow {
     func setupWrappingStringTextFields() {
-        let (start, end) = CutBoxPreferences.shared.wrappingStrings
+        let (start, end) = prefs.wrappingStrings
         self.wrapStartTextField.stringValue = start ?? ""
         self.wrapEndTextField.stringValue = end ?? ""
 
-        let shouldWrapSaved = CutBoxPreferences.shared.useWrappingStrings
+        let shouldWrapSaved = prefs.useWrappingStrings
         self.shouldWrapMultipleSelection.state = shouldWrapSaved ? .on : .off
         updateWrappingMultipleSelection(shouldWrapSaved)
 
@@ -24,7 +24,7 @@ extension PreferencesWindow {
                            self.wrapEndTextField.rx.text)
             { ($0, $1) }
             .skip(1)
-            .subscribe(onNext: { CutBoxPreferences.shared.wrappingStrings = $0 })
+            .subscribe(onNext: { self.prefs.wrappingStrings = $0 })
             .disposed(by: disposeBag)
 
         self.shouldWrapMultipleSelection.rx.state
@@ -35,7 +35,7 @@ extension PreferencesWindow {
     }
 
     func updateWrappingMultipleSelection(_ bool: Bool) {
-        CutBoxPreferences.shared.useWrappingStrings = bool
+        prefs.useWrappingStrings = bool
         [self.wrapStartTextField,
          self.wrapEndTextField]
             .forEach { $0?.isEnabled = bool }
