@@ -23,7 +23,7 @@ class SearchViewController: NSObject {
     private let disposeBag = DisposeBag()
 
     override init() {
-        self.pasteboardService = PasteboardService()
+        self.pasteboardService = PasteboardService.shared
         self.pasteboardService.startTimer()
         self.searchView = SearchAndPreviewView.fromNib()!
         self.popup = PopupController(content: self.searchView)

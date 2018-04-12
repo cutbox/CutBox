@@ -9,10 +9,22 @@
 import Cocoa
 import SwiftyStringScore
 
+protocol PasteboardWrapperType {
+    var pasteboardItems: [NSPasteboardItem]? { get }
+}
+
+class PasteboardWrapper: PasteboardWrapperType {
+    var pasteboardItems: [NSPasteboardItem]? {
+        return NSPasteboard.general.pasteboardItems
+    }
+}
+
 class PasteboardService: NSObject {
 
     static let shared = PasteboardService()
 
+    var defaults: UserDefaults
+    var pasteboard: PasteboardWrapperType
     var pollingTimer: Timer?
     var filterText: String?
 
@@ -29,13 +41,15 @@ class PasteboardService: NSObject {
             return _defaultSearchMode
         }
     }
-    var defaults = NSUserDefaultsController.shared.defaults
 
     private var kSearchModeKey = "searchMode"
     private var kPasteStoreKey = "pasteStore"
     private var pasteStore: [String] = []
 
     override init() {
+        self.defaults = NSUserDefaultsController.shared.defaults
+        self.pasteboard = PasteboardWrapper()
+
         if let pasteStore = defaults.array(forKey: kPasteStoreKey) {
             self.pasteStore = pasteStore as! [String]
         } else {
@@ -93,16 +107,6 @@ class PasteboardService: NSObject {
         pollingTimer = nil
     }
 
-    func replaceWithLatest() -> String? {
-        guard let currentClip = clipboardContent() else { return nil }
-
-        if let indexOfClip = pasteStore.index(of: currentClip) {
-            pasteStore.remove(at: indexOfClip)
-        }
-
-        return pasteStore.first == currentClip ? nil : currentClip
-    }
-
     func toggleSearchMode() {
         self.searchMode = self.searchMode.next()
     }
@@ -129,17 +133,27 @@ class PasteboardService: NSObject {
         self.stopTimer()
     }
 
-    func clipboardContent() -> String? {
-        return NSPasteboard.general
-            .pasteboardItems?.first?
-            .string(forType: .string)
-    }
-
     @objc func pollPasteboard() {
         if let clip = self.replaceWithLatest() {
             self.pasteStore.insert(clip, at: 0)
             self.saveToDefaults()
         }
+    }
+
+    func replaceWithLatest() -> String? {
+        guard let currentClip = clipboardContent() else { return nil }
+
+        if let indexOfClip = pasteStore.index(of: currentClip) {
+            pasteStore.remove(at: indexOfClip)
+        }
+
+        return pasteStore.first == currentClip ? nil : currentClip
+    }
+
+    func clipboardContent() -> String? {
+        return pasteboard.pasteboardItems?
+            .first?
+            .string(forType: .string)
     }
 }
 

@@ -42,6 +42,7 @@
 		964CA513207E6BAC00B9F33E /* CutBoxThemeLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA512207E6BAC00B9F33E /* CutBoxThemeLight.swift */; };
 		964CA515207E6BCA00B9F33E /* CutBoxThemeDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA514207E6BCA00B9F33E /* CutBoxThemeDark.swift */; };
 		964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */; };
+		964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -65,10 +66,7 @@
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBox.xib */; };
-		96E1E5A9205D243400F994ED /* CutBoxControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5A8205D243400F994ED /* CutBoxControllerSpec.swift */; };
-		96E1E5B4205D243400F994ED /* CutBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5B3205D243400F994ED /* CutBoxUITests.swift */; };
 		96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* CutBoxController.swift */; };
-		E6994FEB1285D5DA13B1AF8E /* Pods_Testing_CutBoxUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D664B206BC0907A3DA03C7 /* Pods_Testing_CutBoxUITests.framework */; };
 		EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86977FBC73098A02A097D0D /* Pods_CutBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,13 +93,6 @@
 			remoteInfo = KeyHolder;
 		};
 		96E1E5A5205D243400F994ED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 96E1E593205D243400F994ED;
-			remoteInfo = CutBox;
-		};
-		96E1E5B0205D243400F994ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
 			proxyType = 1;
@@ -185,6 +176,7 @@
 		964CA512207E6BAC00B9F33E /* CutBoxThemeLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLight.swift; sourceTree = "<group>"; };
 		964CA514207E6BCA00B9F33E /* CutBoxThemeDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeDark.swift; sourceTree = "<group>"; };
 		964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cutbox-icon-2-preview.png"; path = "CutBox/GraphicAssets/cutbox-icon-2-preview.png"; sourceTree = SOURCE_ROOT; };
+		964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceSpec.swift; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -212,11 +204,7 @@
 		96E1E59E205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
 		96E1E5A4205D243400F994ED /* CutBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96E1E5A8205D243400F994ED /* CutBoxControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxControllerSpec.swift; sourceTree = "<group>"; };
 		96E1E5AA205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96E1E5B3205D243400F994ED /* CutBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxUITests.swift; sourceTree = "<group>"; };
-		96E1E5B5205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E5C4205D297900F994ED /* CutBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxController.swift; sourceTree = "<group>"; };
 		97D664B206BC0907A3DA03C7 /* Pods_Testing_CutBoxUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86977FBC73098A02A097D0D /* Pods_CutBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CutBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,14 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96E1E5AC205D243400F994ED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E6994FEB1285D5DA13B1AF8E /* Pods_Testing_CutBoxUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +400,6 @@
 			children = (
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
-				96E1E5B2205D243400F994ED /* CutBoxUITests */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				96E1E595205D243400F994ED /* Products */,
 				96564BD3205D495A00A95E02 /* Frameworks */,
@@ -433,7 +412,6 @@
 			children = (
 				96E1E594205D243400F994ED /* CutBox.app */,
 				96E1E5A4205D243400F994ED /* CutBoxTests.xctest */,
-				96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */,
 				962D6D6E20746109007E3785 /* CutBoxHelper.app */,
 			);
 			name = Products;
@@ -456,19 +434,10 @@
 		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
 			isa = PBXGroup;
 			children = (
-				96E1E5A8205D243400F994ED /* CutBoxControllerSpec.swift */,
+				964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */,
 				96E1E5AA205D243400F994ED /* Info.plist */,
 			);
 			path = CutBoxTests;
-			sourceTree = "<group>";
-		};
-		96E1E5B2205D243400F994ED /* CutBoxUITests */ = {
-			isa = PBXGroup;
-			children = (
-				96E1E5B3205D243400F994ED /* CutBoxUITests.swift */,
-				96E1E5B5205D243400F994ED /* Info.plist */,
-			);
-			path = CutBoxUITests;
 			sourceTree = "<group>";
 		};
 		96E1E5C3205D295000F994ED /* App */ = {
@@ -568,27 +537,6 @@
 			productReference = 96E1E5A4205D243400F994ED /* CutBoxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		96E1E5AE205D243400F994ED /* CutBoxUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 96E1E5BE205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxUITests" */;
-			buildPhases = (
-				DF1DD94D25E2F2874D70BCFF /* [CP] Check Pods Manifest.lock */,
-				96E1E5AB205D243400F994ED /* Sources */,
-				96E1E5AC205D243400F994ED /* Frameworks */,
-				96E1E5AD205D243400F994ED /* Resources */,
-				35EE74ECB9E534768DFF1A7A /* [CP] Embed Pods Frameworks */,
-				1260C97E310BDFB8236AD8DB /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				96E1E5B1205D243400F994ED /* PBXTargetDependency */,
-			);
-			name = CutBoxUITests;
-			productName = CutBoxUITests;
-			productReference = 96E1E5AF205D243400F994ED /* CutBoxUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -620,11 +568,6 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 96E1E593205D243400F994ED;
 					};
-					96E1E5AE205D243400F994ED = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 96E1E593205D243400F994ED;
-					};
 				};
 			};
 			buildConfigurationList = 96E1E58F205D243400F994ED /* Build configuration list for PBXProject "CutBox" */;
@@ -648,7 +591,6 @@
 			targets = (
 				96E1E593205D243400F994ED /* CutBox */,
 				96E1E5A3205D243400F994ED /* CutBoxTests */,
-				96E1E5AE205D243400F994ED /* CutBoxUITests */,
 				962D6D6D20746109007E3785 /* CutBoxHelper */,
 			);
 		};
@@ -702,13 +644,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96E1E5AD205D243400F994ED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -725,41 +660,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1260C97E310BDFB8236AD8DB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		35EE74ECB9E534768DFF1A7A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		723EAB8C8D1270181AC31148 /* [CP] Copy Pods Resources */ = {
@@ -911,24 +811,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF1DD94D25E2F2874D70BCFF /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Testing-CutBoxUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -994,15 +876,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E1E5A9205D243400F994ED /* CutBoxControllerSpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96E1E5AB205D243400F994ED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96E1E5B4205D243400F994ED /* CutBoxUITests.swift in Sources */,
+				964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,11 +892,6 @@
 			isa = PBXTargetDependency;
 			target = 96E1E593205D243400F994ED /* CutBox */;
 			targetProxy = 96E1E5A5205D243400F994ED /* PBXContainerItemProxy */;
-		};
-		96E1E5B1205D243400F994ED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 96E1E593205D243400F994ED /* CutBox */;
-			targetProxy = 96E1E5B0205D243400F994ED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1234,13 +1103,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CutBoxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CutBox.app/Contents/MacOS/CutBox";
 			};
@@ -1252,47 +1124,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = CutBoxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CutBox.app/Contents/MacOS/CutBox";
-			};
-			name = Release;
-		};
-		96E1E5BF205D243400F994ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CutBoxUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = CutBox;
-			};
-			name = Debug;
-		};
-		96E1E5C0205D243400F994ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = CutBoxUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = CutBox;
 			};
 			name = Release;
 		};
@@ -1331,15 +1174,6 @@
 			buildConfigurations = (
 				96E1E5BC205D243400F994ED /* Debug */,
 				96E1E5BD205D243400F994ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		96E1E5BE205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBoxUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				96E1E5BF205D243400F994ED /* Debug */,
-				96E1E5C0205D243400F994ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
