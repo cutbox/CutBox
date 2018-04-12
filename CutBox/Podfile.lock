@@ -4,6 +4,7 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
+  - Sparkle (1.18.1)
   - SwiftyStringScore (0.1.1)
 
 DEPENDENCIES:
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Quick
   - RxCocoa
   - RxSwift
+  - Sparkle
   - SwiftyStringScore (from `git@github.com:yichizhang/SwiftyStringScore`)
 
 EXTERNAL SOURCES:
@@ -27,8 +29,9 @@ SPEC CHECKSUMS:
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  Sparkle: 06ea33170007c5937ee54da481b4481af98fac79
   SwiftyStringScore: 6b8fa002b9ca4815840dc02f13309645369b835c
 
-PODFILE CHECKSUM: f8a0c09729c8e602bc76ba8a5c3ade67eaea2f05
+PODFILE CHECKSUM: f52346506d7f7f4c63714d3b3667890bb51221c7
 
 COCOAPODS: 1.4.0
