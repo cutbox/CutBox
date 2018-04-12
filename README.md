@@ -15,6 +15,10 @@ anything back to your current app by searching for items.
 
 CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
+CutBox only deals in plaintext for now, I'm thinking about image and
+other document types down the road, but I needed some specific things
+from a plaintext pasteboard history, so here we are.
+
 Dark theme
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-preview.png)
@@ -44,11 +48,9 @@ to show and hide it's main window:
 
 Search the cut/copy history by typing (search uses fuzzy matching or
 regexp use <kbd>**Cmd**</kbd> + <kbd>**S**</kbd> to toggle search
-modes)
+modes). You can also select search mode from the CutBox menu.
 
-![](CutBox/CutBox/GraphicAssets/cutbox-preview-search.png)
-![](CutBox/CutBox/GraphicAssets/cutbox-preview-search-regexp.png)
-![](CutBox/CutBox/GraphicAssets/cutbox-preview-search-regexp-strict.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
 
 Choose from the search results using <kbd>**up**</kbd> and
 <kbd>**down**</kbd>, or select with the mouse.
