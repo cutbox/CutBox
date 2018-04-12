@@ -9,11 +9,33 @@
 import Cocoa
 import RxSwift
 
+extension SearchViewController {
+    func prepareClips(_ clips: [String]) -> String {
+        if clips.count == 1 {
+            return clips.first!
+        }
+
+        var clip = clips.joined(separator: "\n")
+
+        if prefs.useJoinString {
+             clip = clips.joined(separator: prefs.multiJoinString ?? "")
+        }
+
+        if prefs.useWrappingStrings {
+            let (start, end) = prefs.wrappingStrings
+            clip = "\(start ?? "")\(clip)\(end ?? "")"
+        }
+
+        return clip
+    }
+}
+
 class SearchViewController: NSObject {
 
-    let pasteboardService: PasteboardService
-    let searchView: SearchAndPreviewView
-    let prefs = CutBoxPreferences.shared
+    var searchView: SearchAndPreviewView
+    var pasteboardService: PasteboardService
+    var prefs: CutBoxPreferences
+
     private let popup: PopupController
 
     var events: PublishSubject<SearchViewEvents> {
@@ -22,8 +44,10 @@ class SearchViewController: NSObject {
     
     private let disposeBag = DisposeBag()
 
-    override init() {
-        self.pasteboardService = PasteboardService.shared
+    init(pasteboardService: PasteboardService = PasteboardService.shared,
+         cutBoxPreferences: CutBoxPreferences = CutBoxPreferences.shared) {
+        self.prefs = cutBoxPreferences
+        self.pasteboardService = pasteboardService
         self.pasteboardService.startTimer()
         self.searchView = SearchAndPreviewView.fromNib()!
         self.popup = PopupController(content: self.searchView)
@@ -77,21 +101,6 @@ class SearchViewController: NSObject {
         guard !selectedClips.isEmpty else { return }
 
         pasteToPasteboard(selectedClips)
-    }
-
-    func prepareClips(_ clips: [String]) -> String {
-        if clips.count == 1 {
-            return clips.first!
-        }
-
-        var clip = clips.joined(separator: prefs.multiJoinString ?? "\n")
-
-        if prefs.useWrappingStrings {
-            let (start, end) = prefs.wrappingStrings
-            clip = "\(start ?? "")\(clip)\(end ?? "")"
-        }
-
-        return clip
     }
 
     private func pasteToPasteboard(_ clips: [String]) {
