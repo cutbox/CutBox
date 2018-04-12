@@ -1,5 +1,5 @@
 PODS:
-  - Nimble (7.0.3)
+  - Nimble (7.1.0)
   - Quick (1.2.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
@@ -23,12 +23,12 @@ CHECKOUT OPTIONS:
     :git: git@github.com:yichizhang/SwiftyStringScore
 
 SPEC CHECKSUMS:
-  Nimble: 7f5a9c447a33002645a071bddafbfb24ea70e0ac
+  Nimble: 9c6651c3021af6de54c3ed90a4a0a87d548f7359
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SwiftyStringScore: 6b8fa002b9ca4815840dc02f13309645369b835c
 
-PODFILE CHECKSUM: 5b60168f8d541d0b33656f1b935ffc8aa3589787
+PODFILE CHECKSUM: f8a0c09729c8e602bc76ba8a5c3ade67eaea2f05
 
 COCOAPODS: 1.4.0

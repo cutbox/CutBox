@@ -56,7 +56,7 @@ class SearchViewControllerSpec: QuickSpec {
             }
 
             afterEach {
-                defaults.removeSuite(named: "FakeDefaults")
+                pasteboardMock.defaults.removeSuite(named: "FakeDefaults")
             }
 
             it("presents rows for each item in the pasteboard service store") {

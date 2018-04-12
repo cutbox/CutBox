@@ -15,7 +15,5 @@ target 'CutBox' do
     target 'CutBoxTests' do
     end
 
-    target 'CutBoxUITests' do
-    end
   end
 end
