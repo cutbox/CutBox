@@ -44,13 +44,11 @@ to show and hide it's main window:
 
 <kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
 
-![](CutBox/CutBox/GraphicAssets/cutbox-menu-preview.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-search.gif)
 
 Search the cut/copy history by typing (search uses fuzzy matching or
 regexp use <kbd>**Cmd**</kbd> + <kbd>**S**</kbd> to toggle search
-modes). You can also select search mode from the CutBox menu.
-
-![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
+modes).
 
 Choose from the search results using <kbd>**up**</kbd> and
 <kbd>**down**</kbd>, or select with the mouse.
@@ -61,6 +59,10 @@ to the current app.
 If you want to exit without pasting, press <kbd>**Esc**</kbd>
 
 (If you click the mouse away from the search popup it'll exit too.)
+
+You can also select search mode from the CutBox menu.
+
+![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
 
 ## Advanced use...
 
