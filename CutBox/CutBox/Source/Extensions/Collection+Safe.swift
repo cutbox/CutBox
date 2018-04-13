@@ -10,6 +10,7 @@ import Foundation
 
 extension Array {
     subscript (safe index: Int) -> Element? {
-        return index < self.count ? self[index] : nil
+        let inRange = index < self.count
+        return inRange ? self[index] : nil
     }
 }
