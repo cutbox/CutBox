@@ -18,10 +18,12 @@ class PreferencesWindow: NSWindow {
     var loginItemsService: LoginItemsService!
     var hotKeyService: HotKeyService!
     var hotKeyCenter: HotKeyCenter!
-    var prefs: CutBoxPreferences!
+    var prefs: CutBoxPreferencesService!
 
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var historyLimitTextField: NSTextField!
+    @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
     @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
     @IBOutlet weak var joinStringTextField: NSTextField!
     @IBOutlet weak var autoLoginCheckbox: NSButton!
@@ -39,10 +41,11 @@ class PreferencesWindow: NSWindow {
         self.loginItemsService = LoginItemsService.shared
         self.hotKeyService = HotKeyService.shared
         self.hotKeyCenter = HotKeyCenter.shared
-        self.prefs = CutBoxPreferences.shared
+        self.prefs = CutBoxPreferencesService.shared
 
         self.titlebarAppearsTransparent = true
 
+        setupHistoryLimitControls()
         setupKeyRecorders()
         setupAutoLoginControl()
         setupJoinStringTextField()

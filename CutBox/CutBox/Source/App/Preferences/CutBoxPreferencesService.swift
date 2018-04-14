@@ -8,8 +8,17 @@
 
 import Cocoa
 import Magnet
+import RxSwift
 
-class CutBoxPreferences {
+class CutBoxPreferencesService {
+
+    private var kMultiJoinSeparator = "multiJoinSeparator"
+    private var kUseJoinSeparator = "useJoinSeparator"
+    private var kUseWrappingStrings = "useWrappingStrings"
+    private var kWrapStringStart = "wrapStringStart"
+    private var kWrapStringEnd = "wrapStringEnd"
+    private var kHistoryUnlimited = "historyUnlimited"
+    private var kHistoryLimit = "historyLimit"
 
     var defaults: UserDefaults!
 
@@ -17,7 +26,7 @@ class CutBoxPreferences {
         self.defaults = defaults
     }
 
-    static let shared = CutBoxPreferences()
+    static let shared = CutBoxPreferencesService()
 
     var currentTheme: CutBoxColorTheme { return themes[theme] }
 
@@ -33,8 +42,6 @@ class CutBoxPreferences {
         name: "Menlo",
         size: 14)
 
-    private var kMultiJoinSeparator = "multiJoinSeparator"
-    private var kUseJoinSeparator = "useJoinSeparator"
 
     var useJoinString: Bool {
         set {
@@ -54,10 +61,6 @@ class CutBoxPreferences {
                 defaults.string(forKey: kMultiJoinSeparator) : nil
         }
     }
-
-    private var kUseWrappingStrings = "useWrappingStrings"
-    private var kWrapStringStart = "wrapStringStart"
-    private var kWrapStringEnd = "wrapStringEnd"
 
     var useWrappingStrings: Bool {
         set {
@@ -79,6 +82,28 @@ class CutBoxPreferences {
                     defaults.string(forKey: kWrapStringStart),
                     defaults.string(forKey: kWrapStringEnd)
                 ) : (nil, nil)
+        }
+    }
+
+    var historyUnlimited: Bool {
+        set {
+            defaults.set(newValue, forKey: kHistoryUnlimited)
+            if newValue {
+                historyLimit = nil
+            }
+
+        }
+        get {
+            return defaults.bool(forKey: kHistoryUnlimited)
+        }
+    }
+
+    var historyLimit: String? {
+        set {
+            defaults.set(newValue, forKey: kHistoryLimit)
+        }
+        get {
+            return defaults.string(forKey: kHistoryLimit)
         }
     }
 }

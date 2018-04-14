@@ -54,7 +54,7 @@ class SearchViewTableRowView: NSTableRowView {
     }
 
     override func drawSelection(in dirtyRect: NSRect) {
-        let theme = CutBoxPreferences.shared.currentTheme
+        let theme = CutBoxPreferencesService.shared.currentTheme
         if self.selectionHighlightStyle != .none {
             let selectionRect = self.bounds
 

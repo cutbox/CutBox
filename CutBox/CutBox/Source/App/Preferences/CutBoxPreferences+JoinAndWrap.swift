@@ -6,7 +6,7 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
-extension CutBoxPreferences {
+extension CutBoxPreferencesService {
     func prepareClips(_ clips: [String]) -> String {
         if clips.count == 1 {
             return clips.first!

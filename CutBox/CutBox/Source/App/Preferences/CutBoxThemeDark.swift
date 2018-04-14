@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension CutBoxPreferences {
+extension CutBoxPreferencesService {
     var darkTheme: CutBoxColorTheme {
         return CutBoxColorTheme(
             popupBackgroundColor:            #colorLiteral(red: 0.0864074271, green: 0.1963072013, blue: 0.2599330357, alpha: 1),

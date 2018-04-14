@@ -52,11 +52,11 @@ extension SearchViewController: NSTableViewDelegate {
             textField?.isBordered = false
             textField?.isSelectable = false
             textField?.isEditable = false
-            textField?.font = CutBoxPreferences.shared.searchViewClipItemsFont
+            textField?.font = CutBoxPreferencesService.shared.searchViewClipItemsFont
             textField?.identifier = identifier
         }
 
-        let theme = CutBoxPreferences.shared.currentTheme
+        let theme = CutBoxPreferencesService.shared.currentTheme
         textField?.textColor = theme.clip.clipItemsTextColor
 
         return textField

@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension CutBoxPreferences {
+extension CutBoxPreferencesService {
     var theme: Int {
         set {
             defaults.set(newValue, forKey: "theme")

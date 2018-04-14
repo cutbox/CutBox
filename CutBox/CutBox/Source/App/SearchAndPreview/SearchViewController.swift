@@ -13,7 +13,7 @@ class SearchViewController: NSObject {
 
     var searchView: SearchAndPreviewView
     var pasteboardService: PasteboardService
-    var prefs: CutBoxPreferences
+    var prefs: CutBoxPreferencesService
 
     private let popup: PopupController
 
@@ -24,7 +24,7 @@ class SearchViewController: NSObject {
     private let disposeBag = DisposeBag()
 
     init(pasteboardService: PasteboardService = PasteboardService.shared,
-         cutBoxPreferences: CutBoxPreferences = CutBoxPreferences.shared) {
+         cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
         self.prefs = cutBoxPreferences
         self.pasteboardService = pasteboardService
         self.pasteboardService.startTimer()

@@ -12,56 +12,57 @@
         <window title="About CutBox" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" id="cj6-GZ-QX0" customClass="AboutPanel" customModule="CutBox" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="112" width="276" height="150"/>
+            <rect key="contentRect" x="196" y="112" width="343" height="151"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
             <view key="contentView" id="rS7-ly-uMb">
-                <rect key="frame" x="0.0" y="0.0" width="276" height="150"/>
+                <rect key="frame" x="0.0" y="0.0" width="343" height="151"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ai2-LU-pGD">
-                        <rect key="frame" x="20" y="20" width="110" height="110"/>
+                    <imageView autoresizesSubviews="NO" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ai2-LU-pGD">
+                        <rect key="frame" x="20" y="16" width="120" height="120"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="110" id="9hb-5d-Cg0"/>
-                            <constraint firstAttribute="width" constant="110" id="DXR-MC-TZf"/>
+                            <constraint firstAttribute="height" constant="120" id="9hb-5d-Cg0"/>
+                            <constraint firstAttribute="width" constant="120" id="DXR-MC-TZf"/>
                         </constraints>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-2-preview" id="ych-ZH-c7d"/>
+                        <imageCell key="cell" lineBreakMode="truncatingTail" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-2-preview" id="ych-ZH-c7d"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7O-CG-thr">
-                        <rect key="frame" x="138" y="113" width="120" height="17"/>
+                        <rect key="frame" x="158" y="114" width="164" height="17"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="160" id="Fwv-i7-vSv"/>
                             <constraint firstAttribute="height" constant="17" id="po9-3J-eRF"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="CutBox" usesSingleLineMode="YES" id="9eH-Xf-fhH">
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="CutBox" usesSingleLineMode="YES" id="9eH-Xf-fhH">
                             <font key="font" size="15" name="AvenirNext-Bold"/>
                             <color key="textColor" red="0.058500000000000003" green="0.10854999999999999" blue="0.13" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SYm-gs-NbI">
-                        <rect key="frame" x="138" y="95" width="110" height="17"/>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="nD5-lh-lUa">
+                        <rect key="frame" x="158" y="102" width="164" height="11"/>
+                        <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="nD5-lh-lUa">
                             <font key="font" metaFont="miniSystem"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEU-RL-OJo" customClass="LinkText" customModule="CutBox" customModuleProvider="target">
-                        <rect key="frame" x="138" y="68" width="120" height="17"/>
+                        <rect key="frame" x="158" y="82" width="164" height="10"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="17" id="eHo-wR-cQp"/>
+                            <constraint firstAttribute="height" constant="10" id="eHo-wR-cQp"/>
                         </constraints>
-                        <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="adQ-QD-aH5">
+                        <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="adQ-QD-aH5">
                             <font key="font" metaFont="miniSystem"/>
                             <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RsQ-ZA-7Ke">
-                        <rect key="frame" x="138" y="20" width="120" height="25"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsQ-ZA-7Ke">
+                        <rect key="frame" x="158" y="27" width="164" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="msw-yV-CCt"/>
+                            <constraint firstAttribute="height" constant="30" id="msw-yV-CCt"/>
                         </constraints>
-                        <textFieldCell key="cell" controlSize="mini" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="HiB-Dz-qkr">
+                        <textFieldCell key="cell" controlSize="mini" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="HiB-Dz-qkr">
                             <font key="font" metaFont="miniSystem"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -69,21 +70,19 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="g7O-CG-thr" firstAttribute="top" secondItem="rS7-ly-uMb" secondAttribute="top" constant="20" id="0YD-sN-TuA"/>
-                    <constraint firstAttribute="bottom" secondItem="SYm-gs-NbI" secondAttribute="bottom" constant="95" id="C0h-Uz-U8R"/>
-                    <constraint firstAttribute="bottom" secondItem="ai2-LU-pGD" secondAttribute="bottom" constant="20" id="Cao-vJ-808"/>
-                    <constraint firstItem="g7O-CG-thr" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="Vx8-Tn-CLk"/>
-                    <constraint firstAttribute="trailing" secondItem="SYm-gs-NbI" secondAttribute="trailing" constant="30" id="WZE-1C-EED"/>
-                    <constraint firstAttribute="trailing" secondItem="RsQ-ZA-7Ke" secondAttribute="trailing" constant="20" id="dfq-4q-kMG"/>
-                    <constraint firstItem="xEU-RL-OJo" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="eDz-OO-Xbf"/>
-                    <constraint firstAttribute="trailing" secondItem="g7O-CG-thr" secondAttribute="trailing" constant="20" id="fkV-Ic-I8W"/>
+                    <constraint firstItem="RsQ-ZA-7Ke" firstAttribute="leading" secondItem="g7O-CG-thr" secondAttribute="leading" id="4hg-RM-Uig"/>
+                    <constraint firstItem="g7O-CG-thr" firstAttribute="top" secondItem="ai2-LU-pGD" secondAttribute="top" constant="5" id="9cf-zc-HqA"/>
+                    <constraint firstItem="RsQ-ZA-7Ke" firstAttribute="width" secondItem="g7O-CG-thr" secondAttribute="width" id="9eN-GO-Nau"/>
+                    <constraint firstItem="ai2-LU-pGD" firstAttribute="centerY" secondItem="rS7-ly-uMb" secondAttribute="centerY" id="C7a-F3-qnx"/>
+                    <constraint firstItem="SYm-gs-NbI" firstAttribute="width" secondItem="g7O-CG-thr" secondAttribute="width" id="GI1-95-0MS"/>
+                    <constraint firstItem="SYm-gs-NbI" firstAttribute="leading" secondItem="g7O-CG-thr" secondAttribute="leading" id="Hgt-Bg-lGe"/>
+                    <constraint firstItem="RsQ-ZA-7Ke" firstAttribute="top" secondItem="xEU-RL-OJo" secondAttribute="bottom" constant="25" id="ayK-mK-5M1"/>
                     <constraint firstItem="xEU-RL-OJo" firstAttribute="top" secondItem="SYm-gs-NbI" secondAttribute="bottom" constant="10" id="jtA-hi-klj"/>
-                    <constraint firstItem="ai2-LU-pGD" firstAttribute="top" secondItem="rS7-ly-uMb" secondAttribute="top" constant="20" id="og4-3k-1dR"/>
+                    <constraint firstItem="xEU-RL-OJo" firstAttribute="leading" secondItem="g7O-CG-thr" secondAttribute="leading" id="nl5-w2-afS"/>
+                    <constraint firstItem="xEU-RL-OJo" firstAttribute="width" secondItem="g7O-CG-thr" secondAttribute="width" id="qBb-qY-T9G"/>
                     <constraint firstItem="SYm-gs-NbI" firstAttribute="leading" secondItem="g7O-CG-thr" secondAttribute="leading" id="tHd-zh-Pmi"/>
-                    <constraint firstAttribute="trailing" secondItem="xEU-RL-OJo" secondAttribute="trailing" constant="20" id="tOF-nJ-m2J"/>
                     <constraint firstItem="SYm-gs-NbI" firstAttribute="top" secondItem="g7O-CG-thr" secondAttribute="bottom" constant="1" id="tRb-vF-Eg5"/>
-                    <constraint firstItem="RsQ-ZA-7Ke" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="10" id="tsZ-gx-FHN"/>
-                    <constraint firstAttribute="bottom" secondItem="RsQ-ZA-7Ke" secondAttribute="bottom" constant="20" id="zij-wH-2xf"/>
+                    <constraint firstItem="g7O-CG-thr" firstAttribute="leading" secondItem="ai2-LU-pGD" secondAttribute="trailing" constant="20" id="uN1-Ef-ThX"/>
                     <constraint firstItem="ai2-LU-pGD" firstAttribute="leading" secondItem="rS7-ly-uMb" secondAttribute="leading" constant="20" id="zuh-c5-ykw"/>
                 </constraints>
             </view>
@@ -93,7 +92,7 @@
                 <outlet property="productTitle" destination="g7O-CG-thr" id="U2P-Bv-7Xa"/>
                 <outlet property="productVersion" destination="SYm-gs-NbI" id="5jy-DJ-zvE"/>
             </connections>
-            <point key="canvasLocation" x="413" y="-150"/>
+            <point key="canvasLocation" x="424.5" y="-150.5"/>
         </window>
     </objects>
     <resources>

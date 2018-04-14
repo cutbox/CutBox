@@ -15,7 +15,7 @@ class CutBoxPreferences_JoinAndWrapSpec: QuickSpec {
     override func spec() {
         describe("CutBoxPreferences+JoinAndWrap") {
 
-            var subject: CutBoxPreferences!
+            var subject: CutBoxPreferencesService!
             var defaults: UserDefaults!
             let items = [
                 "Fakes",
@@ -24,7 +24,7 @@ class CutBoxPreferences_JoinAndWrapSpec: QuickSpec {
 
             beforeEach {
                 defaults = UserDefaults(suiteName: "CutBoxPreferences+JoinAndWrap")!
-                subject = CutBoxPreferences(defaults: defaults)
+                subject = CutBoxPreferencesService(defaults: defaults)
                 subject.useJoinString = false
                 subject.multiJoinString = nil
                 subject.useWrappingStrings = false

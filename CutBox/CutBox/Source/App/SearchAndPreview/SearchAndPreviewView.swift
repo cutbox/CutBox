@@ -20,7 +20,7 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeIndicator: NSTextField!
 
-    internal let prefs = CutBoxPreferences.shared
+    internal let prefs = CutBoxPreferencesService.shared
     
     var events = PublishSubject<SearchViewEvents>()
     var filterText = PublishSubject<String>()

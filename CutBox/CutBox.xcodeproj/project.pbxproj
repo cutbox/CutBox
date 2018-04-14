@@ -50,6 +50,7 @@
 		964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */; };
 		964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */; };
 		964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */; };
+		964CA53A20821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -69,7 +70,7 @@
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
-		96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */; };
+		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBox.xib */; };
@@ -201,6 +202,7 @@
 		964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+IndexSetSpec.swift"; sourceTree = "<group>"; };
 		964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+String+SwiftyStringScoreSpec.swift"; sourceTree = "<group>"; };
 		964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSpec.swift"; sourceTree = "<group>"; };
+		964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -220,7 +222,7 @@
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
-		96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferences.swift; sourceTree = "<group>"; };
+		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -336,13 +338,14 @@
 		963AA6482071EE0600779697 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				96CFA6B42069C5BC00BAFABB /* CutBoxPreferences.swift */,
+				96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */,
 				964CA512207E6BAC00B9F33E /* CutBoxThemeLight.swift */,
 				964CA514207E6BCA00B9F33E /* CutBoxThemeDark.swift */,
 				964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */,
 				964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */,
 				963AA6492071EE4800779697 /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
+				964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */,
 				964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */,
 				964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */,
 				964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */,
@@ -905,8 +908,9 @@
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
+				964CA53A20821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
-				96CFA6B52069C5BC00BAFABB /* CutBoxPreferences.swift in Sources */,
+				96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				964CA500207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift in Sources */,
 				964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */,
