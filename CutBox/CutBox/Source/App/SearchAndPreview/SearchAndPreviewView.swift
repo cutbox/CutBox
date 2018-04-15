@@ -77,7 +77,7 @@ class SearchAndPreviewView: NSView {
 
     private func setupPlaceholder() {
         filterText
-            .map { $0.isEmpty ? Constants.searchViewPlaceholderText : "" }
+            .map { $0.isEmpty ? "search_placeholder".l7n : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }
