@@ -24,20 +24,27 @@ class PreferencesWindow: NSWindow {
 
     @IBOutlet weak var historyLimitTextField: NSTextField!
     @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
+    @IBOutlet weak var joinClipsTitle: NSTextField!
     @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
     @IBOutlet weak var joinStringTextField: NSTextField!
     @IBOutlet weak var autoLoginCheckbox: NSButton!
     @IBOutlet weak var mainKeyRecorder: RecordView!
+    @IBOutlet weak var mainKeyRecorderLabel: NSTextField!
     @IBOutlet weak var shouldWrapMultipleSelection: NSButton!
     @IBOutlet weak var wrapStartTextField: NSTextField!
     @IBOutlet weak var wrapEndTextField: NSTextField!
+
+    @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
     @IBOutlet weak var themeSelector: NSSegmentedControl!
 
+    @IBOutlet weak var historyLimitTitle: NSTextField!
     @IBAction func themeSelectorChanges(_ sender: NSSegmentedControl) {
         prefs.theme = sender.selectedSegment
     }
 
     override func awakeFromNib() {
+        self.title = "preferences_title".l7n
+
         self.loginItemsService = LoginItemsService.shared
         self.hotKeyService = HotKeyService.shared
         self.hotKeyCenter = HotKeyCenter.shared
@@ -45,15 +52,18 @@ class PreferencesWindow: NSWindow {
 
         self.titlebarAppearsTransparent = true
 
-        setupHistoryLimitControls()
-        setupKeyRecorders()
         setupAutoLoginControl()
+        setupThemeSelector()
+        setupKeyRecorders()
+        setupHistoryLimitControls()
         setupJoinStringTextField()
         setupWrappingStringTextFields()
-        setupThemeSelector()
     }
 
     func setupThemeSelector() {
+        self.themeSelectorTitleLabel.stringValue = "preferences_color_theme_title".l7n
+        self.themeSelector.setLabel("preferences_color_theme_name_dark".l7n, forSegment: 0)
+        self.themeSelector.setLabel("preferences_color_theme_name_light".l7n, forSegment: 1)
         self.themeSelector.selectedSegment = prefs.theme
     }
 }

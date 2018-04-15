@@ -9,6 +9,11 @@
 import Foundation
 
 extension String {
+
+    var l7n: String {
+        return self.l10n()
+    }
+
     func l10n(tableName: String? = nil,
               bundle: Bundle = Bundle.main,
               value: String = "",

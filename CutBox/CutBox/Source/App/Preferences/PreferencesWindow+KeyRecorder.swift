@@ -13,6 +13,7 @@ import RxSwift
 extension PreferencesWindow {
     func setupKeyRecorders() {
         self.mainKeyRecorder.delegate = self
+        self.mainKeyRecorderLabel.stringValue = "preferences_toggle_cutbox".l7n
 
         self.hotKeyService
             .searchKeyCombo

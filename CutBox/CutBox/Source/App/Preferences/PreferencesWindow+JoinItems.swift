@@ -19,9 +19,16 @@ extension PreferencesWindow {
     }
 
     func setupJoinStringTextField()  {
+
+        self.joinClipsTitle.stringValue = "preferences_multi_clip_join_title".l7n
+
         let useJoinString = prefs.useJoinString
 
+        joinStyleSelector.setLabel("preferences_multi_clip_joined_by_newline".l7n, forSegment: 0)
+        joinStyleSelector.setLabel("preferences_multi_clip_joined_by_string".l7n, forSegment: 1)
         joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0 )
+
+        joinStringTextField.placeholderString = "preferences_multi_clip_joined_by_string_placeholder".l7n
 
         if let joinString = prefs.multiJoinString {
             joinStringTextField.stringValue = joinString

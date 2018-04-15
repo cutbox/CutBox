@@ -57,10 +57,10 @@
                                 <rect key="frame" x="0.0" y="288" width="511" height="5"/>
                             </box>
                             <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uFz-yK-ZSQ">
-                                <rect key="frame" x="106" y="253" width="300" height="25"/>
+                                <rect key="frame" x="56" y="250" width="400" height="30"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1vU-QU-ZyK" userLabel="CutBox Shortcut TextField">
-                                        <rect key="frame" x="-2" y="4" width="93" height="17"/>
+                                        <rect key="frame" x="-2" y="7" width="93" height="17"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Toggle CutBox" id="UGB-4N-qyX" userLabel="CutBox Shortcut TextCell">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -68,14 +68,13 @@
                                         </textFieldCell>
                                     </textField>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="xBn-Kq-xbQ" customClass="RecordView" customModule="KeyHolder">
-                                        <rect key="frame" x="190" y="0.0" width="110" height="25"/>
+                                        <rect key="frame" x="290" y="1" width="110" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="0YU-c0-gLY"/>
                                             <constraint firstAttribute="width" constant="110" id="Sq1-bA-eZ9"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="11"/>
+                                                <real key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                 <real key="value" value="1"/>
@@ -88,8 +87,10 @@
                                     </customView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="gL5-jb-yBy"/>
-                                    <constraint firstAttribute="width" constant="300" id="pPh-tX-LCX"/>
+                                    <constraint firstItem="1vU-QU-ZyK" firstAttribute="centerY" secondItem="uFz-yK-ZSQ" secondAttribute="centerY" id="Ldo-A3-eiY"/>
+                                    <constraint firstItem="xBn-Kq-xbQ" firstAttribute="centerY" secondItem="uFz-yK-ZSQ" secondAttribute="centerY" id="gGM-jh-tjD"/>
+                                    <constraint firstAttribute="height" constant="30" id="gL5-jb-yBy"/>
+                                    <constraint firstAttribute="width" constant="400" id="pPh-tX-LCX"/>
                                 </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -104,12 +105,12 @@
                                 <rect key="frame" x="0.0" y="237" width="511" height="5"/>
                             </box>
                             <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pow-2f-O9k">
-                                <rect key="frame" x="106" y="202" width="300" height="25"/>
+                                <rect key="frame" x="56" y="202" width="400" height="25"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1a-dQ-RFZ">
-                                        <rect key="frame" x="-2" y="4" width="84" height="17"/>
+                                        <rect key="frame" x="-2" y="4" width="104" height="17"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="aSE-jv-UYm"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="aSE-jv-UYm"/>
                                         </constraints>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="History limit:" id="1eO-PI-s31">
                                             <font key="font" metaFont="system"/>
@@ -118,7 +119,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qe8-xu-WyF">
-                                        <rect key="frame" x="88" y="2" width="131" height="22"/>
+                                        <rect key="frame" x="108" y="2" width="210" height="22"/>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Limit" drawsBackground="YES" usesSingleLineMode="YES" id="xVY-NV-q1e">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -126,7 +127,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1fc-Hr-eKL">
-                                        <rect key="frame" x="225" y="4" width="77" height="18"/>
+                                        <rect key="frame" x="324" y="4" width="78" height="18"/>
                                         <buttonCell key="cell" type="check" title="Unlmited" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0jp-X0-4Sk">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -134,7 +135,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Dzb-gv-XES"/>
+                                    <constraint firstAttribute="width" constant="400" id="Dzb-gv-XES"/>
                                     <constraint firstAttribute="height" constant="25" id="QUU-Qv-ItI"/>
                                 </constraints>
                                 <visibilityPriorities>
@@ -186,7 +187,7 @@
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g9c-8b-apa">
                                 <rect key="frame" x="154" y="53" width="204" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="V2X-o7-kh6"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="V2X-o7-kh6"/>
                                 </constraints>
                                 <buttonCell key="cell" type="check" title="Wrap multiple selected clips?" bezelStyle="regularSquare" imagePosition="right" alignment="center" inset="2" id="D4k-4j-81n">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -266,12 +267,16 @@
             <connections>
                 <outlet property="autoLoginCheckbox" destination="swm-w6-LCN" id="hOo-Js-ZPj"/>
                 <outlet property="historyLimitTextField" destination="Qe8-xu-WyF" id="Tff-3n-BNM"/>
+                <outlet property="historyLimitTitle" destination="w1a-dQ-RFZ" id="uOT-vL-PgI"/>
                 <outlet property="historyUnlimitedCheckbox" destination="1fc-Hr-eKL" id="wom-PJ-6nU"/>
+                <outlet property="joinClipsTitle" destination="ACq-Ph-gKs" id="Dzs-v1-qHb"/>
                 <outlet property="joinStringTextField" destination="lSw-px-RTF" id="d07-S7-IHA"/>
                 <outlet property="joinStyleSelector" destination="Brq-w8-kKV" id="tcf-Jt-Qkt"/>
                 <outlet property="mainKeyRecorder" destination="xBn-Kq-xbQ" id="UX8-7R-gQ4"/>
+                <outlet property="mainKeyRecorderLabel" destination="1vU-QU-ZyK" id="Cne-4C-1KC"/>
                 <outlet property="shouldWrapMultipleSelection" destination="g9c-8b-apa" id="ejs-ij-y78"/>
                 <outlet property="themeSelector" destination="uaK-ft-JaM" id="6h4-qM-aZ2"/>
+                <outlet property="themeSelectorTitleLabel" destination="dZ3-SD-QyO" id="uCf-H2-r9T"/>
                 <outlet property="wrapEndTextField" destination="Z4G-rR-jBA" id="B4j-rW-9cC"/>
                 <outlet property="wrapStartTextField" destination="bnt-h3-0sS" id="tzg-TO-BEn"/>
             </connections>

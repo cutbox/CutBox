@@ -23,7 +23,6 @@
 		962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 962D6D6E20746109007E3785 /* CutBoxHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
-		963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6492071EE4800779697 /* PreferencesWindow.xib */; };
 		963AA663207269CE00779697 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; };
 		963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		963AA667207269CE00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
@@ -56,6 +55,7 @@
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
 		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; };
+		964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964CA568208337F100B9F33E /* PreferencesWindow.xib */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -181,7 +181,6 @@
 		962D6D7B20746109007E3785 /* CutBoxHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBoxHelper.entitlements; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
-		963AA6492071EE4800779697 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyHolder.xcodeproj; path = DependencySubmodules/KeyHolder/Lib/KeyHolder.xcodeproj; sourceTree = SOURCE_ROOT; };
 		963AA65A20725D0E00779697 /* Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964766632067A5F100E7026F /* NSObject+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+fromNib.swift"; sourceTree = "<group>"; };
@@ -210,8 +209,9 @@
 		964CA54320830C8800B9F33E /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
-		964CA54D20832F0400B9F33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = "Base.lproj/PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
+		964CA54D20832F0400B9F33E /* Base */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Base; path = "Base.lproj/PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
 		964CA5532083325600B9F33E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		964CA567208337F100B9F33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				964CA547208324D300B9F33E /* PreferencesService */,
-				963AA6492071EE4800779697 /* PreferencesWindow.xib */,
+				964CA568208337F100B9F33E /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
 				964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */,
 				964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */,
@@ -697,7 +697,7 @@
 				963AA6442071C95000779697 /* AboutPanel.xib in Resources */,
 				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
-				963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */,
+				964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -993,6 +993,14 @@
 				964CA54D20832F0400B9F33E /* Base */,
 			);
 			name = "PreferencesWindow+HistoryLimit.swift";
+			sourceTree = "<group>";
+		};
+		964CA568208337F100B9F33E /* PreferencesWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				964CA567208337F100B9F33E /* Base */,
+			);
+			name = PreferencesWindow.xib;
 			sourceTree = "<group>";
 		};
 		96E1E59B205D243400F994ED /* CutBox.xib */ = {

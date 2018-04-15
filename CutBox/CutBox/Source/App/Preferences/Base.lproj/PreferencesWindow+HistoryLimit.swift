@@ -11,6 +11,11 @@ import RxSwift
 
 extension PreferencesWindow {
     func setupHistoryLimitControls() {
+        self.historyLimitTitle.stringValue = "preferences_history_limit_title".l7n
+
+        self.historyLimitTextField.placeholderString = "preferences_history_limit_placeholder".l7n
+        self.historyUnlimitedCheckbox.title = "preferences_history_limit_checkbox_label".l7n
+
         self.historyLimitTextField.formatter = HistoryLimitNumberFormatter()
 
         self.historyUnlimitedCheckbox
@@ -65,8 +70,8 @@ extension PreferencesWindow {
         if limitChangeIsDestructive(limit: limit,
                                     currentLimit: currentLimit) {
             (confirm, suppress) = confirmationDialog(
-                question: "preferences_history_destructive_limit_change_warning_title".l10n(),
-                text: "preferences_history_destructive_limit_change_warning_description".l10n(),
+                question: "preferences_history_destructive_limit_change_warning_title".l7n,
+                text: "preferences_history_destructive_limit_change_warning_description".l7n,
                 showSuppressionOption: !prefs.suppressHistoryLimitWarning
             )
 
