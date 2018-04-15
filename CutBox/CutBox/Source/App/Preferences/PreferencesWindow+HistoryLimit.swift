@@ -9,32 +9,6 @@
 import RxCocoa
 import RxSwift
 
-class HistoryLimitNumberFormatter: NumberFormatter {
-    override var isPartialStringValidationEnabled: Bool {
-        set {}
-        get { return true }
-    }
-
-    var intOnlyRegex: NSRegularExpression? {
-        do {
-        return try NSRegularExpression(pattern: "^[0-9]*$",
-                                   options: NSRegularExpression.Options.caseInsensitive)
-        } catch {
-            fatalError("invalid regexp in intOnlyRegex")
-        }
-    }
-
-    override func isPartialStringValid(_ partialString: String,
-                                       newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?,
-                                       errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?)
-        -> Bool {
-            return intOnlyRegex?.matches(in: partialString,
-                                         options: .anchored,
-                                         range: NSRange(partialString.startIndex...,
-                                                        in: partialString)).count == 1
-    }
-}
-
 extension PreferencesWindow {
     func setupHistoryLimitControls() {
         self.historyLimitTextField.formatter = HistoryLimitNumberFormatter()
@@ -87,8 +61,15 @@ extension PreferencesWindow {
         var confirm: Bool
         if limitChangeIsDestructive(limit: limit,
                                     currentLimit: currentLimit) {
-            confirm = confirmationDialog(question: "Reduce Pasteboard History Limit?",
-                                     text: "Warning: You'll lose items beyond the new limit, you cannot undo this.  Click OK to continue.")
+            (confirm, _) = confirmationDialog(question: "Reduce Pasteboard History Limit?",
+                                         text:
+                "You are attempting to reduce your CutBox history limit\n" +
+                "If you continue you'll lose items beyond that limit\n\n" +
+                "This operation cannot be undone\n\n" +
+                "Click OK to continue",
+                                         suppression: true
+            )
+
         } else {
             confirm = true
         }
@@ -99,17 +80,4 @@ extension PreferencesWindow {
             self.historyLimitTextField.stringValue = String(currentLimit)
         }
     }
-}
-
-func confirmationDialog(question: String,
-                    text: String,
-                    ok: String = "OK",
-                    cancel: String = "Cancel") -> Bool {
-    let alert = NSAlert()
-    alert.messageText = question
-    alert.informativeText = text
-    alert.alertStyle = .warning
-    alert.addButton(withTitle: ok)
-    alert.addButton(withTitle: cancel)
-    return alert.runModal() == .alertFirstButtonReturn
 }
