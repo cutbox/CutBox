@@ -11,7 +11,7 @@ import Magnet
 import RxSwift
 
 enum CutBoxPreferencesEvent {
-    case historyLimitChanged(limited: Bool, limit: Int?)
+    case historyLimitChanged(limit: Int)
 }
 
 class CutBoxPreferencesService {
@@ -96,19 +96,19 @@ class CutBoxPreferencesService {
         set {
             defaults.set(newValue, forKey: kHistoryLimited)
             if !newValue {
-                historyLimit = nil
+                historyLimit = 0
             }
-            events.onNext(.historyLimitChanged(limited: newValue, limit: historyLimit))
+            events.onNext(.historyLimitChanged(limit: historyLimit))
         }
         get {
             return defaults.bool(forKey: kHistoryLimited)
         }
     }
 
-    var historyLimit: Int? {
+    var historyLimit: Int {
         set {
             defaults.set(newValue, forKey: kHistoryLimit)
-            events.onNext(.historyLimitChanged(limited: historyLimited, limit: newValue))
+            events.onNext(.historyLimitChanged(limit: newValue))
         }
         get {
             return defaults.integer(forKey: kHistoryLimit)

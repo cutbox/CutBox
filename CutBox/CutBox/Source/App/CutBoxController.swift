@@ -12,6 +12,23 @@ import RxSwift
 
 class CutBoxController: NSObject {
 
+    let statusItem: NSStatusItem = NSStatusBar
+        .system
+        .statusItem(withLength: NSStatusItem.variableLength)
+
+    var searchModeSelectors: [NSMenuItem]?
+    var searchModeSelectorsDict: [String:NSMenuItem]?
+
+    let searchViewController: SearchViewController
+    let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
+    let aboutPanel: AboutPanel = AboutPanel.fromNib()!
+    let hotKeyService = HotKeyService.shared
+
+    let prefs = CutBoxPreferencesService.shared
+    let pasteboardService = PasteboardService.shared
+
+    private let disposeBag = DisposeBag()
+
     @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
     @IBOutlet weak var regexpModeItem: NSMenuItem!
     @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
@@ -40,24 +57,20 @@ class CutBoxController: NSObject {
         NSApp.terminate(sender)
     }
 
-    let statusItem: NSStatusItem = NSStatusBar
-        .system
-        .statusItem(withLength: NSStatusItem.variableLength)
-
-    var searchModeSelectors: [NSMenuItem]?
-    var searchModeSelectorsDict: [String:NSMenuItem]?
-
-    let searchViewController: SearchViewController
-    let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
-    let aboutPanel: AboutPanel = AboutPanel.fromNib()!
-    let hotKeyService = HotKeyService.shared
-
-    private let disposeBag = DisposeBag()
 
     override init() {
         self.searchViewController = SearchViewController()
         super.init()
         self.hotKeyService.configure(controller: self)
+        self.prefs
+            .events
+            .subscribe(onNext: {
+                switch $0 {
+                case CutBoxPreferencesEvent.historyLimitChanged(let limit):
+                    self.pasteboardService.historyLimit = limit
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     override func awakeFromNib() {

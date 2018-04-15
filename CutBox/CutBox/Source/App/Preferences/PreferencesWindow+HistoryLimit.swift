@@ -17,7 +17,7 @@ class HistoryLimitNumberFormatter: NumberFormatter {
 
     var intOnlyRegex: NSRegularExpression? {
         do {
-        return try NSRegularExpression(pattern: "^[0-9]+$",
+        return try NSRegularExpression(pattern: "^[0-9]*$",
                                    options: NSRegularExpression.Options.caseInsensitive)
         } catch {
             fatalError("invalid regexp in intOnlyRegex")
@@ -29,9 +29,9 @@ class HistoryLimitNumberFormatter: NumberFormatter {
                                        errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?)
         -> Bool {
             return intOnlyRegex?.matches(in: partialString,
-                                  options: .anchored,
-                                  range: NSRange(partialString.startIndex...,
-                                                 in: partialString)).count == 1
+                                         options: .anchored,
+                                         range: NSRange(partialString.startIndex...,
+                                                        in: partialString)).count == 1
     }
 }
 
@@ -51,15 +51,24 @@ extension PreferencesWindow {
             .rx
             .state
             .map { $0 == .off }
-            .subscribe(onNext:
-                { self.historyLimitTextField.isEnabled = $0 })
+            .subscribe(onNext: {
+                self.historyLimitTextField.isEnabled = $0
+                if !$0 { self.historyLimitTextField.stringValue = "" }
+            })
             .disposed(by: disposeBag)
 
-        if let historyLimit = prefs.historyLimit {
-            self.historyLimitTextField.stringValue = String(historyLimit)
-        } else {
-            self.historyLimitTextField.stringValue = ""
-        }
+        let historyLimit = prefs.historyLimit
+
+        self.historyLimitTextField.stringValue = String(historyLimit)
+
+        self.historyLimitTextField
+            .rx
+            .controlEvent // end editing
+            .subscribe(onNext: {
+                let limit = Int(self.historyLimitTextField.stringValue) ?? 0
+                self.prefs.historyLimit = limit
+            })
+            .disposed(by: disposeBag)
 
         if prefs.historyLimited {
             self.historyUnlimitedCheckbox.state = .off

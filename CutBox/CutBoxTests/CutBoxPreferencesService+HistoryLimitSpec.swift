@@ -41,24 +41,21 @@ class CutBoxPreferencesService_HistoryLimitSpec: QuickSpec {
 
                 it("fires a historyLimitChanged event when setting history limited") {
                     subject.historyLimited = true
-                    if case .historyLimitChanged(let limited, let limit)? = captured {
-                        expect(limited).to(beTrue())
+                    if case .historyLimitChanged(let limit)? = captured {
                         expect(limit).to(equal(0))
                     } else {
                         XCTAssertFalse(true, "history limit changed test failed")
                     }
 
                     subject.historyLimit = 100
-                    if case .historyLimitChanged(let limited, let limit)? = captured {
-                        expect(limited).to(beTrue())
+                    if case .historyLimitChanged(let limit)? = captured {
                         expect(limit).to(equal(100))
                     } else {
                         XCTAssertFalse(true, "history limit changed test failed")
                     }
 
                     subject.historyLimited = false
-                    if case .historyLimitChanged(let limited, let limit)? = captured {
-                        expect(limited).to(beFalse())
+                    if case .historyLimitChanged(let limit)? = captured {
                         expect(limit).to(equal(0))
                     } else {
                         XCTAssertFalse(true, "history limit changed test failed")

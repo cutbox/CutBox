@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import RxSwift
 
 @testable import CutBox
 
@@ -111,6 +112,42 @@ class PasteboardServiceSpec: QuickSpec {
                     .to(equal(fakeItems.reversed()))
             }
 
+            context("duplicate handling") {
+                it("removes duplicate items and inserts them as first history item") {
+                    expect(subject.items.count).to(equal(17))
+
+                    addToFakePasteboardAndPoll(string: "JR Bob Dobbs",
+                                               subject: subject,
+                                               pboard: mockPasteboard)
+
+                    expect(subject.items.count).to(equal(17))
+                    expect(subject.items.first).to(equal("JR Bob Dobbs"))
+                }
+            }
+
+
+            context("history limit set") {
+                it("truncates the history to the history limit") {
+                    subject.historyLimit = 10
+                    expect(subject.items.count).to(equal(10))
+
+                    subject.historyLimit = 13
+                    expect(subject.items.count).to(equal(10))
+                }
+
+                it("adds items and removes oldest item") {
+                    subject.historyLimit = 10
+                    expect(subject.items.count).to(equal(10))
+
+                    addToFakePasteboardAndPoll(string: "New New News",
+                                               subject: subject,
+                                               pboard: mockPasteboard)
+
+                    expect(subject.items.count).to(equal(10))
+                }
+            }
+
+
             context("searching") {
                 context("fuzzy match") {
                     beforeEach {
@@ -118,7 +155,8 @@ class PasteboardServiceSpec: QuickSpec {
                     }
 
                     it("sorts/filters items based on how closely they match") {
-                        // (length difference is an ordering factor)
+                        // The length and appearance of search string
+                        // deltas ordering factors
 
                         subject.filterText = "2"
                         expect(subject.items).to(equal([

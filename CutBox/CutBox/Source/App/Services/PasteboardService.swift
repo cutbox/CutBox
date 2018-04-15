@@ -6,8 +6,8 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
-import Cocoa
 import SwiftyStringScore
+import RxSwift
 
 protocol PasteboardWrapperType {
     var pasteboardItems: [NSPasteboardItem]? { get }
@@ -22,6 +22,20 @@ class PasteboardWrapper: PasteboardWrapperType {
 class PasteboardService: NSObject {
 
     static let shared = PasteboardService()
+
+    var _historyLimit: Int = 0
+    var historyLimit: Int {
+        set {
+            _historyLimit = newValue
+            self.truncateItems()
+        }
+
+        get {
+            return _historyLimit
+        }
+    }
+
+    let disposeBag = DisposeBag()
 
     var defaults: UserDefaults
     var pasteboard: PasteboardWrapperType
@@ -57,6 +71,13 @@ class PasteboardService: NSObject {
         }
 
         super.init()
+    }
+
+    private func truncateItems() {
+        let limit = self.historyLimit
+        if limit > 0 && pasteStore.count > limit {
+            pasteStore.removeSubrange(limit..<pasteStore.count)
+        }
     }
 
     var items: [String] {
@@ -136,6 +157,7 @@ class PasteboardService: NSObject {
     @objc func pollPasteboard() {
         if let clip = self.replaceWithLatest() {
             self.pasteStore.insert(clip, at: 0)
+            self.truncateItems()
             self.saveToDefaults()
         }
     }
