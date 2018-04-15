@@ -52,24 +52,29 @@ extension PreferencesWindow {
     }
 
     func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
+        if prefs.suppressHistoryLimitWarning { return false }
+
         return (limit > 0 && currentLimit == 0) ||
             (limit > 0 && currentLimit > limit)
     }
 
     func setHistoryLimitWithConfirmation(_ limit: Int) {
+        let historyLimitDestructiveChangeWarning = "You are attempting to reduce your CutBox history limit\n" +
+            "If you continue you'll lose items beyond that limit\n\n" +
+            "This operation cannot be undone\n\n" +
+        "Click OK to continue"
+
         let currentLimit = self.prefs.historyLimit
         var confirm: Bool
+        var suppress: Bool
         if limitChangeIsDestructive(limit: limit,
                                     currentLimit: currentLimit) {
-            (confirm, _) = confirmationDialog(question: "Reduce Pasteboard History Limit?",
-                                         text:
-                "You are attempting to reduce your CutBox history limit\n" +
-                "If you continue you'll lose items beyond that limit\n\n" +
-                "This operation cannot be undone\n\n" +
-                "Click OK to continue",
-                                         suppression: true
+            (confirm, suppress) = confirmationDialog(question: "Reduce Pasteboard History Limit?",
+                                                     text: historyLimitDestructiveChangeWarning,
+                                                     suppression: prefs.suppressHistoryLimitWarning
             )
 
+            prefs.suppressHistoryLimitWarning = suppress
         } else {
             confirm = true
         }
