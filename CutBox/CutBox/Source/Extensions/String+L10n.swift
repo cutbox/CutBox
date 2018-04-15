@@ -9,7 +9,14 @@
 import Foundation
 
 extension String {
-    var l10n: String {
-        return NSLocalizedString(self, comment: "")
+    func l10n(tableName: String? = nil,
+              bundle: Bundle = Bundle.main,
+              value: String = "",
+              comment: String = "") -> String {
+        return NSLocalizedString(self,
+                                 tableName: tableName,
+                                 bundle: bundle,
+                                 value: value,
+                                 comment: comment)
     }
 }

@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  CutBox
+
+  Created by Jason on 15/4/18.
+  Copyright © 2018 ocodo. All rights reserved.
+*/
+
+"preferences_history_destructive_limit_change_warning_title" = "Reduce Pasteboard History Limit?";
+"preferences_history_destructive_limit_change_warning_description" = "You are attempting to reduce your CutBox history limit\nIf you continue you'll lose items beyond that limit\n\nThis operation cannot be undone\n\nClick OK to continue";
+"preferences_title" = "CutBox Preferences";
+"preferences_launch_on_login" = "Launch on Login";
+"preferences_color_theme_title" = "Color theme";
+"preferences_color_theme_name_dark" = "Dark";
+"preferences_color_theme_name_light" = "Light";
+"preferences_toggle_cutbox" = "Toggle CutBox";
+"preferences_history_limit_label" = "History Limit:";
+"preferences_history_limit_placeholder" = "Limit (0 == unlimited)";
+"preferences_history_limit_checkbox_label" = "Unlimited";
+"preferences_multi_clip_join_title" = "Multiple selected clips joined by...";
+"preferences_multi_clip_joined_by_newline" = "Newline";
+"preferences_multi_clip_joined_by_string" = "String";
+"preferences_multi_clip_joined_by_string_placeholder" = "Separator String";
+"preferences_multi_clip_wrapped_checkbox_label" = "Wrap multiple selected clips?";
+"preferences_multi_clip_wrapped_start_placeholder" = "Start";
+"preferences_multi_clip_wrapped_end_placeholder" = "End";
+
+
+
+
+
+
+

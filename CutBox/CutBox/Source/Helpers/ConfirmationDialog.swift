@@ -14,14 +14,19 @@ func confirmationDialog(question: String,
                         text: String,
                         ok: String = "OK",
                         cancel: String = "Cancel",
-                        suppression: Bool = false) -> ConfirmAndSuppression {
+                        showSuppressionOption: Bool = false) -> ConfirmAndSuppression {
+
     let alert = NSAlert()
     alert.messageText = question
     alert.informativeText = text
     alert.alertStyle = .warning
     alert.addButton(withTitle: ok)
     alert.addButton(withTitle: cancel)
-    alert.showsSuppressionButton = true
-    return (confirm: alert.runModal() == .alertFirstButtonReturn,
-            suppression: alert.suppressionButton?.state == .on)
+    alert.showsSuppressionButton = showSuppressionOption
+
+    let confirm = alert.runModal() == .alertFirstButtonReturn
+    let suppression = alert.suppressionButton?.state == .on
+
+    return (confirm: confirm,
+            suppression: suppression)
 }

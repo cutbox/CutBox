@@ -46,16 +46,16 @@
 		964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */; };
 		964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
 		964CA525207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */; };
-		964CA530207F934F00B9F33E /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 964CA52F207F934E00B9F33E /* dsa_pub.pem */; };
 		964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */; };
 		964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */; };
 		964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */; };
-		964CA53A20821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
 		964CA53C2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */; };
 		964CA5412083022800B9F33E /* PreferencesWindowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */; };
 		964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* ConfirmationDialog.swift */; };
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
+		964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
+		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -143,7 +143,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				964CA530207F934F00B9F33E /* dsa_pub.pem in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,7 +162,7 @@
 		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
-		96085E40206C72C900CA77BB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		96085E40206C72C900CA77BB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
@@ -203,16 +202,16 @@
 		964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
 		964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrap.swift"; sourceTree = "<group>"; };
 		964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+JoinAndWrapSpec.swift"; sourceTree = "<group>"; };
-		964CA52F207F934E00B9F33E /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+IndexSetSpec.swift"; sourceTree = "<group>"; };
 		964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+String+SwiftyStringScoreSpec.swift"; sourceTree = "<group>"; };
 		964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSpec.swift"; sourceTree = "<group>"; };
-		964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
 		964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+HistoryLimitSpec.swift"; sourceTree = "<group>"; };
 		964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowSpec.swift; sourceTree = "<group>"; };
 		964CA54320830C8800B9F33E /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
+		964CA54D20832F0400B9F33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = "Base.lproj/PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
+		964CA5532083325600B9F33E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -351,7 +350,7 @@
 				964CA547208324D300B9F33E /* PreferencesService */,
 				963AA6492071EE4800779697 /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
-				964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */,
+				964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */,
 				964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */,
 				964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */,
 				964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */,
@@ -392,14 +391,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		964CA52E207F92EA00B9F33E /* Sparkle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Sparkle;
-			path = ../Sparkle;
-			sourceTree = "<group>";
-		};
 		964CA547208324D300B9F33E /* PreferencesService */ = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +402,15 @@
 				964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */,
 			);
 			path = PreferencesService;
+			sourceTree = "<group>";
+		};
+		964CA5652083373800B9F33E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				961A49B02065D72F005BC79D /* Popup */,
+				964CA54320830C8800B9F33E /* ConfirmationDialog.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
@@ -436,9 +436,9 @@
 		965F078E207120DB0032DACD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				964CA54320830C8800B9F33E /* ConfirmationDialog.swift */,
 				96E1E5C3205D295000F994ED /* App */,
 				964766652067A63700E7026F /* Extensions */,
+				964CA5652083373800B9F33E /* Helpers */,
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 			);
 			path = Source;
@@ -455,7 +455,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				964CA52F207F934E00B9F33E /* dsa_pub.pem */,
+				96085E40206C72C900CA77BB /* README.md */,
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
@@ -479,12 +479,11 @@
 			isa = PBXGroup;
 			children = (
 				963AA64B2071FD1500779697 /* DependencySubmodules */,
-				96085E40206C72C900CA77BB /* README.md */,
 				965F078E207120DB0032DACD /* Source */,
 				965F0785206FCDC60032DACD /* Images */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
 				96E1E59E205D243400F994ED /* Info.plist */,
-				964CA52E207F92EA00B9F33E /* Sparkle */,
+				964CA5532083325600B9F33E /* Localizable.strings */,
 				96E1E59F205D243400F994ED /* CutBox.entitlements */,
 			);
 			path = CutBox;
@@ -512,7 +511,6 @@
 				96E1E59B205D243400F994ED /* CutBox.xib */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
-				961A49B02065D72F005BC79D /* Popup */,
 				963AA6482071EE0600779697 /* Preferences */,
 				961A49B92065DC1E005BC79D /* SearchAndPreview */,
 				96E5A5022075D93400D24E41 /* Services */,
@@ -642,7 +640,6 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
@@ -698,6 +695,7 @@
 				965F0789206FCE170032DACD /* cutbox-icon-preview-256.png in Resources */,
 				964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */,
 				963AA6442071C95000779697 /* AboutPanel.xib in Resources */,
+				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBox.xib in Resources */,
 				963AA64A2071EE4800779697 /* PreferencesWindow.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
@@ -936,7 +934,7 @@
 				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
-				964CA53A20821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */,
+				964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
@@ -987,6 +985,14 @@
 				962D6D7620746109007E3785 /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */ = {
+			isa = PBXVariantGroup;
+			children = (
+				964CA54D20832F0400B9F33E /* Base */,
+			);
+			name = "PreferencesWindow+HistoryLimit.swift";
 			sourceTree = "<group>";
 		};
 		96E1E59B205D243400F994ED /* CutBox.xib */ = {
