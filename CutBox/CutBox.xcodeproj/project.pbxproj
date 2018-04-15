@@ -55,6 +55,7 @@
 		964CA5412083022800B9F33E /* PreferencesWindowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */; };
 		964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* ConfirmationDialog.swift */; };
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
+		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -211,6 +212,7 @@
 		964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowSpec.swift; sourceTree = "<group>"; };
 		964CA54320830C8800B9F33E /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
+		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				964CA5482083296600B9F33E /* String+L10n.swift */,
 				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
 				964766682067B82900E7026F /* DisableScrollView.swift */,
 				964766632067A5F100E7026F /* NSObject+fromNib.swift */,
@@ -910,6 +913,7 @@
 				962D6D492073544F007E3785 /* HotKeyService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				964CA50C207E69F600B9F33E /* SearchAndPreviewView+ApplyTheme.swift in Sources */,
+				964CA5492083296600B9F33E /* String+L10n.swift in Sources */,
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
