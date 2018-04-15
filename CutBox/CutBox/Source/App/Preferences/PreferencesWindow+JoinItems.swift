@@ -13,6 +13,7 @@ extension PreferencesWindow {
     @IBAction func joinStyleSelectorAction(_ sender: Any) {
         if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
             let bool = selector.selectedSegment == 1
+            joinStringTextField.isHidden = !bool
             joinStringTextField.isEnabled = bool
             prefs.useJoinString = bool
         }
@@ -24,15 +25,18 @@ extension PreferencesWindow {
 
         let useJoinString = prefs.useJoinString
 
-        joinStyleSelector.setLabel("preferences_multi_clip_joined_by_newline".l7n, forSegment: 0)
-        joinStyleSelector.setLabel("preferences_multi_clip_joined_by_string".l7n, forSegment: 1)
-        joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0 )
+        self.joinStyleSelector.setLabel("preferences_multi_clip_joined_by_newline".l7n, forSegment: 0)
+        self.joinStyleSelector.setLabel("preferences_multi_clip_joined_by_string".l7n, forSegment: 1)
+        self.joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0 )
 
-        joinStringTextField.placeholderString = "preferences_multi_clip_joined_by_string_placeholder".l7n
+        self.joinStringTextField.isEnabled = useJoinString
+        self.joinStringTextField.isHidden = !useJoinString
+        self.joinStringTextField.placeholderString = "preferences_multi_clip_joined_by_string_placeholder".l7n
 
         if let joinString = prefs.multiJoinString {
-            joinStringTextField.stringValue = joinString
-            joinStringTextField.isEnabled = useJoinString
+            self.joinStringTextField.stringValue = joinString
+            self.joinStringTextField.isHidden = !useJoinString
+            self.joinStringTextField.isEnabled = useJoinString
         }
 
         self.joinStringTextField.rx.text
@@ -42,6 +46,6 @@ extension PreferencesWindow {
                     self.prefs.multiJoinString = text
                 }
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
     }
 }

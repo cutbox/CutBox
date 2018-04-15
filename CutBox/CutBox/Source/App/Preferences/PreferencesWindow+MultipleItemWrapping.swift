@@ -43,6 +43,9 @@ extension PreferencesWindow {
         prefs.useWrappingStrings = bool
         [self.wrapStartTextField,
          self.wrapEndTextField]
-            .forEach { $0?.isEnabled = bool }
+            .forEach {
+                $0?.isHidden = !bool
+                $0?.isEnabled = bool
+        }
     }
 }
