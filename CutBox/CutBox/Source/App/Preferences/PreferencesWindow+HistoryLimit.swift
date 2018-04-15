@@ -66,7 +66,7 @@ extension PreferencesWindow {
             .controlEvent // end editing
             .subscribe(onNext: {
                 let limit = Int(self.historyLimitTextField.stringValue) ?? 0
-                self.prefs.historyLimit = limit
+                self.setHistoryLimitWithConfirmation(limit)
             })
             .disposed(by: disposeBag)
 
@@ -76,4 +76,40 @@ extension PreferencesWindow {
             self.historyUnlimitedCheckbox.state = .on
         }
     }
+
+    func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
+        return (limit > 0 && currentLimit == 0) ||
+            (limit > 0 && currentLimit > limit)
+    }
+
+    func setHistoryLimitWithConfirmation(_ limit: Int) {
+        let currentLimit = self.prefs.historyLimit
+        var confirm: Bool
+        if limitChangeIsDestructive(limit: limit,
+                                    currentLimit: currentLimit) {
+            confirm = confirmationDialog(question: "Reduce Pasteboard History Limit?",
+                                     text: "Warning: You'll lose items beyond the new limit, you cannot undo this.  Click OK to continue.")
+        } else {
+            confirm = true
+        }
+
+        if confirm {
+            self.prefs.historyLimit = limit
+        } else {
+            self.historyLimitTextField.stringValue = String(currentLimit)
+        }
+    }
+}
+
+func confirmationDialog(question: String,
+                    text: String,
+                    ok: String = "OK",
+                    cancel: String = "Cancel") -> Bool {
+    let alert = NSAlert()
+    alert.messageText = question
+    alert.informativeText = text
+    alert.alertStyle = .warning
+    alert.addButton(withTitle: ok)
+    alert.addButton(withTitle: cancel)
+    return alert.runModal() == .alertFirstButtonReturn
 }

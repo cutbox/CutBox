@@ -52,6 +52,7 @@
 		964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */; };
 		964CA53A20821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
 		964CA53C2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */; };
+		964CA5412083022800B9F33E /* PreferencesWindowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -205,6 +206,7 @@
 		964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSpec.swift"; sourceTree = "<group>"; };
 		964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
 		964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+HistoryLimitSpec.swift"; sourceTree = "<group>"; };
+		964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowSpec.swift; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
 			isa = PBXGroup;
 			children = (
+				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
 				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
 				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
 				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
@@ -934,6 +937,7 @@
 				964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */,
 				964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */,
 				964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */,
+				964CA5412083022800B9F33E /* PreferencesWindowSpec.swift in Sources */,
 				964CA525207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */,
 				964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */,
 				964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */,
