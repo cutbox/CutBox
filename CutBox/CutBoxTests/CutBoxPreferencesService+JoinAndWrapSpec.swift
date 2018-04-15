@@ -1,5 +1,5 @@
 //
-//  CutBoxPreferences+JoinAndWrapSpec.swift
+//  CutBoxPreferencesService+JoinAndWrapSpec.swift
 //  CutBoxTests
 //
 //  Created by Jason on 12/4/18.
@@ -11,9 +11,9 @@ import Nimble
 
 @testable import CutBox
 
-class CutBoxPreferences_JoinAndWrapSpec: QuickSpec {
+class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
     override func spec() {
-        describe("CutBoxPreferences+JoinAndWrap") {
+        describe("CutBoxPreferencesService+JoinAndWrap") {
 
             var subject: CutBoxPreferencesService!
             var defaults: UserDefaults!

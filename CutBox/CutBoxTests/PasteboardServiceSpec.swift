@@ -160,12 +160,10 @@ class PasteboardServiceSpec: QuickSpec {
                                 "Bob the Hoojah Melon"
                                 ]))
 
-                            subject.filterText = "^#?[a-f0-9]+$"
+                            subject.filterText = "^#[a-f0-9]+$"
                             expect(subject.items).to(equal([
                                 "#FF0022",
-                                "#ff11ab",
-                                "FF443211",
-                                "39124741"
+                                "#ff11ab"
                                 ]))
                         }
                     }
@@ -185,12 +183,10 @@ class PasteboardServiceSpec: QuickSpec {
                                 "Bob the Hoojah Melon"
                                 ]))
 
-                            subject.filterText = "^#?[a-f0-9]+$"
-                            expect(subject.items.count).to(equal(2))
-                            expect(subject.items.last).to(equal("39124741"))
+                            subject.filterText = "^#[a-f0-9]+$"
+                            expect(subject.items.count).to(equal(1))
                             expect(subject.items).to(equal([
-                                "#ff11ab",
-                                "39124741"
+                                "#ff11ab"
                                 ]))
                         }
                     }

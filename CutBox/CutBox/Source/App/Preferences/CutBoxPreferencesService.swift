@@ -10,6 +10,10 @@ import Cocoa
 import Magnet
 import RxSwift
 
+enum CutBoxPreferencesEvent {
+    case historyLimitChanged(limited: Bool, limit: Int?)
+}
+
 class CutBoxPreferencesService {
 
     private var kMultiJoinSeparator = "multiJoinSeparator"
@@ -17,12 +21,15 @@ class CutBoxPreferencesService {
     private var kUseWrappingStrings = "useWrappingStrings"
     private var kWrapStringStart = "wrapStringStart"
     private var kWrapStringEnd = "wrapStringEnd"
-    private var kHistoryUnlimited = "historyUnlimited"
+    private var kHistoryLimited = "historyLimited"
     private var kHistoryLimit = "historyLimit"
+
+    var events: PublishSubject<CutBoxPreferencesEvent>!
 
     var defaults: UserDefaults!
 
     init(defaults: UserDefaults = UserDefaults.standard) {
+        self.events = PublishSubject<CutBoxPreferencesEvent>()
         self.defaults = defaults
     }
 
@@ -85,25 +92,26 @@ class CutBoxPreferencesService {
         }
     }
 
-    var historyUnlimited: Bool {
+    var historyLimited: Bool {
         set {
-            defaults.set(newValue, forKey: kHistoryUnlimited)
-            if newValue {
+            defaults.set(newValue, forKey: kHistoryLimited)
+            if !newValue {
                 historyLimit = nil
             }
-
+            events.onNext(.historyLimitChanged(limited: newValue, limit: historyLimit))
         }
         get {
-            return defaults.bool(forKey: kHistoryUnlimited)
+            return defaults.bool(forKey: kHistoryLimited)
         }
     }
 
-    var historyLimit: String? {
+    var historyLimit: Int? {
         set {
             defaults.set(newValue, forKey: kHistoryLimit)
+            events.onNext(.historyLimitChanged(limited: historyLimited, limit: newValue))
         }
         get {
-            return defaults.string(forKey: kHistoryLimit)
+            return defaults.integer(forKey: kHistoryLimit)
         }
     }
 }

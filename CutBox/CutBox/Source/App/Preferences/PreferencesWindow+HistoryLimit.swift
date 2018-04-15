@@ -9,14 +9,42 @@
 import RxCocoa
 import RxSwift
 
+class HistoryLimitNumberFormatter: NumberFormatter {
+    override var isPartialStringValidationEnabled: Bool {
+        set {}
+        get { return true }
+    }
+
+    var intOnlyRegex: NSRegularExpression? {
+        do {
+        return try NSRegularExpression(pattern: "^[0-9]+$",
+                                   options: NSRegularExpression.Options.caseInsensitive)
+        } catch {
+            fatalError("invalid regexp in intOnlyRegex")
+        }
+    }
+
+    override func isPartialStringValid(_ partialString: String,
+                                       newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?,
+                                       errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?)
+        -> Bool {
+            return intOnlyRegex?.matches(in: partialString,
+                                  options: .anchored,
+                                  range: NSRange(partialString.startIndex...,
+                                                 in: partialString)).count == 1
+    }
+}
+
 extension PreferencesWindow {
     func setupHistoryLimitControls() {
+        self.historyLimitTextField.formatter = HistoryLimitNumberFormatter()
+
         self.historyUnlimitedCheckbox
             .rx
             .state
             .map { $0 == .off }
             .subscribe(onNext:
-                { self.prefs.historyUnlimited = $0 })
+                { self.prefs.historyLimited = $0 })
             .disposed(by: disposeBag )
 
         self.historyUnlimitedCheckbox
@@ -28,12 +56,12 @@ extension PreferencesWindow {
             .disposed(by: disposeBag)
 
         if let historyLimit = prefs.historyLimit {
-            self.historyLimitTextField.stringValue = historyLimit
+            self.historyLimitTextField.stringValue = String(historyLimit)
         } else {
             self.historyLimitTextField.stringValue = ""
         }
 
-        if prefs.historyUnlimited {
+        if prefs.historyLimited {
             self.historyUnlimitedCheckbox.state = .off
         } else {
             self.historyUnlimitedCheckbox.state = .on

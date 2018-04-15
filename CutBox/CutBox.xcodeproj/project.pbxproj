@@ -45,12 +45,13 @@
 		964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */; };
 		964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */; };
 		964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
-		964CA525207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */; };
+		964CA525207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */; };
 		964CA530207F934F00B9F33E /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 964CA52F207F934E00B9F33E /* dsa_pub.pem */; };
 		964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */; };
 		964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */; };
 		964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */; };
 		964CA53A20821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
+		964CA53C2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
@@ -197,12 +198,13 @@
 		964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceSpec.swift; sourceTree = "<group>"; };
 		964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
 		964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrap.swift"; sourceTree = "<group>"; };
-		964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+JoinAndWrapSpec.swift"; sourceTree = "<group>"; };
+		964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+JoinAndWrapSpec.swift"; sourceTree = "<group>"; };
 		964CA52F207F934E00B9F33E /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+IndexSetSpec.swift"; sourceTree = "<group>"; };
 		964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+String+SwiftyStringScoreSpec.swift"; sourceTree = "<group>"; };
 		964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSpec.swift"; sourceTree = "<group>"; };
 		964CA53920821FCB00B9F33E /* PreferencesWindow+HistoryLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
+		964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+HistoryLimitSpec.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -475,7 +477,8 @@
 				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
 				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
 				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
-				964CA524207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift */,
+				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
+				964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */,
 				964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */,
 				964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */,
 				96E1E5AA205D243400F994ED /* Info.plist */,
@@ -821,7 +824,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-macOS10.11/RxSwift.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStringScore/SwiftyStringScore.framework",
@@ -846,11 +849,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-macOS10.13/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
@@ -929,9 +934,10 @@
 				964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */,
 				964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */,
 				964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */,
-				964CA525207F6ED700B9F33E /* CutBoxPreferences+JoinAndWrapSpec.swift in Sources */,
+				964CA525207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */,
 				964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */,
 				964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */,
+				964CA53C2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

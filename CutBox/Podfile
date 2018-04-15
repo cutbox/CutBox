@@ -10,6 +10,7 @@ target 'CutBox' do
   abstract_target 'Testing' do
     platform :osx, '10.13'
 
+    pod 'RxSwift'    
     pod 'Quick'
     pod 'Nimble'
 
