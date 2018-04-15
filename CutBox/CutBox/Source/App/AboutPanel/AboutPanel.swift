@@ -9,28 +9,25 @@
 import Cocoa
 
 class LinkText: NSTextField {
-
     override func mouseDown(with event: NSEvent) {
         NSWorkspace
             .shared
-            .open(URL(string: Constants.homeUrl)!)
+            .open(URL(string: "about_cutbox_home_url".l7n)!)
     }
-    
 }
 
 class AboutPanel: NSPanel {
-
     @IBOutlet weak var productTitle: NSTextField!
     @IBOutlet weak var productVersion: NSTextField!
     @IBOutlet weak var productHomeUrl: LinkText!
     @IBOutlet weak var productLicense: NSTextField!
-
+    
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
-
-        productTitle.stringValue = Constants.productTitle
-        productHomeUrl.stringValue = Constants.homeUrl
-        productLicense.stringValue = Constants.copyrightLicense
+        
         productVersion.stringValue = VersionService.version
+        productTitle.stringValue = "about_cutbox_title".l7n
+        productHomeUrl.stringValue = "about_cutbox_home_url".l7n
+        productLicense.stringValue = "about_cutbox_copyright_licence".l7n
     }
 }

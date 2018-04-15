@@ -13,10 +13,6 @@ import Carbon.HIToolbox
 struct Constants {
     static let kCutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
 
-    static let homeUrl = "https://cutbox.github.io"
-    static let productTitle = "CutBox"
-    static let copyrightLicense = "Copyright © 2018 Jason Milkins\nLicensed under GNU GPL3"
-
     static let searchFuzzyMatchMinScore = 0.1
 
     static let defaultCutBoxToggleKeyCombo =
