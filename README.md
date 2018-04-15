@@ -68,7 +68,7 @@ You can also select search mode from the CutBox menu.
 
 ### Multi item select and paste
 
-![](CutBox/CutBox/GraphicAssets/cutbox-preferences.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-newline-text-preferences.gif)
 
 CutBox also allows you to select multiple pasteboard items and paste
 them all back in one go.
@@ -91,7 +91,7 @@ Mutli-item paste is configurable so you can choose a string to join
 between the items, and you can also wrap a pair of strings around the
 start and end.
 
-![](CutBox/CutBox/GraphicAssets/cutbox-preferences.png)
+![](CutBox/CutBox/GraphicAssets/cutbox-wrap-preferences.gif)
 
 For example, if I wanted to collect a list of numbers from various different place to paste into a piece of code, usually I'd need to edit them after copy pasting them one by one.
 
