@@ -162,7 +162,6 @@
 		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3284D284BDDF1A14D971120A /* Pods-Testing-CutBoxUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3BD064440B3B0D6391568C98 /* Pods-Testing-CutBoxUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxUITests/Pods-Testing-CutBoxUITests.release.xcconfig"; sourceTree = "<group>"; };
-		96085E40206C72C900CA77BB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
@@ -455,7 +454,6 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				96085E40206C72C900CA77BB /* README.md */,
 				96E1E596205D243400F994ED /* CutBox */,
 				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
