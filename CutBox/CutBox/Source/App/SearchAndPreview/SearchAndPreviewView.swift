@@ -82,7 +82,7 @@ class SearchAndPreviewView: NSView {
 
     private func setupContextMenu() {
         let contextMenu = NSMenu()
-        let remove = NSMenuItem(title: "Remove",
+        let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
                                        action: #selector(self.clearSelected),
                                        keyEquivalent: "")
 
