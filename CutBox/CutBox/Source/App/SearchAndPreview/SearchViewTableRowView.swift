@@ -18,13 +18,6 @@ class SearchViewTableRowView: NSTableRowView {
             .intersection(.deviceIndependentFlagsMask)
 
         if event.clickCount == 2
-            && modifiers == [.option, .command] {
-            self.searchView?
-                .events
-                .onNext(.clearSelected)
-        }
-
-        if event.clickCount == 2
             && modifiers == [] {
             self.searchView?
                 .events

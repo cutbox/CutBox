@@ -32,6 +32,7 @@ class SearchAndPreviewView: NSView {
         applyTheme()
         setupSearchText()
         setupPlaceholder()
+        setupContextMenu()
     }
 
     override init(frame: NSRect) {
@@ -73,6 +74,20 @@ class SearchAndPreviewView: NSView {
                 ? index + 1
                 : index
         }
+    }
+
+    @objc func clearSelected() {
+        self.events.onNext(.clearSelected)
+    }
+
+    private func setupContextMenu() {
+        let contextMenu = NSMenu()
+        let remove = NSMenuItem(title: "Remove",
+                                       action: #selector(self.clearSelected),
+                                       keyEquivalent: "")
+
+        contextMenu.addItem(remove)
+        clipboardItemsTable.menu = contextMenu
     }
 
     private func setupPlaceholder() {

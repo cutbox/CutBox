@@ -137,9 +137,14 @@ class PasteboardService: NSObject {
         pasteStore = []
     }
 
-    func remove(at index: Int) {
-        pasteStore.remove(at: index)
-        self.saveToDefaults()
+    func remove(items: IndexSet) {
+        let indexes = items
+            .flatMap { self.items[safe: $0] }
+            .map { self.pasteStore.index(of: $0) }
+            .flatMap { $0 }
+
+        self.pasteStore
+            .removeAtIndexes(indexes: IndexSet(indexes))
     }
 
     func clearDefaults() {
@@ -179,3 +184,12 @@ class PasteboardService: NSObject {
     }
 }
 
+extension Array {
+    mutating func removeAtIndexes(indexes: IndexSet) {
+        var i:Index? = indexes.last
+        while i != nil {
+            self.remove(at: i!)
+            i = indexes.integerLessThan(i!)
+        }
+    }
+}

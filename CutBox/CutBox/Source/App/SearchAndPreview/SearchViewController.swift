@@ -20,7 +20,14 @@ class SearchViewController: NSObject {
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
     }
-    
+
+    var selectedItems: IndexSet {
+        return self
+            .searchView
+            .clipboardItemsTable
+            .selectedRowIndexes
+    }
+
     private let disposeBag = DisposeBag()
 
     init(pasteboardService: PasteboardService = PasteboardService.shared,
@@ -67,11 +74,9 @@ class SearchViewController: NSObject {
     }
 
     private func clearSelected() {
-        let index = self.searchView.clipboardItemsTable.selectedRow
-        if self.pasteboardService[index] != nil {
-            self.pasteboardService.remove(at: index)
-            self.searchView.clipboardItemsTable.reloadData()
-        }
+        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
+        self.pasteboardService.remove(items: indexes)
+        self.searchView.clipboardItemsTable.reloadData()
     }
 
     func pasteSelectedClipToPasteboard() {
