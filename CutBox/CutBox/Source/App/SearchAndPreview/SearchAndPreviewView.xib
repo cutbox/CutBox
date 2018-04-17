@@ -78,6 +78,7 @@
                                 </constraints>
                                 <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-Z7-k0t">
                                 <rect key="frame" x="5" y="5" width="926" height="207"/>
@@ -154,30 +155,31 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ND-nL-P4f">
-                                                    <rect key="frame" x="8" y="10" width="442.5" height="11"/>
+                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
+                                                    <rect key="frame" x="248.5" y="9" width="200" height="22"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="11" id="w6z-TB-8an"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="7V0-R3-hKf"/>
+                                                        <constraint firstAttribute="height" constant="21" id="GtY-gK-rMs"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" id="O8g-hK-gRn"/>
                                                     </constraints>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Fuzzy Matching" id="Upx-Iq-0D4">
+                                                    <buttonCell key="cell" type="inline" bezelStyle="inline" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7pj-Pa-cXP">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="miniSystem"/>
-                                                        <color key="textColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
+                                                    </buttonCell>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="6ND-nL-P4f" secondAttribute="trailing" constant="10" id="Luq-H0-mjt"/>
-                                                <constraint firstAttribute="bottom" secondItem="6ND-nL-P4f" secondAttribute="bottom" constant="10" id="TJM-4m-4RM"/>
-                                                <constraint firstItem="6ND-nL-P4f" firstAttribute="leading" secondItem="gtu-s3-I3G" secondAttribute="leading" constant="10" id="WmL-QT-DAj"/>
                                                 <constraint firstAttribute="trailing" secondItem="yfp-9E-05R" secondAttribute="trailing" constant="10" id="X84-2q-7uS"/>
                                                 <constraint firstItem="yfp-9E-05R" firstAttribute="leading" secondItem="gtu-s3-I3G" secondAttribute="leading" constant="10" id="h6l-53-OzV"/>
+                                                <constraint firstAttribute="bottom" secondItem="xGH-m9-3kp" secondAttribute="bottom" constant="10" id="lDz-Ty-A5P"/>
+                                                <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="10" id="r6P-2U-8yl"/>
                                                 <constraint firstItem="yfp-9E-05R" firstAttribute="top" secondItem="gtu-s3-I3G" secondAttribute="top" constant="10" id="rLC-FC-153"/>
                                                 <constraint firstAttribute="bottom" secondItem="yfp-9E-05R" secondAttribute="bottom" constant="10" id="xSo-IS-G8r"/>
                                             </constraints>
                                         </view>
                                         <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                         <color key="fillColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="titleFont" metaFont="message" size="11"/>
                                     </box>
                                 </subviews>
                                 <visibilityPriorities>
@@ -202,6 +204,7 @@
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                    <font key="titleFont" metaFont="message" size="11"/>
                 </box>
             </subviews>
             <constraints>
@@ -215,7 +218,7 @@
                 <outlet property="previewClip" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
                 <outlet property="previewClipContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
                 <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>
-                <outlet property="searchModeIndicator" destination="6ND-nL-P4f" id="NKI-Kw-M1H"/>
+                <outlet property="searchModeToggle" destination="xGH-m9-3kp" id="zQA-Vf-eny"/>
                 <outlet property="searchText" destination="uWo-BC-ODB" id="tbB-36-Blg"/>
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>

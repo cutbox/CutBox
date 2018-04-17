@@ -19,6 +19,7 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClip: NSTextView!
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeIndicator: NSTextField!
+    @IBOutlet weak var searchModeToggle: NSButton!
 
     internal let prefs = CutBoxPreferencesService.shared
     
@@ -33,6 +34,7 @@ class SearchAndPreviewView: NSView {
         setupSearchText()
         setupPlaceholder()
         setupContextMenu()
+        setupSearchModeToggle()
     }
 
     override init(frame: NSRect) {
@@ -78,6 +80,17 @@ class SearchAndPreviewView: NSView {
 
     @objc func clearSelected() {
         self.events.onNext(.clearSelected)
+    }
+
+    private func setupSearchModeToggle() {
+        self.searchModeToggle.title = PasteboardService.shared.searchMode.name()
+
+        self.searchModeToggle
+            .rx
+            .controlEvent
+            .map { .toggleSearchMode }
+            .bind(to: self.events)
+            .disposed(by: disposeBag)
     }
 
     private func setupContextMenu() {

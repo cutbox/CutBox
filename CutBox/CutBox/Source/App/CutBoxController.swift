@@ -88,8 +88,7 @@ class CutBoxController: NSObject {
              regexpModeItem,
              regexpCaseSensitiveModeItem]
 
-        self.searchModeSelectorsDict =
-            [
+        self.searchModeSelectorsDict = [
                 "fuzzyMatch":fuzzyMatchModeItem,
                 "regexpAnyCase":regexpModeItem,
                 "regexpStrictCase":regexpCaseSensitiveModeItem

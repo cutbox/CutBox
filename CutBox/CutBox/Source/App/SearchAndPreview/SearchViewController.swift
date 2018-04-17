@@ -128,7 +128,7 @@ class SearchViewController: NSObject {
                 case .toggleSearchMode:
                     self.pasteboardService.toggleSearchMode()
                     self.searchView.clipboardItemsTable.reloadData()
-                    self.searchView.searchModeIndicator.stringValue = self.pasteboardService.searchMode.name()
+                    self.searchView.searchModeToggle.title = self.pasteboardService.searchMode.name()
                 case .justClose:
                     self.closePopup()
                 case .closeAndPaste:
