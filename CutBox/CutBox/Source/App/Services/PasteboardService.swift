@@ -128,8 +128,10 @@ class PasteboardService: NSObject {
         pollingTimer = nil
     }
 
-    func toggleSearchMode() {
+    @discardableResult
+    func toggleSearchMode() -> PasteboardSearchMode {
         self.searchMode = self.searchMode.next()
+        return self.searchMode
     }
 
     func clear() {

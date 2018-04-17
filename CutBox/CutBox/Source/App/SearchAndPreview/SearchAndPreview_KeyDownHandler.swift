@@ -29,10 +29,6 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.toggleSearchMode)
 
-        case (UInt16(kVK_ANSI_S), [.command]):
-            self.events
-                .onNext(.toggleSearchMode)
-
         default:
             return
         }

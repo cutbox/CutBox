@@ -105,6 +105,8 @@ class CutBoxController: NSObject {
             .asObservable()
             .subscribe(onNext: { event in
                 switch event {
+                case .toggleSearchMode:
+                    self.checkSearchModeItem()
                 case .setSearchMode(let mode):
                     self.checkSearchModeItem(mode.axID())
                 default:
@@ -121,6 +123,12 @@ class CutBoxController: NSObject {
     func searchModeSelect(_ axID: String) {
         let mode = PasteboardSearchMode.searchMode(from: axID)
         searchViewController.events.onNext(.setSearchMode(mode))
+    }
+
+    func checkSearchModeItem() {
+        let axID = pasteboardService.searchMode.axID()
+        searchModeSelectors?.forEach { $0.state = .off }
+        searchModeSelectorsDict?[axID]?.state = .on
     }
 
     func checkSearchModeItem(_ axID: String) {

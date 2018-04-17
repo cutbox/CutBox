@@ -18,7 +18,6 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var clipboardItemsTable: NSTableView!
     @IBOutlet weak var previewClip: NSTextView!
     @IBOutlet weak var previewClipContainer: NSBox!
-    @IBOutlet weak var searchModeIndicator: NSTextField!
     @IBOutlet weak var searchModeToggle: NSButton!
 
     internal let prefs = CutBoxPreferencesService.shared
