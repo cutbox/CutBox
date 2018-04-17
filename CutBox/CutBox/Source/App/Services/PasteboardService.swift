@@ -64,8 +64,8 @@ class PasteboardService: NSObject {
         self.defaults = NSUserDefaultsController.shared.defaults
         self.pasteboard = PasteboardWrapper()
 
-        if let pasteStore = defaults.array(forKey: kPasteStoreKey) {
-            self.pasteStore = pasteStore as! [String]
+        if let pasteStoreDefaults = defaults.array(forKey: kPasteStoreKey) {
+            self.pasteStore = pasteStoreDefaults as! [String]
         } else {
             self.pasteStore = []
         }
