@@ -125,7 +125,6 @@ class PasteboardServiceSpec: QuickSpec {
                 }
             }
 
-
             context("history limit set") {
                 it("truncates the history to the history limit") {
                     subject.historyLimit = 10

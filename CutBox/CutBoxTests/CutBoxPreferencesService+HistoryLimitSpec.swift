@@ -14,7 +14,7 @@ import RxSwift
 
 class CutBoxPreferencesService_HistoryLimitSpec: QuickSpec {
     override func spec() {
-        fdescribe("CutBoxPreferencesService+HistoryLimit") {
+        describe("CutBoxPreferencesService+HistoryLimit") {
 
             var subject: CutBoxPreferencesService!
             var defaults: UserDefaults!
