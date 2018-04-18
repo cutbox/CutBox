@@ -39,7 +39,22 @@ class CutBoxController: NSObject {
     }
 
     @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
-        self.searchViewController.pasteboardService.clear()
+        var confirm: Bool
+        var suppress: Bool
+
+        if prefs.suppressClearHistoryWarning {
+            confirm = true
+        } else {
+            (confirm, suppress) = confirmationDialog(
+                question: "confirm_warning_clear_history_title".l7n,
+                text: "confirm_warning_clear_history".l7n,
+                showSuppressionOption: !prefs.suppressClearHistoryWarning)
+
+            prefs.suppressClearHistoryWarning = suppress
+            if confirm {
+                self.searchViewController.pasteboardService.clear()
+            }
+        }
     }
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {

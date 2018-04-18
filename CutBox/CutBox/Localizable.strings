@@ -29,3 +29,7 @@
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_copyright_licence" = "Copyright © 2018 Jason Milkins\nLicensed under GNU GPL3";
 "context_menu_remove_selected" = "Remove Selected";
+
+"confirm_warning_clear_history_title" = "Clear CutBox history?";
+"confirm_warning_clear_history" = "Warning: You cannot undo this operation";
+

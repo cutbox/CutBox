@@ -24,6 +24,7 @@ class CutBoxPreferencesService {
     private var kHistoryLimited = "historyLimited"
     private var kHistoryLimit = "historyLimit"
     private var kSuppressHistoryLimitWarning = "suppressHistoryLimitWarning"
+    private var kSuppressClearHistoryWarning = "suppressClearHistoryWarning"
 
     var events: PublishSubject<CutBoxPreferencesEvent>!
 
@@ -90,6 +91,15 @@ class CutBoxPreferencesService {
                     defaults.string(forKey: kWrapStringStart),
                     defaults.string(forKey: kWrapStringEnd)
                 ) : (nil, nil)
+        }
+    }
+
+    var suppressClearHistoryWarning: Bool {
+        set {
+            defaults.set(newValue, forKey: kSuppressClearHistoryWarning)
+        }
+        get {
+            return defaults.bool(forKey: kSuppressClearHistoryWarning)
         }
     }
 
