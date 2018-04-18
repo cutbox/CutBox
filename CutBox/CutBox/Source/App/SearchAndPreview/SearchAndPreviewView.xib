@@ -78,7 +78,6 @@
                                 </constraints>
                                 <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
-                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-Z7-k0t">
                                 <rect key="frame" x="5" y="5" width="926" height="207"/>
@@ -156,7 +155,7 @@
                                                     </scroller>
                                                 </scrollView>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
-                                                    <rect key="frame" x="248.5" y="9" width="200" height="22"/>
+                                                    <rect key="frame" x="248" y="9" width="200" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="7V0-R3-hKf"/>
                                                         <constraint firstAttribute="height" constant="21" id="GtY-gK-rMs"/>
@@ -179,7 +178,6 @@
                                         </view>
                                         <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                         <color key="fillColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        <font key="titleFont" metaFont="message" size="11"/>
                                     </box>
                                 </subviews>
                                 <visibilityPriorities>
@@ -204,7 +202,6 @@
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
-                    <font key="titleFont" metaFont="message" size="11"/>
                 </box>
             </subviews>
             <constraints>

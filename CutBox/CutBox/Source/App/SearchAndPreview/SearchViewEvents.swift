@@ -14,4 +14,5 @@ enum SearchViewEvents {
     case itemSelectDown
     case toggleSearchMode
     case setSearchMode(PasteboardSearchMode)
+    case clearHistory
 }

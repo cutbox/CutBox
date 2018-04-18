@@ -38,7 +38,7 @@ class CutBoxController: NSObject {
         self.searchViewController.togglePopup()
     }
 
-    @IBAction func clearHistoryClicked(_ sender: NSMenuItem) {
+    @IBAction func clearHistoryClicked(_ sender: NSMenuItem?) {
         var confirm: Bool
         var suppress: Bool
 
@@ -124,6 +124,8 @@ class CutBoxController: NSObject {
                     self.checkSearchModeItem()
                 case .setSearchMode(let mode):
                     self.checkSearchModeItem(mode.axID())
+                case .clearHistory:
+                    self.clearHistoryClicked(nil)
                 default:
                     break
                 }

@@ -26,9 +26,12 @@ class SearchTextView: NSTextView {
     }
 
     override func doCommand(by selector: Selector) {
+        if selector == NSSelectorFromString("deleteToBeginningOfLine:") {
+            self.nextResponder?.keyDown(with: keyDownEvent!)
+        }
         if selector != NSSelectorFromString("noop:") {
             super.doCommand(by: selector)
-        } else if  keyDownEvent != nil {
+        } else if keyDownEvent != nil {
             self.nextResponder?.keyDown(with: keyDownEvent!)
         }
         keyDownEvent = nil

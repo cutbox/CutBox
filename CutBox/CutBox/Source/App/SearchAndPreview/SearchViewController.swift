@@ -139,6 +139,8 @@ class SearchViewController: NSObject {
                     self.searchView.itemSelectUp()
                 case .itemSelectDown:
                     self.searchView.itemSelectDown()
+                default:
+                    break
                 }
             })
             .disposed(by: disposeBag)
