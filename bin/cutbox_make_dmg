@@ -9,7 +9,16 @@ fi
 
 echo "Fetch latest .app from archive"
 bin_folder=$(dirname $0)
-latest_app=$(find ~/Library/Developer/Xcode/Archives -name "CutBox.app" -type d | tail -1)
+
+latest_app=$(find ~/Library/Developer/Xcode/Archives \
+                  -name "CutBox.app" \
+                  -type d \
+                  -print0 \
+               | \
+               xargs -0 \
+                     ls -1t -d \
+               | head -1)
+
 cp -R "$latest_app" "$bin_folder"
 
 echo "Making CutBox.dmg"
