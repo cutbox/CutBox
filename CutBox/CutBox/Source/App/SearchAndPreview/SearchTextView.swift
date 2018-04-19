@@ -1,3 +1,5 @@
+
+
 //
 //  SearchTextView.swift
 //  CutBox
@@ -7,6 +9,7 @@
 //
 
 import Cocoa
+import Carbon.HIToolbox
 
 class SearchTextView: NSTextView {
 
@@ -25,16 +28,48 @@ class SearchTextView: NSTextView {
         super.keyDown(with: with)
     }
 
+    private var skippedSelectors: [Selector] { return [
+        "deleteToBeginningOfLine:",
+        "moveUp:",
+        "moveDown:",
+        "moveDownAndModifySelection:",
+        "moveUpAndModifySelection:",
+        "insertNewline:",
+        "noop:"
+        ].map { Selector($0) }
+    }
+
+    // MARK: Pass through noop and specific keyboard events to nextResponder
     override func doCommand(by selector: Selector) {
-        if selector == NSSelectorFromString("deleteToBeginningOfLine:") {
-            self.nextResponder?.keyDown(with: keyDownEvent!)
+        if let keyEvent = keyDownEvent {
+            switch (keyEvent.key, keyEvent.modifiers) {
+            case (kVK_ANSI_A, [.command]):
+                self.selectAll(self)
+                return
+
+            case (kVK_ANSI_X, [.command]):
+                self.cut(self)
+                return
+
+            case (kVK_ANSI_C, [.command]):
+                self.copy(self)
+                return
+
+            case (kVK_ANSI_V, [.command]):
+                self.paste(self)
+                return
+
+            default:
+                break
+            }
+
         }
-        if selector != NSSelectorFromString("noop:") {
-            super.doCommand(by: selector)
-        } else if keyDownEvent != nil {
+
+        if  skippedSelectors.contains(selector) {
             self.nextResponder?.keyDown(with: keyDownEvent!)
+        } else {
+            super.doCommand(by: selector)
         }
         keyDownEvent = nil
     }
-
 }

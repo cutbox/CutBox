@@ -61,24 +61,8 @@ class SearchAndPreviewView: NSView {
             .scrollRowToVisible(selectedRow)
     }
 
-    func itemSelectUp() {
-        itemSelect { index, _ in
-            index > 0
-                ? index - 1
-                : index
-        }
-    }
-
-    func itemSelectDown() {
-        itemSelect { index, total in
-            index < total
-                ? index + 1
-                : index
-        }
-    }
-
-    @objc func clearSelected() {
-        self.events.onNext(.clearSelected)
+    @objc func removeSelected() {
+        self.events.onNext(.removeSelected)
     }
 
     private func setupSearchModeToggle() {
@@ -95,8 +79,8 @@ class SearchAndPreviewView: NSView {
     private func setupContextMenu() {
         let contextMenu = NSMenu()
         let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
-                                       action: #selector(self.clearSelected),
-                                       keyEquivalent: "")
+                                action: #selector(self.removeSelected),
+                                keyEquivalent: "")
 
         contextMenu.addItem(remove)
         clipboardItemsTable.menu = contextMenu

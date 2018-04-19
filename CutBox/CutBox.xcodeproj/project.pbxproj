@@ -77,6 +77,7 @@
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
+		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBox.xib */; };
@@ -234,6 +235,7 @@
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
+		96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenience.swift"; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				964766662067A68000E7026F /* Collection+Safe.swift */,
 				962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */,
 				9672FF282078C2DE00E4571E /* Array+IndexSet.swift */,
+				96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
 				968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */,
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
+				96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */,
 				962D6D492073544F007E3785 /* HotKeyService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				964CA50C207E69F600B9F33E /* SearchAndPreviewView+ApplyTheme.swift in Sources */,

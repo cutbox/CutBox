@@ -7,12 +7,10 @@
 //
 
 enum SearchViewEvents {
-    case clearSelected
     case closeAndPaste
     case justClose
-    case itemSelectUp
-    case itemSelectDown
     case toggleSearchMode
     case setSearchMode(PasteboardSearchMode)
+    case removeSelected
     case clearHistory
 }

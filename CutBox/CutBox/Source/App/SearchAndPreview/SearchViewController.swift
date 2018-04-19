@@ -73,7 +73,7 @@ class SearchViewController: NSObject {
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
-    private func clearSelected() {
+    private func removeSelected() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
         self.pasteboardService.remove(items: indexes)
         self.searchView.clipboardItemsTable.reloadData()
@@ -125,20 +125,21 @@ class SearchViewController: NSObject {
                     self.pasteboardService.searchMode = mode
                     self.searchView.clipboardItemsTable.reloadData()
                     self.searchView.searchModeToggle.title = mode.name()
+
                 case .toggleSearchMode:
                     let mode = self.pasteboardService.toggleSearchMode()
                     self.searchView.clipboardItemsTable.reloadData()
                     self.searchView.searchModeToggle.title = mode.name()
+
                 case .justClose:
                     self.closePopup()
+
                 case .closeAndPaste:
                     self.closeAndPaste()
-                case .clearSelected:
-                    self.clearSelected()
-                case .itemSelectUp:
-                    self.searchView.itemSelectUp()
-                case .itemSelectDown:
-                    self.searchView.itemSelectDown()
+
+                case .removeSelected:
+                    self.removeSelected()
+
                 default:
                     break
                 }

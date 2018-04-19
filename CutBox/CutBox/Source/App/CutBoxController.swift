@@ -48,7 +48,7 @@ class CutBoxController: NSObject {
             (confirm, suppress) = confirmationDialog(
                 question: "confirm_warning_clear_history_title".l7n,
                 text: "confirm_warning_clear_history".l7n,
-                showSuppressionOption: !prefs.suppressClearHistoryWarning)
+                showSuppressionOption: true)
 
             prefs.suppressClearHistoryWarning = suppress
             if confirm {

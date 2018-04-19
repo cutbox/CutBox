@@ -72,7 +72,7 @@ extension PreferencesWindow {
             (confirm, suppress) = confirmationDialog(
                 question: "preferences_history_destructive_limit_change_warning_title".l7n,
                 text: "preferences_history_destructive_limit_change_warning_description".l7n,
-                showSuppressionOption: !prefs.suppressHistoryLimitWarning
+                showSuppressionOption: true
             )
 
             prefs.suppressHistoryLimitWarning = suppress

@@ -7,25 +7,22 @@
 //
 
 import Cocoa
-
+// MARK: Handle keyboard events when editing search/filter text
 extension SearchAndPreviewView: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         self.filterText.onNext(self.searchText.string)
     }
 
+    private var useTextCommands: [Selector] {
+        return [
+            "deleteBackwards:",
+            "deleteForwards:",
+            "deleteWord:",
+            "deleteWordBackwards:"
+            ].map { Selector($0) }
+    }
+
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        switch commandSelector {
-        case #selector(NSResponder.moveUp(_:)):
-            self.events.onNext(.itemSelectUp)
-            return true
-        case #selector(NSResponder.moveDown(_:)):
-            self.events.onNext(.itemSelectDown)
-            return true
-        case #selector(NSResponder.insertNewline(_:)):
-            self.events.onNext(.closeAndPaste)
-            return true
-        default:
-            return false
-        }
+        return useTextCommands.contains(commandSelector)
     }
 }

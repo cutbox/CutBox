@@ -10,26 +10,36 @@ import RxSwift
 import Carbon.HIToolbox
 
 extension SearchAndPreviewView {
+
     override func keyDown(with event: NSEvent) {
-        let (keycode, modifiers) =
-            (event.keyCode,
-             event.modifierFlags.intersection(.deviceIndependentFlagsMask))
+        switch (event.key, event.modifiers) {
+        case (kVK_UpArrow, _),
+             (kVK_DownArrow, _):
 
-        switch (keycode, modifiers) {
+            self.clipboardItemsTable.keyDown(with: event)
 
-        case (UInt16(kVK_Escape), _):
+        case (kVK_Escape, _):
+
             self.events
                 .onNext(.justClose)
 
-        case (UInt16(kVK_Return), _):
+        case (kVK_Return, _):
+
             self.events
                 .onNext(.closeAndPaste)
 
-        case (UInt16(kVK_ANSI_S), [.command]):
+        case (kVK_ANSI_S, [.command]):
+
             self.events
                 .onNext(.toggleSearchMode)
 
-        case (UInt16(kVK_Delete), [.command]):
+        case (kVK_Delete, [.command]):
+
+                self.events
+                    .onNext(.removeSelected)
+
+        case (kVK_Delete, [.command, .shift]):
+            
             self.events
                 .onNext(.clearHistory)
 
