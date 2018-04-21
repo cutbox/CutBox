@@ -124,20 +124,20 @@ class CutBoxPreferencesService {
         name: "preferences_color_theme_name_creamsody".l7n,
         popupBackgroundColor:            #colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1098039216, alpha: 1),
         searchText: (
-            cursorColor:                 #colorLiteral(red: 0.6588235294, green: 0.6, blue: 0.5176470588, alpha: 1),
-            textColor:                   #colorLiteral(red: 0.9921568627, green: 0.9568627451, blue: 0.7568627451, alpha: 1),
-            backgroundColor:             #colorLiteral(red: 0.1136818007, green: 0.1254841089, blue: 0.1293821037, alpha: 1),
-            placeholderTextColor:        #colorLiteral(red: 0.2352941176, green: 0.2196078431, blue: 0.2117647059, alpha: 1)
+            cursorColor:                 #colorLiteral(red: 0.5294117647, green: 0.8431372549, blue: 1, alpha: 1),
+            textColor:                   #colorLiteral(red: 0.5294117647, green: 0.8431372549, blue: 1, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0.1568627451, green: 0.1725490196, blue: 0.1960784314, alpha: 1),
+            placeholderTextColor:        #colorLiteral(red: 0.1591003184, green: 0.2392678358, blue: 0.2553013393, alpha: 1)
         ),
         clip: (
-            clipItemsBackgroundColor:    #colorLiteral(red: 0.1136818007, green: 0.1254841089, blue: 0.1293821037, alpha: 1),
-            clipItemsTextColor:          #colorLiteral(red: 0.9921568627, green: 0.9568627451, blue: 0.7568627451, alpha: 1),
-            clipItemsHighlightColor:     #colorLiteral(red: 0.4862745098, green: 0.4352941176, blue: 0.3921568627, alpha: 0.5)
+            clipItemsBackgroundColor:    #colorLiteral(red: 0.1568627451, green: 0.1725490196, blue: 0.1960784314, alpha: 1),
+            clipItemsTextColor:          #colorLiteral(red: 0.5294117647, green: 0.8431372549, blue: 1, alpha: 1),
+            clipItemsHighlightColor:     #colorLiteral(red: 0.5529411765, green: 0.8196078431, blue: 0.7921568627, alpha: 0.1513259243)
         ),
         preview: (
-            textColor:                   #colorLiteral(red: 0.9921568627, green: 0.9568627451, blue: 0.7568627451, alpha: 1),
-            backgroundColor:             #colorLiteral(red: 0.1136818007, green: 0.1254841089, blue: 0.1293821037, alpha: 1),
-            selectedTextBackgroundColor: #colorLiteral(red: 0.4862745098, green: 0.4352941176, blue: 0.3921568627, alpha: 0.5)
+            textColor:                   #colorLiteral(red: 0.5294117647, green: 0.8431372549, blue: 1, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0.1568627451, green: 0.1725490196, blue: 0.1960784314, alpha: 1),
+            selectedTextBackgroundColor: #colorLiteral(red: 0.5529411765, green: 0.8196078431, blue: 0.7921568627, alpha: 0.1513259243)
         )
     )
 
