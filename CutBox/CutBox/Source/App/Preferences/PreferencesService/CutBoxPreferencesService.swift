@@ -36,7 +36,7 @@ class CutBoxPreferencesService {
     static let shared = CutBoxPreferencesService()
 
     var darkTheme: CutBoxColorTheme = CutBoxColorTheme(
-        name: "preferences_color_theme_name_dark".l7n,
+        name: "preferences_color_theme_name_darkness".l7n,
         popupBackgroundColor:            #colorLiteral(red: 0.0864074271, green: 0.1963072013, blue: 0.2599330357, alpha: 1),
         searchText: (
             cursorColor:                 #colorLiteral(red: 0.05882352941, green: 0.1098039216, blue: 0.1294117647, alpha: 1),
@@ -57,7 +57,7 @@ class CutBoxPreferencesService {
     )
 
     var lightTheme: CutBoxColorTheme = CutBoxColorTheme(
-        name: "preferences_color_theme_name_light".l7n,
+        name: "preferences_color_theme_name_skylight".l7n,
         popupBackgroundColor:            #colorLiteral(red: 0.9489700198, green: 0.9490540624, blue: 0.9488998055, alpha: 1),
         searchText: (
             cursorColor:                 #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
