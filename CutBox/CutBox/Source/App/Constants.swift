@@ -16,6 +16,5 @@ struct Constants {
     static let searchFuzzyMatchMinScore = 0.1
 
     static let defaultCutBoxToggleKeyCombo =
-        KeyCombo(keyCode: kVK_ANSI_V,
-                 cocoaModifiers: [.shift, .command])!
+        KeyCombo(keyCode: kVK_ANSI_V, cocoaModifiers: [.shift, .command])!
 }

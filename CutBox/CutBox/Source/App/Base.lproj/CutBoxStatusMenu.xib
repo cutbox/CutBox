@@ -31,12 +31,6 @@
                         <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
                     </connections>
                 </menuItem>
-                <menuItem title="Clear History" id="acC-HV-LZV">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="clearHistoryClicked:" target="4hl-ia-0EP" id="9Sd-8I-Ob6"/>
-                    </connections>
-                </menuItem>
                 <menuItem isSeparatorItem="YES" id="cTR-7r-05t"/>
                 <menuItem title="Fuzzy match" state="on" onStateImage="NSMenuOnStateTemplate" id="Zg3-A3-1CM">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -64,6 +58,12 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openPreferences:" target="4hl-ia-0EP" id="fzX-Af-HI3"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Clear History" id="acC-HV-LZV">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="clearHistoryClicked:" target="4hl-ia-0EP" id="9Sd-8I-Ob6"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="3hp-KI-Agg"/>

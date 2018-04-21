@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.29</string>
 	<key>CFBundleVersion</key>
-	<string>2600</string>
+	<string>2609</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
@@ -29,7 +29,7 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 ocodo. All rights reserved.</string>
 	<key>NSMainNibFile</key>
-	<string>CutBox</string>
+	<string>CutBoxStatusMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>

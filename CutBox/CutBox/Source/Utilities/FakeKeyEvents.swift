@@ -1,5 +1,5 @@
 //
-//  FakeKey.swift
+//  FakeKeyEvents.localized().swift
 //  CutBox
 //
 //  Created by Jason on 26/3/18.

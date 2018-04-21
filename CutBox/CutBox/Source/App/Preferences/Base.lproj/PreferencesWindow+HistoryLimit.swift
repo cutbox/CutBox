@@ -57,33 +57,21 @@ extension PreferencesWindow {
     }
 
     func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
-        if prefs.suppressHistoryLimitWarning { return false }
-
         return (limit > 0 && currentLimit == 0) ||
             (limit > 0 && currentLimit > limit)
     }
 
     func setHistoryLimitWithConfirmation(_ limit: Int) {
         let currentLimit = self.prefs.historyLimit
-        var confirm: Bool
-        var suppress: Bool
-        if limitChangeIsDestructive(limit: limit,
-                                    currentLimit: currentLimit) {
-            (confirm, suppress) = confirmationDialog(
-                question: "preferences_history_destructive_limit_change_warning_title".l7n,
-                text: "preferences_history_destructive_limit_change_warning_description".l7n,
-                showSuppressionOption: true
-            )
-
-            prefs.suppressHistoryLimitWarning = suppress
-        } else {
-            confirm = true
-        }
-
-        if confirm {
-            self.prefs.historyLimit = limit
-        } else {
-            self.historyLimitTextField.stringValue = String(currentLimit)
+        if limitChangeIsDestructive(limit: limit, currentLimit: currentLimit) {
+            if suppressibleConfirmationDialog(
+                messageText: "confirm_warning_clear_history_title".l7n,
+                informativeText: "confirm_warning_clear_history".l7n,
+                dialogName: "destructiveLimitChangeWarning") {
+                self.prefs.historyLimit = limit
+            } else {
+                self.historyLimitTextField.stringValue = String(currentLimit)
+            }
         }
     }
 }
