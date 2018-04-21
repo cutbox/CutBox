@@ -9,10 +9,13 @@
 "preferences_title" = "CutBox Preferences";
 "preferences_launch_on_login" = "Launch on Login";
 "preferences_color_theme_title" = "Color theme";
+
 "preferences_color_theme_name_dark" = "Dark";
 "preferences_color_theme_name_light" = "Light";
 "preferences_color_theme_name_sandy_beach" = "Sandy Beach";
 "preferences_color_theme_name_darktooth" = "Darktooth";
+"preferences_color_theme_name_creamsody" = "Creamsody";
+
 "preferences_toggle_cutbox" = "Toggle CutBox";
 "preferences_history_limit_title" = "History Limit:";
 "preferences_history_limit_placeholder" = "Limit (0 is unlimited)";

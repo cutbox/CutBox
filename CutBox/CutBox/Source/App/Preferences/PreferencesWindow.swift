@@ -66,12 +66,9 @@ class PreferencesWindow: NSWindow {
         self.themeSelectorTitleLabel.stringValue =
             "preferences_color_theme_title".l7n
 
-        let themeItemTitles = ["preferences_color_theme_name_dark".l7n,
-                               "preferences_color_theme_name_light".l7n,
-                               "preferences_color_theme_name_sandy_beach".l7n,
-                               "preferences_color_theme_name_darktooth".l7n]
-
-        self.themeSelectorMenu.addItems(withTitles: themeItemTitles)
+        self.themeSelectorMenu.addItems(withTitles:
+            CutBoxColorTheme.instances.map { $0.name }
+        )
 
         self.themeSelectorMenu.selectItem(at: prefs.theme)
     }

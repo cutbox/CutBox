@@ -8,7 +8,12 @@
 
 import Cocoa
 
-struct CutBoxColorTheme {
+class CutBoxColorTheme {
+
+    static var instances: [CutBoxColorTheme] = []
+
+    let name: String
+
     let popupBackgroundColor: NSColor
 
     let searchText: (cursorColor: NSColor,
@@ -23,4 +28,26 @@ struct CutBoxColorTheme {
     let preview: (textColor: NSColor,
     backgroundColor: NSColor,
     selectedTextBackgroundColor: NSColor)
+
+    private let index: Int
+
+    init(name: String,
+         popupBackgroundColor: NSColor,
+         searchText: (cursorColor: NSColor, textColor: NSColor, backgroundColor: NSColor, placeholderTextColor: NSColor),
+         clip: (clipItemsBackgroundColor: NSColor, clipItemsTextColor: NSColor, clipItemsHighlightColor: NSColor),
+         preview: (textColor: NSColor, backgroundColor: NSColor, selectedTextBackgroundColor: NSColor)) {
+
+        self.name = name
+        self.popupBackgroundColor = popupBackgroundColor
+        self.searchText = searchText
+        self.clip = clip
+        self.preview = preview
+        self.index = CutBoxColorTheme.instances.count
+
+        CutBoxColorTheme.instances.append(self)
+    }
+
+    deinit {
+        CutBoxColorTheme.instances.remove(at: self.index)
+    }
 }

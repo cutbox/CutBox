@@ -20,11 +20,6 @@ extension CutBoxPreferencesService {
     }
 
     var themes: [CutBoxColorTheme] {
-        return [
-            self.darkTheme,
-            self.lightTheme,
-            self.sandyBeachTheme,
-            self.darktoothTheme
-        ]
+        return CutBoxColorTheme.instances
     }
 }
