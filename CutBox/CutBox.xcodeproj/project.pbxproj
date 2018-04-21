@@ -38,7 +38,6 @@
 		964CA50C207E69F600B9F33E /* SearchAndPreviewView+ApplyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */; };
 		964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
 		964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */; };
-		964CA513207E6BAC00B9F33E /* CutBoxAllThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA512207E6BAC00B9F33E /* CutBoxAllThemes.swift */; };
 		964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */; };
 		964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */; };
 		964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */; };
@@ -193,7 +192,6 @@
 		964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchAndPreviewView+ApplyTheme.swift"; sourceTree = "<group>"; };
 		964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorTheme.swift; sourceTree = "<group>"; };
 		964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+SelectTheme.swift"; sourceTree = "<group>"; };
-		964CA512207E6BAC00B9F33E /* CutBoxAllThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxAllThemes.swift; sourceTree = "<group>"; };
 		964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cutbox-icon-2-preview.png"; path = "CutBox/GraphicAssets/cutbox-icon-2-preview.png"; sourceTree = SOURCE_ROOT; };
 		964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardServiceSpec.swift; sourceTree = "<group>"; };
 		964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
@@ -395,7 +393,6 @@
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */,
 				964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */,
 				964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */,
-				964CA512207E6BAC00B9F33E /* CutBoxAllThemes.swift */,
 				964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */,
 			);
 			path = PreferencesService;
@@ -912,7 +909,6 @@
 			files = (
 				962D6D4D207357ED007E3785 /* VersionService.swift in Sources */,
 				965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */,
-				964CA513207E6BAC00B9F33E /* CutBoxAllThemes.swift in Sources */,
 				962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */,
 				962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
