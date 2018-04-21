@@ -33,11 +33,8 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var shouldWrapMultipleSelection: NSButton!
     @IBOutlet weak var wrapStartTextField: NSTextField!
     @IBOutlet weak var wrapEndTextField: NSTextField!
-
     @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
-
     @IBOutlet weak var historyLimitTitle: NSTextField!
-
     @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
 
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
