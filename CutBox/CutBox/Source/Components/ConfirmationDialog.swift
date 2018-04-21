@@ -10,23 +10,12 @@ import Cocoa
 
 fileprivate func makeDialog(messageText: String,
                             informativeText: String,
-                            ok: String, cancel: String,
-                            dialogName: String? = nil,
-                            showsHelp: Bool = false) -> NSAlert {
+                            ok: String, cancel: String) -> NSAlert {
     let alert = NSAlert()
     alert.messageText = messageText
     alert.informativeText = informativeText
     alert.addButton(withTitle: ok)
     alert.addButton(withTitle: cancel)
-
-    if showsHelp {
-        guard let name = dialogName else {
-            fatalError("\(#function) requires a dialogName when showsHelp == true")
-        }
-
-        alert.showsHelp = true
-        alert.helpAnchor = NSHelpManager.AnchorName(name)
-    }
 
     return alert
 }
@@ -34,7 +23,6 @@ fileprivate func makeDialog(messageText: String,
 func suppressibleConfirmationDialog(messageText: String,
                                     informativeText: String,
                                     dialogName: String,
-                                    showsHelp: Bool = false,
                                     ok: String = "ok".l7n,
                                     cancel: String = "cancel".l7n,
                                     defaults: UserDefaults = UserDefaults.standard) -> Bool {
@@ -46,9 +34,7 @@ func suppressibleConfirmationDialog(messageText: String,
 
     let alert = makeDialog(messageText: messageText,
                            informativeText: informativeText,
-                           ok: ok, cancel: cancel,
-                           dialogName: dialogName,
-                           showsHelp: showsHelp)
+                           ok: ok, cancel: cancel)
 
     alert.showsSuppressionButton = true
 
@@ -61,16 +47,12 @@ func suppressibleConfirmationDialog(messageText: String,
 
 func confirmationDialog(messageText: String,
                         informativeText: String,
-                        dialogName: String?,
-                        showsHelp: Bool = false,
                         ok: String = "ok".l7n,
                         cancel: String = "cancel".l7n) -> Bool {
 
     let alert = makeDialog(messageText: messageText,
                            informativeText: informativeText,
-                           ok: ok, cancel: cancel,
-                           dialogName: dialogName,
-                           showsHelp: showsHelp)
+                           ok: ok, cancel: cancel)
 
     return alert.runModal() == .alertFirstButtonReturn
 }
