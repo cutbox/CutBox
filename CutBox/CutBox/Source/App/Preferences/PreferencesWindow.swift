@@ -35,11 +35,13 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var wrapEndTextField: NSTextField!
 
     @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
-    @IBOutlet weak var themeSelector: NSSegmentedControl!
 
     @IBOutlet weak var historyLimitTitle: NSTextField!
-    @IBAction func themeSelectorChanges(_ sender: NSSegmentedControl) {
-        prefs.theme = sender.selectedSegment
+
+    @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
+
+    @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
+        prefs.theme = sender.index(of: sender.selectedItem!)
     }
 
     override func awakeFromNib() {
@@ -61,9 +63,16 @@ class PreferencesWindow: NSWindow {
     }
 
     func setupThemeSelector() {
-        self.themeSelectorTitleLabel.stringValue = "preferences_color_theme_title".l7n
-        self.themeSelector.setLabel("preferences_color_theme_name_dark".l7n, forSegment: 0)
-        self.themeSelector.setLabel("preferences_color_theme_name_light".l7n, forSegment: 1)
-        self.themeSelector.selectedSegment = prefs.theme
+        self.themeSelectorTitleLabel.stringValue =
+            "preferences_color_theme_title".l7n
+
+        let themeItemTitles = ["preferences_color_theme_name_dark".l7n,
+                               "preferences_color_theme_name_light".l7n,
+                               "preferences_color_theme_name_sandy_beach".l7n,
+                               "preferences_color_theme_name_darktooth".l7n]
+
+        self.themeSelectorMenu.addItems(withTitles: themeItemTitles)
+
+        self.themeSelectorMenu.selectItem(at: prefs.theme)
     }
 }

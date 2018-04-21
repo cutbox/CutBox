@@ -22,7 +22,9 @@ extension CutBoxPreferencesService {
     var themes: [CutBoxColorTheme] {
         return [
             self.darkTheme,
-            self.lightTheme
+            self.lightTheme,
+            self.sandyBeachTheme,
+            self.darktoothTheme
         ]
     }
 }
