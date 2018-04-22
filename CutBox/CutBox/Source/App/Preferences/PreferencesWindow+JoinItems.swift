@@ -21,6 +21,10 @@ extension PreferencesWindow {
 
     func setupJoinStringTextField()  {
 
+        self.joinAndWrapSectionTitle.stringValue = "preferences_multi_clip_join_and_wrap_section_title".l7n
+
+        self.joinAndWrapNote.stringValue = "preferences_multi_clip_join_and_wrap_section_note".l7n
+
         self.joinClipsTitle.stringValue = "preferences_multi_clip_join_title".l7n
 
         let useJoinString = prefs.useJoinString

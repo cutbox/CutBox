@@ -27,6 +27,7 @@
 		963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		963AA667207269CE00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
 		963AA668207269CE00779697 /* Magnet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96429D59208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */; };
 		964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSObject+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* DisableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* DisableScrollView.swift */; };
@@ -181,6 +182,7 @@
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyHolder.xcodeproj; path = DependencySubmodules/KeyHolder/Lib/KeyHolder.xcodeproj; sourceTree = SOURCE_ROOT; };
 		963AA65A20725D0E00779697 /* Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+String+RegexpSearchFilteredSpec.swift"; sourceTree = "<group>"; };
 		964766632067A5F100E7026F /* NSObject+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
 		964766682067B82900E7026F /* DisableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisableScrollView.swift; sourceTree = "<group>"; };
@@ -372,6 +374,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		96429D54208C11520055D678 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		96429D56208C117E0055D678 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
+				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
+				964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		96429D57208C11A90055D678 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
+				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
+				96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */,
+				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -502,13 +533,9 @@
 		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
 			isa = PBXGroup;
 			children = (
-				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
-				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
-				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
-				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
-				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
-				964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */,
-				964CA51D207F2E3400B9F33E /* PasteboardServiceSpec.swift */,
+				96429D57208C11A90055D678 /* Extensions */,
+				96429D56208C117E0055D678 /* Preferences */,
+				96429D54208C11520055D678 /* Services */,
 				964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */,
 				96E1E5AA205D243400F994ED /* Info.plist */,
 			);
@@ -961,6 +988,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */,
+				96429D59208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */,
 				964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */,
 				964CA51E207F2E3400B9F33E /* PasteboardServiceSpec.swift in Sources */,
 				964CA5412083022800B9F33E /* PreferencesWindowSpec.swift in Sources */,

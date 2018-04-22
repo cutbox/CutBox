@@ -17,22 +17,30 @@
 "preferences_color_theme_name_creamsody" = "Creamsody";
 
 "preferences_toggle_cutbox" = "Toggle CutBox";
-"preferences_history_limit_title" = "History Limit:";
+
+"preferences_history_limit_title" = "History Limit";
 "preferences_history_limit_placeholder" = "Limit (0 is unlimited)";
 "preferences_history_limit_checkbox_label" = "Unlimited";
 "preferences_history_destructive_limit_change_warning_title" = "Reduce Pasteboard History Limit?";
 "preferences_history_destructive_limit_change_warning_description" = "You are attempting to reduce your CutBox history limit\nIf you continue you'll lose items beyond that limit\n\nThis operation cannot be undone\n\nClick OK to continue";
-"preferences_multi_clip_join_title" = "Join multiple selected with:";
+
+"confirm_warning_clear_history_title" = "Clear CutBox history?";
+"confirm_warning_clear_history" = "Warning: You cannot undo this operation";
+
+"preferences_multi_clip_join_and_wrap_section_title" = "Joining and Wrapping";
+"preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
+"preferences_multi_clip_join_title" = "Join using";
 "preferences_multi_clip_joined_by_newline" = "New line";
 "preferences_multi_clip_joined_by_string" = "Text";
-"preferences_multi_clip_joined_by_string_placeholder" = "Separator Text";
-"preferences_multi_clip_wrapped_checkbox_label" = "Wrap text around multiple clips?";
-"preferences_multi_clip_wrapped_start_placeholder" = "Start with";
-"preferences_multi_clip_wrapped_end_placeholder" = "End with";
+"preferences_multi_clip_joined_by_string_placeholder" = "Join each clip with?";
+"preferences_multi_clip_wrapped_checkbox_label" = "Wrap text around joined clips?";
+"preferences_multi_clip_wrapped_start_placeholder" = "Start with?";
+"preferences_multi_clip_wrapped_end_placeholder" = "End with?";
+
 "search_placeholder" = "Search CutBox History";
+
 "about_cutbox_title" = "CutBox";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_copyright_licence" = "Copyright © 2018 Jason Milkins\nLicensed under GNU GPL3";
+
 "context_menu_remove_selected" = "Remove Selected";
-"confirm_warning_clear_history_title" = "Clear CutBox history?";
-"confirm_warning_clear_history" = "Warning: You cannot undo this operation";

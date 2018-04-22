@@ -24,6 +24,8 @@ class PreferencesWindow: NSWindow {
 
     @IBOutlet weak var historyLimitTextField: NSTextField!
     @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
+    @IBOutlet weak var joinAndWrapSectionTitle: NSTextField!
+    @IBOutlet weak var joinAndWrapNote: NSTextFieldCell!
     @IBOutlet weak var joinClipsTitle: NSTextField!
     @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
     @IBOutlet weak var joinStringTextField: NSTextField!
