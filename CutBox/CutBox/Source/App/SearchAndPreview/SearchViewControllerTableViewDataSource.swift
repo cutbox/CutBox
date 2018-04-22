@@ -16,6 +16,6 @@ extension SearchViewController: NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         guard let value = self.pasteboardService[row] else { return nil }
-        return value
+        return value.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
