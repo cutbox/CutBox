@@ -1,21 +1,21 @@
 target 'CutBox' do
-  use_frameworks!
-  platform :osx, '10.11'
+    use_frameworks!
+    platform :osx, '10.11'
 
-  pod 'Sparkle'
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'SwiftyStringScore',  git: 'git@github.com:yichizhang/SwiftyStringScore'
+    pod 'Sparkle'
+    pod 'RxSwift'
+    pod 'RxCocoa'
+    pod 'SwiftyStringScore',  git: 'git@github.com:yichizhang/SwiftyStringScore'
 
-  abstract_target 'Testing' do
-    platform :osx, '10.13'
+    abstract_target 'Testing' do
+        platform :osx, '10.13'
 
-    pod 'RxSwift'    
-    pod 'Quick'
-    pod 'Nimble'
+        pod 'RxSwift'
+        pod 'Quick'
+        pod 'Nimble'
 
-    target 'CutBoxTests' do
+        target 'CutBoxTests' do
+        end
+
     end
-
-  end
 end
