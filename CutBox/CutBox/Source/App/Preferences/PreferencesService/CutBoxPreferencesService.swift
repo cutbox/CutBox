@@ -141,6 +141,69 @@ class CutBoxPreferencesService {
         )
     )
 
+    var purpleHaze: CutBoxColorTheme = CutBoxColorTheme(
+        name: "preferences_color_theme_name_purplehaze".l7n,
+        popupBackgroundColor:            #colorLiteral(red: 0.08464309139, green: 0.08192104101, blue: 0.1098039216, alpha: 1),
+        searchText: (
+            cursorColor:                 #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),
+            textColor:                   #colorLiteral(red: 0.9055583133, green: 0.8686919488, blue: 0.98, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0.1859181625, green: 0.1799391913, blue: 0.2411838108, alpha: 1),
+            placeholderTextColor:        #colorLiteral(red: 0.3405955495, green: 0.3296422841, blue: 0.4418402778, alpha: 1)
+        ),
+        clip: (
+            clipItemsBackgroundColor:    #colorLiteral(red: 0.1859181625, green: 0.1799391913, blue: 0.2411838108, alpha: 1),
+            clipItemsTextColor:          #colorLiteral(red: 0.9055583133, green: 0.8686919488, blue: 0.98, alpha: 1),
+            clipItemsHighlightColor:     #colorLiteral(red: 0.6185805235, green: 0.5529411765, blue: 0.8196078431, alpha: 0.1513259243)
+        ),
+        preview: (
+            textColor:                   #colorLiteral(red: 0.9055583133, green: 0.8686919488, blue: 0.98, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+            selectedTextBackgroundColor: #colorLiteral(red: 0.6185805235, green: 0.5529411765, blue: 0.8196078431, alpha: 0.1513259243)
+        )
+    )
+
+    var verdantTheme: CutBoxColorTheme = CutBoxColorTheme(
+        name: "preferences_color_theme_name_verdant".l7n,
+        popupBackgroundColor:            #colorLiteral(red: 0.08647058826, green: 0.1098039216, blue: 0.0823529412, alpha: 1),
+        searchText: (
+            cursorColor:                 #colorLiteral(red: 0.445925108, green: 0.97, blue: 0.3534413036, alpha: 1),
+            textColor:                   #colorLiteral(red: 0.8853881565, green: 0.98, blue: 0.8686919488, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0.126, green: 0.16, blue: 0.12, alpha: 1),
+            placeholderTextColor:        #colorLiteral(red: 0.3479492188, green: 0.4418402778, blue: 0.3313802084, alpha: 1)
+        ),
+        clip: (
+            clipItemsBackgroundColor:    #colorLiteral(red: 0.126, green: 0.16, blue: 0.12, alpha: 1),
+            clipItemsTextColor:          #colorLiteral(red: 0.88837, green: 0.98, blue: 0.8722, alpha: 1),
+            clipItemsHighlightColor:     #colorLiteral(red: 0.5929411765, green: 0.8196078431, blue: 0.5529411765, alpha: 0.1513259243)
+        ),
+        preview: (
+            textColor:                   #colorLiteral(red: 0.8853881565, green: 0.98, blue: 0.8686919488, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+            selectedTextBackgroundColor: #colorLiteral(red: 0.5929411765, green: 0.8196078431, blue: 0.5529411765, alpha: 0.1513259243)
+        )
+    )
+
+    var amberCathodeTheme: CutBoxColorTheme = CutBoxColorTheme(
+        name: "preferences_color_theme_name_amber_cathode".l7n,
+        popupBackgroundColor:            #colorLiteral(red: 0.1098039216, green: 0.091503268, blue: 0.0823529412, alpha: 1),
+        searchText: (
+            cursorColor:                 #colorLiteral(red: 0.9372549057, green: 0.4405228794, blue: 0.1921568662, alpha: 1),
+            textColor:                   #colorLiteral(red: 0.98, green: 0.9057946325, blue: 0.8686919488, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0.2, green: 0.1661422165, blue: 0.1492133246, alpha: 1),
+            placeholderTextColor:        #colorLiteral(red: 0.4418402778, green: 0.3682002315, blue: 0.3313802084, alpha: 1)
+        ),
+        clip: (
+            clipItemsBackgroundColor:    #colorLiteral(red: 0.2411838108, green: 0.2003540645, blue: 0.1799391913, alpha: 1),
+            clipItemsTextColor:          #colorLiteral(red: 0.98, green: 0.9081333333, blue: 0.8722, alpha: 1),
+            clipItemsHighlightColor:     #colorLiteral(red: 0.9254902005, green: 0.2392156882, blue: 0.1019607857, alpha: 0.3)
+        ),
+        preview: (
+            textColor:                   #colorLiteral(red: 0.9372549057, green: 0.4405228794, blue: 0.1921568662, alpha: 1),
+            backgroundColor:             #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+            selectedTextBackgroundColor: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.3016106592)
+        )
+    )
+
     var currentTheme: CutBoxColorTheme { return themes[theme] }
 
     var searchViewTextFieldFont = NSFont(
