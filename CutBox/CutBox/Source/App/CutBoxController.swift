@@ -22,8 +22,8 @@ class CutBoxController: NSObject {
     let searchViewController: SearchViewController
     let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
+    
     let hotKeyService = HotKeyService.shared
-
     let prefs = CutBoxPreferencesService.shared
     let pasteboardService = PasteboardService.shared
 
@@ -70,8 +70,7 @@ class CutBoxController: NSObject {
         self.prefs
             .events
             .subscribe(onNext: {
-                switch $0 {
-                case CutBoxPreferencesEvent.historyLimitChanged(let limit):
+                if case CutBoxPreferencesEvent.historyLimitChanged(let limit) = $0 {
                     self.pasteboardService.historyLimit = limit
                 }
             })
@@ -103,7 +102,8 @@ class CutBoxController: NSObject {
             PasteboardService
             .shared
             .searchMode
-            .axID())
+            .axID()
+        )
 
         searchViewController
             .events
