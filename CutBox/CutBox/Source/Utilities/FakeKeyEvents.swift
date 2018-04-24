@@ -1,5 +1,5 @@
 //
-//  FakeKeyEvents.localized().swift
+//  FakeKeyEvents.swift
 //  CutBox
 //
 //  Created by Jason on 26/3/18.
@@ -16,16 +16,21 @@ func send(fakeKey keyCode: CGKeyCode, useCommandFlag: Bool) {
         return
     }
 
-    let keyDownEvent = CGEvent(keyboardEventSource: sourceRef,
-                               virtualKey: keyCode,
-                               keyDown: true)
+    let keyDownEvent = CGEvent(
+        keyboardEventSource: sourceRef,
+        virtualKey: keyCode,
+        keyDown: true
+    )
+
     if useCommandFlag {
         keyDownEvent?.flags = .maskCommand
     }
 
-    let keyUpEvent = CGEvent(keyboardEventSource: sourceRef,
-                             virtualKey: keyCode,
-                             keyDown: false)
+    let keyUpEvent = CGEvent(
+        keyboardEventSource: sourceRef,
+        virtualKey: keyCode,
+        keyDown: false
+    )
 
     keyDownEvent?.post(tap: .cghidEventTap)
     keyUpEvent?.post(tap: .cghidEventTap)
