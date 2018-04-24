@@ -12,7 +12,6 @@ import RxSwift
 extension PreferencesWindow {
     func setupHistoryLimitControls() {
         self.historyLimitTitle.stringValue = "preferences_history_limit_title".l7n
-
         self.historyLimitTextField.placeholderString = "preferences_history_limit_placeholder".l7n
         self.historyUnlimitedCheckbox.title = "preferences_history_limit_checkbox_label".l7n
 
@@ -22,15 +21,8 @@ extension PreferencesWindow {
             .rx
             .state
             .map { $0 == .off }
-            .subscribe(onNext:
-                { self.prefs.historyLimited = $0 })
-            .disposed(by: disposeBag )
-
-        self.historyUnlimitedCheckbox
-            .rx
-            .state
-            .map { $0 == .off }
             .subscribe(onNext: {
+                self.prefs.historyLimited = $0
                 self.historyLimitTextField.isEnabled = $0
                 if !$0 { self.historyLimitTextField.stringValue = "" }
             })
@@ -49,11 +41,10 @@ extension PreferencesWindow {
             })
             .disposed(by: disposeBag)
 
-        if prefs.historyLimited {
-            self.historyUnlimitedCheckbox.state = .off
-        } else {
-            self.historyUnlimitedCheckbox.state = .on
-        }
+        self.historyUnlimitedCheckbox.state = prefs
+            .historyLimited
+            ? .off
+            : .on
     }
 
     func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
@@ -63,15 +54,20 @@ extension PreferencesWindow {
 
     func setHistoryLimitWithConfirmation(_ limit: Int) {
         let currentLimit = self.prefs.historyLimit
+
         if limitChangeIsDestructive(limit: limit, currentLimit: currentLimit) {
 
             if suppressibleConfirmationDialog(
+
                 messageText: "confirm_warning_clear_history_title".l7n,
                 informativeText: "confirm_warning_clear_history".l7n,
                 dialogName: "destructiveLimitChangeWarning") {
                 self.prefs.historyLimit = limit
+
             } else {
+
                 self.historyLimitTextField.stringValue = String(currentLimit)
+
             }
         }
     }
