@@ -70,7 +70,7 @@ class SearchAndPreviewView: NSView {
 
         self.searchModeToggle
             .rx
-            .controlEvent
+            .tap
             .map { .toggleSearchMode }
             .bind(to: self.events)
             .disposed(by: disposeBag)
