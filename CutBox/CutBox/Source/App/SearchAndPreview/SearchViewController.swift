@@ -131,6 +131,11 @@ class SearchViewController: NSObject {
                     self.searchView.clipboardItemsTable.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
+                case .toggleTheme:
+                    self.prefs.toggleTheme()
+                    self.searchView.applyTheme()
+                    self.searchView.clipboardItemsTable.reloadData()
+
                 case .justClose:
                     self.closePopup()
 

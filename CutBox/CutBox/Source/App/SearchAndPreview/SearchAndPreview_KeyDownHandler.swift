@@ -28,6 +28,12 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.closeAndPaste)
 
+        case (kVK_ANSI_T, [.command]):
+
+            self.events
+                .onNext(.toggleTheme)
+            self.applyTheme()
+
         case (kVK_ANSI_S, [.command]):
 
             self.events

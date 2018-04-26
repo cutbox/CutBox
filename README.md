@@ -19,14 +19,6 @@ CutBox only deals in plaintext for now, I'm thinking about image and
 other document types down the road, but I needed some specific things
 from a plaintext pasteboard history, so here we are.
 
-Dark theme
-
-![](CutBox/CutBox/GraphicAssets/cutbox-preview.png)
-
-or light theme
-
-![](CutBox/CutBox/GraphicAssets/cutbox-preview-light.png)
-
 # Download / install...
 
 You can find the latest release here: https://github.com/ocodo/CutBox/releases/latest
@@ -64,11 +56,24 @@ You can also select search mode from the CutBox menu.
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
 
+## Color themes
+
+CutBox also has a few color themes for you to choose from:
+
+[![](CutBox/CutBox/GraphicAssets/themes/darkness_thumb.png)](CutBox/CutBox/GraphicAssets/themes/darkness.png)
+[![](CutBox/CutBox/GraphicAssets/themes/skylight_thumb.png)](CutBox/CutBox/GraphicAssets/themes/skylight.png)
+[![](CutBox/CutBox/GraphicAssets/themes/sandy-beach_thumb.png)](CutBox/CutBox/GraphicAssets/themes/sandy-beach.png)
+[![](CutBox/CutBox/GraphicAssets/themes/darktooth_thumb.png)](CutBox/CutBox/GraphicAssets/themes/darktooth.png)
+[![](CutBox/CutBox/GraphicAssets/themes/creamsody_thumb.png)](CutBox/CutBox/GraphicAssets/themes/creamsody.png)
+[![](CutBox/CutBox/GraphicAssets/themes/purplehaze_thumb.png)](CutBox/CutBox/GraphicAssets/themes/purplehaze.png)
+[![](CutBox/CutBox/GraphicAssets/themes/verdant_thumb.png)](CutBox/CutBox/GraphicAssets/themes/verdant.png)
+[![](CutBox/CutBox/GraphicAssets/themes/amber-cathode_thumb.png)](CutBox/CutBox/GraphicAssets/themes/amber-cathode.png)
+
 ## Advanced use...
 
 ### Multi item select and paste
 
-![](CutBox/CutBox/GraphicAssets/cutbox-newline-text-preferences.gif)
+![](CutBox/CutBox/GraphicAssets/cutbox-wrap-preferences.gif)
 
 CutBox also allows you to select multiple pasteboard items and paste
 them all back in one go.
@@ -121,9 +126,9 @@ You can use wrapping and joining to do a bunch of things.  I'm interested to hea
 
 If you'd like more features in CutBox open a new issue and mark it _enhancements_.
 
-# Development note
+# Development
 
-If you have suggestions or bugs, please add to https://github.com/ocodo/CutBox/issues
+If you have suggestions or bugs, please let me know using https://github.com/ocodo/CutBox/issues
 
 # Licence
 
