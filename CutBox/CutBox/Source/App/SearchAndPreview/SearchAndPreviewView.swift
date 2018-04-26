@@ -66,7 +66,10 @@ class SearchAndPreviewView: NSView {
     }
 
     func setSearchModeButton(mode: PasteboardSearchMode) {
-        self.searchModeToggle.title = mode.name()
+        let color = [NSAttributedStringKey.foregroundColor: prefs.currentTheme.clip.clipItemsTextColor]
+        let titleString = NSAttributedString(string: mode.name(), attributes: color)
+
+        self.searchModeToggle.attributedTitle = titleString
         self.searchModeToggle.toolTip = mode.toolTip()
     }
 

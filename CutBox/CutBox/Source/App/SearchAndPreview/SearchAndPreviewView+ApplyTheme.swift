@@ -12,6 +12,8 @@ extension SearchAndPreviewView {
     func applyTheme() {
         let theme = prefs.currentTheme
 
+        setSearchModeButton(mode: PasteboardService.shared.searchMode)
+
         previewClip.font = prefs.searchViewClipPreviewFont
         searchTextPlaceholder.font = prefs.searchViewTextFieldFont
         searchText.font = prefs.searchViewTextFieldFont
