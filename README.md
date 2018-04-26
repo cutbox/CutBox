@@ -96,8 +96,6 @@ Mutli-item paste is configurable so you can choose a string to join
 between the items, and you can also wrap a pair of strings around the
 start and end.
 
-![](CutBox/CutBox/GraphicAssets/cutbox-wrap-preferences.gif)
-
 For example, if I wanted to collect a list of numbers from various different place to paste into a piece of code, usually I'd need to edit them after copy pasting them one by one.
 
 With CutBox I don't have to do that.  Now I can just do this:
@@ -119,6 +117,8 @@ With CutBox I don't have to do that.  Now I can just do this:
 1. You'll have something like...
 
         let numberArray = [32.14, 52.21, 44.52, 93.13]
+
+![](CutBox/CutBox/GraphicAssets/cutbox-multiple.gif)
 
 Note: at the moment the sort order of the items will be in the reverse order you copied the items.  For example, I copy 1, then 2, then 3, When I paste them back... I get `3 2 1`.
 
