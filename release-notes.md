@@ -1,4 +1,9 @@
-CutBox version 1.0.36
+CutBox version 1.0.37
+
+- Update DMG background
+- Fix hairline gap above popup
+
+1.0.36
 
 - Fix coloring of search mode indicator to match active color theme
 

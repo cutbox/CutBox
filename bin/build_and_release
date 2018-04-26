@@ -1,0 +1,8 @@
+#!/bin/sh
+
+xcodebuild \
+  -workspace CutBox/CutBox.xcworkspace \
+  -scheme CutBox \
+  archive
+
+bin/release_latest_version
