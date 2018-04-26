@@ -65,8 +65,14 @@ class SearchAndPreviewView: NSView {
         self.events.onNext(.removeSelected)
     }
 
+    func setSearchModeButton(mode: PasteboardSearchMode) {
+        self.searchModeToggle.title = mode.name()
+        self.searchModeToggle.toolTip = mode.toolTip()
+    }
+
     private func setupSearchModeToggle() {
-        self.searchModeToggle.title = PasteboardService.shared.searchMode.name()
+        let mode = PasteboardService.shared.searchMode
+        setSearchModeButton(mode: mode)
 
         self.searchModeToggle
             .rx

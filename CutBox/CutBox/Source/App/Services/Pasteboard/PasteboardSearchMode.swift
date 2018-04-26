@@ -14,11 +14,22 @@ enum PasteboardSearchMode {
     func name() -> String {
         switch self{
         case .fuzzyMatch:
-            return "Fuzzy matching"
+            return "searchmode_fuzzy".l7n
         case .regexpAnyCase:
-            return "RegExp (case insensitive)"
+            return "searchmode_regexp".l7n
         case .regexpStrictCase:
-            return "RegExp (case sensitive)"
+            return "searchmode_regexp_strict".l7n
+        }
+    }
+
+    func toolTip() -> String {
+        switch self{
+        case .fuzzyMatch:
+            return "searchmode_fuzzy_tooltip".l7n
+        case .regexpAnyCase:
+            return "searchmode_regexp_tooltip".l7n
+        case .regexpStrictCase:
+            return "searchmode_regexp_strict_tooltip".l7n
         }
     }
 

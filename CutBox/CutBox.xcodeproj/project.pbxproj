@@ -471,13 +471,6 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		965F0790207121800032DACD /* FakeKey */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FakeKey;
-			sourceTree = "<group>";
-		};
 		96DB5387208ADB28004BAAEF /* Pasteboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -551,7 +544,6 @@
 				96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */,
 				962D6D4A207356DA007E3785 /* Constants.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
-				965F0790207121800032DACD /* FakeKey */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
 				963AA6482071EE0600779697 /* Preferences */,
 				961A49B92065DC1E005BC79D /* SearchAndPreview */,
