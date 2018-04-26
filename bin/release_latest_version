@@ -47,7 +47,7 @@ bin/cutbox_make_dmg \
     CutBox.dmg \
     "${MESSAGE}" \
   && \
-  git pull --rebase \
+  git pull --rebase --autostash \
   && \
   bin/clean_release_files
 
