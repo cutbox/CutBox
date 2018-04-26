@@ -1,7 +1,7 @@
 CutBox version 1.0.37
 
-- Update DMG background
 - Fix hairline gap above popup
+- Redesign dmg background
 
 1.0.36
 
