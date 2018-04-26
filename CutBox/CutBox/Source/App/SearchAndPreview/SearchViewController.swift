@@ -155,6 +155,8 @@ class SearchViewController: NSObject {
         let width = screen.frame.width / 1.6
         let height = screen.frame.height / 1.8
 
+        popup.yPadding = -1
+
         popup.resizePopup(width: Double(width),
                           height: Double(height))
 
