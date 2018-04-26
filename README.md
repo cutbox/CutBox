@@ -60,21 +60,13 @@ You can also select search mode from the CutBox menu.
 
 CutBox also has a few color themes for you to choose from:
 
-**Darkness**
 [![](CutBox/CutBox/GraphicAssets/themes/darkness_thumb.png)](CutBox/CutBox/GraphicAssets/themes/darkness.png)
-**Skylight**
 [![](CutBox/CutBox/GraphicAssets/themes/skylight_thumb.png)](CutBox/CutBox/GraphicAssets/themes/skylight.png)
-**Sandy Beach**
 [![](CutBox/CutBox/GraphicAssets/themes/sandy-beach_thumb.png)](CutBox/CutBox/GraphicAssets/themes/sandy-beach.png)
-**Darktooth**
 [![](CutBox/CutBox/GraphicAssets/themes/darktooth_thumb.png)](CutBox/CutBox/GraphicAssets/themes/darktooth.png)
-**Creamsody**
 [![](CutBox/CutBox/GraphicAssets/themes/creamsody_thumb.png)](CutBox/CutBox/GraphicAssets/themes/creamsody.png)
-**Purplehaze**
 [![](CutBox/CutBox/GraphicAssets/themes/purplehaze_thumb.png)](CutBox/CutBox/GraphicAssets/themes/purplehaze.png)
-**Verdant**
 [![](CutBox/CutBox/GraphicAssets/themes/verdant_thumb.png)](CutBox/CutBox/GraphicAssets/themes/verdant.png)
-**Amber Cathode**
 [![](CutBox/CutBox/GraphicAssets/themes/amber-cathode_thumb.png)](CutBox/CutBox/GraphicAssets/themes/amber-cathode.png)
 
 ## Advanced use...
