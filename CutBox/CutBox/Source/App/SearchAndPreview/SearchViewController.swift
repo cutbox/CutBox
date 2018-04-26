@@ -117,6 +117,12 @@ class SearchViewController: NSObject {
             .disposed(by: self.disposeBag)
     }
 
+    func updatePreview() {
+        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
+        let preview = prefs.prepareClips(self.pasteboardService[indexes])
+        self.searchView.previewClip.string = preview
+    }
+
     private func setupSearchTextEventBindings() {
         self.events
             .subscribe(onNext: { event in
@@ -135,6 +141,14 @@ class SearchViewController: NSObject {
                     self.prefs.toggleTheme()
                     self.searchView.applyTheme()
                     self.searchView.clipboardItemsTable.reloadData()
+
+                case .toggleWrappingStrings:
+                    self.prefs.useWrappingStrings = !self.prefs.useWrappingStrings
+                    self.updatePreview()
+
+                case .toggleJoinStrings:
+                    self.prefs.useJoinString = !self.prefs.useJoinString
+                    self.updatePreview()
 
                 case .justClose:
                     self.closePopup()

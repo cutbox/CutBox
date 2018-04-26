@@ -15,9 +15,7 @@ extension SearchViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = prefs.prepareClips(self.pasteboardService[indexes])
-        self.searchView.previewClip.string = preview
+        self.updatePreview()
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {

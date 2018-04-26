@@ -14,4 +14,6 @@ enum SearchViewEvents {
     case removeSelected
     case clearHistory
     case toggleTheme
+    case toggleWrappingStrings
+    case toggleJoinStrings
 }
