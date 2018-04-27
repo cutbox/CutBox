@@ -44,7 +44,6 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.toggleJoinStrings)
 
-
         case (kVK_ANSI_S, [.command]):
 
             self.events
