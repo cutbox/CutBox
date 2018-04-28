@@ -6,6 +6,7 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
+import Foundation
 import Cocoa
 import RxSwift
 import RxCocoa
@@ -19,6 +20,8 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClip: NSTextView!
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeToggle: NSButton!
+    @IBOutlet weak var cutBoxLogoImageView: NSImageView!
+    @IBOutlet weak var magnifierImageView: NSImageView!
 
     @IBOutlet weak var historyContainer: NSStackView!
     @IBOutlet weak var bottomBar: NSView!
@@ -31,7 +34,6 @@ class SearchAndPreviewView: NSView {
     private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
-        applyTheme()
         setupSearchText()
         setupPlaceholder()
         setupContextMenu()
@@ -97,6 +99,11 @@ class SearchAndPreviewView: NSView {
         clipboardItemsTable.menu = contextMenu
     }
 
+    func hideItemsAndPreview(_ bool: Bool) {
+        self.bottomBar.isHidden = bool
+        self.historyContainer.isHidden = bool
+    }
+
     private func setupPlaceholder() {
         filterText
             .map { $0.isEmpty ? "search_placeholder".l7n : "" }
@@ -105,12 +112,7 @@ class SearchAndPreviewView: NSView {
     }
 
     private func setupSearchText() {
-        searchText.delegate = self
-        searchText.isFieldEditor = true        
-    }
-
-    func hideItemsAndPreview(_ bool: Bool) {
-        self.bottomBar.isHidden = bool
-        self.historyContainer.isHidden = bool
+        self.searchText.delegate = self
+        self.searchText.isFieldEditor = true
     }
 }

@@ -9,6 +9,17 @@
 import Cocoa
 
 extension SearchAndPreviewView {
+
+    func colorizeMagnifier() {
+        let image = #imageLiteral(resourceName: "magnitude.png")
+
+        self.magnifierImageView.alphaValue = 0.75
+
+        let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
+
+        self.magnifierImageView.image = blended
+    }
+
     func applyTheme() {
         let theme = prefs.currentTheme
 
@@ -34,5 +45,26 @@ extension SearchAndPreviewView {
             theme.preview.selectedTextBackgroundColor
         previewClip.selectedTextAttributes[NSAttributedStringKey.foregroundColor] =
             theme.preview.textColor
+
+        self.colorizeMagnifier()
+    }
+}
+
+extension NSImage {
+    func tint(color: NSColor) -> NSImage {
+        guard self.isTemplate == false else { return self }
+
+        let image = self.copy() as! NSImage
+        image.lockFocus()
+
+        color.set()
+
+        let imageRect = NSRect(origin: NSZeroPoint, size: image.size)
+        imageRect.fill(using: .sourceAtop)
+
+        image.unlockFocus()
+        image.isTemplate = false
+
+        return image
     }
 }
