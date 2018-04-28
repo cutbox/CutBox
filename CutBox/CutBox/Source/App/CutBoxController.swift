@@ -29,6 +29,7 @@ class CutBoxController: NSObject {
 
     private let disposeBag = DisposeBag()
 
+    @IBOutlet weak var useCompactUI: NSMenuItem!
     @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
     @IBOutlet weak var regexpModeItem: NSMenuItem!
     @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
@@ -62,6 +63,14 @@ class CutBoxController: NSObject {
         NSApp.terminate(sender)
     }
 
+    @IBAction func useCompactUIClicked(_ sender: NSMenuItem) {
+        self.prefs.useCompactUI = !self.prefs.useCompactUI
+        self.setCompactUIMenuItem()
+    }
+
+    @IBAction func searchModeSelect(_ sender: NSMenuItem) {
+        searchModeSelect(sender.accessibilityIdentifier())
+    }
 
     override init() {
         self.searchViewController = SearchViewController()
@@ -83,10 +92,15 @@ class CutBoxController: NSObject {
         self.statusItem.image = icon
         self.statusItem.menu = statusMenu
 
-        setupModeSelectors()
+        setModeSelectors()
+        setCompactUIMenuItem()
     }
 
-    func setupModeSelectors() {
+    func setCompactUIMenuItem() {
+        self.useCompactUI.state = self.prefs.useCompactUI ? .on : .off
+    }
+
+    func setModeSelectors() {
         self.searchModeSelectors =
             [fuzzyMatchModeItem,
              regexpModeItem,
@@ -121,10 +135,6 @@ class CutBoxController: NSObject {
                 }
             })
             .disposed(by: disposeBag)
-    }
-
-    @IBAction func searchModeSelect(_ sender: NSMenuItem) {
-        searchModeSelect(sender.accessibilityIdentifier())
     }
 
     func searchModeSelect(_ axID: String) {

@@ -20,6 +20,7 @@
                 <outlet property="regexpCaseSensitiveModeItem" destination="zPl-2W-1z9" id="8HV-UL-WEx"/>
                 <outlet property="regexpModeItem" destination="dFX-Ic-CdB" id="LcG-2V-1tt"/>
                 <outlet property="statusMenu" destination="r5R-nF-u2D" id="QbZ-3b-K66"/>
+                <outlet property="useCompactUI" destination="5dY-Oo-ff0" id="BRM-78-yWp"/>
             </connections>
         </customObject>
         <customObject id="gSk-na-fI8" customClass="SUUpdater"/>
@@ -53,6 +54,13 @@
                         <action selector="searchModeSelect:" target="4hl-ia-0EP" id="riV-Ld-umH"/>
                     </connections>
                 </menuItem>
+                <menuItem isSeparatorItem="YES" id="3hp-KI-Agg"/>
+                <menuItem title="Use Compact UI" id="5dY-Oo-ff0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="useCompactUIClicked:" target="4hl-ia-0EP" id="XXj-bD-394"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="H3m-ta-Vrc"/>
                 <menuItem title="Preferences" id="7xP-Aa-bCL">
                     <modifierMask key="keyEquivalentModifierMask"/>
@@ -66,7 +74,7 @@
                         <action selector="clearHistoryClicked:" target="4hl-ia-0EP" id="9Sd-8I-Ob6"/>
                     </connections>
                 </menuItem>
-                <menuItem isSeparatorItem="YES" id="3hp-KI-Agg"/>
+                <menuItem isSeparatorItem="YES" id="cm5-6X-4c3"/>
                 <menuItem title="Check for updates" id="MVu-fM-PnG">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>

@@ -28,6 +28,12 @@ class SearchTextView: NSTextView {
         super.keyDown(with: with)
     }
 
+    private var augmentedSelectors: [Selector] { return [
+        "moveRight:",
+        "moveLeft:"
+        ].map { Selector($0) }
+    }
+
     private var skippedSelectors: [Selector] { return [
         "deleteToBeginningOfLine:",
         "moveUp:",
@@ -62,14 +68,23 @@ class SearchTextView: NSTextView {
             default:
                 break
             }
-
         }
 
-        if  skippedSelectors.contains(selector) {
+        if augmentedSelectors.contains(selector) {
+            super.doCommand(by: selector)
             self.nextResponder?.keyDown(with: keyDownEvent!)
+            keyDownEvent = nil
+            return
+        }
+
+        if skippedSelectors.contains(selector) {
+            self.nextResponder?.keyDown(with: keyDownEvent!)
+            keyDownEvent = nil
+            return
         } else {
             super.doCommand(by: selector)
+            keyDownEvent = nil
+            return
         }
-        keyDownEvent = nil
     }
 }

@@ -16,4 +16,6 @@ enum SearchViewEvents {
     case toggleTheme
     case toggleWrappingStrings
     case toggleJoinStrings
+    case revealItemsAndPreview
+    case hideItemsAndPreview
 }

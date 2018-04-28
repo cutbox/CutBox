@@ -23,6 +23,7 @@ class CutBoxPreferencesService {
     private var kWrapStringEnd = "wrapStringEnd"
     private var kHistoryLimited = "historyLimited"
     private var kHistoryLimit = "historyLimit"
+    private var kUseCompactUI = "useCompactUI"
 
     var events: PublishSubject<CutBoxPreferencesEvent>!
 
@@ -281,6 +282,15 @@ class CutBoxPreferencesService {
         }
         get {
             return defaults.integer(forKey: kHistoryLimit)
+        }
+    }
+
+    var useCompactUI: Bool {
+        set {
+            defaults.set(newValue, forKey: kUseCompactUI)
+        }
+        get {
+            return defaults.bool(forKey: kUseCompactUI)
         }
     }
 }

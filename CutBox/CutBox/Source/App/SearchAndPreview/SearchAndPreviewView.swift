@@ -20,6 +20,8 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeToggle: NSButton!
 
+    @IBOutlet weak var historyContainer: NSStackView!
+    @IBOutlet weak var bottomBar: NSView!
     internal let prefs = CutBoxPreferencesService.shared
     
     var events = PublishSubject<SearchViewEvents>()
@@ -104,6 +106,11 @@ class SearchAndPreviewView: NSView {
 
     private func setupSearchText() {
         searchText.delegate = self
-        searchText.isFieldEditor = true
+        searchText.isFieldEditor = true        
+    }
+
+    func hideItemsAndPreview(_ bool: Bool) {
+        self.bottomBar.isHidden = bool
+        self.historyContainer.isHidden = bool
     }
 }

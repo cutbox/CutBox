@@ -110,6 +110,17 @@ class SearchViewController: NSObject {
         self.searchView.clipboardItemsTable.delegate = self
 
         self.searchView.filterText
+            .map { $0.isEmpty }
+            .bind {
+                if self.prefs.useCompactUI {
+                    self.searchView.hideItemsAndPreview($0)
+                } else {
+                    self.searchView.hideItemsAndPreview(false)
+                }
+            }
+            .disposed(by: disposeBag)
+
+        self.searchView.filterText
             .bind {
                 self.pasteboardService.filterText = $0
                 self.searchView.clipboardItemsTable.reloadData()
@@ -174,7 +185,7 @@ class SearchViewController: NSObject {
         let width = screen.frame.width / 1.6
         let height = screen.frame.height / 1.8
 
-        popup.yPadding = -1
+        popup.yPadding = Double(screen.frame.height / 8.0)
 
         popup.resizePopup(width: Double(width),
                           height: Double(height))
