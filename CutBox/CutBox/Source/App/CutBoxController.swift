@@ -65,7 +65,6 @@ class CutBoxController: NSObject {
 
     @IBAction func useCompactUIClicked(_ sender: NSMenuItem) {
         self.prefs.useCompactUI = !self.prefs.useCompactUI
-        self.setCompactUIMenuItem()
     }
 
     @IBAction func searchModeSelect(_ sender: NSMenuItem) {
@@ -79,8 +78,11 @@ class CutBoxController: NSObject {
         self.prefs
             .events
             .subscribe(onNext: {
-                if case CutBoxPreferencesEvent.historyLimitChanged(let limit) = $0 {
+                switch $0 {
+                case .historyLimitChanged(let limit):
                     self.pasteboardService.historyLimit = limit
+                case .compactUISettingChanged(let isOn):
+                    self.useCompactUI.state = isOn ? .on : .off
                 }
             })
             .disposed(by: disposeBag)
@@ -97,6 +99,7 @@ class CutBoxController: NSObject {
     }
 
     func setCompactUIMenuItem() {
+        self.useCompactUI.title = "preferences_use_compact_ui".l7n
         self.useCompactUI.state = self.prefs.useCompactUI ? .on : .off
     }
 

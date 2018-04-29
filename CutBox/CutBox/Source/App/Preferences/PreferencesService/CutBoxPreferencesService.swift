@@ -12,6 +12,7 @@ import RxSwift
 
 enum CutBoxPreferencesEvent {
     case historyLimitChanged(limit: Int)
+    case compactUISettingChanged(isOn: Bool)
 }
 
 class CutBoxPreferencesService {
@@ -288,6 +289,7 @@ class CutBoxPreferencesService {
     var useCompactUI: Bool {
         set {
             defaults.set(newValue, forKey: kUseCompactUI)
+            events.onNext(.compactUISettingChanged(isOn: newValue))
         }
         get {
             return defaults.bool(forKey: kUseCompactUI)

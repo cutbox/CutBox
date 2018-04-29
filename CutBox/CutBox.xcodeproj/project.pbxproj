@@ -73,6 +73,7 @@
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* PasteboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* PasteboardService.swift */; };
 		968D7C932094778900FF1236 /* magnitude.png in Resources */ = {isa = PBXBuildFile; fileRef = 968D7C922094778900FF1236 /* magnitude.png */; };
+		968D7C952095778800FF1236 /* PreferencesWindow+UseCompactUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */; };
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKeyEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKeyEvents.swift */; };
@@ -229,6 +230,7 @@
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* PasteboardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardService.swift; sourceTree = "<group>"; };
 		968D7C922094778900FF1236 /* magnitude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnitude.png; path = CutBox/GraphicAssets/magnitude.png; sourceTree = SOURCE_ROOT; };
+		968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+UseCompactUI.swift"; sourceTree = "<group>"; };
 		9696764B20841E2F00DD3256 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKeyEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKeyEvents.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */,
 				964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */,
 				964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */,
+				968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */,
 				964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */,
 				964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */,
 				964CA4FF207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift */,
@@ -947,6 +950,7 @@
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
 				964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
+				968D7C952095778800FF1236 /* PreferencesWindow+UseCompactUI.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
 				964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */,
 				965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */,

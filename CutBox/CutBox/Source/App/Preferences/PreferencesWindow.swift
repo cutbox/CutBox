@@ -38,6 +38,7 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
     @IBOutlet weak var historyLimitTitle: NSTextField!
     @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
+    @IBOutlet weak var compactUICheckbox: NSButton!
 
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
         prefs.theme = sender.index(of: sender.selectedItem!)
@@ -54,6 +55,7 @@ class PreferencesWindow: NSWindow {
         self.titlebarAppearsTransparent = true
 
         setupAutoLoginControl()
+        setupCompactUIControl()
         setupThemeSelector()
         setupKeyRecorders()
         setupHistoryLimitControls()
