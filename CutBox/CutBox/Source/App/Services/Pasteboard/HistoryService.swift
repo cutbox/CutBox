@@ -1,5 +1,5 @@
 //
-//  PasteboardService.swift
+//  HistoryService.swift
 //  CutBox
 //
 //  Created by Jason Milkins on 24/3/18.
@@ -19,9 +19,9 @@ class PasteboardWrapper: PasteboardWrapperType {
     }
 }
 
-class PasteboardService: NSObject {
+class HistoryService: NSObject {
 
-    static let shared = PasteboardService()
+    static let shared = HistoryService()
 
     var _historyLimit: Int = 0
     var historyLimit: Int {
@@ -42,32 +42,34 @@ class PasteboardService: NSObject {
     var pollingTimer: Timer?
     var filterText: String?
 
-    private var _defaultSearchMode: PasteboardSearchMode = .fuzzyMatch
+    private var _defaultSearchMode: HistorySearchMode = .fuzzyMatch
 
-    var searchMode: PasteboardSearchMode {
+    var searchMode: HistorySearchMode {
         set {
             self.defaults.set(newValue.axID(), forKey: kSearchModeKey)
         }
         get {
             if let axID = self.defaults.string(forKey: kSearchModeKey) {
-                return PasteboardSearchMode.searchMode(from: axID)
+                return HistorySearchMode.searchMode(from: axID)
             }
             return _defaultSearchMode
         }
     }
 
     private var kSearchModeKey = "searchMode"
-    private var kPasteStoreKey = "pasteStore"
-    private var pasteStore: [String] = []
+    private var kLegacyHistoryStoreKey = "pasteStore"
+    private var kSecureHistoryStoreKey = "historyStore"
+
+    private var legacyHistoryStore: [String] = []
 
     override init() {
         self.defaults = NSUserDefaultsController.shared.defaults
         self.pasteboard = PasteboardWrapper()
 
-        if let pasteStoreDefaults = defaults.array(forKey: kPasteStoreKey) {
-            self.pasteStore = pasteStoreDefaults as! [String]
+        if let pasteStoreDefaults = defaults.array(forKey: kLegacyHistoryStoreKey) {
+            self.legacyHistoryStore = pasteStoreDefaults as! [String]
         } else {
-            self.pasteStore = []
+            self.legacyHistoryStore = []
         }
 
         super.init()
@@ -75,29 +77,28 @@ class PasteboardService: NSObject {
 
     private func truncateItems() {
         let limit = self.historyLimit
-        if limit > 0 && pasteStore.count > limit {
-            pasteStore.removeSubrange(limit..<pasteStore.count)
+        if limit > 0 && legacyHistoryStore.count > limit {
+            legacyHistoryStore.removeSubrange(limit..<legacyHistoryStore.count)
         }
     }
 
     var items: [String] {
         guard let search = self.filterText, search != ""
-            else { return pasteStore }
+            else { return legacyHistoryStore }
 
         switch searchMode {
         case .fuzzyMatch:
-            return pasteStore.fuzzySearchRankedFiltered(
+            return legacyHistoryStore.fuzzySearchRankedFiltered(
                 search: search,
                 score: Constants.searchFuzzyMatchMinScore)
         case .regexpAnyCase:
-            return pasteStore.regexpSearchFiltered(
+            return legacyHistoryStore.regexpSearchFiltered(
                 search: search,
                 options: [.caseInsensitive])
         case .regexpStrictCase:
-            return pasteStore.regexpSearchFiltered(
+            return legacyHistoryStore.regexpSearchFiltered(
                 search: search,
                 options: [])
-
         }
     }
 
@@ -129,32 +130,32 @@ class PasteboardService: NSObject {
     }
 
     @discardableResult
-    func toggleSearchMode() -> PasteboardSearchMode {
+    func toggleSearchMode() -> HistorySearchMode {
         self.searchMode = self.searchMode.next()
         return self.searchMode
     }
 
     func clear() {
         clearDefaults()
-        pasteStore = []
+        legacyHistoryStore = []
     }
 
     func remove(items: IndexSet) {
         let indexes = items
             .flatMap { self.items[safe: $0] }
-            .map { self.pasteStore.index(of: $0) }
+            .map { self.legacyHistoryStore.index(of: $0) }
             .flatMap { $0 }
 
-        self.pasteStore
+        self.legacyHistoryStore
             .removeAtIndexes(indexes: IndexSet(indexes))
     }
 
     func clearDefaults() {
-        defaults.removeObject(forKey: kPasteStoreKey)
+        defaults.removeObject(forKey: kLegacyHistoryStoreKey)
     }
 
     func saveToDefaults() {
-        defaults.set(self.pasteStore, forKey: kPasteStoreKey)
+        defaults.set(self.legacyHistoryStore, forKey: kLegacyHistoryStoreKey)
     }
 
     deinit {
@@ -163,7 +164,7 @@ class PasteboardService: NSObject {
 
     @objc func pollPasteboard() {
         if let clip = self.replaceWithLatest() {
-            self.pasteStore.insert(clip, at: 0)
+            self.legacyHistoryStore.insert(clip, at: 0)
             self.truncateItems()
             self.saveToDefaults()
         }
@@ -172,11 +173,11 @@ class PasteboardService: NSObject {
     func replaceWithLatest() -> String? {
         guard let currentClip = clipboardContent() else { return nil }
 
-        if let indexOfClip = pasteStore.index(of: currentClip) {
-            pasteStore.remove(at: indexOfClip)
+        if let indexOfClip = legacyHistoryStore.index(of: currentClip) {
+            legacyHistoryStore.remove(at: indexOfClip)
         }
 
-        return pasteStore.first == currentClip ? nil : currentClip
+        return legacyHistoryStore.first == currentClip ? nil : currentClip
     }
 
     func clipboardContent() -> String? {

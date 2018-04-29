@@ -1,5 +1,5 @@
 //
-//  PasteboardServiceSpec.swift
+//  HistoryServiceSpec.swift
 //  CutBoxTests
 //
 //  Created by Jason on 12/4/18.
@@ -26,15 +26,15 @@ fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
 }
 
 fileprivate func addToFakePasteboardAndPoll(string: String,
-                                            subject: PasteboardService,
+                                            subject: HistoryService,
                                             pboard: PasteboardWrapperMock) {
     pboard.addToFakePasteboard(string: string)
     subject.pollPasteboard()
 }
 
-class PasteboardServiceSpec: QuickSpec {
+class HistoryServiceSpec: QuickSpec {
     override func spec() {
-        var subject: PasteboardService!
+        var subject: HistoryService!
         var mockPasteboard: PasteboardWrapperMock!
         var defaults: UserDefaults!
 
@@ -59,9 +59,9 @@ class PasteboardServiceSpec: QuickSpec {
         ]
 
         beforeEach {
-            subject = PasteboardService()
+            subject = HistoryService()
 
-            defaults = UserDefaults(suiteName: "PasteboardServiceSpec")!
+            defaults = UserDefaults(suiteName: "HistoryServiceSpec")!
             subject.defaults = defaults
 
             mockPasteboard = PasteboardWrapperMock()
@@ -71,7 +71,7 @@ class PasteboardServiceSpec: QuickSpec {
         }
 
         afterEach {
-            defaults.removeSuite(named: "PasteboardServiceSpec")
+            defaults.removeSuite(named: "HistoryServiceSpec")
         }
 
         it("starts with an empty pasteboard") {

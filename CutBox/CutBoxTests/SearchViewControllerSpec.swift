@@ -11,7 +11,7 @@ import Nimble
 
 @testable import CutBox
 
-class PasteboardServiceMock: PasteboardService {
+class HistoryServiceMock: HistoryService {
 
     override init() {
         super.init()
@@ -40,23 +40,23 @@ class SearchViewControllerSpec: QuickSpec {
 
         describe("SearchViewController") {
 
-            var pasteboardMock: PasteboardServiceMock!
+            var historyServiceMock: HistoryServiceMock!
             var subject:  SearchViewController!
             var tableView: NSTableView!
 
             beforeEach {
-                pasteboardMock = PasteboardServiceMock()
-                pasteboardMock.defaults = UserDefaults(suiteName: "FakeDefaults")!
+                historyServiceMock = HistoryServiceMock()
+                historyServiceMock.defaults = UserDefaults(suiteName: "FakeDefaults")!
 
                 subject = SearchViewController(
-                    pasteboardService: pasteboardMock
+                    pasteboardService: historyServiceMock
                 )
 
                 tableView = subject.searchView.clipboardItemsTable!
             }
 
             afterEach {
-                pasteboardMock.defaults.removeSuite(named: "FakeDefaults")
+                historyServiceMock.defaults.removeSuite(named: "FakeDefaults")
             }
 
             it("presents rows for each item in the pasteboard service store") {

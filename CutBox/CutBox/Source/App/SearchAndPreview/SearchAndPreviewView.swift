@@ -26,7 +26,7 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var historyContainer: NSStackView!
     @IBOutlet weak var bottomBar: NSView!
     internal let prefs = CutBoxPreferencesService.shared
-    
+
     var events = PublishSubject<SearchViewEvents>()
     var filterText = PublishSubject<String>()
     var placeholderText = PublishSubject<String>()
@@ -69,7 +69,7 @@ class SearchAndPreviewView: NSView {
         self.events.onNext(.removeSelected)
     }
 
-    func setSearchModeButton(mode: PasteboardSearchMode) {
+    func setSearchModeButton(mode: HistorySearchMode) {
         let color = [NSAttributedStringKey.foregroundColor: prefs.currentTheme.clip.clipItemsTextColor]
         let titleString = NSAttributedString(string: mode.name(), attributes: color)
 
@@ -78,7 +78,7 @@ class SearchAndPreviewView: NSView {
     }
 
     private func setupSearchModeToggle() {
-        let mode = PasteboardService.shared.searchMode
+        let mode = HistoryService.shared.searchMode
         setSearchModeButton(mode: mode)
 
         self.searchModeToggle

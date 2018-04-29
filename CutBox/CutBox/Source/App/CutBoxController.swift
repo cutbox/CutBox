@@ -22,10 +22,10 @@ class CutBoxController: NSObject {
     let searchViewController: SearchViewController
     let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
-    
+
     let hotKeyService = HotKeyService.shared
     let prefs = CutBoxPreferencesService.shared
-    let pasteboardService = PasteboardService.shared
+    let pasteboardService = HistoryService.shared
 
     private let disposeBag = DisposeBag()
 
@@ -116,7 +116,7 @@ class CutBoxController: NSObject {
         ]
 
         checkSearchModeItem(
-            PasteboardService
+            HistoryService
             .shared
             .searchMode
             .axID()
@@ -141,7 +141,7 @@ class CutBoxController: NSObject {
     }
 
     func searchModeSelect(_ axID: String) {
-        let mode = PasteboardSearchMode.searchMode(from: axID)
+        let mode = HistorySearchMode.searchMode(from: axID)
         searchViewController.events.onNext(.setSearchMode(mode))
     }
 

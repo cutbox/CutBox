@@ -1,5 +1,5 @@
 //
-//  PasteboardSearchMode.swift
+//  HistorySearchMode.swift
 //  CutBox
 //
 //  Created by Jason on 8/4/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum PasteboardSearchMode {
+enum HistorySearchMode {
     case fuzzyMatch, regexpAnyCase, regexpStrictCase
 
     func name() -> String {
@@ -44,7 +44,7 @@ enum PasteboardSearchMode {
         }
     }
 
-    static func searchMode(from string: String) -> PasteboardSearchMode {
+    static func searchMode(from string: String) -> HistorySearchMode {
         switch string {
         case "fuzzyMatch":
             return .fuzzyMatch
@@ -57,7 +57,7 @@ enum PasteboardSearchMode {
         }
     }
 
-    mutating func next() -> PasteboardSearchMode {
+    mutating func next() -> HistorySearchMode {
         switch self{
         case .fuzzyMatch:
             return .regexpAnyCase
