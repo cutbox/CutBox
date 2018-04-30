@@ -73,11 +73,16 @@ class HistoryService: NSObject {
         if let legacyHistoryStoreDefaults = defaults.array(forKey: self.kLegacyHistoryStoreKey) {
             self.legacyHistoryStore = legacyHistoryStoreDefaults as! [String]
 
-            self.historyRepo.migrate(self.legacyHistoryStore)
-            self.historyRepo.saveToDefaults()
-
-            self.historyRepo.clear()
             self.historyRepo.loadFromDefaults()
+
+            if self.historyRepo.items.count == 0 {
+                self.historyRepo.migrate(self.legacyHistoryStore)
+                self.historyRepo.saveToDefaults()
+                self.historyRepo.clear()
+                self.historyRepo.loadFromDefaults()
+            } else {
+                self.historyRepo.migrate(self.legacyHistoryStore)
+            }
 
             defaults.removeObject(forKey: self.kLegacyHistoryStoreKey)
         } else {

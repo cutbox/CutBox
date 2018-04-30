@@ -29,6 +29,14 @@ class HistoryRepo {
         self.store = []
     }
 
+    func hasString(_ string: String) -> Bool {
+        return items.index(of: string) != nil
+    }
+
+    func index(of string: String) -> Int? {
+        return items.index(of: string)
+    }
+
     func insert(_ newElement: String, at: Int = 0) {
         self.store.insert([stringKey: newElement], at: at)
     }
@@ -47,7 +55,9 @@ class HistoryRepo {
 
     func migrate(_ newElements: [String], at: Int = 0) {
         newElements.forEach {
-            self.store.append([stringKey: $0])
+            if index(of: $0) == nil  {
+                self.store.append([stringKey: $0])
+            }
         }
     }
 
@@ -57,7 +67,7 @@ class HistoryRepo {
         if let historyStore = self.defaults.array(forKey: key) as? [[String:String]] {
             self.store = historyStore
         } else {
-            NSLog("Unable to load historyStore from UserDefaults")
+            self.store = []
         }
     }
 
