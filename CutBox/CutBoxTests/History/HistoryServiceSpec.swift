@@ -12,6 +12,10 @@ import RxSwift
 
 @testable import CutBox
 
+fileprivate class HistoryRepoMock: HistoryRepo {
+
+}
+
 fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
     var pasteboardItems: [NSPasteboardItem]?
 
@@ -36,6 +40,7 @@ class HistoryServiceSpec: QuickSpec {
     override func spec() {
         var subject: HistoryService!
         var mockPasteboard: PasteboardWrapperMock!
+        var mockHistoryRepo: HistoryRepoMock!
         var defaults: UserDefaults!
 
         let fakeItems = [
@@ -59,19 +64,20 @@ class HistoryServiceSpec: QuickSpec {
         ]
 
         beforeEach {
-            subject = HistoryService()
 
-            defaults = UserDefaults(suiteName: "HistoryServiceSpec")!
-            subject.defaults = defaults
+            let testUserDefaultsDomain = "HistoryServiceSpec"
+
+            UserDefaults().removePersistentDomain(forName: testUserDefaultsDomain)
+            defaults = UserDefaults(suiteName: testUserDefaultsDomain)!
+            subject = HistoryService(defaults: defaults)
 
             mockPasteboard = PasteboardWrapperMock()
+            mockHistoryRepo = HistoryRepoMock()
+
             subject.pasteboard = mockPasteboard
+            subject.historyRepo = mockHistoryRepo
 
             subject.clear()
-        }
-
-        afterEach {
-            defaults.removeSuite(named: "HistoryServiceSpec")
         }
 
         it("starts with an empty pasteboard") {
@@ -105,11 +111,6 @@ class HistoryServiceSpec: QuickSpec {
                 subject.clear()
 
                 expect(subject.count).to(equal(0))
-            }
-
-            it("saves storage to user defaults") {
-                expect(defaults.array(forKey: "pasteStore") as? [String])
-                    .to(equal(fakeItems.reversed()))
             }
 
             context("duplicate handling") {

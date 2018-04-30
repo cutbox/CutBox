@@ -60,16 +60,28 @@ class HistoryService: NSObject {
     private var kLegacyHistoryStoreKey = "pasteStore"
     private var kSecureHistoryStoreKey = "historyStore"
 
+    @available(*, message: "Deprecated use historyRepo")
     private var legacyHistoryStore: [String] = []
 
-    override init() {
-        self.defaults = NSUserDefaultsController.shared.defaults
-        self.pasteboard = PasteboardWrapper()
+    var historyRepo: HistoryRepo!
 
-        if let pasteStoreDefaults = defaults.array(forKey: kLegacyHistoryStoreKey) {
-            self.legacyHistoryStore = pasteStoreDefaults as! [String]
+    init(defaults: UserDefaults = UserDefaults.standard) {
+        self.defaults = defaults
+        self.pasteboard = PasteboardWrapper()
+        self.historyRepo = HistoryRepo()
+
+        if let legacyHistoryStoreDefaults = defaults.array(forKey: self.kLegacyHistoryStoreKey) {
+            self.legacyHistoryStore = legacyHistoryStoreDefaults as! [String]
+
+            self.historyRepo.migrate(self.legacyHistoryStore)
+            self.historyRepo.saveToDefaults()
+
+            self.historyRepo.clear()
+            self.historyRepo.loadFromDefaults()
+
+            defaults.removeObject(forKey: self.kLegacyHistoryStoreKey)
         } else {
-            self.legacyHistoryStore = []
+            self.historyRepo.loadFromDefaults()
         }
 
         super.init()
@@ -77,26 +89,26 @@ class HistoryService: NSObject {
 
     private func truncateItems() {
         let limit = self.historyLimit
-        if limit > 0 && legacyHistoryStore.count > limit {
-            legacyHistoryStore.removeSubrange(limit..<legacyHistoryStore.count)
+        if limit > 0 && historyRepo.items.count > limit {
+            historyRepo.removeSubrange(limit..<historyRepo.items.count)
         }
     }
 
     var items: [String] {
         guard let search = self.filterText, search != ""
-            else { return legacyHistoryStore }
+            else { return historyRepo.items }
 
         switch searchMode {
         case .fuzzyMatch:
-            return legacyHistoryStore.fuzzySearchRankedFiltered(
+            return historyRepo.items.fuzzySearchRankedFiltered(
                 search: search,
                 score: Constants.searchFuzzyMatchMinScore)
         case .regexpAnyCase:
-            return legacyHistoryStore.regexpSearchFiltered(
+            return historyRepo.items.regexpSearchFiltered(
                 search: search,
                 options: [.caseInsensitive])
         case .regexpStrictCase:
-            return legacyHistoryStore.regexpSearchFiltered(
+            return historyRepo.items.regexpSearchFiltered(
                 search: search,
                 options: [])
         }
@@ -114,7 +126,7 @@ class HistoryService: NSObject {
         return items[safe: index]
     }
 
-    func startTimer() {
+    func beginPolling() {
         guard pollingTimer == nil else { return }
         pollingTimer = Timer.scheduledTimer(timeInterval: 0.2,
                                             target: self,
@@ -123,7 +135,7 @@ class HistoryService: NSObject {
                                             repeats: true)
     }
 
-    func stopTimer() {
+    func endPolling() {
         guard pollingTimer != nil else { return }
         pollingTimer?.invalidate()
         pollingTimer = nil
@@ -136,35 +148,30 @@ class HistoryService: NSObject {
     }
 
     func clear() {
-        clearDefaults()
-        legacyHistoryStore = []
+        self.historyRepo.clearHistory()
     }
 
     func remove(items: IndexSet) {
         let indexes = items
             .flatMap { self.items[safe: $0] }
-            .map { self.legacyHistoryStore.index(of: $0) }
+            .map { self.historyRepo.items.index(of: $0) }
             .flatMap { $0 }
 
-        self.legacyHistoryStore
+        self.historyRepo
             .removeAtIndexes(indexes: IndexSet(indexes))
     }
 
-    func clearDefaults() {
-        defaults.removeObject(forKey: kLegacyHistoryStoreKey)
-    }
-
     func saveToDefaults() {
-        defaults.set(self.legacyHistoryStore, forKey: kLegacyHistoryStoreKey)
+        self.historyRepo.saveToDefaults()
     }
 
     deinit {
-        self.stopTimer()
+        self.endPolling()
     }
 
     @objc func pollPasteboard() {
         if let clip = self.replaceWithLatest() {
-            self.legacyHistoryStore.insert(clip, at: 0)
+            self.historyRepo.insert(clip)
             self.truncateItems()
             self.saveToDefaults()
         }
@@ -173,26 +180,16 @@ class HistoryService: NSObject {
     func replaceWithLatest() -> String? {
         guard let currentClip = clipboardContent() else { return nil }
 
-        if let indexOfClip = legacyHistoryStore.index(of: currentClip) {
-            legacyHistoryStore.remove(at: indexOfClip)
+        if let indexOfClip = historyRepo.items.index(of: currentClip) {
+            historyRepo.remove(at: indexOfClip)
         }
 
-        return legacyHistoryStore.first == currentClip ? nil : currentClip
+        return historyRepo.items.first == currentClip ? nil : currentClip
     }
 
     func clipboardContent() -> String? {
         return pasteboard.pasteboardItems?
             .first?
             .string(forType: .string)
-    }
-}
-
-extension Array {
-    mutating func removeAtIndexes(indexes: IndexSet) {
-        var i:Index? = indexes.last
-        while i != nil {
-            self.remove(at: i!)
-            i = indexes.integerLessThan(i!)
-        }
     }
 }

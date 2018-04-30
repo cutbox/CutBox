@@ -13,13 +13,13 @@ import Nimble
 
 class HistoryServiceMock: HistoryService {
 
-    override init() {
-        super.init()
+    override init(defaults: UserDefaults) {
+        super.init(defaults: defaults)
     }
 
     var timerStarted = false
 
-    override func startTimer() {
+    override func beginPolling() {
         timerStarted = true
     }
 
@@ -43,10 +43,11 @@ class SearchViewControllerSpec: QuickSpec {
             var historyServiceMock: HistoryServiceMock!
             var subject:  SearchViewController!
             var tableView: NSTableView!
+            var defaults: UserDefaults!
 
             beforeEach {
-                historyServiceMock = HistoryServiceMock()
-                historyServiceMock.defaults = UserDefaults(suiteName: "FakeDefaults")!
+                defaults = UserDefaults(suiteName: "FakeDefaults")!
+                historyServiceMock = HistoryServiceMock(defaults: defaults)
 
                 subject = SearchViewController(
                     pasteboardService: historyServiceMock

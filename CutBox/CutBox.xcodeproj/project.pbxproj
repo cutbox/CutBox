@@ -74,6 +74,9 @@
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
 		968D7C932094778900FF1236 /* magnitude.png in Resources */ = {isa = PBXBuildFile; fileRef = 968D7C922094778900FF1236 /* magnitude.png */; };
 		968D7C952095778800FF1236 /* PreferencesWindow+UseCompactUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */; };
+		968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7C9D2095872200FF1236 /* HistoryRepo.swift */; };
+		968D7CA32095FF6A00FF1236 /* Array+removeAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */; };
+		968D7CA62096063C00FF1236 /* HistoryRepoSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */; };
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKeyEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKeyEvents.swift */; };
@@ -231,6 +234,9 @@
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
 		968D7C922094778900FF1236 /* magnitude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnitude.png; path = CutBox/GraphicAssets/magnitude.png; sourceTree = SOURCE_ROOT; };
 		968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesWindow+UseCompactUI.swift"; sourceTree = "<group>"; };
+		968D7C9D2095872200FF1236 /* HistoryRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepo.swift; sourceTree = "<group>"; };
+		968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+removeAtIndexes.swift"; sourceTree = "<group>"; };
+		968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepoSpec.swift; sourceTree = "<group>"; };
 		9696764B20841E2F00DD3256 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKeyEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKeyEvents.swift; sourceTree = "<group>"; };
@@ -379,12 +385,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		96429D54208C11520055D678 /* Services */ = {
+		96429D54208C11520055D678 /* History */ = {
 			isa = PBXGroup;
 			children = (
 				964CA51D207F2E3400B9F33E /* HistoryServiceSpec.swift */,
+				968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */,
 			);
-			path = Services;
+			path = History;
 			sourceTree = "<group>";
 		};
 		96429D56208C117E0055D678 /* Preferences */ = {
@@ -412,6 +419,7 @@
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */,
 				964CA5482083296600B9F33E /* String+L10n.swift */,
 				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
 				964766682067B82900E7026F /* DisableScrollView.swift */,
@@ -474,13 +482,14 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		96DB5387208ADB28004BAAEF /* Pasteboard */ = {
+		96DB5387208ADB28004BAAEF /* History */ = {
 			isa = PBXGroup;
 			children = (
 				968A97C020667CF800D36B50 /* HistoryService.swift */,
 				9672FF2E2079C89400E4571E /* HistorySearchMode.swift */,
+				968D7C9D2095872200FF1236 /* HistoryRepo.swift */,
 			);
-			path = Pasteboard;
+			path = History;
 			sourceTree = "<group>";
 		};
 		96DB5388208ADBC6004BAAEF /* Components */ = {
@@ -534,7 +543,7 @@
 			children = (
 				96429D57208C11A90055D678 /* Extensions */,
 				96429D56208C117E0055D678 /* Preferences */,
-				96429D54208C11520055D678 /* Services */,
+				96429D54208C11520055D678 /* History */,
 				964CA520207F573C00B9F33E /* SearchViewControllerSpec.swift */,
 				96E1E5AA205D243400F994ED /* Info.plist */,
 			);
@@ -558,7 +567,7 @@
 		96E5A5022075D93400D24E41 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				96DB5387208ADB28004BAAEF /* Pasteboard */,
+				96DB5387208ADB28004BAAEF /* History */,
 				962D6D482073544F007E3785 /* HotKeyService.swift */,
 				96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */,
 				962D6D4C207357ED007E3785 /* VersionService.swift */,
@@ -961,6 +970,7 @@
 				965F0772206F9B190032DACD /* PopupControllerWindowDelegate.swift in Sources */,
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,
 				965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */,
+				968D7CA32095FF6A00FF1236 /* Array+removeAtIndexes.swift in Sources */,
 				9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */,
 				9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
@@ -968,6 +978,7 @@
 				964CA507207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift in Sources */,
 				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
+				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
 				964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
@@ -987,6 +998,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				964CA5342080360100B9F33E /* Array+IndexSetSpec.swift in Sources */,
+				968D7CA62096063C00FF1236 /* HistoryRepoSpec.swift in Sources */,
 				96429D59208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */,
 				964CA5382080395B00B9F33E /* Collection+SafeSpec.swift in Sources */,
 				964CA51E207F2E3400B9F33E /* HistoryServiceSpec.swift in Sources */,

@@ -12,7 +12,7 @@ import RxSwift
 class SearchViewController: NSObject {
 
     var searchView: SearchAndPreviewView
-    var pasteboardService: HistoryService
+    var historyService: HistoryService
     var prefs: CutBoxPreferencesService
 
     private let popup: PopupController
@@ -33,8 +33,8 @@ class SearchViewController: NSObject {
     init(pasteboardService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
         self.prefs = cutBoxPreferences
-        self.pasteboardService = pasteboardService
-        self.pasteboardService.startTimer()
+        self.historyService = pasteboardService
+        self.historyService.beginPolling()
         self.searchView = SearchAndPreviewView.fromNib()!
         self.popup = PopupController(content: self.searchView)
 
@@ -75,13 +75,13 @@ class SearchViewController: NSObject {
 
     private func removeSelected() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        self.pasteboardService.remove(items: indexes)
+        self.historyService.remove(items: indexes)
         self.searchView.clipboardItemsTable.reloadData()
     }
 
     func pasteSelectedClipToPasteboard() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let selectedClips = self.pasteboardService[indexes]
+        let selectedClips = self.historyService[indexes]
         guard !selectedClips.isEmpty else { return }
 
         pasteToPasteboard(selectedClips)
@@ -122,7 +122,7 @@ class SearchViewController: NSObject {
 
         self.searchView.filterText
             .bind {
-                self.pasteboardService.filterText = $0
+                self.historyService.filterText = $0
                 self.searchView.clipboardItemsTable.reloadData()
             }
             .disposed(by: self.disposeBag)
@@ -130,7 +130,7 @@ class SearchViewController: NSObject {
 
     func updatePreview() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = prefs.prepareClips(self.pasteboardService[indexes])
+        let preview = prefs.prepareClips(self.historyService[indexes])
         self.searchView.previewClip.string = preview
     }
 
@@ -139,12 +139,12 @@ class SearchViewController: NSObject {
             .subscribe(onNext: { event in
                 switch event {
                 case .setSearchMode(let mode):
-                    self.pasteboardService.searchMode = mode
+                    self.historyService.searchMode = mode
                     self.searchView.clipboardItemsTable.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .toggleSearchMode:
-                    let mode = self.pasteboardService.toggleSearchMode()
+                    let mode = self.historyService.toggleSearchMode()
                     self.searchView.clipboardItemsTable.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 

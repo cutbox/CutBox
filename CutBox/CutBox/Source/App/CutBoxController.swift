@@ -25,7 +25,7 @@ class CutBoxController: NSObject {
 
     let hotKeyService = HotKeyService.shared
     let prefs = CutBoxPreferencesService.shared
-    let pasteboardService = HistoryService.shared
+    let historyService = HistoryService.shared
 
     private let disposeBag = DisposeBag()
 
@@ -44,7 +44,7 @@ class CutBoxController: NSObject {
             messageText: "confirm_warning_clear_history_title".l7n,
             informativeText: "confirm_warning_clear_history".l7n,
             dialogName: "clearHistoryWarning") {
-            self.searchViewController.pasteboardService.clear()
+            self.searchViewController.historyService.clear()
         }
     }
 
@@ -80,7 +80,7 @@ class CutBoxController: NSObject {
             .subscribe(onNext: {
                 switch $0 {
                 case .historyLimitChanged(let limit):
-                    self.pasteboardService.historyLimit = limit
+                    self.historyService.historyLimit = limit
                 case .compactUISettingChanged(let isOn):
                     self.useCompactUI.state = isOn ? .on : .off
                 }
@@ -146,7 +146,7 @@ class CutBoxController: NSObject {
     }
 
     func checkSearchModeItem() {
-        let axID = pasteboardService.searchMode.axID()
+        let axID = historyService.searchMode.axID()
         searchModeSelectors?.forEach { $0.state = .off }
         searchModeSelectorsDict?[axID]?.state = .on
     }
