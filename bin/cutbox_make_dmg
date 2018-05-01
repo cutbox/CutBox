@@ -9,8 +9,6 @@ EOF
 
 DMG_FILE="$1"
 
-notify "Making new DMG..." "$1"
-
 if [[ $(which appdmg) =~ "not found" ]]; then
   echo "node-appdmg required."
   echo "visit: https://github.com/LinusU/node-appdmg"
@@ -29,15 +27,20 @@ latest_app=$(find ~/Library/Developer/Xcode/Archives \
                      ls -1t -d \
                | head -1)
 
+notify "Prepare..." "$1 / $(pwd)"
+
 cp -R "$latest_app" "$bin_folder"
 
 echo "Making CutBox.dmg"
 
 notify "Making new DMG..." "${DMG_FILE}"
 
+
 appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
 
-notify "Check dmg" "$(ls "$DMG_FILE")"
+notify "Check dmg (sleep)" "$(ls "$DMG_FILE")"
+
+sleep 30
 
 rm -rf "${bin_folder}/CutBox.app"
 
