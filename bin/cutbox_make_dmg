@@ -9,6 +9,8 @@ EOF
 
 DMG_FILE="$1"
 
+notify "Making new DMG..." "$1"
+
 if [[ $(which appdmg) =~ "not found" ]]; then
   echo "node-appdmg required."
   echo "visit: https://github.com/LinusU/node-appdmg"
