@@ -3,7 +3,7 @@
 
 notify() {
     osascript <<EOF
-    display notification "$2" with title "$1" sound name "${3:-Submarine}"
+    display notification "$2" with title "$1"
 EOF
 }
 
