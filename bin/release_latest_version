@@ -14,8 +14,6 @@ fi
 
 GITHUB_TOKEN=$1
 
-notify "GITHUB_TOKEN" "${GITHUB_TOKEN}"
-
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
 DMG_FILE="${PROJECT_DIR}/CutBox.dmg"
@@ -39,8 +37,6 @@ fi
 
 bin/cutbox_make_dmg "$DMG_FILE" \
   && \
-  notify "New DMG: $(ls "$DMG_FILE")" \
-  && \
   [[ -z $DRY_RUN ]] \
   && bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" && \
   notify "Updated README.md" "${OLD_VERSION} -> ${VERSION}" \
@@ -48,8 +44,6 @@ bin/cutbox_make_dmg "$DMG_FILE" \
   git push origin head \
   && \
   notify "Pushed README.md" "$VERSION pushed to GitHub" \
-  && \
-  notify "Hub release" "$VERSION $(ls "$DMG_FILE") $RELEASE_NOTES $GITHUB_TOKEN" \
   && \
   bin/cutbox_hub_release "$VERSION" "$DMG_FILE" "$RELEASE_NOTES" $GITHUB_TOKEN \
   && \
