@@ -46,7 +46,6 @@ if [[ -f "$dmg" ]]; then
       -a "$dmg" \
       $version
 
-  [[ $? != 0 ]] && notify "Hub Release Error" "there was a problem sending the release to GitHub"
 else
   notify "Error" "dmg file: ${dmg} : not found"
   echo "dmg file: ${dmg} : not found"
