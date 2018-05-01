@@ -19,6 +19,10 @@ class HistoryRepo {
        return self.store.map { $0[self.stringKey]! }
     }
 
+    var dict: [[String:String]] {
+        return self.store
+    }
+
     private var defaults: UserDefaults
 
     init(defaults: UserDefaults = UserDefaults.standard) {

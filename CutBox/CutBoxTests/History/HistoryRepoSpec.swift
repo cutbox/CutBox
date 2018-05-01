@@ -33,6 +33,11 @@ class HistoryRepoSpec: QuickSpec {
                 expect(subject.items).to(contain("Hello"))
             }
 
+            it("provides access to the dictionary store") {
+                subject.insert("Hello")
+                expect(subject.dict.first).to(equal(["string":"Hello"]))
+            }
+
             it("returns string items in the expected order") {
                 subject.insert("First")
                 subject.insert("Second")
