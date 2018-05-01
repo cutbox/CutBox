@@ -1,60 +1,54 @@
 #!/bin/sh
 # -*- mode: sh -*-
 
-if [[ $# > 1 && $# < 4 ]]; then
+notify() {
+  osascript <<EOF
+    display notification "$2" with title "$1" sound name "${3:-Submarine}"
+EOF
+}
+
+if [[ $# == 4 ]]; then
   echo "Initialize hub release: ${@}"
 else
-  echo "Usage: $0 {version} {dmg} [release_notes.md|message]"
+  notify "Error" "Usage: $0 {version} {dmg} {release-notes.md} {github_token}"
+  echo "Usage: $0 {version} {dmg} {release-notes.md} {github_token}"
   exit 1
 fi
 
-if [[ -z $GITHUB_TOKEN ]]; then
-  echo "GITHUB_TOKEN environment var is required"
-  exit 2
-fi
-
+export GITHUB_TOKEN=$4
 version=$1
+
+notify "Preparing hub release" "Version: ${version}"
 
 if [[ $version =~ [0-9]+\.[0-9]+\.[0-9]+ ]]; then
   echo "Version: ${version}"
 else
+  notify "Error" "Aborting: Version: ${version} is not valid (use semver)"
   echo "Aborting: Version: ${version} is not valid (use semver)"
   exit 3
 fi
 
 dmg=$2
 
-if [[ -z "$3" ]]; then
-  message="CutBox version ${version}"
+if [ -f "$3" ]; then
+  file=$3
 else
-  if [ -f "$3" ]; then
-    file=$3
-  else
-    message="$3"
-  fi
+  notify "Release notes" "$3 not found"
+  exit 1
 fi
 
 echo "Setup a new release tag and upload current dmg"
 
 if [[ -f "$dmg" ]]; then
-  if [[ -z $message || $message == "" ]]; then
-    echo "Using: [$file]"
+  
+  hub release create -p \
+      -f "$file" \
+      -a "$dmg" \
+      $version
 
-    hub release create -p \
-        -f "$file" \
-        -a "$dmg" \
-        $version
-
-  else
-    echo "Using message \"$message\""
-
-    hub release create -p \
-        -m "$message" \
-        -a "$dmg" \
-        $version
-
-  fi
+  [[ $? != 0 ]] && notify "Hub Release Error" "there was a problem sending the release to GitHub"
 else
+  notify "Error" "dmg file: ${dmg} : not found"
   echo "dmg file: ${dmg} : not found"
   exit 4
 fi

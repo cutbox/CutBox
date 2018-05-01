@@ -1,54 +1,64 @@
 #!/bin/sh
 
-if [[ "$(which semver)" == "semver not found" ]]; then
-  echo "semver required"
+notify() {
+    osascript <<EOF
+    display notification "$2" with title "$1" sound name "${3:-Submarine}"
+EOF
+}
+
+if [[ "$(which gsort)" == "gsort not found" ]]; then
+  notify "Release Dependency Missing" "gsort not installed"
+  echo "Release Dependency Missing - gsort not installed"
   exit 1
 fi
+
+GITHUB_TOKEN=$1
+
+notify "GITHUB_TOKEN" "${GITHUB_TOKEN}"
 
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
 DMG_FILE="${PROJECT_DIR}/CutBox.dmg"
 INFOPLIST_FILE="${PROJECT_DIR}/CutBox/CutBox/Info.plist"
-OLD_VERSION="$(semver $(git tag) | tail -1)"
-VERSION="$(/usr/libexec/PlistBuddy -c \
+OLD_VERSION=$(git tag | gsort -V | tail -1)
+VERSION=$(/usr/libexec/PlistBuddy -c \
                                   "Print CFBundleShortVersionString" \
-                                  "${INFOPLIST_FILE}")"
+                                  "${INFOPLIST_FILE}")
 
 if [ "${VERSION}" == "${OLD_VERSION}" ]; then
-
+  notify "Dry Run" "Warning: Current version and latest git tag match."
   echo "Warning: Current version and latest git tag match."
   DRY_RUN="TRUE"
-  echo "Notice: Dry run mode."
-
 fi
 
 [[ ! -z $DRY_RUN ]] && echo "Dry run..."
 
-if [[ -f $DMG_FILE ]]; then
-  echo "Aborting: CutBox.dmg already exists"
-  exit 1
+if [[ -f "$DMG_FILE" ]]; then
+  rm "$DMG_FILE"
 fi
 
-if [ -f "${RELEASE_NOTES}" ]; then
-  MESSAGE=$(< "${RELEASE_NOTES}")
-else
-  MESSAGE="CutBox version ${VERSION}"
-fi
-
-bin/cutbox_make_dmg \
+bin/cutbox_make_dmg "$DMG_FILE" \
+  && \
+  notify "New DMG: $(ls "$DMG_FILE")" \
   && \
   [[ -z $DRY_RUN ]] \
-  && bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" \
+  && bin/fix_readme_release_versions "${OLD_VERSION}" "${VERSION}" && \
+  notify "Updated README.md" "${OLD_VERSION} -> ${VERSION}" \
   && \
   git push origin head \
   && \
-  bin/cutbox_hub_release \
-    ${VERSION} \
-    CutBox.dmg \
-    "${MESSAGE}" \
+  notify "Pushed README.md" "$VERSION pushed to GitHub" \
+  && \
+  notify "Hub release" "$VERSION $(ls "$DMG_FILE") $RELEASE_NOTES $GITHUB_TOKEN" \
+  && \
+  bin/cutbox_hub_release "$VERSION" "$DMG_FILE" "$RELEASE_NOTES" $GITHUB_TOKEN \
+  && \
+  notify "Release ${VERSION}" "-> Released via GitHub" \
   && \
   git pull --rebase --autostash \
   && \
-  bin/clean_release_files
+  bin/clean_release_files \
+  && \
+  notify "Success" "CutBox ${VERSION} released, verify and update AppCast" \
 
 echo "Released CutBox version: ${VERSION}"
