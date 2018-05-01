@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Magnet
 
 fileprivate extension Character {
     var ascii: UInt32? {
