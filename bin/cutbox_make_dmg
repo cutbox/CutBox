@@ -35,7 +35,7 @@ echo "Making CutBox.dmg"
 
 notify "Making new DMG..." "${DMG_FILE}"
 
-appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}" 2>&1 | tee "$(pwd)/app_dmg.log"
+appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
 
 notify "Check dmg (sleep)" "$(ls "$DMG_FILE")"
 
