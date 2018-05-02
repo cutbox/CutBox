@@ -8,50 +8,58 @@
 
 import Foundation
 
-fileprivate extension Character {
-    var ascii: UInt32? {
-        let asciiCode: UInt32? = String(self).unicodeScalars.filter{$0.isASCII}.first?.value
-        return asciiCode
+import Magnet
+import Carbon
+
+func transformKeyCode(_ keyCode: Int) -> String {
+    let inputSource = unsafeBitCast(
+        TISGetInputSourceProperty(
+            TISCopyCurrentASCIICapableKeyboardLayoutInputSource().takeUnretainedValue(),
+            kTISPropertyUnicodeKeyLayoutData
+    ), to: CFData.self)
+
+    var deadKeyState: UInt32 = 0
+    var char = UniChar()
+    var length = 0
+
+    CoreServices.UCKeyTranslate(unsafeBitCast(CFDataGetBytePtr(inputSource),
+                                              to: UnsafePointer<CoreServices.UCKeyboardLayout>.self),
+                                UInt16(keyCode),
+                                UInt16(CoreServices.kUCKeyActionDisplay),
+                                UInt32(0),
+                                UInt32(LMGetKbdType()),
+                                OptionBits(CoreServices.kUCKeyTranslateNoDeadKeysBit),
+
+                                &deadKeyState,
+                                1,
+                                &length,
+                                &char)
+
+    return NSString(characters: &char, length: length).uppercased
+}
+
+func keyCodeTranslationTable() -> [String:Int] {
+    return (0x00...0x7E).reduce([String:Int]()) { (result, code) -> [String:Int] in
+        var r = result
+        r[transformKeyCode(code)] = code
+        return r
     }
 }
 
+func stringToKeyCode(_ key: String) -> Int {
+    guard key.count == 1 else { fatalError("Only single char strings can be used") }
+
+    let translationTable = keyCodeTranslationTable()
+
+    guard let keyCode = translationTable[key]
+        else { fatalError("Unable to get keyCode for: \(key)") }
+
+    return keyCode
+}
+
 func send(fakeKey key: String, useCommandFlag: Bool) {
-    let sourceRef = CGEventSource(stateID: .combinedSessionState)
-
-    if sourceRef == nil {
-        NSLog("No event source")
-        return
-    }
-
-    let asciiRange: [UInt16] = (0...255).map { UInt16($0) }
-    var asciiMap: [UniChar:UInt16] = [:]
-
-    asciiRange.forEach {
-        guard let event: CGEvent = CGEvent(
-            keyboardEventSource: sourceRef,
-            virtualKey: $0,
-            keyDown: true
-            )
-
-            else { fatalError("Cannot generate CGEvent for :\($0)") }
-
-        var (char, len) = (UniChar(), 0)
-        event.keyboardGetUnicodeString(
-            maxStringLength: 1,
-            actualStringLength: &len,
-            unicodeString: &char
-        )
-
-        asciiMap[char] = $0
-    }
-
-    if let asciiCode = key[key.startIndex].ascii {
-        let keyUniChar: UniChar = numericCast(asciiCode)
-        guard let keyCode = asciiMap[keyUniChar]
-            else { fatalError("Cannot get ASCII value for key: \(key)") }
-
-        send(fakeKey: keyCode, useCommandFlag: useCommandFlag)
-    }
+    let keyCode = stringToKeyCode(key)
+    send(fakeKey: numericCast(keyCode), useCommandFlag: useCommandFlag)
 }
 
 func send(fakeKey keyCode: CGKeyCode, useCommandFlag: Bool) {
