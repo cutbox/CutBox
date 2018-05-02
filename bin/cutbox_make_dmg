@@ -37,12 +37,9 @@ notify "Making new DMG..." "${DMG_FILE}"
 
 appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
 
-notify "Check dmg (sleep)" "$(ls "$DMG_FILE")"
-
-sleep 30
-
 rm -rf "${bin_folder}/CutBox.app"
 
+notify "Check DMG:" "$(ls "$DMG_FILE")"
 echo "Fresh Cutbox.dmg cut to ${DMG_FILE}"
 
 exit 0
