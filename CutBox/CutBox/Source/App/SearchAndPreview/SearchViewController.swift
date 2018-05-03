@@ -63,7 +63,7 @@ class SearchViewController: NSObject {
     }
 
     @objc func fakePaste() {
-        send(fakeKey: "V", useCommandFlag: true)
+        FakeKey.shared.send(fakeKey: "V", useCommandFlag: true)
     }
 
     private func closeAndPaste() {
