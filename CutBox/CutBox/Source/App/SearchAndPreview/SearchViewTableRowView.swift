@@ -24,6 +24,13 @@ class SearchViewTableRowView: NSTableRowView {
                 .onNext(.closeAndPasteSelected)
         }
 
+        if event.clickCount == 1
+            && modifiers == [.option] {
+            self.searchView?
+                .events
+                .onNext(.toggleFavorite)
+        }
+
         super.mouseDown(with: event)
     }
 

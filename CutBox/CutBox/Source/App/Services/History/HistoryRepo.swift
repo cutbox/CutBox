@@ -15,6 +15,7 @@ class HistoryRepo {
     private var storeDefaultsKey = "historyStore"
     private var stringKey = "string"
     private var favoriteKey = "favorite"
+    private var favoriteString = "★"
 
     var items: [String] {
        return self.store.map { $0[self.stringKey]! }
@@ -22,7 +23,7 @@ class HistoryRepo {
 
     var favorites: [String] {
         return self.store
-            .filter { $0[favoriteKey] == favoriteKey }
+            .filter { $0[favoriteKey] != "" }
             .map { $0[self.stringKey]! }
     }
 
@@ -62,9 +63,12 @@ class HistoryRepo {
 
     func toggleFavorite(indexes: IndexSet) {
         for i in indexes {
-            var item = self.store[i]
-            var isFavorite = item[self.favoriteKey]
-            isFavorite = isFavorite == self.favoriteKey ? "" : self.favoriteKey
+            let item = self.store[i]
+
+            let isFavorite = item[self.favoriteKey] != self.favoriteString
+                ? self.favoriteString
+                : ""
+
             self.store[i][favoriteKey] = isFavorite
         }
 

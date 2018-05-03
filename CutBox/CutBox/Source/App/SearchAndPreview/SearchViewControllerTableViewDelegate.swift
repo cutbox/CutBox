@@ -58,8 +58,8 @@ extension SearchViewController: NSTableViewDelegate {
         let identifier = NSUserInterfaceItemIdentifier(
             rawValue: "ClipItemTextField")
 
-        var textField: ClipItemTextField? = tableView.makeView(
-            withIdentifier: identifier, owner: self) as? ClipItemTextField
+        var textField: NSTextField? = tableView.makeView(
+            withIdentifier: identifier, owner: self) as? NSTextField
 
         if textField == nil {
             let textWidth = Int(tableView.frame.width)
@@ -69,7 +69,7 @@ extension SearchViewController: NSTableViewDelegate {
                                    width: textWidth,
                                    height: textHeight)
 
-            textField = ClipItemTextField.fromNib()
+            textField = NSTextField()
             textField?.frame = textFrame
             textField?.backgroundColor = NSColor.clear
             textField?.isBordered = false

@@ -194,10 +194,9 @@ class SearchViewController: NSObject {
     }
 
     private func configurePopup() {
-
         popup.proportionalTopPadding = 0.15
-        popup.proportionalWidth = 1.0 / 1.6
-        popup.proportionalHeight = 1.0 / 1.8
+        popup.proportionalWidth = 0.6
+        popup.proportionalHeight = 0.6
 
         popup.willOpenPopup = {
             self.popup.proportionalResizePopup()
