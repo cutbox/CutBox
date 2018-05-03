@@ -183,17 +183,14 @@ class SearchViewController: NSObject {
     }
 
     private func configurePopup() {
-        guard let screen = NSScreen.main else {
-            fatalError("Unable to get main screen")
+
+        popup.proportionalTopPadding = 0.15
+        popup.proportionalWidth = 1.0 / 1.6
+        popup.proportionalHeight = 1.0 / 1.8
+
+        popup.willOpenPopup = {
+            self.popup.proportionalResizePopup()
         }
-
-        let width = screen.frame.width / 1.6
-        let height = screen.frame.height / 1.8
-
-        popup.yPadding = Double(screen.frame.height / 8.0)
-
-        popup.resizePopup(width: Double(width),
-                          height: Double(height))
 
         popup.didOpenPopup = {
             guard let window = self.searchView.window else {

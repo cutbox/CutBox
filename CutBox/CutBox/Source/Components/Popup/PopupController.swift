@@ -19,7 +19,9 @@ class PopupController: NSWindowController {
     var currentHeight: Double = 0
     var currentWidth: Double = 0
 
-    var yPadding: Double = 0
+    var proportionalWidth: Double = 1.0 / 1.6
+    var proportionalHeight: Double = 1.0 / 1.8
+    var proportionalTopPadding: Double = 0
 
     var contentInset: CGFloat {
         get { return containerView.contentInset }
@@ -104,7 +106,7 @@ class PopupController: NSWindowController {
 
         frame.origin.y = ((NSScreen.main?.frame.height ?? CGFloat(height))
             - CGFloat(height))
-            - CGFloat(self.yPadding)
+            - CGFloat(self.proportionalTopPadding)
 
         frame.size.height = newSize.height
 
@@ -115,6 +117,16 @@ class PopupController: NSWindowController {
 
         containerView.resetConstraints()
         panel.setFrame(frame, display: true, animate: panel.isVisible)
+    }
+
+    func proportionalResizePopup() {
+        guard let screen = NSScreen.currentScreenForMouseLocation()
+            else { return }
+
+        let width = Double(screen.frame.width) * self.proportionalWidth
+        let height = Double(screen.frame.height) * self.proportionalHeight
+
+        resizePopup(width: width, height: height)
     }
 
     func resizePopup(width: Double) {
@@ -137,10 +149,10 @@ class PopupController: NSWindowController {
         self.isOpen = true
         self.contentView.isHidden = false
         let panelRect = rect(forPanel: self.panel)
+        self.panel.setFrame(panelRect, display: true)
 
         NSApp.activate(ignoringOtherApps: false)
 
-        self.panel.setFrame(panelRect, display: true)
         self.panel.makeKeyAndOrderFront(self)
         self.panel.alphaValue = 1
         self.isOpening = false
@@ -162,18 +174,33 @@ class PopupController: NSWindowController {
     }
 
     private func rect(forPanel panel: NSPanel) ->  CGRect {
-        guard let screen = NSScreen.main
+        guard let screen = NSScreen.currentScreenForMouseLocation()
             else { return CGRect.zero }
 
         let screenRect = screen.frame
         var panelRect = panel.frame
+        let topPadding = screenRect.height * CGFloat(self.proportionalTopPadding)
 
-        panelRect.origin.y = screenRect.height - panelRect.height - CGFloat(self.yPadding)
+        panelRect.origin.y = screenRect.height - panelRect.height
         panelRect.origin.x = round(screenRect.midX - panelRect.width / 2)
 
         if panelRect.maxX > screenRect.maxX {
             panelRect.origin.x -= panelRect.maxX - screenRect.maxX
         }
+
+        if panelRect.minX < screenRect.minX {
+            panelRect.origin.x -= screenRect.minX - panelRect.minX
+        }
+
+        if panelRect.maxY > screenRect.maxY {
+            panelRect.origin.y -= panelRect.maxY - screenRect.maxY
+        }
+
+        if panelRect.minY < screenRect.minY {
+            panelRect.origin.y -= screenRect.minY - panelRect.minY
+        }
+
+        panelRect.origin.y -= topPadding
 
         return panelRect
     }
