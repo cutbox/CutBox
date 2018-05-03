@@ -69,6 +69,10 @@ class SearchAndPreviewView: NSView {
         self.events.onNext(.removeSelected)
     }
 
+    @objc func toggleFavorite() {
+        self.events.onNext(.toggleFavorite)
+    }
+
     func setSearchModeButton(mode: HistorySearchMode) {
         let color = [NSAttributedStringKey.foregroundColor: prefs.currentTheme.clip.clipItemsTextColor]
         let titleString = NSAttributedString(string: mode.name(), attributes: color)
@@ -91,11 +95,18 @@ class SearchAndPreviewView: NSView {
 
     private func setupContextMenu() {
         let contextMenu = NSMenu()
+
         let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
                                 action: #selector(self.removeSelected),
                                 keyEquivalent: "")
-
         contextMenu.addItem(remove)
+
+        let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
+                                  action: #selector(self.toggleFavorite),
+                                  keyEquivalent: "")
+
+        contextMenu.addItem(favorite)
+
         clipboardItemsTable.menu = contextMenu
     }
 

@@ -21,7 +21,7 @@ class SearchViewTableRowView: NSTableRowView {
             && modifiers == [] {
             self.searchView?
                 .events
-                .onNext(.closeAndPaste)
+                .onNext(.closeAndPasteSelected)
         }
 
         super.mouseDown(with: event)

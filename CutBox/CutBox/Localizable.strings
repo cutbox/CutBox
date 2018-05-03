@@ -49,6 +49,7 @@
 "about_cutbox_copyright_licence" = "Copyright © 2018 Jason Milkins\nLicensed under GNU GPL3";
 
 "context_menu_remove_selected" = "Remove Selected";
+"context_menu_favorite" = "Toggle Favorite";
 
 "searchmode_fuzzy" = "Fuzzy match";
 "searchmode_regexp" = "RegExp/i";

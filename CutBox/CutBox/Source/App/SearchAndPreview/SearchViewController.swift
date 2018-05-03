@@ -79,8 +79,12 @@ class SearchViewController: NSObject {
     }
 
     private func removeSelected() {
-        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        self.historyService.remove(items: indexes)
+        self.historyService.remove(items: self.selectedItems)
+        self.searchView.clipboardItemsTable.reloadData()
+    }
+
+    private func toggleFavorite() {
+        self.historyService.toggleFavorite(items: self.selectedItems)
         self.searchView.clipboardItemsTable.reloadData()
     }
 
@@ -166,10 +170,17 @@ class SearchViewController: NSObject {
                     self.prefs.useJoinString = !self.prefs.useJoinString
                     self.updatePreview()
 
+                case .toggleOnlyFavorites:
+                    self.historyService.favoritesOnly = !self.historyService.favoritesOnly
+                    self.searchView.clipboardItemsTable.reloadData()
+
+                case .toggleFavorite:
+                    self.toggleFavorite()
+
                 case .justClose:
                     self.closePopup()
 
-                case .closeAndPaste:
+                case .closeAndPasteSelected:
                     self.closeAndPaste()
 
                 case .removeSelected:

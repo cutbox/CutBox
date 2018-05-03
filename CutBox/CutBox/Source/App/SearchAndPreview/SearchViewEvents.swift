@@ -7,15 +7,19 @@
 //
 
 enum SearchViewEvents {
-    case closeAndPaste
+    case closeAndPasteSelected
     case justClose
-    case toggleSearchMode
     case setSearchMode(HistorySearchMode)
-    case removeSelected
     case clearHistory
-    case toggleTheme
-    case toggleWrappingStrings
-    case toggleJoinStrings
     case revealItemsAndPreview
     case hideItemsAndPreview
+
+    case toggleTheme
+    case toggleSearchMode
+    case toggleWrappingStrings
+    case toggleJoinStrings
+    case toggleOnlyFavorites
+
+    case removeSelected
+    case toggleFavorite
 }

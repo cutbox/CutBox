@@ -14,9 +14,16 @@ class HistoryRepo {
 
     private var storeDefaultsKey = "historyStore"
     private var stringKey = "string"
+    private var favoriteKey = "favorite"
 
     var items: [String] {
        return self.store.map { $0[self.stringKey]! }
+    }
+
+    var favorites: [String] {
+        return self.store
+            .filter { $0[favoriteKey] == favoriteKey }
+            .map { $0[self.stringKey]! }
     }
 
     var dict: [[String:String]] {
@@ -51,6 +58,17 @@ class HistoryRepo {
 
     func removeAtIndexes(indexes: IndexSet) {
         self.store.removeAtIndexes(indexes: indexes)
+    }
+
+    func toggleFavorite(indexes: IndexSet) {
+        for i in indexes {
+            var item = self.store[i]
+            var isFavorite = item[self.favoriteKey]
+            isFavorite = isFavorite == self.favoriteKey ? "" : self.favoriteKey
+            self.store[i][favoriteKey] = isFavorite
+        }
+
+        self.saveToDefaults()
     }
 
     func removeSubrange(_ bounds: Range<Int>) {

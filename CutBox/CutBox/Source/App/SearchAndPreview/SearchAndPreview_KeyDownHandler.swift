@@ -32,7 +32,7 @@ extension SearchAndPreviewView {
         case (kVK_Return, _):
 
             self.events
-                .onNext(.closeAndPaste)
+                .onNext(.closeAndPasteSelected)
 
         case (kVK_ANSI_T, [.command]):
 
@@ -49,6 +49,11 @@ extension SearchAndPreviewView {
 
             self.events
                 .onNext(.toggleJoinStrings)
+
+        case (kVK_ANSI_F, [.command]):
+
+            self.events
+                .onNext(.toggleOnlyFavorites)
 
         case (kVK_ANSI_S, [.command]):
 

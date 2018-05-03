@@ -99,21 +99,28 @@ class HistoryService: NSObject {
         }
     }
 
+    var favoritesOnly: Bool = false
+
     var items: [String] {
+        let historyItems: [String] =
+            self.favoritesOnly ?
+                historyRepo.favorites
+                : historyRepo.items
+
         guard let search = self.filterText, search != ""
-            else { return historyRepo.items }
+            else { return historyItems }
 
         switch searchMode {
         case .fuzzyMatch:
-            return historyRepo.items.fuzzySearchRankedFiltered(
+            return historyItems.fuzzySearchRankedFiltered(
                 search: search,
                 score: Constants.searchFuzzyMatchMinScore)
         case .regexpAnyCase:
-            return historyRepo.items.regexpSearchFiltered(
+            return historyItems.regexpSearchFiltered(
                 search: search,
                 options: [.caseInsensitive])
         case .regexpStrictCase:
-            return historyRepo.items.regexpSearchFiltered(
+            return historyItems.regexpSearchFiltered(
                 search: search,
                 options: [])
         }
@@ -156,14 +163,23 @@ class HistoryService: NSObject {
         self.historyRepo.clearHistory()
     }
 
-    func remove(items: IndexSet) {
-        let indexes = items
+    private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
+        return IndexSet(items
             .flatMap { self.items[safe: $0] }
             .map { self.historyRepo.items.index(of: $0) }
-            .flatMap { $0 }
+            .flatMap { $0 })
+    }
 
+    func remove(items: IndexSet) {
+        let indexes = itemSelectionToHistoryIndexes(items: items)
         self.historyRepo
-            .removeAtIndexes(indexes: IndexSet(indexes))
+            .removeAtIndexes(indexes: indexes)
+    }
+
+    func toggleFavorite(items: IndexSet) {
+        let indexes = itemSelectionToHistoryIndexes(items: items)
+        self.historyRepo
+            .toggleFavorite(indexes: indexes)
     }
 
     func saveToDefaults() {
