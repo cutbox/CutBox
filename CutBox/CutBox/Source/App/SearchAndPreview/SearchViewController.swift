@@ -14,6 +14,7 @@ class SearchViewController: NSObject {
     var searchView: SearchAndPreviewView
     var historyService: HistoryService
     var prefs: CutBoxPreferencesService
+    var fakeKey: FakeKey
 
     private let popup: PopupController
 
@@ -31,12 +32,16 @@ class SearchViewController: NSObject {
     private let disposeBag = DisposeBag()
 
     init(pasteboardService: HistoryService = HistoryService.shared,
-         cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
-        self.prefs = cutBoxPreferences
+         cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
+         fakeKey: FakeKey = FakeKey.shared) {
         self.historyService = pasteboardService
-        self.historyService.beginPolling()
+        self.prefs = cutBoxPreferences
+        self.fakeKey = fakeKey
+
         self.searchView = SearchAndPreviewView.fromNib()!
         self.popup = PopupController(content: self.searchView)
+
+        self.historyService.beginPolling()
 
         super.init()
 
@@ -63,7 +68,7 @@ class SearchViewController: NSObject {
     }
 
     @objc func fakePaste() {
-        FakeKey.shared.send(fakeKey: "V", useCommandFlag: true)
+        fakeKey.send(fakeKey: "V", useCommandFlag: true)
     }
 
     private func closeAndPaste() {
