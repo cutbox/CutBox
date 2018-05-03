@@ -8,6 +8,32 @@
 
 import Cocoa
 
+class ClipItemTextField: NSTextField {
+
+    override func mouseEntered(with event: NSEvent) {
+        let modifiers = event
+            .modifierFlags
+            .intersection(.deviceIndependentFlagsMask)
+
+        if modifiers == [.option] {
+            debugPrint("Show star")
+        }
+
+        super.mouseEntered(with: event)
+    }
+
+    override func updateTrackingAreas() {
+        let rect = self.bounds
+
+        if let area = self.trackingAreas
+            .first(where: {$0.rect == rect})
+        { self.removeTrackingArea(area) }
+
+        addTrackingRect(rect, owner: self, userData: nil, assumeInside: true)
+        super.updateTrackingAreas()
+    }
+}
+
 extension SearchViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
@@ -30,10 +56,10 @@ extension SearchViewController: NSTableViewDelegate {
         guard let _ = self.historyService[row] else { return nil }
 
         let identifier = NSUserInterfaceItemIdentifier(
-            rawValue: "pasteBoardItemsTableTextField")
+            rawValue: "ClipItemTextField")
 
-        var textField: NSTextField? = tableView.makeView(
-            withIdentifier: identifier, owner: self) as? NSTextField
+        var textField: ClipItemTextField? = tableView.makeView(
+            withIdentifier: identifier, owner: self) as? ClipItemTextField
 
         if textField == nil {
             let textWidth = Int(tableView.frame.width)
@@ -43,13 +69,15 @@ extension SearchViewController: NSTableViewDelegate {
                                    width: textWidth,
                                    height: textHeight)
 
-            textField = NSTextField(frame: textFrame)
-            textField?.cell = SearchViewTextFieldCell()
-
+            textField = ClipItemTextField.fromNib()
+            textField?.frame = textFrame
             textField?.backgroundColor = NSColor.clear
             textField?.isBordered = false
             textField?.isSelectable = false
             textField?.isEditable = false
+            textField?.lineBreakMode = .byTruncatingTail
+            textField?.usesSingleLineMode = true
+            textField?.cell = SearchViewTextFieldCell()
             textField?.font = CutBoxPreferencesService.shared.searchViewClipItemsFont
             textField?.identifier = identifier
         }

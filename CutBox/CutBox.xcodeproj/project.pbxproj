@@ -79,6 +79,7 @@
 		968D7CA62096063C00FF1236 /* HistoryRepoSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */; };
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
+		969F9894209B096400BB3039 /* ClipItemTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 969F9893209B096400BB3039 /* ClipItemTextField.xib */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
@@ -240,6 +241,7 @@
 		968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepoSpec.swift; sourceTree = "<group>"; };
 		9696764B20841E2F00DD3256 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
+		969F9893209B096400BB3039 /* ClipItemTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTextField.xib; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
+				969F9893209B096400BB3039 /* ClipItemTextField.xib */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
@@ -744,6 +747,7 @@
 				96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */,
 				964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
+				969F9894209B096400BB3039 /* ClipItemTextField.xib in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

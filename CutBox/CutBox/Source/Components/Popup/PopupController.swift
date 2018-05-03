@@ -97,6 +97,8 @@ class PopupController: NSWindowController {
     }
 
     func resizePopup(width: Double, height: Double) {
+        guard let screen = NSScreen.currentScreenForMouseLocation()
+            else { return }
         var frame = panel.frame
         var newSize = CGSize(width: width,
                              height: height)
@@ -104,9 +106,7 @@ class PopupController: NSWindowController {
         newSize.height += contentInset * 2
         newSize.width += contentInset * 2
 
-        frame.origin.y = ((NSScreen.main?.frame.height ?? CGFloat(height))
-            - CGFloat(height))
-            - CGFloat(self.proportionalTopPadding)
+        frame.origin.y = (screen.frame.height - CGFloat(height))
 
         frame.size.height = newSize.height
 
@@ -179,7 +179,6 @@ class PopupController: NSWindowController {
 
         let screenRect = screen.frame
         var panelRect = panel.frame
-        let topPadding = screenRect.height * CGFloat(self.proportionalTopPadding)
 
         panelRect.origin.y = screenRect.height - panelRect.height
         panelRect.origin.x = round(screenRect.midX - panelRect.width / 2)
@@ -200,7 +199,9 @@ class PopupController: NSWindowController {
             panelRect.origin.y -= screenRect.minY - panelRect.minY
         }
 
-        panelRect.origin.y -= topPadding
+        let padding = screen.frame.height * CGFloat(self.proportionalTopPadding)
+
+        panelRect.origin.y -= padding
 
         return panelRect
     }

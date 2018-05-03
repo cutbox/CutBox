@@ -34,7 +34,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0z9-NG-oja">
-                                                            <rect key="frame" x="10" y="9.5" width="30" height="30"/>
+                                                            <rect key="frame" x="10" y="9" width="30" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="30" id="Uri-3Z-YIs"/>
                                                                 <constraint firstAttribute="height" constant="30" id="hdo-3M-w2I"/>
@@ -95,7 +95,7 @@
                                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             </box>
                                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-Ng-XLx">
-                                                <rect key="frame" x="877" y="-26.5" width="50" height="103"/>
+                                                <rect key="frame" x="877" y="-26" width="50" height="103"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="zRA-uC-Gus"/>
                                                 </constraints>
@@ -221,7 +221,6 @@
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
                                                 <rect key="frame" x="904" y="4" width="18" height="22"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="7V0-R3-hKf"/>
                                                     <constraint firstAttribute="height" constant="21" id="GtY-gK-rMs"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7pj-Pa-cXP">

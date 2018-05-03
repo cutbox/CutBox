@@ -27,18 +27,6 @@ class SearchViewTableRowView: NSTableRowView {
         super.mouseDown(with: event)
     }
 
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-        self.layer?.backgroundColor = NSColor.clear.cgColor
-    }
-
-    override var isEmphasized: Bool {
-        set {}
-        get {
-            return false
-        }
-    }
-
     override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
         set {}
         get {
