@@ -90,7 +90,7 @@ class SearchViewController: NSObject {
 
     func pasteSelectedClipToPasteboard() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let selectedClips = self.historyService[indexes]
+        let selectedClips: [String] = self.historyService.items[indexes]
         guard !selectedClips.isEmpty else { return }
 
         pasteToPasteboard(selectedClips)
@@ -139,7 +139,7 @@ class SearchViewController: NSObject {
 
     func updatePreview() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = prefs.prepareClips(self.historyService[indexes])
+        let preview = prefs.prepareClips(self.historyService.items[indexes])
         self.searchView.previewClip.string = preview
     }
 
@@ -170,9 +170,10 @@ class SearchViewController: NSObject {
                     self.prefs.useJoinString = !self.prefs.useJoinString
                     self.updatePreview()
 
-                case .toggleOnlyFavorites:
+                case .toggleSearchScope:
                     self.historyService.favoritesOnly = !self.historyService.favoritesOnly
                     self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.setSearchScopeButton(favoritesOnly: self.historyService.favoritesOnly)
 
                 case .toggleFavorite:
                     self.toggleFavorite()

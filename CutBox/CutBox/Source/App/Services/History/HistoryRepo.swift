@@ -10,12 +10,11 @@ import Foundation
 
 class HistoryRepo {
 
-    private var store: [[String:String]] = []
+    private var store: [[String: String]] = []
 
     private var storeDefaultsKey = "historyStore"
     private var stringKey = "string"
     private var favoriteKey = "favorite"
-    private var favoriteString = "★"
 
     var items: [String] {
        return self.store.map { $0[self.stringKey]! }
@@ -23,11 +22,16 @@ class HistoryRepo {
 
     var favorites: [String] {
         return self.store
-            .filter { $0[favoriteKey] != "" }
+            .filter { $0[favoriteKey] == self.favoriteKey }
             .map { $0[self.stringKey]! }
     }
 
-    var dict: [[String:String]] {
+    var favoritesDict: [[String: String]] {
+        return self.store
+            .filter { $0[favoriteKey] == self.favoriteKey }
+    }
+
+    var dict: [[String: String]] {
         return self.store
     }
 
@@ -49,7 +53,7 @@ class HistoryRepo {
         return items.index(of: string)
     }
 
-    func insert(_ newElement: String, at: Int = 0) {
+    func insert(_ newElement: String, at: Int = 0, isFavorite: Bool = false) {
         self.store.insert([stringKey: newElement], at: at)
     }
 
@@ -65,9 +69,9 @@ class HistoryRepo {
         for i in indexes {
             let item = self.store[i]
 
-            let isFavorite = item[self.favoriteKey] != self.favoriteString
-                ? self.favoriteString
-                : ""
+            let isFavorite = item[self.favoriteKey] == self.favoriteKey
+                ? ""
+                : self.favoriteKey
 
             self.store[i][favoriteKey] = isFavorite
         }

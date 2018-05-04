@@ -53,7 +53,7 @@ extension SearchAndPreviewView {
         case (kVK_ANSI_F, [.command]):
 
             self.events
-                .onNext(.toggleOnlyFavorites)
+                .onNext(.toggleSearchScope)
 
         case (kVK_ANSI_S, [.command]):
 

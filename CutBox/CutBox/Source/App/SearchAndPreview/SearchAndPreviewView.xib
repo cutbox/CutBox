@@ -229,10 +229,25 @@
                                                 </buttonCell>
                                             </button>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGD-1q-aMb">
-                                                <rect key="frame" x="0.0" y="0.0" width="927" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="922" height="30"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-eJ-V8K">
+                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="30"/>
+                                                        <buttonCell key="cell" type="recessed" title="Recessed" bezelStyle="recessed" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="r6k-UL-ZP7">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                                            <font key="font" metaFont="systemBold" size="12"/>
+                                                        </buttonCell>
+                                                    </button>
+                                                </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="mvn-8b-ky9"/>
                                                 </constraints>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -240,8 +255,8 @@
                                             <constraint firstAttribute="bottom" secondItem="lGD-1q-aMb" secondAttribute="bottom" id="809-Ji-zOh"/>
                                             <constraint firstItem="lGD-1q-aMb" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" id="CeV-kp-NKR"/>
                                             <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="5" id="IZT-KF-OMi"/>
-                                            <constraint firstAttribute="trailing" secondItem="lGD-1q-aMb" secondAttribute="trailing" id="KpQ-PO-agx"/>
                                             <constraint firstItem="xGH-m9-3kp" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="4" id="Uea-Vv-81h"/>
+                                            <constraint firstItem="lGD-1q-aMb" firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" id="tkZ-dA-s3v"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -290,6 +305,7 @@
                 <outlet property="previewClipContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
                 <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>
                 <outlet property="searchModeToggle" destination="xGH-m9-3kp" id="zQA-Vf-eny"/>
+                <outlet property="searchScopeToggle" destination="WHO-eJ-V8K" id="JQO-Fd-ULa"/>
                 <outlet property="searchText" destination="uWo-BC-ODB" id="tbB-36-Blg"/>
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>

@@ -53,8 +53,7 @@ extension SearchViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?,
                    row: Int) -> NSView? {
-        guard let _ = self.historyService[row] else { return nil }
-
+        
         let identifier = NSUserInterfaceItemIdentifier(
             rawValue: "ClipItemTextField")
 

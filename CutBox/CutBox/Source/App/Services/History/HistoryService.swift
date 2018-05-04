@@ -58,7 +58,6 @@ class HistoryService: NSObject {
 
     private var kSearchModeKey = "searchMode"
     private var kLegacyHistoryStoreKey = "pasteStore"
-    private var kSecureHistoryStoreKey = "historyStore"
 
     @available(*, message: "Deprecated use historyRepo")
     private var legacyHistoryStore: [String] = []
@@ -126,16 +125,35 @@ class HistoryService: NSObject {
         }
     }
 
+
+    var dict: [[String: String]] {
+        let historyItems: [[String: String]] =
+            self.favoritesOnly ?
+                historyRepo.favoritesDict
+                : historyRepo.dict
+
+        guard let search = self.filterText, search != ""
+            else { return historyItems }
+
+        switch searchMode {
+        case .fuzzyMatch:
+            return historyItems.fuzzySearchRankedFiltered(
+                search: search,
+                score: Constants.searchFuzzyMatchMinScore)
+        case .regexpAnyCase:
+            return historyItems.regexpSearchFiltered(
+                search: search,
+                options: [.caseInsensitive])
+        case .regexpStrictCase:
+            return historyItems.regexpSearchFiltered(
+                search: search,
+                options: [])
+        }
+    }
+
+
     var count: Int {
         return items.count
-    }
-
-    subscript (indexes: IndexSet) -> [String] {
-        return items[indexes]
-    }
-
-    subscript (index: Int) -> String? {
-        return items[safe: index]
     }
 
     func beginPolling() {
@@ -179,7 +197,7 @@ class HistoryService: NSObject {
     func toggleFavorite(items: IndexSet) {
         let indexes = itemSelectionToHistoryIndexes(items: items)
         self.historyRepo
-            .toggleFavorite(indexes: indexes)
+            .toggleFavorite(indexes: indexes)        
     }
 
     func saveToDefaults() {
@@ -192,7 +210,8 @@ class HistoryService: NSObject {
 
     @objc func pollPasteboard() {
         if let clip = self.replaceWithLatest() {
-            self.historyRepo.insert(clip)
+            let isFavorite = historyRepo.favorites.contains(clip)
+            self.historyRepo.insert(clip, isFavorite: isFavorite)
             self.truncateItems()
             self.saveToDefaults()
         }
@@ -202,6 +221,7 @@ class HistoryService: NSObject {
         guard let currentClip = clipboardContent() else { return nil }
 
         if let indexOfClip = historyRepo.items.index(of: currentClip) {
+            if indexOfClip == 0 { return nil }
             historyRepo.remove(at: indexOfClip)
         }
 

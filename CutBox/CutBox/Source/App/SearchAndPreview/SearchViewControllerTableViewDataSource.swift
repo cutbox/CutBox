@@ -15,7 +15,15 @@ extension SearchViewController: NSTableViewDataSource {
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        guard let value = self.historyService[row] else { return nil }
-        return value.trimmingCharacters(in: .whitespacesAndNewlines)
+        let record = self.historyService.dict[row]
+        let value = record["string"]!
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard let favorite = record["favorite"],
+            !favorite.isEmpty
+            else { return trimmed }
+
+        return NSAttributedString(string: trimmed, attributes: [.backgroundColor: prefs.currentTheme.clip.clipItemsHighlightColor])
+//        return "\(trimmed)"
     }
 }
