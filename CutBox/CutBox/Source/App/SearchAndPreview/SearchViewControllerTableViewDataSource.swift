@@ -24,6 +24,5 @@ extension SearchViewController: NSTableViewDataSource {
             else { return trimmed }
 
         return NSAttributedString(string: trimmed, attributes: [.backgroundColor: prefs.currentTheme.clip.clipItemsHighlightColor])
-//        return "\(trimmed)"
     }
 }
