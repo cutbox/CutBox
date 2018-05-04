@@ -76,6 +76,7 @@ extension SearchViewController: NSTableViewDelegate {
             textField?.isEditable = false
             textField?.lineBreakMode = .byTruncatingTail
             textField?.usesSingleLineMode = true
+            textField?.maximumNumberOfLines = 1
             textField?.cell = SearchViewTextFieldCell()
             textField?.font = CutBoxPreferencesService.shared.searchViewClipItemsFont
             textField?.identifier = identifier
