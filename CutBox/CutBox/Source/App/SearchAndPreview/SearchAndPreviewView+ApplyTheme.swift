@@ -10,14 +10,16 @@ import Cocoa
 
 extension SearchAndPreviewView {
 
-    func colorizeMagnifier() {
-        let image = #imageLiteral(resourceName: "magnitude.png")
+    func colorizeMagnifier(image: NSImage = #imageLiteral(resourceName: "magnitude.png"),
+                           tooltip: String = "search_scope_tooltip_all".l7n) {
+        let image = image
 
         self.magnifierImageView.alphaValue = 0.75
 
         let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
 
         self.magnifierImageView.image = blended
+        self.magnifierImageView.toolTip = toolTip
     }
 
     func applyTheme() {

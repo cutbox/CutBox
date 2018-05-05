@@ -39,7 +39,7 @@
                                                                 <constraint firstAttribute="width" constant="30" id="Uri-3Z-YIs"/>
                                                                 <constraint firstAttribute="height" constant="30" id="hdo-3M-w2I"/>
                                                             </constraints>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="magnitude" id="17b-1B-wef"/>
+                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="star" id="17b-1B-wef"/>
                                                         </imageView>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Y7-w6T">
                                                             <rect key="frame" x="53" y="5" width="820" height="38"/>
@@ -220,27 +220,9 @@
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGD-1q-aMb">
                                                 <rect key="frame" x="5" y="0.0" width="917" height="30"/>
-                                                <subviews>
-                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-eJ-V8K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="tAP-Su-YA9"/>
-                                                        </constraints>
-                                                        <buttonCell key="cell" type="recessed" title="?" bezelStyle="recessed" alignment="center" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" imageScaling="proportionallyDown" inset="2" id="r6k-UL-ZP7">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                            <font key="font" metaFont="smallSystem"/>
-                                                        </buttonCell>
-                                                    </button>
-                                                </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="mvn-8b-ky9"/>
                                                 </constraints>
-                                                <visibilityPriorities>
-                                                    <integer value="1000"/>
-                                                </visibilityPriorities>
-                                                <customSpacing>
-                                                    <real value="3.4028234663852886e+38"/>
-                                                </customSpacing>
                                             </stackView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
                                                 <rect key="frame" x="904" y="4" width="18" height="22"/>
@@ -308,7 +290,6 @@
                 <outlet property="previewClipContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
                 <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>
                 <outlet property="searchModeToggle" destination="xGH-m9-3kp" id="zQA-Vf-eny"/>
-                <outlet property="searchScopeToggle" destination="WHO-eJ-V8K" id="JQO-Fd-ULa"/>
                 <outlet property="searchText" destination="uWo-BC-ODB" id="tbB-36-Blg"/>
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>
@@ -318,6 +299,6 @@
     </objects>
     <resources>
         <image name="cutbox-icon-2-preview" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="magnitude" width="47.918087005615234" height="47.918087005615234"/>
+        <image name="star" width="49.090908050537109" height="49.090908050537109"/>
     </resources>
 </document>

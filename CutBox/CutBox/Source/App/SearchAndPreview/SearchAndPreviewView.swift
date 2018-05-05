@@ -20,7 +20,7 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClip: NSTextView!
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeToggle: NSButton!
-    @IBOutlet weak var searchScopeToggle: NSButton!
+//    @IBOutlet weak var searchScopeToggle: NSButton!
     @IBOutlet weak var cutBoxLogoImageView: NSImageView!
     @IBOutlet weak var magnifierImageView: NSImageView!
 
@@ -96,32 +96,26 @@ class SearchAndPreviewView: NSView {
     }
 
     func setSearchScopeButton(favoritesOnly: Bool) {
-        let color = [NSAttributedStringKey.foregroundColor: prefs.currentTheme.clip.clipItemsTextColor]
-
-        let searchScope = favoritesOnly
-            ? "search_scope_favorites".l7n
-            : "search_scope_all".l7n
-
-        let titleString = NSAttributedString(string: searchScope, attributes: color)
-
-        let toolTip = favoritesOnly
-            ? "search_scope_tooltip_favorites".l7n
-            : "search_scope_tooltip_all".l7n
-
-        self.searchScopeToggle.attributedTitle = titleString
-        self.searchScopeToggle.toolTip = toolTip
+        if favoritesOnly {
+            colorizeMagnifier(
+                image:  #imageLiteral(resourceName: "star.png"),
+                tooltip: "search_scope_tooltip_favorites".l7n
+            )
+        } else {
+            colorizeMagnifier()
+        }
     }
 
     private func setupSearchScopeToggle() {
         let favoritesOnly = HistoryService.shared.favoritesOnly
         setSearchScopeButton(favoritesOnly: favoritesOnly)
 
-        self.searchScopeToggle
-            .rx
-            .tap
-            .map { .toggleSearchScope }
-            .bind(to: self.events)
-            .disposed(by: disposeBag)
+//        self.searchScopeToggle
+//            .rx
+//            .tap
+//            .map { .toggleSearchScope }
+//            .bind(to: self.events)
+//            .disposed(by: disposeBag)
     }
 
     private func setupContextMenu() {
