@@ -232,8 +232,8 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="922" height="30"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-eJ-V8K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="63" height="30"/>
-                                                        <buttonCell key="cell" type="recessed" title="Recessed" bezelStyle="recessed" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="r6k-UL-ZP7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
+                                                        <buttonCell key="cell" type="recessed" title="?" bezelStyle="recessed" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="r6k-UL-ZP7">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                                             <font key="font" metaFont="systemBold" size="12"/>
                                                         </buttonCell>
