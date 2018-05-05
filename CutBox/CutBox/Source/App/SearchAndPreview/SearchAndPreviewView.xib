@@ -218,24 +218,17 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Elj-qC-DgK">
                                         <rect key="frame" x="0.0" y="0.0" width="927" height="30"/>
                                         <subviews>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
-                                                <rect key="frame" x="904" y="4" width="18" height="22"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="GtY-gK-rMs"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7pj-Pa-cXP">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                </buttonCell>
-                                            </button>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGD-1q-aMb">
-                                                <rect key="frame" x="0.0" y="0.0" width="922" height="30"/>
+                                                <rect key="frame" x="5" y="0.0" width="917" height="30"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-eJ-V8K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="30"/>
-                                                        <buttonCell key="cell" type="recessed" title="?" bezelStyle="recessed" alignment="center" controlSize="small" imageScaling="proportionallyDown" inset="2" id="r6k-UL-ZP7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="tAP-Su-YA9"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="recessed" title="?" bezelStyle="recessed" alignment="center" lineBreakMode="truncatingTail" truncatesLastVisibleLine="YES" imageScaling="proportionallyDown" inset="2" id="r6k-UL-ZP7">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                                                            <font key="font" metaFont="systemBold" size="12"/>
+                                                            <font key="font" metaFont="smallSystem"/>
                                                         </buttonCell>
                                                     </button>
                                                 </subviews>
@@ -249,9 +242,19 @@
                                                     <real value="3.4028234663852886e+38"/>
                                                 </customSpacing>
                                             </stackView>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
+                                                <rect key="frame" x="904" y="4" width="18" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="GtY-gK-rMs"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="recessed" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7pj-Pa-cXP">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                </buttonCell>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="lGD-1q-aMb" firstAttribute="leading" secondItem="Elj-qC-DgK" secondAttribute="leading" id="7bZ-Dc-UPa"/>
+                                            <constraint firstItem="lGD-1q-aMb" firstAttribute="leading" secondItem="Elj-qC-DgK" secondAttribute="leading" constant="5" id="7bZ-Dc-UPa"/>
                                             <constraint firstAttribute="bottom" secondItem="lGD-1q-aMb" secondAttribute="bottom" id="809-Ji-zOh"/>
                                             <constraint firstItem="lGD-1q-aMb" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" id="CeV-kp-NKR"/>
                                             <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="5" id="IZT-KF-OMi"/>

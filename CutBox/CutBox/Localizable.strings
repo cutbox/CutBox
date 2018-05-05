@@ -59,8 +59,8 @@
 "searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
 "searchmode_regexp_strict_tooltip" = "Regular expression search (strict case)";
 
-"search_scope_favorites"  = "⭐️";
-"search_scope_all" = "🔍";
+"search_scope_favorites"  = "Search favorites";
+"search_scope_all" = "Search everything";
 
 "search_scope_tooltip_favorites" = "Search favorites only";
 "search_scope_tooltip_all" = "Search entire history";
