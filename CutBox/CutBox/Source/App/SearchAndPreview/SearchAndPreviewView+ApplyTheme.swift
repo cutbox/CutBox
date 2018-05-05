@@ -14,12 +14,12 @@ extension SearchAndPreviewView {
                            tooltip: String = "search_scope_tooltip_all".l7n) {
         let image = image
 
-        self.magnifierImageView.alphaValue = 0.75
+        self.searchScopeImageButton.alphaValue = 0.75
 
         let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
 
-        self.magnifierImageView.image = blended
-        self.magnifierImageView.toolTip = toolTip
+        self.searchScopeImageButton.image = blended
+        self.searchScopeImageButton.toolTip = toolTip
     }
 
     func applyTheme() {

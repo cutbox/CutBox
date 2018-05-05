@@ -33,16 +33,19 @@
                                                     <rect key="frame" x="1" y="1" width="870" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0z9-NG-oja">
-                                                            <rect key="frame" x="10" y="9" width="30" height="30"/>
+                                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="wFV-FN-AdQ">
+                                                            <rect key="frame" x="10" y="8" width="32" height="32"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="30" id="Uri-3Z-YIs"/>
-                                                                <constraint firstAttribute="height" constant="30" id="hdo-3M-w2I"/>
+                                                                <constraint firstAttribute="height" constant="32" id="3m5-cJ-5DI"/>
+                                                                <constraint firstAttribute="width" constant="32" id="nTv-QM-T1k"/>
                                                             </constraints>
-                                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="star" id="17b-1B-wef"/>
-                                                        </imageView>
+                                                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="iiQ-L3-tTl">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                        </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Y7-w6T">
-                                                            <rect key="frame" x="53" y="5" width="820" height="38"/>
+                                                            <rect key="frame" x="50" y="5" width="823" height="38"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Placeholder" id="ALO-u1-b9U">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -50,16 +53,16 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <scrollView wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZp-O6-8EL" userLabel="Text View" customClass="DisablableScrollView" customModule="CutBox" customModuleProvider="target">
-                                                            <rect key="frame" x="50" y="5" width="816" height="38"/>
+                                                            <rect key="frame" x="47" y="5" width="819" height="38"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Vjp-Gw-55f">
-                                                                <rect key="frame" x="0.0" y="0.0" width="816" height="38"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="819" height="38"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" id="uWo-BC-ODB" customClass="SearchTextView" customModule="CutBox" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="816" height="38"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="819" height="38"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                        <size key="minSize" width="816" height="38"/>
+                                                                        <size key="minSize" width="819" height="38"/>
                                                                         <size key="maxSize" width="925" height="10000000"/>
                                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                     </textView>
@@ -71,18 +74,18 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Sug-yv-iEb">
-                                                                <rect key="frame" x="800" y="0.0" width="16" height="38"/>
+                                                                <rect key="frame" x="803" y="0.0" width="16" height="38"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                         </scrollView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="0z9-NG-oja" firstAttribute="leading" secondItem="V3j-H5-QGX" secondAttribute="leading" constant="10" id="1cF-M1-ycK"/>
                                                         <constraint firstAttribute="bottom" secondItem="gZp-O6-8EL" secondAttribute="bottom" constant="5" id="3ap-VQ-ECT"/>
-                                                        <constraint firstItem="gZp-O6-8EL" firstAttribute="leading" secondItem="V3j-H5-QGX" secondAttribute="leading" constant="50" id="DJe-vR-hTW"/>
-                                                        <constraint firstItem="0z9-NG-oja" firstAttribute="centerY" secondItem="V3j-H5-QGX" secondAttribute="centerY" id="ODD-Ez-3qa"/>
+                                                        <constraint firstItem="gZp-O6-8EL" firstAttribute="leading" secondItem="wFV-FN-AdQ" secondAttribute="trailing" constant="5" id="DJe-vR-hTW"/>
+                                                        <constraint firstItem="wFV-FN-AdQ" firstAttribute="leading" secondItem="V3j-H5-QGX" secondAttribute="leading" constant="10" id="Dlr-qY-kdF"/>
                                                         <constraint firstItem="iRL-Y7-w6T" firstAttribute="width" secondItem="gZp-O6-8EL" secondAttribute="width" id="Vzk-3f-WNe"/>
                                                         <constraint firstItem="iRL-Y7-w6T" firstAttribute="height" secondItem="gZp-O6-8EL" secondAttribute="height" id="Y9n-XV-Hep"/>
+                                                        <constraint firstItem="wFV-FN-AdQ" firstAttribute="centerY" secondItem="V3j-H5-QGX" secondAttribute="centerY" id="g2u-lt-0dk"/>
                                                         <constraint firstItem="iRL-Y7-w6T" firstAttribute="leading" secondItem="gZp-O6-8EL" secondAttribute="leading" constant="5" id="i3c-bW-OLw"/>
                                                         <constraint firstItem="iRL-Y7-w6T" firstAttribute="top" secondItem="gZp-O6-8EL" secondAttribute="top" id="lpL-Rd-ctR"/>
                                                         <constraint firstItem="gZp-O6-8EL" firstAttribute="top" secondItem="V3j-H5-QGX" secondAttribute="top" constant="5" id="nk3-Ze-rK6"/>
@@ -285,11 +288,11 @@
                 <outlet property="clipboardItemsTable" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
                 <outlet property="cutBoxLogoImageView" destination="Zhs-Ng-XLx" id="c3E-tJ-Oo8"/>
                 <outlet property="historyContainer" destination="2wd-Z7-k0t" id="rWB-qr-Awu"/>
-                <outlet property="magnifierImageView" destination="0z9-NG-oja" id="PNQ-TU-TlP"/>
                 <outlet property="previewClip" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
                 <outlet property="previewClipContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
                 <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>
                 <outlet property="searchModeToggle" destination="xGH-m9-3kp" id="zQA-Vf-eny"/>
+                <outlet property="searchScopeImageButton" destination="wFV-FN-AdQ" id="QN3-Yx-A0Q"/>
                 <outlet property="searchText" destination="uWo-BC-ODB" id="tbB-36-Blg"/>
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>
@@ -299,6 +302,5 @@
     </objects>
     <resources>
         <image name="cutbox-icon-2-preview" width="102.40000152587891" height="102.40000152587891"/>
-        <image name="star" width="49.090908050537109" height="49.090908050537109"/>
     </resources>
 </document>

@@ -20,9 +20,8 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var previewClip: NSTextView!
     @IBOutlet weak var previewClipContainer: NSBox!
     @IBOutlet weak var searchModeToggle: NSButton!
-//    @IBOutlet weak var searchScopeToggle: NSButton!
     @IBOutlet weak var cutBoxLogoImageView: NSImageView!
-    @IBOutlet weak var magnifierImageView: NSImageView!
+    @IBOutlet weak var searchScopeImageButton: NSButton!
 
     @IBOutlet weak var historyContainer: NSStackView!
     @IBOutlet weak var bottomBar: NSView!
@@ -110,12 +109,12 @@ class SearchAndPreviewView: NSView {
         let favoritesOnly = HistoryService.shared.favoritesOnly
         setSearchScopeButton(favoritesOnly: favoritesOnly)
 
-//        self.searchScopeToggle
-//            .rx
-//            .tap
-//            .map { .toggleSearchScope }
-//            .bind(to: self.events)
-//            .disposed(by: disposeBag)
+        self.searchScopeImageButton
+            .rx
+            .tap
+            .map { .toggleSearchScope }
+            .bind(to: self.events)
+            .disposed(by: disposeBag)
     }
 
     private func setupContextMenu() {
