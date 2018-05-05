@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CaR>
+<Construction>
+<Window x="4.234358227333853" y="-0.08601870438575787" w="10.678718833359985"/>
+<Windowdim w="1280" h="800"/>
+<Preferences minfontsize="12" minpointsize="3" minlinesize="1" arrowsize="10" selectionsize="8" monkeyspeed="20" gridopacity="20" digits.lengths="2" digits.edit="4" digits.angles="2" colorbackground="245,245,245" colorbackgroundx="139" colorbackgroundy="9" colorbackgroundPal="4" fig3D="false" figDP="false"/>
+<Objects>
+<Line name="yAxis" n="1" hidden="true" yaxis="true">Y axis</Line>
+<Line name="xAxis" n="0" hidden="true" xaxis="true">X axis</Line>
+<Intersection name="P1" n="166" color="4" type="thin" hidden="true" first="xAxis" second="yAxis" shape="dcross">Intersection between xAxis and yAxis</Intersection>
+<Point name="P2" n="167" color="4" type="thin" hidden="true" x="5" actx="5.0" y="0" acty="0.0" shape="dcross" fixed="true">Point</Point>
+<Circle name="c8" n="172" scolor="128,,128,,128" type="thin" hidden="true" through="P2" midpoint="P1" acute="true">Circle around P1 through P2</Circle>
+<Circle name="c9" n="175" scolor="128,,128,,128" type="thin" hidden="true" through="P1" midpoint="P2" acute="true">Circle around P2 through P1</Circle>
+<Intersection name="P3" n="176" color="4" type="thin" hidden="true" first="c9" second="c8" shape="dcross" which="first">Intersection between c9 and c8</Intersection>
+<Line name="l8" n="179" type="thin" hidden="true" from="P3" to="P1">Line through P3 and P1</Line>
+<Intersection name="P4" n="182" color="4" type="thin" hidden="true" first="c8" second="c9" shape="dcross" which="first">Intersection between c8 and c9</Intersection>
+<Line name="l9" n="183" type="thin" hidden="true" from="P1" to="P4">Line through P1 and P4</Line>
+<Line name="l10" n="186" type="thin" hidden="true" from="P3" to="P2">Line through P3 and P2</Line>
+<Line name="l11" n="189" type="thin" hidden="true" from="P4" to="P2">Line through P4 and P2</Line>
+<Intersection name="P5" n="192" color="4" type="thin" hidden="true" first="l11" second="c9" awayfrom="P4" shape="dcross" which="first">Intersection between l11 and c9</Intersection>
+<Line name="l12" n="193" type="thin" hidden="true" from="P3" to="P5">Line through P3 and P5</Line>
+<Intersection name="P6" n="196" color="4" type="thin" hidden="true" first="xAxis" second="c9" awayfrom="P1" shape="dcross" which="first">Intersection between xAxis and c9</Intersection>
+<Line name="l13" n="197" type="thin" hidden="true" from="P5" to="P6">Line through P5 and P6</Line>
+<Intersection name="P7" n="200" color="4" type="thin" hidden="true" first="l10" second="c9" awayfrom="P3" shape="dcross" which="first">Intersection between l10 and c9</Intersection>
+<Line name="l14" n="201" type="thin" hidden="true" from="P6" to="P7">Line through P6 and P7</Line>
+<Line name="l15" n="204" type="thin" hidden="true" from="P7" to="P4">Line through P7 and P4</Line>
+<Segment name="s22" n="207" color="4" from="P3" to="P5">Line segment from P3 to P5</Segment>
+<Segment name="s23" n="210" color="4" from="P5" to="P6">Line segment from P5 to P6</Segment>
+<Segment name="s24" n="213" color="4" from="P6" to="P7">Line segment from P6 to P7</Segment>
+<Segment name="s25" n="216" color="4" from="P7" to="P4">Line segment from P7 to P4</Segment>
+<Segment name="s26" n="219" color="4" from="P4" to="P1">Line segment from P4 to P1</Segment>
+<Segment name="s27" n="222" color="4" from="P1" to="P3">Line segment from P1 to P3</Segment>
+<Midpoint name="P8" n="225" color="4" type="thin" hidden="true" first="P3" second="P2" shape="dcross">Midpoint between P3 and P2</Midpoint>
+<Midpoint name="P9" n="228" color="4" type="thin" hidden="true" first="P5" second="P2" shape="dcross">Midpoint between P5 and P2</Midpoint>
+<Midpoint name="P10" n="231" color="4" type="thin" hidden="true" first="P2" second="P7" shape="dcross">Midpoint between P2 and P7</Midpoint>
+<Midpoint name="P11" n="234" color="4" type="thin" hidden="true" first="P2" second="P4" shape="dcross">Midpoint between P2 and P4</Midpoint>
+<Midpoint name="P12" n="237" color="4" type="thin" hidden="true" first="P2" second="P1" shape="dcross">Midpoint between P2 and P1</Midpoint>
+<Midpoint name="P13" n="240" color="4" type="thin" hidden="true" first="P2" second="P6" shape="dcross">Midpoint between P2 and P6</Midpoint>
+<Segment name="s28" n="243" color="4" from="P8" to="P9">Line segment from P8 to P9</Segment>
+<Segment name="s29" n="246" color="4" from="P13" to="P9">Line segment from P13 to P9</Segment>
+<Segment name="s30" n="249" color="4" from="P8" to="P12">Line segment from P8 to P12</Segment>
+<Segment name="s31" n="252" color="4" from="P12" to="P11">Line segment from P12 to P11</Segment>
+<Segment name="s32" n="255" color="4" from="P11" to="P10">Line segment from P11 to P10</Segment>
+<Segment name="s33" n="258" color="4" from="P10" to="P13">Line segment from P10 to P13</Segment>
+<Segment name="s34" n="261" color="4" from="P8" to="P2">Line segment from P8 to P2</Segment>
+<Segment name="s35" n="264" color="4" from="P2" to="P11">Line segment from P2 to P11</Segment>
+<Segment name="s36" n="267" color="4" from="P2" to="P13">Line segment from P2 to P13</Segment>
+<Segment name="s37" n="270" color="4" from="P10" to="P7">Line segment from P10 to P7</Segment>
+<Segment name="s38" n="273" color="4" from="P9" to="P5">Line segment from P9 to P5</Segment>
+<Segment name="s39" n="276" color="4" from="P1" to="P12">Line segment from P1 to P12</Segment>
+</Objects>
+</Construction>
+</CaR>
