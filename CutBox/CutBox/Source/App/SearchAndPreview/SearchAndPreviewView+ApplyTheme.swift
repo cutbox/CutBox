@@ -48,7 +48,7 @@ extension SearchAndPreviewView {
         previewClip.selectedTextAttributes[NSAttributedStringKey.foregroundColor] =
             theme.preview.textColor
 
-        self.colorizeMagnifier()
+        self.setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }
 }
 

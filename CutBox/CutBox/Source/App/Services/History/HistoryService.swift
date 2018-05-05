@@ -56,7 +56,17 @@ class HistoryService: NSObject {
         }
     }
 
+    var favoritesOnly: Bool {
+        set {
+            self.defaults.set(newValue, forKey: kSearchFavoritesOnly)
+        }
+        get {
+            return self.defaults.bool(forKey: kSearchFavoritesOnly)
+        }
+    }
+
     private var kSearchModeKey = "searchMode"
+    private var kSearchFavoritesOnly = "searchFavoritesOnly"
     private var kLegacyHistoryStoreKey = "pasteStore"
 
     @available(*, message: "Deprecated use historyRepo")
@@ -97,8 +107,6 @@ class HistoryService: NSObject {
             historyRepo.removeSubrange(limit..<historyRepo.items.count)
         }
     }
-
-    var favoritesOnly: Bool = false
 
     var items: [String] {
         let historyItems: [String] =
