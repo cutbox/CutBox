@@ -21,8 +21,8 @@ extension SearchViewController: NSTableViewDataSource {
 
         guard let favorite = record["favorite"],
             !favorite.isEmpty
-            else { return trimmed }
+            else { return "🗌   \(trimmed)" }
 
-        return NSAttributedString(string: trimmed, attributes: [.backgroundColor: prefs.currentTheme.clip.clipItemsHighlightColor])
+        return "☆   \(trimmed)"
     }
 }

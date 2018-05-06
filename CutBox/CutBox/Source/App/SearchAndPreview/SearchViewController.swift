@@ -84,8 +84,10 @@ class SearchViewController: NSObject {
     }
 
     private func toggleFavorite() {
+        let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)
         self.searchView.clipboardItemsTable.reloadData()
+        self.searchView.clipboardItemsTable.selectRowIndexes(selection, byExtendingSelection: false)
     }
 
     func pasteSelectedClipToPasteboard() {
