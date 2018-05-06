@@ -21,7 +21,7 @@ class PopupController: NSWindowController {
 
     var proportionalWidth: Double = 1.0 / 1.6
     var proportionalHeight: Double = 1.0 / 1.8
-    var proportionalTopPadding: Double = 0
+    var proportionalTopPadding: CGFloat = 0
 
     var contentInset: CGFloat {
         get { return containerView.contentInset }
@@ -123,7 +123,13 @@ class PopupController: NSWindowController {
         guard let screen = NSScreen.currentScreenForMouseLocation()
             else { return }
 
-        let width = Double(screen.frame.width) * self.proportionalWidth
+        var proportionalWidth = self.proportionalWidth
+
+        if screen.frame.width < screen.frame.height {
+            proportionalWidth += 0.25
+        }
+
+        let width = Double(screen.frame.width) * proportionalWidth
         let height = Double(screen.frame.height) * self.proportionalHeight
 
         resizePopup(width: width, height: height)
@@ -199,7 +205,13 @@ class PopupController: NSWindowController {
             panelRect.origin.y -= screenRect.minY - panelRect.minY
         }
 
-        let padding = screen.frame.height * CGFloat(self.proportionalTopPadding)
+        var proportionalTopPadding = self.proportionalTopPadding
+
+        if screen.frame.width < screen.frame.height {
+            proportionalTopPadding -= 0.09
+        }
+
+        let padding = screen.frame.height * proportionalTopPadding
 
         panelRect.origin.y -= padding
 
