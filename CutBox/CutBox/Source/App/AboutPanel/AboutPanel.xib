@@ -13,7 +13,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="112" width="343" height="151"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="rS7-ly-uMb">
                 <rect key="frame" x="0.0" y="0.0" width="343" height="151"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -27,19 +27,19 @@
                         <imageCell key="cell" lineBreakMode="truncatingTail" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-2-preview" id="ych-ZH-c7d"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7O-CG-thr">
-                        <rect key="frame" x="158" y="114" width="164" height="17"/>
+                        <rect key="frame" x="158" y="104" width="164" height="27"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="160" id="Fwv-i7-vSv"/>
-                            <constraint firstAttribute="height" constant="17" id="po9-3J-eRF"/>
+                            <constraint firstAttribute="height" constant="27" id="po9-3J-eRF"/>
                         </constraints>
                         <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="CutBox" usesSingleLineMode="YES" id="9eH-Xf-fhH">
-                            <font key="font" size="15" name="AvenirNext-Bold"/>
-                            <color key="textColor" red="0.058500000000000003" green="0.10854999999999999" blue="0.13" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <font key="font" size="17" name="AvenirNext-Bold"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SYm-gs-NbI">
-                        <rect key="frame" x="158" y="102" width="164" height="11"/>
+                        <rect key="frame" x="158" y="92" width="164" height="11"/>
                         <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" selectable="YES" sendsActionOnEndEditing="YES" title="Label" id="nD5-lh-lUa">
                             <font key="font" metaFont="miniSystem"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -47,18 +47,23 @@
                         </textFieldCell>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEU-RL-OJo" customClass="LinkText" customModule="CutBox" customModuleProvider="target">
-                        <rect key="frame" x="158" y="82" width="164" height="10"/>
+                        <rect key="frame" x="158" y="68" width="164" height="14"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="eHo-wR-cQp"/>
+                            <constraint firstAttribute="height" constant="14" id="eHo-wR-cQp"/>
                         </constraints>
                         <textFieldCell key="cell" controlSize="mini" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" id="adQ-QD-aH5">
                             <font key="font" metaFont="miniSystem"/>
-                            <color key="textColor" name="selectedMenuItemColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" red="0.2364878953" green="0.63458979130000004" blue="0.73429614310000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="linkColor">
+                                <color key="value" red="0.23648789525032043" green="0.6345897912979126" blue="0.73429614305496216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsQ-ZA-7Ke">
-                        <rect key="frame" x="158" y="27" width="164" height="30"/>
+                        <rect key="frame" x="158" y="13" width="164" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="msw-yV-CCt"/>
                         </constraints>

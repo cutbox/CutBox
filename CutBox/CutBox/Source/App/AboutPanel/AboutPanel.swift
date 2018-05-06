@@ -10,8 +10,16 @@ import Cocoa
 
 class LinkText: NSTextField {
 
+    @IBInspectable
+    var linkColor: NSColor!
+
     override func awakeFromNib() {
-        stringValue = "about_cutbox_home_url".l7n
+        let attributes: [NSAttributedStringKey: Any] = [
+            NSAttributedStringKey.foregroundColor: linkColor,
+            NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
+            NSAttributedStringKey.underlineColor: linkColor
+        ]
+        attributedStringValue = NSAttributedString(string: "about_cutbox_home_url".l7n, attributes: attributes)
     }
 
     override func mouseDown(with event: NSEvent) {
