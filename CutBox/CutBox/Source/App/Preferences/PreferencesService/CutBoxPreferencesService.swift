@@ -13,6 +13,7 @@ import RxSwift
 enum CutBoxPreferencesEvent {
     case historyLimitChanged(limit: Int)
     case compactUISettingChanged(isOn: Bool)
+    case protectFavoritesChanged(isOn: Bool)
 }
 
 class CutBoxPreferencesService {
@@ -25,6 +26,7 @@ class CutBoxPreferencesService {
     private var kHistoryLimited = "historyLimited"
     private var kHistoryLimit = "historyLimit"
     private var kUseCompactUI = "useCompactUI"
+    private var kProtectFavorites = "protectFavorites"
 
     var events: PublishSubject<CutBoxPreferencesEvent>!
 
@@ -295,4 +297,15 @@ class CutBoxPreferencesService {
             return defaults.bool(forKey: kUseCompactUI)
         }
     }
+
+    var protectFavorites: Bool {
+        set {
+            defaults.set(newValue, forKey: kProtectFavorites)
+            events.onNext(.protectFavoritesChanged(isOn: newValue))
+        }
+        get {
+            return defaults.bool(forKey: kProtectFavorites)
+        }
+    }
 }
+

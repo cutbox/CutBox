@@ -83,6 +83,8 @@ class CutBoxController: NSObject {
                     self.historyService.historyLimit = limit
                 case .compactUISettingChanged(let isOn):
                     self.useCompactUI.state = isOn ? .on : .off
+                default:
+                    break
                 }
             })
             .disposed(by: disposeBag)

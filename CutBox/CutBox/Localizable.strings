@@ -47,7 +47,7 @@
 "preferences_use_compact_ui_tooltip" = "Compact UI hides history items and paste preview until you begin searching or press right or up";
 
 "preferences_protect_favorites" = "Protect favorites";
-"preferences_protect_favorites_tooltip" = "Don't clear favorites if you clear history";
+"preferences_protect_favorites_tooltip" = "Protect favorites if you clear history";
 
 "search_placeholder" = "Search CutBox";
 

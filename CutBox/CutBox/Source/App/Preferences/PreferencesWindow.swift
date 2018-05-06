@@ -39,6 +39,7 @@ class PreferencesWindow: NSWindow {
     @IBOutlet weak var historyLimitTitle: NSTextField!
     @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
     @IBOutlet weak var compactUICheckbox: NSButton!
+    @IBOutlet weak var protectFavoritesCheckbox: NSButton!
 
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
         prefs.theme = sender.index(of: sender.selectedItem!)
@@ -56,6 +57,7 @@ class PreferencesWindow: NSWindow {
 
         setupAutoLoginControl()
         setupCompactUIControl()
+        setupProtectFavoritesCheckbox()
         setupThemeSelector()
         setupKeyRecorders()
         setupHistoryLimitControls()
