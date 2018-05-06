@@ -15,9 +15,9 @@ anything back to your current app by searching for items.
 
 CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
-CutBox only deals in plaintext for now, I'm thinking about image and
-other document types down the road, but I needed some specific things
-from a plaintext pasteboard history, so here we are.
+CutBox only deals in plaintext.
+
+Images and other document types may be supported down the road. [You can vote for support by adding a reaction here.](https://github.com/cutbox/CutBox/issues/53)
 
 # Download / install...
 
