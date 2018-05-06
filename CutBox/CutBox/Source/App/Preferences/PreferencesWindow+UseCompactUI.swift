@@ -12,6 +12,8 @@ import RxSwift
 extension PreferencesWindow {
     func setupCompactUIControl() {
         self.compactUICheckbox.title = "preferences_use_compact_ui".l7n
+        self.compactUICheckbox.toolTip = "preferences_use_compact_ui_tooltip".l7n
+
 
         self.compactUICheckbox.state = self.prefs.useCompactUI ? .on : .off
 

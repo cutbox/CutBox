@@ -12,7 +12,7 @@ import RxSwift
 extension PreferencesWindow {
     func setupAutoLoginControl() {
         self.autoLoginCheckbox.title = "preferences_launch_on_login".l7n
-
+        self.autoLoginCheckbox.toolTip = "preferences_launch_on_login_tooltip".l7n
         self.loginItemsService
             .autoLoginEnabled
             .asObservable()
