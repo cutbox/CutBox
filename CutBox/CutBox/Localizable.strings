@@ -8,6 +8,8 @@
 
 "preferences_title" = "CutBox Preferences";
 "preferences_launch_on_login" = "Launch on Login";
+"preferences_launch_on_login_tooltip" = "CutBox can start when you login to macOS";
+
 "preferences_color_theme_title" = "Color theme";
 
 "preferences_color_theme_name_darkness" = "Darkness";
@@ -20,6 +22,7 @@
 "preferences_color_theme_name_amber_cathode" = "Amber Cathode";
 
 "preferences_toggle_cutbox" = "Toggle CutBox";
+"preferences_toggle_cutbox_tooltip" = "Choose a keyboard shortcut to show/hide CutBox";
 
 "preferences_history_limit_title" = "History Limit";
 "preferences_history_limit_placeholder" = "Limit (0 is unlimited)";
@@ -41,6 +44,10 @@
 "preferences_multi_clip_wrapped_end_placeholder" = "End with?";
 
 "preferences_use_compact_ui" = "Use Compact UI";
+"preferences_use_compact_ui_tooltip" = "Compact UI hides history items and paste preview until you begin searching or press right or up";
+
+"preferences_protect_favorites" = "Protect favorites";
+"preferences_protect_favorites_tooltip" = "Don't clear favorites if you clear history";
 
 "search_placeholder" = "Search CutBox";
 
