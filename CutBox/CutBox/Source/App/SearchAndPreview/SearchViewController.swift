@@ -83,6 +83,8 @@ class SearchViewController: NSObject {
         self.searchView.clipboardItemsTable.reloadData()
     }
 
+
+
     private func toggleFavorite() {
         let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)
@@ -160,9 +162,11 @@ class SearchViewController: NSObject {
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .toggleTheme:
+                    let selected = self.searchView.clipboardItemsTable.selectedRowIndexes
                     self.prefs.toggleTheme()
                     self.searchView.applyTheme()
                     self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.clipboardItemsTable.selectRowIndexes(selected, byExtendingSelection: false)
 
                 case .toggleWrappingStrings:
                     self.prefs.useWrappingStrings = !self.prefs.useWrappingStrings
