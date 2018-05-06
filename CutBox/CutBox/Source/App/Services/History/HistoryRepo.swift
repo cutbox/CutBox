@@ -16,6 +16,8 @@ class HistoryRepo {
     private var stringKey = "string"
     private var favoriteKey = "favorite"
 
+    private var kProtectFavorites = "protectFavorites"
+
     var items: [String] {
        return self.store.map { $0[self.stringKey]! }
     }
@@ -36,13 +38,16 @@ class HistoryRepo {
     }
 
     private var defaults: UserDefaults
+    private var prefs: CutBoxPreferencesService
 
-    init(defaults: UserDefaults = UserDefaults.standard) {
+    init(defaults: UserDefaults = UserDefaults.standard,
+         prefs: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
         self.defaults = defaults
+        self.prefs = prefs
     }
 
     func clear() {
-        self.store = []
+        self.store.removeAll(protectFavorites: prefs.protectFavorites)
     }
 
     func hasString(_ string: String) -> Bool {
