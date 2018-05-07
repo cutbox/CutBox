@@ -13,11 +13,11 @@ a nice little pasteboard timemachine
 CutBox keeps your pasteboard cut/copy history and lets you paste
 anything back to your current app by searching for items.
 
-CutBox is inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
+Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
-CutBox only deals in plaintext.
+For now CutBox only keeps plaintext in it's history.
 
-Images and other document types may be supported down the road. [You can vote for support by adding a reaction here.](https://github.com/cutbox/CutBox/issues/53)
+If you'd like images and other document type supported [you can vote by adding a reaction here.](https://github.com/cutbox/CutBox/issues/53)
 
 # Download / install...
 
