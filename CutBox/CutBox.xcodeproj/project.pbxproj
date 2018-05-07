@@ -58,7 +58,6 @@
 		964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964CA568208337F100B9F33E /* PreferencesWindow.xib */; };
 		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
-		965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */; };
 		965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */; };
 		965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076D206F58A40032DACD /* SearchViewEvents.swift */; };
 		965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076F206F9AF30032DACD /* PopupContainerView.swift */; };
@@ -80,6 +79,9 @@
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; };
+		96A16B3C209FD67100EE08A4 /* ClipItemTableRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowView.xib */; };
+		96A16B3E209FD77500EE08A4 /* ClipItemTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B3D209FD77500EE08A4 /* ClipItemTableRowView.swift */; };
+		96A16B4020A002C500EE08A4 /* text-document.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3F20A002C500EE08A4 /* text-document.png */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
@@ -220,7 +222,6 @@
 		964CA567208337F100B9F33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
-		965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDataSource.swift; sourceTree = "<group>"; };
 		965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextViewDelegate.swift; sourceTree = "<group>"; };
 		965F076D206F58A40032DACD /* SearchViewEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEvents.swift; sourceTree = "<group>"; };
 		965F076F206F9AF30032DACD /* PopupContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContainerView.swift; sourceTree = "<group>"; };
@@ -242,6 +243,9 @@
 		9696764B20841E2F00DD3256 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		96A16B3B209FD67100EE08A4 /* ClipItemTableRowView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowView.xib; sourceTree = "<group>"; };
+		96A16B3D209FD77500EE08A4 /* ClipItemTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowView.swift; sourceTree = "<group>"; };
+		96A16B3F20A002C500EE08A4 /* text-document.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-document.png"; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
@@ -316,6 +320,8 @@
 		961A49B92065DC1E005BC79D /* SearchAndPreview */ = {
 			isa = PBXGroup;
 			children = (
+				96A16B3B209FD67100EE08A4 /* ClipItemTableRowView.xib */,
+				96A16B3D209FD77500EE08A4 /* ClipItemTableRowView.swift */,
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
@@ -326,7 +332,6 @@
 				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
 				965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */,
 				9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */,
-				965F0769206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift */,
 				9672FF2C2078E5DC00E4571E /* SearchTextView.swift */,
 			);
 			path = SearchAndPreview;
@@ -469,6 +474,7 @@
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
+				96A16B3F20A002C500EE08A4 /* text-document.png */,
 				96A16B39209D6D7C00EE08A4 /* star.png */,
 				968D7C922094778900FF1236 /* magnitude.png */,
 				964CA516207E6CA200B9F33E /* cutbox-icon-2-preview.png */,
@@ -741,7 +747,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
+				96A16B3C209FD67100EE08A4 /* ClipItemTableRowView.xib in Resources */,
 				964CA517207E6CA200B9F33E /* cutbox-icon-2-preview.png in Resources */,
+				96A16B4020A002C500EE08A4 /* text-document.png in Resources */,
 				96A16B3A209D6D7C00EE08A4 /* star.png in Resources */,
 				963AA6442071C95000779697 /* AboutPanel.xib in Resources */,
 				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
@@ -970,7 +978,6 @@
 				968D7C952095778800FF1236 /* PreferencesWindow+UseCompactUI.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
 				964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */,
-				965F076A206F4C7A0032DACD /* SearchViewControllerTableViewDataSource.swift in Sources */,
 				965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */,
 				964CA503207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift in Sources */,
 				964CA505207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift in Sources */,
@@ -984,6 +991,7 @@
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift in Sources */,
+				96A16B3E209FD77500EE08A4 /* ClipItemTableRowView.swift in Sources */,
 				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
 				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
 				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,

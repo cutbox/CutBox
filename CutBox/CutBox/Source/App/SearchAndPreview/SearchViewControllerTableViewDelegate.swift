@@ -34,8 +34,14 @@ class ClipItemTextField: NSTextField {
     }
 }
 
-extension SearchViewController: NSTableViewDelegate {
+extension SearchViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        let count = self.historyService.count
+        return count
+    }
+}
 
+extension SearchViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 30
     }
@@ -53,38 +59,27 @@ extension SearchViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?,
                    row: Int) -> NSView? {
-        
+
         let identifier = NSUserInterfaceItemIdentifier(
-            rawValue: "ClipItemTextField")
+            rawValue: "ClipItemTableRowView")
 
-        var textField: NSTextField? = tableView.makeView(
-            withIdentifier: identifier, owner: self) as? NSTextField
+        var dequeuedClipItemTableRowView: ClipItemTableRowView? = tableView.makeView(
+            withIdentifier: identifier, owner: self
+            ) as? ClipItemTableRowView
 
-        if textField == nil {
-            let textWidth = Int(tableView.frame.width)
-            let textHeight = 30
-
-            let textFrame = CGRect(x: 0, y: 0,
-                                   width: textWidth,
-                                   height: textHeight)
-
-            textField = NSTextField()
-            textField?.frame = textFrame
-            textField?.backgroundColor = NSColor.clear
-            textField?.isBordered = false
-            textField?.isSelectable = false
-            textField?.isEditable = false
-            textField?.lineBreakMode = .byTruncatingTail
-            textField?.usesSingleLineMode = true
-            textField?.maximumNumberOfLines = 1
-            textField?.cell = SearchViewTextFieldCell()
-            textField?.font = CutBoxPreferencesService.shared.searchViewClipItemsFont
-            textField?.identifier = identifier
+        if dequeuedClipItemTableRowView == nil {
+            dequeuedClipItemTableRowView = ClipItemTableRowView.fromNib()
+            dequeuedClipItemTableRowView?.identifier = identifier
         }
 
-        let theme = CutBoxPreferencesService.shared.currentTheme
-        textField?.textColor = theme.clip.clipItemsTextColor
+        guard let clipItemTableRowView = dequeuedClipItemTableRowView
+            else { fatalError("Unable to get a ClipItemTableRowView") }
 
-        return textField
+        let theme = CutBoxPreferencesService.shared.currentTheme
+        let record = self.historyService.dict[row]
+        clipItemTableRowView.data = record
+        clipItemTableRowView.color = theme.clip.clipItemsTextColor
+
+        return clipItemTableRowView
     }
 }
