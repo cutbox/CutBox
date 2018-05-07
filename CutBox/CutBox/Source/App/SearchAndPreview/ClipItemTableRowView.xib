@@ -21,7 +21,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="aoL-QZ-3xI"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-8P-Yx7">
-                    <rect key="frame" x="23" y="8" width="439" height="17"/>
+                    <rect key="frame" x="23" y="8" width="456" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="iYJ-cy-pGJ"/>
                     </constraints>
@@ -35,7 +35,7 @@
             <constraints>
                 <constraint firstItem="PEi-8P-Yx7" firstAttribute="leading" secondItem="D7I-TR-0Dc" secondAttribute="trailing" constant="6" id="MdG-Ho-buS"/>
                 <constraint firstItem="D7I-TR-0Dc" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="3" id="Po9-6G-6sQ"/>
-                <constraint firstAttribute="trailing" secondItem="PEi-8P-Yx7" secondAttribute="trailing" constant="20" id="USO-jO-enh"/>
+                <constraint firstAttribute="trailing" secondItem="PEi-8P-Yx7" secondAttribute="trailing" constant="3" id="USO-jO-enh"/>
                 <constraint firstItem="D7I-TR-0Dc" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="eef-GM-QMv"/>
                 <constraint firstItem="PEi-8P-Yx7" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="luu-xY-tJ2"/>
             </constraints>
