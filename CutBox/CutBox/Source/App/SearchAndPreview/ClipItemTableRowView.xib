@@ -10,18 +10,18 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe" customClass="ClipItemTableRowView" customModule="CutBox" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="23"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D7I-TR-0Dc">
-                    <rect key="frame" x="3" y="12" width="16" height="0.0"/>
+                    <rect key="frame" x="3" y="16" width="16" height="0.0"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="16" id="2N4-ay-D81"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="aoL-QZ-3xI"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-8P-Yx7">
-                    <rect key="frame" x="20" y="3" width="459" height="17"/>
+                    <rect key="frame" x="23" y="8" width="439" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="iYJ-cy-pGJ"/>
                     </constraints>
@@ -33,9 +33,9 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="PEi-8P-Yx7" firstAttribute="leading" secondItem="D7I-TR-0Dc" secondAttribute="trailing" constant="3" id="MdG-Ho-buS"/>
+                <constraint firstItem="PEi-8P-Yx7" firstAttribute="leading" secondItem="D7I-TR-0Dc" secondAttribute="trailing" constant="6" id="MdG-Ho-buS"/>
                 <constraint firstItem="D7I-TR-0Dc" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="3" id="Po9-6G-6sQ"/>
-                <constraint firstAttribute="trailing" secondItem="PEi-8P-Yx7" secondAttribute="trailing" constant="3" id="USO-jO-enh"/>
+                <constraint firstAttribute="trailing" secondItem="PEi-8P-Yx7" secondAttribute="trailing" constant="20" id="USO-jO-enh"/>
                 <constraint firstItem="D7I-TR-0Dc" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="eef-GM-QMv"/>
                 <constraint firstItem="PEi-8P-Yx7" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="luu-xY-tJ2"/>
             </constraints>
@@ -43,7 +43,7 @@
                 <outlet property="image" destination="D7I-TR-0Dc" id="INQ-Iw-Wbq"/>
                 <outlet property="title" destination="PEi-8P-Yx7" id="AeD-7G-cm8"/>
             </connections>
-            <point key="canvasLocation" x="139" y="173"/>
+            <point key="canvasLocation" x="139" y="211"/>
         </customView>
     </objects>
 </document>
