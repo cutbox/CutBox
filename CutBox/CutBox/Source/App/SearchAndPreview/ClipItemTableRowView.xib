@@ -14,14 +14,14 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D7I-TR-0Dc">
-                    <rect key="frame" x="3" y="12" width="18" height="0.0"/>
+                    <rect key="frame" x="3" y="12" width="16" height="0.0"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="18" id="2N4-ay-D81"/>
+                        <constraint firstAttribute="width" constant="16" id="2N4-ay-D81"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="aoL-QZ-3xI"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-8P-Yx7">
-                    <rect key="frame" x="22" y="3" width="457" height="17"/>
+                    <rect key="frame" x="20" y="3" width="459" height="17"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="17" id="iYJ-cy-pGJ"/>
                     </constraints>
@@ -45,14 +45,5 @@
             </connections>
             <point key="canvasLocation" x="139" y="173"/>
         </customView>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="JHs-tR-SN0">
-            <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Gi6-Ll-bTE">
-                <font key="font" metaFont="system"/>
-                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-            </textFieldCell>
-        </textField>
     </objects>
 </document>
