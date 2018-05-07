@@ -8,8 +8,10 @@
 
 import Cocoa
 
-
 class ClipItemTableRowView: NSView {
+
+    @IBOutlet weak var title: NSTextField!
+    @IBOutlet weak var image: NSImageView!
 
     var _color: NSColor = NSColor.textColor
     var color: NSColor {
@@ -23,9 +25,6 @@ class ClipItemTableRowView: NSView {
             return _color
         }
     }
-
-    @IBOutlet weak var title: NSTextField!
-    @IBOutlet weak var image: NSImageView!
 
     var _data: [String:String]?
     var data: [String:String]? {
@@ -59,7 +58,8 @@ class ClipItemTableRowView: NSView {
         }
 
         self.title.stringValue = titleString.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.image.image = self.isFavorite ? #imageLiteral(resourceName: "star.png") : #imageLiteral(resourceName: "text-document.png")
+        self.image.image = self.isFavorite ? #imageLiteral(resourceName: "star.png") : #imageLiteral(resourceName: "page.png")
+        
         self.tintImage()
     }
 
