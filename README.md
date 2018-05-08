@@ -67,6 +67,20 @@ also available.
 Press <kbd>Cmd</kbd> + <kbd>s</kbd> to toggle through search modes,
 fuzzy match, regexp/i or regexp.
 
+# Would you like to know more?
+
+I'm moving more help and information to the project wiki, [read more...](https://github.com/cutbox/CutBox/wiki)
+
+# Bugs...
+
+If you find a bug I'd love to hear about it, [click here to tell me
+what happened.](https://github.com/cutbox/CutBox/issues/new)
+
+# Would you like CutBox to do something?
+
+If you have an [idea for a new feature please let me know
+here](https://github.com/cutbox/CutBox/issues/new?template=FEATURE_TEMPLATE.md)
+
 # Licence
 
 > CutBox is free software: you can redistribute it and/or modify
