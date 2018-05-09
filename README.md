@@ -74,7 +74,7 @@ I'm moving more help and information to the project wiki, [read more...](https:/
 # Bugs...
 
 If you find a bug I'd love to hear about it, [click here to tell me
-what happened.](https://github.com/cutbox/CutBox/issues/new)
+what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPLATE.md)
 
 # Would you like CutBox to do something?
 
