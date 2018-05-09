@@ -20,4 +20,15 @@ extension NSObject {
         }
         return objectArray?.first(where: { $0 is T }) as? T
     }
+
+    class func fromNib<T>(name: String) -> T? {
+        var objectArray: NSArray? = nil
+        guard Bundle.main.loadNibNamed(
+            NSNib.Name(rawValue: name),
+            owner: nil,
+            topLevelObjects: &objectArray) else {
+                fatalError("Unable to load Window from nib: \(name)")
+        }
+        return objectArray?.first(where: { $0 is T }) as? T
+    }
 }

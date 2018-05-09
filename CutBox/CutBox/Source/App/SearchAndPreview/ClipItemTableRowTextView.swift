@@ -1,5 +1,5 @@
 //
-//  ClipItemTableRowView.swift
+//  ClipItemTableRowTextView.swift
 //  CutBox
 //
 //  Created by Jason on 7/5/18.
@@ -8,16 +8,14 @@
 
 import Cocoa
 
-class ClipItemTableRowView: NSView {
+class ClipItemTableRowTextView: NSView {
 
     @IBOutlet weak var title: NSTextField!
-    @IBOutlet weak var image: NSImageView!
 
     var _color: NSColor = NSColor.textColor
     var color: NSColor {
         set {
             _color = newValue
-            self.tintImage()
             self.title.textColor = _color
         }
 
@@ -58,14 +56,5 @@ class ClipItemTableRowView: NSView {
         }
 
         self.title.stringValue = titleString.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.image.image = self.isFavorite ? #imageLiteral(resourceName: "star.png") : #imageLiteral(resourceName: "page.png")
-        
-        self.tintImage()
-    }
-
-    private func tintImage() {
-        guard let imageData = self.image.image else { fatalError("No image on clip") }
-        let blended = imageData.tint(color: self.color)
-        self.image.image = blended
     }
 }
