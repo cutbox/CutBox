@@ -8,32 +8,6 @@
 
 import Cocoa
 
-class ClipItemTextField: NSTextField {
-
-    override func mouseEntered(with event: NSEvent) {
-        let modifiers = event
-            .modifierFlags
-            .intersection(.deviceIndependentFlagsMask)
-
-        if modifiers == [.option] {
-            debugPrint("Show star")
-        }
-
-        super.mouseEntered(with: event)
-    }
-
-    override func updateTrackingAreas() {
-        let rect = self.bounds
-
-        if let area = self.trackingAreas
-            .first(where: {$0.rect == rect})
-        { self.removeTrackingArea(area) }
-
-        addTrackingRect(rect, owner: self, userData: nil, assumeInside: true)
-        super.updateTrackingAreas()
-    }
-}
-
 extension SearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         let count = self.historyService.count
