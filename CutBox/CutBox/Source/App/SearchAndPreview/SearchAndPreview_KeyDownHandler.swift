@@ -22,7 +22,9 @@ extension SearchAndPreviewView {
              (kVK_DownArrow, _):
 
             self.hideItemsAndPreview(false)
-            self.clipboardItemsTable.keyDown(with: event)
+            if HistoryService.shared.count > 0 {
+                self.clipboardItemsTable.keyDown(with: event)
+            }
 
         case (kVK_Escape, _):
 
