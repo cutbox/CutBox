@@ -79,7 +79,7 @@ what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPL
 # Would you like CutBox to do something?
 
 If you have an [idea for a new feature please let me know
-here](https://github.com/cutbox/CutBox/issues/new?template=FEATURE_TEMPLATE.md)
+here](https://github.com/cutbox/CutBox/issues/new?template=feature.md)
 
 # Licence
 
