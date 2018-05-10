@@ -24,7 +24,7 @@ extension SearchViewController: NSTableViewDelegate {
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        let rowView = ClipItemTableRowView()
+        let rowView = ClipItemTableRowContainerView()
         rowView.searchView = self.searchView
         return rowView
     }

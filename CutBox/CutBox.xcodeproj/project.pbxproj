@@ -56,7 +56,7 @@
 		964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */; };
 		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; };
 		964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 964CA568208337F100B9F33E /* PreferencesWindow.xib */; };
-		965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */; };
+		965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */; };
 		965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076D206F58A40032DACD /* SearchViewEvents.swift */; };
@@ -226,7 +226,7 @@
 		964CA54D20832F0400B9F33E /* Base */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Base; path = "Base.lproj/PreferencesWindow+HistoryLimit.swift"; sourceTree = "<group>"; };
 		964CA5532083325600B9F33E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		964CA567208337F100B9F33E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferencesWindow.xib; sourceTree = "<group>"; };
-		965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTableRowView.swift; sourceTree = "<group>"; };
+		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextViewDelegate.swift; sourceTree = "<group>"; };
 		965F076D206F58A40032DACD /* SearchViewEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewEvents.swift; sourceTree = "<group>"; };
@@ -509,7 +509,7 @@
 		96A16B5120A4731000EE08A4 /* ClipItems */ = {
 			isa = PBXGroup;
 			children = (
-				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
+				965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */,
 				96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */,
 				96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */,
 				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
@@ -1024,7 +1024,7 @@
 				964CA507207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift in Sources */,
 				96A16B3E209FD77500EE08A4 /* ClipItemTableRowImageView.swift in Sources */,
 				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
-				965F0765206F4BE10032DACD /* SearchViewTableRowView.swift in Sources */,
+				965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */,
 				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
 				964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */,

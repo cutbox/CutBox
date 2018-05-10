@@ -1,5 +1,5 @@
 //
-//  ClipItemTableRowView.swift
+//  ClipItemTableRowContainerView.swift
 //  CutBox
 //
 //  Created by Jason on 31/3/18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ClipItemTableRowView: NSTableRowView {
+class ClipItemTableRowContainerView: NSTableRowView {
 
     var searchView: SearchAndPreviewView?
 
