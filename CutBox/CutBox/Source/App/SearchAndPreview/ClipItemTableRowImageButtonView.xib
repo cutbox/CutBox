@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="ClipItemTableRowImageButtonView" customModule="CutBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="7Pv-uj-NgC">
+                    <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="16" id="LJP-sd-H47"/>
+                        <constraint firstAttribute="height" constant="16" id="cwv-2d-Hx0"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="CZg-X5-Us4">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="buttonClick:" target="c22-O7-iKe" id="BMo-sI-O9U"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7Pv-uj-NgC" secondAttribute="bottom" id="2So-qJ-SnD"/>
+                <constraint firstItem="7Pv-uj-NgC" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="HUB-nx-bYt"/>
+                <constraint firstItem="7Pv-uj-NgC" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="N1M-Lp-fJO"/>
+                <constraint firstAttribute="trailing" secondItem="7Pv-uj-NgC" secondAttribute="trailing" id="m4s-tq-39w"/>
+            </constraints>
+            <connections>
+                <outlet property="imageButton" destination="7Pv-uj-NgC" id="Yad-8O-RQY"/>
+            </connections>
+            <point key="canvasLocation" x="-89" y="211"/>
+        </customView>
+    </objects>
+</document>

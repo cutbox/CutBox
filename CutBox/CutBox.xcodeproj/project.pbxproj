@@ -85,6 +85,8 @@
 		96A16B4220A0675700EE08A4 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4120A0675700EE08A4 /* page.png */; };
 		96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */; };
 		96A16B4A20A34C7000EE08A4 /* ClipItemTableRowTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */; };
+		96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */; };
+		96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
@@ -252,6 +254,8 @@
 		96A16B4120A0675700EE08A4 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
 		96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClipItemTableRowImageView.xib; sourceTree = "<group>"; };
 		96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowTextView.swift; sourceTree = "<group>"; };
+		96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowImageButtonView.swift; sourceTree = "<group>"; };
+		96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClipItemTableRowImageButtonView.xib; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 				96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */,
 				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
 				96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */,
+				96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */,
+				96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
@@ -768,6 +774,7 @@
 				964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
+				96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -976,6 +983,7 @@
 				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
 				968A97C120667CF800D36B50 /* HistoryService.swift in Sources */,
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
+				96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */,
 				962D6D492073544F007E3785 /* HotKeyService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,

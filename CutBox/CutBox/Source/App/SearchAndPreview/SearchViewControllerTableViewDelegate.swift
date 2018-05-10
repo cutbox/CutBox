@@ -44,34 +44,36 @@ extension SearchViewController: NSTableViewDelegate {
             let rowView = getIconRowView(tableView)
             rowView.data = record
             rowView.color = theme.clip.clipItemsTextColor
+
             return rowView
         case "string":
             let rowView = getTextRowView(tableView)
             rowView.data = record
             rowView.color = theme.clip.clipItemsTextColor
+
             return rowView
         default:
             return nil
         }
     }
 
-    func getIconRowView(_ tableView: NSTableView) -> ClipItemTableRowImageView {
+    func getIconRowView(_ tableView: NSTableView) -> ClipItemTableRowImageButtonView {
         let iconIdentifier = NSUserInterfaceItemIdentifier(
-            rawValue: "ClipItemTableRowImageView")
+            rawValue: "ClipItemTableRowImageButtonView")
 
-        var dequeuedClipItemTableRowImageView: ClipItemTableRowImageView? = tableView.makeView(
+        var dequeuedClipItemTableRowImageButtonView: ClipItemTableRowImageButtonView? = tableView.makeView(
             withIdentifier: iconIdentifier, owner: self
-            ) as? ClipItemTableRowImageView
+            ) as? ClipItemTableRowImageButtonView
 
-        if dequeuedClipItemTableRowImageView == nil {
-            dequeuedClipItemTableRowImageView = ClipItemTableRowImageView.fromNib()
-            dequeuedClipItemTableRowImageView?.identifier = iconIdentifier
+        if dequeuedClipItemTableRowImageButtonView == nil {
+            dequeuedClipItemTableRowImageButtonView = ClipItemTableRowImageButtonView.fromNib()
+            dequeuedClipItemTableRowImageButtonView?.identifier = iconIdentifier
         }
 
-        guard let clipItemTableRowImageView = dequeuedClipItemTableRowImageView
-            else { fatalError("Unable to get a ClipItemTableRowImageView") }
+        guard let ClipItemTableRowImageButtonView = dequeuedClipItemTableRowImageButtonView
+            else { fatalError("Unable to get a ClipItemTableRowImageButtonView") }
 
-        return clipItemTableRowImageView
+        return ClipItemTableRowImageButtonView
     }
 
     func getTextRowView(_ tableView: NSTableView) -> ClipItemTableRowTextView {
@@ -93,3 +95,4 @@ extension SearchViewController: NSTableViewDelegate {
         return clipItemTableRowTextView
     }
 }
+

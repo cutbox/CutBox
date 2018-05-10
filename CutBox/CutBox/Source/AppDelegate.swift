@@ -12,9 +12,9 @@ import Magnet
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        /*
+        //*
         UserDefaults.standard
-            .set(true,
+            .set(false,
                  forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints")
         // */
     }

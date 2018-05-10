@@ -6,6 +6,8 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
+
+
 import Cocoa
 
 class SearchViewTableRowView: NSTableRowView {

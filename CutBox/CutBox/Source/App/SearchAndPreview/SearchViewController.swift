@@ -29,7 +29,7 @@ class SearchViewController: NSObject {
             .selectedRowIndexes
     }
 
-    private let disposeBag = DisposeBag()
+    let disposeBag = DisposeBag()
 
     init(pasteboardService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
