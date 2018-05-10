@@ -12,7 +12,14 @@ import Magnet
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        /*
+        UserDefaults.standard
+            .set(true,
+                 forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints")
+        // */
     }
+
+
 
     func applicationWillTerminate(_ aNotification: Notification) {
         HotKeyCenter.shared.unregisterAll()
