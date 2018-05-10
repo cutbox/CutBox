@@ -43,30 +43,12 @@ extension SearchAndPreviewView {
         previewClip.backgroundColor = theme.preview.backgroundColor
         previewClipContainer.fillColor = theme.preview.backgroundColor
         previewClip.textColor = theme.preview.textColor
-        previewClip.selectedTextAttributes[NSAttributedStringKey.backgroundColor] =
+
+        previewClip.selectedTextAttributes[.backgroundColor] =
             theme.preview.selectedTextBackgroundColor
-        previewClip.selectedTextAttributes[NSAttributedStringKey.foregroundColor] =
+        previewClip.selectedTextAttributes[.foregroundColor] =
             theme.preview.textColor
 
         self.setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
-    }
-}
-
-extension NSImage {
-    func tint(color: NSColor) -> NSImage {
-        guard self.isTemplate == false else { return self }
-
-        let image = self.copy() as! NSImage
-        image.lockFocus()
-
-        color.set()
-
-        let imageRect = NSRect(origin: NSZeroPoint, size: image.size)
-        imageRect.fill(using: .sourceAtop)
-
-        image.unlockFocus()
-        image.isTemplate = false
-
-        return image
     }
 }

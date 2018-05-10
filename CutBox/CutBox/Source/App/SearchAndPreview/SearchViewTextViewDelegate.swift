@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-// MARK: Handle keyboard events when editing search/filter text
+
 extension SearchAndPreviewView: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         self.filterText.onNext(self.searchText.string)

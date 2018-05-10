@@ -65,10 +65,11 @@
 		965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0783206FC4F60032DACD /* PreferencesWindow.swift */; };
 		965F078D206FD1890032DACD /* AboutPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F078C206FD1890032DACD /* AboutPanel.swift */; };
 		9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
-		9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */; };
 		9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF282078C2DE00E4571E /* Array+IndexSet.swift */; };
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
+		967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */; };
+		967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAD20A476D200A525CC /* NSImage+tint.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
 		968D7C932094778900FF1236 /* magnitude.png in Resources */ = {isa = PBXBuildFile; fileRef = 968D7C922094778900FF1236 /* magnitude.png */; };
@@ -234,10 +235,11 @@
 		965F0783206FC4F60032DACD /* PreferencesWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindow.swift; sourceTree = "<group>"; };
 		965F078C206FD1890032DACD /* AboutPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPanel.swift; sourceTree = "<group>"; };
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
-		9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextFieldCell.swift; sourceTree = "<group>"; };
 		9672FF282078C2DE00E4571E /* Array+IndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexSet.swift"; sourceTree = "<group>"; };
 		9672FF2C2078E5DC00E4571E /* SearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextView.swift; sourceTree = "<group>"; };
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
+		967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+getRowView.swift"; sourceTree = "<group>"; };
+		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
 		968D7C922094778900FF1236 /* magnitude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnitude.png; path = CutBox/GraphicAssets/magnitude.png; sourceTree = SOURCE_ROOT; };
@@ -330,22 +332,15 @@
 		961A49B92065DC1E005BC79D /* SearchAndPreview */ = {
 			isa = PBXGroup;
 			children = (
-				96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */,
-				96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */,
-				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
-				96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */,
-				96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */,
-				96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */,
+				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
+				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
+				96A16B5120A4731000EE08A4 /* ClipItems */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
-				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
-				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
 				964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */,
 				964CA4E1207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
-				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
 				965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */,
-				9672FF26207856C200E4571E /* SearchViewTextFieldCell.swift */,
 				9672FF2C2078E5DC00E4571E /* SearchTextView.swift */,
 			);
 			path = SearchAndPreview;
@@ -452,6 +447,8 @@
 				962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */,
 				9672FF282078C2DE00E4571E /* Array+IndexSet.swift */,
 				96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */,
+				967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */,
+				967EFEAD20A476D200A525CC /* NSImage+tint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -507,6 +504,20 @@
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		96A16B5120A4731000EE08A4 /* ClipItems */ = {
+			isa = PBXGroup;
+			children = (
+				965F0764206F4BE10032DACD /* SearchViewTableRowView.swift */,
+				96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */,
+				96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */,
+				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
+				96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */,
+				96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */,
+				96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */,
+			);
+			path = ClipItems;
 			sourceTree = "<group>";
 		};
 		96DB5387208ADB28004BAAEF /* History */ = {
@@ -981,6 +992,7 @@
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
 				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
 				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
+				967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */,
 				968A97C120667CF800D36B50 /* HistoryService.swift in Sources */,
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
 				96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */,
@@ -1006,7 +1018,6 @@
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,
 				965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */,
 				968D7CA32095FF6A00FF1236 /* Array+removeAtIndexes.swift in Sources */,
-				9672FF27207856C200E4571E /* SearchViewTextFieldCell.swift in Sources */,
 				9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */,
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
@@ -1017,6 +1028,7 @@
 				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
 				964CA54C20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift in Sources */,
+				967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */,
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,

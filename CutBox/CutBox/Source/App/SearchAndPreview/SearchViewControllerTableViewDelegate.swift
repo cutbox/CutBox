@@ -25,7 +25,7 @@ extension SearchViewController: NSTableViewDelegate {
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-        let rowView = SearchViewTableRowView()
+        let rowView = ClipItemTableRowView()
         rowView.searchView = self.searchView
         return rowView
     }
@@ -40,59 +40,21 @@ extension SearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         switch column.identifier.rawValue {
+
         case "icon":
-            let rowView = getIconRowView(tableView)
+            let rowView = tableView.getRowView() as ClipItemTableRowImageView
             rowView.data = record
             rowView.color = theme.clip.clipItemsTextColor
-
             return rowView
+
         case "string":
-            let rowView = getTextRowView(tableView)
+            let rowView = tableView.getRowView() as ClipItemTableRowTextView
             rowView.data = record
             rowView.color = theme.clip.clipItemsTextColor
-
             return rowView
+
         default:
             return nil
         }
     }
-
-    func getIconRowView(_ tableView: NSTableView) -> ClipItemTableRowImageButtonView {
-        let iconIdentifier = NSUserInterfaceItemIdentifier(
-            rawValue: "ClipItemTableRowImageButtonView")
-
-        var dequeuedClipItemTableRowImageButtonView: ClipItemTableRowImageButtonView? = tableView.makeView(
-            withIdentifier: iconIdentifier, owner: self
-            ) as? ClipItemTableRowImageButtonView
-
-        if dequeuedClipItemTableRowImageButtonView == nil {
-            dequeuedClipItemTableRowImageButtonView = ClipItemTableRowImageButtonView.fromNib()
-            dequeuedClipItemTableRowImageButtonView?.identifier = iconIdentifier
-        }
-
-        guard let ClipItemTableRowImageButtonView = dequeuedClipItemTableRowImageButtonView
-            else { fatalError("Unable to get a ClipItemTableRowImageButtonView") }
-
-        return ClipItemTableRowImageButtonView
-    }
-
-    func getTextRowView(_ tableView: NSTableView) -> ClipItemTableRowTextView {
-        let textIdentifier = NSUserInterfaceItemIdentifier(
-            rawValue: "ClipItemTableRowTextView")
-
-        var dequeuedClipItemTableRowTextView: ClipItemTableRowTextView? = tableView.makeView(
-            withIdentifier: textIdentifier, owner: self
-            ) as? ClipItemTableRowTextView
-
-        if dequeuedClipItemTableRowTextView == nil {
-            dequeuedClipItemTableRowTextView = ClipItemTableRowTextView.fromNib()
-            dequeuedClipItemTableRowTextView?.identifier = textIdentifier
-        }
-
-        guard let clipItemTableRowTextView = dequeuedClipItemTableRowTextView
-            else { fatalError("Unable to get a ClipItemTableRowTextView") }
-
-        return clipItemTableRowTextView
-    }
 }
-

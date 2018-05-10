@@ -72,16 +72,20 @@ class HistoryRepo {
 
     func toggleFavorite(indexes: IndexSet) {
         for i in indexes {
-            let item = self.store[i]
-
-            let isFavorite = item[self.favoriteKey] == self.favoriteKey
-                ? ""
-                : self.favoriteKey
-
-            self.store[i][favoriteKey] = isFavorite
+            toggleFavorite(at: i)
         }
 
         self.saveToDefaults()
+    }
+
+    func toggleFavorite(at i: Int) {
+        let item = self.store[i]
+
+        let isFavorite = item[self.favoriteKey] == self.favoriteKey
+            ? ""
+            : self.favoriteKey
+
+        self.store[i][favoriteKey] = isFavorite
     }
 
     func removeSubrange(_ bounds: Range<Int>) {

@@ -96,7 +96,6 @@
                                                 </constraints>
                                                 <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
-                                                <font key="titleFont" metaFont="message" size="11"/>
                                             </box>
                                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-Ng-XLx">
                                                 <rect key="frame" x="877" y="-26" width="50" height="103"/>
@@ -124,13 +123,13 @@
                                         <rect key="frame" x="0.0" y="35" width="927" height="401"/>
                                         <subviews>
                                             <scrollView borderType="none" horizontalLineScroll="18" horizontalPageScroll="0.0" verticalLineScroll="18" verticalPageScroll="0.0" hasHorizontalScroller="NO" horizontalScrollElasticity="none" verticalScrollElasticity="allowed" translatesAutoresizingMaskIntoConstraints="NO" id="T18-14-tFk" userLabel="Table View">
-                                                <rect key="frame" x="0.0" y="1" width="461" height="400"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="461" height="401"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="BOQ-ox-zBD">
-                                                    <rect key="frame" x="0.0" y="0.0" width="461" height="400"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="461" height="401"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView focusRingType="none" verticalHuggingPriority="750" columnAutoresizingStyle="none" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" id="0vd-d6-rKt">
-                                                            <rect key="frame" x="0.0" y="0.0" width="463" height="400"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="463" height="401"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="1"/>
                                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -155,7 +154,7 @@
                                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                     </tableHeaderCell>
-                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" borderStyle="bezel" usesSingleLineMode="YES" id="Bno-ls-38z" customClass="SearchViewTextFieldCell" customModule="CutBox" customModuleProvider="target">
+                                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" borderStyle="bezel" usesSingleLineMode="YES" id="Bno-ls-38z">
                                                                         <font key="font" size="15" name="HelveticaNeue"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
@@ -171,28 +170,28 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="whH-T9-Yh4">
-                                                    <rect key="frame" x="445" y="0.0" width="16" height="400"/>
+                                                    <rect key="frame" x="445" y="0.0" width="16" height="401"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
                                             <box boxType="custom" cornerRadius="1" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="PqF-0i-OXy">
-                                                <rect key="frame" x="466" y="1" width="461" height="400"/>
+                                                <rect key="frame" x="466" y="0.0" width="461" height="401"/>
                                                 <view key="contentView" id="gtu-s3-I3G">
-                                                    <rect key="frame" x="1" y="1" width="459" height="398"/>
+                                                    <rect key="frame" x="1" y="1" width="459" height="399"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfp-9E-05R">
-                                                            <rect key="frame" x="10" y="10" width="439" height="378"/>
+                                                            <rect key="frame" x="10" y="10" width="439" height="379"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="UO5-NP-mCp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="439" height="378"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="439" height="379"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="NO" usesInspectorBar="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="eKA-mf-B4d">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="439" height="378"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="439" height="379"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <color key="textColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                                                        <size key="minSize" width="439" height="378"/>
+                                                                        <size key="minSize" width="439" height="379"/>
                                                                         <size key="maxSize" width="463" height="10000000"/>
                                                                         <color key="insertionPointColor" red="0.94704241069999995" green="0.98524213800000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </textView>
@@ -204,7 +203,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                             <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
-                                                                <rect key="frame" x="423" y="0.0" width="16" height="378"/>
+                                                                <rect key="frame" x="423" y="0.0" width="16" height="379"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
                                                         </scrollView>
@@ -218,7 +217,6 @@
                                                 </view>
                                                 <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                 <color key="fillColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="titleFont" metaFont="message" size="11"/>
                                             </box>
                                         </subviews>
                                         <constraints>
@@ -290,7 +288,6 @@
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
-                    <font key="titleFont" metaFont="message" size="11"/>
                 </box>
             </subviews>
             <constraints>
