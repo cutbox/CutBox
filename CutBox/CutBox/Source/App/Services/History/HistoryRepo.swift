@@ -118,4 +118,24 @@ class HistoryRepo {
         self.clear()
         self.defaults.removeObject(forKey: self.storeDefaultsKey)
     }
+
+    func bytes() throws -> Int {
+        let data = try PropertyListSerialization.data(
+            fromPropertyList: store,
+            format: .binary,
+            options: .bitWidth)
+
+        return data.count
+    }
+
+    func bytesFormatted() -> String {
+        do {
+            let i: Int = try bytes()
+            let byteFormatter = ByteCountFormatter()
+            byteFormatter.allowedUnits = [.useGB,.useMB,.useKB]
+            return byteFormatter.string(fromByteCount: Int64(i))
+        } catch {
+            return ""
+        }
+    }
 }

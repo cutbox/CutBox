@@ -19,9 +19,17 @@ class PasteboardWrapper: PasteboardWrapperType {
     }
 }
 
+enum HistoryServiceEvents {
+    case didSaveDefaults
+    case didLoadDefaults
+    case didClearHistory
+}
+
 class HistoryService: NSObject {
 
     static let shared = HistoryService()
+
+    let events = PublishSubject<HistoryServiceEvents>()
 
     var _historyLimit: Int = 0
     var historyLimit: Int {
@@ -97,6 +105,8 @@ class HistoryService: NSObject {
         } else {
             self.historyRepo.loadFromDefaults()
         }
+
+        self.events.onNext(.didLoadDefaults)
 
         super.init()
     }
@@ -187,6 +197,7 @@ class HistoryService: NSObject {
 
     func clear() {
         self.historyRepo.clearHistory()
+        self.events.onNext(.didClearHistory)
     }
 
     private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
@@ -210,6 +221,7 @@ class HistoryService: NSObject {
 
     func saveToDefaults() {
         self.historyRepo.saveToDefaults()
+        self.events.onNext(.didSaveDefaults)
     }
 
     deinit {
@@ -240,5 +252,9 @@ class HistoryService: NSObject {
         return pasteboard.pasteboardItems?
             .first?
             .string(forType: .string)
+    }
+
+    func bytesFormatted() -> String {
+        return self.historyRepo.bytesFormatted()
     }
 }

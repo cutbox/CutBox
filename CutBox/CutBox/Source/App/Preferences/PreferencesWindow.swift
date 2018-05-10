@@ -22,6 +22,7 @@ class PreferencesWindow: NSWindow {
 
     let disposeBag = DisposeBag()
 
+    @IBOutlet weak var historySizeLabel: NSTextField!
     @IBOutlet weak var historyLimitTextField: NSTextField!
     @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
     @IBOutlet weak var joinAndWrapSectionTitle: NSTextField!
@@ -63,6 +64,23 @@ class PreferencesWindow: NSWindow {
         setupHistoryLimitControls()
         setupJoinStringTextField()
         setupWrappingStringTextFields()
+        setupHistorySizeLabel()
+    }
+
+    func setupHistorySizeLabel() {
+        updateHistorySizeLabel()
+
+        HistoryService.shared
+            .events
+            .subscribe(onNext: { _ in self.updateHistorySizeLabel() })
+            .disposed(by: disposeBag)
+    }
+
+    func updateHistorySizeLabel() {
+        self.historySizeLabel.stringValue = String(
+            format: "preferences_history_is_using_format".l7n,
+            HistoryService.shared.bytesFormatted()
+        )
     }
 
     func setupThemeSelector() {

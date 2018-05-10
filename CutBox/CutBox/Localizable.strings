@@ -49,6 +49,8 @@
 "preferences_protect_favorites" = "Protect favorites";
 "preferences_protect_favorites_tooltip" = "Protect favorites if you clear history";
 
+"preferences_history_is_using_format" = "Currently using: %@";
+
 "search_placeholder" = "Search CutBox";
 
 "about_cutbox_title" = "CutBox";
