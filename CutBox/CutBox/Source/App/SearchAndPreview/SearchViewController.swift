@@ -160,11 +160,9 @@ class SearchViewController: NSObject {
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .toggleTheme:
-                    let selected = self.searchView.clipboardItemsTable.selectedRowIndexes
                     self.prefs.toggleTheme()
                     self.searchView.applyTheme()
-                    self.searchView.clipboardItemsTable.reloadData()
-                    self.searchView.clipboardItemsTable.selectRowIndexes(selected, byExtendingSelection: false)
+                    self.reloadDataWithExistingSelection()
 
                 case .toggleWrappingStrings:
                     self.prefs.useWrappingStrings = !self.prefs.useWrappingStrings
@@ -195,7 +193,13 @@ class SearchViewController: NSObject {
                     break
                 }
             })
-            .disposed(by: disposeBag)
+            .disposed(by: self.disposeBag)
+    }
+
+    private func reloadDataWithExistingSelection() {
+        let selected = self.searchView.clipboardItemsTable.selectedRowIndexes
+        self.searchView.clipboardItemsTable.reloadData()
+        self.searchView.clipboardItemsTable.selectRowIndexes(selected, byExtendingSelection: false)
     }
 
     private func configurePopup() {
