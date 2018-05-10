@@ -50,6 +50,8 @@ class HistoryService: NSObject {
     var pollingTimer: Timer?
     var filterText: String?
 
+    var removeGuard: String?
+
     private var _defaultSearchMode: HistorySearchMode = .fuzzyMatch
 
     var searchMode: HistorySearchMode {
@@ -209,6 +211,11 @@ class HistoryService: NSObject {
 
     func remove(items: IndexSet) {
         let indexes = itemSelectionToHistoryIndexes(items: items)
+
+        if indexes.contains(0) {
+            self.removeGuard = self.historyRepo.items[0]
+        }
+
         self.historyRepo
             .removeAtIndexes(indexes: indexes)
     }
@@ -239,6 +246,14 @@ class HistoryService: NSObject {
 
     func replaceWithLatest() -> String? {
         guard let currentClip = clipboardContent() else { return nil }
+
+        if let removeGuard = self.removeGuard {
+            if currentClip == removeGuard {
+                return nil
+            } else {
+                self.removeGuard = nil
+            }
+        }
 
         if let indexOfClip = historyRepo.items.index(of: currentClip) {
             if indexOfClip == 0 { return nil }

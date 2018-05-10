@@ -332,9 +332,9 @@
 		961A49B92065DC1E005BC79D /* SearchAndPreview */ = {
 			isa = PBXGroup;
 			children = (
+				96A16B5120A4731000EE08A4 /* ClipItems */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
-				96A16B5120A4731000EE08A4 /* ClipItems */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
 				964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */,
