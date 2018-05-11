@@ -70,6 +70,8 @@
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
 		967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */; };
 		967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAD20A476D200A525CC /* NSImage+tint.swift */; };
+		967EFEB020A5199400A525CC /* Preferences+HistorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */; };
+		967EFEB220A519D600A525CC /* Preferences+ThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
 		968D7C932094778900FF1236 /* magnitude.png in Resources */ = {isa = PBXBuildFile; fileRef = 968D7C922094778900FF1236 /* magnitude.png */; };
@@ -240,6 +242,8 @@
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
 		967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+getRowView.swift"; sourceTree = "<group>"; };
 		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
+		967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+HistorySize.swift"; sourceTree = "<group>"; };
+		967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+ThemeSelector.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
 		968D7C922094778900FF1236 /* magnitude.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = magnitude.png; path = CutBox/GraphicAssets/magnitude.png; sourceTree = SOURCE_ROOT; };
@@ -375,6 +379,8 @@
 				964CA547208324D300B9F33E /* PreferencesService */,
 				964CA568208337F100B9F33E /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
+				967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */,
+				967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */,
 				964CA54E20832F0400B9F33E /* PreferencesWindow+HistoryLimit.swift */,
 				964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */,
 				964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */,
@@ -987,6 +993,7 @@
 			files = (
 				962D6D4D207357ED007E3785 /* VersionService.swift in Sources */,
 				965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */,
+				967EFEB020A5199400A525CC /* Preferences+HistorySize.swift in Sources */,
 				962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */,
 				962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
@@ -1006,6 +1013,7 @@
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
 				964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
 				969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */,
+				967EFEB220A519D600A525CC /* Preferences+ThemeSelector.swift in Sources */,
 				968D7C952095778800FF1236 /* PreferencesWindow+UseCompactUI.swift in Sources */,
 				964766672067A68000E7026F /* Collection+Safe.swift in Sources */,
 				96A16B4A20A34C7000EE08A4 /* ClipItemTableRowTextView.swift in Sources */,

@@ -66,31 +66,4 @@ class PreferencesWindow: NSWindow {
         setupWrappingStringTextFields()
         setupHistorySizeLabel()
     }
-
-    func setupHistorySizeLabel() {
-        updateHistorySizeLabel()
-
-        HistoryService.shared
-            .events
-            .subscribe(onNext: { _ in self.updateHistorySizeLabel() })
-            .disposed(by: disposeBag)
-    }
-
-    func updateHistorySizeLabel() {
-        self.historySizeLabel.stringValue = String(
-            format: "preferences_history_is_using_format".l7n,
-            HistoryService.shared.bytesFormatted()
-        )
-    }
-
-    func setupThemeSelector() {
-        self.themeSelectorTitleLabel.stringValue =
-            "preferences_color_theme_title".l7n
-
-        self.themeSelectorMenu.addItems(withTitles:
-            CutBoxColorTheme.instances.map { $0.name }
-        )
-
-        self.themeSelectorMenu.selectItem(at: prefs.theme)
-    }
 }
