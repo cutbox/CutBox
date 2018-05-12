@@ -73,6 +73,8 @@
 		967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAD20A476D200A525CC /* NSImage+tint.swift */; };
 		967EFEB020A5199400A525CC /* Preferences+HistorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */; };
 		967EFEB220A519D600A525CC /* Preferences+ThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */; };
+		9689DBAA20A72225006E45B1 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9689DBA820A72225006E45B1 /* PreferencesTabViewController.swift */; };
+		9689DBAB20A72225006E45B1 /* PreferencesTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9689DBA920A72225006E45B1 /* PreferencesTabViewController.xib */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
 		968B4F0620A68CB300F150BE /* JSContext+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B4F0520A68CB300F150BE /* JSContext+subscript.swift */; };
@@ -247,6 +249,8 @@
 		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
 		967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+HistorySize.swift"; sourceTree = "<group>"; };
 		967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preferences+ThemeSelector.swift"; sourceTree = "<group>"; };
+		9689DBA820A72225006E45B1 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
+		9689DBA920A72225006E45B1 /* PreferencesTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesTabViewController.xib; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
 		968B4F0520A68CB300F150BE /* JSContext+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSContext+subscript.swift"; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 		963AA6482071EE0600779697 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				9689DBA620A721E0006E45B1 /* PreferencesTabViews */,
 				964CA547208324D300B9F33E /* PreferencesService */,
 				964CA568208337F100B9F33E /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
@@ -516,6 +521,15 @@
 				96E1E597205D243400F994ED /* AppDelegate.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		9689DBA620A721E0006E45B1 /* PreferencesTabViews */ = {
+			isa = PBXGroup;
+			children = (
+				9689DBA820A72225006E45B1 /* PreferencesTabViewController.swift */,
+				9689DBA920A72225006E45B1 /* PreferencesTabViewController.xib */,
+			);
+			path = PreferencesTabViews;
 			sourceTree = "<group>";
 		};
 		96A16B5120A4731000EE08A4 /* ClipItems */ = {
@@ -797,6 +811,7 @@
 				964CA566208337F100B9F33E /* PreferencesWindow.xib in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
+				9689DBAB20A72225006E45B1 /* PreferencesTabViewController.xib in Resources */,
 				96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1010,6 +1025,7 @@
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
 				96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */,
+				9689DBAA20A72225006E45B1 /* PreferencesTabViewController.swift in Sources */,
 				962D6D492073544F007E3785 /* HotKeyService.swift in Sources */,
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				964CA50C207E69F600B9F33E /* SearchAndPreviewView+ApplyTheme.swift in Sources */,
