@@ -24,6 +24,13 @@ class ClipItemTableRowContainerView: NSTableRowView {
                 .onNext(.closeAndPasteSelected)
         }
 
+        if event.clickCount == 2
+            && modifiers == [.control] {
+            self.searchView?
+                .events
+                .onNext(.closeAndPasteSelectedThroughJavascript)
+        }
+
         if event.clickCount == 1
             && modifiers == [.option] {
             self.searchView?

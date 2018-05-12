@@ -14,6 +14,8 @@ enum CutBoxPreferencesEvent {
     case historyLimitChanged(limit: Int)
     case compactUISettingChanged(isOn: Bool)
     case protectFavoritesChanged(isOn: Bool)
+    case javascriptEnabledChanged(isOn: Bool)
+    case javascriptChanged
 }
 
 class CutBoxPreferencesService {
@@ -307,5 +309,31 @@ class CutBoxPreferencesService {
             return defaults.bool(forKey: kProtectFavorites)
         }
     }
+
+    var kJavascriptEnabled = "javascriptEnabled"
+
+    var javascriptEnabled: Bool {
+        set {
+            defaults.set(newValue, forKey: kJavascriptEnabled)
+            events.onNext(.javascriptEnabledChanged(isOn: newValue))
+        }
+        get {
+            return defaults.bool(forKey: kJavascriptEnabled)
+        }
+    }
+
+
+    var kJavascript = "javascript"
+
+    var javascript: String? {
+        set {
+            defaults.set(newValue, forKey: kJavascript)
+            events.onNext(.javascriptChanged)
+        }
+        get {
+            return defaults.string(forKey: kJavascript)
+        }
+    }
 }
+
 

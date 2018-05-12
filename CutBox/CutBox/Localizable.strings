@@ -35,6 +35,49 @@
 
 "preferences_multi_clip_join_and_wrap_section_title" = "Joining and Wrapping";
 "preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
+
+"preferences_javascript_processing_section_title" = "Javascript Processing";
+"preferences_javascript_processing_section_note" = "Paste with Cmd + Ctrl + Enter to first process your selection\nProvide some Javascript below:";
+"preferences_javascript_processing_is_enabled_checkbox" = "Enable";
+
+"preferences_javascript_processing_template" = "
+var paste = items.join(\"\\n\")
+
+//
+// Selected item(s) are in a global var defined for you:
+//
+// items
+//
+// Put your output into
+//
+// var paste
+//
+// Example:
+//
+// var paste = // <- output will be pasted
+//             \"(sesame \" +
+//             items // <- selected item(s) from CutBox
+//             .map(
+//               function(e){
+//                 return '\"' + e + '\"'
+//               }
+//             )
+//             .join(\" \") +
+//             \")\"
+//
+// If our selected clips were Big Bird, Grover, Bert:
+//
+// The function above would paste out
+//
+//   (sesame \"Big Bird\" \"Grover\" \"Bert\")
+//
+// Note: Javascript ES4 supported
+//
+// This is an early BETA feature please report bugs
+// http://github.com/CutBox/CutBox/issues
+//
+";
+
 "preferences_multi_clip_join_title" = "Join using";
 "preferences_multi_clip_joined_by_newline" = "New line";
 "preferences_multi_clip_joined_by_string" = "Text";

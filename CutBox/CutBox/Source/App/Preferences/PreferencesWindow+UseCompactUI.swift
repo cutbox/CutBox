@@ -16,11 +16,11 @@ extension PreferencesWindow {
 
         self.compactUICheckbox.state = self.prefs.useCompactUI ? .on : .off
 
-        self.compactUICheckbox.rx.state
+        self.compactUICheckbox
+            .rx
+            .state
             .map { $0 == .on }
-            .subscribe(onNext: {
-                self.prefs.useCompactUI = $0
-            })
+            .subscribe(onNext: { self.prefs.useCompactUI = $0 })
             .disposed(by: disposeBag)
 
         self.prefs

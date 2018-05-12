@@ -71,8 +71,8 @@ class SearchViewController: NSObject {
         fakeKey.send(fakeKey: "V", useCommandFlag: true)
     }
 
-    private func closeAndPaste() {
-        self.pasteSelectedClipToPasteboard()
+    private func closeAndPaste(useJS: Bool = false) {
+        self.pasteSelectedClipToPasteboard(useJS)
         self.closePopup()
         perform(#selector(hideApp), with: self, afterDelay: 0.1)
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
@@ -90,16 +90,16 @@ class SearchViewController: NSObject {
         self.searchView.clipboardItemsTable.selectRowIndexes(selection, byExtendingSelection: false)
     }
 
-    func pasteSelectedClipToPasteboard() {
+    func pasteSelectedClipToPasteboard(_ useJS: Bool) {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
         let selectedClips: [String] = self.historyService.items[indexes]
         guard !selectedClips.isEmpty else { return }
 
-        pasteToPasteboard(selectedClips)
+        pasteToPasteboard(selectedClips, useJS)
     }
 
-    private func pasteToPasteboard(_ clips: [String]) {
-        let clip = prefs.prepareClips(clips)
+    private func pasteToPasteboard(_ clips: [String], _ useJs: Bool) {
+        let clip = prefs.prepareClips(clips, useJs)
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
@@ -141,7 +141,7 @@ class SearchViewController: NSObject {
 
     func updatePreview() {
         let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = prefs.prepareClips(self.historyService.items[indexes])
+        let preview = prefs.prepareClips(self.historyService.items[indexes], false)
         self.searchView.previewClip.string = preview
     }
 
@@ -185,6 +185,9 @@ class SearchViewController: NSObject {
 
                 case .closeAndPasteSelected:
                     self.closeAndPaste()
+
+                case .closeAndPasteSelectedThroughJavascript:
+                    self.closeAndPaste(useJS: true)
 
                 case .removeSelected:
                     self.removeSelected()
