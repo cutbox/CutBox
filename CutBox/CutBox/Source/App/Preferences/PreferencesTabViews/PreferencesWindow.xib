@@ -14,8 +14,8 @@
             <windowPositionMask key="initialPositionMask" topStrut="YES"/>
             <rect key="contentRect" x="479" y="369" width="463" height="345"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1028"/>
-            <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="465" height="345"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="470" height="345"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <tabView translatesAutoresizingMaskIntoConstraints="NO" id="Z73-Tx-HRo" customClass="PreferencesTabView" customModule="CutBox" customModuleProvider="target">

@@ -13,7 +13,7 @@ class PreferencesTabView: NSTabView {
     let generalTab: PreferencesGeneralView = PreferencesGeneralView.fromNib()!
     let advancedTab: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
     let themeTab: PreferencesThemeSelectionView = PreferencesThemeSelectionView.fromNib()!
-    let javascriptTab: PreferencesJavascriptProcessingView = PreferencesJavascriptProcessingView.fromNib()!
+    let javascriptTab: PreferencesJavascriptTransformView = PreferencesJavascriptTransformView.fromNib()!
 
     typealias Tab = (String, NSView)
 
@@ -22,7 +22,7 @@ class PreferencesTabView: NSTabView {
             ("General", generalTab),
             ("Display", themeTab),
             ("Advanced", advancedTab),
-//            ("Javascript", javascriptTab)
+            ("Javascript", javascriptTab)
         ]
 
         tabViews.forEach {

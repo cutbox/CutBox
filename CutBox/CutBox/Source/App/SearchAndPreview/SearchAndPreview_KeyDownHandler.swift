@@ -31,6 +31,11 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.justClose)
 
+        case (kVK_Return, [.command]):
+
+            self.events
+                .onNext(.closeAndPasteSelectedThroughJavascript)
+
         case (kVK_Return, _):
 
             self.events

@@ -14,8 +14,7 @@ enum CutBoxPreferencesEvent {
     case historyLimitChanged(limit: Int)
     case compactUISettingChanged(isOn: Bool)
     case protectFavoritesChanged(isOn: Bool)
-    case javascriptEnabledChanged(isOn: Bool)
-    case javascriptChanged
+    case javascriptReload
 }
 
 class CutBoxPreferencesService {
@@ -310,30 +309,27 @@ class CutBoxPreferencesService {
         }
     }
 
-    var kJavascriptEnabled = "javascriptEnabled"
-
-    var javascriptEnabled: Bool {
-        set {
-            defaults.set(newValue, forKey: kJavascriptEnabled)
-            events.onNext(.javascriptEnabledChanged(isOn: newValue))
-        }
-        get {
-            return defaults.bool(forKey: kJavascriptEnabled)
-        }
-    }
-
-
     var kJavascript = "javascript"
 
     var javascript: String? {
         set {
             defaults.set(newValue, forKey: kJavascript)
-            events.onNext(.javascriptChanged)
+            events.onNext(.javascriptReload)
         }
         get {
             return defaults.string(forKey: kJavascript)
         }
     }
+
+    func loadJavascript() {
+        let location = NSString(string:"~/.cutbox.js").expandingTildeInPath
+        if let fileContent = try? String(contentsOfFile: location) {
+            self.javascript = fileContent
+
+            let notification = NSUserNotification()
+            notification.title = "Javascript loaded"
+            notification.informativeText = "~/.cutbox.js loaded..."
+            NSUserNotificationCenter.default.deliver(notification)
+        }
+    }
 }
-
-
