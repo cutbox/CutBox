@@ -16,8 +16,9 @@ extension NSObject {
             NSNib.Name(rawValue: name),
             owner: nil,
             topLevelObjects: &objectArray) else {
-                fatalError("Unable to load Window from nib: \(name)")
+                fatalError("Unable to load view from nib: \(name)")
         }
+
         return objectArray?.first(where: { $0 is T }) as? T
     }
 
@@ -27,7 +28,7 @@ extension NSObject {
             NSNib.Name(rawValue: name),
             owner: nil,
             topLevelObjects: &objectArray) else {
-                fatalError("Unable to load Window from nib: \(name)")
+                fatalError("Unable to load view from nib: \(name)")
         }
         return objectArray?.first(where: { $0 is T }) as? T
     }

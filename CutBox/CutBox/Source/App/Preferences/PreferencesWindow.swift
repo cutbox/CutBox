@@ -14,95 +14,62 @@ import RxSwift
 import RxCocoa
 
 class PreferencesWindow: NSWindow {
+    @IBOutlet weak var tabView: PreferencesTabView!
 
-    var loginItemsService: LoginItemsService!
-    var hotKeyService: HotKeyService!
-    var hotKeyCenter: HotKeyCenter!
+    override func awakeFromNib() {
+        self.title = "preferences_title".l7n
+        self.titlebarAppearsTransparent = true
+    }
+}
+
+class PreferencesGeneralView: NSView {
     var prefs: CutBoxPreferencesService!
-
     let disposeBag = DisposeBag()
 
-    @IBOutlet weak var historyLimitTitle: NSTextField!
-    @IBOutlet weak var historySizeLabel: NSTextField!
-    @IBOutlet weak var historyLimitTextField: NSTextField!
-    @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
-
-    @IBOutlet weak var joinAndWrapSectionTitle: NSTextField!
-    @IBOutlet weak var joinAndWrapNote: NSTextFieldCell!
-    @IBOutlet weak var joinClipsTitle: NSTextField!
-    @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
-    @IBOutlet weak var joinStringTextField: NSTextField!
-
-    @IBOutlet weak var autoLoginCheckbox: NSButton!
+    var hotKeyService: HotKeyService!
+    var hotKeyCenter: HotKeyCenter!
 
     @IBOutlet weak var mainKeyRecorder: RecordView!
     @IBOutlet weak var mainKeyRecorderLabel: NSTextField!
 
-    @IBOutlet weak var shouldWrapMultipleSelection: NSButton!
-    @IBOutlet weak var wrapStartTextField: NSTextField!
-    @IBOutlet weak var wrapEndTextField: NSTextField!
+    var loginItemsService: LoginItemsService!
 
-    @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
-    @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
-
-    @IBOutlet weak var compactUICheckbox: NSButton!
+    @IBOutlet weak var autoLoginCheckbox: NSButton!
 
     @IBOutlet weak var protectFavoritesCheckbox: NSButton!
 
-    @IBOutlet weak var javascriptPreferencesContainer: NSStackView!
-    @IBOutlet weak var javascriptProcessingSectionTitle: NSTextField!
-    @IBOutlet weak var javascriptProcessingNote: NSTextField!
-    @IBOutlet weak var javascriptProcessingIsEnabledCheckbox: NSButton!
-    @IBOutlet weak var javascriptProcessingTextView: NSTextView!
-    @IBOutlet weak var javascriptProcessingSaveScript: NSButton!
-
-    @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
-        prefs.theme = sender.index(of: sender.selectedItem!)
-    }
-
     override func awakeFromNib() {
-        self.title = "preferences_title".l7n
-
         self.loginItemsService = LoginItemsService.shared
         self.hotKeyService = HotKeyService.shared
         self.hotKeyCenter = HotKeyCenter.shared
         self.prefs = CutBoxPreferencesService.shared
 
-        self.titlebarAppearsTransparent = true
-
-        setupAutoLoginControl()
-        setupCompactUIControl()
-        setupProtectFavoritesCheckbox()
-        setupThemeSelector()
         setupKeyRecorders()
-        setupHistoryLimitControls()
-        setupHistorySizeLabel()
-        setupJoinStringTextField()
-        setupWrappingStringTextFields()
+        setupProtectFavoritesCheckbox()
+        setupAutoLoginControl()
+    }
+}
+
+class PreferencesJavascriptProcessingView: NSView {
+    var prefs: CutBoxPreferencesService!
+    let disposeBag = DisposeBag()
+
+    @IBOutlet weak var javascriptProcessingSectionTitle: NSTextField!
+    @IBOutlet weak var javascriptProcessingNote: NSTextField!
+    @IBOutlet weak var javascriptProcessingTextView: NSTextView!
+    @IBOutlet weak var javascriptProcessingSaveScript: NSButton!
+
+    override func awakeFromNib() {
+        self.prefs = CutBoxPreferencesService.shared
+
         setupJavascriptProcessingSection()
     }
 
     func setupJavascriptProcessingSection() {
         self.javascriptProcessingSectionTitle.stringValue = "preferences_javascript_processing_section_title".l7n
         self.javascriptProcessingNote.stringValue = "preferences_javascript_processing_section_note".l7n
-
-        self.javascriptProcessingIsEnabledCheckbox.title = "preferences_javascript_processing_is_enabled_checkbox".l7n
-
-        self.javascriptProcessingIsEnabledCheckbox
-            .rx
-            .state
-            .map { $0 == .on }
-            .subscribe(onNext: { self.prefs.javascriptEnabled = $0 })
-            .disposed(by: disposeBag)
-
-        self.javascriptProcessingIsEnabledCheckbox
-            .rx
-            .state
-            .map { $0 != .on }
-            .bind(to: self.javascriptPreferencesContainer.rx.isHidden)
-            .disposed(by: disposeBag)
-
         self.javascriptProcessingTextView.string = "preferences_javascript_processing_template".l7n
+
         self.javascriptProcessingTextView.font = NSFont.userFixedPitchFont(ofSize: 10)
         self.javascriptProcessingTextView.isAutomaticQuoteSubstitutionEnabled = false
         self.javascriptProcessingTextView.isAutomaticTextReplacementEnabled = false
@@ -115,4 +82,63 @@ class PreferencesWindow: NSWindow {
             .disposed(by: disposeBag)
     }
 }
+
+class PreferencesAdvancedView: NSView {
+    var prefs: CutBoxPreferencesService!
+    let disposeBag = DisposeBag()
+
+    @IBOutlet weak var historyLimitTitle: NSTextField!
+    @IBOutlet weak var historyLimitTextField: NSTextField!
+    @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
+    @IBOutlet weak var historySizeLabel: NSTextField!
+
+    @IBOutlet weak var joinAndWrapSectionTitle: NSTextField!
+    @IBOutlet weak var joinAndWrapNote: NSTextFieldCell!
+    @IBOutlet weak var joinClipsTitle: NSTextField!
+    @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
+    @IBOutlet weak var joinStringTextField: NSTextField!
+
+    @IBOutlet weak var shouldWrapMultipleSelection: NSButton!
+    @IBOutlet weak var wrapStartTextField: NSTextField!
+    @IBOutlet weak var wrapEndTextField: NSTextField!
+
+    override func awakeFromNib() {
+        prefs = CutBoxPreferencesService.shared
+
+        setupWrappingStringTextFields()
+        setupJoinStringTextField()
+        setupHistoryLimitControls()
+        setupHistorySizeLabel()
+    }
+
+    @IBAction func joinStyleSelectorAction(_ sender: Any) {
+        if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
+            let bool = selector.selectedSegment == 1
+            joinStringTextField.isHidden = !bool
+            joinStringTextField.isEnabled = bool
+            prefs.useJoinString = bool
+        }
+    }
+}
+
+class PreferencesThemeSelectionView: NSView {
+    var prefs: CutBoxPreferencesService!
+    let disposeBag = DisposeBag()
+
+    @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
+    @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
+    @IBOutlet weak var compactUICheckbox: NSButton!
+
+    override func awakeFromNib() {
+        prefs = CutBoxPreferencesService.shared
+
+        setupThemeSelector()
+        setupCompactUIControl()
+    }
+
+    @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
+        prefs.theme = sender.index(of: sender.selectedItem!)
+    }
+}
+
 

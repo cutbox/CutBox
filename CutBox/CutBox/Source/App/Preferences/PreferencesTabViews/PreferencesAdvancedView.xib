@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="DMd-LY-Kdz" userLabel="Join and Wrap" customClass="PreferencesAdvancedView" customModule="CutBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="443" height="306"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9k-cb-OS5">
+                    <rect key="frame" x="10" y="10" width="423" height="286"/>
+                    <subviews>
+                        <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSq-jc-XQh">
+                            <rect key="frame" x="0.0" y="261" width="400" height="25"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0W-Uc-kff">
+                                    <rect key="frame" x="-2" y="4" width="104" height="17"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Rmh-7b-j2A"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="left" title="History limit:" id="TcP-c9-EQA">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mS-Ll-w7t">
+                                    <rect key="frame" x="108" y="1.5" width="211" height="22"/>
+                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Limit" drawsBackground="YES" usesSingleLineMode="YES" id="8Wu-lf-buR">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JEq-P5-OWm">
+                                    <rect key="frame" x="325" y="3.5" width="77" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Unlmited" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Lvi-VE-BX4">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="400" id="F71-qU-5F7"/>
+                                <constraint firstAttribute="height" constant="25" id="P33-WT-va7"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="26i-F5-bZz">
+                            <rect key="frame" x="0.0" y="248" width="96" height="5"/>
+                        </box>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XMd-r6-Dc4">
+                            <rect key="frame" x="-2" y="229" width="28" height="11"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="yxu-7t-0i5">
+                                <font key="font" metaFont="miniSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lm-d9-Wai">
+                            <rect key="frame" x="-2" y="202" width="140" height="17"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Joining and Wrapping" id="jQR-CD-UpS">
+                                <font key="font" metaFont="titleBar"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCE-xR-SJd">
+                            <rect key="frame" x="-2" y="178" width="411" height="14"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="You can select multiple items from CutBox history and paste them all at once" id="Dhi-Vd-Tav">
+                                <font key="font" metaFont="smallSystem"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="li7-hy-CbD">
+                            <rect key="frame" x="-2" y="151" width="213" height="17"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Multiple selected clips joined by..." id="tzr-ED-OEV">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jE2-l7-2ea">
+                            <rect key="frame" x="-2" y="118" width="133" height="24"/>
+                            <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="7hh-eD-Hte">
+                                <font key="font" metaFont="system"/>
+                                <segments>
+                                    <segment label="Newline" selected="YES"/>
+                                    <segment label="String" tag="1"/>
+                                </segments>
+                            </segmentedCell>
+                            <connections>
+                                <action selector="joinStyleSelectorAction:" target="DMd-LY-Kdz" id="s9r-xe-1LG"/>
+                            </connections>
+                        </segmentedControl>
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gzO-YB-b9n">
+                            <rect key="frame" x="0.0" y="88" width="407" height="22"/>
+                            <textFieldCell key="cell" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Separator String" drawsBackground="YES" id="6kE-6f-3H2">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6OS-tx-r9Y">
+                            <rect key="frame" x="-2" y="62" width="204" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="bbQ-I7-rao"/>
+                            </constraints>
+                            <buttonCell key="cell" type="check" title="Wrap multiple selected clips?" bezelStyle="regularSquare" imagePosition="right" alignment="center" inset="2" id="Ifc-li-5wr">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qhD-ar-IB0">
+                            <rect key="frame" x="0.0" y="32" width="407" height="22"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Start" drawsBackground="YES" id="jEG-5n-6dA">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Mv-5n-utz">
+                            <rect key="frame" x="0.0" y="0.0" width="407" height="22"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="End" drawsBackground="YES" id="AZr-zJ-ffR">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="M9k-cb-OS5" firstAttribute="top" secondItem="DMd-LY-Kdz" secondAttribute="top" constant="10" id="JPu-QR-bND"/>
+                <constraint firstItem="M9k-cb-OS5" firstAttribute="leading" secondItem="DMd-LY-Kdz" secondAttribute="leading" constant="10" id="Kly-Ws-Mwu"/>
+                <constraint firstAttribute="trailing" secondItem="M9k-cb-OS5" secondAttribute="trailing" constant="10" id="YRj-ic-mI6"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="M9k-cb-OS5" secondAttribute="bottom" constant="10" id="stw-Qh-XEw"/>
+            </constraints>
+            <connections>
+                <outlet property="historyLimitTextField" destination="9mS-Ll-w7t" id="Koh-GO-7AR"/>
+                <outlet property="historyLimitTitle" destination="x0W-Uc-kff" id="4rd-6n-sPX"/>
+                <outlet property="historySizeLabel" destination="XMd-r6-Dc4" id="kH7-dM-vy9"/>
+                <outlet property="historyUnlimitedCheckbox" destination="JEq-P5-OWm" id="sst-Jx-1Be"/>
+                <outlet property="joinAndWrapNote" destination="Dhi-Vd-Tav" id="39t-YR-2j6"/>
+                <outlet property="joinAndWrapSectionTitle" destination="5Lm-d9-Wai" id="EgB-Hh-hWt"/>
+                <outlet property="joinClipsTitle" destination="li7-hy-CbD" id="Rbp-76-wwB"/>
+                <outlet property="joinStringTextField" destination="gzO-YB-b9n" id="CYq-Lf-QUH"/>
+                <outlet property="joinStyleSelector" destination="jE2-l7-2ea" id="ws5-u5-eEe"/>
+                <outlet property="shouldWrapMultipleSelection" destination="6OS-tx-r9Y" id="2pJ-h2-c8V"/>
+                <outlet property="wrapEndTextField" destination="6Mv-5n-utz" id="D28-HB-uEv"/>
+                <outlet property="wrapStartTextField" destination="qhD-ar-IB0" id="7u3-iY-43h"/>
+            </connections>
+            <point key="canvasLocation" x="-316.5" y="105"/>
+        </customView>
+    </objects>
+</document>

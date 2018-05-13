@@ -10,7 +10,7 @@ import Magnet
 import KeyHolder
 import RxSwift
 
-extension PreferencesWindow {
+extension PreferencesGeneralView {
     func setupKeyRecorders() {
         self.mainKeyRecorder.delegate = self
         self.mainKeyRecorderLabel.stringValue = "preferences_toggle_cutbox".l7n
@@ -23,7 +23,7 @@ extension PreferencesWindow {
     }
 }
 
-extension PreferencesWindow: RecordViewDelegate {
+extension PreferencesGeneralView: RecordViewDelegate {
 
     func recordView(_ recordView: RecordView, canRecordKeyCombo keyCombo: KeyCombo) -> Bool {
         return true

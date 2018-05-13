@@ -9,16 +9,7 @@
 import RxCocoa
 import RxSwift
 
-extension PreferencesWindow {
-    @IBAction func joinStyleSelectorAction(_ sender: Any) {
-        if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
-            let bool = selector.selectedSegment == 1
-            joinStringTextField.isHidden = !bool
-            joinStringTextField.isEnabled = bool
-            prefs.useJoinString = bool
-        }
-    }
-
+extension PreferencesAdvancedView {
     func setupJoinStringTextField()  {
 
         self.joinAndWrapSectionTitle.stringValue = "preferences_multi_clip_join_and_wrap_section_title".l7n

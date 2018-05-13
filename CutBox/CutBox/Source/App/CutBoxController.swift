@@ -20,7 +20,7 @@ class CutBoxController: NSObject {
     var searchModeSelectorsDict: [String:NSMenuItem]?
 
     let searchViewController: SearchViewController
-    let preferencesWindow: PreferencesWindow = PreferencesWindow.fromNib()!
+    let preferencesController: PreferencesTabViewController
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
 
     let hotKeyService = HotKeyService.shared
@@ -50,8 +50,7 @@ class CutBoxController: NSObject {
 
     @IBAction func openPreferences(_ sender: NSMenuItem) {
         NSApplication.shared.activate(ignoringOtherApps: true)
-        preferencesWindow.makeKeyAndOrderFront(self)
-        preferencesWindow.center()
+        preferencesController.open()
     }
 
     @IBAction func openAboutPanel(_ sender: NSMenuItem) {
@@ -73,6 +72,7 @@ class CutBoxController: NSObject {
 
     override init() {
         self.searchViewController = SearchViewController()
+        self.preferencesController = PreferencesTabViewController()
         super.init()
         self.hotKeyService.configure(controller: self)
         self.prefs

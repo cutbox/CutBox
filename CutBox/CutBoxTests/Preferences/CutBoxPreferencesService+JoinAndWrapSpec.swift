@@ -38,7 +38,7 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
             context("multiple clips") {
                 context("default behavior") {
                     it("joins multiple clips by newlines") {
-                        let joined = subject.prepareClips(items)
+                        let joined = subject.prepareClips(items, false)
                         expect(joined).to(equal("Fakes\nTo kill a mockingbird"))
                     }
                 }
@@ -48,7 +48,7 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
                         it("joins each item with nothing between them") {
                             subject.useJoinString = true
 
-                            let joined = subject.prepareClips(items)
+                            let joined = subject.prepareClips(items, false)
                             expect(joined).to(equal("FakesTo kill a mockingbird"))
                         }
                     }
@@ -58,7 +58,7 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
                             subject.useJoinString = true
                             subject.multiJoinString = ","
 
-                            let joined = subject.prepareClips(items)
+                            let joined = subject.prepareClips(items, false)
                             expect(joined).to(equal("Fakes,To kill a mockingbird"))
                         }
                     }
@@ -70,7 +70,7 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
                             subject.useWrappingStrings = true
                             subject.wrappingStrings = (nil, nil)
 
-                            let wrapped = subject.prepareClips(items)
+                            let wrapped = subject.prepareClips(items, false)
                             let expected = "Fakes\nTo kill a mockingbird"
                             expect(wrapped).to(equal(expected))
                         }
@@ -80,7 +80,7 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
                             subject.useWrappingStrings = true
                             subject.wrappingStrings = ("[", "]")
 
-                            let wrapped = subject.prepareClips(items)
+                            let wrapped = subject.prepareClips(items, false)
                             let expected = "[Fakes\nTo kill a mockingbird]"
                             expect(wrapped).to(equal(expected))
                         }

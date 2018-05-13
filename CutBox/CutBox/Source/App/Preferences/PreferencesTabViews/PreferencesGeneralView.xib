@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="4Wp-TC-E4Y" userLabel="General" customClass="PreferencesGeneralView" customModule="CutBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="189"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="equalCentering" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKK-xB-hXy">
+                    <rect key="frame" x="10" y="93" width="436" height="86"/>
+                    <subviews>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLe-Dc-sPk">
+                            <rect key="frame" x="0.0" y="56" width="212" height="30"/>
+                            <subviews>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aa2-BL-mR4" userLabel="CutBox Shortcut TextField">
+                                    <rect key="frame" x="-2" y="7" width="93" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Toggle CutBox" id="RBS-h9-ZJE" userLabel="CutBox Shortcut TextCell">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <customView translatesAutoresizingMaskIntoConstraints="NO" id="fSw-8Y-IKM" customClass="RecordView" customModule="KeyHolder">
+                                    <rect key="frame" x="97" y="2" width="115" height="26"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="26" id="5PG-yl-vgL"/>
+                                        <constraint firstAttribute="width" constant="115" id="aZX-Bb-ep7"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="12"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.65273437499999998" green="0.65273437499999998" blue="0.65273437499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showsClearButton" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </customView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="Aa2-BL-mR4" firstAttribute="centerY" secondItem="HLe-Dc-sPk" secondAttribute="centerY" id="UET-aS-GfH"/>
+                                <constraint firstItem="fSw-8Y-IKM" firstAttribute="centerY" secondItem="HLe-Dc-sPk" secondAttribute="centerY" id="gCa-Zt-dA6"/>
+                                <constraint firstAttribute="height" constant="30" id="pWA-yN-5EQ"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T93-L1-O29">
+                            <rect key="frame" x="-2" y="30" width="122" height="18"/>
+                            <buttonCell key="cell" type="check" title="Launch on Login" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="JGH-Ww-gHu">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <button toolTip="Don't clear favorites if you clear history" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-Pa-cvu">
+                            <rect key="frame" x="-2" y="-2" width="123" height="18"/>
+                            <buttonCell key="cell" type="check" title="Protect favorites" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jBy-0u-Xgk">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="86" id="aYc-og-5mK"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="SKK-xB-hXy" secondAttribute="trailing" constant="10" id="UDn-VZ-i1c"/>
+                <constraint firstItem="SKK-xB-hXy" firstAttribute="top" secondItem="4Wp-TC-E4Y" secondAttribute="top" constant="10" id="sYe-8q-Bsj"/>
+                <constraint firstItem="SKK-xB-hXy" firstAttribute="leading" secondItem="4Wp-TC-E4Y" secondAttribute="leading" constant="10" id="t6S-Un-Gy8"/>
+            </constraints>
+            <connections>
+                <outlet property="autoLoginCheckbox" destination="T93-L1-O29" id="3ca-Ll-F4O"/>
+                <outlet property="mainKeyRecorder" destination="fSw-8Y-IKM" id="0tQ-VE-zlZ"/>
+                <outlet property="mainKeyRecorderLabel" destination="Aa2-BL-mR4" id="6ZZ-5s-CMQ"/>
+                <outlet property="protectFavoritesCheckbox" destination="Q7E-Pa-cvu" id="q0y-q4-QDW"/>
+            </connections>
+            <point key="canvasLocation" x="-669" y="506.5"/>
+        </customView>
+    </objects>
+</document>

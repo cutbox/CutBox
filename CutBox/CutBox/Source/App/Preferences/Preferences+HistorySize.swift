@@ -9,7 +9,7 @@
 import RxSwift
 import Foundation
 
-extension PreferencesWindow {
+extension PreferencesAdvancedView {
 
     func setupHistorySizeLabel() {
         updateHistorySizeLabel()

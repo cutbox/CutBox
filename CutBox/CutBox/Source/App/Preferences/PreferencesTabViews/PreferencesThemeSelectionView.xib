@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="ugS-Dh-JvJ" userLabel="Theme Selection" customClass="PreferencesThemeSelectionView" customModule="CutBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="138"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B9O-7z-kGb">
+                    <rect key="frame" x="10" y="48" width="345" height="80"/>
+                    <subviews>
+                        <button verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="hPC-e9-vTv">
+                            <rect key="frame" x="-2" y="52" width="94" height="30"/>
+                            <buttonCell key="cell" type="check" title="Compact UI" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mAq-kc-Idb">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVt-fT-sjS">
+                            <rect key="frame" x="-2" y="29" width="83" height="17"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Color theme" id="hn9-k8-WWm">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-gc-GY8" userLabel="color theme menu">
+                            <rect key="frame" x="-2" y="-3" width="37" height="26"/>
+                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Cpf-k0-Cyd" userLabel="color theme menu">
+                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="menu"/>
+                                <menu key="menu" id="I1f-ng-lKW"/>
+                            </popUpButtonCell>
+                            <connections>
+                                <action selector="themeSelectorMenuChanges:" target="ugS-Dh-JvJ" id="s7j-Hq-SrF"/>
+                            </connections>
+                        </popUpButton>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="rJN-5i-59i"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="B9O-7z-kGb" firstAttribute="top" secondItem="ugS-Dh-JvJ" secondAttribute="top" constant="10" id="CEO-Ea-juP"/>
+                <constraint firstItem="B9O-7z-kGb" firstAttribute="leading" secondItem="ugS-Dh-JvJ" secondAttribute="leading" constant="10" id="Dk2-fs-Lld"/>
+                <constraint firstAttribute="trailing" secondItem="B9O-7z-kGb" secondAttribute="trailing" constant="10" id="zEb-AH-OkX"/>
+            </constraints>
+            <connections>
+                <outlet property="compactUICheckbox" destination="hPC-e9-vTv" id="9W9-Y1-KYb"/>
+                <outlet property="themeSelectorMenu" destination="GLA-gc-GY8" id="pZj-Ya-XpQ"/>
+                <outlet property="themeSelectorTitleLabel" destination="sVt-fT-sjS" id="qtE-2Y-gUN"/>
+            </connections>
+            <point key="canvasLocation" x="-573.5" y="931"/>
+        </customView>
+    </objects>
+</document>
