@@ -19,6 +19,15 @@ class JSContext_subscriptSpec: QuickSpec {
             let ctx = JSContext()!
             context("subscript") {
 
+                it("test ES6") {
+                    expect(ctx.evaluateScript("""
+
+                      let a = (e) => e * 10
+                      a(5)
+
+                    """).toInt32()).to(equal(50))
+                }
+
                 context("set") {
                     it("sets objects on the JSContext") {
                         ctx["items"] = [123,524,213,523,315,213]

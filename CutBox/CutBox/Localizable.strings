@@ -71,7 +71,7 @@ var paste = items.join(\"\\n\")
 //
 //   (sesame \"Big Bird\" \"Grover\" \"Bert\")
 //
-// Note: Javascript ES4 supported
+// ES6 is supported
 //
 // This is an early BETA feature please report bugs
 // http://github.com/CutBox/CutBox/issues

@@ -15,7 +15,7 @@ class PreferencesWindowSpec: QuickSpec {
     override func spec() {
         describe("PreferencesWindow") {
             describe("limitChangeIsDestructive") {
-                let subject: PreferencesWindow = PreferencesWindow.fromNib()!
+                let subject: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
                 it("returns true when limit change is less than current limit") {
                     expect(subject
                         .limitChangeIsDestructive(limit: 10,
