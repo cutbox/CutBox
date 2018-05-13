@@ -10,7 +10,7 @@
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="DMd-LY-Kdz" userLabel="Join and Wrap" customClass="PreferencesAdvancedView" customModule="CutBox" customModuleProvider="target">
+        <customView id="DMd-LY-Kdz" userLabel="Advanced" customClass="PreferencesAdvancedView" customModule="CutBox" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="443" height="306"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
@@ -62,17 +62,17 @@
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
                         </stackView>
-                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="26i-F5-bZz">
-                            <rect key="frame" x="0.0" y="248" width="96" height="5"/>
-                        </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XMd-r6-Dc4">
-                            <rect key="frame" x="-2" y="229" width="28" height="11"/>
+                            <rect key="frame" x="-2" y="240" width="28" height="11"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="yxu-7t-0i5">
                                 <font key="font" metaFont="miniSystem"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="26i-F5-bZz">
+                            <rect key="frame" x="0.0" y="227" width="96" height="5"/>
+                        </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lm-d9-Wai">
                             <rect key="frame" x="-2" y="202" width="140" height="17"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Joining and Wrapping" id="jQR-CD-UpS">
