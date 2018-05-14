@@ -31,7 +31,7 @@ class PreferencesJavascriptTransformView: NSView {
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var javascriptTransformSectionTitle: NSTextField!
-    @IBOutlet weak var javascriptTransformNote: NSTextField!
+    @IBOutlet weak var javascriptTransformNote: NSTextView!
     @IBOutlet weak var javascriptTransformReloadButton: NSButton!
 
     override func awakeFromNib() {
@@ -42,7 +42,7 @@ class PreferencesJavascriptTransformView: NSView {
 
     func setupJavascriptTransformSection() {
         self.javascriptTransformSectionTitle.stringValue = "preferences_javascript_transform_section_title".l7n
-        self.javascriptTransformNote.attributedStringValue = NSAttributedString(html:         "preferences_javascript_transform_section_note".l7n)!
+        self.javascriptTransformNote.textStorage?.setAttributedString(NSAttributedString(html:         "preferences_javascript_transform_section_note".l7n)!)
         self.javascriptTransformReloadButton.title = "preferences_javascript_transform_reload".l7n
 
         self.javascriptTransformReloadButton

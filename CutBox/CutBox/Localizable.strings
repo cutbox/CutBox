@@ -37,7 +37,7 @@
 "preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
 
 "preferences_javascript_transform_section_title" = "Javascript transform";
-"preferences_javascript_transform_section_note" = "<style>body{font-family:\"Helvetica\";font-size: 10pt;}</style>
+"preferences_javascript_transform_section_note" = "<style>body{font-family:\"Helvetica\";font-size: 10pt;}code{background-color:#CCC;}</style>
 You can use Javascript to transform your items into any string you like.<br/>
 <br/>
 When CutBox starts up, it will try to load <code>~/.cutbox.js</code><br/>
@@ -48,10 +48,9 @@ and set the text to paste as a string: <code>paste</code><br/>
 When you select item(s) and press Cmd + Enter on the keyboard<br/>
 Your selection will be processed through your Javascript code.<br/>
 <br/>
-For examples and more info visit at <a href=\"https://cutbox.github.io/javascript.html\">https://cutbox.github.io/javascript.html</a><br/>
+Join the discussion at <a href=\"https://github.com/cutbox/cutbox/issues/50\">Cutbox on Github</a><br/>
 <br/>
-PLEASE NOTE: This feature is experimental. See <a href=\"https://github.com/cutbox/cutbox/issues/\">https://cutbox.github.io/javascript.html</a>
-  ";
+PLEASE NOTE: This feature is experimental.";
 
 "preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
 
