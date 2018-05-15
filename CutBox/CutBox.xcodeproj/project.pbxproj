@@ -101,6 +101,7 @@
 		96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */; };
 		96A8020620A857B5000CBE74 /* PreferencesAdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */; };
 		96A8020820A8581B000CBE74 /* PreferencesThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */; };
+		96A8020A20AACD4E000CBE74 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020920AACD4E000CBE74 /* OrderedSet.swift */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
@@ -284,6 +285,7 @@
 		96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesJavascriptTransformView.swift; sourceTree = "<group>"; };
 		96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesAdvancedView.swift; sourceTree = "<group>"; };
 		96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesThemeSelectionView.swift; sourceTree = "<group>"; };
+		96A8020920AACD4E000CBE74 /* OrderedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				96A8020920AACD4E000CBE74 /* OrderedSet.swift */,
 				969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */,
 				968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */,
 				964CA5482083296600B9F33E /* String+L10n.swift */,
@@ -1042,6 +1045,7 @@
 				962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */,
 				962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
+				96A8020A20AACD4E000CBE74 /* OrderedSet.swift in Sources */,
 				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
 				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
 				967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */,

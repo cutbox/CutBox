@@ -16,6 +16,8 @@ class SearchViewController: NSObject {
     var prefs: CutBoxPreferencesService
     var fakeKey: FakeKey
 
+    var orderedSelection: OrderedSet<Int> = OrderedSet<Int>()
+
     private let popup: PopupController
 
     var events: PublishSubject<SearchViewEvents> {
@@ -27,6 +29,13 @@ class SearchViewController: NSObject {
             .searchView
             .clipboardItemsTable
             .selectedRowIndexes
+    }
+
+    var selectedClips: [String] {
+        return self
+            .orderedSelection
+            .all()
+            .map { self.historyService.items[$0] }
     }
 
     let disposeBag = DisposeBag()
@@ -91,11 +100,9 @@ class SearchViewController: NSObject {
     }
 
     func pasteSelectedClipToPasteboard(_ useJS: Bool) {
-        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let selectedClips: [String] = self.historyService.items[indexes]
-        guard !selectedClips.isEmpty else { return }
+        guard !self.selectedClips.isEmpty else { return }
 
-        pasteToPasteboard(selectedClips, useJS)
+        pasteToPasteboard(self.selectedClips, useJS)
     }
 
     private func pasteToPasteboard(_ clips: [String], _ useJs: Bool) {
@@ -140,8 +147,7 @@ class SearchViewController: NSObject {
     }
 
     func updatePreview() {
-        let indexes = self.searchView.clipboardItemsTable.selectedRowIndexes
-        let preview = prefs.prepareClips(self.historyService.items[indexes], false)
+        let preview = prefs.prepareClips(selectedClips, false)
         self.searchView.previewClip.string = preview
     }
 
@@ -210,9 +216,7 @@ class SearchViewController: NSObject {
         popup.proportionalWidth = 0.6
         popup.proportionalHeight = 0.6
 
-        popup.willOpenPopup = {
-            self.popup.proportionalResizePopup()
-        }
+        popup.willOpenPopup = self.popup.proportionalResizePopup
 
         popup.didOpenPopup = {
             guard let window = self.searchView.window else {
@@ -221,7 +225,7 @@ class SearchViewController: NSObject {
 
             self.resetSearchText()
 
-            // Focus in search text
+            // Focus search text
             window.makeFirstResponder(self.searchView.searchText)
         }
 

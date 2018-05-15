@@ -54,4 +54,29 @@ extension SearchViewController: NSTableViewDelegate {
             return nil
         }
     }
+
+    func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
+        let proposed = proposedSelectionIndexes
+
+        guard proposed.count > 0 else { return proposedSelectionIndexes }
+
+        let selected =  self.searchView.clipboardItemsTable.selectedRowIndexes
+        let removed: IndexSet = selected.subtracting(proposed)
+        let added: IndexSet = proposed.subtracting(selected)
+
+        added.forEach { self.orderedSelection.add($0) }
+        removed.forEach { self.orderedSelection.remove($0) }
+
+        var cruft: [Int] = []
+
+        self.orderedSelection.all().forEach {
+            if !proposed.contains($0) {
+                cruft.append($0)
+            }
+        }
+
+        cruft.forEach { self.orderedSelection.remove($0) }
+
+        return proposedSelectionIndexes
+    }
 }
