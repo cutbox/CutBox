@@ -18,7 +18,7 @@ class SearchViewController: NSObject {
 
     var orderedSelection: OrderedSet<Int> = OrderedSet<Int>()
 
-    private let popup: PopupController
+    private let searchPopup: PopupController
 
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
@@ -48,7 +48,7 @@ class SearchViewController: NSObject {
         self.fakeKey = fakeKey
 
         self.searchView = SearchAndPreviewView.fromNib()!
-        self.popup = PopupController(content: self.searchView)
+        self.searchPopup = PopupController(content: self.searchView)
 
         self.historyService.beginPolling()
 
@@ -61,15 +61,15 @@ class SearchViewController: NSObject {
 
     func togglePopup() {
         searchView.applyTheme()
-        self.popup.togglePopup()
+        self.searchPopup.togglePopup()
     }
 
     func closePopup() {
-        self.popup.closePopup()
+        self.searchPopup.closePopup()
     }
 
     func openPopup() {
-        self.popup.openPopup()
+        self.searchPopup.openPopup()
     }
 
     @objc func hideApp() {
@@ -212,13 +212,13 @@ class SearchViewController: NSObject {
     }
 
     private func configurePopup() {
-        popup.proportionalTopPadding = 0.15
-        popup.proportionalWidth = 0.6
-        popup.proportionalHeight = 0.6
+        searchPopup.proportionalTopPadding = 0.15
+        searchPopup.proportionalWidth = 0.6
+        searchPopup.proportionalHeight = 0.6
 
-        popup.willOpenPopup = self.popup.proportionalResizePopup
+        searchPopup.willOpenPopup = self.searchPopup.proportionalResizePopup
 
-        popup.didOpenPopup = {
+        searchPopup.didOpenPopup = {
             guard let window = self.searchView.window
                 else { fatalError("No window found for popup") }
 
@@ -228,6 +228,6 @@ class SearchViewController: NSObject {
             window.makeFirstResponder(self.searchView.searchText)
         }
 
-        popup.willClosePopup = self.resetSearchText
+        searchPopup.willClosePopup = self.resetSearchText
     }
 }
