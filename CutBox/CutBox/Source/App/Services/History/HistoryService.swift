@@ -236,31 +236,37 @@ class HistoryService: NSObject {
     }
 
     @objc func pollPasteboard() {
-        if let clip = self.replaceWithLatest() {
-            let isFavorite = historyRepo.favorites.contains(clip)
-            self.historyRepo.insert(clip, isFavorite: isFavorite)
+        let (clip, isFavorite) = self.replaceWithLatest()
+        if clip != nil {
+            self.historyRepo.insert(clip!, isFavorite: isFavorite)
             self.truncateItems()
             self.saveToDefaults()
         }
     }
 
-    func replaceWithLatest() -> String? {
-        guard let currentClip = clipboardContent() else { return nil }
+    func replaceWithLatest() -> (String?, Bool) {
+        guard let currentClip = clipboardContent() else { return (nil, false) }
 
-        if let removeGuard = self.removeGuard {
-            if currentClip == removeGuard {
-                return nil
-            } else {
-                self.removeGuard = nil
-            }
+        let isFavorite = historyRepo.favorites.contains(currentClip)
+
+        if let removeGuard = self.removeGuard,
+            currentClip == removeGuard {
+            return (nil, false)
+        } else {
+            self.removeGuard = nil
         }
 
         if let indexOfClip = historyRepo.items.index(of: currentClip) {
-            if indexOfClip == 0 { return nil }
+            if indexOfClip == 0 { return (nil, false) }
             historyRepo.remove(at: indexOfClip)
         }
 
-        return historyRepo.items.first == currentClip ? nil : currentClip
+        return (
+            historyRepo.items.first == currentClip
+            ? nil
+            : currentClip,
+            isFavorite
+        )
     }
 
     func clipboardContent() -> String? {

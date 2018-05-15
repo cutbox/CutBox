@@ -60,8 +60,12 @@ class HistoryRepo {
         return items.index(of: string)
     }
 
-    func insert(_ newElement: String, at: Int = 0, isFavorite: Bool = false) {
-        self.store.insert([stringKey: newElement], at: at)
+    func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false) {
+        var item = [stringKey: newElement]
+
+        if isFavorite { item[self.favoriteKey] = self.favoriteKey }
+
+        self.store.insert(item, at: index)
     }
 
     func remove(at: Int) {
