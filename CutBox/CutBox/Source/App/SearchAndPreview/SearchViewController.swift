@@ -219,9 +219,8 @@ class SearchViewController: NSObject {
         popup.willOpenPopup = self.popup.proportionalResizePopup
 
         popup.didOpenPopup = {
-            guard let window = self.searchView.window else {
-                fatalError("No window found for popup")
-            }
+            guard let window = self.searchView.window
+                else { fatalError("No window found for popup") }
 
             self.resetSearchText()
 
