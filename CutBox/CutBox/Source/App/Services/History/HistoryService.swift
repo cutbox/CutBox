@@ -237,11 +237,12 @@ class HistoryService: NSObject {
 
     @objc func pollPasteboard() {
         let (clip, isFavorite) = self.replaceWithLatest()
-        if clip != nil {
-            self.historyRepo.insert(clip!, isFavorite: isFavorite)
-            self.truncateItems()
-            self.saveToDefaults()
-        }
+
+        guard clip != nil else { return }
+
+        self.historyRepo.insert(clip!, isFavorite: isFavorite)
+        self.truncateItems()
+        self.saveToDefaults()
     }
 
     func replaceWithLatest() -> (String?, Bool) {
