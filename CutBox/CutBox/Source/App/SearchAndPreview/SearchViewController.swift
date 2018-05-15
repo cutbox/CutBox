@@ -129,20 +129,20 @@ class SearchViewController: NSObject {
 
         self.searchView.filterText
             .map { $0.isEmpty }
-            .bind {
+            .subscribe(onNext: {
                 if self.prefs.useCompactUI {
                     self.searchView.hideItemsAndPreview($0)
                 } else {
                     self.searchView.hideItemsAndPreview(false)
                 }
-            }
+            })
             .disposed(by: disposeBag)
 
         self.searchView.filterText
-            .bind {
+            .subscribe(onNext: {
                 self.historyService.filterText = $0
                 self.searchView.clipboardItemsTable.reloadData()
-            }
+            })
             .disposed(by: self.disposeBag)
     }
 
