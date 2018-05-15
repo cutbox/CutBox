@@ -1,5 +1,5 @@
 <p align="center">
-<img src="images/cutbox-icon-2-preview.png">
+<img src="CutBox/CutBox/GraphicAssets/cutbox-icon-2-preview.png">
 </p>
 
 <p align="center">
