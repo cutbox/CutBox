@@ -123,6 +123,7 @@ class SearchAndPreviewView: NSView {
         let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
                                 action: #selector(self.removeSelected),
                                 keyEquivalent: "")
+        
         contextMenu.addItem(remove)
 
         let favorite = NSMenuItem(title: "context_menu_favorite".l7n,

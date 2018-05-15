@@ -33,31 +33,25 @@ extension SearchViewController: NSTableViewDelegate {
                    viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 
         guard let record = self.historyService.dict[safe: row] else { return nil }
-
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
 
         switch column.identifier.rawValue {
-
         case "icon":
-
             let rowView = tableView.getRowView() as ClipItemTableRowImageView
             rowView.data = record
             rowView.color = theme.clip.clipItemsTextColor
             return rowView
 
         case "string":
-
             let rowView = tableView.getRowView() as ClipItemTableRowTextView
             rowView.data = record
             rowView.color = theme.clip.clipItemsTextColor
             return rowView
 
         default:
-
             return nil
-
         }
     }
 }
