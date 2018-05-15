@@ -1,1 +1,1 @@
-cutbox.github.io/.changelog/release-notes.md
+cutbox.github.io/release-notes.md
