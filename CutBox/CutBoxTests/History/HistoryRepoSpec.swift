@@ -100,18 +100,6 @@ class HistoryRepoSpec: QuickSpec {
                 expect(subject.items).to(equal(["1", "2", "3", "4"]))
             }
 
-            it("can save to and load from defaults") {
-                subject.migrate(["1","2","3","4","5"])
-                subject.saveToDefaults()
-                expect(defaults.array(forKey: "historyStore")).to(beAKindOf([[String:String]].self))
-
-                subject.clear()
-                expect(subject.items).to(equal([]))
-
-                subject.loadFromDefaults()
-                expect(subject.items).to(equal(["1","2","3","4","5"]))
-            }
-
             it("can clear the entire history") {
                 subject.migrate(["1","2","3","4","5"])
                 subject.saveToDefaults()
