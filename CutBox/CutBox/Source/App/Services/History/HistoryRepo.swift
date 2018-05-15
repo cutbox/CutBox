@@ -48,6 +48,8 @@ class HistoryRepo {
 
     func clear() {
         self.store.removeAll(protectFavorites: prefs.protectFavorites)
+
+        self.saveToDefaults()
     }
 
     func hasString(_ string: String) -> Bool {
@@ -64,10 +66,14 @@ class HistoryRepo {
 
     func remove(at: Int) {
         self.store.remove(at: at)
+
+        self.saveToDefaults()
     }
 
     func removeAtIndexes(indexes: IndexSet) {
         self.store.removeAtIndexes(indexes: indexes)
+
+        self.saveToDefaults()
     }
 
     func toggleFavorite(indexes: IndexSet) {
@@ -90,6 +96,8 @@ class HistoryRepo {
 
     func removeSubrange(_ bounds: Range<Int>) {
         self.store.removeSubrange(bounds)
+
+        self.saveToDefaults()
     }
 
     func migrate(_ newElements: [String], at: Int = 0) {
