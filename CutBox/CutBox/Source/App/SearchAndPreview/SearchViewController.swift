@@ -19,8 +19,8 @@ class SearchViewController: NSObject {
 
     var orderedSelection: OrderedSet<Int> = OrderedSet<Int>()
 
-    private let searchPopup: PopupController
-    private let jsPopup: PopupController
+    private var searchPopup: PopupController
+    private var jsFuncPopup: PopupController
 
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
@@ -50,20 +50,19 @@ class SearchViewController: NSObject {
         self.fakeKey = fakeKey
 
         self.searchView = SearchAndPreviewView.fromNib()!
-        self.jsFuncView = SearchAndPreviewView.fromNib()!
-
         self.searchPopup = PopupController(content: self.searchView)
-        self.jsPopup = PopupController(content: self.jsFuncView)
+
+
+        self.jsFuncView = SearchAndPreviewView.fromNib()!
+        self.jsFuncPopup = PopupController(content: self.jsFuncView)
 
         self.historyService.beginPolling()
 
+
         super.init()
 
-        setupSearchTextEventBindings()
-        setupSearchViewAndFilterBinding()
-        setupClipItemsContextMenu()
-        configureSearchPopup()
-        configureJSPopup()
+        configureSearchPopupAndView()
+        configureJSPopupAndView()
     }
 
     func setupClipItemsContextMenu() {
@@ -226,7 +225,7 @@ class SearchViewController: NSObject {
 
                 case .selectJavascriptFunction:
                     self.jsFuncView.applyTheme()
-                    self.jsPopup.togglePopup()
+                    self.jsFuncPopup.togglePopup()
 
                 case .closeAndPasteSelectedThroughJavascript:
                     self.closeAndPaste(useJS: true)
@@ -247,14 +246,17 @@ class SearchViewController: NSObject {
         self.searchView.itemsList.selectRowIndexes(selected, byExtendingSelection: false)
     }
 
-    private func configureJSPopup() {
-        jsPopup.proportionalTopPadding = 0.15
-        jsPopup.proportionalWidth = 0.6
-        jsPopup.proportionalHeight = 0.6
+    private func configureJSPopupAndView() {
 
-        jsPopup.willOpenPopup = self.jsPopup.proportionalResizePopup
+        self.jsFuncView.placeHolderTextString = "js_func_search_placeholder".l7n
 
-        jsPopup.didOpenPopup = {
+        self.jsFuncPopup.proportionalTopPadding = 0.15
+        self.jsFuncPopup.proportionalWidth = 0.6
+        self.jsFuncPopup.proportionalHeight = 0.6
+
+        self.jsFuncPopup.willOpenPopup = self.jsFuncPopup.proportionalResizePopup
+
+        self.jsFuncPopup.didOpenPopup = {
             guard let window = self.jsFuncView.window
                 else { fatalError("No window found for popup") }
 
@@ -264,18 +266,24 @@ class SearchViewController: NSObject {
             window.makeFirstResponder(self.jsFuncView.searchText)
         }
 
-        searchPopup.willClosePopup = self.resetJSFuncSearchText
+        self.searchPopup.willClosePopup = self.resetJSFuncSearchText
 
     }
 
-    private func configureSearchPopup() {
-        searchPopup.proportionalTopPadding = 0.15
-        searchPopup.proportionalWidth = 0.6
-        searchPopup.proportionalHeight = 0.6
+    private func configureSearchPopupAndView() {
+        setupSearchTextEventBindings()
+        setupSearchViewAndFilterBinding()
+        setupClipItemsContextMenu()
 
-        searchPopup.willOpenPopup = self.searchPopup.proportionalResizePopup
+        self.searchView.placeHolderTextString = "search_placeholder".l7n
 
-        searchPopup.didOpenPopup = {
+        self.searchPopup.proportionalTopPadding = 0.15
+        self.searchPopup.proportionalWidth = 0.6
+        self.searchPopup.proportionalHeight = 0.6
+
+        self.searchPopup.willOpenPopup = self.searchPopup.proportionalResizePopup
+
+        self.searchPopup.didOpenPopup = {
             guard let window = self.searchView.window
                 else { fatalError("No window found for popup") }
 
@@ -285,6 +293,6 @@ class SearchViewController: NSObject {
             window.makeFirstResponder(self.searchView.searchText)
         }
 
-        searchPopup.willClosePopup = self.resetSearchText
+        self.searchPopup.willClosePopup = self.resetSearchText
     }
 }
