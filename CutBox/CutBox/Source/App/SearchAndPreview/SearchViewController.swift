@@ -70,13 +70,13 @@ class SearchViewController: NSObject {
         let contextMenu = NSMenu()
 
         let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
-                                action: #selector(self.removeSelectedItems),
+                                action: #selector(removeSelectedItems),
                                 keyEquivalent: "")
 
         contextMenu.addItem(remove)
 
         let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
-                                  action: #selector(self.toggleFavoriteItems),
+                                  action: #selector(toggleFavoriteItems),
                                   keyEquivalent: "")
 
         contextMenu.addItem(favorite)
@@ -146,6 +146,12 @@ class SearchViewController: NSObject {
         self.searchView.searchText.string = ""
         self.searchView.filterText.onNext("")
         self.searchView.itemsList.reloadData()
+    }
+
+    private func resetJSFuncSearchText() {
+        self.jsFuncView.searchText.string = ""
+        self.jsFuncView.filterText.onNext("")
+        self.jsFuncView.itemsList.reloadData()
     }
 
     private func setupSearchViewAndFilterBinding() {
@@ -247,6 +253,19 @@ class SearchViewController: NSObject {
         jsPopup.proportionalHeight = 0.6
 
         jsPopup.willOpenPopup = self.jsPopup.proportionalResizePopup
+
+        jsPopup.didOpenPopup = {
+            guard let window = self.jsFuncView.window
+                else { fatalError("No window found for popup") }
+
+            self.resetJSFuncSearchText()
+
+            // Focus search text
+            window.makeFirstResponder(self.jsFuncView.searchText)
+        }
+
+        searchPopup.willClosePopup = self.resetJSFuncSearchText
+
     }
 
     private func configureSearchPopup() {
