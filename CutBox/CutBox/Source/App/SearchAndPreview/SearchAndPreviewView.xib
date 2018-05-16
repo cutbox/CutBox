@@ -298,11 +298,11 @@
             </constraints>
             <connections>
                 <outlet property="bottomBar" destination="Elj-qC-DgK" id="TLS-5x-Rz7"/>
-                <outlet property="clipboardItemsTable" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
-                <outlet property="cutBoxLogoImageView" destination="Zhs-Ng-XLx" id="c3E-tJ-Oo8"/>
-                <outlet property="historyContainer" destination="2wd-Z7-k0t" id="rWB-qr-Awu"/>
-                <outlet property="previewClip" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
-                <outlet property="previewClipContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
+                <outlet property="container" destination="2wd-Z7-k0t" id="rWB-qr-Awu"/>
+                <outlet property="iconImageView" destination="Zhs-Ng-XLx" id="c3E-tJ-Oo8"/>
+                <outlet property="itemsList" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
+                <outlet property="preview" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
+                <outlet property="previewContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
                 <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>
                 <outlet property="searchModeToggle" destination="xGH-m9-3kp" id="zQA-Vf-eny"/>
                 <outlet property="searchScopeImageButton" destination="wFV-FN-AdQ" id="QN3-Yx-A0Q"/>

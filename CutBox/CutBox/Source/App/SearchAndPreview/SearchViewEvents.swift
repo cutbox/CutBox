@@ -8,6 +8,7 @@
 
 enum SearchViewEvents {
     case closeAndPasteSelected
+    case selectJavascriptFunction
     case closeAndPasteSelectedThroughJavascript
     case justClose
     case setSearchMode(HistorySearchMode)

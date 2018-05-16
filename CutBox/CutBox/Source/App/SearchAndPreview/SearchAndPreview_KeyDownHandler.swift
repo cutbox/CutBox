@@ -23,7 +23,7 @@ extension SearchAndPreviewView {
 
             self.hideItemsAndPreview(false)
             if HistoryService.shared.count > 0 {
-                self.clipboardItemsTable.keyDown(with: event)
+                self.itemsList.keyDown(with: event)
             }
 
         case (kVK_Escape, _):
@@ -34,7 +34,7 @@ extension SearchAndPreviewView {
         case (kVK_Return, [.command]):
 
             self.events
-                .onNext(.closeAndPasteSelectedThroughJavascript)
+                .onNext(.selectJavascriptFunction)
 
         case (kVK_Return, _):
 

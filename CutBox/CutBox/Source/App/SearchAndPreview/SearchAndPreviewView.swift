@@ -16,14 +16,14 @@ class SearchAndPreviewView: NSView {
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
     @IBOutlet weak var searchText: NSTextView!
-    @IBOutlet weak var clipboardItemsTable: NSTableView!
-    @IBOutlet weak var previewClip: NSTextView!
-    @IBOutlet weak var previewClipContainer: NSBox!
+    @IBOutlet weak var itemsList: NSTableView!
+    @IBOutlet weak var preview: NSTextView!
+    @IBOutlet weak var previewContainer: NSBox!
     @IBOutlet weak var searchModeToggle: NSButton!
-    @IBOutlet weak var cutBoxLogoImageView: NSImageView!
+    @IBOutlet weak var iconImageView: NSImageView!
     @IBOutlet weak var searchScopeImageButton: NSButton!
 
-    @IBOutlet weak var historyContainer: NSStackView!
+    @IBOutlet weak var container: NSStackView!
     @IBOutlet weak var bottomBar: NSView!
     internal let prefs = CutBoxPreferencesService.shared
 
@@ -31,12 +31,13 @@ class SearchAndPreviewView: NSView {
     var filterText = PublishSubject<String>()
     var placeholderText = PublishSubject<String>()
 
+    var placeHolderTextString = "search_placeholder".l7n
+
     private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         setupSearchText()
         setupPlaceholder()
-        setupContextMenu()
         setupSearchModeToggle()
         setupSearchScopeToggle()
     }
@@ -54,24 +55,16 @@ class SearchAndPreviewView: NSView {
     }
 
     func itemSelect(lambda: (_ index: Int, _ total: Int) -> Int) {
-        let row = clipboardItemsTable.selectedRow
-        let total = clipboardItemsTable.numberOfRows
+        let row = itemsList.selectedRow
+        let total = itemsList.numberOfRows
 
         let selectedRow = lambda(row, total)
 
-        clipboardItemsTable
+        itemsList
             .selectRowIndexes([selectedRow],
                               byExtendingSelection: false)
-        clipboardItemsTable
+        itemsList
             .scrollRowToVisible(selectedRow)
-    }
-
-    @objc func removeSelected() {
-        self.events.onNext(.removeSelected)
-    }
-
-    @objc func toggleFavorite() {
-        self.events.onNext(.toggleFavorite)
     }
 
     func setSearchModeButton(mode: HistorySearchMode) {
@@ -117,32 +110,14 @@ class SearchAndPreviewView: NSView {
             .disposed(by: disposeBag)
     }
 
-    private func setupContextMenu() {
-        let contextMenu = NSMenu()
-
-        let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
-                                action: #selector(self.removeSelected),
-                                keyEquivalent: "")
-        
-        contextMenu.addItem(remove)
-
-        let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
-                                  action: #selector(self.toggleFavorite),
-                                  keyEquivalent: "")
-
-        contextMenu.addItem(favorite)
-
-        clipboardItemsTable.menu = contextMenu
-    }
-
     func hideItemsAndPreview(_ bool: Bool) {
         self.bottomBar.isHidden = bool
-        self.historyContainer.isHidden = bool
+        self.container.isHidden = bool
     }
 
     private func setupPlaceholder() {
         filterText
-            .map { $0.isEmpty ? "search_placeholder".l7n : "" }
+            .map { $0.isEmpty ? self.placeHolderTextString  : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }

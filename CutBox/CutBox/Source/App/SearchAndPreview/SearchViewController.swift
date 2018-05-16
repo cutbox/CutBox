@@ -12,6 +12,7 @@ import RxSwift
 class SearchViewController: NSObject {
 
     var searchView: SearchAndPreviewView
+    var jsFuncView: SearchAndPreviewView
     var historyService: HistoryService
     var prefs: CutBoxPreferencesService
     var fakeKey: FakeKey
@@ -19,6 +20,7 @@ class SearchViewController: NSObject {
     var orderedSelection: OrderedSet<Int> = OrderedSet<Int>()
 
     private let searchPopup: PopupController
+    private let jsPopup: PopupController
 
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
@@ -27,7 +29,7 @@ class SearchViewController: NSObject {
     var selectedItems: IndexSet {
         return self
             .searchView
-            .clipboardItemsTable
+            .itemsList
             .selectedRowIndexes
     }
 
@@ -48,7 +50,10 @@ class SearchViewController: NSObject {
         self.fakeKey = fakeKey
 
         self.searchView = SearchAndPreviewView.fromNib()!
+        self.jsFuncView = SearchAndPreviewView.fromNib()!
+
         self.searchPopup = PopupController(content: self.searchView)
+        self.jsPopup = PopupController(content: self.jsFuncView)
 
         self.historyService.beginPolling()
 
@@ -56,15 +61,35 @@ class SearchViewController: NSObject {
 
         setupSearchTextEventBindings()
         setupSearchViewAndFilterBinding()
-        configurePopup()
+        setupClipItemsContextMenu()
+        configureSearchPopup()
+        configureJSPopup()
+    }
+
+    func setupClipItemsContextMenu() {
+        let contextMenu = NSMenu()
+
+        let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
+                                action: #selector(self.removeSelectedItems),
+                                keyEquivalent: "")
+
+        contextMenu.addItem(remove)
+
+        let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
+                                  action: #selector(self.toggleFavoriteItems),
+                                  keyEquivalent: "")
+
+        contextMenu.addItem(favorite)
+
+        self.searchView.itemsList.menu = contextMenu
     }
 
     func togglePopup() {
-        searchView.applyTheme()
+        self.searchView.applyTheme()
         self.searchPopup.togglePopup()
     }
 
-    func closePopup() {
+    func closeSearchPopup() {
         self.searchPopup.closePopup()
     }
 
@@ -82,21 +107,21 @@ class SearchViewController: NSObject {
 
     private func closeAndPaste(useJS: Bool = false) {
         self.pasteSelectedClipToPasteboard(useJS)
-        self.closePopup()
+        self.closeSearchPopup()
         perform(#selector(hideApp), with: self, afterDelay: 0.1)
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
-    private func removeSelected() {
+    @objc func removeSelectedItems() {
         self.historyService.remove(items: self.selectedItems)
-        self.searchView.clipboardItemsTable.reloadData()
+        self.searchView.itemsList.reloadData()
     }
  
-    private func toggleFavorite() {
+    @objc func toggleFavoriteItems() {
         let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)
-        self.searchView.clipboardItemsTable.reloadData()
-        self.searchView.clipboardItemsTable.selectRowIndexes(selection, byExtendingSelection: false)
+        self.searchView.itemsList.reloadData()
+        self.searchView.itemsList.selectRowIndexes(selection, byExtendingSelection: false)
     }
 
     func pasteSelectedClipToPasteboard(_ useJS: Bool) {
@@ -120,12 +145,12 @@ class SearchViewController: NSObject {
     private func resetSearchText() {
         self.searchView.searchText.string = ""
         self.searchView.filterText.onNext("")
-        self.searchView.clipboardItemsTable.reloadData()
+        self.searchView.itemsList.reloadData()
     }
 
     private func setupSearchViewAndFilterBinding() {
-        self.searchView.clipboardItemsTable.dataSource = self
-        self.searchView.clipboardItemsTable.delegate = self
+        self.searchView.itemsList.dataSource = self
+        self.searchView.itemsList.delegate = self
 
         self.searchView.filterText
             .map { $0.isEmpty }
@@ -141,14 +166,14 @@ class SearchViewController: NSObject {
         self.searchView.filterText
             .subscribe(onNext: {
                 self.historyService.filterText = $0
-                self.searchView.clipboardItemsTable.reloadData()
+                self.searchView.itemsList.reloadData()
             })
             .disposed(by: self.disposeBag)
     }
 
     func updatePreview() {
         let preview = prefs.prepareClips(selectedClips, false)
-        self.searchView.previewClip.string = preview
+        self.searchView.preview.string = preview
     }
 
     private func setupSearchTextEventBindings() {
@@ -157,17 +182,18 @@ class SearchViewController: NSObject {
                 switch event {
                 case .setSearchMode(let mode):
                     self.historyService.searchMode = mode
-                    self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.itemsList.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .toggleSearchMode:
                     let mode = self.historyService.toggleSearchMode()
-                    self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.itemsList.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .toggleTheme:
                     self.prefs.toggleTheme()
                     self.searchView.applyTheme()
+                    self.jsFuncView.applyTheme()
                     self.reloadDataWithExistingSelection()
 
                 case .toggleWrappingStrings:
@@ -180,23 +206,27 @@ class SearchViewController: NSObject {
 
                 case .toggleSearchScope:
                     self.historyService.favoritesOnly = !self.historyService.favoritesOnly
-                    self.searchView.clipboardItemsTable.reloadData()
+                    self.searchView.itemsList.reloadData()
                     self.searchView.setSearchScopeButton(favoritesOnly: self.historyService.favoritesOnly)
 
                 case .toggleFavorite:
-                    self.toggleFavorite()
+                    self.toggleFavoriteItems()
 
                 case .justClose:
-                    self.closePopup()
+                    self.closeSearchPopup()
 
                 case .closeAndPasteSelected:
                     self.closeAndPaste()
+
+                case .selectJavascriptFunction:
+                    self.jsFuncView.applyTheme()
+                    self.jsPopup.togglePopup()
 
                 case .closeAndPasteSelectedThroughJavascript:
                     self.closeAndPaste(useJS: true)
 
                 case .removeSelected:
-                    self.removeSelected()
+                    self.removeSelectedItems()
 
                 default:
                     break
@@ -206,12 +236,20 @@ class SearchViewController: NSObject {
     }
 
     private func reloadDataWithExistingSelection() {
-        let selected = self.searchView.clipboardItemsTable.selectedRowIndexes
-        self.searchView.clipboardItemsTable.reloadData()
-        self.searchView.clipboardItemsTable.selectRowIndexes(selected, byExtendingSelection: false)
+        let selected = self.searchView.itemsList.selectedRowIndexes
+        self.searchView.itemsList.reloadData()
+        self.searchView.itemsList.selectRowIndexes(selected, byExtendingSelection: false)
     }
 
-    private func configurePopup() {
+    private func configureJSPopup() {
+        jsPopup.proportionalTopPadding = 0.15
+        jsPopup.proportionalWidth = 0.6
+        jsPopup.proportionalHeight = 0.6
+
+        jsPopup.willOpenPopup = self.jsPopup.proportionalResizePopup
+    }
+
+    private func configureSearchPopup() {
         searchPopup.proportionalTopPadding = 0.15
         searchPopup.proportionalWidth = 0.6
         searchPopup.proportionalHeight = 0.6

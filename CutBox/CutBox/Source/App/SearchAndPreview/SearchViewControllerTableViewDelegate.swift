@@ -60,7 +60,7 @@ extension SearchViewController: NSTableViewDelegate {
 
         guard proposed.count > 0 else { return proposedSelectionIndexes }
 
-        let selected =  self.searchView.clipboardItemsTable.selectedRowIndexes
+        let selected =  self.searchView.itemsList.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)
         let added: IndexSet = proposed.subtracting(selected)
 

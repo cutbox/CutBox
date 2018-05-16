@@ -28,7 +28,7 @@ class ClipItemTableRowContainerView: NSTableRowView {
             && modifiers == [.control] {
             self.searchView?
                 .events
-                .onNext(.closeAndPasteSelectedThroughJavascript)
+                .onNext(.selectJavascriptFunction)
         }
 
         if event.clickCount == 1

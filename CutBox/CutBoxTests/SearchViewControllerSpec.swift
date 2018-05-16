@@ -53,7 +53,7 @@ class SearchViewControllerSpec: QuickSpec {
                     pasteboardService: historyServiceMock
                 )
 
-                tableView = subject.searchView.clipboardItemsTable!
+                tableView = subject.searchView.itemsList!
             }
 
             afterEach {

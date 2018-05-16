@@ -32,10 +32,17 @@ extension CutBoxPreferencesService {
         }
     }
 
+    typealias CutboxFunctions = [[String: Any]]
+
     func prepareClipsWithJS(_ clips: [String]) -> String {
         guard let js = JSContext() else { fatalError("Unable to start JS context") }
         js["items"] = clips
+
         js.evaluateScript(self.javascript)
+
+//        let names: CutboxFunctions = js["cutboxFunctions"].toArray() as! CutboxFunctions
+//
+//        names.forEach { debugPrint($0["name"]!, $0["key"]!) }
 
         guard let value = js["paste"].toString() else {
             let notification = NSUserNotification()
