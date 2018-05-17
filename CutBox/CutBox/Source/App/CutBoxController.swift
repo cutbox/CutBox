@@ -20,6 +20,7 @@ class CutBoxController: NSObject {
     var searchModeSelectorsDict: [String:NSMenuItem]?
 
     let searchViewController: SearchViewController
+    let jsFuncSearchViewController: JSFuncSearchViewController
     let preferencesController: PreferencesTabViewController
     let aboutPanel: AboutPanel = AboutPanel.fromNib()!
 
@@ -72,9 +73,29 @@ class CutBoxController: NSObject {
 
     override init() {
         self.searchViewController = SearchViewController()
+        self.jsFuncSearchViewController = JSFuncSearchViewController()
         self.preferencesController = PreferencesTabViewController()
         super.init()
         self.hotKeyService.configure(controller: self)
+
+        self.searchViewController.events.subscribe(onNext: { event in
+
+            switch event {
+            case .selectJavascriptFunction:
+                self.jsFuncSearchViewController
+                    .jsFuncView
+                    .applyTheme()
+
+                self.jsFuncSearchViewController
+                    .jsFuncPopup
+                    .togglePopup()
+
+            default:
+                break
+            }
+        })
+        .disposed(by: disposeBag)
+
         self.prefs
             .events
             .subscribe(onNext: {

@@ -126,4 +126,30 @@ class SearchAndPreviewView: NSView {
         self.searchText.delegate = self
         self.searchText.isFieldEditor = true
     }
+
+    @objc func removeSelectedItems() {
+        self.events.onNext(.removeSelected)
+    }
+
+    @objc func toggleFavoriteItems() {
+        self.events.onNext(.toggleFavorite)
+    }
+
+    func setupClipItemsContextMenu() {
+        let contextMenu = NSMenu()
+
+        let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
+                                action: #selector(removeSelectedItems),
+                                keyEquivalent: "")
+
+        contextMenu.addItem(remove)
+
+        let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
+                                  action: #selector(toggleFavoriteItems),
+                                  keyEquivalent: "")
+
+        contextMenu.addItem(favorite)
+
+        self.itemsList.menu = contextMenu
+    }
 }

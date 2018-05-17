@@ -9,10 +9,122 @@
 import Cocoa
 import RxSwift
 
+class JSFuncService {
+
+    var count: Int {
+        return self.list.count
+    }
+
+    var list: [String] = [
+        "Func 1",
+        "Func 2",
+        "Func 3",
+        "Func 4",
+        "Func 5",
+    ]
+
+    static let shared = JSFuncService()
+}
+
+class JSFuncSearchViewController: NSObject {
+
+    var jsFuncService: JSFuncService
+    var selectedClips: [String] = []
+    var jsFuncView: SearchJSFuncAndPreviewView
+    var prefs: CutBoxPreferencesService
+    var fakeKey: FakeKey
+    var jsFuncPopup: PopupController
+    var events: PublishSubject<SearchJSFuncViewEvents> {
+        return self.jsFuncView.events
+    }
+
+    let disposeBag = DisposeBag()
+
+    init(jsFuncService: JSFuncService = JSFuncService.shared,
+         cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
+         fakeKey: FakeKey = FakeKey.shared) {
+
+        self.jsFuncService = jsFuncService
+        self.prefs = cutBoxPreferences
+        self.fakeKey = fakeKey
+        self.jsFuncView = SearchJSFuncAndPreviewView.fromNib()!
+        self.jsFuncPopup = PopupController(content: self.jsFuncView)
+
+        super.init()
+
+        self.jsFuncView.itemsList.dataSource = self
+        self.jsFuncView.itemsList.delegate = self
+        self.configureJSPopupAndView()
+    }
+
+    private func resetJSFuncSearchText() {
+        self.jsFuncView.searchText.string = ""
+        self.jsFuncView.filterText.onNext("")
+        self.jsFuncView.itemsList.reloadData()
+    }
+
+    @objc func fakePaste() {
+        fakeKey.send(fakeKey: "V", useCommandFlag: true)
+    }
+
+    @objc func hideApp() {
+        NSApp.hide(self)
+    }
+
+    private func closeAndPaste(useJS: Bool = false) {
+        self.pasteSelectedClipToPasteboard(useJS)
+        self.jsFuncPopup.closePopup()
+        perform(#selector(hideApp), with: self, afterDelay: 0.1)
+        perform(#selector(fakePaste), with: self, afterDelay: 0.25)
+    }
+
+    func pasteSelectedClipToPasteboard(_ useJS: Bool) {
+        guard !self.selectedClips.isEmpty else { return }
+
+        pasteToPasteboard(self.selectedClips, useJS)
+    }
+
+    private func pasteToPasteboard(_ clips: [String], _ useJs: Bool) {
+        let clip = prefs.prepareClips(clips, useJs)
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(clip, forType: .string)
+    }
+
+    private func pasteToPasteboard(_ clip: String) {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(clip, forType: .string)
+    }
+
+    private func configureJSPopupAndView() {
+
+        self.jsFuncView.placeHolderTextString = "js_func_search_placeholder".l7n
+
+        self.jsFuncPopup.proportionalTopPadding = 0.15
+        self.jsFuncPopup.proportionalWidth = 0.6
+        self.jsFuncPopup.proportionalHeight = 0.6
+
+        self.jsFuncPopup.willOpenPopup = self.jsFuncPopup.proportionalResizePopup
+
+        self.jsFuncPopup.didOpenPopup = {
+            guard let window = self.jsFuncView.window
+                else { fatalError("No window found for popup") }
+
+            self.resetJSFuncSearchText()
+
+            // Focus search text
+            window.makeFirstResponder(self.jsFuncView.searchText)
+        }
+
+        self.jsFuncPopup.willClosePopup = self.resetJSFuncSearchText
+
+    }
+
+}
+
 class SearchViewController: NSObject {
 
     var searchView: SearchAndPreviewView
-    var jsFuncView: SearchAndPreviewView
     var historyService: HistoryService
     var prefs: CutBoxPreferencesService
     var fakeKey: FakeKey
@@ -20,7 +132,6 @@ class SearchViewController: NSObject {
     var orderedSelection: OrderedSet<Int> = OrderedSet<Int>()
 
     private var searchPopup: PopupController
-    private var jsFuncPopup: PopupController
 
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
@@ -52,35 +163,15 @@ class SearchViewController: NSObject {
         self.searchView = SearchAndPreviewView.fromNib()!
         self.searchPopup = PopupController(content: self.searchView)
 
-
-        self.jsFuncView = SearchAndPreviewView.fromNib()!
-        self.jsFuncPopup = PopupController(content: self.jsFuncView)
-
         self.historyService.beginPolling()
-
 
         super.init()
 
         configureSearchPopupAndView()
-        configureJSPopupAndView()
     }
 
     func setupClipItemsContextMenu() {
-        let contextMenu = NSMenu()
-
-        let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
-                                action: #selector(removeSelectedItems),
-                                keyEquivalent: "")
-
-        contextMenu.addItem(remove)
-
-        let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
-                                  action: #selector(toggleFavoriteItems),
-                                  keyEquivalent: "")
-
-        contextMenu.addItem(favorite)
-
-        self.searchView.itemsList.menu = contextMenu
+        self.searchView.setupClipItemsContextMenu()
     }
 
     func togglePopup() {
@@ -92,7 +183,7 @@ class SearchViewController: NSObject {
         self.searchPopup.closePopup()
     }
 
-    func openPopup() {
+    func openSearchPopup() {
         self.searchPopup.openPopup()
     }
 
@@ -111,12 +202,12 @@ class SearchViewController: NSObject {
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
-    @objc func removeSelectedItems() {
+    func removeSelectedItems() {
         self.historyService.remove(items: self.selectedItems)
         self.searchView.itemsList.reloadData()
     }
  
-    @objc func toggleFavoriteItems() {
+    func toggleFavoriteItems() {
         let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)
         self.searchView.itemsList.reloadData()
@@ -141,16 +232,12 @@ class SearchViewController: NSObject {
         NSPasteboard.general.setString(clip, forType: .string)
     }
 
+
+
     private func resetSearchText() {
         self.searchView.searchText.string = ""
         self.searchView.filterText.onNext("")
         self.searchView.itemsList.reloadData()
-    }
-
-    private func resetJSFuncSearchText() {
-        self.jsFuncView.searchText.string = ""
-        self.jsFuncView.filterText.onNext("")
-        self.jsFuncView.itemsList.reloadData()
     }
 
     private func setupSearchViewAndFilterBinding() {
@@ -176,9 +263,20 @@ class SearchViewController: NSObject {
             .disposed(by: self.disposeBag)
     }
 
-    func updatePreview() {
+    func updateSearchItemPreview() {
         let preview = prefs.prepareClips(selectedClips, false)
         self.searchView.preview.string = preview
+    }
+
+    private func setupJSFuncViewEventBindings() {
+        self.events
+            .subscribe(onNext: { event in
+                switch event {
+                default:
+                    break
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
 
     private func setupSearchTextEventBindings() {
@@ -198,16 +296,15 @@ class SearchViewController: NSObject {
                 case .toggleTheme:
                     self.prefs.toggleTheme()
                     self.searchView.applyTheme()
-                    self.jsFuncView.applyTheme()
                     self.reloadDataWithExistingSelection()
 
                 case .toggleWrappingStrings:
                     self.prefs.useWrappingStrings = !self.prefs.useWrappingStrings
-                    self.updatePreview()
+                    self.updateSearchItemPreview()
 
                 case .toggleJoinStrings:
                     self.prefs.useJoinString = !self.prefs.useJoinString
-                    self.updatePreview()
+                    self.updateSearchItemPreview()
 
                 case .toggleSearchScope:
                     self.historyService.favoritesOnly = !self.historyService.favoritesOnly
@@ -223,13 +320,6 @@ class SearchViewController: NSObject {
                 case .closeAndPasteSelected:
                     self.closeAndPaste()
 
-                case .selectJavascriptFunction:
-                    self.jsFuncView.applyTheme()
-                    self.jsFuncPopup.togglePopup()
-
-                case .closeAndPasteSelectedThroughJavascript:
-                    self.closeAndPaste(useJS: true)
-
                 case .removeSelected:
                     self.removeSelectedItems()
 
@@ -244,30 +334,6 @@ class SearchViewController: NSObject {
         let selected = self.searchView.itemsList.selectedRowIndexes
         self.searchView.itemsList.reloadData()
         self.searchView.itemsList.selectRowIndexes(selected, byExtendingSelection: false)
-    }
-
-    private func configureJSPopupAndView() {
-
-        self.jsFuncView.placeHolderTextString = "js_func_search_placeholder".l7n
-
-        self.jsFuncPopup.proportionalTopPadding = 0.15
-        self.jsFuncPopup.proportionalWidth = 0.6
-        self.jsFuncPopup.proportionalHeight = 0.6
-
-        self.jsFuncPopup.willOpenPopup = self.jsFuncPopup.proportionalResizePopup
-
-        self.jsFuncPopup.didOpenPopup = {
-            guard let window = self.jsFuncView.window
-                else { fatalError("No window found for popup") }
-
-            self.resetJSFuncSearchText()
-
-            // Focus search text
-            window.makeFirstResponder(self.jsFuncView.searchText)
-        }
-
-        self.searchPopup.willClosePopup = self.resetJSFuncSearchText
-
     }
 
     private func configureSearchPopupAndView() {

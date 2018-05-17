@@ -8,9 +8,62 @@
 
 import Cocoa
 
+extension JSFuncSearchViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return self.jsFuncService.count
+    }
+}
+
 extension SearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.historyService.count
+    }
+}
+
+extension JSFuncSearchViewController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 30
+    }
+
+    func updateSearchItemPreview() {
+        let preview = prefs.prepareClips(selectedClips, false)
+        self.jsFuncView.preview.string = preview
+    }
+
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        self.updateSearchItemPreview()
+    }
+
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        let rowView = JSFuncItemTableRowContainerView()
+        rowView.jsFuncView = self.jsFuncView
+        return rowView
+    }
+
+    func tableView(_ tableView: NSTableView,
+                   viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+
+        let funcItem = self.jsFuncService.list[row]
+        guard let column = tableColumn else { return nil }
+
+        let theme = CutBoxPreferencesService.shared.currentTheme
+
+        switch column.identifier.rawValue {
+        case "icon":
+            let rowView = tableView.getRowView() as ClipItemTableRowImageView
+            rowView.data = ["string": funcItem]
+            rowView.color = theme.clip.clipItemsTextColor
+            return rowView
+
+        case "string":
+            let rowView = tableView.getRowView() as ClipItemTableRowTextView
+            rowView.data = ["string": funcItem]
+            rowView.color = theme.clip.clipItemsTextColor
+            return rowView
+
+        default:
+            return nil
+        }
     }
 }
 
@@ -20,7 +73,7 @@ extension SearchViewController: NSTableViewDelegate {
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
-        self.updatePreview()
+        self.updateSearchItemPreview()
     }
 
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {

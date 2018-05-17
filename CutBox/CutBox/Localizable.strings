@@ -36,6 +36,8 @@
 "preferences_multi_clip_join_and_wrap_section_title" = "Joining and Wrapping";
 "preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
 
+"js_func_search_placeholder" = "Paste through Javascript...";
+
 "preferences_javascript_transform_section_title" = "Javascript transform";
 "preferences_javascript_transform_section_note" = "<style>body{font-family:\"Helvetica\";font-size: 10pt;}code{background-color:#CCC;}</style>
 You can use Javascript to transform your items into any string you like.<br/>

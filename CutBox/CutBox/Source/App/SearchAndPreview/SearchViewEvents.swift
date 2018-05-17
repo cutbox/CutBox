@@ -6,10 +6,15 @@
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
+enum SearchJSFuncViewEvents {
+    case closeAndPasteSelectedThroughJavascript
+    case justClose
+    case toggleTheme
+}
+
 enum SearchViewEvents {
     case closeAndPasteSelected
     case selectJavascriptFunction
-    case closeAndPasteSelectedThroughJavascript
     case justClose
     case setSearchMode(HistorySearchMode)
     case clearHistory

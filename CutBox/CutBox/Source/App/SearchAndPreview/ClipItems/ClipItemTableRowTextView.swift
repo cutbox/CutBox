@@ -8,8 +8,7 @@
 
 import Cocoa
 
-class ClipItemTableRowTextView: NSView {
-
+class ItemTableRowTextView: NSView {
     @IBOutlet weak var title: NSTextField!
 
     var _color: NSColor = NSColor.textColor
@@ -24,8 +23,8 @@ class ClipItemTableRowTextView: NSView {
         }
     }
 
-    var _data: [String:String]?
-    var data: [String:String]? {
+    var _data: [String:Any]?
+    var data: [String:Any]? {
         get {
             return _data
         }
@@ -35,9 +34,29 @@ class ClipItemTableRowTextView: NSView {
         }
     }
 
+    func setup() {
+    }
+}
+
+class JSFuncItemTableRowTextView: ItemTableRowTextView {
+    override func setup() {
+        guard let data = self.data else {
+            fatalError("Data must be initialized on ClipItemTableRowView before setup.")
+        }
+
+        guard let titleString = data["string"] as? String else {
+            fatalError("Data must contain key: string")
+        }
+
+        self.title.stringValue = titleString
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+}
+
+class ClipItemTableRowTextView: ItemTableRowTextView {
     private var isFavorite: Bool {
         if let data = _data {
-            if let favoriteData = data["favorite"], !favoriteData.isEmpty {
+            if let favoriteData = data["favorite"] as? String, !favoriteData.isEmpty {
                 return true
             } else {
                 return false
@@ -46,15 +65,16 @@ class ClipItemTableRowTextView: NSView {
         return false
     }
 
-    private func setup() {
+    override func setup() {
         guard let data = self.data else {
             fatalError("Data must be initialized on ClipItemTableRowView before setup.")
         }
 
-        guard let titleString = data["string"] else {
+        guard let titleString = data["string"] as? String else {
             fatalError("Data must contain key: string")
         }
 
-        self.title.stringValue = titleString.trimmingCharacters(in: .whitespacesAndNewlines)
+        self.title.stringValue = titleString
+            .trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }

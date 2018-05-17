@@ -103,6 +103,8 @@
 		96A8021620AB0AD2000CBE74 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021420AB0AD1000CBE74 /* PreferencesTabViewController.swift */; };
 		96A8021720AB0AD2000CBE74 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8021520AB0AD2000CBE74 /* PreferencesWindow.xib */; };
 		96A8021920AB0C35000CBE74 /* NSAttributedString+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021820AB0C35000CBE74 /* NSAttributedString+HTML.swift */; };
+		96A8021D20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8021C20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib */; };
+		96A8022020AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021F20AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
@@ -288,6 +290,8 @@
 		96A8021420AB0AD1000CBE74 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96A8021520AB0AD2000CBE74 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		96A8021820AB0C35000CBE74 /* NSAttributedString+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+HTML.swift"; sourceTree = "<group>"; };
+		96A8021C20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchJSFuncAndPreviewView.xib; sourceTree = "<group>"; };
+		96A8021F20AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJSFuncAndPreviewView.swift; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
@@ -365,7 +369,9 @@
 				96A16B5120A4731000EE08A4 /* ClipItems */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
+				96A8021F20AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift */,
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
+				96A8021C20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib */,
 				964CA50B207E69F500B9F33E /* SearchAndPreviewView+ApplyTheme.swift */,
 				964CA4E1207CC85A00B9F33E /* SearchAndPreview_KeyDownHandler.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
@@ -828,6 +834,7 @@
 				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */,
 				96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */,
+				96A8021D20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib in Resources */,
 				96A801BD20A8180F000CBE74 /* PreferencesAdvancedView.xib in Resources */,
 				96A16B4220A0675700EE08A4 /* page.png in Resources */,
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
@@ -1096,6 +1103,7 @@
 				9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */,
 				963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */,
 				962D6D4B207356DA007E3785 /* Constants.swift in Sources */,
+				96A8022020AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift in Sources */,
 				96A8020820A8581B000CBE74 /* PreferencesThemeSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
