@@ -1,25 +1,13 @@
 //
-//  ClipItemTableRowTextView.swift
+//  JSFuncItemTableRowTextView.swift
 //  CutBox
 //
-//  Created by Jason on 7/5/18.
+//  Created by Jason on 17/5/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
-
 import Cocoa
 
-class ClipItemTableRowTextView: ItemTableRowTextView {
-    private var isFavorite: Bool {
-        if let data = _data {
-            if let favoriteData = data["favorite"] as? String, !favoriteData.isEmpty {
-                return true
-            } else {
-                return false
-            }
-        }
-        return false
-    }
-
+class JSFuncItemTableRowTextView: ItemTableRowTextView {
     override func setup() {
         guard let data = self.data else {
             fatalError("Data must be initialized on ClipItemTableRowView before setup.")

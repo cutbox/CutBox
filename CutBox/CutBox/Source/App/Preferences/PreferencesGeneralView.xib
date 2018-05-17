@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="equalCentering" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKK-xB-hXy">
-                    <rect key="frame" x="10" y="93" width="436" height="86"/>
+                    <rect key="frame" x="100" y="93" width="256" height="86"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLe-Dc-sPk">
                             <rect key="frame" x="0.0" y="56" width="212" height="30"/>
@@ -93,9 +93,9 @@
                 </stackView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="SKK-xB-hXy" secondAttribute="trailing" constant="10" id="UDn-VZ-i1c"/>
+                <constraint firstAttribute="trailing" secondItem="SKK-xB-hXy" secondAttribute="trailing" constant="100" id="UDn-VZ-i1c"/>
                 <constraint firstItem="SKK-xB-hXy" firstAttribute="top" secondItem="4Wp-TC-E4Y" secondAttribute="top" constant="10" id="sYe-8q-Bsj"/>
-                <constraint firstItem="SKK-xB-hXy" firstAttribute="leading" secondItem="4Wp-TC-E4Y" secondAttribute="leading" constant="10" id="t6S-Un-Gy8"/>
+                <constraint firstItem="SKK-xB-hXy" firstAttribute="leading" secondItem="4Wp-TC-E4Y" secondAttribute="leading" constant="100" id="t6S-Un-Gy8"/>
             </constraints>
             <connections>
                 <outlet property="autoLoginCheckbox" destination="T93-L1-O29" id="3ca-Ll-F4O"/>

@@ -1,14 +1,14 @@
 //
-//  SearchViewTextViewDelegate.swift
+//  SearchJSFuncTextViewDelegate.swift
 //  CutBox
 //
-//  Created by Jason on 31/3/18.
+//  Created by Jason on 17/5/18.
 //  Copyright © 2018 ocodo. All rights reserved.
 //
 
 import Cocoa
 
-extension SearchAndPreviewView: NSTextViewDelegate {
+extension SearchJSFuncAndPreviewView: NSTextViewDelegate {
     func textDidChange(_ notification: Notification) {
         self.filterText.onNext(self.searchText.string)
     }

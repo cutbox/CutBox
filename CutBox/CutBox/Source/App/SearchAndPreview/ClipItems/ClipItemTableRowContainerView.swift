@@ -8,35 +8,6 @@
 
 import Cocoa
 
-class ItemTableRowContainerView: NSTableRowView {
-
-    override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
-        set {}
-        get {
-            return .regular
-        }
-    }
-
-    override func drawSelection(in dirtyRect: NSRect) {
-        let theme = CutBoxPreferencesService.shared.currentTheme
-        if self.selectionHighlightStyle != .none {
-            let selectionRect = self.bounds
-
-            theme
-                .clip
-                .clipItemsHighlightColor
-                .setFill()
-
-            let selectionPath = NSBezierPath.init(rect: selectionRect)
-            selectionPath.fill()
-        }
-    }
-}
-
-class JSFuncItemTableRowContainerView: ItemTableRowContainerView {
-    var jsFuncView: SearchJSFuncAndPreviewView?
-}
-
 class ClipItemTableRowContainerView: ItemTableRowContainerView {
 
     var searchView: SearchAndPreviewView?
