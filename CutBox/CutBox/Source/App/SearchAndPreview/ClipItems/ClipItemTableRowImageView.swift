@@ -47,10 +47,6 @@ class ItemTableRowImageView: NSView {
 
 class JSFuncItemTableRowImageView: ItemTableRowImageView {
     override func setup() {
-        guard self.data != nil else {
-            fatalError("Data must be initialized on ClipItemTableRowView before setup.")
-        }
-
         self.image.image = #imageLiteral(resourceName: "page.png")
         self.tintImage()
     }

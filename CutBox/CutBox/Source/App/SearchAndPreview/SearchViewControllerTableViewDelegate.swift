@@ -12,6 +12,10 @@ extension JSFuncSearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.jsFuncService.count
     }
+
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        return JSFuncService.shared.list[row]
+    }
 }
 
 extension SearchViewController: NSTableViewDataSource {
@@ -26,7 +30,8 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
     }
 
     func updateSearchItemPreview() {
-        let preview = prefs.prepareClips(selectedClips, false)
+        let row: Int = self.jsFuncView.itemsList.selectedRow
+        let preview = self.jsFuncService.process(row, items: self.selectedClips)
         self.jsFuncView.preview.string = preview
     }
 
@@ -50,14 +55,14 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         switch column.identifier.rawValue {
         case "icon":
-            let rowView = tableView.getRowView() as ClipItemTableRowImageView
-            rowView.data = ["string": funcItem]
+            let rowView = tableView.getRowView() as JSFuncItemTableRowImageView
+            rowView.setup()
             rowView.color = theme.clip.clipItemsTextColor
             return rowView
 
         case "string":
-            let rowView = tableView.getRowView() as ClipItemTableRowTextView
-            rowView.data = ["string": funcItem]
+            let rowView = tableView.getRowView() as JSFuncItemTableRowTextView
+            rowView.data = ["string": funcItem["name"] as! String]
             rowView.color = theme.clip.clipItemsTextColor
             return rowView
 

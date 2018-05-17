@@ -325,6 +325,7 @@ class CutBoxPreferencesService {
         let location = NSString(string:"~/.cutbox.js").expandingTildeInPath
         if let fileContent = try? String(contentsOfFile: location) {
             self.javascript = fileContent
+            JSFuncService.shared.reload(fileContent)
 
             let notification = NSUserNotification()
             notification.title = "Javascript loaded"

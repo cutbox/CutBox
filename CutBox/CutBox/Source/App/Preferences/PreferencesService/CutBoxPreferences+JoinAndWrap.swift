@@ -32,7 +32,7 @@ extension CutBoxPreferencesService {
         }
     }
 
-    typealias CutboxFunctions = [[String: Any]]
+    typealias CutboxFunction = [String: Any]
 
     func prepareClipsWithJS(_ clips: [String]) -> String {
         guard let js = JSContext() else { fatalError("Unable to start JS context") }

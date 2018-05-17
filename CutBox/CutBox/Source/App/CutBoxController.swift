@@ -82,6 +82,9 @@ class CutBoxController: NSObject {
 
             switch event {
             case .selectJavascriptFunction:
+                let items = self.searchViewController.selectedClips
+                self.jsFuncSearchViewController.selectedClips = items
+
                 self.jsFuncSearchViewController
                     .jsFuncView
                     .applyTheme()

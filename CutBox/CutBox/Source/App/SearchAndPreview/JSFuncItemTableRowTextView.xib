@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="JSFuncItemTableRowTextView" customModule="CutBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-8P-Yx7">
+                    <rect key="frame" x="1" y="8" width="478" height="17"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="17" id="iYJ-cy-pGJ"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Label" usesSingleLineMode="YES" id="zGs-DD-3F3">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="PEi-8P-Yx7" secondAttribute="trailing" constant="3" id="USO-jO-enh"/>
+                <constraint firstItem="PEi-8P-Yx7" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="3" id="YLJ-g0-EiC"/>
+                <constraint firstItem="PEi-8P-Yx7" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="luu-xY-tJ2"/>
+            </constraints>
+            <connections>
+                <outlet property="title" destination="PEi-8P-Yx7" id="AeD-7G-cm8"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="211"/>
+        </customView>
+    </objects>
+</document>

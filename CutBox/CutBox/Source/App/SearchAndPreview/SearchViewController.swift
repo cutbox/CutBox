@@ -8,6 +8,7 @@
 
 import Cocoa
 import RxSwift
+import JavaScriptCore
 
 class JSFuncService {
 
@@ -15,15 +16,28 @@ class JSFuncService {
         return self.list.count
     }
 
-    var list: [String] = [
-        "Func 1",
-        "Func 2",
-        "Func 3",
-        "Func 4",
-        "Func 5",
-    ]
+    var list: [[String:Any]] = []
 
     static let shared = JSFuncService()
+
+    var js: JSContext = JSContext()
+
+    func reload(_ script: String) {
+        js = JSContext()
+
+        _ = js.evaluateScript(script)
+
+        guard let funcs: [[String:Any]] = js["cutboxFunctions"].toArray() as? [[String:Any]] else {
+            // Notify that cutbox.js isn't valid
+            return
+        }
+
+        self.list = funcs
+    }
+
+    func process(_ fnIndex: Int, items: [String]) -> String {
+        return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
+    }
 }
 
 class JSFuncSearchViewController: NSObject {
@@ -231,8 +245,6 @@ class SearchViewController: NSObject {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
     }
-
-
 
     private func resetSearchText() {
         self.searchView.searchText.string = ""
