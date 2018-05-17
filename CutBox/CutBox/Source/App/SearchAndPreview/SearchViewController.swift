@@ -69,6 +69,22 @@ class JSFuncSearchViewController: NSObject {
         self.jsFuncView.itemsList.dataSource = self
         self.jsFuncView.itemsList.delegate = self
         self.configureJSPopupAndView()
+        self.setupSearchTextEventBindings()
+    }
+
+    private func setupSearchTextEventBindings() {
+        self.events
+            .subscribe(onNext: { event in
+                switch event {
+
+                case .closeAndPaste:
+                    self.closeAndPaste()
+
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     private func resetJSFuncSearchText() {
@@ -85,27 +101,19 @@ class JSFuncSearchViewController: NSObject {
         NSApp.hide(self)
     }
 
-    private func closeAndPaste(useJS: Bool = false) {
-        self.pasteSelectedClipToPasteboard(useJS)
+    private func closeAndPaste() {
+        self.pasteSelectedClipToPasteboard()
         self.jsFuncPopup.closePopup()
         perform(#selector(hideApp), with: self, afterDelay: 0.1)
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
-    func pasteSelectedClipToPasteboard(_ useJS: Bool) {
+    func pasteSelectedClipToPasteboard() {
         guard !self.selectedClips.isEmpty else { return }
 
-        pasteToPasteboard(self.selectedClips, useJS)
-    }
+        let clip = JSFuncService.shared.process(self.jsFuncView.itemsList.selectedRow,
+                                                items: self.selectedClips)
 
-    private func pasteToPasteboard(_ clips: [String], _ useJs: Bool) {
-        let clip = prefs.prepareClips(clips, useJs)
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(clip, forType: .string)
-    }
-
-    private func pasteToPasteboard(_ clip: String) {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
     }
@@ -131,9 +139,7 @@ class JSFuncSearchViewController: NSObject {
         }
 
         self.jsFuncPopup.willClosePopup = self.resetJSFuncSearchText
-
     }
-
 }
 
 class SearchViewController: NSObject {
@@ -374,3 +380,5 @@ class SearchViewController: NSObject {
         self.searchPopup.willClosePopup = self.resetSearchText
     }
 }
+
+

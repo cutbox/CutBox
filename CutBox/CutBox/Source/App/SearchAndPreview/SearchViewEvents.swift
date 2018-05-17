@@ -7,7 +7,7 @@
 //
 
 enum SearchJSFuncViewEvents {
-    case closeAndPasteSelectedThroughJavascript
+    case closeAndPaste
     case justClose
     case toggleTheme
 }

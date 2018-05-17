@@ -20,6 +20,15 @@ extension SearchJSFuncAndPreviewView {
                 self.itemsList.keyDown(with: event)
             }
 
+        case (kVK_ANSI_T, [.command]):
+
+            self.events
+                .onNext(.toggleTheme)
+
+        case (kVK_Return, _):
+
+            self.events.onNext(.closeAndPaste)
+
         default:
             break;
         }
