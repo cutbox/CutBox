@@ -2,8 +2,8 @@
 
 
 **As personaName**
-**I want **
-**So that **
+**I want**
+**So that**
 
 ### Acceptance Criteria
 
