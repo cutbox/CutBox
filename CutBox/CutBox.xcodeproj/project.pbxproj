@@ -398,7 +398,6 @@
 		961A49B92065DC1E005BC79D /* SearchAndPreview */ = {
 			isa = PBXGroup;
 			children = (
-				96FD7C3120AE515A00818925 /* JSFuncSearchPreview */,
 				96A16B5120A4731000EE08A4 /* ClipItems */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
@@ -683,6 +682,7 @@
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
 				963AA6482071EE0600779697 /* Preferences */,
+				96FD7C3120AE515A00818925 /* JSFuncSearchPreview */,
 				961A49B92065DC1E005BC79D /* SearchAndPreview */,
 				96E5A5022075D93400D24E41 /* Services */,
 			);
