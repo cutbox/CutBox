@@ -28,9 +28,9 @@
                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxU-vM-qth">
                             <rect key="frame" x="0.0" y="31" width="407" height="167"/>
                             <subviews>
-                                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-ai-KRD">
-                                    <rect key="frame" x="0.0" y="145" width="96" height="22"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" focusRingType="none" drawsBackground="YES" id="Iis-kM-CAV">
+                                <textField focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-ai-KRD">
+                                    <rect key="frame" x="0.0" y="150" width="407" height="17"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" focusRingType="none" drawsBackground="YES" id="Iis-kM-CAV">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -40,17 +40,17 @@
                                     </connections>
                                 </textField>
                                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kl-F9-cFE">
-                                    <rect key="frame" x="0.0" y="0.0" width="407" height="145"/>
-                                    <clipView key="contentView" copiesOnScroll="NO" id="Wcs-Sp-ESN">
-                                        <rect key="frame" x="0.0" y="0.0" width="407" height="145"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="407" height="150"/>
+                                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Wcs-Sp-ESN">
+                                        <rect key="frame" x="0.0" y="0.0" width="407" height="150"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textView editable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" linkDetection="YES" spellingCorrection="YES" smartInsertDelete="YES" id="AS3-0O-bG3">
-                                                <rect key="frame" x="0.0" y="0.0" width="407" height="145"/>
+                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" linkDetection="YES" spellingCorrection="YES" smartInsertDelete="YES" id="AS3-0O-bG3">
+                                                <rect key="frame" x="0.0" y="0.0" width="407" height="150"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <size key="minSize" width="407" height="145"/>
+                                                <size key="minSize" width="407" height="150"/>
                                                 <size key="maxSize" width="463" height="10000000"/>
                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             </textView>
@@ -62,7 +62,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="90B-MT-WbA">
-                                        <rect key="frame" x="391" y="0.0" width="16" height="145"/>
+                                        <rect key="frame" x="391" y="0.0" width="16" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>

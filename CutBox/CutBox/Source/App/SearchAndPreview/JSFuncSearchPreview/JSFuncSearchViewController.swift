@@ -91,29 +91,25 @@ class JSFuncSearchViewController: NSObject {
     func pasteSelectedClipToPasteboard() {
         guard !self.selectedClips.isEmpty else { return }
 
-        let clip = JSFuncService.shared.process(self.jsFuncView.itemsList.selectedRow,
-                                                items: self.selectedClips)
+        let row = self.jsFuncView.itemsList.selectedRow
+        let name = JSFuncService.shared.list[row]
+        let clip = JSFuncService.shared.process(name, items: self.selectedClips)
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
     }
 
     private func configureJSPopupAndView() {
-
         self.jsFuncView.placeHolderTextString = "js_func_search_placeholder".l7n
-
         self.jsFuncPopup.proportionalTopPadding = 0.15
         self.jsFuncPopup.proportionalWidth = 0.6
         self.jsFuncPopup.proportionalHeight = 0.6
-
         self.jsFuncPopup.willOpenPopup = self.jsFuncPopup.proportionalResizePopup
-
         self.jsFuncPopup.didOpenPopup = {
             guard let window = self.jsFuncView.window
                 else { fatalError("No window found for popup") }
 
             self.resetJSFuncSearchText()
-
             // Focus search text
             window.makeFirstResponder(self.jsFuncView.searchText)
         }

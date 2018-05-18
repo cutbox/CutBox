@@ -20,8 +20,9 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
     }
 
     func updateSearchItemPreview() {
-        let row: Int = self.jsFuncView.itemsList.selectedRow
-        let preview = self.jsFuncService.process(row, items: self.selectedClips)
+        let row = self.jsFuncView.itemsList.selectedRow
+        let name = JSFuncService.shared.list[row]
+        let preview = self.jsFuncService.process(name, items: self.selectedClips)
         self.jsFuncView.preview.string = preview
     }
 

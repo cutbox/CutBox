@@ -12,25 +12,39 @@ class JSFuncService {
     static let shared = JSFuncService()
 
     var filterText: String = ""
-    var list: [String] {
+
+    var funcs: [(String,Int)] {
         guard let funcsDict: [[String:Any]] = js["cutboxFunctions"]
             .toArray() as? [[String:Any]] else {
-            // Notify that cutbox.js isn't valid
-            return []
+                // Notify that cutbox.js isn't valid
+                return []
         }
 
-        let funcs = funcsDict.map { (dict: [String:Any]) -> (String) in
+        var idx = 0
+        return funcsDict.map { (dict: [String:Any]) -> (String, Int) in
             guard let name = dict["name"] as? String else {
-                return ""
+                fatalError("cutboxFunctions invalid: requires an array of {name: String, fn: Function}")
             }
-            return name
+            let index = (name, idx)
+            idx += 1
+            return index
         }
+    }
+
+    var list: [String] {
+        let names: [String] = funcs.map { (t:(String,Int)) -> String in t.0 }
 
         if filterText.isEmpty {
-            return funcs
+            return names
         } else {
-            return funcs.fuzzySearchRankedFiltered(search: filterText, score: 0.1)
+            return names.fuzzySearchRankedFiltered(search: filterText, score: 0.1)
         }
+    }
+
+    func selected(name: String) -> (String,Int)? {
+        guard let found = funcs.first(where: { (s:(String,Int)) -> Bool in s.0 == name })
+            else { return nil }
+        return found
     }
 
     var js: JSContext = JSContext()
@@ -39,34 +53,25 @@ class JSFuncService {
         return self.list.count
     }
 
-    var helpers = """
-
-// Javascript helper functions
-var cutboxFunctions = []
-
-this.help = () => `
-CutBox help:
-
-ls: List your cutboxFunctions
-`
-
-this.ls = () => cutboxFunctions.map( e => e.name ).join("\n")
-
-"""
+    var helpers = "var help = `- CutBox JS REPL-\nhelp:\nls() - List your cutboxFunctions`;" +
+    "var ls = () => cutboxFunctions.map(e => e.name).join(`\n`);" +
+    "var list = () => JSON.stringify(cutboxFunctions, null, 2);"
 
     func reload(_ script: String) {
         js = JSContext()
-        _ = js.evaluateScript(helpers)
-        _ = js.evaluateScript(script)
+        _ = repl(helpers)
+        _ = repl(script)
     }
 
     func repl(_ line: String) -> String {
         return js.evaluateScript(line).toString()
     }
 
-//    func process(_ name: String, items: [String]) -> String {
-//
-//    }
+    func process(_ name: String, items: [String]) -> String {
+        guard let index = selected(name: name)?.1
+            else { return "" }
+        return self.process(index, items: items)
+    }
 
     func process(_ fnIndex: Int, items: [String]) -> String {
         return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
