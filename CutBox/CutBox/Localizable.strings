@@ -38,7 +38,7 @@
 
 "js_func_search_placeholder" = "Paste through Javascript...";
 
-"preferences_javascript_transform_section_title" = "Javascript transform";
+"preferences_javascript_transform_section_title" = "Javascript REPL";
 "preferences_javascript_transform_section_note" = "<style>body{font-family:\"Helvetica\";font-size: 10pt;}code{background-color:#CCC;}</style>
 You can use Javascript to transform your items into any string you like.<br/>
 <br/>
