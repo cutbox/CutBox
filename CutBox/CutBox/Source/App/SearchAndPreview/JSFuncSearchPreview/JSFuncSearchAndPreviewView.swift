@@ -1,5 +1,5 @@
 //
-//  SearchJSFunctionsAndPreviewView.swift
+//  JSFuncSearchAndPreviewView.swift
 //  CutBox
 //
 //  Created by Jason on 16/5/18.
@@ -11,7 +11,7 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-class SearchJSFuncAndPreviewView: NSView {
+class JSFuncSearchAndPreviewView: NSView {
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!

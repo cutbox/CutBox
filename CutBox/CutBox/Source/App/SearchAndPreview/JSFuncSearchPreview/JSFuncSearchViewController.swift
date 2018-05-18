@@ -12,7 +12,7 @@ class JSFuncSearchViewController: NSObject {
 
     var jsFuncService: JSFuncService
     var selectedClips: [String] = []
-    var jsFuncView: SearchJSFuncAndPreviewView
+    var jsFuncView: JSFuncSearchAndPreviewView
     var prefs: CutBoxPreferencesService
     var fakeKey: FakeKey
     var jsFuncPopup: PopupController
@@ -29,7 +29,7 @@ class JSFuncSearchViewController: NSObject {
         self.jsFuncService = jsFuncService
         self.prefs = cutBoxPreferences
         self.fakeKey = fakeKey
-        self.jsFuncView = SearchJSFuncAndPreviewView.fromNib()!
+        self.jsFuncView = JSFuncSearchAndPreviewView.fromNib()!
         self.jsFuncPopup = PopupController(content: self.jsFuncView)
 
         super.init()

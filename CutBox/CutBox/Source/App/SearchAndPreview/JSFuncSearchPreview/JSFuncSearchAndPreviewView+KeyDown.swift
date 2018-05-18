@@ -1,5 +1,5 @@
 //
-//  SearchJSFuncAndPreviewView+KeyDown.swift
+//  JSFuncSearchAndPreviewView+KeyDown.swift
 //  CutBox
 //
 //  Created by Jason on 17/5/18.
@@ -9,7 +9,7 @@
 import RxSwift
 import Carbon.HIToolbox
 
-extension SearchJSFuncAndPreviewView {
+extension JSFuncSearchAndPreviewView {
     override func keyDown(with event: NSEvent) {
         switch (event.key, event.modifiers) {
         case (kVK_UpArrow, _),

@@ -103,8 +103,8 @@
 		96A8021620AB0AD2000CBE74 /* PreferencesTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021420AB0AD1000CBE74 /* PreferencesTabView.swift */; };
 		96A8021720AB0AD2000CBE74 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8021520AB0AD2000CBE74 /* PreferencesWindow.xib */; };
 		96A8021920AB0C35000CBE74 /* NSAttributedString+HTML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021820AB0C35000CBE74 /* NSAttributedString+HTML.swift */; };
-		96A8021D20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8021C20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib */; };
-		96A8022020AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021F20AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift */; };
+		96A8021D20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */; };
+		96A8022020AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021F20AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift */; };
 		96A8022720AD8F00000CBE74 /* JSFuncItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */; };
 		96A8022820AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
@@ -125,9 +125,9 @@
 		96FD7C2420ADBE6500818925 /* ItemTableRowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2320ADBE6500818925 /* ItemTableRowImageView.swift */; };
 		96FD7C2620ADBEAF00818925 /* JSFuncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2520ADBEAF00818925 /* JSFuncService.swift */; };
 		96FD7C2820ADBEF300818925 /* JSFuncSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2720ADBEF300818925 /* JSFuncSearchViewController.swift */; };
-		96FD7C2A20ADBF7900818925 /* SearchJSFuncAndPreviewView+KeyDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2920ADBF7900818925 /* SearchJSFuncAndPreviewView+KeyDown.swift */; };
-		96FD7C2C20ADC12B00818925 /* SearchJSFuncAndPreviewView+ApplyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2B20ADC12B00818925 /* SearchJSFuncAndPreviewView+ApplyTheme.swift */; };
-		96FD7C2E20ADC1A400818925 /* SearchJSFuncTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2D20ADC1A400818925 /* SearchJSFuncTextViewDelegate.swift */; };
+		96FD7C2A20ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2920ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift */; };
+		96FD7C2C20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */; };
+		96FD7C2E20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */; };
 		96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */; };
 		EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86977FBC73098A02A097D0D /* Pods_CutBox.framework */; };
 /* End PBXBuildFile section */
@@ -306,8 +306,8 @@
 		96A8021420AB0AD1000CBE74 /* PreferencesTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabView.swift; sourceTree = "<group>"; };
 		96A8021520AB0AD2000CBE74 /* PreferencesWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		96A8021820AB0C35000CBE74 /* NSAttributedString+HTML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+HTML.swift"; sourceTree = "<group>"; };
-		96A8021C20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchJSFuncAndPreviewView.xib; sourceTree = "<group>"; };
-		96A8021F20AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJSFuncAndPreviewView.swift; sourceTree = "<group>"; };
+		96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSFuncSearchAndPreviewView.xib; sourceTree = "<group>"; };
+		96A8021F20AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchAndPreviewView.swift; sourceTree = "<group>"; };
 		96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSFuncItemTableRowTextView.xib; sourceTree = "<group>"; };
 		96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSFuncItemTableRowImageView.xib; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
@@ -333,9 +333,9 @@
 		96FD7C2320ADBE6500818925 /* ItemTableRowImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowImageView.swift; sourceTree = "<group>"; };
 		96FD7C2520ADBEAF00818925 /* JSFuncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncService.swift; sourceTree = "<group>"; };
 		96FD7C2720ADBEF300818925 /* JSFuncSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewController.swift; sourceTree = "<group>"; };
-		96FD7C2920ADBF7900818925 /* SearchJSFuncAndPreviewView+KeyDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchJSFuncAndPreviewView+KeyDown.swift"; sourceTree = "<group>"; };
-		96FD7C2B20ADC12B00818925 /* SearchJSFuncAndPreviewView+ApplyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchJSFuncAndPreviewView+ApplyTheme.swift"; sourceTree = "<group>"; };
-		96FD7C2D20ADC1A400818925 /* SearchJSFuncTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchJSFuncTextViewDelegate.swift; sourceTree = "<group>"; };
+		96FD7C2920ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSFuncSearchAndPreviewView+KeyDown.swift"; sourceTree = "<group>"; };
+		96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSFuncSearchAndPreviewView+ApplyTheme.swift"; sourceTree = "<group>"; };
+		96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchTextViewDelegate.swift; sourceTree = "<group>"; };
 		96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		A86977FBC73098A02A097D0D /* Pods_CutBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CutBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -398,15 +398,8 @@
 		961A49B92065DC1E005BC79D /* SearchAndPreview */ = {
 			isa = PBXGroup;
 			children = (
+				96FD7C3120AE515A00818925 /* JSFuncSearchPreview */,
 				96A16B5120A4731000EE08A4 /* ClipItems */,
-				96FD7C2720ADBEF300818925 /* JSFuncSearchViewController.swift */,
-				96FD7C2520ADBEAF00818925 /* JSFuncService.swift */,
-				96A8021F20AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift */,
-				96A8021C20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib */,
-				96FD7C2B20ADC12B00818925 /* SearchJSFuncAndPreviewView+ApplyTheme.swift */,
-				96FD7C2920ADBF7900818925 /* SearchJSFuncAndPreviewView+KeyDown.swift */,
-				96FD7C2D20ADC1A400818925 /* SearchJSFuncTextViewDelegate.swift */,
-				96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */,
 				962D6D4E20735DF6007E3785 /* SearchViewController.swift */,
 				961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */,
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
@@ -600,18 +593,13 @@
 		96A16B5120A4731000EE08A4 /* ClipItems */ = {
 			isa = PBXGroup;
 			children = (
-				96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */,
-				96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */,
 				965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */,
-				96FD7C1B20ADBD5200818925 /* JSFuncItemTableRowContainerView.swift */,
 				96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */,
 				96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */,
-				96FD7C1F20ADBE0100818925 /* JSFuncItemTableRowTextView.swift */,
 				96FD7C1D20ADBDCA00818925 /* ItemTableRowTextView.swift */,
 				96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */,
 				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
 				96FD7C2320ADBE6500818925 /* ItemTableRowImageView.swift */,
-				96FD7C2120ADBE3700818925 /* JSFuncItemTableRowImageView.swift */,
 				96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */,
 				96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */,
 				96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */,
@@ -710,6 +698,34 @@
 				962D6D4C207357ED007E3785 /* VersionService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		96FD7C3120AE515A00818925 /* JSFuncSearchPreview */ = {
+			isa = PBXGroup;
+			children = (
+				96FD7C3220AE527100818925 /* JSFunItems */,
+				96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */,
+				96FD7C2720ADBEF300818925 /* JSFuncSearchViewController.swift */,
+				96FD7C2520ADBEAF00818925 /* JSFuncService.swift */,
+				96A8021F20AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift */,
+				96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */,
+				96FD7C2920ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift */,
+				96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */,
+				96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */,
+			);
+			path = JSFuncSearchPreview;
+			sourceTree = "<group>";
+		};
+		96FD7C3220AE527100818925 /* JSFunItems */ = {
+			isa = PBXGroup;
+			children = (
+				96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */,
+				96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */,
+				96FD7C1B20ADBD5200818925 /* JSFuncItemTableRowContainerView.swift */,
+				96FD7C1F20ADBE0100818925 /* JSFuncItemTableRowTextView.swift */,
+				96FD7C2120ADBE3700818925 /* JSFuncItemTableRowImageView.swift */,
+			);
+			path = JSFunItems;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -884,7 +900,7 @@
 				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */,
 				96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */,
-				96A8021D20AC44A6000CBE74 /* SearchJSFuncAndPreviewView.xib in Resources */,
+				96A8021D20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib in Resources */,
 				96A801BD20A8180F000CBE74 /* PreferencesAdvancedView.xib in Resources */,
 				96A16B4220A0675700EE08A4 /* page.png in Resources */,
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
@@ -1137,7 +1153,7 @@
 				96FD7C1C20ADBD5200818925 /* JSFuncItemTableRowContainerView.swift in Sources */,
 				961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */,
 				965F076E206F58A40032DACD /* SearchViewEvents.swift in Sources */,
-				96FD7C2E20ADC1A400818925 /* SearchJSFuncTextViewDelegate.swift in Sources */,
+				96FD7C2E20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift in Sources */,
 				968D7CA32095FF6A00FF1236 /* Array+removeAtIndexes.swift in Sources */,
 				96A8021620AB0AD2000CBE74 /* PreferencesTabView.swift in Sources */,
 				9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */,
@@ -1165,9 +1181,9 @@
 				963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */,
 				96FD7C2220ADBE3700818925 /* JSFuncItemTableRowImageView.swift in Sources */,
 				962D6D4B207356DA007E3785 /* Constants.swift in Sources */,
-				96FD7C2A20ADBF7900818925 /* SearchJSFuncAndPreviewView+KeyDown.swift in Sources */,
-				96FD7C2C20ADC12B00818925 /* SearchJSFuncAndPreviewView+ApplyTheme.swift in Sources */,
-				96A8022020AC4528000CBE74 /* SearchJSFuncAndPreviewView.swift in Sources */,
+				96FD7C2A20ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift in Sources */,
+				96FD7C2C20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift in Sources */,
+				96A8022020AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift in Sources */,
 				96A8020820A8581B000CBE74 /* PreferencesThemeSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

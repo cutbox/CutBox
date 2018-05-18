@@ -9,5 +9,5 @@
 import Cocoa
 
 class JSFuncItemTableRowContainerView: ItemTableRowContainerView {
-    var jsFuncView: SearchJSFuncAndPreviewView?
+    var jsFuncView: JSFuncSearchAndPreviewView?
 }

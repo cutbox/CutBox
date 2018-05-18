@@ -1,5 +1,5 @@
 //
-//  SearchJSFuncAndPreviewView+ApplyTheme.swift
+//  JSFuncSearchAndPreviewView+ApplyTheme.swift
 //  CutBox
 //
 //  Created by Jason on 17/5/18.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension SearchJSFuncAndPreviewView {
+extension JSFuncSearchAndPreviewView {
     func colorizeMagnifier(image: NSImage = #imageLiteral(resourceName: "magnitude.png"),
                            tooltip: String = "search_scope_tooltip_all".l7n) {
         let image = image
