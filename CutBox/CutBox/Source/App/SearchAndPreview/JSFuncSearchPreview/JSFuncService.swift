@@ -9,28 +9,31 @@
 import JavaScriptCore
 
 class JSFuncService {
+    static let shared = JSFuncService()
+
+    var filterText: String = ""
+    var list: [String] {
+
+        guard let funcsDict: [[String:Any]] = js["cutboxFunctions"].toArray() as? [[String:Any]] else {
+            // Notify that cutbox.js isn't valid
+            return []
+        }
+
+        return funcsDict.map {
+            $0["name"] as! String
+        }
+
+    }
+
+    var js: JSContext = JSContext()
 
     var count: Int {
         return self.list.count
     }
 
-    var list: [[String:Any]] = []
-
-    static let shared = JSFuncService()
-
-    var js: JSContext = JSContext()
-
     func reload(_ script: String) {
         js = JSContext()
-
         _ = js.evaluateScript(script)
-
-        guard let funcs: [[String:Any]] = js["cutboxFunctions"].toArray() as? [[String:Any]] else {
-            // Notify that cutbox.js isn't valid
-            return
-        }
-
-        self.list = funcs
     }
 
     func process(_ fnIndex: Int, items: [String]) -> String {

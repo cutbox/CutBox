@@ -52,7 +52,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         case "string":
             let rowView = tableView.getRowView() as JSFuncItemTableRowTextView
-            rowView.data = ["string": funcItem["name"] as! String]
+            rowView.data = ["string": funcItem]
             rowView.color = theme.clip.clipItemsTextColor
             return rowView
 

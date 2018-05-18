@@ -34,10 +34,22 @@ class JSFuncSearchViewController: NSObject {
 
         super.init()
 
-        self.jsFuncView.itemsList.dataSource = self
-        self.jsFuncView.itemsList.delegate = self
+
         self.configureJSPopupAndView()
         self.setupSearchTextEventBindings()
+        self.setupSearchViewAndFilterBinding()
+    }
+
+    private func setupSearchViewAndFilterBinding() {
+        self.jsFuncView.itemsList.dataSource = self
+        self.jsFuncView.itemsList.delegate = self
+
+        self.jsFuncView.filterText
+            .subscribe(onNext: {
+                self.jsFuncService.filterText = $0
+                self.jsFuncView.itemsList.reloadData()
+            })
+            .disposed(by: self.disposeBag)
     }
 
     private func setupSearchTextEventBindings() {
