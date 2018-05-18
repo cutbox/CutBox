@@ -694,6 +694,7 @@
 			children = (
 				96DB5387208ADB28004BAAEF /* History */,
 				962D6D482073544F007E3785 /* HotKeyService.swift */,
+				96FD7C2520ADBEAF00818925 /* JSFuncService.swift */,
 				96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */,
 				962D6D4C207357ED007E3785 /* VersionService.swift */,
 			);
@@ -706,7 +707,6 @@
 				96FD7C3220AE527100818925 /* JSFunItems */,
 				96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */,
 				96FD7C2720ADBEF300818925 /* JSFuncSearchViewController.swift */,
-				96FD7C2520ADBEAF00818925 /* JSFuncService.swift */,
 				96A8021F20AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift */,
 				96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */,
 				96FD7C2920ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift */,
