@@ -180,29 +180,29 @@
                                                     <rect key="frame" x="1" y="1" width="459" height="399"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfp-9E-05R">
+                                                        <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" translatesAutoresizingMaskIntoConstraints="NO" id="yfp-9E-05R">
                                                             <rect key="frame" x="10" y="10" width="439" height="379"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="UO5-NP-mCp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="439" height="379"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
-                                                                    <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="NO" usesInspectorBar="YES" findStyle="bar" incrementalSearchingEnabled="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="eKA-mf-B4d">
+                                                                    <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" allowsDocumentBackgroundColorChange="YES" textCompletion="NO" id="eKA-mf-B4d">
                                                                         <rect key="frame" x="0.0" y="0.0" width="439" height="379"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <color key="textColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                         <size key="minSize" width="439" height="379"/>
-                                                                        <size key="maxSize" width="463" height="10000000"/>
+                                                                        <size key="maxSize" width="10000000" height="10000000"/>
                                                                         <color key="insertionPointColor" red="0.94704241069999995" green="0.98524213800000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </textView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
                                                             <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="DxZ-ox-tij">
-                                                                <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                                                <rect key="frame" x="0.0" y="363" width="439" height="16"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
+                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
                                                                 <rect key="frame" x="423" y="0.0" width="16" height="379"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>

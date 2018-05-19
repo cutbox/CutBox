@@ -38,6 +38,13 @@ class JSFuncSearchAndPreviewView: NSView {
     override func awakeFromNib() {
         setupSearchText()
         setupPlaceholder()
+
+        self.preview.textContainer!.widthTracksTextView = false
+
+        self.preview.textContainer!.containerSize = CGSize(
+            width: CGFloat.greatestFiniteMagnitude,
+            height: CGFloat.greatestFiniteMagnitude
+        )
     }
 
     override init(frame: NSRect) {

@@ -40,6 +40,13 @@ class SearchAndPreviewView: NSView {
         setupPlaceholder()
         setupSearchModeToggle()
         setupSearchScopeToggle()
+
+        self.preview.textContainer!.widthTracksTextView = false
+
+        self.preview.textContainer!.containerSize = CGSize(
+            width: CGFloat.greatestFiniteMagnitude,
+            height: CGFloat.greatestFiniteMagnitude
+        )
     }
 
     override init(frame: NSRect) {

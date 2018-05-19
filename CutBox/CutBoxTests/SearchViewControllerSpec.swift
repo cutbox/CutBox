@@ -27,7 +27,7 @@ class HistoryServiceMock: HistoryService {
         get {
             return [
                 "Fakes",
-                "You're a fake baby, you can't conceal it, Know how I know, 'cause I can feel it.",
+                "I can feel it.",
                 "To kill a mockingbird"
             ]
         }
@@ -46,7 +46,9 @@ class SearchViewControllerSpec: QuickSpec {
             var defaults: UserDefaults!
 
             beforeEach {
-                defaults = UserDefaults(suiteName: "FakeDefaults")!
+                let testUserDefaultsDomain = "FakeDefaults"
+                UserDefaults().removePersistentDomain(forName: testUserDefaultsDomain)
+                defaults = UserDefaults(suiteName: testUserDefaultsDomain)!
                 historyServiceMock = HistoryServiceMock(defaults: defaults)
 
                 subject = SearchViewController(
