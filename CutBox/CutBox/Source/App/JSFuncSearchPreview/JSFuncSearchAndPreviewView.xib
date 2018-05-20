@@ -96,6 +96,7 @@
                                                 </constraints>
                                                 <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                                                <font key="titleFont" metaFont="message" size="11"/>
                                             </box>
                                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-Ng-XLx">
                                                 <rect key="frame" x="877" y="-26" width="50" height="103"/>
@@ -217,6 +218,7 @@
                                                 </view>
                                                 <color key="borderColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                 <color key="fillColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <font key="titleFont" metaFont="message" size="11"/>
                                             </box>
                                         </subviews>
                                         <constraints>
@@ -275,6 +277,7 @@
                     </view>
                     <color key="borderColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
+                    <font key="titleFont" metaFont="message" size="11"/>
                 </box>
             </subviews>
             <constraints>

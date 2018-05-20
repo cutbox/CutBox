@@ -444,27 +444,26 @@
 			children = (
 				964CA547208324D300B9F33E /* PreferencesService */,
 				96A8021520AB0AD2000CBE74 /* PreferencesWindow.xib */,
-				96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */,
-				96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */,
-				96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */,
-				96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */,
+				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
 				96A8021420AB0AD1000CBE74 /* PreferencesTabView.swift */,
 				96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */,
-				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
-				96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */,
+				96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */,
 				96A8020120A8573D000CBE74 /* PreferencesGeneralView.swift */,
-				96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */,
-				96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */,
-				967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */,
-				967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */,
-				964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */,
-				9667650A20B14CD900DE369A /* PreferencesWindow+HistoryLimit.swift */,
 				964CA506207E5AC700B9F33E /* PreferencesWindow+AutoLogin.swift */,
-				968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */,
 				96FD7C1720ADBC5D00818925 /* Preferences+ProtectFavorites.swift */,
 				964CA504207E5A6900B9F33E /* PreferencesWindow+KeyRecorder.swift */,
+				96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */,
+				96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */,
+				967EFEB120A519D600A525CC /* Preferences+ThemeSelector.swift */,
+				968D7C942095778800FF1236 /* PreferencesWindow+UseCompactUI.swift */,
+				96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */,
+				96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */,
+				967EFEAF20A5199400A525CC /* Preferences+HistorySize.swift */,
+				9667650A20B14CD900DE369A /* PreferencesWindow+HistoryLimit.swift */,
 				964CA502207E5A1000B9F33E /* PreferencesWindow+JoinItems.swift */,
 				964CA4FF207E59D400B9F33E /* PreferencesWindow+MultipleItemWrapping.swift */,
+				96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */,
+				96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -605,16 +604,16 @@
 		96A16B5120A4731000EE08A4 /* ClipItems */ = {
 			isa = PBXGroup;
 			children = (
-				965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */,
 				96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */,
-				96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */,
+				965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */,
 				96FD7C1D20ADBDCA00818925 /* ItemTableRowTextView.swift */,
 				96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */,
-				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
+				96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */,
 				96FD7C2320ADBE6500818925 /* ItemTableRowImageView.swift */,
 				96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */,
-				96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */,
+				96A16B3D209FD77500EE08A4 /* ClipItemTableRowImageView.swift */,
 				96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */,
+				96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */,
 			);
 			path = ClipItems;
 			sourceTree = "<group>";
@@ -622,6 +621,7 @@
 		96DB5387208ADB28004BAAEF /* History */ = {
 			isa = PBXGroup;
 			children = (
+				964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */,
 				968A97C020667CF800D36B50 /* HistoryService.swift */,
 				9672FF2E2079C89400E4571E /* HistorySearchMode.swift */,
 				968D7C9D2095872200FF1236 /* HistoryRepo.swift */,
@@ -720,13 +720,13 @@
 			isa = PBXGroup;
 			children = (
 				96FD7C3220AE527100818925 /* JSFunItems */,
-				96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */,
 				96FD7C2720ADBEF300818925 /* JSFuncSearchViewController.swift */,
+				96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */,
+				96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */,
 				96A8021F20AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift */,
 				96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */,
 				96FD7C2920ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift */,
 				96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */,
-				96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */,
 			);
 			path = JSFuncSearchPreview;
 			sourceTree = "<group>";
@@ -734,10 +734,10 @@
 		96FD7C3220AE527100818925 /* JSFunItems */ = {
 			isa = PBXGroup;
 			children = (
-				96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */,
-				96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */,
 				96FD7C1B20ADBD5200818925 /* JSFuncItemTableRowContainerView.swift */,
+				96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */,
 				96FD7C1F20ADBE0100818925 /* JSFuncItemTableRowTextView.swift */,
+				96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */,
 				96FD7C2120ADBE3700818925 /* JSFuncItemTableRowImageView.swift */,
 			);
 			path = JSFunItems;
