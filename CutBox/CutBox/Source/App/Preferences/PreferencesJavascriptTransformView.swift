@@ -15,8 +15,10 @@ class PreferencesJavascriptTransformView: NSView {
 
     @IBOutlet weak var javascriptTransformSectionTitle: NSTextField!
     @IBOutlet weak var javascriptReplCommandLine: NSTextField!
-    @IBOutlet weak var javascriptTransformNote: NSTextView!
+    @IBOutlet weak var javascriptTransformInfo: NSTextField!
+    @IBOutlet weak var javascriptTransformREPLOutput: NSTextView!
     @IBOutlet weak var javascriptTransformReloadButton: NSButton!
+    @IBOutlet weak var javascriptClearReplButton: NSButton!
 
     override func awakeFromNib() {
         self.prefs = CutBoxPreferencesService.shared
@@ -28,20 +30,38 @@ class PreferencesJavascriptTransformView: NSView {
     func applyJavascriptREPLTheme() {
         let textColor = NSColor.black
         let backgroundColor = NSColor.white
+        let commandLineBackground = #colorLiteral(red: 0.8720445421, green: 0.9284945442, blue: 0.95, alpha: 1)
 
-        self.javascriptTransformNote.font = NSFont.userFixedPitchFont(ofSize: 13)
-        self.javascriptTransformNote.textColor = textColor
-        self.javascriptTransformNote.backgroundColor = backgroundColor
+        self.javascriptTransformREPLOutput.font = NSFont.userFixedPitchFont(ofSize: 13)
+        self.javascriptTransformREPLOutput.textColor = textColor
+        self.javascriptTransformREPLOutput.backgroundColor = backgroundColor
 
         self.javascriptReplCommandLine.font = NSFont.userFixedPitchFont(ofSize: 13)
         self.javascriptReplCommandLine.textColor = textColor
-        self.javascriptReplCommandLine.backgroundColor =  backgroundColor
+        self.javascriptReplCommandLine.backgroundColor = commandLineBackground
     }
 
     func setupJavascriptTransformSection() {
-        self.javascriptTransformSectionTitle.stringValue = "preferences_javascript_transform_section_title".l7n
+        self.javascriptTransformSectionTitle
+            .stringValue = "preferences_javascript_transform_section_title".l7n
 
-        self.javascriptTransformReloadButton.title = "preferences_javascript_transform_reload".l7n
+        self.javascriptTransformInfo
+            .stringValue = "preferences_javascript_transform_section_note".l7n
+
+        self.javascriptTransformREPLOutput
+            .string = "preferences_javascript_repl_help".l7n
+
+        self.javascriptTransformReloadButton
+            .title = "preferences_javascript_transform_reload".l7n
+
+        self.javascriptClearReplButton
+            .title = "preferences_javascript_clear_button".l7n
+
+        self.javascriptClearReplButton
+            .rx
+            .tap
+            .bind {_ in self.javascriptTransformREPLOutput.string = ""}
+            .disposed(by: disposeBag)
 
         self.javascriptTransformReloadButton
             .rx
@@ -60,8 +80,8 @@ class PreferencesJavascriptTransformView: NSView {
             append("$ " + cmd)
             append("> " + value)
 
-            javascriptTransformNote.scrollRangeToVisible(
-                NSMakeRange((javascriptTransformNote
+            javascriptTransformREPLOutput.scrollRangeToVisible(
+                NSMakeRange((javascriptTransformREPLOutput
                     .textStorage?
                     .string
                     .count)!-1, 1))
@@ -69,6 +89,6 @@ class PreferencesJavascriptTransformView: NSView {
     }
 
     private func append(_ string: String) {
-        javascriptTransformNote.string += "\n" + string
+        javascriptTransformREPLOutput.string += "\n" + string
     }
 }

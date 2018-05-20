@@ -39,22 +39,11 @@
 "js_func_search_placeholder" = "Paste through Javascript...";
 
 "preferences_javascript_transform_section_title" = "Javascript REPL";
-"preferences_javascript_transform_section_note" = "<style>body{font-family:\"Helvetica\";font-size: 10pt;}code{background-color:#CCC;}</style>
-You can use Javascript to transform your items into any string you like.<br/>
-<br/>
-When CutBox starts up, it will try to load <code>~/.cutbox.js</code><br/>
-<br/>
-The API is very simple, you can access an array of strings: <code>items</code><br/>
-and set the text to paste as a string: <code>paste</code><br/>
-<br/>
-When you select item(s) and press Cmd + Enter on the keyboard<br/>
-Your selection will be processed through your Javascript code.<br/>
-<br/>
-Join the discussion at <a href=\"https://github.com/cutbox/cutbox/issues/50\">Cutbox on Github</a><br/>
-<br/>
-PLEASE NOTE: This feature is experimental.";
+"preferences_javascript_transform_section_note" = "Use this to help debug your ~/.cutbox.js";
+"preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, for help\n\n";
 
 "preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
+"preferences_javascript_clear_button" = "Clear";
 
 "preferences_multi_clip_join_title" = "Join using";
 "preferences_multi_clip_joined_by_newline" = "New line";
