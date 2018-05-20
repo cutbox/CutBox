@@ -64,11 +64,7 @@ class HistoryServiceSpec: QuickSpec {
         ]
 
         beforeEach {
-
-            let testUserDefaultsDomain = "HistoryServiceSpec"
-
-            UserDefaults().removePersistentDomain(forName: testUserDefaultsDomain)
-            defaults = UserDefaults(suiteName: testUserDefaultsDomain)!
+            defaults = UserDefaultsMock()
             subject = HistoryService(defaults: defaults)
 
             mockPasteboard = PasteboardWrapperMock()

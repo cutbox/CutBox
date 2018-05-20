@@ -20,10 +20,7 @@ class HistoryRepoSpec: QuickSpec {
             var defaults: UserDefaults!
 
             beforeEach {
-                let testUserDefaultsDomain = "HistoryRepoSpec"
-
-                UserDefaults().removePersistentDomain(forName: testUserDefaultsDomain)
-                defaults = UserDefaults(suiteName: testUserDefaultsDomain)!
+                defaults = UserDefaultsMock()
 
                 subject = HistoryRepo(defaults: defaults)
             }

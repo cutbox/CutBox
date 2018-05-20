@@ -46,9 +46,7 @@ class SearchViewControllerSpec: QuickSpec {
             var defaults: UserDefaults!
 
             beforeEach {
-                let testUserDefaultsDomain = "FakeDefaults"
-                UserDefaults().removePersistentDomain(forName: testUserDefaultsDomain)
-                defaults = UserDefaults(suiteName: testUserDefaultsDomain)!
+                defaults = UserDefaultsMock()
                 historyServiceMock = HistoryServiceMock(defaults: defaults)
 
                 subject = SearchViewController(

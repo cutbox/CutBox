@@ -23,16 +23,12 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
             ]
 
             beforeEach {
-                defaults = UserDefaults(suiteName: "CutBoxPreferences+JoinAndWrap")!
+                defaults = UserDefaultsMock()
                 subject = CutBoxPreferencesService(defaults: defaults)
                 subject.useJoinString = false
                 subject.multiJoinString = nil
                 subject.useWrappingStrings = false
                 subject.wrappingStrings = (nil,nil)
-            }
-
-            afterEach {
-                defaults.removeSuite(named: "CutBoxPreferences+JoinAndWrap")
             }
 
             context("multiple clips") {

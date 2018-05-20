@@ -22,7 +22,7 @@ class CutBoxPreferencesService_HistoryLimitSpec: QuickSpec {
             let disposeBag = DisposeBag()
 
             beforeEach {
-                defaults = UserDefaults(suiteName: "CutBoxPreferencesService+HistoryLimit")!
+                defaults = UserDefaultsMock()
                 subject = CutBoxPreferencesService(defaults: defaults)
             }
 
