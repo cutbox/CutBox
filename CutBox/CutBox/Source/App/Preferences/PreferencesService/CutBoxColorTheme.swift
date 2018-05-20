@@ -14,6 +14,8 @@ class CutBoxColorTheme {
 
     let name: String
 
+    var spacing: CGFloat
+
     let popupBackgroundColor: NSColor
 
     let searchText: (cursorColor: NSColor,
@@ -23,7 +25,8 @@ class CutBoxColorTheme {
 
     let clip: (clipItemsBackgroundColor: NSColor,
     clipItemsTextColor: NSColor,
-    clipItemsHighlightColor: NSColor)
+    clipItemsHighlightColor: NSColor,
+    clipItemsHighlightTextColor: NSColor)
 
     let preview: (textColor: NSColor,
     backgroundColor: NSColor,
@@ -34,10 +37,12 @@ class CutBoxColorTheme {
     init(name: String,
          popupBackgroundColor: NSColor,
          searchText: (cursorColor: NSColor, textColor: NSColor, backgroundColor: NSColor, placeholderTextColor: NSColor),
-         clip: (clipItemsBackgroundColor: NSColor, clipItemsTextColor: NSColor, clipItemsHighlightColor: NSColor),
-         preview: (textColor: NSColor, backgroundColor: NSColor, selectedTextBackgroundColor: NSColor)) {
+         clip: (clipItemsBackgroundColor: NSColor, clipItemsTextColor: NSColor, clipItemsHighlightColor: NSColor, clipItemsHighlightTextColor: NSColor),
+         preview: (textColor: NSColor, backgroundColor: NSColor, selectedTextBackgroundColor: NSColor),
+         spacing: CGFloat = 5) {
 
         self.name = name
+        self.spacing = spacing
         self.popupBackgroundColor = popupBackgroundColor
         self.searchText = searchText
         self.clip = clip

@@ -301,6 +301,11 @@
                 <outlet property="container" destination="2wd-Z7-k0t" id="rWB-qr-Awu"/>
                 <outlet property="iconImageView" destination="Zhs-Ng-XLx" id="c3E-tJ-Oo8"/>
                 <outlet property="itemsList" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
+                <outlet property="mainBottomConstraint" destination="cof-vQ-XnJ" id="h20-pC-mwI"/>
+                <outlet property="mainContainer" destination="IVV-sS-zG8" id="6X8-YW-KC9"/>
+                <outlet property="mainLeadingConstraint" destination="Bye-gs-Wxw" id="Ikb-Ma-WNO"/>
+                <outlet property="mainTopConstraint" destination="Tcg-PK-nOx" id="K20-bR-Ozh"/>
+                <outlet property="mainTrailingConstraint" destination="hAD-TB-FDp" id="Fah-DL-V89"/>
                 <outlet property="preview" destination="eKA-mf-B4d" id="7xo-Bz-YwI"/>
                 <outlet property="previewContainer" destination="PqF-0i-OXy" id="GuO-qO-t43"/>
                 <outlet property="searchContainer" destination="DHO-Bb-J8a" id="BRE-AQ-bdE"/>

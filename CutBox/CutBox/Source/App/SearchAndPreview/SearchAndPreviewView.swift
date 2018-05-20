@@ -11,67 +11,17 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-class SearchAndPreviewView: NSView {
-    @IBOutlet weak var searchContainer: NSBox!
-    @IBOutlet weak var searchTextContainer: NSBox!
-    @IBOutlet weak var searchTextPlaceholder: NSTextField!
-    @IBOutlet weak var searchText: NSTextView!
-    @IBOutlet weak var itemsList: NSTableView!
-    @IBOutlet weak var preview: NSTextView!
-    @IBOutlet weak var previewContainer: NSBox!
-    @IBOutlet weak var searchModeToggle: NSButton!
-    @IBOutlet weak var iconImageView: NSImageView!
-    @IBOutlet weak var searchScopeImageButton: NSButton!
+class SearchAndPreviewView: SearchPreviewView {
 
-    @IBOutlet weak var container: NSStackView!
-    @IBOutlet weak var bottomBar: NSView!
-    internal let prefs = CutBoxPreferencesService.shared
+    @IBOutlet weak var searchModeToggle: NSButton!
 
     var events = PublishSubject<SearchViewEvents>()
-    var filterText = PublishSubject<String>()
-    var placeholderText = PublishSubject<String>()
-
-    var placeHolderTextString = "search_placeholder".l7n
-
-    private let disposeBag = DisposeBag()
 
     override func awakeFromNib() {
         setupSearchText()
-        setupPlaceholder()
         setupSearchModeToggle()
         setupSearchScopeToggle()
-
-        self.preview.textContainer!.widthTracksTextView = false
-
-        self.preview.textContainer!.containerSize = CGSize(
-            width: CGFloat.greatestFiniteMagnitude,
-            height: CGFloat.greatestFiniteMagnitude
-        )
-    }
-
-    override init(frame: NSRect) {
-        super.init(frame: frame)
-    }
-
-    required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
-    }
-
-    override var acceptsFirstResponder: Bool {
-        return true
-    }
-
-    func itemSelect(lambda: (_ index: Int, _ total: Int) -> Int) {
-        let row = itemsList.selectedRow
-        let total = itemsList.numberOfRows
-
-        let selectedRow = lambda(row, total)
-
-        itemsList
-            .selectRowIndexes([selectedRow],
-                              byExtendingSelection: false)
-        itemsList
-            .scrollRowToVisible(selectedRow)
+        super.awakeFromNib()
     }
 
     func setSearchModeButton(mode: HistorySearchMode) {
@@ -117,18 +67,6 @@ class SearchAndPreviewView: NSView {
             .disposed(by: disposeBag)
     }
 
-    func hideItemsAndPreview(_ bool: Bool) {
-        self.bottomBar.isHidden = bool
-        self.container.isHidden = bool
-    }
-
-    private func setupPlaceholder() {
-        filterText
-            .map { $0.isEmpty ? self.placeHolderTextString  : "" }
-            .bind(to: searchTextPlaceholder.rx.text)
-            .disposed(by: disposeBag)
-    }
-
     private func setupSearchText() {
         self.searchText.delegate = self
         self.searchText.isFieldEditor = true
@@ -143,20 +81,25 @@ class SearchAndPreviewView: NSView {
     }
 
     func setupClipItemsContextMenu() {
-        let contextMenu = NSMenu()
-
         let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
                                 action: #selector(removeSelectedItems),
                                 keyEquivalent: "")
-
-        contextMenu.addItem(remove)
 
         let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
                                   action: #selector(toggleFavoriteItems),
                                   keyEquivalent: "")
 
+        let contextMenu = NSMenu()
+        contextMenu.addItem(remove)
         contextMenu.addItem(favorite)
 
         self.itemsList.menu = contextMenu
+    }
+    
+    override func applyTheme() {
+        super.applyTheme()
+
+        setSearchModeButton(mode: HistoryService.shared.searchMode)
+        setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }
 }
