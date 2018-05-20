@@ -94,10 +94,14 @@ class JSFuncSearchViewController: NSObject {
         let row = self.jsFuncView.itemsList.selectedRow
         var clip: String
 
-        if let name = JSFuncService.shared.list[safe: row] {
-            clip = JSFuncService.shared.process(name, items: self.selectedClips)
-        } else {
+        if row == -1 {
             clip = prefs.prepareClips(self.selectedClips)
+        } else {
+            if let name = JSFuncService.shared.list[safe: row] {
+                clip = JSFuncService.shared.process(name, items: self.selectedClips)
+            } else {
+                clip = prefs.prepareClips(self.selectedClips)
+            }
         }
 
         NSPasteboard.general.clearContents()
