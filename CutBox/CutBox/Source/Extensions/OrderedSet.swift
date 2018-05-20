@@ -9,6 +9,10 @@ import Foundation
 
 public class OrderedSet<T: Hashable> {
 
+    public var count: Int {
+        return objects.count
+    }
+
     private var objects: [T] = []
     private var indexOfKey: [T: Int] = [:]
 

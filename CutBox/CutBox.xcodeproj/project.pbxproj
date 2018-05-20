@@ -129,6 +129,7 @@
 		96FD7C2C20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */; };
 		96FD7C2E20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */; };
 		96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */; };
+		96FD7C3520B1028E00818925 /* OrderedSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */; };
 		EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86977FBC73098A02A097D0D /* Pods_CutBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -337,6 +338,7 @@
 		96FD7C2B20ADC12B00818925 /* JSFuncSearchAndPreviewView+ApplyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSFuncSearchAndPreviewView+ApplyTheme.swift"; sourceTree = "<group>"; };
 		96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchTextViewDelegate.swift; sourceTree = "<group>"; };
 		96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
+		96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSetSpec.swift; sourceTree = "<group>"; };
 		A86977FBC73098A02A097D0D /* Pods_CutBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CutBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
 		B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
 				96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */,
 				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
+				96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
 			isa = PBXGroup;
 			children = (
+				96FD7C3320B1024700818925 /* JSFunc */,
 				96429D57208C11A90055D678 /* Extensions */,
 				96429D56208C117E0055D678 /* Preferences */,
 				96429D54208C11520055D678 /* History */,
@@ -726,6 +730,13 @@
 				96FD7C2120ADBE3700818925 /* JSFuncItemTableRowImageView.swift */,
 			);
 			path = JSFunItems;
+			sourceTree = "<group>";
+		};
+		96FD7C3320B1024700818925 /* JSFunc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = JSFunc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1202,6 +1213,7 @@
 				967B32C020A6BEED0042BD2F /* JSContext+subscriptSpec.swift in Sources */,
 				964CA521207F573C00B9F33E /* SearchViewControllerSpec.swift in Sources */,
 				96429D5B208C19570055D678 /* CutBoxThemeSpec.swift in Sources */,
+				96FD7C3520B1028E00818925 /* OrderedSetSpec.swift in Sources */,
 				964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */,
 				964CA53C2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */,
 			);
