@@ -92,8 +92,13 @@ class JSFuncSearchViewController: NSObject {
         guard !self.selectedClips.isEmpty else { return }
 
         let row = self.jsFuncView.itemsList.selectedRow
-        let name = JSFuncService.shared.list[row]
-        let clip = JSFuncService.shared.process(name, items: self.selectedClips)
+        var clip: String
+
+        if let name = JSFuncService.shared.list[safe: row] {
+            clip = JSFuncService.shared.process(name, items: self.selectedClips)
+        } else {
+            clip = prefs.prepareClips(self.selectedClips)
+        }
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)

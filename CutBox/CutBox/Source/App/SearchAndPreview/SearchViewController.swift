@@ -104,11 +104,11 @@ class SearchViewController: NSObject {
     func pasteSelectedClipToPasteboard(_ useJS: Bool) {
         guard !self.selectedClips.isEmpty else { return }
 
-        pasteToPasteboard(self.selectedClips, useJS)
+        pasteToPasteboard(self.selectedClips)
     }
 
-    private func pasteToPasteboard(_ clips: [String], _ useJs: Bool) {
-        let clip = prefs.prepareClips(clips, useJs)
+    private func pasteToPasteboard(_ clips: [String]) {
+        let clip = prefs.prepareClips(clips)
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(clip, forType: .string)
@@ -149,7 +149,7 @@ class SearchViewController: NSObject {
     }
 
     func updateSearchItemPreview() {
-        let preview = prefs.prepareClips(selectedClips, false)
+        let preview = prefs.prepareClips(selectedClips)
         self.searchView.preview.string = preview
     }
 

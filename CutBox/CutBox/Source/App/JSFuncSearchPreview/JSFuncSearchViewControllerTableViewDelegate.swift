@@ -86,3 +86,5 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         return proposedSelectionIndexes
     }
 }
+
+
