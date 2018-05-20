@@ -24,10 +24,21 @@ class SearchPreviewView: NSView {
     @IBOutlet weak var container: NSStackView!
     @IBOutlet weak var bottomBar: NSView!
 
+    @IBOutlet weak var searchTextContainerHeight: NSLayoutConstraint!
+
     @IBOutlet weak var mainTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainBottomConstraint: NSLayoutConstraint!
+
+    var searchTextHeight: CGFloat {
+        set {
+            searchTextContainerHeight.constant = newValue
+        }
+        get {
+            return searchTextContainerHeight.constant
+        }
+    }
 
     var spacing: CGFloat {
         set {
@@ -112,6 +123,7 @@ class SearchPreviewView: NSView {
         let theme = prefs.currentTheme
 
         self.spacing = theme.spacing
+        self.searchTextHeight = 60 - (spacing * 2.0)
 
         preview.font = prefs.searchViewClipPreviewFont
         searchTextPlaceholder.font = prefs.searchViewTextFieldFont
@@ -125,6 +137,7 @@ class SearchPreviewView: NSView {
         searchText.insertionPointColor = theme.searchText.cursorColor
         searchTextContainer.fillColor = theme.searchText.backgroundColor
         searchTextPlaceholder.textColor = theme.searchText.placeholderTextColor
+
 
         preview.backgroundColor = theme.preview.backgroundColor
         previewContainer.fillColor = theme.preview.backgroundColor

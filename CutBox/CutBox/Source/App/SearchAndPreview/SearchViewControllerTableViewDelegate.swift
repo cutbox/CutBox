@@ -36,19 +36,24 @@ extension SearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
+        let rowView: ClipItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: true) as? ClipItemTableRowContainerView
 
         switch column.identifier.rawValue {
         case "icon":
-            let rowView = tableView.getRowView() as ClipItemTableRowImageView
-            rowView.data = record
-            rowView.color = theme.clip.clipItemsTextColor
-            return rowView
+            let rowImageView = tableView.getRowView() as ClipItemTableRowImageView
+            rowImageView.data = record
+            rowImageView.color = theme.clip.clipItemsTextColor
+            rowView?.imageView = rowImageView
+
+            return rowImageView
 
         case "string":
-            let rowView = tableView.getRowView() as ClipItemTableRowTextView
-            rowView.data = record
-            rowView.color = theme.clip.clipItemsTextColor
-            return rowView
+            let rowTextView = tableView.getRowView() as ClipItemTableRowTextView
+            rowTextView.data = record
+            rowTextView.color = theme.clip.clipItemsTextColor
+            rowView?.textView = rowTextView
+
+            return rowTextView
 
         default:
             return nil
@@ -62,7 +67,17 @@ extension SearchViewController: NSTableViewDelegate {
 
         let selected =  self.searchView.itemsList.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)
+        let theme = CutBoxPreferencesService.shared.currentTheme
         let added: IndexSet = proposed.subtracting(selected)
+
+        removed
+            .map {
+                tableView.rowView(atRow: $0,
+                                  makeIfNecessary: true) as! ItemTableRowContainerView }
+            .forEach {
+                $0.imageView?.color = theme.clip.clipItemsTextColor
+                $0.textView?.color = theme.clip.clipItemsTextColor
+        }
 
         added.forEach { self.orderedSelection.add($0) }
         removed.forEach { self.orderedSelection.remove($0) }

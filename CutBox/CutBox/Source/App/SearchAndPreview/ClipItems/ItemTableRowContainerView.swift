@@ -10,6 +10,9 @@ import Cocoa
 
 class ItemTableRowContainerView: NSTableRowView {
 
+    var textView: ItemTableRowTextView?
+    var imageView: ItemTableRowImageView?
+
     override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
         set {}
         get {
@@ -26,6 +29,14 @@ class ItemTableRowContainerView: NSTableRowView {
                 .clip
                 .clipItemsHighlightColor
                 .setFill()
+
+            if let textView = self.textView {
+                textView.color = theme.clip.clipItemsHighlightTextColor
+            }
+
+            if let imageView = self.imageView {
+                imageView.color = theme.clip.clipItemsHighlightTextColor
+            }
 
             let selectionPath = NSBezierPath.init(rect: selectionRect)
             selectionPath.fill()

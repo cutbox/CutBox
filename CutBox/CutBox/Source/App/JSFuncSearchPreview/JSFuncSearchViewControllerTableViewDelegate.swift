@@ -43,22 +43,46 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
+        let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: true) as? JSFuncItemTableRowContainerView
 
         switch column.identifier.rawValue {
         case "icon":
-            let rowView = tableView.getRowView() as JSFuncItemTableRowImageView
-            rowView.setup()
-            rowView.color = theme.clip.clipItemsTextColor
-            return rowView
+            let rowImageView = tableView.getRowView() as JSFuncItemTableRowImageView
+            rowImageView.setup()
+            rowImageView.color = theme.clip.clipItemsTextColor
+            rowView?.imageView = rowImageView
+            return rowImageView
 
         case "string":
-            let rowView = tableView.getRowView() as JSFuncItemTableRowTextView
-            rowView.data = ["string": funcItem]
-            rowView.color = theme.clip.clipItemsTextColor
-            return rowView
+            let rowTextView = tableView.getRowView() as JSFuncItemTableRowTextView
+            rowTextView.data = ["string": funcItem]
+            rowTextView.color = theme.clip.clipItemsTextColor
+            rowView?.textView = rowTextView
+            return rowTextView
 
         default:
             return nil
         }
+    }
+
+    func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
+        let proposed = proposedSelectionIndexes
+
+        guard proposed.count > 0 else { return proposedSelectionIndexes }
+
+        let selected = self.jsFuncView.itemsList.selectedRowIndexes
+        let removed: IndexSet = selected.subtracting(proposed)
+        let theme = CutBoxPreferencesService.shared.currentTheme
+
+        removed
+            .map {
+                tableView.rowView(atRow: $0,
+                                  makeIfNecessary: true) as! ItemTableRowContainerView }
+            .forEach {
+                $0.imageView?.color = theme.clip.clipItemsTextColor
+                $0.textView?.color = theme.clip.clipItemsTextColor
+        }
+
+        return proposedSelectionIndexes
     }
 }

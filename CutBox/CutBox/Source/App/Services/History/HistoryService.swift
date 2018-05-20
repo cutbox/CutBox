@@ -66,12 +66,14 @@ class HistoryService: NSObject {
         }
     }
 
+    var _favoritesOnly: Bool = false
     var favoritesOnly: Bool {
         set {
+            _favoritesOnly = newValue
             self.defaults.set(newValue, forKey: kSearchFavoritesOnly)
         }
         get {
-            return self.defaults.bool(forKey: kSearchFavoritesOnly)
+            return _favoritesOnly
         }
     }
 
@@ -88,6 +90,8 @@ class HistoryService: NSObject {
         self.defaults = defaults
         self.pasteboard = PasteboardWrapper()
         self.historyRepo = HistoryRepo()
+
+        self._favoritesOnly = self.defaults.bool(forKey: kSearchFavoritesOnly)
 
         if let legacyHistoryStoreDefaults = defaults.array(forKey: self.kLegacyHistoryStoreKey) {
             self.legacyHistoryStore = legacyHistoryStoreDefaults as! [String]

@@ -40,10 +40,6 @@ extension CutBoxPreferencesService {
 
         js.evaluateScript(self.javascript)
 
-//        let names: CutboxFunctions = js["cutboxFunctions"].toArray() as! CutboxFunctions
-//
-//        names.forEach { debugPrint($0["name"]!, $0["key"]!) }
-
         guard let value = js["paste"].toString() else {
             let notification = NSUserNotification()
             notification.title = "Javascript Failure"
