@@ -29,6 +29,10 @@ extension JSFuncSearchAndPreviewView {
 
             self.events.onNext(.closeAndPaste)
 
+        case (kVK_Escape, _):
+
+            self.events.onNext(.justClose)
+
         default:
             break;
         }

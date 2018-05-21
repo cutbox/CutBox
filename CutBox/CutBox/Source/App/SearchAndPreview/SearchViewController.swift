@@ -82,6 +82,11 @@ class SearchViewController: NSObject {
         fakeKey.send(fakeKey: "V", useCommandFlag: true)
     }
 
+    private func justClose() {
+        self.closeSearchPopup()
+        perform(#selector(hideApp), with: self, afterDelay: 0.1)
+    }
+
     private func closeAndPaste(useJS: Bool = false) {
         self.pasteSelectedClipToPasteboard(useJS)
         self.closeSearchPopup()
@@ -200,7 +205,7 @@ class SearchViewController: NSObject {
                     self.toggleFavoriteItems()
 
                 case .justClose:
-                    self.closeSearchPopup()
+                    self.justClose()
 
                 case .closeAndPasteSelected:
                     self.closeAndPaste()

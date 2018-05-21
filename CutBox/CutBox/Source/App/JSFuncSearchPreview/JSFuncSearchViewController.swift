@@ -60,6 +60,9 @@ class JSFuncSearchViewController: NSObject {
                 case .closeAndPaste:
                     self.closeAndPaste()
 
+                case .justClose:
+                    self.justClose()
+
                 default:
                     break
                 }
@@ -79,6 +82,11 @@ class JSFuncSearchViewController: NSObject {
 
     @objc func hideApp() {
         NSApp.hide(self)
+    }
+
+    private func justClose() {
+        self.jsFuncPopup.closePopup()
+        perform(#selector(hideApp), with: self, afterDelay: 0.1)
     }
 
     private func closeAndPaste() {
