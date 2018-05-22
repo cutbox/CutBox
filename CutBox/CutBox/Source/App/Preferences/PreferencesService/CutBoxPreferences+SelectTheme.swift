@@ -12,6 +12,7 @@ extension CutBoxPreferencesService {
     var theme: Int {
         set {
             defaults.set(newValue, forKey: "theme")
+            self.events.onNext(.themeChanged)
         }
 
         get {

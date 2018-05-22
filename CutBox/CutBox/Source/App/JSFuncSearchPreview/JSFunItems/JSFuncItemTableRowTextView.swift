@@ -10,7 +10,7 @@ import Cocoa
 class JSFuncItemTableRowTextView: ItemTableRowTextView {
     override func setup() {
         guard let data = self.data else {
-            fatalError("Data must be initialized on ClipItemTableRowView before setup.")
+            fatalError("Data must be initialized on row view before setup.")
         }
 
         guard let titleString = data["string"] as? String else {

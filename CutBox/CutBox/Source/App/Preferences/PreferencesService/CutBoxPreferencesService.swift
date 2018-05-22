@@ -15,6 +15,7 @@ enum CutBoxPreferencesEvent {
     case compactUISettingChanged(isOn: Bool)
     case protectFavoritesChanged(isOn: Bool)
     case javascriptReload
+    case themeChanged
 }
 
 class CutBoxPreferencesService {
