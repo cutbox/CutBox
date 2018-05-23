@@ -10,7 +10,7 @@
 
 <div align="center">
   <h1>CutBox</h1>
-  <p>make your pasteboard awesome</p>
+  <p>it'll make your pasteboard awesome!</p>
 </div>
 
 ## About CutBox
@@ -25,6 +25,15 @@ Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://githu
 What does it do? Let's you search from your pasteboard history....
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
+
+What else...
+
+- Make items favorite
+- Select and paste multiple items as one
+
+Anything weird?
+
+- Pipe paste output through [functions](https://github.com/cutbox/CutBox/wiki/Javascript-support)
 
 # Download / install...
 
