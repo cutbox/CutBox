@@ -6,6 +6,9 @@
   <a href="https://github.com/ocodo/CutBox/releases/download/1.3.6/CutBox.dmg"> <img src="https://img.shields.io/github/release/ocodo/CutBox.svg" alt="CutBox"/> </a> &nbsp;
   <img src="https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg" alt="Github commits (since latest release)"/> &nbsp;
   <a href="https://github.com/ocodo/CutBox/releases/download/1.3.6/CutBox.dmg"> <img src="https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg" alt="Latest release"/> </a>
+<a href="https://gitter.im/CutBox/Lobby" title="Chat about CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
+<a href="https://gitter.im/CutBox/NewFeatures" title="Chat about CutBox New Features"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
+<a href="https://gitter.im/CutBox/JavascriptFunctions" title="Chat about CutBox Javascript pipe"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
 </p>
 
 <div align="center">
