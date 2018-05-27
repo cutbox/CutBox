@@ -43,7 +43,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
-        let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: true) as? JSFuncItemTableRowContainerView
+        let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: false) as? JSFuncItemTableRowContainerView
 
         switch column.identifier.rawValue {
         case "icon":

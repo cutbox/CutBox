@@ -36,7 +36,7 @@ extension SearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
-        let rowView: ClipItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: true) as? ClipItemTableRowContainerView
+        let rowView: ClipItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: false) as? ClipItemTableRowContainerView
 
         switch column.identifier.rawValue {
         case "icon":
