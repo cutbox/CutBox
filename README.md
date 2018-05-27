@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ocodo/CutBox/releases/download/1.3.7/CutBox.dmg"> <img src="https://img.shields.io/github/release/ocodo/CutBox.svg" alt="CutBox"/> </a> &nbsp;
+  <a href="https://github.com/ocodo/CutBox/releases/download/1.3.8/CutBox.dmg"> <img src="https://img.shields.io/github/release/ocodo/CutBox.svg" alt="CutBox"/> </a> &nbsp;
   <img src="https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg" alt="Github commits (since latest release)"/> &nbsp;
-  <a href="https://github.com/ocodo/CutBox/releases/download/1.3.7/CutBox.dmg"> <img src="https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg" alt="Latest release"/> </a>
+  <a href="https://github.com/ocodo/CutBox/releases/download/1.3.8/CutBox.dmg"> <img src="https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg" alt="Latest release"/> </a>
 &nbsp; 
   <a href="https://gitter.im/CutBox/Lobby" title="Chat about CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
 </p>
@@ -111,4 +111,3 @@ here](https://github.com/cutbox/CutBox/issues/new?template=feature.md)
 >
 > You should have received a copy of the GNU General Public License
 > along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
