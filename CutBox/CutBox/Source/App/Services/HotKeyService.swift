@@ -9,18 +9,21 @@
 import Magnet
 import RxSwift
 
-class HotKeyService {
+enum HotKeyEvents {
+    case search
+}
+
+class HotKeyService: NSObject {
 
     static let shared = HotKeyService()
 
     private let disposeBag = DisposeBag()
 
     var searchKeyCombo = PublishSubject<KeyCombo>()
-    var controller: CutBoxController?
 
-    func configure(controller: CutBoxController) {
-        self.controller = controller
+    var events = PublishSubject<HotKeyEvents>()
 
+    func configure() {
         self.searchKeyCombo
             .distinctUntilChanged { $0 == $1 }
             .subscribe(onNext: {
@@ -41,16 +44,16 @@ class HotKeyService {
         }
     }
 
-    fileprivate func changeGlobalToggle(keyCombo: KeyCombo) {
-        guard let controller = self.controller else {
-            fatalError("HotKeyService has no controller configured")
-        }
+    @objc func search(_ sender: Any) {
+        self.events.onNext(.search)
+    }
 
+    fileprivate func changeGlobalToggle(keyCombo: KeyCombo) {
         let hotKey = HotKey(
             identifier: Constants.kCutBoxToggleKeyCombo,
             keyCombo: keyCombo,
-            target: controller,
-            action: #selector(controller.searchClicked(_:))
+            target: self,
+            action: #selector(search(_:))
         )
 
         hotKey.register()

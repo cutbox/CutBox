@@ -83,16 +83,29 @@ class CutBoxController: NSObject {
         icon.isTemplate = true // best for dark mode
         self.statusItem.image = icon
         self.statusItem.menu = statusMenu
-        self.hotKeyService.configure(controller: self)
+        self.hotKeyService.configure()
 
+        setHotKeyServiceEventBindings()
         setSearchEventBindings()
         setPreferencesEventBindings()
         setModeSelectors()
         setCompactUIMenuItem()
     }
 
+    func setHotKeyServiceEventBindings() {
+        self.hotKeyService
+            .events
+            .subscribe(onNext: { event in
+            switch event {
+            case .search:
+                self.searchViewController.togglePopup()
+            }
+        })
+        .disposed(by: disposeBag)
+    }
+
     func setSearchEventBindings() {
-        searchViewController
+        self.searchViewController
             .events
             .asObservable()
             .subscribe(onNext: { event in
@@ -148,14 +161,14 @@ class CutBoxController: NSObject {
 
     func setModeSelectors() {
         self.searchModeSelectors =
-            [fuzzyMatchModeItem,
-             regexpModeItem,
-             regexpCaseSensitiveModeItem]
+            [self.fuzzyMatchModeItem,
+             self.regexpModeItem,
+             self.regexpCaseSensitiveModeItem]
 
         self.searchModeSelectorsDict = [
-            "fuzzyMatch":fuzzyMatchModeItem,
-            "regexpAnyCase":regexpModeItem,
-            "regexpStrictCase":regexpCaseSensitiveModeItem
+            "fuzzyMatch": self.fuzzyMatchModeItem,
+            "regexpAnyCase": self.regexpModeItem,
+            "regexpStrictCase": self.regexpCaseSensitiveModeItem
         ]
 
         checkSearchModeItem(
@@ -168,17 +181,17 @@ class CutBoxController: NSObject {
 
     func searchModeSelect(_ axID: String) {
         let mode = HistorySearchMode.searchMode(from: axID)
-        searchViewController.events.onNext(.setSearchMode(mode))
+        self.searchViewController.events.onNext(.setSearchMode(mode))
     }
 
     func checkSearchModeItem() {
         let axID = historyService.searchMode.axID()
-        searchModeSelectors?.forEach { $0.state = .off }
-        searchModeSelectorsDict?[axID]?.state = .on
+        self.searchModeSelectors?.forEach { $0.state = .off }
+        self.searchModeSelectorsDict?[axID]?.state = .on
     }
 
     func checkSearchModeItem(_ axID: String) {
-        searchModeSelectors?.forEach { $0.state = .off }
-        searchModeSelectorsDict?[axID]?.state = .on
+        self.searchModeSelectors?.forEach { $0.state = .off }
+        self.searchModeSelectorsDict?[axID]?.state = .on
     }
 }
