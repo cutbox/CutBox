@@ -78,12 +78,25 @@ class JSFuncServiceSpec: QuickSpec {
                         expect(subject.list).to(equal(["Another"]))
                     }
                 }
-
+                
                 context("selected") {
                     it("returns the index of the selected func by name") {
                         let index = subject.selected(name: "Another")!
 
                         expect(index.1).to(equal(1))
+                    }
+                }
+
+                context("funcs") {
+                    it("returns the unfiltered function name/index list for lookup") {
+                        subject.filterText = "no"
+
+                        let actual: [(String,Int)] = subject.funcs
+                        let names = actual.map { $0.0 }
+                        let indecies = actual.map { $0.1 }
+
+                        expect(names).to(equal(["Test", "Another"]))
+                        expect(indecies).to(equal([0,1]))
                     }
                 }
             }
