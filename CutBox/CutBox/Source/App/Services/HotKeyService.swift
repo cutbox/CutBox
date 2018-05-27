@@ -14,7 +14,6 @@ enum HotKeyEvents {
 }
 
 class HotKeyService: NSObject {
-
     static let shared = HotKeyService()
 
     private let disposeBag = DisposeBag()

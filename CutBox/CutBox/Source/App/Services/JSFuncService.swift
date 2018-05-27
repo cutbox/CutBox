@@ -8,8 +8,30 @@
 
 import JavaScriptCore
 
-class JSFuncService {
+class JSFuncService: NSObject {
     static let shared = JSFuncService()
+
+    let require: @convention(block) (String) -> (JSValue?) = { path in
+        let expandedPath = NSString(string: path).expandingTildeInPath
+
+        guard FileManager.default.fileExists(atPath: expandedPath)
+            else {
+                notifyUser(
+                    title: "Require: filename \(expandedPath)",
+                    info: " does not exist")
+                return nil
+        }
+
+        guard let fileContent = JSFuncService.shared.getStringFromFile(expandedPath)
+            else {
+                notifyUser(
+                    title: "Cannot read: \(expandedPath)",
+                    info: "unknown error processing file")
+                return nil
+        }
+
+        return JSFuncService.shared.js.evaluateScript(fileContent)
+    }
 
     var filterText: String = ""
 
@@ -47,7 +69,7 @@ class JSFuncService {
         return found
     }
 
-    var js: JSContext = JSContext()
+    public var js: JSContext = JSContext()
 
     var count: Int {
         return self.list.count
@@ -57,10 +79,31 @@ class JSFuncService {
     "var ls = () => cutboxFunctions.map(e => e.name).join(`\n`);" +
     "var list = () => JSON.stringify(cutboxFunctions, null, 2);"
 
-    func reload(_ script: String) {
-        js = JSContext()
+    func setup() {
+        self.js = JSContext()
+        self.js["require"] = self.require
+    }
+
+    func reload() {
+        setup()
+
+        let cutboxJSFilename: String = NSString(string:"~/.cutbox.js").expandingTildeInPath
+
+        guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
+            notifyUser(title: "Could not load ~/.cutbox.js", info: "file does not exist")
+            return
+        }
+
         _ = repl(helpers)
-        _ = repl(script)
+        _ = repl(cutboxJS)
+
+        let count = JSFuncService.shared.list.count
+
+        if count == 0 {
+            notifyUser(title: "Problem with ~/.cutbox.js", info: "cutboxFunctions has no functions")
+        } else {
+            notifyUser(title: "Javascript loaded", info:  "~/.cutbox.js loaded \(count) function(s)")
+        }
     }
 
     func repl(_ line: String) -> String {
@@ -75,6 +118,12 @@ class JSFuncService {
 
     func process(_ fnIndex: Int, items: [String]) -> String {
         return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
+    }
+
+    func getStringFromFile(_ expandedFilename: String) -> String? {
+        guard let fileContent = try? String(contentsOfFile: expandedFilename)
+            else { return nil }
+        return fileContent
     }
 }
 

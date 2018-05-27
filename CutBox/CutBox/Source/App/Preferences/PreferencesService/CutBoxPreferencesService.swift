@@ -367,33 +367,8 @@ class CutBoxPreferencesService {
         }
     }
 
-    var kJavascript = "javascript"
-
-    var javascript: String? {
-        set {
-            defaults.set(newValue, forKey: kJavascript)
-            events.onNext(.javascriptReload)
-        }
-        get {
-            return defaults.string(forKey: kJavascript)
-        }
-    }
-
     func loadJavascript() {
-        let location = NSString(string:"~/.cutbox.js").expandingTildeInPath
-        if let fileContent = try? String(contentsOfFile: location) {
-            self.javascript = fileContent
-            JSFuncService.shared
-                .reload(fileContent)
-
-            let count = JSFuncService.shared.list.count
-
-            if count == 0 {
-                notifyUser(title: "Problem with ~/.cutbox.js", info: "cutboxFunctions has no functions")
-            } else {
-                notifyUser(title: "Javascript loaded", info:  "~/.cutbox.js loaded \(count) function(s)")
-            }
-        }
+        JSFuncService.shared.reload()
     }
 }
 
