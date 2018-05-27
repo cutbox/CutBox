@@ -77,8 +77,8 @@ class PreferencesJavascriptTransformView: NSView {
         if !cmd.isEmpty {
             let value = JSFuncService.shared.repl(cmd)
 
-            append("$ " + cmd)
-            append("> " + value)
+            append("> " + cmd)
+            append(value)
 
             javascriptTransformREPLOutput.scrollRangeToVisible(
                 NSMakeRange((javascriptTransformREPLOutput

@@ -1,3 +1,6 @@
+
+
+
 //
 //  JSFuncServiceSpec.swift
 //  CutBoxTests
@@ -78,7 +81,7 @@ class JSFuncServiceSpec: QuickSpec {
                         expect(subject.list).to(equal(["Another"]))
                     }
                 }
-                
+
                 context("selected") {
                     it("returns the index of the selected func by name") {
                         let index = subject.selected(name: "Another")!
