@@ -12,6 +12,12 @@ import RxSwift
 
 class CutBoxController: NSObject {
 
+    @IBOutlet weak var useCompactUI: NSMenuItem!
+    @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
+    @IBOutlet weak var regexpModeItem: NSMenuItem!
+    @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
+    @IBOutlet weak var statusMenu: NSMenu!
+
     let statusItem: NSStatusItem = NSStatusBar
         .system
         .statusItem(withLength: NSStatusItem.variableLength)
@@ -29,12 +35,6 @@ class CutBoxController: NSObject {
     let historyService = HistoryService.shared
 
     private let disposeBag = DisposeBag()
-
-    @IBOutlet weak var useCompactUI: NSMenuItem!
-    @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
-    @IBOutlet weak var regexpModeItem: NSMenuItem!
-    @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
-    @IBOutlet weak var statusMenu: NSMenu!
 
     @IBAction func searchClicked(_ sender: NSMenuItem) {
         self.searchViewController.togglePopup()
@@ -76,29 +76,56 @@ class CutBoxController: NSObject {
         self.jsFuncSearchViewController = JSFuncSearchViewController()
         self.preferencesController = PreferencesTabViewController()
         super.init()
+    }
+
+    override func awakeFromNib() {
+        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
+        icon.isTemplate = true // best for dark mode
+        self.statusItem.image = icon
+        self.statusItem.menu = statusMenu
         self.hotKeyService.configure(controller: self)
 
-        self.searchViewController.events.subscribe(onNext: { event in
+        setSearchEventBindings()
+        setPreferencesEventBindings()
+        setModeSelectors()
+        setCompactUIMenuItem()
+    }
 
-            switch event {
-            case .selectJavascriptFunction:
-                let items = self.searchViewController.selectedClips
-                self.jsFuncSearchViewController.selectedClips = items
+    func setSearchEventBindings() {
+        searchViewController
+            .events
+            .asObservable()
+            .subscribe(onNext: { event in
+                switch event {
+                case .toggleSearchMode:
+                    self.checkSearchModeItem()
+                case .setSearchMode(let mode):
+                    self.checkSearchModeItem(mode.axID())
+                case .clearHistory:
+                    self.clearHistoryClicked(nil)
+                case .selectJavascriptFunction:
+                    self.openJavascriptPopup()
+                default:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+    }
 
-                self.jsFuncSearchViewController
-                    .jsFuncView
-                    .applyTheme()
+    func openJavascriptPopup() {
+        let items = self.searchViewController.selectedClips
+        self.jsFuncSearchViewController.selectedClips = items
 
-                self.jsFuncSearchViewController
-                    .jsFuncPopup
-                    .togglePopup()
+        self.jsFuncSearchViewController
+            .jsFuncView
+            .applyTheme()
 
-            default:
-                break
-            }
-        })
-        .disposed(by: disposeBag)
+        self.jsFuncSearchViewController
+            .jsFuncPopup
+            .togglePopup()
+    }
 
+    func setPreferencesEventBindings() {
         self.prefs
             .events
             .subscribe(onNext: {
@@ -114,16 +141,6 @@ class CutBoxController: NSObject {
             .disposed(by: disposeBag)
     }
 
-    override func awakeFromNib() {
-        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
-        icon.isTemplate = true // best for dark mode
-        self.statusItem.image = icon
-        self.statusItem.menu = statusMenu
-
-        setModeSelectors()
-        setCompactUIMenuItem()
-    }
-
     func setCompactUIMenuItem() {
         self.useCompactUI.title = "preferences_use_compact_ui".l7n
         self.useCompactUI.state = self.prefs.useCompactUI ? .on : .off
@@ -136,34 +153,17 @@ class CutBoxController: NSObject {
              regexpCaseSensitiveModeItem]
 
         self.searchModeSelectorsDict = [
-                "fuzzyMatch":fuzzyMatchModeItem,
-                "regexpAnyCase":regexpModeItem,
-                "regexpStrictCase":regexpCaseSensitiveModeItem
+            "fuzzyMatch":fuzzyMatchModeItem,
+            "regexpAnyCase":regexpModeItem,
+            "regexpStrictCase":regexpCaseSensitiveModeItem
         ]
 
         checkSearchModeItem(
             HistoryService
-            .shared
-            .searchMode
-            .axID()
+                .shared
+                .searchMode
+                .axID()
         )
-
-        searchViewController
-            .events
-            .asObservable()
-            .subscribe(onNext: { event in
-                switch event {
-                case .toggleSearchMode:
-                    self.checkSearchModeItem()
-                case .setSearchMode(let mode):
-                    self.checkSearchModeItem(mode.axID())
-                case .clearHistory:
-                    self.clearHistoryClicked(nil)
-                default:
-                    break
-                }
-            })
-            .disposed(by: disposeBag)
     }
 
     func searchModeSelect(_ axID: String) {
