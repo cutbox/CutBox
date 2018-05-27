@@ -40,6 +40,10 @@ class JSFuncServiceSpec: QuickSpec {
                     )
                 }
 
+                afterEach {
+                    try! fileManager.removeItem(atPath: path)
+                }
+
                 it("evaluates the file as JS") {
                     let result = subject.repl("require(\"\(path)\");")
 
