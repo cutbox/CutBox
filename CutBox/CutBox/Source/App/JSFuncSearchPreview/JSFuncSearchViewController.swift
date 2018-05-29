@@ -34,7 +34,6 @@ class JSFuncSearchViewController: NSObject {
 
         super.init()
 
-
         self.configureJSPopupAndView()
         self.setupSearchTextEventBindings()
         self.setupSearchViewAndFilterBinding()
