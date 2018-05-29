@@ -12,10 +12,11 @@ import RxSwift
 
 class CutBoxController: NSObject {
 
-    @IBOutlet weak var useCompactUI: NSMenuItem!
-    @IBOutlet weak var fuzzyMatchModeItem: NSMenuItem!
-    @IBOutlet weak var regexpModeItem: NSMenuItem!
-    @IBOutlet weak var regexpCaseSensitiveModeItem: NSMenuItem!
+    var useCompactUI: NSMenuItem!
+    var fuzzyMatchModeItem: NSMenuItem!
+    var regexpModeItem: NSMenuItem!
+    var regexpCaseSensitiveModeItem: NSMenuItem!
+
     @IBOutlet weak var statusMenu: NSMenu!
 
     let statusItem: NSStatusItem = NSStatusBar
@@ -36,11 +37,11 @@ class CutBoxController: NSObject {
 
     private let disposeBag = DisposeBag()
 
-    @IBAction func searchClicked(_ sender: NSMenuItem) {
+    @objc func searchClicked(_ sender: NSMenuItem) {
         self.searchViewController.togglePopup()
     }
 
-    @IBAction func clearHistoryClicked(_ sender: NSMenuItem?) {
+    @objc func clearHistoryClicked(_ sender: NSMenuItem?) {
         if suppressibleConfirmationDialog(
             messageText: "confirm_warning_clear_history_title".l7n,
             informativeText: "confirm_warning_clear_history".l7n,
@@ -49,26 +50,26 @@ class CutBoxController: NSObject {
         }
     }
 
-    @IBAction func openPreferences(_ sender: NSMenuItem) {
+    @objc func openPreferences(_ sender: NSMenuItem) {
         NSApplication.shared.activate(ignoringOtherApps: true)
         preferencesController.open()
     }
 
-    @IBAction func openAboutPanel(_ sender: NSMenuItem) {
+    @objc func openAboutPanel(_ sender: NSMenuItem) {
         aboutPanel.makeKeyAndOrderFront(self)
         aboutPanel.center()
     }
 
-    @IBAction func quitClicked(_ sender:  NSMenuItem) {
+    @objc func quitClicked(_ sender:  NSMenuItem) {
         NSApp.terminate(sender)
     }
 
-    @IBAction func useCompactUIClicked(_ sender: NSMenuItem) {
+    @objc func useCompactUIClicked(_ sender: NSMenuItem) {
         self.prefs.useCompactUI = !self.prefs.useCompactUI
     }
 
-    @IBAction func searchModeSelect(_ sender: NSMenuItem) {
-        searchModeSelect(sender.accessibilityIdentifier())
+    @objc func searchModeSelect(_ sender: NSMenuItem) {
+        searchModeSelectAxID(sender.accessibilityIdentifier())
     }
 
     override init() {
@@ -88,7 +89,62 @@ class CutBoxController: NSObject {
         setHotKeyServiceEventBindings()
         setSearchEventBindings()
         setPreferencesEventBindings()
-        setModeSelectors()
+        setMenuItems()
+    }
+
+    func setMenuItems() {
+        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
+        icon.isTemplate = true // best for dark mode
+        self.statusItem.image = icon
+
+        let menu = self.statusMenu!
+
+        let items: [(Int,String,String?,Selector?)] = [
+            (0, "Search CutBox", nil, #selector(searchClicked(_:))),
+            (1, "---", nil, nil),
+            (2, "Fuzzy Match", "fuzzyMatch", #selector(searchModeSelect(_:))),
+            (3, "Regexp any case", "regexpAnyCase", #selector(searchModeSelect(_:))),
+            (4, "Regexp case match", "regexpStrictCase", #selector(searchModeSelect(_:))),
+            (5, "---", nil, nil),
+            (6, "Compact UI", nil, #selector(useCompactUIClicked(_:))),
+            (7, "---", nil, nil),
+            (8, "Preferences", nil, #selector(openPreferences(_:))),
+            (9, "Clear History", nil, #selector(clearHistoryClicked(_:))),
+            (10, "---", nil, nil),
+            // Insert around Check for Updates
+            (12, "About CutBox", nil, #selector(openAboutPanel(_:))),
+            (13, "Quit", nil, #selector(quitClicked(_:)))
+        ]
+
+        items.forEach {
+            let title = $0.1
+            if title == "---" {
+                menu.insertItem(NSMenuItem.separator(), at: $0.0)
+            } else {
+                let axID = $0.2
+                let action = $0.3
+                let item: NSMenuItem = NSMenuItem(title: title,
+                                                  action: action,
+                                                  keyEquivalent: "")
+
+                item.target = self
+
+                if axID != nil {
+                    item.setAccessibilityIdentifier(axID)
+                }
+
+                menu.insertItem(item, at: $0.0)
+            }
+        }
+
+        self.statusItem.menu = menu
+
+        setModeSelectors(fuzzyMatchModeItem: menu.item(at: 2)!,
+                         regexpModeItem: menu.item(at: 3)!,
+                         regexpCaseSensitiveModeItem: menu.item(at: 4)!)
+
+        self.useCompactUI = menu.item(at: 6)!
+
         setCompactUIMenuItem()
     }
 
@@ -159,11 +215,17 @@ class CutBoxController: NSObject {
         self.useCompactUI.state = self.prefs.useCompactUI ? .on : .off
     }
 
-    func setModeSelectors() {
-        self.searchModeSelectors =
-            [self.fuzzyMatchModeItem,
-             self.regexpModeItem,
-             self.regexpCaseSensitiveModeItem]
+    func setModeSelectors(fuzzyMatchModeItem: NSMenuItem,
+                          regexpModeItem: NSMenuItem,
+                          regexpCaseSensitiveModeItem: NSMenuItem) {
+        self.fuzzyMatchModeItem = fuzzyMatchModeItem
+        self.regexpModeItem = regexpModeItem
+        self.regexpCaseSensitiveModeItem = regexpCaseSensitiveModeItem
+
+        self.searchModeSelectors = [
+            self.fuzzyMatchModeItem,
+            self.regexpModeItem,
+            self.regexpCaseSensitiveModeItem]
 
         self.searchModeSelectorsDict = [
             "fuzzyMatch": self.fuzzyMatchModeItem,
@@ -179,7 +241,7 @@ class CutBoxController: NSObject {
         )
     }
 
-    func searchModeSelect(_ axID: String) {
+    func searchModeSelectAxID(_ axID: String) {
         let mode = HistorySearchMode.searchMode(from: axID)
         self.searchViewController.events.onNext(.setSearchMode(mode))
     }

@@ -16,88 +16,20 @@
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
         <customObject id="4hl-ia-0EP" customClass="CutBoxController" customModule="CutBox" customModuleProvider="target">
             <connections>
-                <outlet property="fuzzyMatchModeItem" destination="Zg3-A3-1CM" id="x96-5T-wjT"/>
-                <outlet property="regexpCaseSensitiveModeItem" destination="zPl-2W-1z9" id="8HV-UL-WEx"/>
-                <outlet property="regexpModeItem" destination="dFX-Ic-CdB" id="LcG-2V-1tt"/>
                 <outlet property="statusMenu" destination="r5R-nF-u2D" id="QbZ-3b-K66"/>
-                <outlet property="useCompactUI" destination="5dY-Oo-ff0" id="BRM-78-yWp"/>
             </connections>
         </customObject>
         <customObject id="gSk-na-fI8" customClass="SUUpdater"/>
         <menu id="r5R-nF-u2D">
             <items>
-                <menuItem title="Search CutBox" id="eRd-Us-nbh">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="searchClicked:" target="4hl-ia-0EP" id="XSP-oi-bB3"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="cTR-7r-05t"/>
-                <menuItem title="Fuzzy match" state="on" onStateImage="NSMenuOnStateTemplate" id="Zg3-A3-1CM">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <accessibility identifier="fuzzyMatch"/>
-                    <connections>
-                        <action selector="searchModeSelect:" target="4hl-ia-0EP" id="Jz5-Ww-2hQ"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Regexp any case" onStateImage="NSMenuOnStateTemplate" id="dFX-Ic-CdB">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <accessibility identifier="regexpAnyCase"/>
-                    <connections>
-                        <action selector="searchModeSelect:" target="4hl-ia-0EP" id="oa8-RE-9ob"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Regexp case match" onStateImage="NSMenuOnStateTemplate" id="zPl-2W-1z9">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <accessibility identifier="regexpStrictCase"/>
-                    <connections>
-                        <action selector="searchModeSelect:" target="4hl-ia-0EP" id="riV-Ld-umH"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="3hp-KI-Agg"/>
-                <menuItem title="Use Compact UI" id="5dY-Oo-ff0">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="useCompactUIClicked:" target="4hl-ia-0EP" id="XXj-bD-394"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="H3m-ta-Vrc"/>
-                <menuItem title="Preferences" id="7xP-Aa-bCL">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="openPreferences:" target="4hl-ia-0EP" id="fzX-Af-HI3"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Clear History" id="acC-HV-LZV">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="clearHistoryClicked:" target="4hl-ia-0EP" id="9Sd-8I-Ob6"/>
-                    </connections>
-                </menuItem>
-                <menuItem isSeparatorItem="YES" id="cm5-6X-4c3"/>
                 <menuItem title="Check for updates" id="MVu-fM-PnG">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="checkForUpdates:" target="gSk-na-fI8" id="Jls-RZ-Qnf"/>
                     </connections>
                 </menuItem>
-                <menuItem title="About CutBox" id="RbH-nQ-xiH">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="openAboutPanel:" target="4hl-ia-0EP" id="We0-3H-X3a"/>
-                    </connections>
-                </menuItem>
-                <menuItem title="Quit" id="akv-B8-OIW">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <connections>
-                        <action selector="quitClicked:" target="4hl-ia-0EP" id="OQd-Sm-yNV"/>
-                    </connections>
-                </menuItem>
             </items>
             <point key="canvasLocation" x="142.5" y="265.5"/>
         </menu>
     </objects>
-    <resources>
-        <image name="NSMenuOnStateTemplate" width="12" height="12"/>
-    </resources>
 </document>

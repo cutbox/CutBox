@@ -13,12 +13,6 @@ import Magnet
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         CutBoxPreferencesService.shared.loadJavascript()
-        
-        //*
-        UserDefaults.standard
-            .set(false,
-                 forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints")
-        // */
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
