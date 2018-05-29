@@ -72,6 +72,10 @@ class CutBoxController: NSObject {
         searchModeSelectAxID(sender.accessibilityIdentifier())
     }
 
+    @objc func reloadJavascript(_ sender: NSMenuItem) {
+        self.prefs.loadJavascript()
+    }
+
     override init() {
         self.searchViewController = SearchViewController()
         self.jsFuncSearchViewController = JSFuncSearchViewController()
@@ -110,10 +114,11 @@ class CutBoxController: NSObject {
             (7, "---", nil, nil),
             (8, "Preferences", nil, #selector(openPreferences(_:))),
             (9, "Clear History", nil, #selector(clearHistoryClicked(_:))),
-            (10, "---", nil, nil),
+            (9, "preferences_javascript_transform_reload".l7n, nil, #selector(reloadJavascript(_:))),
+            (11, "---", nil, nil),
             // Insert around Check for Updates
-            (12, "About CutBox", nil, #selector(openAboutPanel(_:))),
-            (13, "Quit", nil, #selector(quitClicked(_:)))
+            (13, "About CutBox", nil, #selector(openAboutPanel(_:))),
+            (14, "Quit", nil, #selector(quitClicked(_:)))
         ]
 
         items.forEach {

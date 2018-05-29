@@ -45,7 +45,7 @@
                                                             </buttonCell>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpk-xQ-Rle">
-                                                            <rect key="frame" x="50" y="15.5" width="818" height="17"/>
+                                                            <rect key="frame" x="50" y="15" width="818" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Placeholder" id="IVs-YB-dIW">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -53,7 +53,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <scrollView wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnW-jL-3rU" userLabel="Text View" customClass="DisablableScrollView" customModule="CutBox" customModuleProvider="target">
-                                                            <rect key="frame" x="47" y="15.5" width="814" height="17"/>
+                                                            <rect key="frame" x="47" y="15" width="814" height="17"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Xz4-jf-Ox5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="814" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

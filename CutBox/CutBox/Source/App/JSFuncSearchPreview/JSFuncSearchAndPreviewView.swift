@@ -26,11 +26,27 @@ class JSFuncSearchAndPreviewView: SearchPreviewView {
         self.searchText.isFieldEditor = true
         self.searchText.delegate = self
     }
-    
+
+    func setupClipItemsContextMenu() {
+        let reload = NSMenuItem(title: "preferences_javascript_transform_reload".l7n,
+                                action: #selector(reloadJS),
+                                keyEquivalent: "")
+
+        let contextMenu = NSMenu()
+        contextMenu.addItem(reload)
+
+        self.itemsList.menu = contextMenu
+    }
+
     override func applyTheme() {
         super.applyTheme()
 
         colorizeMagnifier()
+    }
+
+    @objc func reloadJS(_ sender: NSMenuItem) {
+        prefs.loadJavascript()
+        self.itemsList.reloadData()
     }
 }
 
