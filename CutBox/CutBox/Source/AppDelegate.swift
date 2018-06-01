@@ -16,13 +16,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         #if DEBUG
             NSLog("DEBUG MODE")
-            if ProcessInfo().arguments.contains("ui-testing") {
-                configureTestingState()
+            if ProcessInfo().arguments.contains("search-ui-test") {
+                configureSearchUITest()
             }
+
+            if ProcessInfo().arguments.contains("preferences-ui-test") {
+                configurePreferencesUITest()
+            }
+
         #endif
     }
 
-    func configureTestingState() {
+    func configureSearchUITest() {
         NSLog("configure testing")
         HistoryService.shared.clear()
         HistoryService.shared.searchMode = .fuzzyMatch
@@ -31,6 +36,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Open search popup
         HotKeyService.shared.search(self)
+    }
+
+    func configurePreferencesUITest() {
+        //
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

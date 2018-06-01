@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>CutBoxUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -38,6 +43,11 @@
 			<true/>
 		</dict>
 		<key>96E1E5AE205D243400F994ED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96F98EA120BD554D00C8DDA3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -34,20 +34,20 @@
                             </textFieldCell>
                         </textField>
                         <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxU-vM-qth">
-                            <rect key="frame" x="0.0" y="36" width="407" height="198"/>
+                            <rect key="frame" x="0.0" y="31" width="407" height="203"/>
                             <subviews>
-                                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kl-F9-cFE">
-                                    <rect key="frame" x="0.0" y="17" width="407" height="181"/>
+                                <scrollView identifier="jsREPLTextView" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kl-F9-cFE">
+                                    <rect key="frame" x="0.0" y="17" width="407" height="186"/>
                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Wcs-Sp-ESN">
-                                        <rect key="frame" x="0.0" y="0.0" width="407" height="181"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="407" height="186"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" linkDetection="YES" spellingCorrection="YES" smartInsertDelete="YES" id="AS3-0O-bG3">
-                                                <rect key="frame" x="0.0" y="0.0" width="407" height="181"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="407" height="186"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <size key="minSize" width="407" height="181"/>
+                                                <size key="minSize" width="407" height="186"/>
                                                 <size key="maxSize" width="463" height="10000000"/>
                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             </textView>
@@ -59,7 +59,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="90B-MT-WbA">
-                                        <rect key="frame" x="391" y="0.0" width="16" height="181"/>
+                                        <rect key="frame" x="391" y="0.0" width="16" height="186"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -85,17 +85,17 @@
                             </customSpacing>
                         </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pvv-ZT-Elx">
-                            <rect key="frame" x="0.0" y="0.0" width="146" height="26"/>
+                            <rect key="frame" x="0.0" y="0.0" width="146" height="21"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cdv-rQ-cvl">
-                                    <rect key="frame" x="-6" y="-2" width="81" height="32"/>
+                                    <rect key="frame" x="-6" y="-7" width="81" height="32"/>
                                     <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oCe-Nw-SPe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                 </button>
                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pOX-Wr-dGw">
-                                    <rect key="frame" x="71" y="-2" width="81" height="32"/>
+                                    <rect key="frame" x="71" y="-7" width="81" height="32"/>
                                     <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="geZ-2F-r1O">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>

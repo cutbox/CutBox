@@ -8,15 +8,107 @@
 
 import XCTest
 
-class CutBoxUITests: XCTestCase {
-        
+class PreferencesUITest: XCTestCase {
     override func setUp() {
         super.setUp()
 
         continueAfterFailure = false
 
         let app = XCUIApplication()
-        app.launchArguments = ["ui-testing"]
+        app.launchArguments = ["preferences-ui-test"]
+        app.launch()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testPreferencesUI() {
+        let app = XCUIApplication()
+
+        let cutBoxStatusItem = app.statusItems.firstMatch
+
+        cutBoxStatusItem
+            .click()
+
+        cutBoxStatusItem
+            .menuItems["Preferences"].click()
+
+        let prefs = app.windows.firstMatch
+
+        let display = prefs.tabs["Display"]
+        let advanced = prefs.tabs["Advanced"]
+        let javascript = prefs.tabs["Javascript"]
+        let general = prefs.tabs["General"]
+
+        display.click()
+        display.click()
+        let displayCheckBoxes = prefs.checkBoxes
+
+        // Compact UI Checkbox
+        displayCheckBoxes["Use Compact UI"].click()
+        displayCheckBoxes["Use Compact UI"].click()
+
+        // Theme drop down
+
+        general.click()
+        let generalCheckBoxes = prefs.descendants(matching: .checkBox)
+
+        // Login checkbox
+        generalCheckBoxes["Launch on Login"].click()
+        generalCheckBoxes["Launch on Login"].click()
+
+        generalCheckBoxes["Protect favorites"].click()
+        generalCheckBoxes["Protect favorites"].click()
+
+        advanced.click()
+        let advancedCheckBoxes = prefs.checkBoxes
+
+        // Unlimited history checkbox
+        advancedCheckBoxes["Unlimited"].click()
+        advancedCheckBoxes["Unlimited"].click()
+
+        advancedCheckBoxes["Wrap text around joined clips?"].click()
+        advancedCheckBoxes["Wrap text around joined clips?"].click()
+
+        javascript.click()
+        let jsButtons = prefs.descendants(matching: .button)
+
+        XCTAssert(prefs.staticTexts["Javascript REPL"].exists)
+
+        XCTAssert(prefs.staticTexts["Use this to help debug your ~/.cutbox.js"].exists)
+
+        let replTextView = prefs.textViews.firstMatch
+
+        XCTAssertEqual(replTextView.value as! String, """
+CutBox JS REPL:
+
+help ENTER, for help
+
+
+""")
+
+        jsButtons["Clear"].click()
+
+        XCTAssertEqual(replTextView.value as! String, "")
+
+        // Reload JS button
+        jsButtons["Reload ~/.cutbox.js"].click()
+    }
+}
+
+// - - -
+
+class HistorySearchUITest: XCTestCase {
+        
+    override func setUp() {
+        super.setUp()
+
+
+        continueAfterFailure = false
+
+        let app = XCUIApplication()
+        app.launchArguments = ["search-ui-test"]
         app.launch()
     }
     
@@ -24,7 +116,7 @@ class CutBoxUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testGeneralUI() {
+    func testSearchUI() {
         let app = XCUIApplication()
         let textView = app.groups
             .containing(.image,
@@ -86,21 +178,5 @@ class CutBoxUITests: XCTestCase {
         iconTable.typeKey(.delete, modifierFlags:.command)
         iconTable.typeKey(.downArrow, modifierFlags:[])
         iconTable.typeKey(.downArrow, modifierFlags:[])
-    }
-}
-
-extension XCUIElement {
-    func clearAndEnterText(text: String) {
-        guard let stringValue = self.value as? String else {
-            XCTFail("Tried to clear and enter text into a non string value")
-            return
-        }
-
-        let deleteString = stringValue
-            .map { _ in "\u{8}" }
-            .joined(separator: "")
-
-        self.typeText(deleteString)
-        self.typeText(text)
     }
 }
