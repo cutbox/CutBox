@@ -33,9 +33,9 @@ What else...
 - Make items favorite
 - Select and paste multiple items as one
 
-Anything weird?
+Anything else?
 
-- Pipe paste output through [functions](https://github.com/cutbox/CutBox/wiki/Javascript-support)
+- You can send your pasted text through [Javascript functions](https://github.com/cutbox/CutBox/wiki/Javascript-support)
 
 # Download / install...
 
