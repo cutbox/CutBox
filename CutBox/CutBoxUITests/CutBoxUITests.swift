@@ -15,7 +15,6 @@ class PreferencesUITest: XCTestCase {
         continueAfterFailure = false
 
         let app = XCUIApplication()
-        app.launchArguments = ["preferences-ui-test"]
         app.launch()
     }
 
@@ -50,6 +49,17 @@ class PreferencesUITest: XCTestCase {
         displayCheckBoxes["Use Compact UI"].click()
 
         // Theme drop down
+        let themePopup = prefs.popUpButtons.firstMatch
+        themePopup.click()
+        themePopup.typeKey(.upArrow, modifierFlags: [])
+        themePopup.typeKey(.upArrow, modifierFlags: [])
+        themePopup.typeKey(.upArrow, modifierFlags: [])
+        themePopup.typeKey(.upArrow, modifierFlags: [])
+        themePopup.typeKey(.downArrow, modifierFlags: [])
+        themePopup.typeKey(.downArrow, modifierFlags: [])
+        themePopup.typeKey(.downArrow, modifierFlags: [])
+        themePopup.typeKey(.downArrow, modifierFlags: [])
+        themePopup.typeKey(.enter, modifierFlags: [])
 
         general.click()
         let generalCheckBoxes = prefs.descendants(matching: .checkBox)
@@ -120,7 +130,7 @@ class HistorySearchUITest: XCTestCase {
         let app = XCUIApplication()
         let textView = app.groups
             .containing(.image,
-                        identifier:"cutbox icon 2 preview")
+                        identifier:"cutbox js icon")
             .children(matching: .group)
             .element(boundBy: 0)
             .scrollViews
@@ -175,8 +185,13 @@ class HistorySearchUITest: XCTestCase {
         app.tables.menuItems["Remove Selected"].click()
         iconTable.typeKey(.downArrow, modifierFlags:[])
         iconTable.typeKey(.downArrow, modifierFlags:[])
-        iconTable.typeKey(.delete, modifierFlags:.command)
+        iconTable.typeKey(.delete, modifierFlags: .command)
         iconTable.typeKey(.downArrow, modifierFlags:[])
         iconTable.typeKey(.downArrow, modifierFlags:[])
+
+        app.buttons["jsIconButton"].click()
+
+        
+
     }
 }

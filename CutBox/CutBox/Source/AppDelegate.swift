@@ -20,10 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 configureSearchUITest()
             }
 
-            if ProcessInfo().arguments.contains("preferences-ui-test") {
-                configurePreferencesUITest()
-            }
-
         #endif
     }
 
@@ -36,10 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // Open search popup
         HotKeyService.shared.search(self)
-    }
-
-    func configurePreferencesUITest() {
-        //
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

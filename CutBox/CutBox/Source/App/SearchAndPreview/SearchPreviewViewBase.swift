@@ -1,5 +1,5 @@
 //
-//  SearchPreviewView.swift
+//  SearchPreviewViewBase.swift
 //  CutBox
 //
 //  Created by Jason on 20/5/18.
@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import Cocoa
 
-class SearchPreviewView: NSView {
+class SearchPreviewViewBase: NSView {
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!

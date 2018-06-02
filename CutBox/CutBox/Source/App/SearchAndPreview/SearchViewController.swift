@@ -32,6 +32,8 @@ class SearchViewController: NSObject {
     }
 
     var selectedClips: [String] {
+        guard self.historyService.items.count > 0 else { return [] }
+
         return self
             .orderedSelection
             .all()
@@ -156,17 +158,6 @@ class SearchViewController: NSObject {
     func updateSearchItemPreview() {
         let preview = prefs.prepareClips(selectedClips)
         self.searchView.preview.string = preview
-    }
-
-    private func setupJSFuncViewEventBindings() {
-        self.events
-            .subscribe(onNext: { event in
-                switch event {
-                default:
-                    break
-                }
-            })
-            .disposed(by: self.disposeBag)
     }
 
     private func setupSearchTextEventBindings() {

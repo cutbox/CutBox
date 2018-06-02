@@ -11,17 +11,32 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-class SearchAndPreviewView: SearchPreviewView {
+class SearchAndPreviewView: SearchPreviewViewBase {
 
     @IBOutlet weak var searchModeToggle: NSButton!
+    @IBOutlet weak var jsIconButton: NSButton!
 
     var events = PublishSubject<SearchViewEvents>()
 
     override func awakeFromNib() {
+        self.setAccessibilityIdentifier("searchAndPreviewView")
         setupSearchText()
         setupSearchModeToggle()
         setupSearchScopeToggle()
+        setupJSIconButton()
         super.awakeFromNib()
+    }
+
+    func setupJSIconButton() {
+        jsIconButton.setAccessibilityIdentifier("jsIconButton")
+
+        jsIconButton
+            .rx
+            .tap
+            .map { _ in
+                .selectJavascriptFunction }
+            .bind(to: self.events)
+            .disposed(by: disposeBag)
     }
 
     func setSearchModeButton(mode: HistorySearchMode) {

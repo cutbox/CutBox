@@ -95,7 +95,7 @@
                                                 <color key="fillColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                             </box>
                                             <imageView wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" alphaValue="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="hhn-Rx-B9a">
-                                                <rect key="frame" x="872" y="-26" width="50" height="103"/>
+                                                <rect key="frame" x="872" y="-71" width="50" height="192"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="ZPU-LR-JcY"/>
                                                 </constraints>
@@ -103,7 +103,7 @@
                                                     <size key="offset" width="1" height="-2"/>
                                                     <color key="color" white="0.0" alpha="0.50171232880000005" colorSpace="calibratedWhite"/>
                                                 </shadow>
-                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cutbox-icon-2-preview" id="gjk-dz-H4Q"/>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="js_badge" id="gjk-dz-H4Q"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -304,6 +304,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="cutbox-icon-2-preview" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="js_badge" width="192" height="192"/>
     </resources>
 </document>
