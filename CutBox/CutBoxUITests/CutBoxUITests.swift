@@ -8,6 +8,37 @@
 
 import XCTest
 
+class AboutUITest: XCTestCase {
+    override func setUp() {
+        super.setUp()
+
+        continueAfterFailure = false
+
+        let app = XCUIApplication()
+        app.launch()
+    }
+
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testPreferencesUI() {
+        let app = XCUIApplication()
+
+        let cutBoxStatusItem = app.statusItems.firstMatch
+
+        cutBoxStatusItem
+            .click()
+
+        cutBoxStatusItem
+            .menuItems["About CutBox"].click()
+
+        let about = app.windows.firstMatch
+        XCTAssert(about.staticTexts["CutBox"].exists)
+    }
+}
+
+
 class PreferencesUITest: XCTestCase {
     override func setUp() {
         super.setUp()
@@ -190,5 +221,5 @@ class HistorySearchUITest: XCTestCase {
         iconTable.typeKey(.downArrow, modifierFlags:[])
 
         app.buttons["jsIconButton"].click()
-    }
+    }
 }

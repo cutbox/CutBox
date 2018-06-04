@@ -24,7 +24,7 @@
                             <constraint firstAttribute="height" constant="120" id="9hb-5d-Cg0"/>
                             <constraint firstAttribute="width" constant="120" id="DXR-MC-TZf"/>
                         </constraints>
-                        <imageCell key="cell" lineBreakMode="truncatingTail" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon-2-preview" id="ych-ZH-c7d"/>
+                        <imageCell key="cell" lineBreakMode="truncatingTail" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="cutbox-icon" id="ych-ZH-c7d"/>
                     </imageView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7O-CG-thr">
                         <rect key="frame" x="158" y="104" width="164" height="27"/>
@@ -101,6 +101,6 @@
         </window>
     </objects>
     <resources>
-        <image name="cutbox-icon-2-preview" width="102.40000152587891" height="102.40000152587891"/>
+        <image name="cutbox-icon" width="102.40000152587891" height="102.40000152587891"/>
     </resources>
 </document>
