@@ -130,7 +130,7 @@ class HistorySearchUITest: XCTestCase {
         let app = XCUIApplication()
         let textView = app.groups
             .containing(.image,
-                        identifier:"cutbox js icon")
+                        identifier:"cutbox icon")
             .children(matching: .group)
             .element(boundBy: 0)
             .scrollViews
@@ -190,8 +190,5 @@ class HistorySearchUITest: XCTestCase {
         iconTable.typeKey(.downArrow, modifierFlags:[])
 
         app.buttons["jsIconButton"].click()
-
-        
-
-    }
+    }
 }
