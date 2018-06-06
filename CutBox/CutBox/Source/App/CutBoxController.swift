@@ -103,22 +103,22 @@ class CutBoxController: NSObject {
 
         let menu = self.statusMenu!
 
-        let items: [(Int,String,String?,Selector?)] = [
-            (0, "Search CutBox", nil, #selector(searchClicked(_:))),
+        let items: [(Int,String,String?,String?)] = [
+            (0, "Search CutBox", nil, "searchClicked:"),
             (1, "---", nil, nil),
-            (2, "Fuzzy Match", "fuzzyMatch", #selector(searchModeSelect(_:))),
-            (3, "Regexp any case", "regexpAnyCase", #selector(searchModeSelect(_:))),
-            (4, "Regexp case match", "regexpStrictCase", #selector(searchModeSelect(_:))),
+            (2, "Fuzzy Match", "fuzzyMatch", "searchModeSelect:"),
+            (3, "Regexp any case", "regexpAnyCase", "searchModeSelect:"),
+            (4, "Regexp case match", "regexpStrictCase", "searchModeSelect:"),
             (5, "---", nil, nil),
-            (6, "Compact UI", nil, #selector(useCompactUIClicked(_:))),
+            (6, "Compact UI", nil, "useCompactUIClicked:"),
             (7, "---", nil, nil),
-            (8, "Preferences", nil, #selector(openPreferences(_:))),
-            (9, "Clear History", nil, #selector(clearHistoryClicked(_:))),
-            (9, "preferences_javascript_transform_reload".l7n, nil, #selector(reloadJavascript(_:))),
+            (8, "Preferences", nil, "openPreferences:"),
+            (9, "Clear History", nil, "clearHistoryClicked:"),
+            (9, "preferences_javascript_transform_reload".l7n, nil, "reloadJavascript:"),
             (11, "---", nil, nil),
             // Insert around Check for Updates
-            (13, "About CutBox", nil, #selector(openAboutPanel(_:))),
-            (14, "Quit", nil, #selector(quitClicked(_:)))
+            (13, "About CutBox", nil, "openAboutPanel:"),
+            (14, "Quit", nil, "quitClicked:")
         ]
 
         items.forEach {
@@ -127,7 +127,7 @@ class CutBoxController: NSObject {
                 menu.insertItem(NSMenuItem.separator(), at: $0.0)
             } else {
                 let axID = $0.2
-                let action = $0.3
+                let action = Selector($0.3!)
                 let item: NSMenuItem = NSMenuItem(title: title,
                                                   action: action,
                                                   keyEquivalent: "")

@@ -22,7 +22,7 @@ class AboutUITest: XCTestCase {
         super.tearDown()
     }
 
-    func testPreferencesUI() {
+    func testAboutUI() {
         let app = XCUIApplication()
 
         let cutBoxStatusItem = app.statusItems.firstMatch
