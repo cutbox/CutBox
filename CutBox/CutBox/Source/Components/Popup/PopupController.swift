@@ -207,11 +207,11 @@ class PopupController: NSWindowController {
 
         var proportionalTopPadding = self.proportionalTopPadding
 
-        if screen.frame.width < screen.frame.height {
+        if screenRect.width < screenRect.height {
             proportionalTopPadding -= 0.09
         }
 
-        let padding = screen.frame.height * proportionalTopPadding
+        let padding = screenRect.height * proportionalTopPadding
 
         panelRect.origin.y -= padding
 
