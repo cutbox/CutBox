@@ -215,6 +215,10 @@ class PopupController: NSWindowController {
 
         panelRect.origin.y -= padding
 
+        if screenRect.minY > 0 {
+            panelRect.origin.y += screenRect.minY
+        }
+
         return panelRect
     }
 }
