@@ -186,7 +186,7 @@ class PopupController: NSWindowController {
         let screenRect = screen.frame
         var panelRect = panel.frame
 
-        panelRect.origin.y = screenRect.height - panelRect.height
+        panelRect.origin.y = screenRect.maxY - panelRect.height
         panelRect.origin.x = round(screenRect.midX - panelRect.width / 2)
 
         if panelRect.maxX > screenRect.maxX {
@@ -214,10 +214,6 @@ class PopupController: NSWindowController {
         let padding = screenRect.height * proportionalTopPadding
 
         panelRect.origin.y -= padding
-
-        if screenRect.minY > 0 {
-            panelRect.origin.y += screenRect.minY
-        }
 
         return panelRect
     }
