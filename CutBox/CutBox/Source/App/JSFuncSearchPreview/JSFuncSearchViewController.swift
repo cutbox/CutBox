@@ -104,7 +104,7 @@ class JSFuncSearchViewController: NSObject {
         if row == -1 {
             clip = prefs.prepareClips(self.selectedClips)
         } else {
-            if let name = JSFuncService.shared.list[safe: row] {
+            if let name = JSFuncService.shared.funcList[safe: row] {
                 clip = JSFuncService.shared.process(name, items: self.selectedClips)
             } else {
                 clip = prefs.prepareClips(self.selectedClips)

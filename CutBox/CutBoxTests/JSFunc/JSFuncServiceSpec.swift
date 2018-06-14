@@ -70,7 +70,7 @@ class JSFuncServiceSpec: QuickSpec {
 
                 context("no filter") {
                     it("returns a list of function names in cutboxFunctions") {
-                        expect(subject.list).to(equal(["Test", "Another"]))
+                        expect(subject.funcList).to(equal(["Test", "Another"]))
                     }
                 }
 
@@ -78,7 +78,7 @@ class JSFuncServiceSpec: QuickSpec {
                     it("returns a filtered list of function names in cutboxFunctions") {
                         subject.filterText = "no"
 
-                        expect(subject.list).to(equal(["Another"]))
+                        expect(subject.funcList).to(equal(["Another"]))
                     }
                 }
 

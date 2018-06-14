@@ -21,7 +21,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
     func updateSearchItemPreview() {
         let row = self.jsFuncView.itemsList.selectedRow
-        let name = JSFuncService.shared.list[row]
+        let name = JSFuncService.shared.funcList[row]
         let preview = self.jsFuncService.process(name, items: self.selectedClips)
         self.jsFuncView.preview.string = preview
     }
@@ -39,7 +39,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 
-        let funcItem = self.jsFuncService.list[row]
+        let funcItem = self.jsFuncService.funcList[row]
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme

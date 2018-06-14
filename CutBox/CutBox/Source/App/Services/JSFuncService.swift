@@ -11,7 +11,7 @@ import JavaScriptCore
 class JSFuncService: NSObject {
     static let shared = JSFuncService()
 
-    let require: @convention(block) (String) -> (JSValue?) = { path in
+    let require: @convention(block) (String) -> JSValue? = { path in
         let expandedPath = NSString(string: path).expandingTildeInPath
 
         guard FileManager.default.fileExists(atPath: expandedPath)
@@ -53,7 +53,7 @@ class JSFuncService: NSObject {
         }
     }
 
-    var list: [String] {
+    var funcList: [String] {
         let names: [String] = funcs.map { (t: (String, Int)) -> String in t.0 }
 
         if filterText.isEmpty {
@@ -72,7 +72,11 @@ class JSFuncService: NSObject {
     public var js: JSContext = JSContext()
 
     var count: Int {
-        return self.list.count
+        return self.funcList.count
+    }
+
+    var isEmpty: Bool {
+        return self.funcList.isEmpty
     }
 
     var helpers = "var help = `- CutBox JS REPL-\nhelp:\nls() - List your cutboxFunctions`;" +
@@ -99,14 +103,12 @@ class JSFuncService: NSObject {
         _ = repl(helpers)
         _ = repl(cutboxJS)
 
-        let count = JSFuncService.shared.list.count
-
-        if count == 0 {
+        if self.isEmpty {
             notifyUser(title: "Problem with ~/.cutbox.js",
                        info: "cutboxFunctions has no functions")
         } else {
             notifyUser(title: "Javascript loaded",
-                       info: "~/.cutbox.js loaded \(count) function(s)")
+                       info: "~/.cutbox.js loaded \(self.count) function(s)")
         }
     }
 
