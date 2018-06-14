@@ -74,7 +74,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         let proposed = proposedSelectionIndexes
 
-        guard proposed.count > 0 else { return proposedSelectionIndexes }
+        guard !proposed.isEmpty else { return proposedSelectionIndexes }
 
         let selected = self.jsFuncView.itemsList.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)
