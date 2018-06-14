@@ -143,7 +143,6 @@ class HistoryServiceSpec: QuickSpec {
                 }
             }
 
-
             context("searching") {
                 context("fuzzy match") {
                     beforeEach {

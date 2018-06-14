@@ -18,7 +18,6 @@ enum CutBoxPreferencesEvent {
     case themeChanged
 }
 
-//swiftlint:disable colon type_body_length
 class CutBoxPreferencesService {
 
     private var kMultiJoinSeparator = "multiJoinSeparator"
@@ -42,6 +41,7 @@ class CutBoxPreferencesService {
 
     static let shared = CutBoxPreferencesService()
 
+    //swiftlint:disable colon
     var darkTheme: CutBoxColorTheme = CutBoxColorTheme(
         name: "preferences_color_theme_name_darkness".l7n,
         popupBackgroundColor:            #colorLiteral(red: 0.0864074271, green: 0.1963072013, blue: 0.2599330357, alpha: 1),
@@ -271,6 +271,7 @@ class CutBoxPreferencesService {
         ),
         spacing: 1
     )
+    //swiftlint:enable colon
 
     var currentTheme: CutBoxColorTheme { return themes[theme] }
 

@@ -101,7 +101,7 @@ class JSFuncService: NSObject {
 
         let count = JSFuncService.shared.list.count
 
-        if JSFuncService.shared.isEmpty {
+        if count == 0 {
             notifyUser(title: "Problem with ~/.cutbox.js",
                        info: "cutboxFunctions has no functions")
         } else {

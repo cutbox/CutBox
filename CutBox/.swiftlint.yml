@@ -1,17 +1,22 @@
 disabled_rules: # rule identifiers to exclude from running
   - identifier_name
+  - function_body_length
   - nesting
   - function_parameter_count
+  - private_over_fileprivate
+
 opt_in_rules: # some rules are only opt-in
   - control_statement
   - empty_count
   - trailing_newline
   - colon
   - comma
+
 included: # paths to include during linting. `--path` is ignored if present.
   - CutBox
   - CutBoxTests
   - CutBoxUITests
+
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Pods
 
@@ -19,8 +24,7 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
 # binary rules can set their severity level
 force_cast: warning # implicitly. Give warning only for force casting
 
-force_try:
-  severity: warning # explicitly. Give warning only for force try
+force_try: warning # explicitly. Give warning only for force try
 
 type_body_length:
   - 300 # warning
@@ -43,13 +47,8 @@ type_name:
     warning: 60
     error: 65
   excluded: iPhone # excluded via string
-  additional_allowed_characters: "_"
+  allowed_symbols: "_"
 reporter: "xcode"
 
-function_body_length:
-  excluded:
-    - CutBoxTests
-
-private_over_fileprivate:
-  excluded:
-    - CutBoxTests
+empty_count:
+  severity: warning

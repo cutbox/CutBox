@@ -12,9 +12,7 @@ public class PopupPanel: NSPanel {}
 
 extension PopupPanel {
     public override var canBecomeKey: Bool {
-        get {
-            return true
-        }
+        return true
     }
 }
 

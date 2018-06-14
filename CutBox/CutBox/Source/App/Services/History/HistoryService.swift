@@ -176,7 +176,6 @@ class HistoryService: NSObject {
         }
     }
 
-
     var count: Int {
         return items.count
     }
