@@ -11,6 +11,7 @@ import Carbon.HIToolbox
 
 extension SearchAndPreviewView {
 
+    //swiftlint:disable cyclomatic_complexity
     override func keyDown(with event: NSEvent) {
         switch (event.key, event.modifiers) {
         case (kVK_LeftArrow, _),
@@ -20,7 +21,7 @@ extension SearchAndPreviewView {
         case (kVK_UpArrow, _),
              (kVK_DownArrow, _):
             self.hideItemsAndPreview(false)
-            if HistoryService.shared.count > 0 {
+            if !HistoryService.shared.items.isEmpty {
                 self.itemsList.keyDown(with: event)
             }
 
@@ -68,4 +69,6 @@ extension SearchAndPreviewView {
             return
         }
     }
+    //swiftlint:enable cyclomatic_complexity
+
 }
