@@ -17,6 +17,7 @@ extension KeyCombo {
     static func loadUserDefaults(identifier: String) -> KeyCombo? {
         guard let data = UserDefaults.standard.data(forKey: identifier) else { return nil }
 
+        //swiftlint:disable force_cast
         if let keyCombo = NSKeyedUnarchiver.unarchiveObject(with: data) as! KeyCombo? {
             return keyCombo
         } else {
@@ -24,4 +25,3 @@ extension KeyCombo {
         }
     }
 }
-
