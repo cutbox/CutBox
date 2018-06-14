@@ -81,10 +81,10 @@ class PreferencesJavascriptTransformView: NSView {
             append(value)
 
             javascriptTransformREPLOutput.scrollRangeToVisible(
-                NSMakeRange((javascriptTransformREPLOutput
+                NSRange(location: (javascriptTransformREPLOutput
                     .textStorage?
                     .string
-                    .count)!-1, 1))
+                    .count)!-1, length: 1))
         }
     }
 
