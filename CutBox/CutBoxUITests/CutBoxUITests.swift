@@ -179,7 +179,7 @@ class HistorySearchUITest: XCTestCase {
 
         textView.typeKey("f", modifierFlags: .command)
         textView.typeKey("f", modifierFlags: .command)
-        
+
         let image = app.tables
             .children(matching: .tableRow)
             .element(boundBy: 0)
@@ -189,7 +189,7 @@ class HistorySearchUITest: XCTestCase {
             .element
 
         image.rightClick()
-        
+
         let toggleFavoriteMenuItem = app.tables.menuItems["Toggle Favorite"]
         toggleFavoriteMenuItem.click()
         image.rightClick()

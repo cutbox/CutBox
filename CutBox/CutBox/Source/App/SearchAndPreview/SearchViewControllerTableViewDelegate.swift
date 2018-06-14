@@ -65,7 +65,7 @@ extension SearchViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
         let proposed = proposedSelectionIndexes
 
-        guard proposed.count > 0 else { return proposedSelectionIndexes }
+        guard !proposed.isEmpty else { return proposedSelectionIndexes }
 
         let selected =  self.searchView.itemsList.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)
