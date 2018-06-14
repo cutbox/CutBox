@@ -34,11 +34,31 @@ class CutBoxColorTheme {
 
     private let index: Int
 
+    typealias SearchTextTheme = (
+        cursorColor: NSColor,
+        textColor: NSColor,
+        backgroundColor: NSColor,
+        placeholderTextColor: NSColor
+    )
+
+    typealias ClipTheme = (
+        clipItemsBackgroundColor: NSColor,
+        clipItemsTextColor: NSColor,
+        clipItemsHighlightColor: NSColor,
+        clipItemsHighlightTextColor: NSColor
+    )
+
+    typealias PreviewTheme = (
+        textColor: NSColor,
+        backgroundColor: NSColor,
+        selectedTextBackgroundColor: NSColor
+    )
+
     init(name: String,
          popupBackgroundColor: NSColor,
-         searchText: (cursorColor: NSColor, textColor: NSColor, backgroundColor: NSColor, placeholderTextColor: NSColor),
-         clip: (clipItemsBackgroundColor: NSColor, clipItemsTextColor: NSColor, clipItemsHighlightColor: NSColor, clipItemsHighlightTextColor: NSColor),
-         preview: (textColor: NSColor, backgroundColor: NSColor, selectedTextBackgroundColor: NSColor),
+         searchText: SearchTextTheme,
+         clip: ClipTheme,
+         preview: PreviewTheme,
          spacing: CGFloat = 5) {
 
         self.name = name
