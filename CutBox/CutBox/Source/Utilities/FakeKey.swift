@@ -50,8 +50,8 @@ class FakeKey {
         return NSString(characters: &char, length: length).uppercased
     }
 
-    private func keyCodeTranslationTable() -> [String:Int] {
-        var table = [String:Int]()
+    private func keyCodeTranslationTable() -> [String: Int] {
+        var table = [String: Int]()
         for code in keyCodeRange {
             table[transformKeyCode(code)] = code
         }
