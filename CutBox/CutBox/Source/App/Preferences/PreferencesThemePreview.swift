@@ -60,7 +60,7 @@ class PreferencesThemePreview: NSBox {
             switch $0 {
             case .themeChanged:
                 self.applyTheme()
-                break
+
             default:
                 break
             }

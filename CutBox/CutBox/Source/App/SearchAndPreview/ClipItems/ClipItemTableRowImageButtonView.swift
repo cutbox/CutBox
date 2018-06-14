@@ -35,8 +35,8 @@ class ClipItemTableRowImageButtonView: NSView {
         }
     }
 
-    var _data: [String:String]?
-    var data: [String:String]? {
+    var _data: [String: String]?
+    var data: [String: String]? {
         get {
             return _data
         }
@@ -61,5 +61,3 @@ class ClipItemTableRowImageButtonView: NSView {
         self.imageButton.image = blended
     }
 }
-
-

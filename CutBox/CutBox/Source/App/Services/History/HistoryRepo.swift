@@ -106,7 +106,7 @@ class HistoryRepo {
 
     func migrate(_ newElements: [String], at: Int = 0) {
         newElements.forEach {
-            if index(of: $0) == nil  {
+            if index(of: $0) == nil {
                 self.store.append([stringKey: $0])
             }
         }
@@ -115,7 +115,7 @@ class HistoryRepo {
     func loadFromDefaults() {
         let key = self.storeDefaultsKey
 
-        if let historyStore = self.defaults.array(forKey: key) as? [[String:String]] {
+        if let historyStore = self.defaults.array(forKey: key) as? [[String: String]] {
             self.store = historyStore
         } else {
             self.store = []
@@ -144,7 +144,7 @@ class HistoryRepo {
         do {
             let i: Int = try bytes()
             let byteFormatter = ByteCountFormatter()
-            byteFormatter.allowedUnits = [.useGB,.useMB,.useKB]
+            byteFormatter.allowedUnits = [.useGB, .useMB, .useKB]
             return byteFormatter.string(fromByteCount: Int64(i))
         } catch {
             return ""

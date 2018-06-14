@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 
 extension PreferencesAdvancedView {
-    func setupJoinStringTextField()  {
+    func setupJoinStringTextField() {
 
         self.joinAndWrapSectionTitle.stringValue = "preferences_multi_clip_join_and_wrap_section_title".l7n
 

@@ -14,7 +14,7 @@ extension PreferencesAdvancedView {
         self.shouldWrapMultipleSelection.title = "preferences_multi_clip_wrapped_checkbox_label".l7n
         self.wrapStartTextField.placeholderString = "preferences_multi_clip_wrapped_start_placeholder".l7n
         self.wrapEndTextField.placeholderString = "preferences_multi_clip_wrapped_end_placeholder".l7n
-        
+
         let (start, end) = prefs.wrappingStrings
         self.wrapStartTextField.stringValue = start ?? ""
         self.wrapEndTextField.stringValue = end ?? ""
@@ -25,8 +25,7 @@ extension PreferencesAdvancedView {
 
         Observable
             .combineLatest(self.wrapStartTextField.rx.text,
-                           self.wrapEndTextField.rx.text)
-            { ($0, $1) }
+                           self.wrapEndTextField.rx.text) { ($0, $1) }
             .skip(1)
             .subscribe(onNext: { self.prefs.wrappingStrings = $0 })
             .disposed(by: disposeBag)

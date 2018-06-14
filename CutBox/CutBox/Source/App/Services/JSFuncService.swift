@@ -35,15 +35,15 @@ class JSFuncService: NSObject {
 
     var filterText: String = ""
 
-    var funcs: [(String,Int)] {
-        guard let funcsDict: [[String:Any]] = js["cutboxFunctions"]
-            .toArray() as? [[String:Any]] else {
+    var funcs: [(String, Int)] {
+        guard let funcsDict: [[String: Any]] = js["cutboxFunctions"]
+            .toArray() as? [[String: Any]] else {
                 // Notify that cutbox.js isn't valid
                 return []
         }
 
         var idx = 0
-        return funcsDict.map { (dict: [String:Any]) -> (String, Int) in
+        return funcsDict.map { (dict: [String: Any]) -> (String, Int) in
             guard let name = dict["name"] as? String else {
                 fatalError("cutboxFunctions invalid: requires an array of {name: String, fn: Function}")
             }
@@ -54,7 +54,7 @@ class JSFuncService: NSObject {
     }
 
     var list: [String] {
-        let names: [String] = funcs.map { (t:(String,Int)) -> String in t.0 }
+        let names: [String] = funcs.map { (t: (String, Int)) -> String in t.0 }
 
         if filterText.isEmpty {
             return names
@@ -63,8 +63,8 @@ class JSFuncService: NSObject {
         }
     }
 
-    func selected(name: String) -> (String,Int)? {
-        guard let found = funcs.first(where: { (s:(String,Int)) -> Bool in s.0 == name })
+    func selected(name: String) -> (String, Int)? {
+        guard let found = funcs.first(where: { (s: (String, Int)) -> Bool in s.0 == name })
             else { return nil }
         return found
     }
@@ -87,10 +87,12 @@ class JSFuncService: NSObject {
     func reload() {
         setup()
 
-        let cutboxJSFilename: String = NSString(string:"~/.cutbox.js").expandingTildeInPath
+        let cutboxJSFilename: String = NSString(
+            string: "~/.cutbox.js").expandingTildeInPath
 
         guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
-            notifyUser(title: "Could not load ~/.cutbox.js", info: "file does not exist")
+            notifyUser(title: "Could not load ~/.cutbox.js",
+                       info: "file does not exist")
             return
         }
 
@@ -99,10 +101,12 @@ class JSFuncService: NSObject {
 
         let count = JSFuncService.shared.list.count
 
-        if count == 0 {
-            notifyUser(title: "Problem with ~/.cutbox.js", info: "cutboxFunctions has no functions")
+        if JSFuncService.shared.isEmpty {
+            notifyUser(title: "Problem with ~/.cutbox.js",
+                       info: "cutboxFunctions has no functions")
         } else {
-            notifyUser(title: "Javascript loaded", info:  "~/.cutbox.js loaded \(count) function(s)")
+            notifyUser(title: "Javascript loaded",
+                       info: "~/.cutbox.js loaded \(count) function(s)")
         }
     }
 
@@ -126,5 +130,3 @@ class JSFuncService: NSObject {
         return fileContent
     }
 }
-
-

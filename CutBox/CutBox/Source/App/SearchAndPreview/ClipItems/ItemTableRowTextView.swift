@@ -23,8 +23,8 @@ class ItemTableRowTextView: NSView {
         }
     }
 
-    var _data: [String:Any]?
-    var data: [String:Any]? {
+    var _data: [String: Any]?
+    var data: [String: Any]? {
         get {
             return _data
         }

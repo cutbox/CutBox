@@ -100,7 +100,7 @@ class SearchViewController: NSObject {
         self.historyService.remove(items: self.selectedItems)
         self.searchView.itemsList.reloadData()
     }
- 
+
     func toggleFavoriteItems() {
         let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)

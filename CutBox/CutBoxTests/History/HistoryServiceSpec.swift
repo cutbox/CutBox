@@ -101,7 +101,7 @@ class HistoryServiceSpec: QuickSpec {
                 expect(subject.items.first).to(equal("Example"))
             }
 
-            it("can clear it's storage") {
+            it("can clear its storage") {
                 expect(subject.count).to(equal(17))
 
                 subject.clear()

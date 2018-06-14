@@ -12,7 +12,7 @@ enum HistorySearchMode {
     case fuzzyMatch, regexpAnyCase, regexpStrictCase
 
     func name() -> String {
-        switch self{
+        switch self {
         case .fuzzyMatch:
             return "searchmode_fuzzy".l7n
         case .regexpAnyCase:
@@ -23,7 +23,7 @@ enum HistorySearchMode {
     }
 
     func toolTip() -> String {
-        switch self{
+        switch self {
         case .fuzzyMatch:
             return "searchmode_fuzzy_tooltip".l7n
         case .regexpAnyCase:
@@ -34,7 +34,7 @@ enum HistorySearchMode {
     }
 
     func axID() -> String {
-        switch self{
+        switch self {
         case .fuzzyMatch:
             return "fuzzyMatch"
         case .regexpAnyCase:
@@ -58,7 +58,7 @@ enum HistorySearchMode {
     }
 
     mutating func next() -> HistorySearchMode {
-        switch self{
+        switch self {
         case .fuzzyMatch:
             return .regexpAnyCase
         case .regexpAnyCase:

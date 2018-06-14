@@ -1,5 +1,3 @@
-
-
 //
 //  SearchTextView.swift
 //  CutBox

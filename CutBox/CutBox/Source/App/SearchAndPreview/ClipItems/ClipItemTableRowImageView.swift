@@ -29,5 +29,3 @@ class ClipItemTableRowImageView: ItemTableRowImageView {
         self.tintImage()
     }
 }
-
-

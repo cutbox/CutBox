@@ -161,7 +161,7 @@ class HistorySearchUITest: XCTestCase {
         let app = XCUIApplication()
         let textView = app.groups
             .containing(.image,
-                        identifier:"cutbox icon")
+                        identifier: "cutbox icon")
             .children(matching: .group)
             .element(boundBy: 0)
             .scrollViews
@@ -169,16 +169,16 @@ class HistorySearchUITest: XCTestCase {
             .element
 
         textView.typeText("app")
-        textView.typeKey("s", modifierFlags:.command)
+        textView.typeKey("s", modifierFlags: .command)
 
         textView.clearAndEnterText(text: "app")
-        textView.typeKey("s", modifierFlags:.command)
+        textView.typeKey("s", modifierFlags: .command)
 
         textView.clearAndEnterText(text: "App")
-        textView.typeKey("s", modifierFlags:.command)
+        textView.typeKey("s", modifierFlags: .command)
 
-        textView.typeKey("f", modifierFlags:.command)
-        textView.typeKey("f", modifierFlags:.command)
+        textView.typeKey("f", modifierFlags: .command)
+        textView.typeKey("f", modifierFlags: .command)
         
         let image = app.tables
             .children(matching: .tableRow)
@@ -200,10 +200,10 @@ class HistorySearchUITest: XCTestCase {
             .containing(.tableColumn, identifier: "icon")
             .element
 
-        iconTable.typeKey(.downArrow, modifierFlags:[])
-        iconTable.typeKey(.downArrow, modifierFlags:[])
-        iconTable.typeKey(.downArrow, modifierFlags:[])
-        iconTable.typeKey(.upArrow, modifierFlags:[])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.upArrow, modifierFlags: [])
 
         let row = app.tables
             .tableRows
@@ -214,11 +214,11 @@ class HistorySearchUITest: XCTestCase {
         row.rightClick()
 
         app.tables.menuItems["Remove Selected"].click()
-        iconTable.typeKey(.downArrow, modifierFlags:[])
-        iconTable.typeKey(.downArrow, modifierFlags:[])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
         iconTable.typeKey(.delete, modifierFlags: .command)
-        iconTable.typeKey(.downArrow, modifierFlags:[])
-        iconTable.typeKey(.downArrow, modifierFlags:[])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
 
         app.buttons["jsIconButton"].click()
     }

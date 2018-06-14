@@ -36,7 +36,9 @@ extension SearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
-        let rowView: ClipItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: false) as? ClipItemTableRowContainerView
+        let rowView: ClipItemTableRowContainerView? = tableView
+            .rowView(atRow: row, makeIfNecessary: false)
+            as? ClipItemTableRowContainerView
 
         switch column.identifier.rawValue {
         case "icon":
@@ -73,10 +75,11 @@ extension SearchViewController: NSTableViewDelegate {
         removed
             .map {
                 tableView.rowView(atRow: $0,
-                                  makeIfNecessary: true) as! ItemTableRowContainerView }
+                                  makeIfNecessary: true)
+                    as? ItemTableRowContainerView }
             .forEach {
-                $0.imageView?.color = theme.clip.clipItemsTextColor
-                $0.textView?.color = theme.clip.clipItemsTextColor
+                $0?.imageView?.color = theme.clip.clipItemsTextColor
+                $0?.textView?.color = theme.clip.clipItemsTextColor
         }
 
         added.forEach { self.orderedSelection.add($0) }

@@ -43,7 +43,10 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         guard let column = tableColumn else { return nil }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
-        let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(atRow: row, makeIfNecessary: false) as? JSFuncItemTableRowContainerView
+        let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(
+            atRow: row,
+            makeIfNecessary: false
+            ) as? JSFuncItemTableRowContainerView
 
         switch column.identifier.rawValue {
         case "icon":
@@ -65,7 +68,10 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
+    func tableView(_ tableView: NSTableView,
+                   selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet
+        ) -> IndexSet {
+
         let proposed = proposedSelectionIndexes
 
         guard proposed.count > 0 else { return proposedSelectionIndexes }
@@ -76,15 +82,16 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         removed
             .map {
-                tableView.rowView(atRow: $0,
-                                  makeIfNecessary: true) as! ItemTableRowContainerView }
+                tableView.rowView(
+                    atRow: $0,
+                    makeIfNecessary: true
+                    ) as? ItemTableRowContainerView
+            }
             .forEach {
-                $0.imageView?.color = theme.clip.clipItemsTextColor
-                $0.textView?.color = theme.clip.clipItemsTextColor
+                $0?.imageView?.color = theme.clip.clipItemsTextColor
+                $0?.textView?.color = theme.clip.clipItemsTextColor
         }
 
         return proposedSelectionIndexes
     }
 }
-
-

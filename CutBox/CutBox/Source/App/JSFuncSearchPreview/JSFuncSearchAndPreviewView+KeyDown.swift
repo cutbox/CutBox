@@ -14,27 +14,23 @@ extension JSFuncSearchAndPreviewView {
         switch (event.key, event.modifiers) {
         case (kVK_UpArrow, _),
              (kVK_DownArrow, _):
-
             self.hideItemsAndPreview(false)
             if JSFuncService.shared.count > 0 {
                 self.itemsList.keyDown(with: event)
             }
 
         case (kVK_ANSI_T, [.command]):
-
             self.events
                 .onNext(.toggleTheme)
 
         case (kVK_Return, _):
-
             self.events.onNext(.closeAndPaste)
 
         case (kVK_Escape, _):
-
             self.events.onNext(.justClose)
 
         default:
-            break;
+            break
         }
     }
 }

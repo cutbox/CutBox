@@ -37,10 +37,10 @@ class PopupController: NSWindowController {
 
     var isOpening: Bool = false
 
-    var willOpenPopup: (()->(Void))?
-    var didOpenPopup: (()->(Void))?
-    var willClosePopup: (()->(Void))?
-    var didClosePopup: (()->(Void))?
+    var willOpenPopup: (() -> Void)?
+    var didOpenPopup: (() -> Void)?
+    var willClosePopup: (() -> Void)?
+    var didClosePopup: (() -> Void)?
 
     var lastMouseDownEvent: NSEvent?
     var mouseDownEventMonitor: Any?
@@ -179,7 +179,7 @@ class PopupController: NSWindowController {
         }
     }
 
-    private func rect(forPanel panel: NSPanel) ->  CGRect {
+    private func rect(forPanel panel: NSPanel) -> CGRect {
         guard let screen = NSScreen.currentScreenForMouseLocation()
             else { return CGRect.zero }
 

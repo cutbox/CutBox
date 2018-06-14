@@ -24,7 +24,7 @@ class CutBoxController: NSObject {
         .statusItem(withLength: NSStatusItem.variableLength)
 
     var searchModeSelectors: [NSMenuItem]?
-    var searchModeSelectorsDict: [String:NSMenuItem]?
+    var searchModeSelectorsDict: [String: NSMenuItem]?
 
     let searchViewController: SearchViewController
     let jsFuncSearchViewController: JSFuncSearchViewController
@@ -60,7 +60,7 @@ class CutBoxController: NSObject {
         aboutPanel.center()
     }
 
-    @objc func quitClicked(_ sender:  NSMenuItem) {
+    @objc func quitClicked(_ sender: NSMenuItem) {
         NSApp.terminate(sender)
     }
 
@@ -103,7 +103,7 @@ class CutBoxController: NSObject {
 
         let menu = self.statusMenu!
 
-        let items: [(Int,String,String?,String?)] = [
+        let items: [(Int, String, String?, String?)] = [
             (0, "Search CutBox", nil, "searchClicked:"),
             (1, "---", nil, nil),
             (2, "Fuzzy Match", "fuzzyMatch", "searchModeSelect:"),

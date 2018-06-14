@@ -82,7 +82,7 @@ class HistoryService: NSObject {
     private var kLegacyHistoryStoreKey = "pasteStore"
 
     @available(*, message: "Deprecated use historyRepo")
-    private var legacyHistoryStore: [String] = []
+    private var legacyHistoryStore: [String]? = []
 
     var historyRepo: HistoryRepo!
 
@@ -94,17 +94,19 @@ class HistoryService: NSObject {
         self._favoritesOnly = self.defaults.bool(forKey: kSearchFavoritesOnly)
 
         if let legacyHistoryStoreDefaults = defaults.array(forKey: self.kLegacyHistoryStoreKey) {
-            self.legacyHistoryStore = legacyHistoryStoreDefaults as! [String]
+            self.legacyHistoryStore = legacyHistoryStoreDefaults as? [String]
 
             self.historyRepo.loadFromDefaults()
 
-            if self.historyRepo.items.count == 0 {
-                self.historyRepo.migrate(self.legacyHistoryStore)
-                self.historyRepo.saveToDefaults()
-                self.historyRepo.clear()
-                self.historyRepo.loadFromDefaults()
-            } else {
-                self.historyRepo.migrate(self.legacyHistoryStore)
+            if let legacyHistoryStore = self.legacyHistoryStore {
+                if self.historyRepo.items.isEmpty {
+                    self.historyRepo.migrate(legacyHistoryStore)
+                    self.historyRepo.saveToDefaults()
+                    self.historyRepo.clear()
+                    self.historyRepo.loadFromDefaults()
+                } else {
+                    self.historyRepo.migrate(legacyHistoryStore)
+                }
             }
 
             defaults.removeObject(forKey: self.kLegacyHistoryStoreKey)
@@ -148,7 +150,6 @@ class HistoryService: NSObject {
                 options: [])
         }
     }
-
 
     var dict: [[String: String]] {
         let historyItems: [[String: String]] =

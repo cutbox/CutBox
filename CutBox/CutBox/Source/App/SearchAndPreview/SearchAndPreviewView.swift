@@ -62,7 +62,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     func setSearchScopeButton(favoritesOnly: Bool) {
         if favoritesOnly {
             colorizeMagnifier(
-                image:  #imageLiteral(resourceName: "star.png"),
+                image: #imageLiteral(resourceName: "star.png"),
                 tooltip: "search_scope_tooltip_favorites".l7n
             )
         } else {
@@ -110,7 +110,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
         self.itemsList.menu = contextMenu
     }
-    
+
     override func applyTheme() {
         super.applyTheme()
 

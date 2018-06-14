@@ -138,7 +138,6 @@ class SearchPreviewViewBase: NSView {
         searchTextContainer.fillColor = theme.searchText.backgroundColor
         searchTextPlaceholder.textColor = theme.searchText.placeholderTextColor
 
-
         preview.backgroundColor = theme.preview.backgroundColor
         previewContainer.fillColor = theme.preview.backgroundColor
         preview.textColor = theme.preview.textColor

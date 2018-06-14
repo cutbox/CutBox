@@ -18,6 +18,7 @@ enum CutBoxPreferencesEvent {
     case themeChanged
 }
 
+//swiftlint:disable colon type_body_length
 class CutBoxPreferencesService {
 
     private var kMultiJoinSeparator = "multiJoinSeparator"
@@ -86,7 +87,6 @@ class CutBoxPreferencesService {
         ),
         spacing: 1
     )
-
 
     var sandyBeachTheme: CutBoxColorTheme = CutBoxColorTheme(
         name: "preferences_color_theme_name_sandy_beach".l7n,
@@ -176,8 +176,8 @@ class CutBoxPreferencesService {
             textColor:                   #colorLiteral(red: 0.9055583133, green: 0.8686919488, blue: 0.98, alpha: 1),
             backgroundColor:             #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
             selectedTextBackgroundColor: #colorLiteral(red: 0.6185805235, green: 0.5529411765, blue: 0.8196078431, alpha: 0.1513259243)
-        )
-        , spacing: 1
+        ),
+        spacing: 1
     )
 
     var verdantTheme: CutBoxColorTheme = CutBoxColorTheme(
