@@ -227,7 +227,7 @@ class HistoryService: NSObject {
     func toggleFavorite(items: IndexSet) {
         let indexes = itemSelectionToHistoryIndexes(items: items)
         self.historyRepo
-            .toggleFavorite(indexes: indexes)        
+            .toggleFavorite(indexes: indexes)
     }
 
     func saveToDefaults() {

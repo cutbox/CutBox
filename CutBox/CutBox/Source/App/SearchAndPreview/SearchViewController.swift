@@ -32,7 +32,7 @@ class SearchViewController: NSObject {
     }
 
     var selectedClips: [String] {
-        guard self.historyService.items.count > 0 else { return [] }
+        guard !self.historyService.items.isEmpty else { return [] }
 
         return self
             .orderedSelection
@@ -160,6 +160,7 @@ class SearchViewController: NSObject {
         self.searchView.preview.string = preview
     }
 
+    //swiftlint:disable cyclomatic_complexity
     private func setupSearchTextEventBindings() {
         self.events
             .subscribe(onNext: { event in

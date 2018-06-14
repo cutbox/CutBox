@@ -48,13 +48,13 @@ class PopupContainerView: NSView {
             .constraints(withVisualFormat: horizontalFormat,
                          options: .directionLeadingToTrailing,
                          metrics: nil,
-                         views: ["containerView" : self])
+                         views: ["containerView": self])
 
         let verticalConstraints = NSLayoutConstraint
             .constraints(withVisualFormat: verticalFormat,
                          options: .directionLeadingToTrailing,
                          metrics: nil,
-                         views: ["containerView" : self])
+                         views: ["containerView": self])
 
         self.superviewConstraints = horizontalConstraints + verticalConstraints
         superview.addConstraints(superviewConstraints)

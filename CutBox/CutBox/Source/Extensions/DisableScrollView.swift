@@ -18,8 +18,7 @@ import Cocoa
     public override func scrollWheel(with event: NSEvent) {
         if isEnabled {
             super.scrollWheel(with: event)
-        }
-        else {
+        } else {
             nextResponder?.scrollWheel(with: event)
         }
     }

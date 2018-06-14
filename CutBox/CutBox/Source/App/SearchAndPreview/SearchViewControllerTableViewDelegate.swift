@@ -62,7 +62,8 @@ extension SearchViewController: NSTableViewDelegate {
         }
     }
 
-    func tableView(_ tableView: NSTableView, selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
+    func tableView(_ tableView: NSTableView,
+                   selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
         let proposed = proposedSelectionIndexes
 
         guard !proposed.isEmpty else { return proposedSelectionIndexes }

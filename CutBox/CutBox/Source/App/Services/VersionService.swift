@@ -8,7 +8,7 @@
 
 import Cocoa
 
-struct VersionService  {
+struct VersionService {
     static var version: String {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
             let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] {

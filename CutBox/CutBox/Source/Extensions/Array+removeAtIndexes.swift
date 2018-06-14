@@ -10,7 +10,7 @@ import Foundation
 
 extension Array {
     mutating func removeAtIndexes(indexes: IndexSet) {
-        var i:Index? = indexes.last
+        var i: Index? = indexes.last
         while i != nil {
             // implicit guard so we can safely force unwrap
             self.remove(at: i!)
