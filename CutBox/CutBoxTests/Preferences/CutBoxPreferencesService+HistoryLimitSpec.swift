@@ -65,5 +65,3 @@ class CutBoxPreferencesService_HistoryLimitSpec: QuickSpec {
         }
     }
 }
-
-

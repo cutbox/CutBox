@@ -32,7 +32,7 @@ class HistoryRepoSpec: QuickSpec {
 
             it("provides access to the dictionary store") {
                 subject.insert("Hello")
-                expect(subject.dict.first).to(equal(["string":"Hello"]))
+                expect(subject.dict.first).to(equal(["string": "Hello"]))
             }
 
             it("returns string items in the expected order") {
@@ -64,7 +64,7 @@ class HistoryRepoSpec: QuickSpec {
                 subject.insert("Second")
                 subject.insert("Third")
 
-                subject.removeAtIndexes(indexes: [0,2])
+                subject.removeAtIndexes(indexes: [0, 2])
 
                 expect(subject.items).to(equal([
                     "Second"
@@ -98,9 +98,9 @@ class HistoryRepoSpec: QuickSpec {
             }
 
             it("can clear the entire history") {
-                subject.migrate(["1","2","3","4","5"])
+                subject.migrate(["1", "2", "3", "4", "5"])
                 subject.saveToDefaults()
-                expect(defaults.array(forKey: "historyStore")).to(beAKindOf([[String:String]].self))
+                expect(defaults.array(forKey: "historyStore")).to(beAKindOf([[String: String]].self))
 
                 subject.clearHistory()
                 expect(subject.items).to(equal([]))

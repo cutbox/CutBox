@@ -30,11 +30,11 @@ class JSContext_subscriptSpec: QuickSpec {
 
                 context("set") {
                     it("sets objects on the JSContext") {
-                        ctx["items"] = [123,524,213,523,315,213]
+                        ctx["items"] = [123, 524, 213, 523, 315, 213]
 
                         expect(ctx.evaluateScript("items")
                             .toArray() as? [Int])
-                            .to(equal([123,524,213,523,315,213]))
+                            .to(equal([123, 524, 213, 523, 315, 213]))
                     }
                 }
 
@@ -42,7 +42,7 @@ class JSContext_subscriptSpec: QuickSpec {
                     it("gets objects from the JSContext") {
                         ctx.evaluateScript("var items = [1,2,3,4,5,6]")
 
-                        expect(ctx["items"].toArray() as? [Int]).to(equal([1,2,3,4,5,6]))
+                        expect(ctx["items"].toArray() as? [Int]).to(equal([1, 2, 3, 4, 5, 6]))
                     }
                 }
             }

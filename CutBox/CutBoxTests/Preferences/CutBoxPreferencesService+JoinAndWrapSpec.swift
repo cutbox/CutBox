@@ -28,7 +28,7 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
                 subject.useJoinString = false
                 subject.multiJoinString = nil
                 subject.useWrappingStrings = false
-                subject.wrappingStrings = (nil,nil)
+                subject.wrappingStrings = (nil, nil)
             }
 
             context("multiple clips") {
@@ -86,4 +86,3 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
         }
     }
 }
-

@@ -38,7 +38,6 @@ class AboutUITest: XCTestCase {
     }
 }
 
-
 class PreferencesUITest: XCTestCase {
     override func setUp() {
         super.setUp()
@@ -121,17 +120,18 @@ class PreferencesUITest: XCTestCase {
 
         let replTextView = prefs.textViews.firstMatch
 
-        XCTAssertEqual(replTextView.value as! String, """
-CutBox JS REPL:
+        XCTAssertEqual(replTextView.value as? String,
+                       """
+                       CutBox JS REPL:
 
-help ENTER, for help
+                       help ENTER, for help
 
 
-""")
+                       """)
 
         jsButtons["Clear"].click()
 
-        XCTAssertEqual(replTextView.value as! String, "")
+        XCTAssertEqual(replTextView.value as? String, "")
 
         // Reload JS button
         jsButtons["Reload ~/.cutbox.js"].click()
@@ -141,10 +141,9 @@ help ENTER, for help
 // - - -
 
 class HistorySearchUITest: XCTestCase {
-        
+
     override func setUp() {
         super.setUp()
-
 
         continueAfterFailure = false
 
@@ -152,11 +151,11 @@ class HistorySearchUITest: XCTestCase {
         app.launchArguments = ["search-ui-test"]
         app.launch()
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
-    
+
     func testSearchUI() {
         let app = XCUIApplication()
         let textView = app.groups

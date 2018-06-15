@@ -10,7 +10,7 @@ import Foundation
 
 class UserDefaultsMock: UserDefaults {
 
-    var store = [String:Any?]()
+    var store = [String: Any?]()
 
     override func set(_ value: Bool, forKey defaultName: String) {
         store[defaultName] = value

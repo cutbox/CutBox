@@ -44,7 +44,7 @@ class Array_String_SwiftyStringScoreSpec: QuickSpec {
                                 "Boost boost",
                                 "Bob the Hoojah Melon",
                                 "JR Bob Dobbs"]
-                
+
                 expect(expected).to(equal(results))
             }
         }

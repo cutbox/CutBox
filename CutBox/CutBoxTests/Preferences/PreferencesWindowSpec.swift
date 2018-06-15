@@ -30,7 +30,6 @@ class PreferencesWindowSpec: QuickSpec {
                         .to(beFalse())
                 }
 
-
                 it("returns false when the new limit is greater then the current limit") {
                     expect(subject
                         .limitChangeIsDestructive(limit: 101,

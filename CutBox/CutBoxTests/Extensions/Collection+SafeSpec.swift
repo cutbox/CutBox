@@ -14,11 +14,11 @@ import Nimble
 class Collection_SafeSpec: QuickSpec {
     override func spec() {
         describe("Collection+Safe") {
-            let sut = [1,2,3]
+            let sut = [1, 2, 3]
 
             it("returns nil when index is out of range") {
                 let actual = sut[safe: 4]
-            
+
                 expect(actual).to(beNil())
             }
         }

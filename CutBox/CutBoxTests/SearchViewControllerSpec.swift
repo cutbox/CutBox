@@ -24,13 +24,11 @@ class HistoryServiceMock: HistoryService {
     }
 
     override var items: [String] {
-        get {
             return [
                 "Fakes",
                 "I can feel it.",
                 "To kill a mockingbird"
             ]
-        }
     }
 }
 
@@ -41,7 +39,7 @@ class SearchViewControllerSpec: QuickSpec {
         describe("SearchViewController") {
 
             var historyServiceMock: HistoryServiceMock!
-            var subject:  SearchViewController!
+            var subject: SearchViewController!
             var tableView: NSTableView!
             var defaults: UserDefaults!
 

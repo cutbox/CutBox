@@ -1,6 +1,3 @@
-
-
-
 //
 //  JSFuncServiceSpec.swift
 //  CutBoxTests
@@ -44,7 +41,9 @@ class JSFuncServiceSpec: QuickSpec {
                 }
 
                 afterEach {
+                    //swiftlint:disable force_try
                     try! fileManager.removeItem(atPath: path)
+                    //swiftlint:enable force_try
                 }
 
                 it("evaluates the file as JS") {
@@ -56,7 +55,12 @@ class JSFuncServiceSpec: QuickSpec {
 
             describe("count") {
                 it("return the count of functions in cutboxFunctions") {
-                    _ = subject.repl("this.cutboxFunctions = this.cutboxFunctions || []; this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })")
+                    _ = subject.repl(
+                        """
+                        this.cutboxFunctions = this.cutboxFunctions || []
+                        this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
+                        """
+                    )
                     expect(subject.count).to(equal(1))
                 }
             }
@@ -64,8 +68,19 @@ class JSFuncServiceSpec: QuickSpec {
             describe("list") {
 
                 beforeEach {
-                    _ = subject.repl("this.cutboxFunctions = this.cutboxFunctions || []; this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })")
-                    _ = subject.repl("this.cutboxFunctions = this.cutboxFunctions || []; this.cutboxFunctions.push({name: \"Another\", fn: i => \"done\" })")
+                    _ = subject.repl(
+                        """
+                        this.cutboxFunctions = this.cutboxFunctions || []
+                        this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
+                        """
+                    )
+
+                    _ = subject.repl(
+                        """
+                        this.cutboxFunctions = this.cutboxFunctions || []
+                        this.cutboxFunctions.push({name: \"Another\", fn: i => \"done\" })
+                        """
+                    )
                 }
 
                 context("no filter") {
@@ -94,12 +109,12 @@ class JSFuncServiceSpec: QuickSpec {
                     it("returns the unfiltered function name/index list for lookup") {
                         subject.filterText = "no"
 
-                        let actual: [(String,Int)] = subject.funcs
+                        let actual: [(String, Int)] = subject.funcs
                         let names = actual.map { $0.0 }
                         let indecies = actual.map { $0.1 }
 
                         expect(names).to(equal(["Test", "Another"]))
-                        expect(indecies).to(equal([0,1]))
+                        expect(indecies).to(equal([0, 1]))
                     }
                 }
             }
