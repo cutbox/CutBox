@@ -220,5 +220,14 @@ class HistorySearchUITest: XCTestCase {
         iconTable.typeKey(.downArrow, modifierFlags: [])
 
         app.buttons["jsIconButton"].click()
+
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.downArrow, modifierFlags: [])
+        iconTable.typeKey(.upArrow, modifierFlags: [])
+        iconTable.typeKey(.upArrow, modifierFlags: [])
+        iconTable.typeKey(.upArrow, modifierFlags: [])
+        iconTable.typeKey(.upArrow, modifierFlags: [])
     }
 }
