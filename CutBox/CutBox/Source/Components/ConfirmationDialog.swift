@@ -56,3 +56,4 @@ func confirmationDialog(messageText: String,
 
     return alert.runModal() == .alertFirstButtonReturn
 }
+
