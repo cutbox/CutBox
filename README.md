@@ -17,6 +17,8 @@
 
 ## About CutBox
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/59239468855448d6b8a1b948beadd93d)](https://app.codacy.com/app/jasonm23/CutBox?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=badger)
+
 CutBox keeps your pasteboard cut/copy history and lets you paste
 anything back to your current app by searching for items.
 
