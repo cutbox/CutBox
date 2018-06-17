@@ -9,6 +9,7 @@
 import Cocoa
 
 extension PopupController: NSWindowDelegate {
+
     func windowWillClose(_ notification: Notification) {
         closePopup()
     }
@@ -18,4 +19,5 @@ extension PopupController: NSWindowDelegate {
             closePopup()
         }
     }
+
 }

@@ -13,7 +13,7 @@ class FakeKey {
 
     static let shared = FakeKey()
 
-    private let keyCodeRange = (0x00...0x7E)
+    private let keyCodeRange = 0x00...0x7E
 
     func send(fakeKey key: String, useCommandFlag: Bool) {
         let keyCode = stringToKeyCode(key)
@@ -96,4 +96,5 @@ class FakeKey {
         keyDownEvent?.post(tap: .cghidEventTap)
         keyUpEvent?.post(tap: .cghidEventTap)
     }
+
 }

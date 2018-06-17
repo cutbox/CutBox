@@ -10,6 +10,7 @@ import Cocoa
 import RxSwift
 
 class PreferencesThemeSelectionView: NSView {
+
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
@@ -27,4 +28,5 @@ class PreferencesThemeSelectionView: NSView {
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
         prefs.theme = sender.index(of: sender.selectedItem!)
     }
+
 }

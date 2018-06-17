@@ -14,7 +14,7 @@ import Nimble
 class CutBoxThemeSpec: QuickSpec {
     override func spec() {
         describe("CutBoxTheme") {
-            //swiftlint:disable colon
+            // swiftlint:disable colon
             let subject = CutBoxColorTheme(
                 name: "Creamblue".l7n,
                 popupBackgroundColor:            #colorLiteral(red: 0.1098039216, green: 0.1098039216, blue: 0.1098039216, alpha: 1),
@@ -37,7 +37,7 @@ class CutBoxThemeSpec: QuickSpec {
                 ),
                 spacing: 5
             )
-            //swiftlint:enable colon
+            // swiftlint:enable colon
 
             it("holds a list of all instantiated color themes") {
                 expect(CutBoxColorTheme.instances.contains(where: { $0.name == subject.name })).to(beTrue())

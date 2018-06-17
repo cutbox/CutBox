@@ -10,6 +10,7 @@ import Cocoa
 import RxSwift
 
 class PreferencesThemePreview: NSBox {
+
     @IBOutlet weak var topBar: NSBox!
     @IBOutlet weak var searchCutBox: NSTextField!
     @IBOutlet weak var footerBox: NSBox!
@@ -67,4 +68,5 @@ class PreferencesThemePreview: NSBox {
         }
         .disposed(by: disposeBag)
     }
+
 }

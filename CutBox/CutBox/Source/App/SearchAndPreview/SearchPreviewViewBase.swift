@@ -11,6 +11,7 @@ import RxCocoa
 import Cocoa
 
 class SearchPreviewViewBase: NSView {
+
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
@@ -25,7 +26,6 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet weak var bottomBar: NSView!
 
     @IBOutlet weak var searchTextContainerHeight: NSLayoutConstraint!
-
     @IBOutlet weak var mainTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainTrailingConstraint: NSLayoutConstraint!
@@ -80,8 +80,7 @@ class SearchPreviewViewBase: NSView {
         let selectedRow = lambda(row, total)
 
         itemsList
-            .selectRowIndexes([selectedRow],
-                              byExtendingSelection: false)
+            .selectRowIndexes([selectedRow], byExtendingSelection: false)
         itemsList
             .scrollRowToVisible(selectedRow)
     }
@@ -93,7 +92,7 @@ class SearchPreviewViewBase: NSView {
 
     func setupPlaceholder() {
         filterText
-            .map { $0.isEmpty ? self.placeHolderTextString  : "" }
+            .map { $0.isEmpty ? self.placeHolderTextString : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
     }
@@ -142,9 +141,8 @@ class SearchPreviewViewBase: NSView {
         previewContainer.fillColor = theme.preview.backgroundColor
         preview.textColor = theme.preview.textColor
 
-        preview.selectedTextAttributes[.backgroundColor] =
-            theme.preview.selectedTextBackgroundColor
-        preview.selectedTextAttributes[.foregroundColor] =
-            theme.preview.textColor
+        preview.selectedTextAttributes[.backgroundColor] = theme.preview.selectedTextBackgroundColor
+        preview.selectedTextAttributes[.foregroundColor] = theme.preview.textColor
     }
+
 }

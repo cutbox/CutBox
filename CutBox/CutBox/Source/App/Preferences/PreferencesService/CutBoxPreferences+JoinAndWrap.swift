@@ -9,6 +9,7 @@
 import JavaScriptCore
 
 extension CutBoxPreferencesService {
+
     func prepareClips(_ clips: [String]) -> String {
         if clips.count == 1 {
             return clips.first!
@@ -27,4 +28,5 @@ extension CutBoxPreferencesService {
 
         return clip
     }
+
 }

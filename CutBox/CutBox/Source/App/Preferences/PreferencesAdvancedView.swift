@@ -10,6 +10,7 @@ import Cocoa
 import RxSwift
 
 class PreferencesAdvancedView: NSView {
+
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
@@ -45,4 +46,5 @@ class PreferencesAdvancedView: NSView {
             prefs.useJoinString = bool
         }
     }
+
 }

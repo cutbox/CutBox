@@ -9,12 +9,13 @@
 import Cocoa
 
 extension NSImage {
-    func tint(color: NSColor) -> NSImage {
-        guard self.isTemplate == false else { return self }
 
-        //swiftlint:disable force_cast
-        let image = self.copy() as! NSImage
-        //swiftlint:enable force_cast
+    func tint(color: NSColor) -> NSImage {
+        guard !self.isTemplate
+            else { return self }
+
+        guard let image = self.copy() as? NSImage
+            else { return self }
 
         image.lockFocus()
         color.set()
@@ -27,4 +28,5 @@ extension NSImage {
 
         return image
     }
+
 }

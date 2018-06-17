@@ -9,8 +9,9 @@
 import Cocoa
 
 class ClipItemTableRowTextView: ItemTableRowTextView {
+
     private var isFavorite: Bool {
-        if let data = _data {
+        if let data = internalData {
             if let favoriteData = data["favorite"] as? String, !favoriteData.isEmpty {
                 return true
             } else {
@@ -32,4 +33,5 @@ class ClipItemTableRowTextView: ItemTableRowTextView {
         self.title.stringValue = titleString
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
+
 }

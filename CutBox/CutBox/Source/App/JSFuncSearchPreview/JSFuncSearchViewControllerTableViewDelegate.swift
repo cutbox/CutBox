@@ -9,12 +9,15 @@
 import Cocoa
 
 extension JSFuncSearchViewController: NSTableViewDataSource {
+
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.jsFuncService.count
     }
+
 }
 
 extension JSFuncSearchViewController: NSTableViewDelegate {
+
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 30
     }
@@ -94,4 +97,5 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         return proposedSelectionIndexes
     }
+
 }

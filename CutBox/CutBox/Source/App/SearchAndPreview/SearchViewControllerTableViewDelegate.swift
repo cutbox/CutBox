@@ -9,12 +9,15 @@
 import Cocoa
 
 extension SearchViewController: NSTableViewDataSource {
+
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.historyService.count
     }
+
 }
 
 extension SearchViewController: NSTableViewDelegate {
+
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 30
     }
@@ -77,7 +80,8 @@ extension SearchViewController: NSTableViewDelegate {
             .map {
                 tableView.rowView(atRow: $0,
                                   makeIfNecessary: true)
-                    as? ItemTableRowContainerView }
+                  as? ItemTableRowContainerView
+            }
             .forEach {
                 $0?.imageView?.color = theme.clip.clipItemsTextColor
                 $0?.textView?.color = theme.clip.clipItemsTextColor
@@ -98,4 +102,5 @@ extension SearchViewController: NSTableViewDelegate {
 
         return proposedSelectionIndexes
     }
+
 }

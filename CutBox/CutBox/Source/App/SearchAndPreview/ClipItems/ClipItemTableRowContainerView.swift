@@ -40,4 +40,5 @@ class ClipItemTableRowContainerView: ItemTableRowContainerView {
 
         super.mouseDown(with: event)
     }
+
 }

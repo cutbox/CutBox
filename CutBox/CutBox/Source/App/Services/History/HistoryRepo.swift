@@ -63,7 +63,9 @@ class HistoryRepo {
     func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false) {
         var item = [stringKey: newElement]
 
-        if isFavorite { item[self.favoriteKey] = self.favoriteKey }
+        if isFavorite {
+            item[self.favoriteKey] = self.favoriteKey
+        }
 
         self.store.insert(item, at: index)
     }
@@ -150,4 +152,5 @@ class HistoryRepo {
             return ""
         }
     }
+
 }

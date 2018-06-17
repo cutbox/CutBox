@@ -11,9 +11,8 @@ import Cocoa
 @IBDesignable
 
 @objc public class DisablableScrollView: NSScrollView {
-    @IBInspectable
-    @objc(enabled)
-    public var isEnabled: Bool = true
+
+    @IBInspectable @objc(enabled) public var isEnabled: Bool = true
 
     public override func scrollWheel(with event: NSEvent) {
         if isEnabled {
@@ -22,4 +21,5 @@ import Cocoa
             nextResponder?.scrollWheel(with: event)
         }
     }
+
 }

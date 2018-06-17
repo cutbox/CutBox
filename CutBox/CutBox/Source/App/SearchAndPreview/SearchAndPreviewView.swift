@@ -34,7 +34,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
             .rx
             .tap
             .map { _ in
-                .selectJavascriptFunction }
+                .selectJavascriptFunction
+            }
             .bind(to: self.events)
             .disposed(by: disposeBag)
     }
@@ -117,4 +118,5 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         setSearchModeButton(mode: HistoryService.shared.searchMode)
         setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }
+
 }

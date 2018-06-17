@@ -11,7 +11,7 @@ import Carbon.HIToolbox
 
 extension SearchAndPreviewView {
 
-    //swiftlint:disable cyclomatic_complexity
+    // swiftlint:disable cyclomatic_complexity
     override func keyDown(with event: NSEvent) {
         switch (event.key, event.modifiers) {
         case (kVK_LeftArrow, _),
@@ -69,6 +69,6 @@ extension SearchAndPreviewView {
             return
         }
     }
-    //swiftlint:enable cyclomatic_complexity
+    // swiftlint:enable cyclomatic_complexity
 
 }

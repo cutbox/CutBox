@@ -13,7 +13,7 @@ class ClipItemTableRowImageButtonView: NSView {
     @IBOutlet weak var imageButton: NSButton!
 
     private var isFavorite: Bool {
-        if let data = _data {
+        if let data = internalData {
             if let favoriteData = data["favorite"], !favoriteData.isEmpty {
                 return true
             } else {
@@ -23,25 +23,25 @@ class ClipItemTableRowImageButtonView: NSView {
         return false
     }
 
-    var _color: NSColor = NSColor.textColor
+    var internalColor: NSColor = NSColor.textColor
     var color: NSColor {
         set {
-            _color = newValue
+            internalColor = newValue
             self.tintImage()
         }
 
         get {
-            return _color
+            return internalColor
         }
     }
 
-    var _data: [String: String]?
+    var internalData: [String: String]?
     var data: [String: String]? {
         get {
-            return _data
+            return internalData
         }
         set {
-            _data = newValue
+            internalData = newValue
             setup()
         }
     }
@@ -60,4 +60,5 @@ class ClipItemTableRowImageButtonView: NSView {
         let blended = imageData.tint(color: self.color)
         self.imageButton.image = blended
     }
+
 }

@@ -160,7 +160,7 @@ class SearchViewController: NSObject {
         self.searchView.preview.string = preview
     }
 
-    //swiftlint:disable cyclomatic_complexity
+    // swiftlint:disable cyclomatic_complexity
     private func setupSearchTextEventBindings() {
         self.events
             .subscribe(onNext: { event in
@@ -243,4 +243,5 @@ class SearchViewController: NSObject {
 
         self.searchPopup.willClosePopup = self.resetSearchText
     }
+
 }

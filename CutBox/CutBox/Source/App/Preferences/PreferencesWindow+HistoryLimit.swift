@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 extension PreferencesAdvancedView {
+
     func setupHistoryLimitControls() {
         self.historyLimitTitle.stringValue = "preferences_history_limit_title".l7n
         self.historyLimitTextField.placeholderString = "preferences_history_limit_placeholder".l7n
@@ -24,7 +25,9 @@ extension PreferencesAdvancedView {
             .subscribe(onNext: {
                 self.prefs.historyLimited = $0
                 self.historyLimitTextField.isEnabled = $0
-                if !$0 { self.historyLimitTextField.stringValue = "" }
+                if !$0 {
+                    self.historyLimitTextField.stringValue = ""
+                }
             })
             .disposed(by: disposeBag)
 
@@ -71,4 +74,5 @@ extension PreferencesAdvancedView {
             }
         }
     }
+
 }

@@ -10,6 +10,7 @@ import RxCocoa
 import RxSwift
 
 extension PreferencesThemeSelectionView {
+
     func setupCompactUIControl() {
         self.compactUICheckbox.title = "preferences_use_compact_ui".l7n
         self.compactUICheckbox.toolTip = "preferences_use_compact_ui_tooltip".l7n
@@ -32,4 +33,5 @@ extension PreferencesThemeSelectionView {
             })
             .disposed(by: disposeBag)
     }
+
 }

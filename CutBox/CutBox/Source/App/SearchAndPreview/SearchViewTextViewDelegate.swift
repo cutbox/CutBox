@@ -9,6 +9,7 @@
 import Cocoa
 
 extension SearchAndPreviewView: NSTextViewDelegate {
+
     func textDidChange(_ notification: Notification) {
         self.filterText.onNext(self.searchText.string)
     }
@@ -25,4 +26,5 @@ extension SearchAndPreviewView: NSTextViewDelegate {
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         return useTextCommands.contains(commandSelector)
     }
+
 }

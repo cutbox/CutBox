@@ -9,31 +9,33 @@
 import Cocoa
 
 class ItemTableRowTextView: NSView {
+
     @IBOutlet weak var title: NSTextField!
 
-    var _color: NSColor = NSColor.textColor
+    var internalColor: NSColor = NSColor.textColor
     var color: NSColor {
         set {
-            _color = newValue
-            self.title.textColor = _color
+            internalColor = newValue
+            self.title.textColor = internalColor
         }
 
         get {
-            return _color
+            return internalColor
         }
     }
 
-    var _data: [String: Any]?
+    var internalData: [String: Any]?
     var data: [String: Any]? {
         get {
-            return _data
+            return internalData
         }
         set {
-            _data = newValue
+            internalData = newValue
             setup()
         }
     }
 
     func setup() {
     }
+
 }

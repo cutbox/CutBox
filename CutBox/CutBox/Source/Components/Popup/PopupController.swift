@@ -24,7 +24,10 @@ class PopupController: NSWindowController {
     var proportionalTopPadding: CGFloat = 0
 
     var contentInset: CGFloat {
-        get { return containerView.contentInset }
+        get {
+            return containerView.contentInset
+        }
+
         set {
             let size = containerView.frame.size
             containerView.contentInset = newValue
@@ -217,4 +220,5 @@ class PopupController: NSWindowController {
 
         return panelRect
     }
+
 }

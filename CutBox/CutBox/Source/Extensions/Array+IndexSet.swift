@@ -9,7 +9,8 @@
 import Foundation
 
 extension Array {
-    subscript (_ indexSet: IndexSet) -> [Element] {
+
+    subscript(_ indexSet: IndexSet) -> [Element] {
         var result: [Element] = []
         indexSet.forEach {
             if $0 < self.count && $0 > -1 {
@@ -18,4 +19,5 @@ extension Array {
         }
         return result
     }
+
 }

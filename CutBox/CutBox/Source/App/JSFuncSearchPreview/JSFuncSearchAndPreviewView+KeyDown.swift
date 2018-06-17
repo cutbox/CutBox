@@ -10,6 +10,7 @@ import RxSwift
 import Carbon.HIToolbox
 
 extension JSFuncSearchAndPreviewView {
+
     override func keyDown(with event: NSEvent) {
         switch (event.key, event.modifiers) {
         case (kVK_UpArrow, _),
@@ -33,4 +34,5 @@ extension JSFuncSearchAndPreviewView {
             break
         }
     }
+
 }

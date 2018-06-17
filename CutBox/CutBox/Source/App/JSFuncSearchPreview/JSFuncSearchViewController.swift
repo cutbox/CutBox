@@ -133,4 +133,5 @@ class JSFuncSearchViewController: NSObject {
         self.jsFuncPopup.willClosePopup = self.resetJSFuncSearchText
         self.jsFuncView.setupClipItemsContextMenu()
     }
+
 }

@@ -9,6 +9,7 @@
 import Foundation
 
 extension CutBoxPreferencesService {
+
     var theme: Int {
         set {
             defaults.set(newValue, forKey: "theme")
@@ -27,4 +28,5 @@ extension CutBoxPreferencesService {
     func toggleTheme() {
         theme = ((theme + 1) % themes.count)
     }
+
 }

@@ -8,6 +8,7 @@
 import Cocoa
 
 class JSFuncItemTableRowTextView: ItemTableRowTextView {
+
     override func setup() {
         guard let data = self.data else {
             fatalError("Data must be initialized on row view before setup.")
@@ -20,4 +21,5 @@ class JSFuncItemTableRowTextView: ItemTableRowTextView {
         self.title.stringValue = titleString
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
+
 }

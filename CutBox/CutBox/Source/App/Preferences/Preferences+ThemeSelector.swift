@@ -9,6 +9,7 @@
 import Foundation
 
 extension PreferencesThemeSelectionView {
+
     func setupThemeSelector() {
         self.themeSelectorTitleLabel.stringValue =
             "preferences_color_theme_title".l7n
@@ -19,4 +20,5 @@ extension PreferencesThemeSelectionView {
 
         self.themeSelectorMenu.selectItem(at: prefs.theme)
     }
+
 }

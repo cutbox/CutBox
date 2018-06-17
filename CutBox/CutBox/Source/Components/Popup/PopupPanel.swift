@@ -11,13 +11,17 @@ import Cocoa
 public class PopupPanel: NSPanel {}
 
 extension PopupPanel {
+
     public override var canBecomeKey: Bool {
         return true
     }
+
 }
 
 extension PopupPanel {
+
     public override func cancelOperation(_ sender: Any?) {
         resignKey()
     }
+
 }

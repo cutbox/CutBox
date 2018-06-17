@@ -11,10 +11,12 @@ import Magnet
 import Carbon.HIToolbox
 
 struct Constants {
-    static let kCutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
+
+    static let cutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
 
     static let searchFuzzyMatchMinScore = 0.1
 
     static let defaultCutBoxToggleKeyCombo =
-        KeyCombo(keyCode: kVK_ANSI_V, cocoaModifiers: [.shift, .command])!
+      KeyCombo(keyCode: kVK_ANSI_V, cocoaModifiers: [.shift, .command])!
+
 }

@@ -9,9 +9,12 @@
 import Foundation
 
 class HistoryLimitNumberFormatter: NumberFormatter {
+
     override var isPartialStringValidationEnabled: Bool {
         set {}
-        get { return true }
+        get {
+            return true
+        }
     }
 
     var intOnlyRegex: NSRegularExpression? {
@@ -32,4 +35,5 @@ class HistoryLimitNumberFormatter: NumberFormatter {
                                          range: NSRange(partialString.startIndex...,
                                                         in: partialString)).count == 1
     }
+
 }

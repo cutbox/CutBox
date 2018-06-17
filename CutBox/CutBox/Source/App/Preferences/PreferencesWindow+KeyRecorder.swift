@@ -11,6 +11,7 @@ import KeyHolder
 import RxSwift
 
 extension PreferencesGeneralView {
+
     func setupKeyRecorders() {
         self.mainKeyRecorder.delegate = self
         self.mainKeyRecorderLabel.stringValue = "preferences_toggle_cutbox".l7n
@@ -21,6 +22,7 @@ extension PreferencesGeneralView {
             .subscribe(onNext: { self.mainKeyRecorder.keyCombo = $0 })
             .disposed(by: self.disposeBag)
     }
+
 }
 
 extension PreferencesGeneralView: RecordViewDelegate {
@@ -31,7 +33,7 @@ extension PreferencesGeneralView: RecordViewDelegate {
 
     func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
         hotKeyCenter
-            .unregisterHotKey(with: Constants.kCutBoxToggleKeyCombo)
+            .unregisterHotKey(with: Constants.cutBoxToggleKeyCombo)
         return true
     }
 
@@ -50,8 +52,9 @@ extension PreferencesGeneralView: RecordViewDelegate {
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
-        if hotKeyCenter.hotKey(Constants.kCutBoxToggleKeyCombo) == nil {
+        if hotKeyCenter.hotKey(Constants.cutBoxToggleKeyCombo) == nil {
             hotKeyService.resetDefaultGlobalToggle()
         }
     }
+
 }

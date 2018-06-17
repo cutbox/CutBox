@@ -9,8 +9,9 @@
 import Cocoa
 
 class ClipItemTableRowImageView: ItemTableRowImageView {
+
     private var isFavorite: Bool {
-        if let data = _data {
+        if let data = internalData {
             if let favoriteData = data["favorite"], !favoriteData.isEmpty {
                 return true
             } else {
@@ -28,4 +29,5 @@ class ClipItemTableRowImageView: ItemTableRowImageView {
         self.image.image = self.isFavorite ? #imageLiteral(resourceName: "star.png") : #imageLiteral(resourceName: "page.png")
         self.tintImage()
     }
+
 }

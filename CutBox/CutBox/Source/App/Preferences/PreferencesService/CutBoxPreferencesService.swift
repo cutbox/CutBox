@@ -41,7 +41,8 @@ class CutBoxPreferencesService {
 
     static let shared = CutBoxPreferencesService()
 
-    //swiftlint:disable colon
+    // swiftlint:disable colon
+    // tailor:off
     var darkTheme: CutBoxColorTheme = CutBoxColorTheme(
         name: "preferences_color_theme_name_darkness".l7n,
         popupBackgroundColor:            #colorLiteral(red: 0.0864074271, green: 0.1963072013, blue: 0.2599330357, alpha: 1),
@@ -271,7 +272,8 @@ class CutBoxPreferencesService {
         ),
         spacing: 1
     )
-    //swiftlint:enable colon
+    // swiftlint:enable colon
+    // tailor:on
 
     var currentTheme: CutBoxColorTheme { return themes[theme] }
 
@@ -371,6 +373,7 @@ class CutBoxPreferencesService {
     func loadJavascript() {
         JSFuncService.shared.reload()
     }
+
 }
 
 func notifyUser(title: String, info: String) {

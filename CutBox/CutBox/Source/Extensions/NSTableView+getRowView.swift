@@ -9,6 +9,7 @@
 import Cocoa
 
 extension NSTableView {
+
     func getRowView<T: NSView>() -> T {
         let identifier = NSUserInterfaceItemIdentifier(
             rawValue: "\(T.self)")
@@ -27,4 +28,5 @@ extension NSTableView {
 
         return rowView
     }
+
 }

@@ -42,4 +42,5 @@ class ItemTableRowContainerView: NSTableRowView {
             selectionPath.fill()
         }
     }
+
 }

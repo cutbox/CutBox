@@ -10,6 +10,7 @@ import Cocoa
 import Magnet
 
 class PreferencesTabView: NSTabView {
+
     let generalTab: PreferencesGeneralView = PreferencesGeneralView.fromNib()!
     let advancedTab: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
     let themeTab: PreferencesThemeSelectionView = PreferencesThemeSelectionView.fromNib()!
@@ -35,4 +36,5 @@ class PreferencesTabView: NSTabView {
             self.addTabViewItem(tabViewItem)
         }
     }
+
 }

@@ -85,4 +85,5 @@ class SearchTextView: NSTextView {
             return
         }
     }
+
 }

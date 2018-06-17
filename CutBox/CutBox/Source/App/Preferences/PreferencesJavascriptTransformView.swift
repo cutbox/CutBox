@@ -10,6 +10,7 @@ import Cocoa
 import RxSwift
 
 class PreferencesJavascriptTransformView: NSView {
+
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
@@ -60,13 +61,13 @@ class PreferencesJavascriptTransformView: NSView {
         self.javascriptClearReplButton
             .rx
             .tap
-            .bind {_ in self.javascriptTransformREPLOutput.string = ""}
+            .bind { _ in self.javascriptTransformREPLOutput.string = "" }
             .disposed(by: disposeBag)
 
         self.javascriptTransformReloadButton
             .rx
             .tap
-            .bind {_ in self.prefs.loadJavascript() }
+            .bind { _ in self.prefs.loadJavascript() }
             .disposed(by: disposeBag)
     }
 
@@ -91,4 +92,5 @@ class PreferencesJavascriptTransformView: NSView {
     private func append(_ string: String) {
         javascriptTransformREPLOutput.string += "\n" + string
     }
+
 }

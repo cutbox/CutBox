@@ -34,7 +34,7 @@ class HotKeyService: NSObject {
     }
 
     func resetDefaultGlobalToggle() {
-        if let savedKeyCombo = KeyCombo.loadUserDefaults(identifier: Constants.kCutBoxToggleKeyCombo) {
+        if let savedKeyCombo = KeyCombo.loadUserDefaults(identifier: Constants.cutBoxToggleKeyCombo) {
             self.searchKeyCombo
                 .onNext(savedKeyCombo)
         } else {
@@ -49,7 +49,7 @@ class HotKeyService: NSObject {
 
     fileprivate func changeGlobalToggle(keyCombo: KeyCombo) {
         let hotKey = HotKey(
-            identifier: Constants.kCutBoxToggleKeyCombo,
+            identifier: Constants.cutBoxToggleKeyCombo,
             keyCombo: keyCombo,
             target: self,
             action: #selector(search(_:))
@@ -57,6 +57,7 @@ class HotKeyService: NSObject {
 
         hotKey.register()
 
-        keyCombo.saveUserDefaults(identifier: Constants.kCutBoxToggleKeyCombo)
+        keyCombo.saveUserDefaults(identifier: Constants.cutBoxToggleKeyCombo)
     }
+
 }

@@ -10,8 +10,8 @@ import RxCocoa
 import RxSwift
 
 extension PreferencesAdvancedView {
-    func setupJoinStringTextField() {
 
+    func setupJoinStringTextField() {
         self.joinAndWrapSectionTitle.stringValue = "preferences_multi_clip_join_and_wrap_section_title".l7n
 
         self.joinAndWrapNote.stringValue = "preferences_multi_clip_join_and_wrap_section_note".l7n
@@ -22,7 +22,7 @@ extension PreferencesAdvancedView {
 
         self.joinStyleSelector.setLabel("preferences_multi_clip_joined_by_newline".l7n, forSegment: 0)
         self.joinStyleSelector.setLabel("preferences_multi_clip_joined_by_string".l7n, forSegment: 1)
-        self.joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0 )
+        self.joinStyleSelector.selectSegment(withTag: useJoinString ? 1 : 0)
 
         self.joinStringTextField.isEnabled = useJoinString
         self.joinStringTextField.isHidden = !useJoinString
@@ -43,4 +43,5 @@ extension PreferencesAdvancedView {
             })
             .disposed(by: self.disposeBag)
     }
+
 }

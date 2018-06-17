@@ -9,8 +9,10 @@
 import Cocoa
 
 class JSFuncItemTableRowImageView: ItemTableRowImageView {
+
     override func setup() {
         self.image.image = #imageLiteral(resourceName: "page.png")
         self.tintImage()
     }
+
 }

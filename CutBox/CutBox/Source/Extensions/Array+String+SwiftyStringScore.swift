@@ -9,6 +9,7 @@
 import SwiftyStringScore
 
 extension Array where Element == [String: String] {
+
     func fuzzySearchRankedFiltered(search: String, score: Double) -> [[String: String]] {
         return self
             .map { ($0, $0["string"]!.score(word: search)) }
@@ -34,9 +35,11 @@ extension Array where Element == [String: String] {
             return []
         }
     }
+
 }
 
 extension Array where Element == String {
+
     func fuzzySearchRankedFiltered(search: String, score: Double) -> [String] {
         return self
             .map { ($0, $0.score(word: search)) }
@@ -62,4 +65,5 @@ extension Array where Element == String {
             return []
         }
     }
+
 }

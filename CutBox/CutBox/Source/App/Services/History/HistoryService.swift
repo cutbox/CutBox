@@ -31,15 +31,15 @@ class HistoryService: NSObject {
 
     let events = PublishSubject<HistoryServiceEvents>()
 
-    var _historyLimit: Int = 0
+    var internalHistoryLimit: Int = 0
     var historyLimit: Int {
         set {
-            _historyLimit = newValue
+            internalHistoryLimit = newValue
             self.truncateItems()
         }
 
         get {
-            return _historyLimit
+            return internalHistoryLimit
         }
     }
 
@@ -52,34 +52,34 @@ class HistoryService: NSObject {
 
     var removeGuard: String?
 
-    private var _defaultSearchMode: HistorySearchMode = .fuzzyMatch
+    private var internalDefaultSearchmode: HistorySearchMode = .fuzzyMatch
 
     var searchMode: HistorySearchMode {
         set {
-            self.defaults.set(newValue.axID(), forKey: kSearchModeKey)
+            self.defaults.set(newValue.axID(), forKey: searchModeKey)
         }
         get {
-            if let axID = self.defaults.string(forKey: kSearchModeKey) {
+            if let axID = self.defaults.string(forKey: searchModeKey) {
                 return HistorySearchMode.searchMode(from: axID)
             }
-            return _defaultSearchMode
+            return internalDefaultSearchmode
         }
     }
 
-    var _favoritesOnly: Bool = false
+    var internalFavoritesOnly: Bool = false
     var favoritesOnly: Bool {
         set {
-            _favoritesOnly = newValue
-            self.defaults.set(newValue, forKey: kSearchFavoritesOnly)
+            internalFavoritesOnly = newValue
+            self.defaults.set(newValue, forKey: searchFavoritesOnly)
         }
         get {
-            return _favoritesOnly
+            return internalFavoritesOnly
         }
     }
 
-    private var kSearchModeKey = "searchMode"
-    private var kSearchFavoritesOnly = "searchFavoritesOnly"
-    private var kLegacyHistoryStoreKey = "pasteStore"
+    private var searchModeKey = "searchMode"
+    private var searchFavoritesOnly = "searchFavoritesOnly"
+    private var legacyHistoryStoreKey = "pasteStore"
 
     @available(*, message: "Deprecated use historyRepo")
     private var legacyHistoryStore: [String]? = []
@@ -91,9 +91,9 @@ class HistoryService: NSObject {
         self.pasteboard = PasteboardWrapper()
         self.historyRepo = HistoryRepo()
 
-        self._favoritesOnly = self.defaults.bool(forKey: kSearchFavoritesOnly)
+        self.internalFavoritesOnly = self.defaults.bool(forKey: searchFavoritesOnly)
 
-        if let legacyHistoryStoreDefaults = defaults.array(forKey: self.kLegacyHistoryStoreKey) {
+        if let legacyHistoryStoreDefaults = defaults.array(forKey: self.legacyHistoryStoreKey) {
             self.legacyHistoryStore = legacyHistoryStoreDefaults as? [String]
 
             self.historyRepo.loadFromDefaults()
@@ -109,7 +109,7 @@ class HistoryService: NSObject {
                 }
             }
 
-            defaults.removeObject(forKey: self.kLegacyHistoryStoreKey)
+            defaults.removeObject(forKey: self.legacyHistoryStoreKey)
         } else {
             self.historyRepo.loadFromDefaults()
         }
@@ -262,7 +262,9 @@ class HistoryService: NSObject {
         }
 
         if let indexOfClip = historyRepo.items.index(of: currentClip) {
-            if indexOfClip == 0 { return (nil, false) }
+            if indexOfClip == 0 {
+                return (nil, false)
+            }
             historyRepo.remove(at: indexOfClip)
         }
 
@@ -283,4 +285,5 @@ class HistoryService: NSObject {
     func bytesFormatted() -> String {
         return self.historyRepo.bytesFormatted()
     }
+
 }

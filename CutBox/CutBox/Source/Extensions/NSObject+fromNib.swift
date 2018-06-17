@@ -9,6 +9,7 @@
 import Cocoa
 
 extension NSObject {
+
     class func fromNib<T>() -> T? {
         var objectArray: NSArray? = nil
         let name = String(describing: T.self)
@@ -32,4 +33,5 @@ extension NSObject {
         }
         return objectArray?.first(where: { $0 is T }) as? T
     }
+
 }

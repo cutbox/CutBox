@@ -9,6 +9,7 @@
 import Foundation
 
 extension PreferencesGeneralView {
+
     func setupProtectFavoritesCheckbox() {
         self.protectFavoritesCheckbox.toolTip = "preferences_protect_favorites_tooltip".l7n
         self.protectFavoritesCheckbox.title = "preferences_protect_favorites".l7n
@@ -33,4 +34,5 @@ extension PreferencesGeneralView {
             })
             .disposed(by: disposeBag)
     }
+
 }

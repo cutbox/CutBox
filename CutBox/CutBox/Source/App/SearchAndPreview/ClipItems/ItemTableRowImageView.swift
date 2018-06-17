@@ -9,27 +9,28 @@
 import Cocoa
 
 class ItemTableRowImageView: NSView {
+
     @IBOutlet weak var image: NSImageView!
 
-    var _color: NSColor = NSColor.textColor
+    var internalColor: NSColor = NSColor.textColor
     var color: NSColor {
         set {
-            _color = newValue
+            internalColor = newValue
             self.tintImage()
         }
 
         get {
-            return _color
+            return internalColor
         }
     }
 
-    var _data: [String: String]?
+    var internalData: [String: String]?
     var data: [String: String]? {
         get {
-            return _data
+            return internalData
         }
         set {
-            _data = newValue
+            internalData = newValue
             setup()
         }
     }
@@ -43,4 +44,5 @@ class ItemTableRowImageView: NSView {
         let blended = imageData.tint(color: self.color)
         self.image.image = blended
     }
+
 }
