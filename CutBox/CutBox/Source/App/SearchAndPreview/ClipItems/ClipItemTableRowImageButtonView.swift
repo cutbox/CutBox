@@ -51,7 +51,10 @@ class ClipItemTableRowImageButtonView: NSView {
             fatalError("Data must be initialized on ClipItemTableRowView before setup.")
         }
 
-        self.imageButton.image = self.isFavorite ? #imageLiteral(resourceName: "star.png") : #imageLiteral(resourceName: "page.png")
+        self.imageButton.image = self.isFavorite
+            ? #imageLiteral(resourceName: "star.png")
+            : #imageLiteral(resourceName: "page.png")
+
         self.tintImage()
     }
 

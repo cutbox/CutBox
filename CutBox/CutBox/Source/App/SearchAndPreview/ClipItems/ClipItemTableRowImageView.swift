@@ -26,7 +26,10 @@ class ClipItemTableRowImageView: ItemTableRowImageView {
             fatalError("Data must be initialized on ClipItemTableRowView before setup.")
         }
 
-        self.image.image = self.isFavorite ? #imageLiteral(resourceName: "star.png") : #imageLiteral(resourceName: "page.png")
+        self.image.image = self.isFavorite
+            ? #imageLiteral(resourceName: "star.png")
+            : #imageLiteral(resourceName: "page.png")
+
         self.tintImage()
     }
 
