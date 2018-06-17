@@ -14,6 +14,7 @@ import Nimble
 @testable import CutBox
 
 class HistoryRepoSpec: QuickSpec {
+
     override func spec() {
         describe("HistoryRepo") {
             var subject: HistoryRepo!
@@ -110,4 +111,5 @@ class HistoryRepoSpec: QuickSpec {
             }
         }
     }
+
 }

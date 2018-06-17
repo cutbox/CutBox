@@ -12,7 +12,8 @@ import RxSwift
 
 @testable import CutBox
 
-class CutBoxPreferencesService_HistoryLimitSpec: QuickSpec {
+class CutBoxPreferencesServiceHistoryLimitSpec: QuickSpec {
+
     override func spec() {
         describe("CutBoxPreferencesService+HistoryLimit") {
 
@@ -64,4 +65,5 @@ class CutBoxPreferencesService_HistoryLimitSpec: QuickSpec {
             }
         }
     }
+
 }

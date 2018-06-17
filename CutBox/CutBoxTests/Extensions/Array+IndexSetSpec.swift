@@ -11,7 +11,8 @@ import Nimble
 
 @testable import CutBox
 
-class Array_IndexSetSpec: QuickSpec {
+class ArrayIndexSetSpec: QuickSpec {
+
     override func spec() {
         describe("Array+IndexSet") {
             it("Accesses an array using an indexset") {
@@ -23,4 +24,5 @@ class Array_IndexSetSpec: QuickSpec {
             }
         }
     }
+
 }

@@ -11,7 +11,8 @@ import Nimble
 
 @testable import CutBox
 
-class Collection_SafeSpec: QuickSpec {
+class CollectionSafeSpec: QuickSpec {
+
     override func spec() {
         describe("Collection+Safe") {
             let sut = [1, 2, 3]
@@ -23,4 +24,5 @@ class Collection_SafeSpec: QuickSpec {
             }
         }
     }
+
 }

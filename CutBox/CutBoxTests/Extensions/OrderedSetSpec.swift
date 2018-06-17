@@ -12,6 +12,7 @@ import Nimble
 @testable import CutBox
 
 class OrderedSetSpec: QuickSpec {
+
     override func spec() {
         describe("OrderedSetSpec") {
             it("adds objects to itself") {
@@ -67,4 +68,5 @@ class OrderedSetSpec: QuickSpec {
             }
         }
     }
+
 }

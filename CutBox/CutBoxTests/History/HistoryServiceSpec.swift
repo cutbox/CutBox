@@ -17,6 +17,7 @@ fileprivate class HistoryRepoMock: HistoryRepo {
 }
 
 fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
+
     var pasteboardItems: [NSPasteboardItem]?
 
     func addToFakePasteboard(string: String) {
@@ -27,6 +28,7 @@ fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
     init() {
         pasteboardItems = []
     }
+
 }
 
 fileprivate func addToFakePasteboardAndPoll(string: String,
@@ -37,6 +39,7 @@ fileprivate func addToFakePasteboardAndPoll(string: String,
 }
 
 class HistoryServiceSpec: QuickSpec {
+
     override func spec() {
         var subject: HistoryService!
         var mockPasteboard: PasteboardWrapperMock!
@@ -227,4 +230,5 @@ class HistoryServiceSpec: QuickSpec {
             }
         }
     }
+
 }

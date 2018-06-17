@@ -11,7 +11,8 @@ import Nimble
 
 @testable import CutBox
 
-class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
+class CutBoxPreferencesServiceJoinAndWrapSpec: QuickSpec {
+
     override func spec() {
         describe("CutBoxPreferencesService+JoinAndWrap") {
 
@@ -85,4 +86,5 @@ class CutBoxPreferencesService_JoinAndWrapSpec: QuickSpec {
             }
         }
     }
+
 }

@@ -12,6 +12,7 @@ import Nimble
 @testable import CutBox
 
 class JSFuncServiceSpec: QuickSpec {
+
     override func spec() {
         var subject: JSFuncService!
 
@@ -120,4 +121,5 @@ class JSFuncServiceSpec: QuickSpec {
             }
         }
     }
+
 }

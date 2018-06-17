@@ -31,4 +31,5 @@ class UserDefaultsMock: UserDefaults {
     override func string(forKey defaultName: String) -> String? {
         return store[defaultName] as? String
     }
+
 }
