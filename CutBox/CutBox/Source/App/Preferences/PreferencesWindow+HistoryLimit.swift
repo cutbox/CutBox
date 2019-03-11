@@ -18,6 +18,11 @@ extension PreferencesAdvancedView {
 
         self.historyLimitTextField.formatter = HistoryLimitNumberFormatter()
 
+        self.historyUnlimitedCheckbox.state = prefs
+            .historyLimited
+            ? .off
+            : .on
+
         self.historyUnlimitedCheckbox
             .rx
             .state
@@ -44,10 +49,7 @@ extension PreferencesAdvancedView {
             })
             .disposed(by: disposeBag)
 
-        self.historyUnlimitedCheckbox.state = prefs
-            .historyLimited
-            ? .off
-            : .on
+        
     }
 
     func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
