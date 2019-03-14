@@ -822,7 +822,6 @@
 				96E1E591205D243400F994ED /* Frameworks */,
 				96E1E592205D243400F994ED /* Resources */,
 				CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */,
-				0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */,
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
 				96085E4C206E37B200CA77BB /* Release notification warning */,
 				963AA669207269CE00779697 /* Embed Frameworks */,
@@ -850,7 +849,6 @@
 				96E1E5A2205D243400F994ED /* Resources */,
 				96564BD8205D497D00A95E02 /* CopyFiles */,
 				DC2171150C1C0377430C4859 /* [CP] Embed Pods Frameworks */,
-				723EAB8C8D1270181AC31148 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1018,36 +1016,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D2B2C801A5E097A122A04D5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		723EAB8C8D1270181AC31148 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8845782D45805C1DC9FDD6CC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1159,7 +1127,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-macOS10.11/RxSwift.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework",
@@ -1176,7 +1144,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DC2171150C1C0377430C4859 /* [CP] Embed Pods Frameworks */ = {
@@ -1185,7 +1153,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/RxSwift-macOS10.13/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -1198,7 +1166,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

@@ -13,16 +13,24 @@ DEPENDENCIES:
   - RxCocoa
   - RxSwift
   - Sparkle
-  - SwiftyStringScore (from `git@github.com:yichizhang/SwiftyStringScore`)
+  - "SwiftyStringScore (from `git@github.com:yichizhang/SwiftyStringScore`)"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
+    - RxCocoa
+    - RxSwift
+    - Sparkle
 
 EXTERNAL SOURCES:
   SwiftyStringScore:
-    :git: git@github.com:yichizhang/SwiftyStringScore
+    :git: "git@github.com:yichizhang/SwiftyStringScore"
 
 CHECKOUT OPTIONS:
   SwiftyStringScore:
     :commit: 0b286b766b2a1d3270059bab7476abff81fff3d2
-    :git: git@github.com:yichizhang/SwiftyStringScore
+    :git: "git@github.com:yichizhang/SwiftyStringScore"
 
 SPEC CHECKSUMS:
   Nimble: 391f07782af4b37914f9bd7b2ffbb952731b8202
@@ -34,4 +42,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f402dc30eb5b65a052847bbbd38964346fec6cd9
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.1
