@@ -16,7 +16,7 @@ extension PreferencesAdvancedView {
         self.setupHistoryLimitTextField()
     }
 
-    private func setupHistoryUnlimitedCheckbox() {
+    func setupHistoryUnlimitedCheckbox() {
         self.historyUnlimitedCheckbox.title = "preferences_history_limit_checkbox_label".l7n
 
         self.historyUnlimitedCheckbox.state = prefs
@@ -38,7 +38,7 @@ extension PreferencesAdvancedView {
             .disposed(by: disposeBag)
     }
 
-    private func setupHistoryLimitTextField() {
+    func setupHistoryLimitTextField() {
         let historyLimit = prefs.historyLimit
 
         self.historyLimitTitle.stringValue = "preferences_history_limit_title".l7n
@@ -58,7 +58,7 @@ extension PreferencesAdvancedView {
             .disposed(by: disposeBag)
     }
 
-    private func setHistoryLimitWithConfirmation(_ limit: Int) {
+    func setHistoryLimitWithConfirmation(_ limit: Int) {
         let currentLimit = self.prefs.historyLimit
 
         if limitChangeIsDestructive(limit: limit, currentLimit: currentLimit) {
@@ -73,7 +73,7 @@ extension PreferencesAdvancedView {
         }
     }
 
-    private func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
+    func limitChangeIsDestructive(limit: Int, currentLimit: Int) -> Bool {
         return (limit > 0 && currentLimit == 0) ||
             (limit > 0 && currentLimit > limit)
     }
