@@ -1,5 +1,5 @@
 //
-//  PreferencesWindow+MultipleItemWrapping.swift
+//  PreferencesAdvancedView+MultipleItemWrapping.swift
 //  CutBox
 //
 //  Created by Jason on 11/4/18.

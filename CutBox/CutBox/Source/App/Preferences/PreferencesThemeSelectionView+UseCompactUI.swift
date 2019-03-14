@@ -1,5 +1,5 @@
 //
-//  PreferencesWindow+UseCompactUI.swift
+//  PreferencesThemeSelectionView+UseCompactUI.swift
 //  CutBox
 //
 //  Created by Jason on 29/4/18.

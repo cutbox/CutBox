@@ -1,5 +1,5 @@
 //
-//  PreferencesWindow+JoinItems.swift
+//  PreferencesAdvancedView+JoinItems.swift
 //  CutBox
 //
 //  Created by Jason on 11/4/18.

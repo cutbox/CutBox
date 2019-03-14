@@ -1,5 +1,5 @@
 //
-//  Preferences+ThemeSelector.swift
+//  PreferencesThemeSelectionView+ThemeSelector.swift
 //  CutBox
 //
 //  Created by Jason on 11/5/18.

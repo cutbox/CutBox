@@ -6,7 +6,7 @@
   <a href="https://github.com/ocodo/CutBox/releases/download/1.3.13/CutBox.dmg"> <img src="https://img.shields.io/github/release/ocodo/CutBox.svg" alt="CutBox"/> </a> &nbsp;
   <img src="https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg" alt="Github commits (since latest release)"/> &nbsp;
   <a href="https://github.com/ocodo/CutBox/releases/download/1.3.13/CutBox.dmg"> <img src="https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg" alt="Latest release"/> </a>
-&nbsp; 
+&nbsp;
   <a href="https://gitter.im/CutBox/Lobby" title="Chat about CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
   &nbsp;
   <a href="https://www.codacy.com/app/jasonm23/CutBox?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade"> <img src="https://api.codacy.com/project/badge/Grade/1e2514342ff44f24ab5e2eb8c79f4f2b"/> </a>
@@ -98,6 +98,27 @@ what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPL
 
 If you have an [idea for a new feature please let me know
 here](https://github.com/cutbox/CutBox/issues/new?template=feature.md)
+
+# Developers
+
+If you'd like to contribute to CutBox development, please follow the guidelines below.
+
+- Pull requests should be covered by tests (Quick/Nimble or XCUITest)
+- Code must pass the quality checks as used by Codacy
+
+Development setup / tooling
+
+- XCode 9.1
+- Cocopods 1.6.1
+- Carthage 0.32.0
+
+Fork and clone
+
+- Pull submodules `git submodule update --init --recursive && git pull --recurse-submodules`
+- Install Cocoapods: `pod install`
+- Bootstrap Carthage: `carthage bootstrap`
+  - (run from within path `CutBox/DependencySubmodules/KeyHolder`)
+- XCode can then build / run / test
 
 # Licence
 

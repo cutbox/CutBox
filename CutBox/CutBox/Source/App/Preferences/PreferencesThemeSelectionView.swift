@@ -21,8 +21,8 @@ class PreferencesThemeSelectionView: NSView {
     override func awakeFromNib() {
         prefs = CutBoxPreferencesService.shared
 
-        setupThemeSelector()
-        setupCompactUIControl()
+        self.setupThemeSelector()
+        self.setupCompactUIControl()
     }
 
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {

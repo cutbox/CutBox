@@ -1,5 +1,5 @@
 //
-//  PreferencesWindow+AutoLogin.swift
+//  PreferencesGeneralView+AutoLogin.swift
 //  CutBox
 //
 //  Created by Jason on 11/4/18.
@@ -10,7 +10,6 @@ import RxCocoa
 import RxSwift
 
 extension PreferencesGeneralView {
-
     func setupAutoLoginControl() {
         self.autoLoginCheckbox.title = "preferences_launch_on_login".l7n
         self.autoLoginCheckbox.toolTip = "preferences_launch_on_login_tooltip".l7n
@@ -24,5 +23,4 @@ extension PreferencesGeneralView {
             .bind(to: self.loginItemsService.autoLoginEnabled)
             .disposed(by: disposeBag)
     }
-
 }

@@ -1,5 +1,5 @@
 //
-//  PreferencesWindow+KeyRecorder.swift
+//  PreferencesGeneralView+KeyRecorder.swift
 //  CutBox
 //
 //  Created by Jason on 11/4/18.

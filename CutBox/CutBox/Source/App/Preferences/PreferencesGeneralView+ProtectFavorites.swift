@@ -1,5 +1,5 @@
 //
-//  Preferences+ProtectFavorites.swift
+//  PreferencesGeneralView+ProtectFavorites.swift
 //  CutBox
 //
 //  Created by Jason on 17/5/18.

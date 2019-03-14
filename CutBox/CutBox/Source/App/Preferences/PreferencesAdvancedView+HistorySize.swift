@@ -1,5 +1,5 @@
 //
-//  Preferences+HistorySize.swift
+//  PreferencesAdvancedView+HistorySize.swift
 //  CutBox
 //
 //  Created by Jason on 11/5/18.
