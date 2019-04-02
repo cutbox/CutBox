@@ -5,7 +5,7 @@ PODS:
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
   - Sparkle (1.19.0)
-  - SwiftyStringScore (0.1.1)
+  - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
   - Nimble
@@ -29,7 +29,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftyStringScore:
-    :commit: 0b286b766b2a1d3270059bab7476abff81fff3d2
+    :commit: 8cbf18efc434baba2062d155ec366d1f6893b0a5
     :git: "git@github.com:yichizhang/SwiftyStringScore"
 
 SPEC CHECKSUMS:
@@ -38,7 +38,7 @@ SPEC CHECKSUMS:
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   Sparkle: 8486d2493599665e466b5076e72b28849776e32f
-  SwiftyStringScore: 6b8fa002b9ca4815840dc02f13309645369b835c
+  SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
 PODFILE CHECKSUM: f402dc30eb5b65a052847bbbd38964346fec6cd9
 

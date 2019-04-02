@@ -208,9 +208,9 @@ class HistoryService: NSObject {
 
     private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
         return IndexSet(items
-            .flatMap { self.items[safe: $0] }
+            .compactMap { self.items[safe: $0] }
             .map { self.historyRepo.items.index(of: $0) }
-            .flatMap { $0 })
+            .compactMap { $0 })
     }
 
     func remove(items: IndexSet) {

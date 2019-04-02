@@ -20,6 +20,14 @@ class UserDefaultsMock: UserDefaults {
         store[defaultName] = value
     }
 
+    override func set(_ value: Int, forKey defaultName: String) {
+        store[defaultName] = value
+    }
+
+    override func set(_ value: Float, forKey defaultName: String) {
+        store[defaultName] = value
+    }
+
     override func array(forKey defaultName: String) -> [Any]? {
         return store[defaultName] as? [Any]
     }
@@ -32,4 +40,11 @@ class UserDefaultsMock: UserDefaults {
         return store[defaultName] as? String
     }
 
+    override func integer(forKey defaultName: String) -> Int {
+        return store[defaultName] as? Int ?? 0
+    }
+
+    override func float(forKey defaultName: String) -> Float {
+        return store[defaultName] as? Float ?? 0.0
+    }
 }
