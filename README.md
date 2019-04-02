@@ -2,8 +2,6 @@
   <img src="CutBox/CutBox/GraphicAssets/cutbox-icon.png">
 </p>
 
-# UPDATE - Codesign issue with Mojave Fixed.
-
 <p align="center">
   <a href="https://github.com/ocodo/CutBox/releases/download/1.4.0/CutBox.dmg"> <img src="https://img.shields.io/github/release/ocodo/CutBox.svg" alt="CutBox"/> </a> &nbsp;
   <img src="https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg" alt="Github commits (since latest release)"/> &nbsp;
