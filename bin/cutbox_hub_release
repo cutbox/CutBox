@@ -45,7 +45,7 @@ echo "Setup a new release tag and upload current dmg"
 if [[ -f "$dmg" ]]; then
 
   hub release create -p \
-      -f "$file" \
+      -F "$file" \
       -a "$dmg" \
       $version
 
