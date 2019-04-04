@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SearchViewController" customModule="CutBox" customModuleProvider="target"/>
@@ -45,7 +43,7 @@
                                                             </buttonCell>
                                                         </button>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRL-Y7-w6T">
-                                                            <rect key="frame" x="50" y="15" width="818" height="17"/>
+                                                            <rect key="frame" x="50" y="16" width="818" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Placeholder" id="ALO-u1-b9U">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -53,7 +51,7 @@
                                                             </textFieldCell>
                                                         </textField>
                                                         <scrollView wantsLayer="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZp-O6-8EL" userLabel="Text View" customClass="DisablableScrollView" customModule="CutBox" customModuleProvider="target">
-                                                            <rect key="frame" x="47" y="15" width="814" height="17"/>
+                                                            <rect key="frame" x="47" y="16" width="814" height="17"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Vjp-Gw-55f">
                                                                 <rect key="frame" x="0.0" y="0.0" width="814" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,7 +59,8 @@
                                                                     <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" id="uWo-BC-ODB" customClass="SearchTextView" customModule="CutBox" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="814" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                         <size key="minSize" width="814" height="17"/>
                                                                         <size key="maxSize" width="925" height="10000000"/>
                                                                         <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -69,11 +68,11 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                             </clipView>
-                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="jDN-sP-Eff">
+                                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="jDN-sP-Eff">
                                                                 <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Sug-yv-iEb">
+                                                            <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Sug-yv-iEb">
                                                                 <rect key="frame" x="798" y="0.0" width="16" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
@@ -104,9 +103,6 @@
                                                     <color key="color" white="0.0" alpha="0.50171232880000005" colorSpace="calibratedWhite"/>
                                                 </shadow>
                                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="cutbox-icon" id="Lbt-4j-Ho9"/>
-                                                <connections>
-                                                    <action selector="clickIcon:" target="c22-O7-iKe" id="KMp-hb-hoz"/>
-                                                </connections>
                                             </imageView>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="29J-mY-iGz">
                                                 <rect key="frame" x="872" y="0.0" width="50" height="50"/>
@@ -180,11 +176,11 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                                                 </clipView>
-                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="t5y-cf-Ufv">
+                                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="t5y-cf-Ufv">
                                                     <rect key="frame" x="-100" y="-100" width="460" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
-                                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="whH-T9-Yh4">
+                                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="whH-T9-Yh4">
                                                     <rect key="frame" x="445" y="0.0" width="16" height="401"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
@@ -213,11 +209,11 @@
                                                                 </subviews>
                                                                 <color key="backgroundColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             </clipView>
-                                                            <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="DxZ-ox-tij">
+                                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="DxZ-ox-tij">
                                                                 <rect key="frame" x="0.0" y="363" width="439" height="16"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
-                                                            <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
+                                                            <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="fvg-Gr-W7B">
                                                                 <rect key="frame" x="423" y="0.0" width="16" height="379"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                             </scroller>
