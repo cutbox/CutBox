@@ -7,15 +7,18 @@ notify() {
 EOF
 }
 
-if [[ $# == 4 ]]; then
+if [[ "$GITHUB_TOKEN" == "" ]]; then
+  echo "Environment must have GITHUB_TOKEN defined (GitHub personal access token for CutBox/CutBox)"
+fi
+
+if [[ $# == 3 ]]; then
   echo "Initialize hub release: ${@}"
 else
-  notify "Error" "Usage: $0 {version} {dmg} {release-notes.md} {github_token}"
-  echo "Usage: $0 {version} {dmg} {release-notes.md} {github_token}"
+  notify "Error" "Usage: $0 {version} {dmg} {release-notes.md}"
+  echo "Usage: $0 {version} {dmg} {release-notes.md}"
   exit 1
 fi
 
-export GITHUB_TOKEN=$4
 version=$1
 
 notify "Preparing hub release" "Version: ${version}"
@@ -40,7 +43,7 @@ fi
 echo "Setup a new release tag and upload current dmg"
 
 if [[ -f "$dmg" ]]; then
-  
+
   hub release create -p \
       -f "$file" \
       -a "$dmg" \

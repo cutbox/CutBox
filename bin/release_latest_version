@@ -12,8 +12,6 @@ if [[ "$(which gsort)" == "gsort not found" ]]; then
   exit 1
 fi
 
-GITHUB_TOKEN=$1
-
 PROJECT_DIR="$(git rev-parse --show-toplevel)"
 RELEASE_NOTES="${PROJECT_DIR}/release-notes.md"
 DMG_FILE="${PROJECT_DIR}/CutBox.dmg"
@@ -45,7 +43,7 @@ bin/cutbox_make_dmg "$DMG_FILE" \
   && \
   notify "Pushed README.md" "$VERSION pushed to GitHub" \
   && \
-  bin/cutbox_hub_release "$VERSION" "$DMG_FILE" "$RELEASE_NOTES" $GITHUB_TOKEN \
+  bin/cutbox_hub_release "$VERSION" "$DMG_FILE" "$RELEASE_NOTES" \
   && \
   notify "Release ${VERSION}" "-> Released via GitHub" \
   && \
