@@ -108,7 +108,7 @@ If you'd like to contribute to CutBox development, please follow the guidelines 
 
 Development setup / tooling
 
-- XCode 9.1
+- XCode 10.1
 - Cocopods 1.6.1
 - Carthage 0.32.0
 

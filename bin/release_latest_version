@@ -21,6 +21,9 @@ VERSION=$(/usr/libexec/PlistBuddy -c \
                                   "Print CFBundleShortVersionString" \
                                   "${INFOPLIST_FILE}")
 
+notify "Release $VERSION (from ${OLD_VERSION})"
+echo "- Release $VERSION (from ${OLD_VERSION})"
+
 if [ "${VERSION}" == "${OLD_VERSION}" ]; then
   notify "Dry Run" "Warning: Current version and latest git tag match."
   echo "Warning: Current version and latest git tag match."
