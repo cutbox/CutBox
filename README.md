@@ -106,19 +106,50 @@ If you'd like to contribute to CutBox development, please follow the guidelines 
 - Pull requests should be covered by tests (Quick/Nimble or XCUITest)
 - Code must pass the quality checks as used by Codacy
 
-Development setup / tooling
+### Development setup / tooling
+
+Various tools are needed to build and release
 
 - XCode 10.1
 - Cocopods 1.6.1
 - Carthage 0.32.0
 
-Fork and clone
+Release tooling (for maintainer reference)
 
-- Pull submodules `git submodule update --init --recursive && git pull --recurse-submodules`
+- `hub` - Github's git cli wrapper `brew install hub`
+- `semver` - Semantic version manager `npm install -g semver`
+- `gsort` - GNU sort `brew install coreutils`
+- `cmark` - Markdown to HTML `brew install cmark`
+- `sign_update` - Sparkle Update manager DSA signer for AppCast. (TODO: Upgrade signing)
+- `mustache` - Template system (`gem install mustache`, or equivalent npm package)
+
+Also, assuming assumptions are not great,  you're building on MacOS compatible with XCode 10.1 which has the following installed:
+
+- `git` 2.20.1
+- `osascript`
+- `unexpand`
+- `PListBuddy` (You should be able to find it at `/usr/libexec/PlistBuddy`)
+
+### Clone and setup dependencies
+
+CutBox depends on Cocoapods to manage most dependencies, however it also depends on KeyHolder and Magnet (from Clipy)
+
+To properly clone, use the `--recurse-submodules` option. i.e.
+
+    git clone --recurse-submodules git@github.com:CutBox/CutBox
+
 - Install Cocoapods: `pod install`
+  - (run from `./CutBox/Cutbox`)
 - Bootstrap Carthage: `carthage bootstrap`
-  - (run from within path `CutBox/DependencySubmodules/KeyHolder`)
-- XCode can then build / run / test
+  - (run from `CutBox/CutBox/DependencySubmodules/KeyHolder`)
+  - This will build the Magnet & KeyHolder frameworks.
+- XCode 10.1 should then be able to build / run / test
+
+To keep things simple try `bin/setup`
+
+It'll run these steps for you (Note it's very basic!)
+
+There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
 
 # Licence
 

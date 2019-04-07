@@ -1,0 +1,18 @@
+#!/bin/sh
+
+echo "PLEASE NOTE: CutBox expects:
+- Cocoapods 1.6.1
+- Carthage  0.32.0
+"
+
+PROJECT_DIR="$(dirname $0)/.."
+
+cd $PROJECT_DIR/CutBox
+
+pod install
+
+cd $PROJECT_DIR/CutBox/DependencySubmodules/KeyHolder
+
+carthage bootstrap
+
+echo "Please check output above to ensure proper setup"
