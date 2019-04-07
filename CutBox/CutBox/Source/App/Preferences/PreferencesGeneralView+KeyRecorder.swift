@@ -22,7 +22,6 @@ extension PreferencesGeneralView {
             .subscribe(onNext: { self.mainKeyRecorder.keyCombo = $0 })
             .disposed(by: self.disposeBag)
     }
-
 }
 
 extension PreferencesGeneralView: RecordViewDelegate {
@@ -48,13 +47,8 @@ extension PreferencesGeneralView: RecordViewDelegate {
     }
 
     func recordViewDidClearShortcut(_ recordView: RecordView) {
-
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
-        if hotKeyCenter.hotKey(Constants.cutBoxToggleKeyCombo) == nil {
-            hotKeyService.resetDefaultGlobalToggle()
-        }
     }
-
 }
