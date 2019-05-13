@@ -156,8 +156,8 @@ class SearchViewController: NSObject {
     }
 
     func updateSearchItemPreview() {
-        let preview = prefs.prepareClips(selectedClips)
-        self.searchView.preview.string = preview
+        var preview = prefs.prepareClips(selectedClips)
+        self.searchView.preview.string = preview.truncate(limit: 50_000)
     }
 
     // swiftlint:disable cyclomatic_complexity
