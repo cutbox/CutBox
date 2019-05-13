@@ -138,7 +138,7 @@ class HistoryService: NSObject {
         dictCache = nil
     }
 
-    var itemsCache: [String]?
+    private var itemsCache: [String]?
     var items: [String] {
         if let cached = itemsCache {
             return cached
@@ -173,7 +173,7 @@ class HistoryService: NSObject {
         return cache
     }
 
-    var dictCache: [[String: String]]?
+    private var dictCache: [[String: String]]?
     var dict: [[String: String]] {
         if let cached = dictCache {
             return cached
