@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
+		7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5495DE2276785B0041FA76 /* String+Utils.swift */; };
+		7CA72F1A2289BCBC00D5E50B /* String+UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */; };
 		961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
@@ -224,6 +226,8 @@
 /* Begin PBXFileReference section */
 		1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
 		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C5495DE2276785B0041FA76 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UtilsSpec.swift"; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
@@ -541,6 +545,7 @@
 				96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */,
 				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
 				96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */,
+				7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */,
 				968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */,
 				964CA5482083296600B9F33E /* String+L10n.swift */,
+				7C5495DE2276785B0041FA76 /* String+Utils.swift */,
 				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
 				964766682067B82900E7026F /* DisableScrollView.swift */,
 				964766632067A5F100E7026F /* NSObject+fromNib.swift */,
@@ -1196,6 +1202,7 @@
 				96FD7C2020ADBE0100818925 /* JSFuncItemTableRowTextView.swift in Sources */,
 				96A8020A20AACD4E000CBE74 /* OrderedSet.swift in Sources */,
 				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
+				7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */,
 				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
 				967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */,
 				96FD7C2820ADBEF300818925 /* JSFuncSearchViewController.swift in Sources */,
@@ -1285,6 +1292,7 @@
 				96FD7C3520B1028E00818925 /* OrderedSetSpec.swift in Sources */,
 				964CA5362080373500B9F33E /* Array+String+SwiftyStringScoreSpec.swift in Sources */,
 				964CA53C2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */,
+				7CA72F1A2289BCBC00D5E50B /* String+UtilsSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

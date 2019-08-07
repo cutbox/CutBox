@@ -32,6 +32,7 @@ class ClipItemTableRowTextView: ItemTableRowTextView {
 
         self.title.stringValue = titleString
             .trimmingCharacters(in: .whitespacesAndNewlines)
+            .truncate(limit: 1000)
     }
 
 }

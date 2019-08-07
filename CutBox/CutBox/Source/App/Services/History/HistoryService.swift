@@ -48,7 +48,11 @@ class HistoryService: NSObject {
     var defaults: UserDefaults
     var pasteboard: PasteboardWrapperType
     var pollingTimer: Timer?
-    var filterText: String?
+    var filterText: String? {
+        didSet {
+            invalidateCaches()
+        }
+    }
 
     var removeGuard: String?
 
@@ -57,6 +61,7 @@ class HistoryService: NSObject {
     var searchMode: HistorySearchMode {
         set {
             self.defaults.set(newValue.axID(), forKey: searchModeKey)
+            invalidateCaches()
         }
         get {
             if let axID = self.defaults.string(forKey: searchModeKey) {
@@ -71,6 +76,7 @@ class HistoryService: NSObject {
         set {
             internalFavoritesOnly = newValue
             self.defaults.set(newValue, forKey: searchFavoritesOnly)
+            invalidateCaches()
         }
         get {
             return internalFavoritesOnly
@@ -124,56 +130,82 @@ class HistoryService: NSObject {
         if limit > 0 && historyRepo.items.count > limit {
             historyRepo.removeSubrange(limit..<historyRepo.items.count)
         }
+        invalidateCaches()
     }
 
+    private func invalidateCaches() {
+        itemsCache = nil
+        dictCache = nil
+    }
+
+    private var itemsCache: [String]?
     var items: [String] {
+        if let cached = itemsCache {
+            return cached
+        }
+
         let historyItems: [String] =
             self.favoritesOnly ?
                 historyRepo.favorites
                 : historyRepo.items
 
-        guard let search = self.filterText, search != ""
-            else { return historyItems }
-
-        switch searchMode {
-        case .fuzzyMatch:
-            return historyItems.fuzzySearchRankedFiltered(
-                search: search,
-                score: Constants.searchFuzzyMatchMinScore)
-        case .regexpAnyCase:
-            return historyItems.regexpSearchFiltered(
-                search: search,
-                options: [.caseInsensitive])
-        case .regexpStrictCase:
-            return historyItems.regexpSearchFiltered(
-                search: search,
-                options: [])
+        let cache: [String]
+        if let search = self.filterText, search != "" {
+            switch searchMode {
+            case .fuzzyMatch:
+                cache = historyItems.fuzzySearchRankedFiltered(
+                    search: search,
+                    score: Constants.searchFuzzyMatchMinScore)
+            case .regexpAnyCase:
+                cache = historyItems.regexpSearchFiltered(
+                    search: search,
+                    options: [.caseInsensitive])
+            case .regexpStrictCase:
+                cache = historyItems.regexpSearchFiltered(
+                    search: search,
+                    options: [])
+            }
+        } else {
+            cache = historyItems
         }
+
+        itemsCache = cache
+        return cache
     }
 
+    private var dictCache: [[String: String]]?
     var dict: [[String: String]] {
+        if let cached = dictCache {
+            return cached
+        }
+
         let historyItems: [[String: String]] =
             self.favoritesOnly ?
                 historyRepo.favoritesDict
                 : historyRepo.dict
 
-        guard let search = self.filterText, search != ""
-            else { return historyItems }
-
-        switch searchMode {
-        case .fuzzyMatch:
-            return historyItems.fuzzySearchRankedFiltered(
-                search: search,
-                score: Constants.searchFuzzyMatchMinScore)
-        case .regexpAnyCase:
-            return historyItems.regexpSearchFiltered(
-                search: search,
-                options: [.caseInsensitive])
-        case .regexpStrictCase:
-            return historyItems.regexpSearchFiltered(
-                search: search,
-                options: [])
+        let cache: [[String: String]]
+        if let search = self.filterText, search != "" {
+            switch searchMode {
+            case .fuzzyMatch:
+                cache = historyItems.fuzzySearchRankedFiltered(
+                    search: search,
+                    score: Constants.searchFuzzyMatchMinScore)
+            case .regexpAnyCase:
+                cache = historyItems.regexpSearchFiltered(
+                    search: search,
+                    options: [.caseInsensitive])
+            case .regexpStrictCase:
+                cache = historyItems.regexpSearchFiltered(
+                    search: search,
+                    options: [])
+            }
+        } else {
+            cache = historyItems
         }
+
+        dictCache = cache
+        return cache
     }
 
     var count: Int {
@@ -203,6 +235,7 @@ class HistoryService: NSObject {
 
     func clear() {
         self.historyRepo.clearHistory()
+        invalidateCaches()
         self.events.onNext(.didClearHistory)
     }
 
@@ -222,12 +255,14 @@ class HistoryService: NSObject {
 
         self.historyRepo
             .removeAtIndexes(indexes: indexes)
+        invalidateCaches()
     }
 
     func toggleFavorite(items: IndexSet) {
         let indexes = itemSelectionToHistoryIndexes(items: items)
         self.historyRepo
             .toggleFavorite(indexes: indexes)
+        invalidateCaches()
     }
 
     func saveToDefaults() {
