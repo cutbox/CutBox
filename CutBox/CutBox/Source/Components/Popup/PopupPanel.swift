@@ -3,7 +3,7 @@
 //  CutBox
 //
 //  Created by Jason Milkins on 24/3/18.
-//  Copyright © 2018 ocodo. All rights reserved.
+//  Copyright © 2019 ocodo. All rights reserved.
 //
 
 import Cocoa

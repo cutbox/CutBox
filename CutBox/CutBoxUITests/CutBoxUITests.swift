@@ -3,7 +3,7 @@
 //  CutBoxUITests
 //
 //  Created by Jason on 29/5/18.
-//  Copyright © 2018 ocodo. All rights reserved.
+//  Copyright © 2019 ocodo. All rights reserved.
 //
 
 import XCTest

@@ -3,7 +3,7 @@
 //  CutBoxHelper
 //
 //  Created by Jason on 4/4/18.
-//  Copyright © 2018 ocodo. All rights reserved.
+//  Copyright © 2019 ocodo. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

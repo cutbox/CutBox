@@ -3,7 +3,7 @@
 //  CutBoxTests
 //
 //  Created by Jason on 20/5/18.
-//  Copyright © 2018 ocodo. All rights reserved.
+//  Copyright © 2019 ocodo. All rights reserved.
 //
 
 import Foundation

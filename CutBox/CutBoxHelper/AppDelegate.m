@@ -3,7 +3,7 @@
 //  CutBoxHelper
 //
 //  Created by Jason on 4/4/18.
-//  Copyright © 2018 ocodo. All rights reserved.
+//  Copyright © 2019 ocodo. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -23,10 +23,8 @@
     [NSApp terminate:nil];
 }
 
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
 
 @end
