@@ -1,10 +1,13 @@
 PODS:
-  - Nimble (8.0.1)
-  - Quick (2.0.0)
-  - RxCocoa (4.5.0):
-    - RxSwift (>= 4.4.2, ~> 4.4)
-  - RxSwift (4.5.0)
-  - Sparkle (1.21.3)
+  - Nimble (8.0.7)
+  - Quick (2.2.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - Sparkle (1.23.0)
   - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
@@ -20,6 +23,7 @@ SPEC REPOS:
     - Nimble
     - Quick
     - RxCocoa
+    - RxRelay
     - RxSwift
     - Sparkle
 
@@ -33,11 +37,12 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:yichizhang/SwiftyStringScore"
 
 SPEC CHECKSUMS:
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
-  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
-  Sparkle: 3f75576db8b0265adef36c43249d747f22d0b708
+  Nimble: a73af6ecd4c9106f434f3d55fc54570be3739e0b
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  Sparkle: 55b1a87ba69d56913375a281546b7c82dec95bb0
   SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
 PODFILE CHECKSUM: f402dc30eb5b65a052847bbbd38964346fec6cd9
