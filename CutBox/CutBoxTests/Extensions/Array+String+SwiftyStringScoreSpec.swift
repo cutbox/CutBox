@@ -49,14 +49,6 @@ class ArrayStringSwiftyStringScoreSpec: QuickSpec {
 
                 expect(expected).to(equal(results))
             }
-
-            it("checks invalid array index in SwiftyStringScore") {
-                let results = sut.fuzzySearchRankedFiltered(search: "gg",
-                                                            score: 0.5)
-                let expected = ["We couldn’t reveal your PIN. Let’s give this another go."]
-
-                expect(expected).to(equal(results))
-            }
         }
     }
 }
