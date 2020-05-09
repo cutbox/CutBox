@@ -11,7 +11,7 @@ import Cocoa
 extension NSObject {
 
     class func fromNib<T>() -> T? {
-        var objectArray: NSArray? = nil
+        var objectArray: NSArray?
         let name = String(describing: T.self)
         guard Bundle.main.loadNibNamed(
             NSNib.Name(rawValue: name),
@@ -24,7 +24,7 @@ extension NSObject {
     }
 
     class func fromNib<T>(name: String) -> T? {
-        var objectArray: NSArray? = nil
+        var objectArray: NSArray?
         guard Bundle.main.loadNibNamed(
             NSNib.Name(rawValue: name),
             owner: nil,

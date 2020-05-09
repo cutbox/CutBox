@@ -13,7 +13,7 @@ import JavaScriptCore
 
 @testable import CutBox
 
-class JSContext_subscriptSpec: QuickSpec {
+class JSContextSubscriptSpec: QuickSpec {
     override func spec() {
         describe("JSContext+subscript") {
             let ctx = JSContext()!

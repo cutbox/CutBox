@@ -20,7 +20,7 @@ class ArrayStringSwiftyStringScoreSpec: QuickSpec {
                 "Fizz Buzz",
                 "Bob the Hoojah Melon",
                 "JR Bob Dobbs",
-                "Relatively complicated and doesn't fuzzy match with anything else, of this I'm sure.",
+                "Relatively complicated and doesn't fuzzy match with anything else",
                 "Generic code sample",
                 "Boustrophedon",
                 "Bobby",
@@ -49,7 +49,7 @@ class ArrayStringSwiftyStringScoreSpec: QuickSpec {
 
                 expect(expected).to(equal(results))
             }
-            
+
             it("checks invalid array index in SwiftyStringScore") {
                 let results = sut.fuzzySearchRankedFiltered(search: "gg",
                                                             score: 0.5)

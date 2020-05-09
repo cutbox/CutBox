@@ -1113,7 +1113,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"$(which semver)\" == \"semver not found\" ]]; then\n  echo \"Error: semver required (via Node/npm install -g semver)\"\n  exit 1\nfi\n\nTAG_VERSIONNUM=$(semver $(git tag) | tail -1)\nTAG_SUBVERSION=$(echo $TAG_VERSIONNUM | awk -F \".\" '{print $3}')\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nSUBVERSION=$(echo $VERSIONNUM | awk -F \".\" '{print $3}')\nNEWSUBVERSION=$(($SUBVERSION + 1))\nNEWVERSIONSTRING=$(echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }')\n\nif [[ $TAG_SUBVERSION == $SUBVERSION ]]; then\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nelse\n  echo \"warning: Version (${VERSIONNUM}) is already ahead of latest git tag (${TAG_VERSIONNUM})\"\nfi";
+			shellScript = "if [[ \"$(which semver)\" == \"semver not found\" ]]; then\n  echo \"Error: semver required (via Node/npm install -g semver)\"\n  exit 1\nfi\n\nTAG_VERSIONNUM=$(semver $(git tag) | tail -1)\nTAG_SUBVERSION=$(echo $TAG_VERSIONNUM | awk -F \".\" '{print $3}')\nVERSIONNUM=$(/usr/libexec/PlistBuddy -c \"Print CFBundleShortVersionString\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nSUBVERSION=$(echo $VERSIONNUM | awk -F \".\" '{print $3}')\nNEWSUBVERSION=$(($SUBVERSION + 1))\nNEWVERSIONSTRING=$(echo $VERSIONNUM | awk -F \".\" '{print $1 \".\" $2 \".'$NEWSUBVERSION'\" }')\n\nif [[ $TAG_SUBVERSION == $SUBVERSION ]]; then\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $NEWVERSIONSTRING\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nelse\n  echo \"warning: Version (${VERSIONNUM}) is already ahead of latest git tag (${TAG_VERSIONNUM})\"\nfi\n";
 		};
 		9689879620D2037300D40C02 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1126,7 +1126,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

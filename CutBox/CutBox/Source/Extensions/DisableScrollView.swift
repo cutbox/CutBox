@@ -10,7 +10,7 @@ import Cocoa
 
 @IBDesignable
 
-@objc public class DisablableScrollView: NSScrollView {
+public class DisablableScrollView: NSScrollView {
 
     @IBInspectable @objc(enabled) public var isEnabled: Bool = true
 
