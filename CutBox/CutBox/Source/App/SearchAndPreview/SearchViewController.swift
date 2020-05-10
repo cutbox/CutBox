@@ -156,7 +156,7 @@ class SearchViewController: NSObject {
     }
 
     func updateSearchItemPreview() {
-        var preview = prefs.prepareClips(selectedClips)
+        let preview = prefs.prepareClips(selectedClips)
         self.searchView.preview.string = preview.truncate(limit: 50_000)
     }
 
