@@ -1,5 +1,5 @@
 #/bin/sh
-
+
 # Check script requirements
 if [[ "$(which semver)" == "semver not found" ]]; then
   echo "Error: semver required (via Node/npm install -g semver)"
@@ -21,4 +21,3 @@ if [[ $TAG_PATCH == $PATCH ]]; then
 else
   echo "warning: Version (${VERSIONNUM}) is already ahead of latest git tag (${TAG_VERSIONNUM})"
 fi
-
