@@ -95,8 +95,6 @@ class JSFuncService: NSObject {
             string: "~/.cutbox.js").expandingTildeInPath
 
         guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
-            notifyUser(title: "Could not load ~/.cutbox.js",
-                       info: "file does not exist")
             return
         }
 
@@ -131,5 +129,4 @@ class JSFuncService: NSObject {
             else { return nil }
         return fileContent
     }
-
 }

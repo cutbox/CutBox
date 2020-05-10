@@ -61,16 +61,6 @@
                ReferencedContainer = "container:CutBox.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "96F98EA120BD554D00C8DDA3"
-               BuildableName = "CutBoxUITests.xctest"
-               BlueprintName = "CutBoxUITests"
-               ReferencedContainer = "container:CutBox.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
