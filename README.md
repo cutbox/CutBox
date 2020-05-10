@@ -116,19 +116,23 @@ Various tools are needed to build and release
 
 Release tooling (for maintainer reference)
 
+- `ruby` - Used by cocoapods `pod` and `carthage`
+- `npm/node` - Used by `semver`
 - `hub` - Github's git cli wrapper `brew install hub`
 - `semver` - Semantic version manager `npm install -g semver`
 - `gsort` - GNU sort `brew install coreutils`
 - `cmark` - Markdown to HTML `brew install cmark`
-- `sign_update` - Sparkle Update manager DSA signer for AppCast. (TODO: Upgrade signing)
-- `mustache` - Template system (`gem install mustache`, or equivalent npm package)
+- `sign_update` - Sparkle Update manager DSA signer for AppCast. (This is the legacy Sparkle tool)
+- `wget` - ensure openssl is installed for ssl/https
+- `openssl` - for wget
+- `mustache` - Template system (e.g. `gem install mustache`)
 
-Also, assuming assumptions are not great,  you're building on MacOS compatible with XCode 10.1 which has the following installed:
+Also, since assuming assumptions isn't great,  to be clear you're going to be building on MacOS compatible with XCode 11.3.1 which has the following installed:
 
 - `git` 2.20.1
 - `osascript`
 - `unexpand`
-- `PListBuddy` (You should be able to find it at `/usr/libexec/PlistBuddy`)
+- `PListBuddy` (You should beable to find it at `/usr/libexec/PlistBuddy`)
 
 ### Clone and setup dependencies
 

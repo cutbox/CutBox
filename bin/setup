@@ -3,13 +3,58 @@
 echo "PLEASE NOTE: CutBox expects:
 - Cocoapods 1.6.1
 - Carthage  0.32.0
-"
 
-PROJECT_DIR="$(dirname $0)/.."
+Build & release tooling...
+
+- homebrew (incase anything is missing)
+- ruby (for cocoapods and carthage)
+- pod (cocoapods)
+- carthage
+- npm
+- semver (via npm)
+- hub
+- gsort
+- cmark
+- sign_update (Sparkle auto-update framework)
+- wget (with https enabled)
+- mustache
+- git
+- osascript
+- unexpand
+
+"
+which \
+  ruby \
+  brew \
+  hub \
+  npm \
+  semver \
+  gsort \
+  cmark \
+  sign_update \
+  wget \
+  mustache \
+  git \
+  osascript \
+  unexpand \
+  pod \
+  carthage
+
+echo "anything missing? "
+
+git submodule update --init --recursive
+
+PROJECT_DIR=$(git rev-parse --show-toplevel)
+
+echo "=========================================================================================="
+echo "Install Pods"
 
 cd $PROJECT_DIR/CutBox
 
 pod install
+
+echo "=========================================================================================="
+echo "Bootstrap Carthage in KeyHolder (DependencySubmodule)"
 
 cd $PROJECT_DIR/CutBox/DependencySubmodules/KeyHolder
 
