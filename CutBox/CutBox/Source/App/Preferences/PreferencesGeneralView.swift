@@ -18,15 +18,13 @@ class PreferencesGeneralView: NSView {
 
     var hotKeyService: HotKeyService!
     var hotKeyCenter: HotKeyCenter!
+    var loginItemsService: LoginItemsService!
 
     @IBOutlet weak var mainKeyRecorder: RecordView!
     @IBOutlet weak var mainKeyRecorderLabel: NSTextField!
-
-    var loginItemsService: LoginItemsService!
-
     @IBOutlet weak var autoLoginCheckbox: NSButton!
-
     @IBOutlet weak var protectFavoritesCheckbox: NSButton!
+    @IBOutlet weak var showAllHiddenDialogBoxesButton: NSButton!
 
     override func awakeFromNib() {
         self.loginItemsService = LoginItemsService.shared
@@ -37,6 +35,6 @@ class PreferencesGeneralView: NSView {
         setupKeyRecorders()
         setupProtectFavoritesCheckbox()
         setupAutoLoginControl()
+        setupShowAllHiddenDialogBoxesButton()
     }
-
 }

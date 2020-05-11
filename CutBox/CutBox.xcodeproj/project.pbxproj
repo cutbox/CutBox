@@ -79,6 +79,7 @@
 		967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAD20A476D200A525CC /* NSImage+tint.swift */; };
 		967EFEB020A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */; };
 		967EFEB220A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEB120A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift */; };
+		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
 		968B4F0620A68CB300F150BE /* JSContext+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968B4F0520A68CB300F150BE /* JSContext+subscript.swift */; };
@@ -289,6 +290,7 @@
 		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
 		967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+HistorySize.swift"; sourceTree = "<group>"; };
 		967EFEB120A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesThemeSelectionView+ThemeSelector.swift"; sourceTree = "<group>"; };
+		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
 		968B4F0520A68CB300F150BE /* JSContext+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSContext+subscript.swift"; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 				96A8021420AB0AD1000CBE74 /* PreferencesTabView.swift */,
 				96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */,
 				96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */,
+				9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */,
 				96A8020120A8573D000CBE74 /* PreferencesGeneralView.swift */,
 				964CA506207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift */,
 				96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */,
@@ -1192,6 +1195,7 @@
 				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
 				965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */,
 				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,
+				968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */,
 				96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */,
 				96FD7C2620ADBEAF00818925 /* JSFuncService.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,

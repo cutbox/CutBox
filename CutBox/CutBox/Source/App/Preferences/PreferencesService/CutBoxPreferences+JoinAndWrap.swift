@@ -6,8 +6,6 @@
 //  Copyright © 2019 ocodo. All rights reserved.
 //
 
-import JavaScriptCore
-
 extension CutBoxPreferencesService {
 
     func prepareClips(_ clips: [String]) -> String {
@@ -28,5 +26,4 @@ extension CutBoxPreferencesService {
 
         return clip
     }
-
 }

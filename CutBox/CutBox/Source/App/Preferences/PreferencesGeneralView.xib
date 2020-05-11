@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
@@ -15,13 +14,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="equalCentering" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKK-xB-hXy">
-                    <rect key="frame" x="100" y="93" width="256" height="86"/>
+                    <rect key="frame" x="100" y="59" width="256" height="120"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HLe-Dc-sPk">
-                            <rect key="frame" x="0.0" y="56" width="212" height="30"/>
+                            <rect key="frame" x="0.0" y="90" width="212" height="30"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Aa2-BL-mR4" userLabel="CutBox Shortcut TextField">
-                                    <rect key="frame" x="-2" y="7" width="93" height="17"/>
+                                    <rect key="frame" x="-2" y="7" width="93" height="16"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Toggle CutBox" id="RBS-h9-ZJE" userLabel="CutBox Shortcut TextCell">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -62,30 +61,39 @@
                                 <real value="3.4028234663852886e+38"/>
                             </customSpacing>
                         </stackView>
-                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="T93-L1-O29">
-                            <rect key="frame" x="-2" y="30" width="122" height="18"/>
+                        <button verticalHuggingPriority="750" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="T93-L1-O29">
+                            <rect key="frame" x="-2" y="64" width="122" height="18"/>
                             <buttonCell key="cell" type="check" title="Launch on Login" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="JGH-Ww-gHu">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
                         <button toolTip="Don't clear favorites if you clear history" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-Pa-cvu">
-                            <rect key="frame" x="-2" y="-2" width="123" height="18"/>
+                            <rect key="frame" x="-2" y="33" width="123" height="18"/>
                             <buttonCell key="cell" type="check" title="Protect favorites" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jBy-0u-Xgk">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
+                        <button toolTip="Show all hidden dialog boxes" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p6L-bE-eyj">
+                            <rect key="frame" x="-6" y="-7" width="198" height="32"/>
+                            <buttonCell key="cell" type="push" title="Show hidden dialog boxes" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="X0q-T7-T4T">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="86" id="aYc-og-5mK"/>
+                        <constraint firstAttribute="height" constant="120" id="aYc-og-5mK"/>
                     </constraints>
                     <visibilityPriorities>
                         <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
+                        <integer value="1000"/>
                     </visibilityPriorities>
                     <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
@@ -102,6 +110,7 @@
                 <outlet property="mainKeyRecorder" destination="fSw-8Y-IKM" id="0tQ-VE-zlZ"/>
                 <outlet property="mainKeyRecorderLabel" destination="Aa2-BL-mR4" id="6ZZ-5s-CMQ"/>
                 <outlet property="protectFavoritesCheckbox" destination="Q7E-Pa-cvu" id="q0y-q4-QDW"/>
+                <outlet property="showAllHiddenDialogBoxesButton" destination="p6L-bE-eyj" id="YGd-A7-H7a"/>
             </connections>
             <point key="canvasLocation" x="-669" y="506.5"/>
         </customView>

@@ -32,6 +32,9 @@
 "preferences_history_destructive_limit_change_warning_title" = "Reduce Pasteboard History Limit?";
 "preferences_history_destructive_limit_change_warning_description" = "You are attempting to reduce your CutBox history limit\nIf you continue you'll lose items beyond that limit\n\nThis operation cannot be undone\n\nClick OK to continue";
 
+"preferences_show_all_hidden_dialog_boxes_button_title" = "Show hidden dialog boxes";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "Show all dialog boxes set to 'Do not show'";
+
 "confirm_warning_clear_history_title" = "Clear CutBox history?";
 "confirm_warning_clear_history" = "Warning: You cannot undo this operation";
 

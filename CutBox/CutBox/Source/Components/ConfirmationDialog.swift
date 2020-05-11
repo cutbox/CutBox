@@ -26,10 +26,12 @@ func suppressibleConfirmationDialog(messageText: String,
                                     ok: String = "ok".l7n,
                                     cancel: String = "cancel".l7n,
                                     defaults: UserDefaults = UserDefaults.standard) -> Bool {
-    let suppressionKey = "\(dialogName)Suppressed"
+
+    let suppressionKey = "\(dialogName)_CutBoxSuppressed"
+    let suppressionChoiceKey = "\(dialogName)_CutBoxSuppressedChoice"
 
     if defaults.bool(forKey: suppressionKey) {
-        return true
+        return defaults.bool(forKey: suppressionChoiceKey)
     }
 
     let alert = makeDialog(messageText: messageText,
@@ -38,11 +40,14 @@ func suppressibleConfirmationDialog(messageText: String,
 
     alert.showsSuppressionButton = true
 
+    let alertResponse = alert.runModal() == .alertFirstButtonReturn
+
     if alert.suppressionButton?.state == .on {
         defaults.set(true, forKey: suppressionKey)
+        defaults.set(alertResponse, forKey: suppressionChoiceKey)
     }
 
-    return alert.runModal() == .alertFirstButtonReturn
+    return alertResponse
 }
 
 func confirmationDialog(messageText: String,
@@ -55,5 +60,4 @@ func confirmationDialog(messageText: String,
                            ok: ok, cancel: cancel)
 
     return alert.runModal() == .alertFirstButtonReturn
-
 }
