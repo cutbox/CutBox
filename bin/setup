@@ -11,6 +11,7 @@ Build & release tooling...
 - pod (cocoapods)
 - carthage
 - npm
+- appdmg
 - semver (via npm)
 - hub
 - gsort
@@ -29,6 +30,7 @@ which \
   hub \
   npm \
   semver \
+  appdmg \
   gsort \
   cmark \
   sign_update \

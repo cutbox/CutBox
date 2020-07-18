@@ -17,7 +17,7 @@ class PreferencesJavascriptTransformView: NSView {
     @IBOutlet weak var javascriptTransformSectionTitle: NSTextField!
     @IBOutlet weak var javascriptReplCommandLine: NSTextField!
     @IBOutlet weak var javascriptTransformInfo: NSTextField!
-    @IBOutlet weak var javascriptTransformREPLOutput: NSTextView!
+    @IBOutlet var javascriptTransformREPLOutput: NSTextView!
     @IBOutlet weak var javascriptTransformReloadButton: NSButton!
     @IBOutlet weak var javascriptClearReplButton: NSButton!
 

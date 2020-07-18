@@ -9,7 +9,16 @@ EOF
 
 DMG_FILE="$1"
 
+if [[ $1 == "" ]]; then
+	echo "Failed, missing DMG_NAME"
+	echo ""
+	echo "Usage: cutbox_make_dmg DMG_NAME"
+	echo ""
+	exit 1
+fi
+
 if [[ $(which appdmg) =~ "not found" ]]; then
+  echo "Failed, missing dependency"
   echo "node-appdmg required."
   echo "visit: https://github.com/LinusU/node-appdmg"
   exit 1
@@ -29,13 +38,18 @@ latest_app=$(find ~/Library/Developer/Xcode/Archives \
 
 notify "Prepare..." "$1 / $(pwd)"
 
+echo "Copying ${latest_app} to ${bin_folder}"
+
 cp -R "$latest_app" "$bin_folder"
 
-echo "Making CutBox.dmg"
+echo "Making new DMG ${DMG_FILE}"
 
 notify "Making new DMG..." "${DMG_FILE}"
 
 appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
+
+echo "AppDMG exit code:"
+echo $?
 
 rm -rf "${bin_folder}/CutBox.app"
 

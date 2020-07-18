@@ -19,7 +19,7 @@ DEPENDENCIES:
   - "SwiftyStringScore (from `git@github.com:8bytes/SwiftyStringScore`)"
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Nimble
     - Quick
     - RxCocoa
@@ -47,4 +47,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: aef55c22ab7f06084791730de381c2f4318b376c
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.9.3

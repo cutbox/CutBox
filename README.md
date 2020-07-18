@@ -41,16 +41,9 @@ Anything else?
 
 # Download / install...
 
-You can find the latest release here: https://github.com/ocodo/CutBox/releases/latest
+CutBox is Free OpenSource software. It isn't available via Apple's AppStore. or possible to download and install a CutBox.app. This is thanks to Apple's poorly thought through (or deliberately toxic to Open Source apps?) Gatekeeper / Notarization policy.
 
-After downloading, open **CutBox.dmg** and drag **CutBox.app** to **/Applications**
-
-To run, open **/Applications** (Cmd + A in Finder) and double click **CutBox**
-
-**Please note:** Macos will give a security warning, that it was built
-by an unidentified developer.  [I'm that developer!](https://github.com/jasonm23)
-
-CutBox is Free OpenSource software. It isn't available via Apple's AppStore.
+I recommend compiling from source (I will make this easier for users via Homebrew.) See the developer notes at the bottom of this README if you'd like to try this method and bootstrap your very own CutBox.app.
 
 ## Using CutBox
 
@@ -119,6 +112,7 @@ Release tooling (for maintainer reference)
 - `ruby` - Used by cocoapods `pod` and `carthage`
 - `npm/node` - Used by `semver`
 - `hub` - Github's git cli wrapper `brew install hub`
+- `appdmg` - Used for packaging the .app into a DMG `npm install -g appdmg`
 - `semver` - Semantic version manager `npm install -g semver`
 - `gsort` - GNU sort `brew install coreutils`
 - `cmark` - Markdown to HTML `brew install cmark`

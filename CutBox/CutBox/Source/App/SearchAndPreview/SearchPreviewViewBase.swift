@@ -15,9 +15,9 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
-    @IBOutlet weak var searchText: NSTextView!
+    @IBOutlet var searchText: NSTextView!
     @IBOutlet weak var itemsList: NSTableView!
-    @IBOutlet weak var preview: NSTextView!
+    @IBOutlet var preview: NSTextView!
     @IBOutlet weak var previewContainer: NSBox!
     @IBOutlet weak var iconImageView: NSImageView!
     @IBOutlet weak var searchScopeImageButton: NSButton!
