@@ -101,11 +101,12 @@ If you'd like to contribute to CutBox development, please follow the guidelines 
 
 ### Development setup / tooling
 
-Various tools are needed to build and release
+The following tools were used to build CutBox. You will 
+need them:
 
-- XCode 10.1
-- Cocopods 1.6.1
-- Carthage 0.32.0
+- XCode Version 11.6 (11E708)
+- Cocopods 1.9.3
+- Carthage 0.35.0
 
 Release tooling (for maintainer reference)
 
@@ -121,7 +122,7 @@ Release tooling (for maintainer reference)
 - `openssl` - for wget
 - `mustache` - Template system (e.g. `gem install mustache`)
 
-Also, since assuming assumptions isn't great,  to be clear you're going to be building on MacOS compatible with XCode 11.3.1 which has the following installed:
+Also, since assuming assumptions isn't great,  to be clear you're going to be building on MacOS compatible with XCode 11.6 which has the following installed:
 
 - `git` 2.20.1
 - `osascript`
@@ -141,7 +142,7 @@ To properly clone, use the `--recurse-submodules` option. i.e.
 - Bootstrap Carthage: `carthage bootstrap`
   - (run from `CutBox/CutBox/DependencySubmodules/KeyHolder`)
   - This will build the Magnet & KeyHolder frameworks.
-- XCode 10.1 should then be able to build / run / test
+- XCode 11.6 should then be able to build / run / test
 
 To keep things simple try `bin/setup`
 
