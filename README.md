@@ -17,6 +17,18 @@
   <p>it'll make your pasteboard awesome!</p>
 </div>
 
+# IMPORTANT
+
+First thing to know about using CutBox yourself is that you'll need to compile it.  If you need an out of the box solution, and you want new features that you don't want to add yourself, please move along to the next clipboard history app.
+
+If you think compiling your own apps is a fun thing to do, keep reading.  My project goals are now:
+
+- Make this easy for you to compile on your own Mac.
+
+My other goal is to only attract users who want to use CutBox in a plain-text / developer setting, any non-text pasteboard items are not in the scope of CutBox.
+
+[#][Jump to compilation instructions...]
+
 ## About CutBox
 
 CutBox keeps your pasteboard cut/copy history and lets you paste
@@ -84,17 +96,12 @@ I'm moving more help and information to the project wiki, [read more...](https:/
 
 # Bugs...
 
-If you find a bug I'd love to hear about it, [click here to tell me
+If you find a bug, [click here to tell me
 what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPLATE.md)
-
-# Would you like CutBox to do something?
-
-If you have an [idea for a new feature please let me know
-here](https://github.com/cutbox/CutBox/issues/new?template=feature.md)
 
 # Developers
 
-If you'd like to contribute to CutBox development, please follow the guidelines below.
+If you'd like to contribute to CutBox development, especially if you find bugs you'd like to fix, please follow the guidelines below.
 
 - Pull requests should be covered by tests (Quick/Nimble or XCUITest)
 - Code must pass the quality checks as used by Codacy
@@ -104,23 +111,15 @@ If you'd like to contribute to CutBox development, please follow the guidelines 
 The following tools were used to build CutBox. You will 
 need them:
 
+- `ruby` - Used by cocoapods `pod` and `carthage`
+- `npm/node` - Used by `semver`
+
 - XCode Version 11.6 (11E708)
 - Cocopods 1.9.3
 - Carthage 0.35.0
 
-Release tooling (for maintainer reference)
-
-- `ruby` - Used by cocoapods `pod` and `carthage`
-- `npm/node` - Used by `semver`
-- `hub` - Github's git cli wrapper `brew install hub`
-- `appdmg` - Used for packaging the .app into a DMG `npm install -g appdmg`
 - `semver` - Semantic version manager `npm install -g semver`
 - `gsort` - GNU sort `brew install coreutils`
-- `cmark` - Markdown to HTML `brew install cmark`
-- `sign_update` - Sparkle Update manager DSA signer for AppCast. (This is the legacy Sparkle tool)
-- `wget` - ensure openssl is installed for ssl/https
-- `openssl` - for wget
-- `mustache` - Template system (e.g. `gem install mustache`)
 
 Also, since assuming assumptions isn't great,  to be clear you're going to be building on MacOS compatible with XCode 11.6 which has the following installed:
 
@@ -131,22 +130,15 @@ Also, since assuming assumptions isn't great,  to be clear you're going to be bu
 
 ### Clone and setup dependencies
 
-CutBox depends on Cocoapods to manage most dependencies, however it also depends on KeyHolder and Magnet (from Clipy)
-
-To properly clone, use the `--recurse-submodules` option. i.e.
+Get the CutBox source via git:
 
     git clone --recurse-submodules git@github.com:CutBox/CutBox
 
-- Install Cocoapods: `pod install`
-  - (run from `./CutBox/Cutbox`)
-- Bootstrap Carthage: `carthage bootstrap`
-  - (run from `CutBox/CutBox/DependencySubmodules/KeyHolder`)
-  - This will build the Magnet & KeyHolder frameworks.
-- XCode 11.6 should then be able to build / run / test
+Once cloned, move to the cloned folder: `cd CutBox`
 
-To keep things simple try `bin/setup`
+Now run:
 
-It'll run these steps for you (Note it's very basic!)
+  `bin/setup`
 
 There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
 

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Get app from archive
+echo "Fetching CutBox.app"
