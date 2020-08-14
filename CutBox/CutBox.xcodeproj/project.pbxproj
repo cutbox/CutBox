@@ -1423,7 +1423,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -1445,7 +1444,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -1467,7 +1465,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
@@ -1488,7 +1485,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;

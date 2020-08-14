@@ -1,0 +1,18 @@
+#!/bin/sh
+# -*- mode: sh -*-
+
+echo "Fetch latest .app from archive"
+bin_folder=$(dirname $0)
+
+latest_app=$(find ~/Library/Developer/Xcode/Archives \
+                  -name "CutBox.app" \
+                  -type d \
+                  -print0 \
+               | \
+               xargs -0 \
+                     ls -1t -d \
+               | head -1)
+
+echo "Copying ${latest_app} to $(dirname $bin_folder/../)"
+
+cp -R "$latest_app" "$bin_folder/../"

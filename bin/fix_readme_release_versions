@@ -20,6 +20,7 @@ cat "${TEMPFILE}" > "${README}"
 rm "${TEMPFILE}"
 
 git add "${README}"
+
 git add "${PROJECT_DIR}/CutBox/CutBox/Info.plist"
 
 git commit -m "Update README to ${NEW_VERSION}"

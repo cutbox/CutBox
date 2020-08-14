@@ -1,5 +1,0 @@
-#!/bin/sh
-
-bin/archive_app
-
-bin/release_latest_version
