@@ -1,8 +1,9 @@
 #!/bin/sh
 # -*- mode: sh -*-
 
-echo "Fetch latest .app from archive"
-bin_folder=$(dirname $0)
+project_root=$(git rev-parse --show-toplevel)
+
+echo "Get latest .app from archive"
 
 latest_app=$(find ~/Library/Developer/Xcode/Archives \
                   -name "CutBox.app" \
@@ -13,6 +14,4 @@ latest_app=$(find ~/Library/Developer/Xcode/Archives \
                      ls -1t -d \
                | head -1)
 
-echo "Copying ${latest_app} to $(dirname $bin_folder/../)"
-
-cp -R "$latest_app" "$bin_folder/../"
+cp -R "$latest_app" "$project_root"

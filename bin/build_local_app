@@ -1,0 +1,9 @@
+#!/bin/sh
+
+bin/build_archive
+
+bin/get_app_from_latest_archive
+
+codesign --deep --force -s - CutBox.app
+
+open .

@@ -1,5 +1,0 @@
-#!/bin/sh
-
-bin/build_archive
-
-bin/fetch_last_app_from_archive
