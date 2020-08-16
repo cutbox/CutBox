@@ -800,7 +800,6 @@
 				96E1E592205D243400F994ED /* Resources */,
 				CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */,
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
-				96085E4C206E37B200CA77BB /* Release notification warning */,
 				963AA669207269CE00779697 /* Embed Frameworks */,
 				962D6D802074622A007E3785 /* CopyFiles */,
 				964CA52D207F92AA00B9F33E /* CopyFiles */,
@@ -1012,20 +1011,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
-		};
-		96085E4C206E37B200CA77BB /* Release notification warning */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Release notification warning";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/../bin/warn_do_release\"";
 		};
 		96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */ = {
 			isa = PBXShellScriptBuildPhase;

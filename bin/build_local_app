@@ -1,5 +1,7 @@
 #!/bin/sh
 
+rm -rf CutBox.app
+
 bin/build_archive
 
 bin/get_app_from_latest_archive
