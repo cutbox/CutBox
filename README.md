@@ -27,7 +27,7 @@ If you think compiling your own apps is a fun thing to do, keep reading.  My pro
 
 My other goal is to only attract users who want to use CutBox in a plain-text / developer setting, any non-text pasteboard items are not in the scope of CutBox.
 
-[#][Jump to compilation instructions...]
+[Compile instructions](#compilation-setup--tooling)
 
 ## About CutBox
 
@@ -55,7 +55,7 @@ Anything else?
 
 CutBox is Free OpenSource software. It isn't available via Apple's AppStore. or possible to download and install a CutBox.app. This is thanks to Apple's poorly thought through (or deliberately toxic to Open Source apps?) Gatekeeper / Notarization policy.
 
-I recommend compiling from source (I will make this easier for users via Homebrew.) See the developer notes at the bottom of this README if you'd like to try this method and bootstrap your very own CutBox.app.
+[Compile instructions](#compilation-setup--tooling)
 
 ## Using CutBox
 
@@ -106,9 +106,9 @@ If you'd like to contribute to CutBox development, especially if you find bugs y
 - Pull requests should be covered by tests (Quick/Nimble or XCUITest)
 - Code must pass the quality checks as used by Codacy
 
-### Development setup / tooling
+### Compilation setup / tooling
 
-The following tools were used to build CutBox. You will 
+The following tools were used to build CutBox. You will
 need them:
 
 - `ruby` - Used by cocoapods `pod` and `carthage`
@@ -140,7 +140,20 @@ Now run:
 
   `bin/setup`
 
+To build **CutBox.app**:
+
+  `bin/make_local_app`
+
 There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
+
+# Troubleshooting
+
+CutBox requires you to allow it access to keyboard control (it will simulate a **Cmd+v** to paste)
+
+Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
+
+Here you will need to set CutBox to allow Accessibility (unlock &
+check box) or it won't paste your selected clipboard item.
 
 # Licence
 
