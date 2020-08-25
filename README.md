@@ -3,10 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ocodo/CutBox/releases/download/1.4.101.4.0/CutBox.dmg"> <img src="https://img.shields.io/github/release/ocodo/CutBox.svg" alt="CutBox"/> </a> &nbsp;
-  <img src="https://img.shields.io/github/commits-since/ocodo/CutBox/latest.svg" alt="Github commits (since latest release)"/> &nbsp;
-  <a href="https://github.com/ocodo/CutBox/releases/download/1.4.101.4.0/CutBox.dmg"> <img src="https://img.shields.io/github/downloads/ocodo/CutBox/latest/CutBox.dmg.svg" alt="Latest release"/> </a>
-&nbsp;
   <a href="https://gitter.im/CutBox/Lobby" title="Chat about CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
   &nbsp;
   <a href="https://www.codacy.com/app/jasonm23/CutBox?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade"> <img src="https://api.codacy.com/project/badge/Grade/1e2514342ff44f24ab5e2eb8c79f4f2b"/> </a>
