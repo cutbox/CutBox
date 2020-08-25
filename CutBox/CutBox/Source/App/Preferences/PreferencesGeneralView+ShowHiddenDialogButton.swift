@@ -2,7 +2,7 @@
 //  PreferencesGeneralView+ShowHiddenDialogButton.swift
 //  CutBox
 //
-//  Created by Jason on 11/5/20.
+//  Created by Jason Milkins on 11/5/20.
 //  Copyright © 2020 ocodo. All rights reserved.
 //
 

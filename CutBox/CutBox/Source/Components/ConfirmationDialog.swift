@@ -2,8 +2,8 @@
 //  ConfirmationDialog.swift
 //  CutBox
 //
-//  Created by Jason on 15/4/18.
-//  Copyright © 2019 ocodo. All rights reserved.
+//  Created by Jason Milkins on 15/4/18.
+//  Copyright © 2019-2020 ocodo. All rights reserved.
 //
 
 import Cocoa

@@ -2,8 +2,8 @@
   Localizable.strings
   CutBox
 
-  Created by Jason on 15/4/18.
-  Copyright © 2019 ocodo. All rights reserved.
+  Created by Jason Milkins on 15/4/18.
+  Copyright © 2019-2020 ocodo. All rights reserved.
 */
 
 "preferences_title" = "CutBox Preferences";
@@ -70,7 +70,7 @@
 
 "about_cutbox_title" = "CutBox";
 "about_cutbox_home_url" = "https://cutbox.github.io";
-"about_cutbox_copyright_licence" = "Copyright © 2019 Jason Milkins\nLicensed under GNU GPL3";
+"about_cutbox_copyright_licence" = "Copyright © 2020 Jason Milkins\nLicensed under GNU GPL3";
 
 "context_menu_remove_selected" = "Remove Selected";
 "context_menu_favorite" = "Toggle Favorite";
