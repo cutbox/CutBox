@@ -65,3 +65,7 @@ echo "Bootstrap Carthage in KeyHolder (DependencySubmodule)"
 cd $PROJECT_DIR/CutBox/DependencySubmodules/KeyHolder
 
 carthage bootstrap
+
+echo "To build do:
+
+bin/build_local_app"
