@@ -1,48 +1,52 @@
 #!/bin/sh
 
+message() {
+  echo "CutBox Setup: ${1}"
+}
+
+which_check() {
+  cross_mark="❌"
+  check_mark="✓"
+
+  if [ $# -ne 1 ]; then
+    message "which_check: No arguments provided"
+    exit 1
+  else
+    if [[ $(which $1) == "" ]]; then
+      printf "${cross_mark}"
+    else
+      printf "${check_mark}"
+    fi
+  fi
+
+}
+
+if [[ "$(which brew)" == "/usr/local/bin/brew" ]]; then
+  message "Running brew bundle"
+  brew bundle
+  npm install -g --force semver
+  npm install -g --force mustache
+else
+  message "Homebrew must be installed and working."
+  exit 1
+fi
+
 echo "PLEASE NOTE: CutBox expects:
 - Cocoapods 1.6.1
 - Carthage  0.32.0
 
 Build & release tooling...
 
-- homebrew (incase anything is missing)
-- ruby (for cocoapods and carthage)
-- pod (cocoapods)
-- carthage
-- npm
-- appdmg
-- semver (via npm)
-- hub
-- gsort
-- cmark
-- sign_update (Sparkle auto-update framework)
-- wget (with https enabled)
-- mustache
-- git
-- osascript
-- unexpand
-
+- [$(which_check brew)] homebrew (in case anything is missing)
+- [$(which_check ruby)] ruby (for cocoapods and carthage)
+- [$(which_check pod)] cocoapods
+- [$(which_check carthage)] carthage
+- [$(which_check cmark)] cmark
+- [$(which_check npm)] npm
+- [$(which_check semver)] semver
+- [$(which_check mustache)] mustache
 "
-which \
-  ruby \
-  brew \
-  hub \
-  npm \
-  semver \
-  appdmg \
-  gsort \
-  cmark \
-  sign_update \
-  wget \
-  mustache \
-  git \
-  osascript \
-  unexpand \
-  pod \
-  carthage
-
-echo "anything missing? "
+echo "anything missing? (Get help at https://gitter.im/CutBox/Lobby)"
 
 git submodule update --init --recursive
 
@@ -61,5 +65,3 @@ echo "Bootstrap Carthage in KeyHolder (DependencySubmodule)"
 cd $PROJECT_DIR/CutBox/DependencySubmodules/KeyHolder
 
 carthage bootstrap
-
-echo "Please check output above to ensure proper setup"

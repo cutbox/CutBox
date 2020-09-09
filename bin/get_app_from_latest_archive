@@ -14,4 +14,4 @@ latest_app=$(find ~/Library/Developer/Xcode/Archives \
                      ls -1t -d \
                | head -1)
 
-cp -R "$latest_app" "$project_root"
+cp -R "${latest_app}" "${project_root}/"

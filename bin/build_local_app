@@ -1,6 +1,6 @@
 #!/bin/sh
 
-rm -rf CutBox.app
+rm -rf CUTBOX_BUILD/CutBox.app
 
 bin/build_archive
 
@@ -8,4 +8,6 @@ bin/get_app_from_latest_archive
 
 codesign --deep --force -s - CutBox.app
 
-open .
+mv CutBox.app CUTBOX_BUILD/
+
+open CUTBOX_BUILD
