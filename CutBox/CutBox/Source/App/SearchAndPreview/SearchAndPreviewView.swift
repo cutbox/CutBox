@@ -41,7 +41,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     func setSearchModeButton(mode: HistorySearchMode) {
-        let color = [NSAttributedStringKey.foregroundColor: prefs.currentTheme.clip.clipItemsTextColor]
+        let color = [NSAttributedString.Key.foregroundColor: prefs.currentTheme.clip.clipItemsTextColor]
         let titleString = NSAttributedString(string: mode.name(), attributes: color)
 
         self.searchModeToggle.attributedTitle = titleString
