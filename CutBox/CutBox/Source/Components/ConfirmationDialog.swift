@@ -8,7 +8,7 @@
 
 import Cocoa
 
-fileprivate func makeDialog(messageText: String,
+private func makeDialog(messageText: String,
                             informativeText: String,
                             ok: String, cancel: String) -> NSAlert {
     let alert = NSAlert()
