@@ -286,38 +286,34 @@ class CutBoxPreferencesService {
         size: 12)
 
     var useJoinString: Bool {
-        set {
-            defaults.set(newValue, forKey: kUseJoinSeparator)
-        }
         get {
             return defaults.bool(forKey: kUseJoinSeparator)
+        }
+        set {
+            defaults.set(newValue, forKey: kUseJoinSeparator)
         }
     }
 
     var multiJoinString: String? {
-        set {
-            defaults.set(newValue, forKey: kMultiJoinSeparator)
-        }
         get {
             return useJoinString ?
                 defaults.string(forKey: kMultiJoinSeparator) : nil
         }
+        set {
+            defaults.set(newValue, forKey: kMultiJoinSeparator)
+        }
     }
 
     var useWrappingStrings: Bool {
-        set {
-            defaults.set(newValue, forKey: kUseWrappingStrings)
-        }
         get {
             return defaults.bool(forKey: kUseWrappingStrings)
+        }
+        set {
+            defaults.set(newValue, forKey: kUseWrappingStrings)
         }
     }
 
     var wrappingStrings: (String?, String?) {
-        set {
-            defaults.set(newValue.0, forKey: kWrapStringStart)
-            defaults.set(newValue.1, forKey: kWrapStringEnd)
-        }
         get {
             return useWrappingStrings ?
                 (
@@ -325,9 +321,16 @@ class CutBoxPreferencesService {
                     defaults.string(forKey: kWrapStringEnd)
                 ) : (nil, nil)
         }
+        set {
+            defaults.set(newValue.0, forKey: kWrapStringStart)
+            defaults.set(newValue.1, forKey: kWrapStringEnd)
+        }
     }
 
     var historyLimited: Bool {
+        get {
+            return defaults.bool(forKey: kHistoryLimited)
+        }
         set {
             defaults.set(newValue, forKey: kHistoryLimited)
             if !newValue {
@@ -335,38 +338,35 @@ class CutBoxPreferencesService {
             }
             events.onNext(.historyLimitChanged(limit: historyLimit))
         }
-        get {
-            return defaults.bool(forKey: kHistoryLimited)
-        }
     }
 
     var historyLimit: Int {
+        get {
+            return defaults.integer(forKey: kHistoryLimit)
+        }
         set {
             defaults.set(newValue, forKey: kHistoryLimit)
             events.onNext(.historyLimitChanged(limit: newValue))
         }
-        get {
-            return defaults.integer(forKey: kHistoryLimit)
-        }
     }
 
     var useCompactUI: Bool {
+        get {
+            return defaults.bool(forKey: kUseCompactUI)
+        }
         set {
             defaults.set(newValue, forKey: kUseCompactUI)
             events.onNext(.compactUISettingChanged(isOn: newValue))
         }
-        get {
-            return defaults.bool(forKey: kUseCompactUI)
-        }
     }
 
     var protectFavorites: Bool {
+        get {
+            return defaults.bool(forKey: kProtectFavorites)
+        }
         set {
             defaults.set(newValue, forKey: kProtectFavorites)
             events.onNext(.protectFavoritesChanged(isOn: newValue))
-        }
-        get {
-            return defaults.bool(forKey: kProtectFavorites)
         }
     }
 

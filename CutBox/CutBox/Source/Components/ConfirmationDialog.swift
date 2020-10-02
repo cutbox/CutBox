@@ -9,8 +9,8 @@
 import Cocoa
 
 private func makeDialog(messageText: String,
-                            informativeText: String,
-                            ok: String, cancel: String) -> NSAlert {
+                        informativeText: String,
+                        ok: String, cancel: String) -> NSAlert {
     let alert = NSAlert()
     alert.messageText = messageText
     alert.informativeText = informativeText

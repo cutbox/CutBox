@@ -14,9 +14,11 @@ class ItemTableRowContainerView: NSTableRowView {
     var imageView: ItemTableRowImageView?
 
     override var selectionHighlightStyle: NSTableView.SelectionHighlightStyle {
-        set {}
         get {
             return .regular
+        }
+        set {
+            _ = newValue // unused new value
         }
     }
 

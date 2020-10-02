@@ -33,13 +33,12 @@ class HistoryService: NSObject {
 
     var internalHistoryLimit: Int = 0
     var historyLimit: Int {
+        get {
+            return internalHistoryLimit
+        }
         set {
             internalHistoryLimit = newValue
             self.truncateItems()
-        }
-
-        get {
-            return internalHistoryLimit
         }
     }
 
@@ -59,27 +58,27 @@ class HistoryService: NSObject {
     private var internalDefaultSearchmode: HistorySearchMode = .fuzzyMatch
 
     var searchMode: HistorySearchMode {
-        set {
-            self.defaults.set(newValue.axID(), forKey: searchModeKey)
-            invalidateCaches()
-        }
         get {
             if let axID = self.defaults.string(forKey: searchModeKey) {
                 return HistorySearchMode.searchMode(from: axID)
             }
             return internalDefaultSearchmode
         }
+        set {
+            self.defaults.set(newValue.axID(), forKey: searchModeKey)
+            invalidateCaches()
+        }
     }
 
     var internalFavoritesOnly: Bool = false
     var favoritesOnly: Bool {
+        get {
+            return internalFavoritesOnly
+        }
         set {
             internalFavoritesOnly = newValue
             self.defaults.set(newValue, forKey: searchFavoritesOnly)
             invalidateCaches()
-        }
-        get {
-            return internalFavoritesOnly
         }
     }
 

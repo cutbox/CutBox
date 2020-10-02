@@ -25,13 +25,13 @@ class ClipItemTableRowImageButtonView: NSView {
 
     var internalColor: NSColor = NSColor.textColor
     var color: NSColor {
+        get {
+            return internalColor
+        }
+
         set {
             internalColor = newValue
             self.tintImage()
-        }
-
-        get {
-            return internalColor
         }
     }
 

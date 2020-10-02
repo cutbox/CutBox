@@ -11,13 +11,12 @@ import Foundation
 extension CutBoxPreferencesService {
 
     var theme: Int {
+        get {
+            return defaults.integer(forKey: "theme")
+        }
         set {
             defaults.set(newValue, forKey: "theme")
             self.events.onNext(.themeChanged)
-        }
-
-        get {
-            return defaults.integer(forKey: "theme")
         }
     }
 

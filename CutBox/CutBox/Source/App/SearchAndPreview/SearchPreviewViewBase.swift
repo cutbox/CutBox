@@ -32,15 +32,18 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet weak var mainBottomConstraint: NSLayoutConstraint!
 
     var searchTextHeight: CGFloat {
-        set {
-            searchTextContainerHeight.constant = newValue
-        }
         get {
             return searchTextContainerHeight.constant
+        }
+        set {
+            searchTextContainerHeight.constant = newValue
         }
     }
 
     var spacing: CGFloat {
+        get {
+            return mainContainer.spacing
+        }
         set {
             mainContainer.spacing = newValue
             container.spacing = newValue
@@ -48,9 +51,6 @@ class SearchPreviewViewBase: NSView {
             mainLeadingConstraint.constant = newValue
             mainTrailingConstraint.constant = newValue
             mainBottomConstraint.constant = newValue
-        }
-        get {
-            return mainContainer.spacing
         }
     }
 

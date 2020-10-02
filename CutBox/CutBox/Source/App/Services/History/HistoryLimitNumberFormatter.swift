@@ -11,9 +11,11 @@ import Foundation
 class HistoryLimitNumberFormatter: NumberFormatter {
 
     override var isPartialStringValidationEnabled: Bool {
-        set {}
         get {
             return true
+        }
+        set {
+            _ = newValue // unused new valuec
         }
     }
 
