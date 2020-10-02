@@ -14,10 +14,10 @@ class LinkText: NSTextField {
     var linkColor: NSColor!
 
     override func awakeFromNib() {
-        let attributes: [NSAttributedStringKey: Any] = [
-            NSAttributedStringKey.foregroundColor: linkColor,
-            NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
-            NSAttributedStringKey.underlineColor: linkColor
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: linkColor,
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue,
+            NSAttributedString.Key.underlineColor: linkColor
         ]
         attributedStringValue = NSAttributedString(string: "about_cutbox_home_url".l7n, attributes: attributes)
     }

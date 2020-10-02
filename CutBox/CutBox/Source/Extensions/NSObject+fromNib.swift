@@ -14,7 +14,7 @@ extension NSObject {
         var objectArray: NSArray?
         let name = String(describing: T.self)
         guard Bundle.main.loadNibNamed(
-            NSNib.Name(rawValue: name),
+            name,
             owner: nil,
             topLevelObjects: &objectArray) else {
                 fatalError("Unable to load view from nib: \(name)")
@@ -26,7 +26,7 @@ extension NSObject {
     class func fromNib<T>(name: String) -> T? {
         var objectArray: NSArray?
         guard Bundle.main.loadNibNamed(
-            NSNib.Name(rawValue: name),
+            name,
             owner: nil,
             topLevelObjects: &objectArray) else {
                 fatalError("Unable to load view from nib: \(name)")

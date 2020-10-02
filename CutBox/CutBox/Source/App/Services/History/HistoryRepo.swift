@@ -53,11 +53,11 @@ class HistoryRepo {
     }
 
     func hasString(_ string: String) -> Bool {
-        return items.index(of: string) != nil
+        return items.firstIndex(of: string) != nil
     }
 
     func index(of string: String) -> Int? {
-        return items.index(of: string)
+        return items.firstIndex(of: string)
     }
 
     func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false) {

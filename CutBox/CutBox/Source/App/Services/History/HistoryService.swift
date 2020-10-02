@@ -242,7 +242,7 @@ class HistoryService: NSObject {
     private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
         return IndexSet(items
             .compactMap { self.items[safe: $0] }
-            .map { self.historyRepo.items.index(of: $0) }
+            .map { self.historyRepo.items.firstIndex(of: $0) }
             .compactMap { $0 })
     }
 
@@ -296,7 +296,7 @@ class HistoryService: NSObject {
             self.removeGuard = nil
         }
 
-        if let indexOfClip = historyRepo.items.index(of: currentClip) {
+        if let indexOfClip = historyRepo.items.firstIndex(of: currentClip) {
             if indexOfClip == 0 {
                 return (nil, false)
             }
