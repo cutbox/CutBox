@@ -37,8 +37,8 @@ public class OrderedSet<T: Hashable> {
 
         objects.insert(object, at: index)
         indexOfKey[object] = index
-        for i in index+1..<objects.count {
-            indexOfKey[objects[i]] = i
+        for idx in index+1..<objects.count {
+            indexOfKey[objects[idx]] = i
         }
     }
 
@@ -73,8 +73,8 @@ public class OrderedSet<T: Hashable> {
 
         indexOfKey.removeValue(forKey: object)
         objects.remove(at: index)
-        for i in index..<objects.count {
-            indexOfKey[objects[i]] = i
+        for idx in index..<objects.count {
+            indexOfKey[objects[idx]] = i
         }
     }
 

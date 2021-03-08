@@ -6,6 +6,8 @@
 //  Copyright © 2019-2020 ocodo. All rights reserved.
 //
 
+// swiftlint:disable identifier_name
+
 import Cocoa
 
 private func makeDialog(messageText: String,

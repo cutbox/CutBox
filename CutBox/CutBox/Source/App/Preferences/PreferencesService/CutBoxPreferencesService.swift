@@ -6,6 +6,8 @@
 //  Copyright © 2019-2020 ocodo. All rights reserved.
 //
 
+// swiftlint:disable type_body_length
+
 import Cocoa
 import Magnet
 import RxSwift

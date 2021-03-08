@@ -11,11 +11,11 @@ import Foundation
 extension Array {
 
     mutating func removeAtIndexes(indexes: IndexSet) {
-        var i: Index? = indexes.last
-        while i != nil {
+        var idx: Index? = indexes.last
+        while idx != nil {
             // implicit guard so we can safely force unwrap
-            self.remove(at: i!)
-            i = indexes.integerLessThan(i!)
+            self.remove(at: idx!)
+            i = indexes.integerLessThan(idx!)
         }
     }
 

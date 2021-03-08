@@ -6,6 +6,8 @@
 //  Copyright © 2019-2020 ocodo. All rights reserved.
 //
 
+// swiftlint:disable large_tuple
+
 import Cocoa
 
 class CutBoxColorTheme {
