@@ -15,7 +15,7 @@ extension Array {
         while idx != nil {
             // implicit guard so we can safely force unwrap
             self.remove(at: idx!)
-            i = indexes.integerLessThan(idx!)
+            idx = indexes.integerLessThan(idx!)
         }
     }
 
