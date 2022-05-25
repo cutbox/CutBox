@@ -1,0 +1,10 @@
+{
+  "title": "CutBox",
+  "icon-size": 128,
+  "icon": "../CutBox/build/CutBox.app/Contents/Resources/AppIcon.icns",
+  "background": "../CutBox/CutBox/GraphicAssets/dmg_background.png",
+  "contents": [
+    { "x": 183, "y": 352, "type": "file", "path": "../CutBox/build/CutBox.app" },
+    { "x": 651, "y": 352, "type": "link", "path": "/Applications" }
+  ]
+}

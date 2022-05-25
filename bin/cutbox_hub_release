@@ -1,0 +1,46 @@
+#!/bin/sh
+# -*- mode: sh -*-
+
+notify() {
+  echo "$1: $2"
+}
+
+if [[ $# == 3 ]]; then
+  echo "Initialize hub release: ${@}"
+else
+  echo "Usage: $0 {version} {dmg} {release-notes.md}"
+  exit 1
+fi
+
+version=$1
+
+notify "Preparing hub release" "Version: ${version}"
+
+if [[ $version =~ [0-9]+\.[0-9]+\.[0-9]+ ]]; then
+  echo "Version: ${version}"
+else
+  notify "Error" "Aborting: Version: ${version} is not valid (use semver)"
+
+  exit 3
+fi
+
+dmg=$2
+
+if [ -f "$3" ]; then
+  file=$3
+else
+  notify "Release notes" "$3 not found"
+  exit 1
+fi
+
+echo "Setup a new release tag and upload current dmg"
+
+if [[ -f "$dmg" ]]; then
+  gh release create -p \
+      "$version" -F "$file"
+
+  gh release upload "$version" "$dmg"
+else
+  notify "Error" "dmg file: ${dmg} : not found"
+  exit 4
+fi

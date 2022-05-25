@@ -1,5 +1,5 @@
 .DS_Store
 **/*.xcworkspace/xcuserdata/**/*
 **/*.xcodeproj/xcuserdata/**/*
-CutBox/build
+**/build
 CutBox.dmg

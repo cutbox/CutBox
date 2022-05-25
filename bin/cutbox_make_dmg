@@ -1,0 +1,27 @@
+#!/bin/sh
+# -*- mode: sh -*-
+
+DMG_FILE="$1"
+
+if [[ $1 == "" ]]; then
+	echo "Failed, missing DMG_NAME"
+	echo ""
+	echo "Usage: cutbox_make_dmg DMG_NAME"
+	echo ""
+	exit 1
+fi
+
+if [[ $(which appdmg) =~ "not found" ]]; then
+  echo "Failed, missing dependency"
+  echo "node-appdmg required."
+  echo "visit: https://github.com/LinusU/node-appdmg"
+  exit 1
+fi
+
+bin_folder=$(dirname $0)
+
+echo "Making new DMG ${DMG_FILE}"
+
+appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
+
+exit 0
