@@ -122,6 +122,8 @@ To build **CutBox.app**:
 
   `bin/build`
 
+(You can find the built app with `open CutBox/build/`, you should copy it to `/Applications`)
+
 # Troubleshooting
 
 There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
