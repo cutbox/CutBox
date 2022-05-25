@@ -3,12 +3,22 @@
 build_folder="$(dirname $0)/../CutBox/build"
 archive_at="${build_folder}/archive/CutBox.xcarchive"
 
+rmdir_if_present(){
+  if [[ -d "$1" ]];then
+     echo "Removing: $1"
+     rm -rvf "$1"
+  fi
+}
+
+rmdir_if_present "${build_folder}/CutBox.app"
+rmdir_if_present "${build_folder}/archive"
+
 xcodebuild archive \
   -workspace CutBox/CutBox.xcworkspace \
   -scheme CutBox \
   -configuration Release \
   -archivePath "${archive_at}"
 
-mv -f "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
+mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
 
 codesign --deep --force -s - "${build_folder}/CutBox.app"
