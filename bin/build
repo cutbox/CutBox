@@ -1,0 +1,14 @@
+#!/bin/sh
+
+build_folder="$(dirname $0)/../CutBox/build"
+archive_at="${build_folder}/archive/CutBox.xcarchive"
+
+xcodebuild archive \
+  -workspace CutBox/CutBox.xcworkspace \
+  -scheme CutBox \
+  -configuration Release \
+  -archivePath "${archive_at}"
+
+mv -f "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
+
+codesign --deep --force -s - "${build_folder}/CutBox.app"
