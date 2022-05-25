@@ -26,13 +26,17 @@ brew tap cutbox/cutbox
 brew intall cutbox
 ```
 
-# Enable Clipboard pasting.
+# Enable automatic paste.
 
-Before CutBox can paste for you, enable it to control the keyboard.
+Before CutBox can paste for you (when you select something and hit enter that is.) You have to enable it to control the keyboard.
 
 Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
 
-Unlock and add CutBox to the list of apps (and check the box next to it). 
+Unlock and add CutBox to the list of apps (also switch on the check box next to its icon). 
+
+This works best before CutBox is run. (Macos will suggest restarting CutBox anyway.)
+
+FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
 
 # About CutBox
 
