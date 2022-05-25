@@ -36,17 +36,14 @@ extension PreferencesGeneralView: RecordViewDelegate {
         return true
     }
 
-    func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
+    func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo?) {
         switch recordView {
         case mainKeyRecorder:
             hotKeyService
                 .searchKeyCombo
-                .onNext(keyCombo)
+                .onNext(keyCombo!)
         default: break
         }
-    }
-
-    func recordViewDidClearShortcut(_ recordView: RecordView) {
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
