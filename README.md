@@ -17,15 +17,7 @@
 
 # IMPORTANT
 
-First thing to know about using CutBox yourself is that you'll need to compile it.  If you need an out of the box solution, and you want new features that you don't want to add yourself, please move along to the next clipboard history app.
-
-If you think compiling your own apps is a fun thing to do, keep reading.  My project goals are now:
-
-- Make this easy for you to compile on your own Mac.
-
-My other goal is to only attract users who want to use CutBox in a plain-text / developer setting, any non-text pasteboard items are not in the scope of CutBox.
-
-[Compile instructions](#compilation-setup--tooling)
+CutBox is designed as OpenSource and you are encouraged to [Compile yourself](#compilation-setup--tooling)
 
 ## About CutBox
 
@@ -36,24 +28,36 @@ Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://githu
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
 
-What does it do? Let's you search from your pasteboard history....
-
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
 
-What else...
+As well as copy / paste history you can:
 
 - Make items favorite
-- Select and paste multiple items as one
+- Select and paste multiple items joined as a single piece of text.
 
 Anything else?
 
 - You can send your pasted text through [Javascript functions](https://github.com/cutbox/CutBox/wiki/Javascript-support)
 
+_NOTE: Javascript pre-processing will be removed in a future release. (protest if you use it!) _
+
 # Download / install...
 
-CutBox is Free OpenSource software. It isn't available via Apple's AppStore. or possible to download and install a CutBox.app. This is thanks to Apple's poorly thought through (or deliberately toxic to Open Source apps?) Gatekeeper / Notarization policy.
+Get the current release:
 
-[Compile instructions](#compilation-setup--tooling)
+https://github.com/cutbox/CutBox/releases/download/1.4.12/CutBox.dmg
+
+You can also compile yourself... [Compile instructions](#compilation-setup--tooling)
+
+# Enable Clipboard pasting.
+
+Before CutBox can paste for you, enable it to control the keyboard.
+
+Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
+
+Unlock and add CutBox to the list of apps (and check the box next to it). 
+
+
 
 ## Using CutBox
 
@@ -71,17 +75,12 @@ CutBox Search is activated using a global hotkey:
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
 
-When you activate CutBox you can search for anything copied, just type
-what you're searching for or navigate with the arrow keys (or
-mouse/trackpad).
+With the CutBox window open, search for anything you copied.
 
 Press <kbd>**Enter**</kbd> and the selected item will paste into your
 current app.
 
-You can exit without pasting, just press <kbd>**Esc**</kbd>.
-
-If fuzzy matching isn't specific enough for you, regexp matching is
-also available.
+To exit just press <kbd>**Esc**</kbd>.
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
 
@@ -90,68 +89,33 @@ fuzzy match, regexp/i or regexp.
 
 # Would you like to know more?
 
-I'm moving more help and information to the project wiki, [read more...](https://github.com/cutbox/CutBox/wiki)
+[More information is in the wiki](https://github.com/cutbox/CutBox/wiki)
 
 # Bugs...
 
-If you find a bug, [click here to tell me
-what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPLATE.md)
+If you find a bug, [click here to tell me what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPLATE.md)
 
 # Developers
 
-If you'd like to contribute to CutBox development, especially if you find bugs you'd like to fix, please follow the guidelines below.
-
-- Pull requests should be covered by tests (Quick/Nimble or XCUITest)
-- Code must pass the quality checks as used by Codacy
-
-### Compilation setup / tooling
-
-The following tools were used to build CutBox. You will
-need them:
-
-- `ruby` - Used by cocoapods `pod` and `carthage`
-- `npm/node` - Used by `semver`
-
-- XCode Version 11.6 (11E708)
-- Cocopods 1.9.3
-- Carthage 0.35.0
-
-- `semver` - Semantic version manager `npm install -g semver`
-- `gsort` - GNU sort `brew install coreutils`
-
-Also, since assuming assumptions isn't great,  to be clear you're going to be building on MacOS compatible with XCode 11.6 which has the following installed:
-
-- `git` 2.20.1
-- `osascript`
-- `unexpand`
-- `PListBuddy` (You should beable to find it at `/usr/libexec/PlistBuddy`)
+- Pull requests must have test cover, existing tests should not break.
+- Open an issue if tests are already failing, so I know I need to fix them.
+- Code must pass the quality checks as used by Codacy.
 
 ### Clone and setup dependencies
 
-Get the CutBox source via git:
-
     git clone --recurse-submodules git@github.com:CutBox/CutBox
 
-Once cloned, move to the cloned folder: `cd CutBox`
-
-Now run:
+### Compilation setup / tooling
 
   `bin/setup`
 
 To build **CutBox.app**:
 
-  `bin/make_local_app`
-
-There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
+  `bin/build`
 
 # Troubleshooting
 
-CutBox requires you to allow it access to keyboard control (it will simulate a **Cmd+v** to paste)
-
-Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
-
-Here you will need to set CutBox to allow Accessibility (unlock &
-check box) or it won't paste your selected clipboard item.
+There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
 
 # Licence
 
