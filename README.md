@@ -15,8 +15,6 @@
   <p>it'll make your pasteboard awesome!</p>
 </div>
 
-# IMPORTANT
-
 CutBox is designed as OpenSource and you are encouraged to [Compile it yourself](#compilation-setup--tooling)
 
 # Install via Homebrew Cask
