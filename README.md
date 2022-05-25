@@ -19,7 +19,22 @@
 
 CutBox is designed as OpenSource and you are encouraged to [Compile yourself](#compilation-setup--tooling)
 
-## About CutBox
+# Install via Homebrew Cask
+
+```
+brew tap cutbox/cutbox
+brew intall cutbox
+```
+
+# Enable Clipboard pasting.
+
+Before CutBox can paste for you, enable it to control the keyboard.
+
+Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
+
+Unlock and add CutBox to the list of apps (and check the box next to it). 
+
+# About CutBox
 
 CutBox keeps your pasteboard cut/copy history and lets you paste
 anything back to your current app by searching for items.
@@ -48,16 +63,6 @@ Get the current release:
 https://github.com/cutbox/CutBox/releases/download/1.4.12/CutBox.dmg
 
 You can also compile yourself... [Compile instructions](#compilation-setup--tooling)
-
-# Enable Clipboard pasting.
-
-Before CutBox can paste for you, enable it to control the keyboard.
-
-Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
-
-Unlock and add CutBox to the list of apps (and check the box next to it). 
-
-
 
 ## Using CutBox
 
