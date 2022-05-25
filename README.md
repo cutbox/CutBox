@@ -26,6 +26,8 @@ brew tap cutbox/cutbox
 brew intall cutbox
 ```
 
+_BTW you will need to go to **Preferences** > **Security** > **"Open Anyway"** when you first start CutBox after installing._
+
 # Enable automatic paste.
 
 Before CutBox can paste for you (when you select something and hit enter that is.) You have to enable it to control the keyboard.
