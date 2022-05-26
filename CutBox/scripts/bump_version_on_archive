@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 # Check script requirements
 if [[ "$(which semver)" == "semver not found" ]]; then
