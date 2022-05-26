@@ -20,6 +20,8 @@ extension CutBoxPreferencesService {
         }
     }
 
+    var currentTheme: CutBoxColorTheme { return themes[theme] }
+
     var themes: [CutBoxColorTheme] {
         return CutBoxColorTheme.list
     }

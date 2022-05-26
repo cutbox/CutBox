@@ -277,8 +277,6 @@ class CutBoxPreferencesService {
     // swiftlint:enable colon
     // tailor:on
 
-    var currentTheme: CutBoxColorTheme { return themes[theme] }
-
     var searchViewTextFieldFont = NSFont(
         name: "Helvetica Neue",
         size: 28)
