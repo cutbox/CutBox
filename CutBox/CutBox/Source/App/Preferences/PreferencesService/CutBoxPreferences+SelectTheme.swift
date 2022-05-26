@@ -22,10 +22,6 @@ extension CutBoxPreferencesService {
 
     var currentTheme: CutBoxColorTheme { return themes[theme] }
 
-    var themes: [CutBoxColorTheme] {
-        return CutBoxColorTheme.list
-    }
-
     func toggleTheme() {
         theme = ((theme + 1) % themes.count)
     }

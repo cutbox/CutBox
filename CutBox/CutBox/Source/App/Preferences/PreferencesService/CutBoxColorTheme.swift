@@ -10,8 +10,6 @@ import Cocoa
 
 class CutBoxColorTheme {
 
-    static var list: [CutBoxColorTheme] = []
-
     let name: String
 
     var spacing: CGFloat
@@ -31,8 +29,6 @@ class CutBoxColorTheme {
     let preview: (textColor: NSColor,
     backgroundColor: NSColor,
     selectedTextBackgroundColor: NSColor)
-
-    private let index: Int
 
     typealias SearchTextTheme = (
         cursorColor: NSColor,
@@ -67,12 +63,5 @@ class CutBoxColorTheme {
         self.searchText = searchText
         self.clip = clip
         self.preview = preview
-        self.index = CutBoxColorTheme.list.count
-
-        CutBoxColorTheme.list.append(self)
-    }
-
-deinit {
-        CutBoxColorTheme.list.remove(at: self.index)
     }
 }

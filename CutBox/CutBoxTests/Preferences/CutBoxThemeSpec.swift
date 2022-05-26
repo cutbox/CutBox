@@ -43,10 +43,6 @@ class CutBoxThemeSpec: QuickSpec {
             )
             // swiftlint:enable colon
             // tailor:on
-
-            it("holds a list of all instantiated color themes") {
-                expect(CutBoxColorTheme.list.contains(where: { $0.name == subject.name })).to(beTrue())
-            }
         }
     }
 
