@@ -6,85 +6,64 @@
   Copyright © 2019-2020 ocodo. All rights reserved.
 */
 
-"preferences_title" = "CutBox Preferences";
-"preferences_launch_on_login" = "Launch on Login";
-"preferences_launch_on_login_tooltip" = "CutBox can start when you login to macOS";
-
-"preferences_color_theme_title" = "Color theme";
-
-"preferences_color_theme_name_darkness" = "Darkness";
-"preferences_color_theme_name_skylight" = "Skylight";
-"preferences_color_theme_name_sandy_beach" = "Sandy Beach";
-"preferences_color_theme_name_darktooth" = "Darktooth";
-"preferences_color_theme_name_creamsody" = "Creamsody";
-"preferences_color_theme_name_purplehaze" = "Purplehaze";
-"preferences_color_theme_name_verdant" = "Verdant";
+"about_cutbox_copyright_licence" = "Copyright © 2020 Jason Milkins\nLicensed under GNU GPL3";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "Warning: You cannot undo this operation";
+"confirm_warning_clear_history_title" = "Clear CutBox history?";
+"context_menu_favorite" = "Toggle Favorite";
+"context_menu_remove_selected" = "Remove Selected";
+"js_func_search_placeholder" = "Paste through Javascript...";
 "preferences_color_theme_name_amber_cathode" = "Amber Cathode";
+"preferences_color_theme_name_creamsody" = "Creamsody";
+"preferences_color_theme_name_darkness" = "Darkness";
+"preferences_color_theme_name_darktooth" = "Darktooth";
 "preferences_color_theme_name_macos" = "macOS";
 "preferences_color_theme_name_macos_graphite" = "macOS Graphite";
-
-"preferences_toggle_cutbox" = "Toggle CutBox";
-"preferences_toggle_cutbox_tooltip" = "Choose a keyboard shortcut to show/hide CutBox";
-
-"preferences_history_limit_title" = "History Limit";
-"preferences_history_limit_placeholder" = "Limit (0 is unlimited)";
-"preferences_history_limit_checkbox_label" = "Unlimited";
-"preferences_history_destructive_limit_change_warning_title" = "Reduce Pasteboard History Limit?";
+"preferences_color_theme_name_purplehaze" = "Purplehaze";
+"preferences_color_theme_name_sandy_beach" = "Sandy Beach";
+"preferences_color_theme_name_skylight" = "Skylight";
+"preferences_color_theme_name_verdant" = "Verdant";
+"preferences_color_theme_title" = "Color theme";
 "preferences_history_destructive_limit_change_warning_description" = "You are attempting to reduce your CutBox history limit\nIf you continue you'll lose items beyond that limit\n\nThis operation cannot be undone\n\nClick OK to continue";
-
-"preferences_show_all_hidden_dialog_boxes_button_title" = "Show hidden dialog boxes";
-"preferences_show_all_hidden_dialog_boxes_button_tootip" = "Show all dialog boxes set to 'Do not show'";
-
-"confirm_warning_clear_history_title" = "Clear CutBox history?";
-"confirm_warning_clear_history" = "Warning: You cannot undo this operation";
-
-"preferences_multi_clip_join_and_wrap_section_title" = "Joining and Wrapping";
-"preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
-
-"js_func_search_placeholder" = "Paste through Javascript...";
-
-"preferences_javascript_transform_section_title" = "Javascript REPL";
-"preferences_javascript_transform_section_note" = "Use this to help debug your ~/.cutbox.js";
-"preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, for help\n\n";
-
-"preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
+"preferences_history_destructive_limit_change_warning_title" = "Reduce Pasteboard History Limit?";
+"preferences_history_is_using_format" = "Currently using: %@";
+"preferences_history_limit_checkbox_label" = "Unlimited";
+"preferences_history_limit_placeholder" = "Limit (0 is unlimited)";
+"preferences_history_limit_title" = "History Limit";
 "preferences_javascript_clear_button" = "Clear";
-
+"preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, for help\n\n";
+"preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
+"preferences_javascript_transform_section_note" = "Use this to help debug your ~/.cutbox.js";
+"preferences_javascript_transform_section_title" = "Javascript REPL";
+"preferences_launch_on_login" = "Launch on Login";
+"preferences_launch_on_login_tooltip" = "CutBox can start when you login to macOS";
+"preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
+"preferences_multi_clip_join_and_wrap_section_title" = "Joining and Wrapping";
 "preferences_multi_clip_join_title" = "Join using";
 "preferences_multi_clip_joined_by_newline" = "New line";
 "preferences_multi_clip_joined_by_string" = "Text";
 "preferences_multi_clip_joined_by_string_placeholder" = "Join each clip with?";
 "preferences_multi_clip_wrapped_checkbox_label" = "Wrap text around joined clips?";
-"preferences_multi_clip_wrapped_start_placeholder" = "Start with?";
 "preferences_multi_clip_wrapped_end_placeholder" = "End with?";
-
-"preferences_use_compact_ui" = "Use Compact UI";
-"preferences_use_compact_ui_tooltip" = "Compact UI hides history items and paste preview until you begin searching or press right or up";
-
+"preferences_multi_clip_wrapped_start_placeholder" = "Start with?";
 "preferences_protect_favorites" = "Protect favorites";
 "preferences_protect_favorites_tooltip" = "Protect favorites if you clear history";
-
-"preferences_history_is_using_format" = "Currently using: %@";
-
+"preferences_show_all_hidden_dialog_boxes_button_title" = "Show hidden dialog boxes";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "Show all dialog boxes set to 'Do not show'";
+"preferences_title" = "CutBox Preferences";
+"preferences_toggle_cutbox" = "Toggle CutBox";
+"preferences_toggle_cutbox_tooltip" = "Choose a keyboard shortcut to show/hide CutBox";
+"preferences_use_compact_ui" = "Use Compact UI";
+"preferences_use_compact_ui_tooltip" = "Compact UI hides history items and paste preview until you begin searching or press right or up";
 "search_placeholder" = "Search CutBox";
-
-"about_cutbox_title" = "CutBox";
-"about_cutbox_home_url" = "https://cutbox.github.io";
-"about_cutbox_copyright_licence" = "Copyright © 2020 Jason Milkins\nLicensed under GNU GPL3";
-
-"context_menu_remove_selected" = "Remove Selected";
-"context_menu_favorite" = "Toggle Favorite";
-
+"search_scope_all" = "Search everything";
+"search_scope_favorites"  = "Search favorites";
+"search_scope_tooltip_all" = "Search entire history";
+"search_scope_tooltip_favorites" = "Search favorites only";
 "searchmode_fuzzy" = "Fuzzy match ";
+"searchmode_fuzzy_tooltip" = "Fuzzy match search";
 "searchmode_regexp" = "RegExp/i";
 "searchmode_regexp_strict" = "RegExp";
-
-"searchmode_fuzzy_tooltip" = "Fuzzy match search";
-"searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
 "searchmode_regexp_strict_tooltip" = "Regular expression search (strict case)";
-
-"search_scope_favorites"  = "Search favorites";
-"search_scope_all" = "Search everything";
-
-"search_scope_tooltip_favorites" = "Search favorites only";
-"search_scope_tooltip_all" = "Search entire history";
+"searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
