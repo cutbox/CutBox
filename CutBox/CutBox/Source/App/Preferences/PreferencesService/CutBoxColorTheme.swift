@@ -6,13 +6,11 @@
 //  Copyright © 2019-2020 ocodo. All rights reserved.
 //
 
-// swiftlint:disable large_tuple
-
 import Cocoa
 
 class CutBoxColorTheme {
 
-    static var instances: [CutBoxColorTheme] = []
+    static var list: [CutBoxColorTheme] = []
 
     let name: String
 
@@ -69,12 +67,12 @@ class CutBoxColorTheme {
         self.searchText = searchText
         self.clip = clip
         self.preview = preview
-        self.index = CutBoxColorTheme.instances.count
+        self.index = CutBoxColorTheme.list.count
 
-        CutBoxColorTheme.instances.append(self)
+        CutBoxColorTheme.list.append(self)
     }
 
-    deinit {
-        CutBoxColorTheme.instances.remove(at: self.index)
+deinit {
+        CutBoxColorTheme.list.remove(at: self.index)
     }
 }

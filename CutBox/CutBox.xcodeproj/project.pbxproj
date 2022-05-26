@@ -55,6 +55,7 @@
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; };
+		9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */; };
 		965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */; };
@@ -266,6 +267,7 @@
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
 		964CA5532083325600B9F33E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorThemeDefinition.swift; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
 		965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewTextViewDelegate.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 				964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */,
 				964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */,
 				964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */,
+				9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */,
 			);
 			path = PreferencesService;
 			sourceTree = "<group>";
@@ -1190,6 +1193,7 @@
 				964766692067B82900E7026F /* DisableScrollView.swift in Sources */,
 				964CA500207E59D400B9F33E /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,
 				96A8021920AB0C35000CBE74 /* NSAttributedString+HTML.swift in Sources */,
+				9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */,
 				964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
 				9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */,

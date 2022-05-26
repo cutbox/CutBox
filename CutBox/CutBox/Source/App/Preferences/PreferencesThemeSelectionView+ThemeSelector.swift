@@ -15,7 +15,7 @@ extension PreferencesThemeSelectionView {
             "preferences_color_theme_title".l7n
 
         self.themeSelectorMenu.addItems(withTitles:
-            CutBoxColorTheme.instances.map { $0.name }
+            CutBoxColorTheme.list.map { $0.name }
         )
 
         self.themeSelectorMenu.selectItem(at: prefs.theme)

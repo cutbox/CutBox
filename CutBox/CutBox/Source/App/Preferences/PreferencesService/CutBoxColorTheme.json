@@ -1,0 +1,23 @@
+{
+    "name": "Creamblue",
+    "popupBackgroundColorRGBA": "#RGBA",
+    "searchText": {
+        "cursorColorRGBA": "#RGBA",
+        "textColorRGBA": "#RGBA",
+        "backgroundColorRGBA": "#RGBA",
+        "placeholderTextColorRGBA": "#RGBA"
+    },
+    "clip": {
+        "clipItemsBackgroundColorRGBA": "#RGBA",
+        "clipItemsTextColorRGBA": "#RGBA",
+        "clipItemsHighlightColorRGBA": "#RGBA",
+        "clipItemsHighlightTextColorRGBA": "#RGBA"
+    },
+    "preview": {
+        "textColorRGBA": "#RGBA",
+        "backgroundColorRGBA": "#RGBA",
+        "selectedTextBackgroundColorRGBA": "#RGBA"
+    },
+    "spacing": 5
+
+}
