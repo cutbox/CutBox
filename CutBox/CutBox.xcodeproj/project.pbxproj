@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */; };
 		7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5495DE2276785B0041FA76 /* String+Utils.swift */; };
 		7CA72F1A2289BCBC00D5E50B /* String+UtilsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */; };
 		961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */; };
@@ -25,10 +24,6 @@
 		962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 962D6D6E20746109007E3785 /* CutBoxHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
-		963AA663207269CE00779697 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; };
-		963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA6552071FF0E00779697 /* KeyHolder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		963AA667207269CE00779697 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; };
-		963AA668207269CE00779697 /* Magnet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 963AA65A20725D0E00779697 /* Magnet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96429D59208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */; };
 		96429D5B208C19570055D678 /* CutBoxThemeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96429D5A208C19570055D678 /* CutBoxThemeSpec.swift */; };
 		964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSObject+fromNib.swift */; };
@@ -138,6 +133,7 @@
 		96FD7C2E20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */; };
 		96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */; };
 		96FD7C3520B1028E00818925 /* OrderedSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */; };
+		B722F429EDBEF52D36E49F64 /* Pods_CutBox_Testing_CutBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B13663762F7D7525AE7183 /* Pods_CutBox_Testing_CutBoxTests.framework */; };
 		EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86977FBC73098A02A097D0D /* Pods_CutBox.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,13 +151,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 312C0FE51D13AA1F00973348;
 			remoteInfo = KeyHolderTests;
-		};
-		963AA665207269CE00779697 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 312C0FDA1D13AA1F00973348;
-			remoteInfo = KeyHolder;
 		};
 		96E1E5A5205D243400F994ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -181,18 +170,6 @@
 			files = (
 				962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		963AA669207269CE00779697 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				963AA668207269CE00779697 /* Magnet.framework in Embed Frameworks */,
-				963AA664207269CE00779697 /* KeyHolder.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		964CA52D207F92AA00B9F33E /* CopyFiles */ = {
@@ -218,7 +195,6 @@
 
 /* Begin PBXFileReference section */
 		1EB46E1EB3FD89D01B7C87CE /* Pods-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
-		2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C5495DE2276785B0041FA76 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UtilsSpec.swift"; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewView.swift; sourceTree = "<group>"; };
@@ -240,7 +216,6 @@
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963AA64E2071FF0E00779697 /* KeyHolder.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KeyHolder.xcodeproj; path = DependencySubmodules/KeyHolder/Lib/KeyHolder.xcodeproj; sourceTree = SOURCE_ROOT; };
-		963AA65A20725D0E00779697 /* Magnet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Magnet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+String+RegexpSearchFilteredSpec.swift"; sourceTree = "<group>"; };
 		96429D5A208C19570055D678 /* CutBoxThemeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutBoxThemeSpec.swift; path = CutBoxTests/Preferences/CutBoxThemeSpec.swift; sourceTree = SOURCE_ROOT; };
 		964766632067A5F100E7026F /* NSObject+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+fromNib.swift"; sourceTree = "<group>"; };
@@ -355,9 +330,12 @@
 		96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchTextViewDelegate.swift; sourceTree = "<group>"; };
 		96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSetSpec.swift; sourceTree = "<group>"; };
+		9FC617682B666ACAF885EA0F /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A0B13663762F7D7525AE7183 /* Pods_CutBox_Testing_CutBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CutBox_Testing_CutBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A86977FBC73098A02A097D0D /* Pods_CutBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CutBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
 		B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
+		CDA9D313F4B0BD21502B6612 /* Pods-CutBox-Testing-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox-Testing-CutBoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 		E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing-CutBoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -373,8 +351,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				963AA663207269CE00779697 /* KeyHolder.framework in Frameworks */,
-				963AA667207269CE00779697 /* Magnet.framework in Frameworks */,
 				EDCBEC59432CAFDA909FADA6 /* Pods_CutBox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56184E36ECA11A9DEADFCC44 /* Pods_Testing_CutBoxTests.framework in Frameworks */,
+				B722F429EDBEF52D36E49F64 /* Pods_CutBox_Testing_CutBoxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +373,8 @@
 				AB72ABAA7D9E80CC20BA0EA7 /* Pods-CutBox.release.xcconfig */,
 				E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */,
 				B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */,
+				9FC617682B666ACAF885EA0F /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */,
+				CDA9D313F4B0BD21502B6612 /* Pods-CutBox-Testing-CutBoxTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -581,9 +559,8 @@
 		96564BD3205D495A00A95E02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				963AA65A20725D0E00779697 /* Magnet.framework */,
 				A86977FBC73098A02A097D0D /* Pods_CutBox.framework */,
-				2CD751D99A166B816A663FDE /* Pods_Testing_CutBoxTests.framework */,
+				A0B13663762F7D7525AE7183 /* Pods_CutBox_Testing_CutBoxTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -803,7 +780,6 @@
 				96E1E592205D243400F994ED /* Resources */,
 				CC476ECB20BDFB3D052D6F29 /* [CP] Embed Pods Frameworks */,
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
-				963AA669207269CE00779697 /* Embed Frameworks */,
 				962D6D802074622A007E3785 /* CopyFiles */,
 				964CA52D207F92AA00B9F33E /* CopyFiles */,
 				9689879620D2037300D40C02 /* ShellScript */,
@@ -811,7 +787,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				963AA666207269CE00779697 /* PBXTargetDependency */,
 			);
 			name = CutBox;
 			productName = CutBox;
@@ -996,7 +971,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Testing-CutBoxTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CutBox-Testing-CutBoxTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1065,17 +1040,23 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
+				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift-macOS10.11/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Sauce/Sauce.framework",
 				"${PODS_ROOT}/Sparkle/Sparkle.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStringScore/SwiftyStringScore.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sauce.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStringScore.framework",
 			);
@@ -1090,20 +1071,34 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/RxSwift-macOS10.13/RxSwift.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KeyHolder/KeyHolder.framework",
+				"${BUILT_PRODUCTS_DIR}/Magnet/Magnet.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Sauce/Sauce.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStringScore/SwiftyStringScore.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeyHolder.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Magnet.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sauce.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStringScore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Testing-CutBoxTests/Pods-Testing-CutBoxTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1232,11 +1227,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		963AA666207269CE00779697 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = KeyHolder;
-			targetProxy = 963AA665207269CE00779697 /* PBXContainerItemProxy */;
-		};
 		96E1E5A6205D243400F994ED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 96E1E593205D243400F994ED /* CutBox */;
@@ -1458,7 +1448,7 @@
 		};
 		96E1E5BC205D243400F994ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E873B731C9CB9950F7451A3E /* Pods-Testing-CutBoxTests.debug.xcconfig */;
+			baseConfigurationReference = 9FC617682B666ACAF885EA0F /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";
@@ -1478,7 +1468,7 @@
 		};
 		96E1E5BD205D243400F994ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3418B556AFD2F6C4EF6EF1D /* Pods-Testing-CutBoxTests.release.xcconfig */;
+			baseConfigurationReference = CDA9D313F4B0BD21502B6612 /* Pods-CutBox-Testing-CutBoxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";

@@ -1,4 +1,8 @@
 PODS:
+  - KeyHolder (4.1.0):
+    - Magnet (~> 3.3.0)
+  - Magnet (3.3.0):
+    - Sauce (~> 2.2.0)
   - Nimble (10.0.0)
   - Quick (5.0.1)
   - RxCocoa (6.5.0):
@@ -7,10 +11,12 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - Sauce (2.2.0)
   - Sparkle (2.1.0)
   - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
+  - KeyHolder
   - Nimble
   - Quick
   - RxCocoa
@@ -20,11 +26,14 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - KeyHolder
+    - Magnet
     - Nimble
     - Quick
     - RxCocoa
     - RxRelay
     - RxSwift
+    - Sauce
     - Sparkle
 
 EXTERNAL SOURCES:
@@ -37,14 +46,17 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:8bytes/SwiftyStringScore"
 
 SPEC CHECKSUMS:
+  KeyHolder: 7fce073043392cddc3e3126f3f9bdaa5ecf1f19e
+  Magnet: a44a5a14eecc77433cbaad1431b78f7d20725bf2
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
   Quick: 749aa754fd1e7d984f2000fe051e18a3a9809179
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  Sauce: 3ade51738563f86b08888cf4b91ae5943012088b
   Sparkle: 7f5f6d4328458515e23272f4138e610c1fa3e32d
   SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
-PODFILE CHECKSUM: aef55c22ab7f06084791730de381c2f4318b376c
+PODFILE CHECKSUM: 3d1df1b4ba5a78d68a559a30ab36c828491df472
 
 COCOAPODS: 1.11.3

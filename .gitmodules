@@ -1,6 +1,3 @@
-[submodule "CutBox/DependencySubmodules/KeyHolder"]
-	path = CutBox/DependencySubmodules/KeyHolder
-	url = https://github.com/clipy/KeyHolder
 [submodule "cutbox.github.io"]
 	path = cutbox.github.io
 	url = https://github.com/cutbox/cutbox.github.io
