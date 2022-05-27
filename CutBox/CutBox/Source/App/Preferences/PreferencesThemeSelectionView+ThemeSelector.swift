@@ -14,7 +14,9 @@ extension PreferencesThemeSelectionView {
         self.themeSelectorTitleLabel.stringValue =
             "preferences_color_theme_title".l7n
 
-        self.themeSelectorMenu.addItems(withTitles: CutBoxPreferencesService.shared.themes.map { $0.name })
+        self.themeSelectorMenu
+            .addItems(withTitles: CutBoxPreferencesService.shared.themes
+                        .map { $0.name })
 
         self.themeSelectorMenu.selectItem(at: prefs.theme)
     }
