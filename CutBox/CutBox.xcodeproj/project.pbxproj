@@ -385,7 +385,6 @@
 				0D2AB320E399C04DE3424ECF /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */,
 				936EFC24C6FE0EBD217EAB0A /* Pods-CutBox-Testing-CutBoxTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -784,6 +783,7 @@
 				964CA52D207F92AA00B9F33E /* CopyFiles */,
 				9689879620D2037300D40C02 /* ShellScript */,
 				86778C24CC2CC4A8759FB958 /* [CP] Embed Pods Frameworks */,
+				BF6D2BA12FA09425F0F3B6F6 /* [CP-User] Sign */,
 			);
 			buildRules = (
 			);
@@ -805,6 +805,7 @@
 				96564BD8205D497D00A95E02 /* CopyFiles */,
 				9657D37D283F6D4A00F688F5 /* ShellScript */,
 				6D2941BBA941AD56C1B5DD02 /* [CP] Embed Pods Frameworks */,
+				8753617E7913F2CC4CDCF5F9 /* [CP-User] Sign */,
 			);
 			buildRules = (
 			);
@@ -846,7 +847,7 @@
 					96E1E5A3205D243400F994ED = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 1200;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 96E1E593205D243400F994ED;
 					};
 				};
@@ -1056,6 +1057,16 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CutBox/Pods-CutBox-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8753617E7913F2CC4CDCF5F9 /* [CP-User] Sign */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Sign";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./sign.sh;
+		};
 		96085E4A206E36CC00CA77BB /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1099,7 +1110,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho \"Building Test Executable....\"\necho \U0013\"$(pwd)\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nfiglet \"Debug app:\"\n\n\nls ${METAL_LIBRARY_OUTPUT_DIR}\n\nfiglet \"Test Host...:\"\n\necho $TEST_HOST\n\nfiglet \"keep going ^\"\n";
 		};
 		965F0762206F29600032DACD /* Bump version number on archive */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1127,6 +1138,16 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint (or brew install swiftlint)\"\nfi\n";
+		};
+		BF6D2BA12FA09425F0F3B6F6 /* [CP-User] Sign */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Sign";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./sign.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1479,7 +1500,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1499,7 +1520,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

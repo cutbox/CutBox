@@ -8,6 +8,8 @@ target 'CutBox' do
     pod 'RxCocoa'
     pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
 
+    script_phase :name => 'Sign', :script => './sign.sh'
+
     abstract_target 'Testing' do
         platform :osx, '10.13'
 
@@ -16,6 +18,7 @@ target 'CutBox' do
         pod 'Nimble'
 
         target 'CutBoxTests' do
+            script_phase :name => 'Sign', :script => './sign.sh'
         end
 
     end
