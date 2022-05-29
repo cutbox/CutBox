@@ -58,4 +58,4 @@ pod install
 
 echo "To build do...
 
-bin/build"
+$ bin/build"
