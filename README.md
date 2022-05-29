@@ -34,9 +34,17 @@ Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
 
 Unlock and add CutBox to the list of apps (also switch on the check box next to its icon). 
 
-This works best before CutBox is run. (Macos will suggest restarting CutBox anyway.)
+Do the same for input monitoring...:
+
+Go to **System Preferences -> Security & Privacy -> Privacy -> Input Monitoring**
+
+Make sure CutBox is in the list and its checkbox is on.
+
+These work best before CutBox is run. (Macos will suggest restarting CutBox anyway, wait for the CutBox icon to appear before changing a checkbox in security preferences.)
 
 FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
+
+
 
 # About CutBox
 
