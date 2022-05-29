@@ -42,25 +42,25 @@ class CutBoxPreferencesService {
               """
                {
                    "name": "\("preferences_color_theme_name_darkness".l7n)",
-                   "popupBackgroundColorRGBA": "#16324255",
+                   "popupBackgroundColorRGBA": "#163242",
                    "searchText": {
-                       "cursorColorRGBA": "#0E1C2077",
-                       "textColorRGBA": "#0E1B2177",
-                       "backgroundColorRGBA": "#ECF3F677",
-                       "placeholderTextColorRGBA": "#ADC3CC77"
+                       "cursorColorRGBA": "#0E1C20",
+                       "textColorRGBA": "#0E1B21",
+                       "backgroundColorRGBA": "#ECF3F6",
+                       "placeholderTextColorRGBA": "#ADC3CC"
                    },
                    "clip": {
-                       "clipItemsBackgroundColorRGBA": "#0E1B2177",
+                       "clipItemsBackgroundColorRGBA": "#0E1B21",
                        "clipItemsTextColorRGBA": "#ACC0CA",
-                       "clipItemsHighlightColorRGBA": "#033E6077",
+                       "clipItemsHighlightColorRGBA": "#033E60",
                        "clipItemsHighlightTextColorRGBA": "#ACC0CA"
                    },
                    "preview": {
                        "textColorRGBA": "#ADC2CC",
-                       "backgroundColorRGBA": "#06070777",
-                       "selectedTextBackgroundColorRGBA": "#16324255"
+                       "backgroundColorRGBA": "#060707",
+                       "selectedTextBackgroundColorRGBA": "#163242"
                    },
-                   "spacing": 20
+                   "spacing": 1
                }
               """,
               """
