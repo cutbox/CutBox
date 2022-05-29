@@ -1,4 +1,4 @@
-framework module Nimble {
+module Nimble {
   umbrella header "Nimble-umbrella.h"
 
   export *

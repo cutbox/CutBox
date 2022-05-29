@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C82891EAB7293DBEE916B21F57E8474D"
-               BuildableName = "Quick.framework"
+               BuildableName = "libQuick.a"
                BlueprintName = "Quick"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

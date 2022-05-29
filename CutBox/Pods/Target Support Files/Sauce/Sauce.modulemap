@@ -1,4 +1,4 @@
-framework module Sauce {
+module Sauce {
   umbrella header "Sauce-umbrella.h"
 
   export *

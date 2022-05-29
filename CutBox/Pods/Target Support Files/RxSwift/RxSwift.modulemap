@@ -1,4 +1,4 @@
-framework module RxSwift {
+module RxSwift {
   umbrella header "RxSwift-umbrella.h"
 
   export *

@@ -10,13 +10,13 @@
 #endif
 #endif
 
-#import "Nimble.h"
-#import "DSL.h"
-#import "NMBExceptionCapture.h"
-#import "NMBStringify.h"
-#import "CwlCatchException.h"
-#import "CwlMachBadInstructionHandler.h"
-#import "mach_excServer.h"
+#import "Nimble/Nimble.h"
+#import "Nimble/DSL.h"
+#import "Nimble/NMBExceptionCapture.h"
+#import "Nimble/NMBStringify.h"
+#import "Nimble/CwlCatchException.h"
+#import "Nimble/CwlMachBadInstructionHandler.h"
+#import "Nimble/mach_excServer.h"
 
 FOUNDATION_EXPORT double NimbleVersionNumber;
 FOUNDATION_EXPORT const unsigned char NimbleVersionString[];

@@ -1,4 +1,4 @@
-framework module SwiftyStringScore {
+module SwiftyStringScore {
   umbrella header "SwiftyStringScore-umbrella.h"
 
   export *

@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-import Magnet
+// import Magnet
 import RxSwift
 
 class CutBoxController: NSObject {

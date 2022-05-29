@@ -59,5 +59,4 @@ class HotKeyService: NSObject {
 
         keyCombo.saveUserDefaults(identifier: Constants.cutBoxToggleKeyCombo)
     }
-
 }

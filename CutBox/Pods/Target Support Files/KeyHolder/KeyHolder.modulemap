@@ -1,4 +1,4 @@
-framework module KeyHolder {
+module KeyHolder {
   umbrella header "KeyHolder-umbrella.h"
 
   export *

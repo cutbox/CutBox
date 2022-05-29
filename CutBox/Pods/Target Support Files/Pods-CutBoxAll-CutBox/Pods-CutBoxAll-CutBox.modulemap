@@ -1,0 +1,6 @@
+module Pods_CutBoxAll_CutBox {
+  umbrella header "Pods-CutBoxAll-CutBox-umbrella.h"
+
+  export *
+  module * { export * }
+}
