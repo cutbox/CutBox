@@ -24,7 +24,13 @@ brew tap cutbox/cutbox
 brew intall cutbox
 ```
 
-_BTW you will need to go to **Preferences** > **Security** > **"Open Anyway"** when you first start CutBox after installing._
+# First run...
+
+When you first run CutBox Macos will prompt you that the developer cannot be identified.  (Because I don't use the App store, or subscribe to the Apple Developer $99/yr to release open source.).
+
+Press "Ok". 
+
+You'll need to go to **Preferences** > **Security** > **"Open Anyway"** and CutBox will open after this.
 
 # Enable automatic paste.
 
