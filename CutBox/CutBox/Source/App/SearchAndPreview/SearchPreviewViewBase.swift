@@ -110,6 +110,7 @@ class SearchPreviewViewBase: NSView {
 
     func colorizeMagnifier(image: NSImage = #imageLiteral(resourceName: "magnitude.png"),
                            tooltip: String = "search_scope_tooltip_all".l7n) {
+
         let image = image
         let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
 

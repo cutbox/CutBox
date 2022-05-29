@@ -13,7 +13,8 @@ extension NSObject {
     class func fromNib<T>() -> T? {
         var objectArray: NSArray?
         let name = String(describing: T.self)
-        guard Bundle.main.loadNibNamed(
+        let bundle = Bundle(for: Self.self)
+        guard bundle.loadNibNamed(
             name,
             owner: nil,
             topLevelObjects: &objectArray) else {

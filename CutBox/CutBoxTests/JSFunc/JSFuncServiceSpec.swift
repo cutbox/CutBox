@@ -9,8 +9,6 @@
 import Quick
 import Nimble
 
-@testable import CutBox
-
 class JSFuncServiceSpec: QuickSpec {
 
     override func spec() {

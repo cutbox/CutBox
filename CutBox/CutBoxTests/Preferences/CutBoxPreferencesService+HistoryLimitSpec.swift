@@ -10,8 +10,6 @@ import Quick
 import Nimble
 import RxSwift
 
-@testable import CutBox
-
 class CutBoxPreferencesServiceHistoryLimitSpec: QuickSpec {
 
     override func spec() {
@@ -65,5 +63,4 @@ class CutBoxPreferencesServiceHistoryLimitSpec: QuickSpec {
             }
         }
     }
-
 }

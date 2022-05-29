@@ -10,8 +10,6 @@ import Quick
 import Nimble
 import RxSwift
 
-@testable import CutBox
-
 fileprivate class HistoryRepoMock: HistoryRepo {
 
 }

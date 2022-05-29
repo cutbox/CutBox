@@ -12,6 +12,7 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - Sauce (2.2.0)
+  - Sparkle (2.1.0)
   - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - Quick
   - RxCocoa
   - RxSwift
+  - Sparkle
   - "SwiftyStringScore (from `git@github.com:8bytes/SwiftyStringScore`)"
 
 SPEC REPOS:
@@ -32,6 +34,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - Sauce
+    - Sparkle
 
 EXTERNAL SOURCES:
   SwiftyStringScore:
@@ -51,8 +54,9 @@ SPEC CHECKSUMS:
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   Sauce: 3ade51738563f86b08888cf4b91ae5943012088b
+  Sparkle: 7f5f6d4328458515e23272f4138e610c1fa3e32d
   SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
-PODFILE CHECKSUM: e5d867eb3f9c2f8002ca4a906acf5d85e3f519a1
+PODFILE CHECKSUM: b6316ef60f0aa6f1c9128e0198bc216ddc20c841
 
 COCOAPODS: 1.11.3

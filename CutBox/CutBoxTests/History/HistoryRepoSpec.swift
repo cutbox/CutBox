@@ -11,8 +11,6 @@ import Foundation
 import Quick
 import Nimble
 
-@testable import CutBox
-
 class HistoryRepoSpec: QuickSpec {
 
     override func spec() {

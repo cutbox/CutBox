@@ -20,20 +20,4 @@
          location = "group:dsa_pub.pem">
       </FileRef>
    </Group>
-   <Group
-      location = "group:DependencySubmodules/KeyHolder/Lib/KeyHolder/Resources"
-      name = "Resources">
-      <FileRef
-         location = "group:clear-off.png">
-      </FileRef>
-      <FileRef
-         location = "group:clear-off@2x.png">
-      </FileRef>
-      <FileRef
-         location = "group:clear-on.png">
-      </FileRef>
-      <FileRef
-         location = "group:clear-on@2x.png">
-      </FileRef>
-   </Group>
 </Workspace>
