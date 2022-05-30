@@ -23,9 +23,6 @@
                ReferencedContainer = "container:CutBox.xcodeproj">
             </BuildableReference>
             <SkippedTests>
-               <Test
-                  Identifier = "SearchViewControllerSpec">
-               </Test>
             </SkippedTests>
          </TestableReference>
       </Testables>

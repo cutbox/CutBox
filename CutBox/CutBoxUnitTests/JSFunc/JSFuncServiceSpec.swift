@@ -40,9 +40,7 @@ class JSFuncServiceSpec: QuickSpec {
                 }
 
                 afterEach {
-                    // swiftlint:disable force_try
-                    try! fileManager.removeItem(atPath: path)
-                    // swiftlint:enable force_try
+                    try? fileManager.removeItem(atPath: path)
                 }
 
                 it("evaluates the file as JS") {
