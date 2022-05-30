@@ -29,15 +29,15 @@ class ItemTableRowContainerView: NSTableRowView {
 
             theme
                 .clip
-                .clipItemsHighlightColor
+                .highlightColor
                 .setFill()
 
             if let textView = self.textView {
-                textView.color = theme.clip.clipItemsHighlightTextColor
+                textView.color = theme.clip.highlightTextColor
             }
 
             if let imageView = self.imageView {
-                imageView.color = theme.clip.clipItemsHighlightTextColor
+                imageView.color = theme.clip.highlightTextColor
             }
 
             let selectionPath = NSBezierPath.init(rect: selectionRect)

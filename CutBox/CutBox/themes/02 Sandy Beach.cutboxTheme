@@ -1,0 +1,22 @@
+{
+    "name": "Sandy Beach",
+    "popupBackgroundColor":            "#D8D2AB",
+    "searchText": {
+        "cursorColor":                 "#000000",
+        "textColor":                   "#000000",
+        "backgroundColor":             "#E5DFB6",
+        "placeholderTextColor":        "#7E7751"
+    },
+    "clip": {
+        "backgroundColor":    "#EBE6C9",
+        "textColor":          "#1C1C1C",
+        "highlightColor":     "#99840F",
+        "highlightTextColor": "#1C1C1C"
+    },
+    "preview": {
+        "textColor":                   "#1C1D1C",
+        "backgroundColor":             "#EEE8CB",
+        "selectedTextBackgroundColor": "#99840F"
+    },
+    "spacing": 1
+}

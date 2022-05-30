@@ -1,0 +1,22 @@
+{
+    "name": "macOS",
+    "popupBackgroundColor":            "#EEEEEE",
+    "searchText": {
+        "cursorColor":                 "#000000",
+        "textColor":                   "#000000",
+        "backgroundColor":             "#F1F1F1",
+        "placeholderTextColor":        "#CBCBCB"
+    },
+    "clip": {
+        "backgroundColor":    "#FFFFFF",
+        "textColor":          "#000000",
+        "highlightColor":     "#4277F4",
+        "highlightTextColor": "#FFFFFF"
+    },
+    "preview": {
+        "textColor":                   "#000000",
+        "backgroundColor":             "#F8F8F8",
+        "selectedTextBackgroundColor": "#B2D6FF"
+    },
+    "spacing": 1
+}

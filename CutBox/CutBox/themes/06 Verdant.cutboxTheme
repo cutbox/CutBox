@@ -1,0 +1,22 @@
+{
+    "name": "Verdant",
+    "popupBackgroundColor":            "#161C15",
+    "searchText": {
+        "cursorColor":                 "#71F75A",
+        "textColor":                   "#E1F9DD",
+        "backgroundColor":             "#20281E",
+        "placeholderTextColor":        "#587054"
+    },
+    "clip": {
+        "backgroundColor":    "#20281E",
+        "textColor":          "#E2F9DE",
+        "highlightColor":     "#97D08D",
+        "highlightTextColor": "#E2F9DE"
+    },
+    "preview": {
+        "textColor":                   "#E1F9DD",
+        "backgroundColor":             "#000000",
+        "selectedTextBackgroundColor": "#97D08D"
+    },
+    "spacing": 1
+}

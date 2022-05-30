@@ -54,14 +54,14 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         case "icon":
             let rowImageView = tableView.getRowView() as JSFuncItemTableRowImageView
             rowImageView.setup()
-            rowImageView.color = theme.clip.clipItemsTextColor
+            rowImageView.color = theme.clip.textColor
             rowView?.imageView = rowImageView
             return rowImageView
 
         case "string":
             let rowTextView = tableView.getRowView() as JSFuncItemTableRowTextView
             rowTextView.data = ["string": funcItem]
-            rowTextView.color = theme.clip.clipItemsTextColor
+            rowTextView.color = theme.clip.textColor
             rowView?.textView = rowTextView
             return rowTextView
 
@@ -90,8 +90,8 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
                     ) as? ItemTableRowContainerView
             }
             .forEach {
-                $0?.imageView?.color = theme.clip.clipItemsTextColor
-                $0?.textView?.color = theme.clip.clipItemsTextColor
+                $0?.imageView?.color = theme.clip.textColor
+                $0?.textView?.color = theme.clip.textColor
         }
 
         return proposedSelectionIndexes

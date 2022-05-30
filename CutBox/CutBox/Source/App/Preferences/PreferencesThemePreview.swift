@@ -43,15 +43,15 @@ class PreferencesThemePreview: NSBox {
         previewBox.fillColor = theme.preview.backgroundColor
         previewText.textColor = theme.preview.textColor
 
-        itemsBox.fillColor = theme.clip.clipItemsBackgroundColor
-        selectedItem.backgroundColor = theme.clip.clipItemsHighlightColor
-        selectedItem.textColor = theme.clip.clipItemsHighlightTextColor
-        label1.textColor = theme.clip.clipItemsTextColor
-        label2.textColor = theme.clip.clipItemsTextColor
-        label3.textColor = theme.clip.clipItemsTextColor
-        label4.textColor = theme.clip.clipItemsTextColor
-        label5.textColor = theme.clip.clipItemsTextColor
-        label6.textColor = theme.clip.clipItemsTextColor
+        itemsBox.fillColor = theme.clip.backgroundColor
+        selectedItem.backgroundColor = theme.clip.highlightColor
+        selectedItem.textColor = theme.clip.highlightTextColor
+        label1.textColor = theme.clip.textColor
+        label2.textColor = theme.clip.textColor
+        label3.textColor = theme.clip.textColor
+        label4.textColor = theme.clip.textColor
+        label5.textColor = theme.clip.textColor
+        label6.textColor = theme.clip.textColor
     }
 
     override func awakeFromNib() {

@@ -16,10 +16,10 @@ typealias SearchTextTheme = (
 )
 
 typealias ClipTheme = (
-    clipItemsBackgroundColor: NSColor,
-    clipItemsTextColor: NSColor,
-    clipItemsHighlightColor: NSColor,
-    clipItemsHighlightTextColor: NSColor
+    backgroundColor: NSColor,
+    textColor: NSColor,
+    highlightColor: NSColor,
+    highlightTextColor: NSColor
 )
 
 typealias PreviewTheme = (
@@ -41,10 +41,10 @@ class CutBoxColorTheme {
     backgroundColor: NSColor,
     placeholderTextColor: NSColor)
 
-    let clip: (clipItemsBackgroundColor: NSColor,
-    clipItemsTextColor: NSColor,
-    clipItemsHighlightColor: NSColor,
-    clipItemsHighlightTextColor: NSColor)
+    let clip: (backgroundColor: NSColor,
+    textColor: NSColor,
+    highlightColor: NSColor,
+    highlightTextColor: NSColor)
 
     let preview: (textColor: NSColor,
     backgroundColor: NSColor,

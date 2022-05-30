@@ -1,0 +1,22 @@
+{
+    "name": "Creamsody",
+    "popupBackgroundColor":            "#1C1C1C",
+    "searchText": {
+        "cursorColor":                 "#86D6FF",
+        "textColor":                   "#86D6FF",
+        "backgroundColor":             "#282B32",
+        "placeholderTextColor":        "#283D41"
+    },
+    "clip": {
+        "backgroundColor":    "#282B32",
+        "textColor":          "#86D6FF",
+        "highlightColor":     "#8DD0C9",
+        "highlightTextColor": "#86D6FF"
+    },
+    "preview": {
+        "textColor":                   "#6CAFD1",
+        "backgroundColor":             "#141617",
+        "selectedTextBackgroundColor": "#8DD0C9"
+    },
+    "spacing": 1
+}

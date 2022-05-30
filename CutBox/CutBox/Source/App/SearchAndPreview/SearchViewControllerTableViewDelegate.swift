@@ -46,7 +46,7 @@ extension SearchViewController: NSTableViewDelegate {
         case "icon":
             let rowImageView = tableView.getRowView() as ClipItemTableRowImageView
             rowImageView.data = record
-            rowImageView.color = theme.clip.clipItemsTextColor
+            rowImageView.color = theme.clip.textColor
             rowView?.imageView = rowImageView
 
             return rowImageView
@@ -54,7 +54,7 @@ extension SearchViewController: NSTableViewDelegate {
         case "string":
             let rowTextView = tableView.getRowView() as ClipItemTableRowTextView
             rowTextView.data = record
-            rowTextView.color = theme.clip.clipItemsTextColor
+            rowTextView.color = theme.clip.textColor
             rowView?.textView = rowTextView
 
             return rowTextView
@@ -82,8 +82,8 @@ extension SearchViewController: NSTableViewDelegate {
                   as? ItemTableRowContainerView
             }
             .forEach {
-                $0?.imageView?.color = theme.clip.clipItemsTextColor
-                $0?.textView?.color = theme.clip.clipItemsTextColor
+                $0?.imageView?.color = theme.clip.textColor
+                $0?.textView?.color = theme.clip.textColor
         }
 
         added.forEach { self.orderedSelection.add($0) }

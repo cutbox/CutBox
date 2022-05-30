@@ -219,6 +219,10 @@
 		96A8022720AD8F00000CBE74 /* JSFuncItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */; };
 		96A8022820AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */; };
 		96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */; };
+		96B04642284518E500011A58 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 96B04641284518E400011A58 /* themes */; };
+		96B04643284518E500011A58 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 96B04641284518E400011A58 /* themes */; };
+		96B046452845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
+		96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
@@ -396,6 +400,8 @@
 		96A8022420AD8EFF000CBE74 /* JSFuncItemTableRowTextView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSFuncItemTableRowTextView.xib; sourceTree = "<group>"; };
 		96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSFuncItemTableRowImageView.xib; sourceTree = "<group>"; };
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
+		96B04641284518E400011A58 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
+		96B046442845275200011A58 /* CutBoxThemeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutBoxThemeLoader.swift; path = CutBox/Source/App/Preferences/ColorTheme/CutBoxThemeLoader.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
 		96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenience.swift"; sourceTree = "<group>"; };
@@ -745,6 +751,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
+				96B046442845275200011A58 /* CutBoxThemeLoader.swift */,
 				96E1E596205D243400F994ED /* CutBox */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				965348D12843316B000FD0A1 /* CutBoxUnitTests */,
@@ -768,6 +775,7 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
+				96B04641284518E400011A58 /* themes */,
 				965F078E207120DB0032DACD /* Source */,
 				965F0785206FCDC60032DACD /* GraphicAssets */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
@@ -984,6 +992,7 @@
 				9653490728434752000FD0A1 /* ClipItemTableRowImageButtonView.xib in Resources */,
 				965349162843475E000FD0A1 /* SearchAndPreviewView.xib in Resources */,
 				9653495928434D59000FD0A1 /* js_badge.png in Resources */,
+				96B04643284518E500011A58 /* themes in Resources */,
 				9653495328434D59000FD0A1 /* cutbox-icon.png in Resources */,
 				9653495828434D59000FD0A1 /* cutbox-js-icon.png in Resources */,
 				9653493F284347E8000FD0A1 /* JSFuncItemTableRowTextView.xib in Resources */,
@@ -1014,6 +1023,7 @@
 				96A16B4220A0675700EE08A4 /* page.png in Resources */,
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
 				96A801BF20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib in Resources */,
+				96B04642284518E500011A58 /* themes in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
 				96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */,
@@ -1291,6 +1301,7 @@
 				965348F428434735000FD0A1 /* PreferencesTabView.swift in Sources */,
 				9653495128434873000FD0A1 /* HistoryServiceSpec.swift in Sources */,
 				9653493728434795000FD0A1 /* PopupContainerView.swift in Sources */,
+				96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,6 +1374,7 @@
 				9652C0412844B0CE004249D9 /* CutBoxColorTheme.swift in Sources */,
 				96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */,
 				96FD7C2620ADBEAF00818925 /* JSFuncService.swift in Sources */,
+				96B046452845275200011A58 /* CutBoxThemeLoader.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
 				967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,

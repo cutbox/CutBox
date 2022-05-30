@@ -1,0 +1,22 @@
+{
+    "name": "Amber Cathode",
+    "popupBackgroundColor":            "#1C1715",
+    "searchText": {
+        "cursorColor":                 "#EF7031",
+        "textColor":                   "#F9E6DD",
+        "backgroundColor":             "#332A26",
+        "placeholderTextColor":        "#705D54"
+    },
+    "clip": {
+        "backgroundColor":    "#3D332D",
+        "textColor":          "#F9E7DE",
+        "highlightColor":     "#EC3C1A",
+        "highlightTextColor": "#F9E7DE"
+    },
+    "preview": {
+        "textColor":                   "#EF7031",
+        "backgroundColor":             "#000000",
+        "selectedTextBackgroundColor": "#EC3C1A"
+    },
+    "spacing": 1
+}

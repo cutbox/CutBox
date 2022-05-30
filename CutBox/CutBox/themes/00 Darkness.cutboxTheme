@@ -1,0 +1,22 @@
+{
+    "name": "Darkness",
+    "popupBackgroundColor": "#163242",
+    "searchText": {
+        "cursorColor": "#0E1C20",
+        "textColor": "#0E1B21",
+        "backgroundColor": "#ECF3F6",
+        "placeholderTextColor": "#ADC3CC"
+    },
+    "clip": {
+        "backgroundColor": "#0E1B21",
+        "textColor": "#ACC0CA",
+        "highlightColor": "#033E60",
+        "highlightTextColor": "#ACC0CA"
+    },
+    "preview": {
+        "textColor": "#ADC2CC",
+        "backgroundColor": "#060707",
+        "selectedTextBackgroundColor": "#163242"
+    },
+    "spacing": 1
+}

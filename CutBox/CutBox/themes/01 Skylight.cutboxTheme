@@ -1,0 +1,22 @@
+{
+    "name": "Skylight",
+    "popupBackgroundColor":            "#F1F2F1",
+    "searchText": {
+        "cursorColor":                 "#000000",
+        "textColor":                   "#000000",
+        "backgroundColor":             "#FEFFFE",
+        "placeholderTextColor":        "#9F9F9F"
+    },
+    "clip": {
+        "backgroundColor":    "#FEFFFE",
+        "textColor":          "#1C1C1C",
+        "highlightColor":     "#79D6F9",
+        "highlightTextColor": "#1C1C1C"
+    },
+    "preview": {
+        "textColor":                   "#000000",
+        "backgroundColor":             "#FEFFFE",
+        "selectedTextBackgroundColor": "#808080"
+    },
+    "spacing": 1
+}

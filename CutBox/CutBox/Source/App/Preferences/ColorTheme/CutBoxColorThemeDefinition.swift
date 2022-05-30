@@ -28,10 +28,10 @@ extension CutBoxColorTheme {
                     placeholderTextColor: theme.searchText.placeholderTextColor.color!
                   ),
                   clip: ClipTheme(
-                    clipItemsBackgroundColor: theme.clip.clipItemsBackgroundColor.color!,
-                    clipItemsTextColor: theme.clip.clipItemsTextColor.color!,
-                    clipItemsHighlightColor: theme.clip.clipItemsHighlightColor.color!,
-                    clipItemsHighlightTextColor: theme.clip.clipItemsHighlightTextColor.color!
+                    backgroundColor: theme.clip.backgroundColor.color!,
+                    textColor: theme.clip.textColor.color!,
+                    highlightColor: theme.clip.highlightColor.color!,
+                    highlightTextColor: theme.clip.highlightTextColor.color!
                   ),
                   preview: PreviewTheme(
                     textColor: theme.preview.textColor.color!,
@@ -132,16 +132,16 @@ extension CutBoxColorThemeDefinition {
 
 // MARK: - Clip
 struct Clip: Codable {
-    let clipItemsBackgroundColor: String
-    let clipItemsTextColor: String
-    let clipItemsHighlightColor: String
-    let clipItemsHighlightTextColor: String
+    let backgroundColor: String
+    let textColor: String
+    let highlightColor: String
+    let highlightTextColor: String
 
     enum CodingKeys: String, CodingKey {
-        case clipItemsBackgroundColor
-        case clipItemsTextColor
-        case clipItemsHighlightColor
-        case clipItemsHighlightTextColor
+        case backgroundColor
+        case textColor
+        case highlightColor
+        case highlightTextColor
     }
 }
 
@@ -164,16 +164,16 @@ extension Clip {
     }
 
     func with(
-      clipItemsBackgroundColor: String? = nil,
-      clipItemsTextColor: String? = nil,
-      clipItemsHighlightColor: String? = nil,
-      clipItemsHighlightTextColor: String? = nil
+      backgroundColor: String? = nil,
+      textColor: String? = nil,
+      highlightColor: String? = nil,
+      highlightTextColor: String? = nil
     ) -> Clip {
         return Clip(
-          clipItemsBackgroundColor: clipItemsBackgroundColor ?? self.clipItemsBackgroundColor,
-          clipItemsTextColor: clipItemsTextColor ?? self.clipItemsTextColor,
-          clipItemsHighlightColor: clipItemsHighlightColor ?? self.clipItemsHighlightColor,
-          clipItemsHighlightTextColor: clipItemsHighlightTextColor ?? self.clipItemsHighlightTextColor
+          backgroundColor: backgroundColor ?? self.backgroundColor,
+          textColor: textColor ?? self.textColor,
+          highlightColor: highlightColor ?? self.highlightColor,
+          highlightTextColor: highlightTextColor ?? self.highlightTextColor
         )
     }
 

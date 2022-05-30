@@ -14,19 +14,19 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
         describe("CutBoxPreferencesServiceSpec") {
             let subject = CutBoxPreferencesService()
 
-            it("initializes with themes") {
+            it("initializes with bundled themes") {
                 expect(subject.themes.count).to(equal(10))
                 expect(subject.themes.map({ $0.name })).to(equal([
-                    "preferences_color_theme_name_darkness",
-                    "preferences_color_theme_name_skylight",
-                    "preferences_color_theme_name_sandy_beach",
-                    "preferences_color_theme_name_darktooth",
-                    "preferences_color_theme_name_creamsody",
-                    "preferences_color_theme_name_purplehaze",
-                    "preferences_color_theme_name_verdant",
-                    "preferences_color_theme_name_amber_cathode",
-                    "preferences_color_theme_name_macos",
-                    "preferences_color_theme_name_macos_graphite"
+                    "Darkness",
+                    "Skylight",
+                    "Sandy Beach",
+                    "Darktooth",
+                    "Creamsody",
+                    "Purplehaze",
+                    "Verdant",
+                    "Amber Cathode",
+                    "macOS",
+                    "macOS Graphite"
                 ]))
             }
         }
@@ -46,10 +46,10 @@ class CutBoxThemeSpec: QuickSpec {
                                      placeholderTextColor: "#FFFFFF".color! ),
                 clip:
                     ClipTheme(
-                        clipItemsBackgroundColor: "#444444".color!,
-                        clipItemsTextColor: "#FFFFFF".color!,
-                        clipItemsHighlightColor: "#0000FF".color!,
-                        clipItemsHighlightTextColor: "#FFFFFF".color!
+                        backgroundColor: "#444444".color!,
+                        textColor: "#FFFFFF".color!,
+                        highlightColor: "#0000FF".color!,
+                        highlightTextColor: "#FFFFFF".color!
                     ),
                 preview:
                     PreviewTheme(
@@ -71,10 +71,10 @@ class CutBoxThemeSpec: QuickSpec {
                         "placeholderTextColor": "#FFFFFF"
                     },
                     "clip": {
-                        "clipItemsBackgroundColor": "#444444",
-                        "clipItemsTextColor": "#FFFFFF",
-                        "clipItemsHighlightColor": "#0000FF",
-                        "clipItemsHighlightTextColor": "#FFFFFF"
+                        "backgroundColor": "#444444",
+                        "textColor": "#FFFFFF",
+                        "highlightColor": "#0000FF",
+                        "highlightTextColor": "#FFFFFF"
                     },
                     "preview": {
                         "textColor": "#EEEEEE",
@@ -92,12 +92,12 @@ class CutBoxThemeSpec: QuickSpec {
                 }
 
                 it("clip items") {
-                    expect(subjectA.clip.clipItemsTextColor)
-                        .to(equal(subjectB.clip.clipItemsTextColor))
-                    expect(subjectA.clip.clipItemsHighlightColor)
-                        .to(equal(subjectB.clip.clipItemsHighlightColor))
-                    expect(subjectA.clip.clipItemsHighlightTextColor)
-                        .to(equal(subjectB.clip.clipItemsHighlightTextColor))
+                    expect(subjectA.clip.textColor)
+                        .to(equal(subjectB.clip.textColor))
+                    expect(subjectA.clip.highlightColor)
+                        .to(equal(subjectB.clip.highlightColor))
+                    expect(subjectA.clip.highlightTextColor)
+                        .to(equal(subjectB.clip.highlightTextColor))
                 }
 
                 it("preview") {

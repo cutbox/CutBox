@@ -129,7 +129,7 @@ class SearchPreviewViewBase: NSView {
         searchTextPlaceholder.font = prefs.searchViewTextFieldFont
         searchText.font = prefs.searchViewTextFieldFont
 
-        itemsList.backgroundColor = theme.clip.clipItemsBackgroundColor
+        itemsList.backgroundColor = theme.clip.backgroundColor
 
         searchContainer.fillColor = theme.popupBackgroundColor
 

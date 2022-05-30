@@ -1,0 +1,22 @@
+{
+    "name": "Purplehaze",
+    "popupBackgroundColor":            "#15141C",
+    "searchText": {
+        "cursorColor":                 "#8E5AF7",
+        "textColor":                   "#E6DDF9",
+        "backgroundColor":             "#2F2D3D",
+        "placeholderTextColor":        "#565470"
+    },
+    "clip": {
+        "backgroundColor":    "#2F2D3D",
+        "textColor":          "#E6DDF9",
+        "highlightColor":     "#9D8DD0",
+        "highlightTextColor": "#E6DDF9"
+    },
+    "preview": {
+        "textColor":                   "#E6DDF9",
+        "backgroundColor":             "#000000",
+        "selectedTextBackgroundColor": "#9D8DD0"
+    },
+    "spacing": 1
+}

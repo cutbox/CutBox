@@ -1,0 +1,22 @@
+{
+    "name": "Darktooth",
+    "popupBackgroundColor":            "#1C1C1C",
+    "searchText": {
+        "cursorColor":                 "#A79983",
+        "textColor":                   "#FCF4C1",
+        "backgroundColor":             "#1C1F20",
+        "placeholderTextColor":        "#3B3736"
+    },
+    "clip": {
+        "backgroundColor":    "#1C1F20",
+        "textColor":          "#FCF4C1",
+        "highlightColor":     "#7B6E63",
+        "highlightTextColor": "#FCF4C1"
+    },
+    "preview": {
+        "textColor":                   "#E4943C",
+        "backgroundColor":             "#141617",
+        "selectedTextBackgroundColor": "#7B6E63"
+    },
+    "spacing": 1
+}
