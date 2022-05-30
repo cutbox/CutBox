@@ -28,5 +28,4 @@ class PreferencesThemeSelectionView: NSView {
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
         prefs.theme = sender.index(of: sender.selectedItem!)
     }
-
 }

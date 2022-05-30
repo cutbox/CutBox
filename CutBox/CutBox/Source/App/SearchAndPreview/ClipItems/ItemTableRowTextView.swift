@@ -37,5 +37,4 @@ class ItemTableRowTextView: NSView {
 
     func setup() {
     }
-
 }

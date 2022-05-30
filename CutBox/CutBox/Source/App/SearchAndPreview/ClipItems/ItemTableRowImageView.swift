@@ -44,5 +44,4 @@ class ItemTableRowImageView: NSView {
         let blended = imageData.tint(color: self.color)
         self.image.image = blended
     }
-
 }

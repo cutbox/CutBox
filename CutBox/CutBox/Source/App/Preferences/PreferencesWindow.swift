@@ -21,5 +21,4 @@ class PreferencesWindow: NSWindow {
         self.title = "preferences_title".l7n
         self.titlebarAppearsTransparent = true
     }
-
 }

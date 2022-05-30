@@ -19,5 +19,4 @@ extension PopupController: NSWindowDelegate {
             closePopup()
         }
     }
-
 }

@@ -67,5 +67,4 @@ enum HistorySearchMode {
             return .fuzzyMatch
         }
     }
-
 }

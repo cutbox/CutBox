@@ -46,5 +46,4 @@ class PreferencesAdvancedView: NSView {
             prefs.useJoinString = bool
         }
     }
-
 }

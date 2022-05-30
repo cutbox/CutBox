@@ -18,7 +18,6 @@ extension Array {
             idx = indexes.integerLessThan(idx!)
         }
     }
-
 }
 
 extension Array where Element == [String: String] {
@@ -32,5 +31,4 @@ extension Array where Element == [String: String] {
             self.removeAll()
         }
     }
-
 }

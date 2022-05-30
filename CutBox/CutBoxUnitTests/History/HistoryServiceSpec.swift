@@ -26,7 +26,6 @@ fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
     init() {
         pasteboardItems = []
     }
-
 }
 
 fileprivate func addToFakePasteboardAndPoll(string: String,
@@ -228,5 +227,4 @@ class HistoryServiceSpec: QuickSpec {
             }
         }
     }
-
 }

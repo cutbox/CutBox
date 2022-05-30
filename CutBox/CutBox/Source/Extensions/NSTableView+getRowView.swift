@@ -28,5 +28,4 @@ extension NSTableView {
 
         return rowView
     }
-
 }

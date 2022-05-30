@@ -20,5 +20,4 @@ extension PreferencesThemeSelectionView {
 
         self.themeSelectorMenu.selectItem(at: prefs.theme)
     }
-
 }

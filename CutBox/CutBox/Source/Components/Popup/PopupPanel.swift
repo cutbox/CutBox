@@ -15,7 +15,6 @@ extension PopupPanel {
     public override var canBecomeKey: Bool {
         return true
     }
-
 }
 
 extension PopupPanel {
@@ -23,5 +22,4 @@ extension PopupPanel {
     public override func cancelOperation(_ sender: Any?) {
         resignKey()
     }
-
 }

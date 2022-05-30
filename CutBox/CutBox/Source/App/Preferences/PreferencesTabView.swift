@@ -36,5 +36,4 @@ class PreferencesTabView: NSTabView {
             self.addTabViewItem(tabViewItem)
         }
     }
-
 }

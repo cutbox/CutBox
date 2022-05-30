@@ -21,5 +21,4 @@ class JSFuncItemTableRowTextView: ItemTableRowTextView {
         self.title.stringValue = titleString
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
-
 }

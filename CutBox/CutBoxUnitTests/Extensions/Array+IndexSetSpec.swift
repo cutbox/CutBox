@@ -22,5 +22,4 @@ class ArrayIndexSetSpec: QuickSpec {
             }
         }
     }
-
 }

@@ -26,5 +26,4 @@ extension PreferencesAdvancedView {
             HistoryService.shared.bytesFormatted()
         )
     }
-
 }

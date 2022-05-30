@@ -34,5 +34,4 @@ extension PreferencesGeneralView {
             })
             .disposed(by: disposeBag)
     }
-
 }

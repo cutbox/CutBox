@@ -13,7 +13,6 @@ extension JSFuncSearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.jsFuncService.count
     }
-
 }
 
 extension JSFuncSearchViewController: NSTableViewDelegate {
@@ -97,5 +96,4 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         return proposedSelectionIndexes
     }
-
 }

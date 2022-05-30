@@ -14,5 +14,4 @@ extension Array {
         let inRange = index < self.count
         return inRange ? self[index] : nil
     }
-
 }

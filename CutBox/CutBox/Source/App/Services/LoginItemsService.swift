@@ -41,5 +41,4 @@ class LoginItemsService {
             NSLog("Failed to configure login item \(helperAppIdentifier).")
         }
     }
-
 }

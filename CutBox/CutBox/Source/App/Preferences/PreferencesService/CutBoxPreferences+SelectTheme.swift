@@ -25,5 +25,4 @@ extension CutBoxPreferencesService {
     func toggleTheme() {
         theme = ((theme + 1) % themes.count)
     }
-
 }

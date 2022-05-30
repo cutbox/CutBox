@@ -19,5 +19,4 @@ extension Array {
         }
         return result
     }
-
 }

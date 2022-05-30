@@ -34,5 +34,4 @@ extension NSObject {
         }
         return objectArray?.first(where: { $0 is T }) as? T
     }
-
 }

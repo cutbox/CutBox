@@ -96,5 +96,4 @@ class FakeKey {
         keyDownEvent?.post(tap: .cghidEventTap)
         keyUpEvent?.post(tap: .cghidEventTap)
     }
-
 }

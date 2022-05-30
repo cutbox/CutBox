@@ -32,7 +32,6 @@
 		964CA503207E5A1000B9F33E /* PreferencesAdvancedView+JoinItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA502207E5A1000B9F33E /* PreferencesAdvancedView+JoinItems.swift */; };
 		964CA505207E5A6900B9F33E /* PreferencesGeneralView+KeyRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA504207E5A6900B9F33E /* PreferencesGeneralView+KeyRecorder.swift */; };
 		964CA507207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA506207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift */; };
-		964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
 		964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */; };
 		964CA517207E6CA200B9F33E /* cutbox-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 964CA516207E6CA200B9F33E /* cutbox-icon.png */; };
 		964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
@@ -40,13 +39,17 @@
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; };
+		9652C03B284482E7004249D9 /* UserDefaultsMock.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
+		9652C03D2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
+		9652C03E2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
+		9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
+		9652C0412844B0CE004249D9 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
 		965348DB28434116000FD0A1 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		965348DC284346CD000FD0A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4A207356DA007E3785 /* Constants.swift */; };
 		965348DD284346E2000FD0A1 /* CutBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* CutBoxController.swift */; };
 		965348DE284346EB000FD0A1 /* CutBoxStatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */; };
 		965348E22843471D000FD0A1 /* CutBoxColorThemeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */; };
 		965348E32843471D000FD0A1 /* CutBoxPreferences+SelectTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */; };
-		965348E42843471D000FD0A1 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
 		965348E52843471D000FD0A1 /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		965348E62843471D000FD0A1 /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
 		965348E728434728000FD0A1 /* AboutPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F078C206FD1890032DACD /* AboutPanel.swift */; };
@@ -197,6 +200,8 @@
 		96A16B4A20A34C7000EE08A4 /* ClipItemTableRowTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */; };
 		96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */; };
 		96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */; };
+		96A225942844F5CD00C9502D /* CutBoxThemeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */; };
+		96A225952844F84700C9502D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; };
 		96A801B920A8177C000CBE74 /* PreferencesGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */; };
 		96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */; };
 		96A801BD20A8180F000CBE74 /* PreferencesAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */; };
@@ -236,6 +241,16 @@
 		96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */; };
 		EAF4D0FD74B2C7CF65DB1488 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96A225962844FDFA00C9502D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96E1E593205D243400F994ED;
+			remoteInfo = CutBox;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		962D6D802074622A007E3785 /* CopyFiles */ = {
@@ -315,6 +330,7 @@
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
 		964CA5532083325600B9F33E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorString.swift"; sourceTree = "<group>"; };
 		965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorThemeDefinition.swift; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -328,7 +344,7 @@
 		9662D3602064BA3400F8A9D5 /* PopupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupController.swift; sourceTree = "<group>"; };
 		96658CDF20B44B0500BDA8F4 /* PreferencesThemePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesThemePreview.swift; sourceTree = "<group>"; };
 		96658CEF20BA7B3E00BDA8F4 /* JSFuncServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncServiceSpec.swift; sourceTree = "<group>"; };
-		9667650620B1486C00DE369A /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsMock.swift; path = CutBoxTests/SharedMocks/UserDefaultsMock.swift; sourceTree = SOURCE_ROOT; };
+		9667650620B1486C00DE369A /* UserDefaultsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMock.swift; sourceTree = "<group>"; };
 		9667650A20B14CD900DE369A /* PreferencesAdvancedView+HistoryLimit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+HistoryLimit.swift"; sourceTree = "<group>"; };
 		9667650C20B16D5B00DE369A /* SearchPreviewViewBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPreviewViewBase.swift; sourceTree = "<group>"; };
 		9672FF282078C2DE00E4571E /* Array+IndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexSet.swift"; sourceTree = "<group>"; };
@@ -361,6 +377,7 @@
 		96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowTextView.swift; sourceTree = "<group>"; };
 		96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowImageButtonView.swift; sourceTree = "<group>"; };
 		96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClipItemTableRowImageButtonView.xib; sourceTree = "<group>"; };
+		96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeSpec.swift; sourceTree = "<group>"; };
 		96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesGeneralView.xib; sourceTree = "<group>"; };
 		96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesThemeSelectionView.xib; sourceTree = "<group>"; };
 		96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesAdvancedView.xib; sourceTree = "<group>"; };
@@ -387,7 +404,6 @@
 		96E1E59C205D243400F994ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CutBoxStatusMenu.xib; sourceTree = "<group>"; };
 		96E1E59E205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
-		96E1E5AA205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E5C4205D297900F994ED /* CutBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxController.swift; sourceTree = "<group>"; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
@@ -521,6 +537,7 @@
 		963AA6482071EE0600779697 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				9652C03F284489B4004249D9 /* ColorTheme */,
 				964CA547208324D300B9F33E /* PreferencesService */,
 				96A8021520AB0AD2000CBE74 /* PreferencesWindow.xib */,
 				965F0783206FC4F60032DACD /* PreferencesWindow.swift */,
@@ -564,6 +581,7 @@
 				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
 				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
 				964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */,
+				96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -585,22 +603,23 @@
 		964766652067A63700E7026F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				96A8020920AACD4E000CBE74 /* OrderedSet.swift */,
-				969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */,
-				968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */,
-				964CA5482083296600B9F33E /* String+L10n.swift */,
-				7C5495DE2276785B0041FA76 /* String+Utils.swift */,
-				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
-				964766682067B82900E7026F /* DisableScrollView.swift */,
-				964766632067A5F100E7026F /* NSObject+fromNib.swift */,
-				964766662067A68000E7026F /* Collection+Safe.swift */,
-				962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */,
 				9672FF282078C2DE00E4571E /* Array+IndexSet.swift */,
+				968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */,
+				962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */,
+				964766662067A68000E7026F /* Collection+Safe.swift */,
+				964766682067B82900E7026F /* DisableScrollView.swift */,
+				968B4F0520A68CB300F150BE /* JSContext+subscript.swift */,
+				963AA6452071E15900779697 /* KeyCombo+Archive.swift */,
+				969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */,
+				9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */,
+				964766632067A5F100E7026F /* NSObject+fromNib.swift */,
 				96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */,
 				967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */,
 				967EFEAD20A476D200A525CC /* NSImage+tint.swift */,
-				968B4F0520A68CB300F150BE /* JSContext+subscript.swift */,
 				96A8021820AB0C35000CBE74 /* NSAttributedString+HTML.swift */,
+				96A8020920AACD4E000CBE74 /* OrderedSet.swift */,
+				964CA5482083296600B9F33E /* String+L10n.swift */,
+				7C5495DE2276785B0041FA76 /* String+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -610,9 +629,7 @@
 			children = (
 				96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */,
 				964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */,
-				964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */,
 				964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */,
-				9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */,
 			);
 			path = PreferencesService;
 			sourceTree = "<group>";
@@ -623,6 +640,15 @@
 				96CFA6B22069278700BAFABB /* FakeKey.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9652C03F284489B4004249D9 /* ColorTheme */ = {
+			isa = PBXGroup;
+			children = (
+				964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */,
+				9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */,
+			);
+			path = ColorTheme;
 			sourceTree = "<group>";
 		};
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
@@ -720,7 +746,6 @@
 			isa = PBXGroup;
 			children = (
 				96E1E596205D243400F994ED /* CutBox */,
-				96E1E5A7205D243400F994ED /* CutBoxTests */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				965348D12843316B000FD0A1 /* CutBoxUnitTests */,
 				96E1E595205D243400F994ED /* Products */,
@@ -751,14 +776,6 @@
 				96E1E59F205D243400F994ED /* CutBox.entitlements */,
 			);
 			path = CutBox;
-			sourceTree = "<group>";
-		};
-		96E1E5A7205D243400F994ED /* CutBoxTests */ = {
-			isa = PBXGroup;
-			children = (
-				96E1E5AA205D243400F994ED /* Info.plist */,
-			);
-			path = CutBoxTests;
 			sourceTree = "<group>";
 		};
 		96E1E5C3205D295000F994ED /* App */ = {
@@ -848,6 +865,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				96A225972844FDFA00C9502D /* PBXTargetDependency */,
 			);
 			name = CutBoxUnitTests;
 			productName = CutBoxUnitTests;
@@ -900,6 +918,7 @@
 					965348CF2843316B000FD0A1 = {
 						CreatedOnToolsVersion = 13.2.1;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 96E1E593205D243400F994ED;
 					};
 					96E1E593205D243400F994ED = {
 						CreatedOnToolsVersion = 9.2;
@@ -947,7 +966,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9652C03B284482E7004249D9 /* UserDefaultsMock.swift in Resources */,
 				965348F328434735000FD0A1 /* PreferencesGeneralView.xib in Resources */,
+				96A225952844F84700C9502D /* Localizable.strings in Resources */,
 				9653493E284347E8000FD0A1 /* JSFuncItemTableRowImageView.xib in Resources */,
 				9653495628434D59000FD0A1 /* page.png in Resources */,
 				9653495528434D59000FD0A1 /* magnitude.png in Resources */,
@@ -1199,13 +1220,13 @@
 				9653493128434785000FD0A1 /* String+L10n.swift in Sources */,
 				965348DD284346E2000FD0A1 /* CutBoxController.swift in Sources */,
 				965348F728434735000FD0A1 /* PreferencesGeneralView+KeyRecorder.swift in Sources */,
+				9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */,
 				9653492B28434785000FD0A1 /* NSScreen+currentScreenForMouseLocation.swift in Sources */,
 				9653493B284347A7000FD0A1 /* AppDelegate.swift in Sources */,
 				9653490A28434752000FD0A1 /* ItemTableRowContainerView.swift in Sources */,
 				965349182843475E000FD0A1 /* SearchAndPreviewView.swift in Sources */,
 				9653494728434862000FD0A1 /* Array+String+SwiftyStringScoreSpec.swift in Sources */,
 				965349102843475E000FD0A1 /* SearchPreviewViewBase.swift in Sources */,
-				965348E42843471D000FD0A1 /* CutBoxColorTheme.swift in Sources */,
 				9653492328434772000FD0A1 /* HotKeyService.swift in Sources */,
 				965348F828434735000FD0A1 /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */,
 				965348FF28434735000FD0A1 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */,
@@ -1225,6 +1246,7 @@
 				9653494328434862000FD0A1 /* Array+IndexSetSpec.swift in Sources */,
 				9653490C28434752000FD0A1 /* ClipItemTableRowContainerView.swift in Sources */,
 				9653493228434785000FD0A1 /* OrderedSet.swift in Sources */,
+				96A225942844F5CD00C9502D /* CutBoxThemeSpec.swift in Sources */,
 				9653494C2843486B000FD0A1 /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */,
 				9653494628434862000FD0A1 /* String+UtilsSpec.swift in Sources */,
 				9653492428434785000FD0A1 /* NSAttributedString+HTML.swift in Sources */,
@@ -1236,6 +1258,7 @@
 				9653494828434862000FD0A1 /* JSContext+subscriptSpec.swift in Sources */,
 				965348FA28434735000FD0A1 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */,
 				96534940284347E8000FD0A1 /* JSFuncItemTableRowContainerView.swift in Sources */,
+				9652C03E2844892A004249D9 /* NSColor+HexColorString.swift in Sources */,
 				9653492728434785000FD0A1 /* JSContext+subscript.swift in Sources */,
 				9653491928434767000FD0A1 /* HistorySearchMode.swift in Sources */,
 				965348E32843471D000FD0A1 /* CutBoxPreferences+SelectTheme.swift in Sources */,
@@ -1289,7 +1312,6 @@
 				96A8020A20AACD4E000CBE74 /* OrderedSet.swift in Sources */,
 				965F078D206FD1890032DACD /* AboutPanel.swift in Sources */,
 				7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */,
-				964CA50F207E6B4300B9F33E /* CutBoxColorTheme.swift in Sources */,
 				967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */,
 				96FD7C2820ADBEF300818925 /* JSFuncSearchViewController.swift in Sources */,
 				96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */,
@@ -1308,6 +1330,7 @@
 				9662D3622064BA3400F8A9D5 /* PopupController.swift in Sources */,
 				964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
 				969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */,
+				9652C03D2844892A004249D9 /* NSColor+HexColorString.swift in Sources */,
 				96A8020220A8573D000CBE74 /* PreferencesGeneralView.swift in Sources */,
 				967EFEB220A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */,
 				968D7C952095778800FF1236 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */,
@@ -1339,6 +1362,7 @@
 				965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */,
 				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,
 				968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */,
+				9652C0412844B0CE004249D9 /* CutBoxColorTheme.swift in Sources */,
 				96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */,
 				96FD7C2620ADBEAF00818925 /* JSFuncService.swift in Sources */,
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
@@ -1362,6 +1386,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96A225972844FDFA00C9502D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96E1E593205D243400F994ED /* CutBox */;
+			targetProxy = 96A225962844FDFA00C9502D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		962D6D7520746109007E3785 /* MainMenu.xib */ = {
@@ -1388,10 +1420,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBoxHelper/CutBoxHelper.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				INFOPLIST_FILE = CutBoxHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
@@ -1407,7 +1439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBoxHelper/CutBoxHelper.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CutBoxHelper/Info.plist;
@@ -1415,6 +1447,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1423,6 +1456,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6EDCCD7085DA8399AB395367 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1436,6 +1470,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CutBox.app/Contents/MacOS/CutBox";
 			};
 			name = Debug;
 		};
@@ -1443,6 +1478,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1187FCFB8348BA356FE65FEB /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1455,6 +1491,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CutBox.app/Contents/MacOS/CutBox";
 			};
 			name = Release;
 		};
@@ -1578,10 +1615,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CutBox/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -1600,7 +1637,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CutBox/CutBox.entitlements;
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;

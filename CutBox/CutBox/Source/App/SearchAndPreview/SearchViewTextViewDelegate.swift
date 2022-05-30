@@ -26,5 +26,4 @@ extension SearchAndPreviewView: NSTextViewDelegate {
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         return useTextCommands.contains(commandSelector)
     }
-
 }

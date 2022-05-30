@@ -42,23 +42,23 @@ class CutBoxPreferencesService {
               """
                {
                    "name": "\("preferences_color_theme_name_darkness".l7n)",
-                   "popupBackgroundColorRGBA": "#163242",
+                   "popupBackgroundColor": "#163242",
                    "searchText": {
-                       "cursorColorRGBA": "#0E1C20",
-                       "textColorRGBA": "#0E1B21",
-                       "backgroundColorRGBA": "#ECF3F6",
-                       "placeholderTextColorRGBA": "#ADC3CC"
+                       "cursorColor": "#0E1C20",
+                       "textColor": "#0E1B21",
+                       "backgroundColor": "#ECF3F6",
+                       "placeholderTextColor": "#ADC3CC"
                    },
                    "clip": {
-                       "clipItemsBackgroundColorRGBA": "#0E1B21",
-                       "clipItemsTextColorRGBA": "#ACC0CA",
-                       "clipItemsHighlightColorRGBA": "#033E60",
-                       "clipItemsHighlightTextColorRGBA": "#ACC0CA"
+                       "clipItemsBackgroundColor": "#0E1B21",
+                       "clipItemsTextColor": "#ACC0CA",
+                       "clipItemsHighlightColor": "#033E60",
+                       "clipItemsHighlightTextColor": "#ACC0CA"
                    },
                    "preview": {
-                       "textColorRGBA": "#ADC2CC",
-                       "backgroundColorRGBA": "#060707",
-                       "selectedTextBackgroundColorRGBA": "#163242"
+                       "textColor": "#ADC2CC",
+                       "backgroundColor": "#060707",
+                       "selectedTextBackgroundColor": "#163242"
                    },
                    "spacing": 1
                }
@@ -66,23 +66,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_skylight".l7n)",
-                    "popupBackgroundColorRGBA":            "#F1F2F1",
+                    "popupBackgroundColor":            "#F1F2F1",
                     "searchText": {
-                        "cursorColorRGBA":                 "#000000",
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#FEFFFE",
-                        "placeholderTextColorRGBA":        "#9F9F9F"
+                        "cursorColor":                 "#000000",
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#FEFFFE",
+                        "placeholderTextColor":        "#9F9F9F"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#FEFFFE",
-                        "clipItemsTextColorRGBA":          "#1C1C1C",
-                        "clipItemsHighlightColorRGBA":     "#79D6F9",
-                        "clipItemsHighlightTextColorRGBA": "#1C1C1C"
+                        "clipItemsBackgroundColor":    "#FEFFFE",
+                        "clipItemsTextColor":          "#1C1C1C",
+                        "clipItemsHighlightColor":     "#79D6F9",
+                        "clipItemsHighlightTextColor": "#1C1C1C"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#FEFFFE",
-                        "selectedTextBackgroundColorRGBA": "#808080"
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#FEFFFE",
+                        "selectedTextBackgroundColor": "#808080"
                     },
                     "spacing": 1
                 }
@@ -90,23 +90,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_sandy_beach".l7n)",
-                    "popupBackgroundColorRGBA":            "#D8D2AB",
+                    "popupBackgroundColor":            "#D8D2AB",
                     "searchText": {
-                        "cursorColorRGBA":                 "#000000",
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#E5DFB6",
-                        "placeholderTextColorRGBA":        "#7E7751"
+                        "cursorColor":                 "#000000",
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#E5DFB6",
+                        "placeholderTextColor":        "#7E7751"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#EBE6C9",
-                        "clipItemsTextColorRGBA":          "#1C1C1C",
-                        "clipItemsHighlightColorRGBA":     "#99840F",
-                        "clipItemsHighlightTextColorRGBA": "#1C1C1C"
+                        "clipItemsBackgroundColor":    "#EBE6C9",
+                        "clipItemsTextColor":          "#1C1C1C",
+                        "clipItemsHighlightColor":     "#99840F",
+                        "clipItemsHighlightTextColor": "#1C1C1C"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#1C1D1C",
-                        "backgroundColorRGBA":             "#EEE8CB",
-                        "selectedTextBackgroundColorRGBA": "#99840F"
+                        "textColor":                   "#1C1D1C",
+                        "backgroundColor":             "#EEE8CB",
+                        "selectedTextBackgroundColor": "#99840F"
                     },
                     "spacing": 1
                 }
@@ -114,23 +114,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_darktooth".l7n)",
-                    "popupBackgroundColorRGBA":            "#1C1C1C",
+                    "popupBackgroundColor":            "#1C1C1C",
                     "searchText": {
-                        "cursorColorRGBA":                 "#A79983",
-                        "textColorRGBA":                   "#FCF4C1",
-                        "backgroundColorRGBA":             "#1C1F20",
-                        "placeholderTextColorRGBA":        "#3B3736"
+                        "cursorColor":                 "#A79983",
+                        "textColor":                   "#FCF4C1",
+                        "backgroundColor":             "#1C1F20",
+                        "placeholderTextColor":        "#3B3736"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#1C1F20",
-                        "clipItemsTextColorRGBA":          "#FCF4C1",
-                        "clipItemsHighlightColorRGBA":     "#7B6E63",
-                        "clipItemsHighlightTextColorRGBA": "#FCF4C1"
+                        "clipItemsBackgroundColor":    "#1C1F20",
+                        "clipItemsTextColor":          "#FCF4C1",
+                        "clipItemsHighlightColor":     "#7B6E63",
+                        "clipItemsHighlightTextColor": "#FCF4C1"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#E4943C",
-                        "backgroundColorRGBA":             "#141617",
-                        "selectedTextBackgroundColorRGBA": "#7B6E63"
+                        "textColor":                   "#E4943C",
+                        "backgroundColor":             "#141617",
+                        "selectedTextBackgroundColor": "#7B6E63"
                     },
                     "spacing": 1
                 }
@@ -138,23 +138,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_creamsody".l7n)",
-                    "popupBackgroundColorRGBA":            "#1C1C1C",
+                    "popupBackgroundColor":            "#1C1C1C",
                     "searchText": {
-                        "cursorColorRGBA":                 "#86D6FF",
-                        "textColorRGBA":                   "#86D6FF",
-                        "backgroundColorRGBA":             "#282B32",
-                        "placeholderTextColorRGBA":        "#283D41"
+                        "cursorColor":                 "#86D6FF",
+                        "textColor":                   "#86D6FF",
+                        "backgroundColor":             "#282B32",
+                        "placeholderTextColor":        "#283D41"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#282B32",
-                        "clipItemsTextColorRGBA":          "#86D6FF",
-                        "clipItemsHighlightColorRGBA":     "#8DD0C9",
-                        "clipItemsHighlightTextColorRGBA": "#86D6FF"
+                        "clipItemsBackgroundColor":    "#282B32",
+                        "clipItemsTextColor":          "#86D6FF",
+                        "clipItemsHighlightColor":     "#8DD0C9",
+                        "clipItemsHighlightTextColor": "#86D6FF"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#6CAFD1",
-                        "backgroundColorRGBA":             "#141617",
-                        "selectedTextBackgroundColorRGBA": "#8DD0C9"
+                        "textColor":                   "#6CAFD1",
+                        "backgroundColor":             "#141617",
+                        "selectedTextBackgroundColor": "#8DD0C9"
                     },
                     "spacing": 1
                 }
@@ -162,23 +162,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_purplehaze".l7n)",
-                    "popupBackgroundColorRGBA":            "#15141C",
+                    "popupBackgroundColor":            "#15141C",
                     "searchText": {
-                        "cursorColorRGBA":                 "#8E5AF7",
-                        "textColorRGBA":                   "#E6DDF9",
-                        "backgroundColorRGBA":             "#2F2D3D",
-                        "placeholderTextColorRGBA":        "#565470"
+                        "cursorColor":                 "#8E5AF7",
+                        "textColor":                   "#E6DDF9",
+                        "backgroundColor":             "#2F2D3D",
+                        "placeholderTextColor":        "#565470"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#2F2D3D",
-                        "clipItemsTextColorRGBA":          "#E6DDF9",
-                        "clipItemsHighlightColorRGBA":     "#9D8DD0",
-                        "clipItemsHighlightTextColorRGBA": "#E6DDF9"
+                        "clipItemsBackgroundColor":    "#2F2D3D",
+                        "clipItemsTextColor":          "#E6DDF9",
+                        "clipItemsHighlightColor":     "#9D8DD0",
+                        "clipItemsHighlightTextColor": "#E6DDF9"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#E6DDF9",
-                        "backgroundColorRGBA":             "#000000",
-                        "selectedTextBackgroundColorRGBA": "#9D8DD0"
+                        "textColor":                   "#E6DDF9",
+                        "backgroundColor":             "#000000",
+                        "selectedTextBackgroundColor": "#9D8DD0"
                     },
                     "spacing": 1
                 }
@@ -186,23 +186,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_verdant".l7n)",
-                    "popupBackgroundColorRGBA":            "#161C15",
+                    "popupBackgroundColor":            "#161C15",
                     "searchText": {
-                        "cursorColorRGBA":                 "#71F75A",
-                        "textColorRGBA":                   "#E1F9DD",
-                        "backgroundColorRGBA":             "#20281E",
-                        "placeholderTextColorRGBA":        "#587054"
+                        "cursorColor":                 "#71F75A",
+                        "textColor":                   "#E1F9DD",
+                        "backgroundColor":             "#20281E",
+                        "placeholderTextColor":        "#587054"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#20281E",
-                        "clipItemsTextColorRGBA":          "#E2F9DE",
-                        "clipItemsHighlightColorRGBA":     "#97D08D",
-                        "clipItemsHighlightTextColorRGBA": "#E2F9DE"
+                        "clipItemsBackgroundColor":    "#20281E",
+                        "clipItemsTextColor":          "#E2F9DE",
+                        "clipItemsHighlightColor":     "#97D08D",
+                        "clipItemsHighlightTextColor": "#E2F9DE"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#E1F9DD",
-                        "backgroundColorRGBA":             "#000000",
-                        "selectedTextBackgroundColorRGBA": "#97D08D"
+                        "textColor":                   "#E1F9DD",
+                        "backgroundColor":             "#000000",
+                        "selectedTextBackgroundColor": "#97D08D"
                     },
                     "spacing": 1
                 }
@@ -210,23 +210,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_amber_cathode".l7n)",
-                    "popupBackgroundColorRGBA":            "#1C1715",
+                    "popupBackgroundColor":            "#1C1715",
                     "searchText": {
-                        "cursorColorRGBA":                 "#EF7031",
-                        "textColorRGBA":                   "#F9E6DD",
-                        "backgroundColorRGBA":             "#332A26",
-                        "placeholderTextColorRGBA":        "#705D54"
+                        "cursorColor":                 "#EF7031",
+                        "textColor":                   "#F9E6DD",
+                        "backgroundColor":             "#332A26",
+                        "placeholderTextColor":        "#705D54"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#3D332D",
-                        "clipItemsTextColorRGBA":          "#F9E7DE",
-                        "clipItemsHighlightColorRGBA":     "#EC3C1A",
-                        "clipItemsHighlightTextColorRGBA": "#F9E7DE"
+                        "clipItemsBackgroundColor":    "#3D332D",
+                        "clipItemsTextColor":          "#F9E7DE",
+                        "clipItemsHighlightColor":     "#EC3C1A",
+                        "clipItemsHighlightTextColor": "#F9E7DE"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#EF7031",
-                        "backgroundColorRGBA":             "#000000",
-                        "selectedTextBackgroundColorRGBA": "#EC3C1A"
+                        "textColor":                   "#EF7031",
+                        "backgroundColor":             "#000000",
+                        "selectedTextBackgroundColor": "#EC3C1A"
                     },
                     "spacing": 1
                 }
@@ -234,23 +234,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_macos".l7n)",
-                    "popupBackgroundColorRGBA":            "#EEEEEE",
+                    "popupBackgroundColor":            "#EEEEEE",
                     "searchText": {
-                        "cursorColorRGBA":                 "#000000",
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#F1F1F1",
-                        "placeholderTextColorRGBA":        "#CBCBCB"
+                        "cursorColor":                 "#000000",
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#F1F1F1",
+                        "placeholderTextColor":        "#CBCBCB"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#FFFFFF",
-                        "clipItemsTextColorRGBA":          "#000000",
-                        "clipItemsHighlightColorRGBA":     "#4277F4",
-                        "clipItemsHighlightTextColorRGBA": "#FFFFFF"
+                        "clipItemsBackgroundColor":    "#FFFFFF",
+                        "clipItemsTextColor":          "#000000",
+                        "clipItemsHighlightColor":     "#4277F4",
+                        "clipItemsHighlightTextColor": "#FFFFFF"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#F8F8F8",
-                        "selectedTextBackgroundColorRGBA": "#B2D6FF"
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#F8F8F8",
+                        "selectedTextBackgroundColor": "#B2D6FF"
                     },
                     "spacing": 1
                 }
@@ -258,23 +258,23 @@ class CutBoxPreferencesService {
               """
                 {
                     "name": "\("preferences_color_theme_name_macos_graphite".l7n)",
-                    "popupBackgroundColorRGBA":            "#EEEEEE",
+                    "popupBackgroundColor":            "#EEEEEE",
                     "searchText": {
-                        "cursorColorRGBA":                 "#000000",
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#F1F1F1",
-                        "placeholderTextColorRGBA":        "#CBCBCB"
+                        "cursorColor":                 "#000000",
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#F1F1F1",
+                        "placeholderTextColor":        "#CBCBCB"
                     },
                     "clip": {
-                        "clipItemsBackgroundColorRGBA":    "#FFFFFF",
-                        "clipItemsTextColorRGBA":          "#000000",
-                        "clipItemsHighlightColorRGBA":     "#808080",
-                        "clipItemsHighlightTextColorRGBA": "#FFFFFF"
+                        "clipItemsBackgroundColor":    "#FFFFFF",
+                        "clipItemsTextColor":          "#000000",
+                        "clipItemsHighlightColor":     "#808080",
+                        "clipItemsHighlightTextColor": "#FFFFFF"
                     },
                     "preview": {
-                        "textColorRGBA":                   "#000000",
-                        "backgroundColorRGBA":             "#F8F8F8",
-                        "selectedTextBackgroundColorRGBA": "#B2D6FF"
+                        "textColor":                   "#000000",
+                        "backgroundColor":             "#F8F8F8",
+                        "selectedTextBackgroundColor": "#B2D6FF"
                     },
                     "spacing": 1
                 }
@@ -382,7 +382,6 @@ class CutBoxPreferencesService {
     func loadJavascript() {
         JSFuncService.shared.reload()
     }
-
 }
 
 func notifyUser(title: String, info: String) {

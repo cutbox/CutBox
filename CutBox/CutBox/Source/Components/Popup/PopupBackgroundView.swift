@@ -20,5 +20,4 @@ public class PopupBackgroundView: NSView {
         backgroundColor.setFill()
         path.fill()
     }
-
 }

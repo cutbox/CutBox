@@ -37,5 +37,4 @@ class HistoryLimitNumberFormatter: NumberFormatter {
                                          range: NSRange(partialString.startIndex...,
                                                         in: partialString)).count == 1
     }
-
 }

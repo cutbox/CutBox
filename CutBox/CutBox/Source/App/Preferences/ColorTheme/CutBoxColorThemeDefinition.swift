@@ -4,63 +4,6 @@
 //   let cutBoxColorThemeDefinition = try CutBoxColorThemeDefinition(json)
 
 import Foundation
-import AppKit.NSColor
-
-extension NSColor {
-    convenience init?(hex: String) {
-        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
-        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
-
-        var rgb: UInt32 = 0
-
-        var r: CGFloat = 0.0
-        var g: CGFloat = 0.0
-        var b: CGFloat = 0.0
-        var a: CGFloat = 1.0
-
-        let length = hexSanitized.count
-
-        guard Scanner(string: hexSanitized).scanHexInt32(&rgb) else { return nil }
-
-        if length == 6 {
-            r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
-            g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
-            b = CGFloat(rgb & 0x0000FF) / 255.0
-        } else if length == 8 {
-            r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
-            g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
-            b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
-            a = CGFloat(rgb & 0x000000FF) / 255.0
-        } else {
-            return nil
-        }
-
-        self.init(red: r, green: g, blue: b, alpha: a)
-    }
-
-    var toHex: String? {
-        return toHex()
-    }
-
-    func toHex(alpha: Bool = false) -> String? {
-        guard let components = cgColor.components, components.count >= 3 else { return nil }
-        let r = Float(components[0])
-        let g = Float(components[1])
-        let b = Float(components[2])
-        var a = Float(1.0)
-        if components.count >= 4 {
-            a = Float(components[3])
-        }
-
-        if alpha {
-            return String(format: "%02lX%02lX%02lX%02lX",
-                          lroundf(r * 255), lroundf(g * 255), lroundf(b * 255), lroundf(a * 255))
-        } else {
-            return String(format: "%02lX%02lX%02lX",
-                          lroundf(r * 255), lroundf(g * 255), lroundf(b * 255))
-        }
-    }
-}
 
 extension CutBoxColorTheme {
     convenience init(_ json: String) {
@@ -77,23 +20,23 @@ extension CutBoxColorTheme {
         print("Theme initializing: \(theme.name )")
         print(theme)
         self.init(name: theme.name,
-                  popupBackgroundColor: NSColor(hex: theme.popupBackgroundColorRGBA)!,
+                  popupBackgroundColor: theme.popupBackgroundColor.color!,
                   searchText: SearchTextTheme(
-                    cursorColor: NSColor(hex: theme.searchText.cursorColorRGBA)!,
-                    textColor: NSColor(hex: theme.searchText.textColorRGBA)!,
-                    backgroundColor: NSColor(hex: theme.searchText.backgroundColorRGBA)!,
-                    placeholderTextColor: NSColor(hex: theme.popupBackgroundColorRGBA)!
+                    cursorColor: theme.searchText.cursorColor.color!,
+                    textColor: theme.searchText.textColor.color!,
+                    backgroundColor: theme.searchText.backgroundColor.color!,
+                    placeholderTextColor: theme.searchText.placeholderTextColor.color!
                   ),
                   clip: ClipTheme(
-                    clipItemsBackgroundColor: NSColor(hex: theme.clip.clipItemsBackgroundColorRGBA)!,
-                    clipItemsTextColor: NSColor(hex: theme.clip.clipItemsTextColorRGBA)!,
-                    clipItemsHighlightColor: NSColor(hex: theme.clip.clipItemsHighlightColorRGBA)!,
-                    clipItemsHighlightTextColor: NSColor(hex: theme.clip.clipItemsHighlightTextColorRGBA)!
+                    clipItemsBackgroundColor: theme.clip.clipItemsBackgroundColor.color!,
+                    clipItemsTextColor: theme.clip.clipItemsTextColor.color!,
+                    clipItemsHighlightColor: theme.clip.clipItemsHighlightColor.color!,
+                    clipItemsHighlightTextColor: theme.clip.clipItemsHighlightTextColor.color!
                   ),
                   preview: PreviewTheme(
-                    textColor: NSColor(hex: theme.preview.textColorRGBA)!,
-                    backgroundColor: NSColor(hex: theme.preview.backgroundColorRGBA)!,
-                    selectedTextBackgroundColor: NSColor(hex: theme.preview.selectedTextBackgroundColorRGBA)!
+                    textColor: theme.preview.textColor.color!,
+                    backgroundColor: theme.preview.backgroundColor.color!,
+                    selectedTextBackgroundColor: theme.preview.selectedTextBackgroundColor.color!
                   ),
                   spacing: CGFloat(theme.spacing))
     }
@@ -102,7 +45,7 @@ extension CutBoxColorTheme {
 // MARK: - CutBoxColorThemeDefinition
 struct CutBoxColorThemeDefinition: Codable {
     let name: String
-    let popupBackgroundColorRGBA: String
+    let popupBackgroundColor: String
     let searchText: SearchText
     let clip: Clip
     let preview: Preview
@@ -110,7 +53,7 @@ struct CutBoxColorThemeDefinition: Codable {
 
     enum CodingKeys: String, CodingKey {
         case name
-        case popupBackgroundColorRGBA
+        case popupBackgroundColor
         case searchText
         case clip
         case preview
@@ -126,6 +69,9 @@ extension CutBoxColorThemeDefinition {
             let decoder = JSONDecoder()
             let messages = try decoder.decode(CutBoxColorThemeDefinition.self, from: data)
             print(messages as Any)
+
+            // For debugging, build and run CutBox from the terminal
+            // i.e. $ build/CutBox.app/Contents/MacOS/CutBox
         } catch DecodingError.dataCorrupted(let context) {
             print(context)
         } catch DecodingError.keyNotFound(let key, let context) {
@@ -159,7 +105,7 @@ extension CutBoxColorThemeDefinition {
 
     func with(
       name: String? = nil,
-      popupBackgroundColorRGBA: String? = nil,
+      popupBackgroundColor: String? = nil,
       searchText: SearchText? = nil,
       clip: Clip? = nil,
       preview: Preview? = nil,
@@ -167,7 +113,7 @@ extension CutBoxColorThemeDefinition {
     ) -> CutBoxColorThemeDefinition {
         return CutBoxColorThemeDefinition(
           name: name ?? self.name,
-          popupBackgroundColorRGBA: popupBackgroundColorRGBA ?? self.popupBackgroundColorRGBA,
+          popupBackgroundColor: popupBackgroundColor ?? self.popupBackgroundColor,
           searchText: searchText ?? self.searchText,
           clip: clip ?? self.clip,
           preview: preview ?? self.preview,
@@ -186,16 +132,16 @@ extension CutBoxColorThemeDefinition {
 
 // MARK: - Clip
 struct Clip: Codable {
-    let clipItemsBackgroundColorRGBA: String
-    let clipItemsTextColorRGBA: String
-    let clipItemsHighlightColorRGBA: String
-    let clipItemsHighlightTextColorRGBA: String
+    let clipItemsBackgroundColor: String
+    let clipItemsTextColor: String
+    let clipItemsHighlightColor: String
+    let clipItemsHighlightTextColor: String
 
     enum CodingKeys: String, CodingKey {
-        case clipItemsBackgroundColorRGBA
-        case clipItemsTextColorRGBA
-        case clipItemsHighlightColorRGBA
-        case clipItemsHighlightTextColorRGBA
+        case clipItemsBackgroundColor
+        case clipItemsTextColor
+        case clipItemsHighlightColor
+        case clipItemsHighlightTextColor
     }
 }
 
@@ -218,16 +164,16 @@ extension Clip {
     }
 
     func with(
-      clipItemsBackgroundColorRGBA: String? = nil,
-      clipItemsTextColorRGBA: String? = nil,
-      clipItemsHighlightColorRGBA: String? = nil,
-      clipItemsHighlightTextColorRGBA: String? = nil
+      clipItemsBackgroundColor: String? = nil,
+      clipItemsTextColor: String? = nil,
+      clipItemsHighlightColor: String? = nil,
+      clipItemsHighlightTextColor: String? = nil
     ) -> Clip {
         return Clip(
-          clipItemsBackgroundColorRGBA: clipItemsBackgroundColorRGBA ?? self.clipItemsBackgroundColorRGBA,
-          clipItemsTextColorRGBA: clipItemsTextColorRGBA ?? self.clipItemsTextColorRGBA,
-          clipItemsHighlightColorRGBA: clipItemsHighlightColorRGBA ?? self.clipItemsHighlightColorRGBA,
-          clipItemsHighlightTextColorRGBA: clipItemsHighlightTextColorRGBA ?? self.clipItemsHighlightTextColorRGBA
+          clipItemsBackgroundColor: clipItemsBackgroundColor ?? self.clipItemsBackgroundColor,
+          clipItemsTextColor: clipItemsTextColor ?? self.clipItemsTextColor,
+          clipItemsHighlightColor: clipItemsHighlightColor ?? self.clipItemsHighlightColor,
+          clipItemsHighlightTextColor: clipItemsHighlightTextColor ?? self.clipItemsHighlightTextColor
         )
     }
 
@@ -242,14 +188,14 @@ extension Clip {
 
 // MARK: - Preview
 struct Preview: Codable {
-    let textColorRGBA: String
-    let backgroundColorRGBA: String
-    let selectedTextBackgroundColorRGBA: String
+    let textColor: String
+    let backgroundColor: String
+    let selectedTextBackgroundColor: String
 
     enum CodingKeys: String, CodingKey {
-        case textColorRGBA
-        case backgroundColorRGBA
-        case selectedTextBackgroundColorRGBA
+        case textColor
+        case backgroundColor
+        case selectedTextBackgroundColor
     }
 }
 
@@ -272,14 +218,14 @@ extension Preview {
     }
 
     func with(
-      textColorRGBA: String? = nil,
-      backgroundColorRGBA: String? = nil,
-      selectedTextBackgroundColorRGBA: String? = nil
+      textColor: String? = nil,
+      backgroundColor: String? = nil,
+      selectedTextBackgroundColor: String? = nil
     ) -> Preview {
         return Preview(
-          textColorRGBA: textColorRGBA ?? self.textColorRGBA,
-          backgroundColorRGBA: backgroundColorRGBA ?? self.backgroundColorRGBA,
-          selectedTextBackgroundColorRGBA: selectedTextBackgroundColorRGBA ?? self.selectedTextBackgroundColorRGBA
+          textColor: textColor ?? self.textColor,
+          backgroundColor: backgroundColor ?? self.backgroundColor,
+          selectedTextBackgroundColor: selectedTextBackgroundColor ?? self.selectedTextBackgroundColor
         )
     }
 
@@ -294,16 +240,16 @@ extension Preview {
 
 // MARK: - SearchText
 struct SearchText: Codable {
-    let cursorColorRGBA: String
-    let textColorRGBA: String
-    let backgroundColorRGBA: String
-    let placeholderTextColorRGBA: String
+    let cursorColor: String
+    let textColor: String
+    let backgroundColor: String
+    let placeholderTextColor: String
 
     enum CodingKeys: String, CodingKey {
-        case cursorColorRGBA
-        case textColorRGBA
-        case backgroundColorRGBA
-        case placeholderTextColorRGBA
+        case cursorColor
+        case textColor
+        case backgroundColor
+        case placeholderTextColor
     }
 }
 
@@ -326,16 +272,16 @@ extension SearchText {
     }
 
     func with(
-      cursorColorRGBA: String? = nil,
-      textColorRGBA: String? = nil,
-      backgroundColorRGBA: String? = nil,
-      placeholderTextColorRGBA: String? = nil
+      cursorColor: String? = nil,
+      textColor: String? = nil,
+      backgroundColor: String? = nil,
+      placeholderTextColor: String? = nil
     ) -> SearchText {
         return SearchText(
-          cursorColorRGBA: cursorColorRGBA ?? self.cursorColorRGBA,
-          textColorRGBA: textColorRGBA ?? self.textColorRGBA,
-          backgroundColorRGBA: backgroundColorRGBA ?? self.backgroundColorRGBA,
-          placeholderTextColorRGBA: placeholderTextColorRGBA ?? self.placeholderTextColorRGBA
+          cursorColor: cursorColor ?? self.cursorColor,
+          textColor: textColor ?? self.textColor,
+          backgroundColor: backgroundColor ?? self.backgroundColor,
+          placeholderTextColor: placeholderTextColor ?? self.placeholderTextColor
         )
     }
 

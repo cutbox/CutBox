@@ -220,5 +220,4 @@ class PopupController: NSWindowController {
 
         return panelRect
     }
-
 }

@@ -66,6 +66,16 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "965348CF2843316B000FD0A1"
+               BuildableName = "CutBoxUnitTests.xctest"
+               BlueprintName = "CutBoxUnitTests"
+               ReferencedContainer = "container:CutBox.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -63,5 +63,4 @@ class ClipItemTableRowImageButtonView: NSView {
         let blended = imageData.tint(color: self.color)
         self.imageButton.image = blended
     }
-
 }

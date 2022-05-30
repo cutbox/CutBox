@@ -21,5 +21,4 @@ public class DisablableScrollView: NSScrollView {
             nextResponder?.scrollWheel(with: event)
         }
     }
-
 }

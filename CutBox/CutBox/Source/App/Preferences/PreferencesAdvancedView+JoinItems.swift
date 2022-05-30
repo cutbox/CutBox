@@ -43,5 +43,4 @@ extension PreferencesAdvancedView {
             })
             .disposed(by: self.disposeBag)
     }
-
 }

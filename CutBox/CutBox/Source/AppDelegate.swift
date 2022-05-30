@@ -38,5 +38,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         HotKeyCenter.shared.unregisterAll()
     }
-
 }

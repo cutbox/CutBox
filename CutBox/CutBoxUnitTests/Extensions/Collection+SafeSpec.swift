@@ -22,5 +22,4 @@ class CollectionSafeSpec: QuickSpec {
             }
         }
     }
-
 }

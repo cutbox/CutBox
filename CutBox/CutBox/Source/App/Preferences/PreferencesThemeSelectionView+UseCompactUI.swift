@@ -33,5 +33,4 @@ extension PreferencesThemeSelectionView {
             })
             .disposed(by: disposeBag)
     }
-
 }

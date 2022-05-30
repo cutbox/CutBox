@@ -92,5 +92,4 @@ class PreferencesJavascriptTransformView: NSView {
     private func append(_ string: String) {
         javascriptTransformREPLOutput.string += "\n" + string
     }
-
 }

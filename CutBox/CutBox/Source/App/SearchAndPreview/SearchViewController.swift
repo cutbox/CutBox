@@ -243,5 +243,4 @@ class SearchViewController: NSObject {
 
         self.searchPopup.willClosePopup = self.resetSearchText
     }
-
 }

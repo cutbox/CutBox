@@ -34,5 +34,4 @@ class ClipItemTableRowTextView: ItemTableRowTextView {
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .truncate(limit: 1000)
     }
-
 }

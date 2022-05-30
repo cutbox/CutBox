@@ -13,7 +13,6 @@ extension SearchViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.historyService.count
     }
-
 }
 
 extension SearchViewController: NSTableViewDelegate {
@@ -102,5 +101,4 @@ extension SearchViewController: NSTableViewDelegate {
 
         return proposedSelectionIndexes
     }
-
 }

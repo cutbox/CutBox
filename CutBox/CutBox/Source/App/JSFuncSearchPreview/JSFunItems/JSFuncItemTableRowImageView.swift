@@ -14,5 +14,4 @@ class JSFuncItemTableRowImageView: ItemTableRowImageView {
         self.image.image = #imageLiteral(resourceName: "page.png")
         self.tintImage()
     }
-
 }

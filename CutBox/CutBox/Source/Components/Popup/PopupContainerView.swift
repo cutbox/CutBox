@@ -59,5 +59,4 @@ class PopupContainerView: NSView {
         self.superviewConstraints = horizontalConstraints + verticalConstraints
         superview.addConstraints(superviewConstraints)
     }
-
 }

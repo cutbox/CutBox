@@ -118,5 +118,4 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         setSearchModeButton(mode: HistoryService.shared.searchMode)
         setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }
-
 }

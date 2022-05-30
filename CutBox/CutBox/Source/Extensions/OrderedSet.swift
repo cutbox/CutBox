@@ -81,5 +81,4 @@ public class OrderedSet<T: Hashable> {
     public func all() -> [T] {
         return objects
     }
-
 }

@@ -47,5 +47,4 @@ extension PreferencesAdvancedView {
                 $0?.isEnabled = bool
         }
     }
-
 }

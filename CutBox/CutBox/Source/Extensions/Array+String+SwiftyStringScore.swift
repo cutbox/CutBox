@@ -35,7 +35,6 @@ extension Array where Element == [String: String] {
             return []
         }
     }
-
 }
 
 extension Array where Element == String {
@@ -65,5 +64,4 @@ extension Array where Element == String {
             return []
         }
     }
-
 }

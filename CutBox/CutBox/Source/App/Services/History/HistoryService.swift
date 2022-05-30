@@ -319,5 +319,4 @@ class HistoryService: NSObject {
     func bytesFormatted() -> String {
         return self.historyRepo.bytesFormatted()
     }
-
 }

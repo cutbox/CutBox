@@ -109,5 +109,4 @@ class HistoryRepoSpec: QuickSpec {
             }
         }
     }
-
 }

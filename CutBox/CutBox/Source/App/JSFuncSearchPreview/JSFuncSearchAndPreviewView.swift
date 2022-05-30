@@ -48,5 +48,4 @@ class JSFuncSearchAndPreviewView: SearchPreviewViewBase {
         prefs.loadJavascript()
         self.itemsList.reloadData()
     }
-
 }

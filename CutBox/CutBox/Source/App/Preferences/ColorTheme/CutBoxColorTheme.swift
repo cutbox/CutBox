@@ -8,6 +8,26 @@
 
 import Cocoa
 
+typealias SearchTextTheme = (
+    cursorColor: NSColor,
+    textColor: NSColor,
+    backgroundColor: NSColor,
+    placeholderTextColor: NSColor
+)
+
+typealias ClipTheme = (
+    clipItemsBackgroundColor: NSColor,
+    clipItemsTextColor: NSColor,
+    clipItemsHighlightColor: NSColor,
+    clipItemsHighlightTextColor: NSColor
+)
+
+typealias PreviewTheme = (
+    textColor: NSColor,
+    backgroundColor: NSColor,
+    selectedTextBackgroundColor: NSColor
+)
+
 class CutBoxColorTheme {
 
     let name: String
@@ -29,26 +49,6 @@ class CutBoxColorTheme {
     let preview: (textColor: NSColor,
     backgroundColor: NSColor,
     selectedTextBackgroundColor: NSColor)
-
-    typealias SearchTextTheme = (
-        cursorColor: NSColor,
-        textColor: NSColor,
-        backgroundColor: NSColor,
-        placeholderTextColor: NSColor
-    )
-
-    typealias ClipTheme = (
-        clipItemsBackgroundColor: NSColor,
-        clipItemsTextColor: NSColor,
-        clipItemsHighlightColor: NSColor,
-        clipItemsHighlightTextColor: NSColor
-    )
-
-    typealias PreviewTheme = (
-        textColor: NSColor,
-        backgroundColor: NSColor,
-        selectedTextBackgroundColor: NSColor
-    )
 
     init(name: String,
          popupBackgroundColor: NSColor,

@@ -68,5 +68,4 @@ class PreferencesThemePreview: NSBox {
         }
         .disposed(by: disposeBag)
     }
-
 }

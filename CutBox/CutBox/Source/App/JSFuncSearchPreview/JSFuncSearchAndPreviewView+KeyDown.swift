@@ -34,5 +34,4 @@ extension JSFuncSearchAndPreviewView {
             break
         }
     }
-
 }
