@@ -30,4 +30,39 @@ class CutBoxThemeLoader {
 
         return themes
     }
+
+    static func getUserThemes() -> [CutBoxColorTheme] {
+        let jsonThemes = loadUserThemesFiles()
+        let userThemeIdentifier = "*"
+
+        return jsonThemes.map {
+            let theme = CutBoxColorTheme($0)
+
+            return CutBoxColorTheme(name: "\(theme.name) \(userThemeIdentifier)",
+                                    popupBackgroundColor: theme.popupBackgroundColor,
+                                    searchText: theme.searchText,
+                                    clip: theme.clip,
+                                    preview: theme.preview,
+                                    spacing: theme.spacing
+            )
+        }
+    }
+
+    private static func loadUserThemesFiles() -> [String] {
+        let f = FileManager.default
+        let cutBoxConfig = String(NSString(
+            string: "~/.config/cutbox"
+        ).expandingTildeInPath)
+
+        guard let themefiles = try?
+                f.contentsOfDirectory(atPath: cutBoxConfig) else { return [] }
+
+        let jsonThemes: [String] = themefiles.sorted().map({
+            let filepath = "\(cutBoxConfig)/\($0)"
+            let json = getStringFromFile(filepath)!
+            return json
+        })
+
+        return jsonThemes
+    }
 }

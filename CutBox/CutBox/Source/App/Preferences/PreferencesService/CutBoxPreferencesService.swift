@@ -45,7 +45,7 @@ class CutBoxPreferencesService {
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.events = PublishSubject<CutBoxPreferencesEvent>()
         self.defaults = defaults
-        self.themes = CutBoxThemeLoader.getBundledThemes()
+        self.themes = CutBoxThemeLoader.getBundledThemes() + CutBoxThemeLoader.getUserThemes()
     }
 
     static let shared = CutBoxPreferencesService()

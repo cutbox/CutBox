@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import Foundation
 
 class StringUtilsSpec: QuickSpec {
     override func spec() {

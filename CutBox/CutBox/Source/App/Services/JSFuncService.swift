@@ -24,7 +24,7 @@ class JSFuncService: NSObject {
                 return nil
         }
 
-        guard let fileContent = JSFuncService.shared.getStringFromFile(expandedPath)
+        guard let fileContent = getStringFromFile(expandedPath)
             else {
                 notifyUser(
                     title: "Cannot read: \(expandedPath)",
@@ -126,9 +126,10 @@ class JSFuncService: NSObject {
         return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
     }
 
-    func getStringFromFile(_ expandedFilename: String) -> String? {
-        guard let fileContent = try? String(contentsOfFile: expandedFilename)
-            else { return nil }
-        return fileContent
-    }
+}
+
+func getStringFromFile(_ expandedFilename: String) -> String? {
+    guard let fileContent = try? String(contentsOfFile: expandedFilename)
+    else { return nil }
+    return fileContent
 }
