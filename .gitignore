@@ -3,3 +3,5 @@
 **/*.xcodeproj/xcuserdata/**/*
 **/CutBox/build
 CutBox.dmg
+
+bin/built_app_to_applications
