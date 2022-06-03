@@ -178,7 +178,11 @@ class CutBoxController: NSObject {
                 case .clearHistory:
                     self.clearHistoryClicked(nil)
                 case .selectJavascriptFunction:
-                    self.openJavascriptPopup()
+                        if  JSFuncService.shared.isEmpty {
+                            // do nothing
+                        } else {
+                            self.openJavascriptPopup()
+                        }
                 default:
                     break
                 }

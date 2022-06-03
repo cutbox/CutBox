@@ -4,17 +4,7 @@ abstract_target 'CutBoxAll' do
     pod 'RxSwift'
 
     target 'CutBox' do
-        script_phase :name => 'Sign', :script => './sign.sh'
-        pod 'KeyHolder'
-        pod 'Sparkle'
-        pod 'RxCocoa'
-        pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
-    end
-
-    target 'CutBoxTests' do
-        script_phase :name => 'Sign', :script => './sign.sh'
-        pod 'Quick'
-        pod 'Nimble'
+        script_phase :name => 'Sign', :script => './scripts/sign.sh'
         pod 'KeyHolder'
         pod 'Sparkle'
         pod 'RxCocoa'
@@ -22,7 +12,7 @@ abstract_target 'CutBoxAll' do
     end
 
     target 'CutBoxUnitTests' do
-        script_phase :name => 'Sign', :script => './sign.sh'
+        script_phase :name => 'Sign', :script => './scripts/sign.sh'
         pod 'Quick'
         pod 'Nimble'
         pod 'KeyHolder'
