@@ -15,7 +15,7 @@ body:
       label: Feature description
       description: Provide a description of the feature requested.
       placeholder: Tell us about the idea...
-      value: "I'd like CutBox to..."
+      value: "I'd like CutBox to "
     validations:
       required: true
   - type: dropdown
