@@ -1,0 +1,30 @@
+name: Feature Request
+description: Request a new feature
+title: "[Feature?]: "
+labels: ["feature", "triage"]
+assignees:
+  - jasonm23
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this feature request!
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Feature description
+      description: Provide a description of the feature requested.
+      placeholder: Tell us about the idea...
+      value: "I'd like CutBox to..."
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.4.18 (Default)
+        - older than 1.4.18? Please update to check the feature doesn't exist!
+    validations:
+      required: true
