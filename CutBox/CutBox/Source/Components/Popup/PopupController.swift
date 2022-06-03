@@ -96,7 +96,7 @@ class PopupController: NSWindowController {
     }
 
     @objc func togglePopup() {
-        isOpen ? closePanel() : openPanel()
+        isOpen ? closePopup() : openPopup()
     }
 
     func resizePopup(width: Double, height: Double) {

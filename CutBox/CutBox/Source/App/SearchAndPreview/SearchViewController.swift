@@ -64,15 +64,18 @@ class SearchViewController: NSObject {
     }
 
     func togglePopup() {
+        self.historyService.favoritesOnly = false
         self.searchView.applyTheme()
         self.searchPopup.togglePopup()
     }
 
     func closeSearchPopup() {
+        HistoryService.shared.favoritesOnly = false
         self.searchPopup.closePopup()
     }
 
     func openSearchPopup() {
+        self.historyService.favoritesOnly = false
         self.searchPopup.openPopup()
     }
 
