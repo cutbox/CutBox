@@ -126,7 +126,7 @@ If you find a bug, [click here to tell me what happened.](https://github.com/cut
 
 ### Clone and setup dependencies
 
-    git clone --recurse-submodules git@github.com:CutBox/CutBox
+    git clone git@github.com:CutBox/CutBox
 
 ### Compilation setup / tooling
 
