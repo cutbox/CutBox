@@ -1,0 +1,3 @@
+#!/bin/sh
+PlistBuddy -c "Print CFBundleShortVersionString" CutBox/CutBox/Info.plist
+
