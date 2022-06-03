@@ -130,13 +130,25 @@ If you find a bug, [click here to tell me what happened.](https://github.com/cut
 
 ### Compilation setup / tooling
 
-  `bin/setup`
+```
+gem instll cocoapods
+cd CutBox
+pod install
+cd ..
+```
 
 To build **CutBox.app**:
 
-  `bin/build`
+```
+bin/build
+open CutBox/build/
+```
 
-(You can find the built app with `open CutBox/build/`, you should copy it to `/Applications`)
+Run the local CutBox.app with terminal logging...
+
+```
+CutBox/build/CutBox.app/Contents/MacOS/CutBox
+```
 
 # Troubleshooting
 
