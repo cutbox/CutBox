@@ -13,10 +13,14 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
     override func spec() {
         describe("CutBoxPreferencesServiceSpec") {
             let subject = CutBoxPreferencesService()
+            let bundledThemes = subject.themes
+                .map({ $0.name })
+                .filter({ !$0.contains("*") }) // Filter out user themes
 
             it("initializes with bundled themes") {
-                expect(subject.themes.count).to(equal(10))
-                expect(subject.themes.map({ $0.name })).to(equal([
+                expect(bundledThemes.count).to(equal(10))
+                expect(bundledThemes)
+                    .to(equal([
                     "Darkness",
                     "Skylight",
                     "Sandy Beach",
