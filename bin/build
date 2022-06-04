@@ -3,21 +3,26 @@
 build_folder="$(dirname $0)/../CutBox/build"
 archive_at="${build_folder}/archive/CutBox.xcarchive"
 
-rmdir_if_present(){
-  if [[ -d "$1" ]];then
-     echo "Removing: $1"
-     rm -rvf "$1"
-  fi
-}
+rm -rvf "${build_folder}/CutBox.app"
+rm -rvf "${build_folder}/archive"
 
-rmdir_if_present "${build_folder}/CutBox.app"
-rmdir_if_present "${build_folder}/archive"
+if [[ "$(which xcbeautify)" == "xcbeautify not found" ]]
+then
+    xcodebuild archive \
+        -workspace CutBox/CutBox.xcworkspace \
+        -scheme CutBox \
+        -configuration Release \
+        -archivePath "${archive_at}"
 
-xcodebuild archive \
-  -workspace CutBox/CutBox.xcworkspace \
-  -scheme CutBox \
-  -configuration Release \
-  -archivePath "${archive_at}"
+    echo "installing xcbeautify is recommended"
+    echo "-> $ brew install xcbeautify"
+else
+    xcodebuild archive \
+        -workspace CutBox/CutBox.xcworkspace \
+        -scheme CutBox \
+        -configuration Release \
+        -archivePath "${archive_at}" | xcbeautify
+fi
 
 mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
 

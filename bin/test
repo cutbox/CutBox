@@ -1,0 +1,16 @@
+#!/bin/sh
+if [[ "$(which xcbeautify)" == "xcbeautify not found" ]]
+then
+    xcodebuild \
+        -workspace CutBox/CutBox.xcworkspace \
+        -scheme CutBoxUnitTests \
+        test
+
+    echo "installing xcbeautify is recommended"
+    echo "-> $ brew install xcbeautify"
+else
+    xcodebuild \
+        -workspace CutBox/CutBox.xcworkspace \
+        -scheme CutBoxUnitTests \
+        test | xcbeautify
+fi

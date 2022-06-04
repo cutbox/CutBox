@@ -22,6 +22,7 @@
 		962D6D7720746109007E3785 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962D6D7520746109007E3785 /* MainMenu.xib */; };
 		962D6D7A20746109007E3785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D7920746109007E3785 /* main.m */; };
 		962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 962D6D6E20746109007E3785 /* CutBoxHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9636FFFD284B1F7700CF4C39 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
 		964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSObject+fromNib.swift */; };
@@ -39,12 +40,10 @@
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
-		9652C03B284482E7004249D9 /* UserDefaultsMock.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		9652C03D2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
 		9652C03E2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
 		9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
 		9652C0412844B0CE004249D9 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
-		965348DB28434116000FD0A1 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		965348DC284346CD000FD0A1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4A207356DA007E3785 /* Constants.swift */; };
 		965348DD284346E2000FD0A1 /* CutBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* CutBoxController.swift */; };
 		965348DE284346EB000FD0A1 /* CutBoxStatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */; };
@@ -972,7 +971,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9652C03B284482E7004249D9 /* UserDefaultsMock.swift in Resources */,
 				965348F328434735000FD0A1 /* PreferencesGeneralView.xib in Resources */,
 				96A225952844F84700C9502D /* Localizable.strings in Resources */,
 				9653493E284347E8000FD0A1 /* JSFuncItemTableRowImageView.xib in Resources */,
@@ -1206,7 +1204,6 @@
 			files = (
 				965349142843475E000FD0A1 /* SearchTextView.swift in Sources */,
 				9653494F2843486B000FD0A1 /* PreferencesWindowSpec.swift in Sources */,
-				965348DB28434116000FD0A1 /* UserDefaultsMock.swift in Sources */,
 				9653495028434873000FD0A1 /* HistoryRepoSpec.swift in Sources */,
 				9653490128434742000FD0A1 /* JSFuncSearchAndPreviewView.swift in Sources */,
 				965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */,
@@ -1299,6 +1296,7 @@
 				9653490228434742000FD0A1 /* JSFuncSearchAndPreviewView+KeyDown.swift in Sources */,
 				965349122843475E000FD0A1 /* SearchAndPreview+KeyDownHandler.swift in Sources */,
 				965348F428434735000FD0A1 /* PreferencesTabView.swift in Sources */,
+				9636FFFD284B1F7700CF4C39 /* UserDefaultsMock.swift in Sources */,
 				9653495128434873000FD0A1 /* HistoryServiceSpec.swift in Sources */,
 				9653493728434795000FD0A1 /* PopupContainerView.swift in Sources */,
 				96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */,
