@@ -26,11 +26,9 @@ brew intall cutbox
 
 # First run...
 
-When you first run CutBox Macos will prompt you that the developer cannot be identified.  (Because I don't use the App store, or subscribe to the Apple Developer $99/yr to release open source.).
+When you first run CutBox Macos will prompt you that the developer cannot be identified.
 
-Press "Ok". 
-
-You'll need to go to **Preferences** > **Security** > **"Open Anyway"** and CutBox will open after this.
+[Please read this post from Apple.](https://support.apple.com/en-us/HT202491#:~:text=If%20you%20want%20to%20open%20an%20app%20that%20hasn%E2%80%99t%20been%20notarized%20or%20is%20from%20an%20unidentified%20developer)
 
 # Enable automatic paste.
 
