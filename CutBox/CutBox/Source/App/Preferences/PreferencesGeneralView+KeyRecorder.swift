@@ -14,6 +14,7 @@ extension PreferencesGeneralView {
 
     func setupKeyRecorders() {
         self.mainKeyRecorder.delegate = self
+        self.mainKeyRecorder.clearButtonMode = .never
         self.mainKeyRecorderLabel.stringValue = "preferences_toggle_cutbox".l7n
         self.mainKeyRecorderLabel.toolTip = "preferences_toggle_cutbox_tooltip".l7n
 
