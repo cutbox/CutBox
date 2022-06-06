@@ -17,6 +17,7 @@ class PreferencesThemeSelectionView: NSView {
     @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
     @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
     @IBOutlet weak var compactUICheckbox: NSButton!
+    @IBOutlet weak var reloadThemesButton: NSButton!
 
     override func awakeFromNib() {
         prefs = CutBoxPreferencesService.shared

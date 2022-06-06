@@ -17,13 +17,17 @@ extension PreferencesGeneralView {
         self.showAllHiddenDialogBoxesButton
             .rx
             .tap
-            .bind {
-                for key in self.prefs.defaults.dictionaryRepresentation().keys {
-                    if key.contains("CutBoxSuppressed") {
-                        self.prefs.defaults.removeObject(forKey: key)
-                    }
-                }
+            .bind { [self] in
+                resetAllHiddenDialogBoxes()
             }
             .disposed(by: disposeBag)
+    }
+
+    func resetAllHiddenDialogBoxes() {
+        for key in self.prefs.defaults.dictionaryRepresentation().keys {
+            if key.contains("CutBoxSuppressed") {
+                self.prefs.defaults.removeObject(forKey: key)
+            }
+        }
     }
 }

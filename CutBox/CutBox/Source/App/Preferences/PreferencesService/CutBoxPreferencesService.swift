@@ -16,6 +16,7 @@ enum CutBoxPreferencesEvent {
     case protectFavoritesChanged(isOn: Bool)
     case javascriptReload
     case themeChanged
+    case themesReloaded
 }
 
 func notifyUser(title: String, info: String) {
@@ -46,6 +47,11 @@ class CutBoxPreferencesService {
         self.events = PublishSubject<CutBoxPreferencesEvent>()
         self.defaults = defaults
         self.themes = CutBoxThemeLoader.getBundledThemes() + CutBoxThemeLoader.getUserThemes()
+    }
+
+    func loadThemes() {
+        self.themes = CutBoxThemeLoader.getBundledThemes() + CutBoxThemeLoader.getUserThemes()
+        events.onNext(.themesReloaded)
     }
 
     static let shared = CutBoxPreferencesService()

@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
@@ -17,20 +13,20 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B9O-7z-kGb">
-                    <rect key="frame" x="60" y="52" width="444" height="241"/>
+                    <rect key="frame" x="60" y="23" width="444" height="270"/>
                     <subviews>
                         <button verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="hPC-e9-vTv">
-                            <rect key="frame" x="-2" y="225" width="448" height="18"/>
+                            <rect key="frame" x="-2" y="253" width="446" height="18"/>
                             <buttonCell key="cell" type="check" title="Compact UI" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mAq-kc-Idb">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j11-7Y-BHb">
-                            <rect key="frame" x="0.0" y="198" width="444" height="21"/>
+                            <rect key="frame" x="0.0" y="226" width="444" height="20"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVt-fT-sjS">
-                                    <rect key="frame" x="-2" y="4" width="83" height="17"/>
+                                    <rect key="frame" x="-2" y="4" width="83" height="16"/>
                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Color theme" id="hn9-k8-WWm">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -38,7 +34,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GLA-gc-GY8" userLabel="color theme menu">
-                                    <rect key="frame" x="85" y="-3" width="362" height="26"/>
+                                    <rect key="frame" x="84" y="-4" width="364" height="25"/>
                                     <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Cpf-k0-Cyd" userLabel="color theme menu">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="menu"/>
@@ -59,7 +55,7 @@
                             </customSpacing>
                         </stackView>
                         <customView translatesAutoresizingMaskIntoConstraints="NO" id="v9D-EP-tpp">
-                            <rect key="frame" x="0.0" y="0.0" width="444" height="190"/>
+                            <rect key="frame" x="0.0" y="28" width="444" height="190"/>
                             <subviews>
                                 <box boxType="custom" borderType="none" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="KEe-Ry-Io6" customClass="PreferencesThemePreview" customModule="CutBox" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="444" height="180"/>
@@ -74,7 +70,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-hf-yvb">
-                                                            <rect key="frame" x="8" y="3.5" width="408" height="13"/>
+                                                            <rect key="frame" x="8" y="4" width="408" height="13"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Search CutBox" id="GI6-Na-2m2">
                                                                 <font key="font" metaFont="system" size="10"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -227,11 +223,11 @@
                                                             <rect key="frame" x="0.0" y="36" width="224" height="112"/>
                                                             <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="oKp-WF-iLc">
                                                                 <font key="font" metaFont="system" size="6"/>
-                                                                <mutableString key="title">Bender! Ship! Stop bickering or I'm going to come back there and change your opinions manually! We'll need to have a look inside you with this camera. Why, those are the Grunka-Lunkas! They work here in the Slurm factory.
+                                                                <string key="title">Bender! Ship! Stop bickering or I'm going to come back there and change your opinions manually! We'll need to have a look inside you with this camera. Why, those are the Grunka-Lunkas! They work here in the Slurm factory.
 
 Good man. Nixon's pro-war and pro-family. Um, is this the boring, peaceful kind of taking to the streets? Oh, how I wish I could believe or understand that! There's only one reasonable course of action now: kill Flexo!
 
-Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I remember. They came in last at the Olympics, then retired to promote alcoholic beverages! No! Don't jump! We need rest. The spirit is willing, but the flesh is spongy and bruised.</mutableString>
+Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I remember. They came in last at the Olympics, then retired to promote alcoholic beverages! No! Don't jump! We need rest. The spirit is willing, but the flesh is spongy and bruised.</string>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
@@ -291,6 +287,13 @@ Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I r
                                 <constraint firstAttribute="trailing" secondItem="KEe-Ry-Io6" secondAttribute="trailing" id="dEl-ha-hfv"/>
                             </constraints>
                         </customView>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gq2-Iy-JC5">
+                            <rect key="frame" x="-7" y="-7" width="75" height="32"/>
+                            <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SzR-JK-Nne">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="hPC-e9-vTv" firstAttribute="centerX" secondItem="B9O-7z-kGb" secondAttribute="centerX" id="0iE-sS-lIf"/>
@@ -302,8 +305,10 @@ Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I r
                         <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
+                        <integer value="1000"/>
                     </visibilityPriorities>
                     <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
@@ -317,6 +322,7 @@ Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I r
             </constraints>
             <connections>
                 <outlet property="compactUICheckbox" destination="hPC-e9-vTv" id="9W9-Y1-KYb"/>
+                <outlet property="reloadThemesButton" destination="SzR-JK-Nne" id="gTg-re-boK"/>
                 <outlet property="themeSelectorMenu" destination="GLA-gc-GY8" id="pZj-Ya-XpQ"/>
                 <outlet property="themeSelectorTitleLabel" destination="sVt-fT-sjS" id="qtE-2Y-gUN"/>
             </connections>

@@ -49,7 +49,7 @@ struct CutBoxColorThemeDefinition: Codable {
     let searchText: SearchText
     let clip: Clip
     let preview: Preview
-    let spacing: Int
+    let spacing: CGFloat
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -109,7 +109,7 @@ extension CutBoxColorThemeDefinition {
       searchText: SearchText? = nil,
       clip: Clip? = nil,
       preview: Preview? = nil,
-      spacing: Int? = nil
+      spacing: CGFloat? = nil
     ) -> CutBoxColorThemeDefinition {
         return CutBoxColorThemeDefinition(
           name: name ?? self.name,
