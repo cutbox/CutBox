@@ -59,14 +59,14 @@ class PreferencesThemePreview: NSBox {
 
         prefs.events.bind {
             switch $0 {
-                case .themeChanged:
-                    self.applyTheme()
+            case .themeChanged:
+                self.applyTheme()
 
-                case .themesReloaded:
-                    self.applyTheme()
+            case .themesReloaded:
+                self.applyTheme()
 
-                default:
-                    break
+            default:
+                break
             }
         }
         .disposed(by: disposeBag)
