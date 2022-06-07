@@ -10,6 +10,8 @@ import Cocoa
 // import Magnet
 import RxSwift
 
+typealias StatusItemDescriptor = (Int, String, String?, String?)
+
 class CutBoxController: NSObject {
 
     var useCompactUI: NSMenuItem!
@@ -76,6 +78,10 @@ class CutBoxController: NSObject {
         self.prefs.loadJavascript()
     }
 
+    @objc func reloadThemes(_ sender: NSMenuItem) {
+        self.prefs.loadThemes()
+    }
+
     override init() {
         self.searchViewController = SearchViewController()
         self.jsFuncSearchViewController = JSFuncSearchViewController()
@@ -103,44 +109,29 @@ class CutBoxController: NSObject {
 
         let menu = self.statusMenu!
 
-        let items: [(Int, String, String?, String?)] = [
-            (0, "Search CutBox", nil, "searchClicked:"),
+        let items: [StatusItemDescriptor] = [
+            (0, "cutbox_menu_search_cutbox".l7n, nil, "searchClicked:"),
             (1, "---", nil, nil),
-            (2, "Fuzzy Match", "fuzzyMatch", "searchModeSelect:"),
-            (3, "Regexp any case", "regexpAnyCase", "searchModeSelect:"),
-            (4, "Regexp case match", "regexpStrictCase", "searchModeSelect:"),
+            (2, "cutbox_menu_fuzzy_match".l7n, "fuzzyMatch", "searchModeSelect:"),
+            (3, "cutbox_menu_regexp_any_case".l7n, "regexpAnyCase", "searchModeSelect:"),
+            (4, "cutbox_menu_regexp_case_match".l7n, "regexpStrictCase", "searchModeSelect:"),
             (5, "---", nil, nil),
-            (6, "Compact UI", nil, "useCompactUIClicked:"),
+            (6, "cutbox_menu_compactui".l7n, nil, "useCompactUIClicked:"),
             (7, "---", nil, nil),
-            (8, "Preferences", nil, "openPreferences:"),
-            (9, "Clear History", nil, "clearHistoryClicked:"),
-            (9, "preferences_javascript_transform_reload".l7n, nil, "reloadJavascript:"),
-            (11, "---", nil, nil),
-            // Insert around Check for Updates
-            (13, "About CutBox", nil, "openAboutPanel:"),
-            (14, "Quit", nil, "quitClicked:")
+            (8, "cutbox_menu_preferences".l7n, nil, "openPreferences:"),
+            (9, "cutbox_menu_clear_history".l7n, nil, "clearHistoryClicked:"),
+            (10, "---", nil, nil),
+            (11, "preferences_javascript_transform_reload".l7n, nil, "reloadJavascript:"),
+            (12, "preferences_color_theme_reload_themes".l7n, nil, "reloadThemes:"),
+            (13, "---", nil, nil),
+            // 14: Sparkle: Check for Updates
+            //     It will find and fill the empty slot automatically.
+            (15, "cutbox_menu_about".l7n, nil, "openAboutPanel:"),
+            (16, "cutbox_menu_quit".l7n, nil, "quitClicked:")
+            //     So number all the indexes correctly, leaving a gap.
         ]
 
-        items.forEach {
-            let title = $0.1
-            if title == "---" {
-                menu.insertItem(NSMenuItem.separator(), at: $0.0)
-            } else {
-                let axID = $0.2
-                let action = Selector($0.3!)
-                let item: NSMenuItem = NSMenuItem(title: title,
-                                                  action: action,
-                                                  keyEquivalent: "")
-
-                item.target = self
-
-                if axID != nil {
-                    item.setAccessibilityIdentifier(axID)
-                }
-
-                menu.insertItem(item, at: $0.0)
-            }
-        }
+        items.forEach { addMenuItems(menu: menu, descriptor: $0) }
 
         self.statusItem.menu = menu
 
@@ -153,16 +144,37 @@ class CutBoxController: NSObject {
         setCompactUIMenuItem()
     }
 
+    func addMenuItems(menu: NSMenu, descriptor: StatusItemDescriptor) {
+        let title = descriptor.1
+        if title == "---" {
+            menu.insertItem(NSMenuItem.separator(), at: descriptor.0)
+        } else {
+            let axID = descriptor.2
+            let action = Selector(descriptor.3!)
+            let item: NSMenuItem = NSMenuItem(title: title,
+                                              action: action,
+                                              keyEquivalent: "")
+
+            item.target = self
+
+            if axID != nil {
+                item.setAccessibilityIdentifier(axID)
+            }
+
+            menu.insertItem(item, at: descriptor.0)
+        }
+    }
+
     func setHotKeyServiceEventBindings() {
         self.hotKeyService
             .events
             .subscribe(onNext: { event in
-            switch event {
-            case .search:
-                self.searchViewController.togglePopup()
-            }
-        })
-        .disposed(by: disposeBag)
+                switch event {
+                case .search:
+                    self.searchViewController.togglePopup()
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     func setSearchEventBindings() {
@@ -178,11 +190,11 @@ class CutBoxController: NSObject {
                 case .clearHistory:
                     self.clearHistoryClicked(nil)
                 case .selectJavascriptFunction:
-                        if  JSFuncService.shared.isEmpty {
-                            // do nothing
-                        } else {
-                            self.openJavascriptPopup()
-                        }
+                    if  JSFuncService.shared.isEmpty {
+                        // do nothing
+                    } else {
+                        self.openJavascriptPopup()
+                    }
                 default:
                     break
                 }

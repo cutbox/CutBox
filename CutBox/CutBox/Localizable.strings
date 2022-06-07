@@ -6,6 +6,7 @@
   Copyright © 2019-2020 ocodo. All rights reserved.
 */
 
+
 "about_cutbox_copyright_licence" = "Copyright © 2019-2022 Jason Milkins\nLicensed under GPL3";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_title" = "CutBox";
@@ -13,10 +14,19 @@
 "confirm_warning_clear_history_title" = "Clear CutBox history?";
 "context_menu_favorite" = "Toggle Favorite";
 "context_menu_remove_selected" = "Remove Selected";
+"cutbox_menu_about" = "About CutBox";
+"cutbox_menu_clear_history" = "Clear History";
+"cutbox_menu_compactui" = "Compact UI";
+"cutbox_menu_fuzzy_match" = "Fuzzy Match";
+"cutbox_menu_preferences" = "Preferences";
+"cutbox_menu_quit" = "Quit";
+"cutbox_menu_regexp_any_case" = "Regexp any case";
+"cutbox_menu_regexp_case_match" = "Regexp case match";
+"cutbox_menu_search_cutbox" = "Search CutBox";
 "js_func_search_placeholder" = "Paste through Javascript...";
-"preferences_color_theme_title" = "Color theme";
 "preferences_color_theme_reload_themes" = "Reload themes";
-"preferences_history_destructive_limit_change_warning_description" = "You are attempting to reduce your CutBox history limit\nIf you continue you'll lose items beyond that limit\n\nThis operation cannot be undone\n\nClick OK to continue";
+"preferences_color_theme_title" = "Color theme";
+"preferences_history_destructive_limit_change_warning_description" = "Changing the CutBox history limit\nwill discard items beyond the new limit\n\nYou cannot undo this!\n\nIf you're sure, click OK";
 "preferences_history_destructive_limit_change_warning_title" = "Reduce Pasteboard History Limit?";
 "preferences_history_is_using_format" = "Currently using: %@";
 "preferences_history_limit_checkbox_label" = "Unlimited";
