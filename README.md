@@ -127,7 +127,7 @@ If you find a bug, [click here to tell me what happened.](https://github.com/cut
 ### Compilation setup / tooling
 
 ```
-gem instll cocoapods
+gem install cocoapods
 cd CutBox
 pod install
 cd ..
