@@ -1,18 +1,16 @@
 <p align="center">
-  <img src="CutBox/CutBox/GraphicAssets/cutbox-icon.png">
+  <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png">
 </p>
 
 <p align="center">
   <a href="https://gitter.im/CutBox/Lobby" title="Chat about CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>
   &nbsp;
   <a href="https://www.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/ae11b1b41bbe432c88c02ba9a50d5f2d"/></a>
-</p>
+<div
 
-
-
-<div align="center">
+</p> align="center">
   <h1>CutBox</h1>
-  <p>it'll make your pasteboard awesome!</p>
+  <p>Macos Clipboard Manager</p>
 </div>
 
 CutBox is designed as OpenSource and you are encouraged to [Compile it yourself](#compilation-setup--tooling)
