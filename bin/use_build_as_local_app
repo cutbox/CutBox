@@ -6,7 +6,7 @@ killall CutBox
 rm -rf /Applications/CutBox.app
 cp -R "${project_root}/CutBox/build/CutBox.app" /Applications/
 
-open -b com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane
+open "x-apple.systempreferences:com.apple.preference.security?Privacy"
 
 echo "
 Add CutBox to Security & Privacy > Privacy > 'Accessibility' and 'Input Monitoring'
