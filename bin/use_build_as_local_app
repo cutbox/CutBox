@@ -1,0 +1,32 @@
+#!/bin/sh
+
+project_root="$(dirname $0)/../"
+
+killall CutBox
+rm -rf /Applications/CutBox.app
+cp -R "${project_root}/CutBox/build/CutBox.app" /Applications/
+
+open -b com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane
+
+echo "
+Add CutBox to Security & Privacy > Privacy > 'Accessibility' and 'Input Monitoring'
+(You must remove it if it's already there, and re-add it, for the new version.)
+
+Please do this before continuing...
+
+Press [y] to continue (any other key will abort)"
+
+while :
+do
+  read -rn 1 KEY <&1
+
+  if [[ $KEY = "y" ]]; then
+    break
+  else
+    echo ""
+    echo "quitting..."
+    exit 1
+  fi
+done
+
+open -a /Applications/CutBox.app
