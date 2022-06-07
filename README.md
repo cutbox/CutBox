@@ -68,9 +68,7 @@ As well as copy / paste history you can:
 
 Anything else?
 
-- You can send your pasted text through [Javascript functions](https://github.com/cutbox/CutBox/wiki/Javascript-support)
-
-_NOTE: Javascript pre-processing will be removed in a future release. (protest if you use it!) _
+- You can send your pasted text through [Javascript functions](https://github.com/cutbox/CutBox/wiki/Javascript-support-in-CutBox)
 
 # Download / install...
 
