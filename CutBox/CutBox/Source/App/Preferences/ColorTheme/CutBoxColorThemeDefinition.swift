@@ -21,15 +21,15 @@ extension CutBoxColorTheme {
         do {
             try self.init(theme: CutBoxColorThemeDefinition(json))
         } catch {
-            print("Malformed CutBoxTheme JSON")
-            print(json)
+            print("Malformed CutBoxTheme JSON", to: &errStream)
+            print(json, to: &errStream)
             abort()
         }
     }
 
     convenience init(theme: CutBoxColorThemeDefinition) {
-        print("Theme initializing: \(theme.name )")
-        print(theme)
+        print("Theme initializing: \(theme.name )", to: &errStream)
+        print(theme, to: &errStream)
         self.init(name: theme.name,
                   popupBackgroundColor: theme.popupBackgroundColor.color!,
                   searchText: SearchTextTheme(
@@ -80,23 +80,24 @@ extension CutBoxColorThemeDefinition {
             let decoder = JSONDecoder()
             let messages = try decoder
                 .decode(CutBoxColorThemeDefinition.self, from: data)
-            print(messages as Any)
 
             // For debugging, build and run CutBox from the terminal
-            // i.e. $ build/CutBox.app/Contents/MacOS/CutBox
+            //
+            // $ CutBox/build/CutBox.app/Contents/MacOS/CutBox
+            //
         } catch DecodingError.dataCorrupted(let context) {
-            print(context)
+            print(context, to: &errStream)
         } catch DecodingError.keyNotFound(let key, let context) {
-            print("Key '\(key)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
+            print("Key '\(key)' not found:", context.debugDescription, to: &errStream)
+            print("codingPath:", context.codingPath, to: &errStream)
         } catch DecodingError.valueNotFound(let value, let context) {
-            print("Value '\(value)' not found:", context.debugDescription)
-            print("codingPath:", context.codingPath)
+            print("Value '\(value)' not found:", context.debugDescription, to: &errStream)
+            print("codingPath:", context.codingPath, to: &errStream)
         } catch DecodingError.typeMismatch(let type, let context) {
-            print("Type '\(type)' mismatch:", context.debugDescription)
-            print("codingPath:", context.codingPath)
+            print("Type '\(type)' mismatch:", context.debugDescription, to: &errStream)
+            print("codingPath:", context.codingPath, to: &errStream)
         } catch {
-            print("error: ", error)
+            print("error: ", error, to: &errStream)
         }
 
         self = try newJSONDecoder()

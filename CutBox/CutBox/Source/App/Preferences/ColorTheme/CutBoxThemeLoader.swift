@@ -23,7 +23,7 @@ class CutBoxThemeLoader {
                 let theme = CutBoxColorTheme(json)
                 return theme
             } catch {
-                print("There was a problem reading bundle theme: $0")
+                print("There was a problem reading bundle theme: $0", to: &errStream)
                 abort()
             }
         })
