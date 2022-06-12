@@ -78,7 +78,8 @@ extension CutBoxColorThemeDefinition {
     init(data: Data) throws {
         do {
             let decoder = JSONDecoder()
-            let messages = try decoder.decode(CutBoxColorThemeDefinition.self, from: data)
+            let messages = try decoder
+                .decode(CutBoxColorThemeDefinition.self, from: data)
             print(messages as Any)
 
             // For debugging, build and run CutBox from the terminal
@@ -98,15 +99,14 @@ extension CutBoxColorThemeDefinition {
             print("error: ", error)
         }
 
-        self = try newJSONDecoder().decode(CutBoxColorThemeDefinition.self, from: data)
+        self = try newJSONDecoder()
+            .decode(CutBoxColorThemeDefinition.self, from: data)
     }
 
     init(_ json: String, using encoding: String.Encoding = .utf8) throws {
         guard let data = json.data(using: encoding) else {
             throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
         }
-        print("JSON Decoded to data:")
-        print(data)
         try self.init(data: data)
     }
 
