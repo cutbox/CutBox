@@ -6,6 +6,17 @@
 import Foundation
 
 extension CutBoxColorTheme {
+
+    convenience init(name: String, theme: CutBoxColorTheme) {
+        self.init(name: name,
+                  popupBackgroundColor: theme.popupBackgroundColor,
+                  searchText: theme.searchText,
+                  clip: theme.clip,
+                  preview: theme.preview,
+                  spacing: theme.spacing
+        )
+    }
+
     convenience init(_ json: String) {
         do {
             try self.init(theme: CutBoxColorThemeDefinition(json))

@@ -37,13 +37,9 @@ class CutBoxThemeLoader {
 
         return jsonThemes.map {
             let theme = CutBoxColorTheme($0)
-
-            return CutBoxColorTheme(name: "\(theme.name) \(userThemeIdentifier)",
-                                    popupBackgroundColor: theme.popupBackgroundColor,
-                                    searchText: theme.searchText,
-                                    clip: theme.clip,
-                                    preview: theme.preview,
-                                    spacing: theme.spacing
+            return CutBoxColorTheme(
+                name: "\(theme.name) \(userThemeIdentifier)",
+                theme: theme
             )
         }
     }
@@ -57,11 +53,10 @@ class CutBoxThemeLoader {
         guard let themefiles = try?
                 f.contentsOfDirectory(atPath: cutBoxConfig) else { return [] }
 
-        let jsonThemes: [String] = themefiles.sorted().map({
-            let filepath = "\(cutBoxConfig)/\($0)"
-            let json = getStringFromFile(filepath)!
-            return json
-        })
+        let jsonThemes: [String] = themefiles
+            .filter { $0.hasSuffix(".cutboxTheme") }
+            .sorted()
+            .map { getStringFromFile("\(cutBoxConfig)/\($0)")! }
 
         return jsonThemes
     }

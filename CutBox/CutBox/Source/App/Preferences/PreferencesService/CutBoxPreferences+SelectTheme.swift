@@ -12,7 +12,12 @@ extension CutBoxPreferencesService {
 
     var theme: Int {
         get {
-            return defaults.integer(forKey: "theme")
+            let temp = defaults.integer(forKey: "theme")
+            if themes.count - 1 < temp {
+                self.theme = 0
+                return 0
+            }
+            return temp
         }
         set {
             defaults.set(newValue, forKey: "theme")
