@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+error="no"
+
+if [[ "$(which jv)" == "jv not found" ]]; then
+    echo "jv is required for json schema validation"
+    echo "go install github.com/santhosh-tekuri/jsonschema/v5/cmd/jv@v5"
+    exit 2
+fi
+
+if (( $# != 1 )); then
+    echo "
+Validate a .cutboxTheme file
+
+usage: $(basename $0) <cutbox_theme_filename>
+
+"
+    exit 1
+fi
+
+json=$1
+
+jv https://cutbox.github.io/schema/cutbox.theme.schema.json  "$json" 2>&1 \
+    | perl -pe 's|/|.|g' \
+    | perl -pe 's|\$defs|defs|g' \
+    | perl -pe 's|\[[SI]#(.*?)\]|\1|g' \
+    | perl -pe 's|[.]properties[.].*[.]\$ref\E||' \
+    | perl -pe "s| doesn't validate with '.defs.hex-color'|doesn't validate|" \
+    | perl -pe "s|\Q'^ *#?[0-9a-fA-F]{6,8} *$'\E||" \
+    | sed 's|http:..||' \
+    | tr -d "'#]$" \
+    | perl -pe "s|\Q.defs.hex-color.pattern does not match pattern\E|: invalid hex color:|"a \
+    | sed 's|cutbox.github.io.schemas.cutbox.theme.schema.json||' \
+    | sed "s|  doesnt validate with|[Error] Invalid CutBox Theme :: $json\n|" \
+    | perl -pe "s|\..* doesnt validate\n||" \
+    | perl -pe "s|^ *||" \
+    | while read line; do
+        if [[ "${line}" =~ ": invalid hex color" ]]; then
+            property=$(perl -pe "s|(.*) : invalid hex color:|\1|" <<< $line)
+            echo "${line} ⟶   $(jq "$property" "$json")"
+        else
+            echo ${line}
+        fi
+    done \
+    | while read line; do
+        if [[ "$line" == "[Error] Invalid CutBox Theme :: $json" ]]; then
+           error="yes"
+           printf "\x1B[1;31m[Error]\x1B[0m Invalid CutBox Theme :: $json"
+        else
+            echo "$line"
+        fi
+    done
+
+if [[ "$error" == "no" ]]; then
+    exit 0
+else
+    exit 1
+fi

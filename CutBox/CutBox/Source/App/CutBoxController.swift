@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-// import Magnet
+
 import RxSwift
 
 typealias StatusItemDescriptor = (Int, String, String?, String?)
