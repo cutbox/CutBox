@@ -17,16 +17,14 @@ class CutBoxThemeLoader {
             .paths(forResourcesOfType: "cutboxTheme",
                    inDirectory: "themes")
 
-        let themes: [CutBoxColorTheme] = themePaths.sorted().map({
+        let themes: [CutBoxColorTheme] = themePaths.sorted().map {
             do {
-                let json = try String(contentsOfFile: $0)
-                let theme = CutBoxColorTheme(json)
-                return theme
+                return CutBoxColorTheme(try String(contentsOfFile: $0))
             } catch {
-                print("There was a problem reading bundle theme: $0", to: &errStream)
+                print("There was a problem reading bundled theme: $0", to: &errStream)
                 abort()
             }
-        })
+        }
 
         return themes
     }
