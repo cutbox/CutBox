@@ -1,4 +1,5 @@
 PODS:
+  - JSONSchema (0.6.0)
   - KeyHolder (4.1.0):
     - Magnet (~> 3.3.0)
   - Magnet (3.3.0):
@@ -16,6 +17,7 @@ PODS:
   - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
+  - JSONSchema
   - KeyHolder
   - Nimble
   - Quick
@@ -26,6 +28,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - JSONSchema
     - KeyHolder
     - Magnet
     - Nimble
@@ -46,6 +49,7 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:8bytes/SwiftyStringScore"
 
 SPEC CHECKSUMS:
+  JSONSchema: c84ae39b71107fec1d5c3ef0bc0a23ab49daee0c
   KeyHolder: 7fce073043392cddc3e3126f3f9bdaa5ecf1f19e
   Magnet: a44a5a14eecc77433cbaad1431b78f7d20725bf2
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
@@ -57,6 +61,6 @@ SPEC CHECKSUMS:
   Sparkle: 7f5f6d4328458515e23272f4138e610c1fa3e32d
   SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
-PODFILE CHECKSUM: a0e02619df18ea395c329cf124aa3099b3a86983
+PODFILE CHECKSUM: 6487d82dd836a22c674874d0981f288e9a5a39c3
 
 COCOAPODS: 1.11.3

@@ -1,0 +1,6 @@
+module JSONSchema {
+  umbrella header "JSONSchema-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,6 +8,7 @@ abstract_target 'CutBoxAll' do
         pod 'KeyHolder'
         pod 'Sparkle'
         pod 'RxCocoa'
+        pod 'JSONSchema'
         pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
     end
 
@@ -18,6 +19,7 @@ abstract_target 'CutBoxAll' do
         pod 'KeyHolder'
         pod 'Sparkle'
         pod 'RxCocoa'
+        pod 'JSONSchema'
         pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
     end
 end
