@@ -17,7 +17,7 @@ PODS:
   - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
-  - JSONSchema
+  - JSONSchema (from `https://github.com/kylef/JSONSchema.swift`)
   - KeyHolder
   - Nimble
   - Quick
@@ -28,7 +28,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - JSONSchema
     - KeyHolder
     - Magnet
     - Nimble
@@ -40,16 +39,21 @@ SPEC REPOS:
     - Sparkle
 
 EXTERNAL SOURCES:
+  JSONSchema:
+    :git: https://github.com/kylef/JSONSchema.swift
   SwiftyStringScore:
     :git: "git@github.com:8bytes/SwiftyStringScore"
 
 CHECKOUT OPTIONS:
+  JSONSchema:
+    :commit: 8c7ec156dde09715d8d2ed83cc8fe6b1ba90648c
+    :git: https://github.com/kylef/JSONSchema.swift
   SwiftyStringScore:
     :commit: 19bf108ddd90de925fee83725e65b75836f75757
     :git: "git@github.com:8bytes/SwiftyStringScore"
 
 SPEC CHECKSUMS:
-  JSONSchema: c84ae39b71107fec1d5c3ef0bc0a23ab49daee0c
+  JSONSchema: 2fcb0c33de01b60afa07701b395732d66dfbd936
   KeyHolder: 7fce073043392cddc3e3126f3f9bdaa5ecf1f19e
   Magnet: a44a5a14eecc77433cbaad1431b78f7d20725bf2
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
@@ -61,6 +65,6 @@ SPEC CHECKSUMS:
   Sparkle: 7f5f6d4328458515e23272f4138e610c1fa3e32d
   SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
-PODFILE CHECKSUM: 6487d82dd836a22c674874d0981f288e9a5a39c3
+PODFILE CHECKSUM: 8f2af012a6d4b0b19bc3caf37193d7ba301f63e3
 
 COCOAPODS: 1.11.3

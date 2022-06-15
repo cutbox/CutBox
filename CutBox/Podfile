@@ -5,21 +5,21 @@ abstract_target 'CutBoxAll' do
 
     target 'CutBox' do
         script_phase :name => 'Sign', :script => 'scripts/sign.sh'
+        pod 'JSONSchema', :git => 'https://github.com/kylef/JSONSchema.swift'
         pod 'KeyHolder'
         pod 'Sparkle'
         pod 'RxCocoa'
-        pod 'JSONSchema'
         pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
     end
 
     target 'CutBoxUnitTests' do
         script_phase :name => 'Sign', :script => 'scripts/sign.sh'
+        pod 'JSONSchema', :git => 'https://github.com/kylef/JSONSchema.swift'
         pod 'Quick'
         pod 'Nimble'
         pod 'KeyHolder'
         pod 'Sparkle'
         pod 'RxCocoa'
-        pod 'JSONSchema'
         pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
     end
 end
