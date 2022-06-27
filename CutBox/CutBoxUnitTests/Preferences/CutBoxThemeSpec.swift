@@ -10,40 +10,13 @@ import Quick
 import Nimble
 import JSONSchema
 
-class CutBoxThemeValidation: QuickSpec {
-    override func spec() {
-        describe("Theme validation") {
-            it("validates") {
-                let schema = Schema([
-                    "type": "object",
-                    "properties": [
-                        "name": ["type": "string"],
-                        "price": ["type": "number"]
-                    ],
-                    "required": ["name"]
-                ])
-
-                try expect(
-                    schema.validate(
-                        ["name": "Eggs", "price": 34.99]
-                    ).valid).to(beTrue())
-
-                try expect(
-                    schema.validate(
-                        ["price": 34.99]
-                    ).valid).to(beFalse())
-            }
-        }
-    }
-                     }
-
 class CutBoxPreferencesServiceSpec: QuickSpec {
     override func spec() {
         describe("CutBoxPreferencesServiceSpec") {
             let subject = CutBoxPreferencesService()
             let bundledThemes = subject.themes
-                .map({ $0.name })
-                .filter({ !$0.contains("*") }) // Filter out user themes
+                .map { $0.name }
+                .filter { !$0.contains("*") } // Filter out user themes
 
             it("initializes with bundled themes") {
                 expect(bundledThemes.count).to(equal(10))
