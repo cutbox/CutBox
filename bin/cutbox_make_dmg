@@ -23,4 +23,5 @@ bin_folder=$(dirname $0)
 
 echo "Making new DMG ${DMG_FILE}"
 
+npm exec which appdmg # debug
 npm exec appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
