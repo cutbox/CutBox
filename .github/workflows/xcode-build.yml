@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     name: CutBox Build
-    runs-on: [macos, ARM64]
+    runs-on: macos-11
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
