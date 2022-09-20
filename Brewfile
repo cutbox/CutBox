@@ -1,4 +1,5 @@
 brew "node"
 brew "cmark"
+brew "xcbeautify"
 brew "cocoapods"
 brew "carthage"
