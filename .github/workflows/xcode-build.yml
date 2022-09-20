@@ -25,9 +25,9 @@ jobs:
         run: |
           bin/setup
 
-      ### - name: Test
-      ###   run: |
-      ###     bin/test_ci
+      - name: Test
+        run: |
+          bin/test_ci
 
       - name: Build
         run: |
@@ -56,9 +56,10 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./CutBox.dmg
+          asset_path: CutBox.dmg
           asset_name: CutBox-${{env.RELEASE}}.dmg
           asset_content_type: application/octet-stream
+
 
 #### TODO :
 #### Web update
