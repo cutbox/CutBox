@@ -27,11 +27,11 @@ jobs:
 
       - name: Test
         run: |
-          bin/test_ci
+          bin/test
 
       - name: Build
         run: |
-          bin/build_ci
+          bin/build
 
       - name: Make DMG
         run: |
