@@ -39,7 +39,8 @@ jobs:
       - name: Get Release Info
         run: |
           echo "RELEASE=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
-      - name: Test
+
+      - name: Test GitHub Environment
         run: echo ${{ env.RELEASE }}
 
       - name: Create Release
