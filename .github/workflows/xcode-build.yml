@@ -31,7 +31,7 @@ jobs:
 
       - name: Build
         run: |
-          bin/build
+          bin/build_ci
 
       - name: Make DMG
         run: |

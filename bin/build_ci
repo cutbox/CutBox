@@ -1,0 +1,18 @@
+#!/bin/sh
+
+build_folder="$(dirname $0)/../CutBox/build"
+archive_at="${build_folder}/archive/CutBox.xcarchive"
+
+rm -rvf "${build_folder}/CutBox.app"
+rm -rvf "${build_folder}/archive"
+
+xcodebuild archive \
+    -workspace CutBox/CutBox.xcworkspace \
+    -scheme CutBox \
+    -configuration Release \
+    -destination "platform=macOS,name=Any Mac" \
+    -archivePath "${archive_at}" | xcbeautify
+
+mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
+
+codesign --deep --force -s - "${build_folder}/CutBox.app"
