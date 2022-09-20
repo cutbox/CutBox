@@ -83,13 +83,7 @@ extension CutBoxColorThemeDefinition {
     init(data: Data) throws {
         do {
             let decoder = JSONDecoder()
-            let messages = try decoder
-                .decode(CutBoxColorThemeDefinition.self, from: data)
-
-            // For debugging, build and run CutBox from the terminal
-            //
-            // $ CutBox/build/CutBox.app/Contents/MacOS/CutBox
-            //
+            let _ = try decoder.decode(CutBoxColorThemeDefinition.self, from: data)
         } catch DecodingError.dataCorrupted(let context) {
             print(context, to: &errStream)
         } catch DecodingError.keyNotFound(let key, let context) {
