@@ -60,6 +60,13 @@ jobs:
           asset_name: CutBox-${{env.RELEASE}}.dmg
           asset_content_type: application/octet-stream
 
+      - name: Update Info.plist
+        run: |
+          git diff
+          git add CutBox/CutBox/Info.plist
+          git commit -m "${{env.RELEASE}}"
+          git push origin master
+          git status
 
 #### TODO :
 #### Web update
