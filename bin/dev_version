@@ -2,4 +2,4 @@
 
 PROJECT_ROOT=$(echo "$(dirname $0)/../")
 
-PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_ROOT}/CutBox/CutBox/Info.plist"
+/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_ROOT}/CutBox/CutBox/Info.plist"
