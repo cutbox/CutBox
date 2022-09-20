@@ -4,6 +4,9 @@ message() {
   echo "CutBox Setup: ${1}"
 }
 
+WHICH_FAILED=""
+WHICH_CHECK=0
+
 which_check() {
   cross_mark="❌"
   check_mark="✓"
@@ -14,7 +17,8 @@ which_check() {
   else
     if [[ $(which $1) == "$1 not found" ]]; then
       printf "${cross_mark}"
-      export WHICH_CHECK_FAILED=1
+      WHICH_CHECK=1
+      WHICH_FAILED="${WHICH_FAILED} ${1}"
     else
       printf "${check_mark}"
     fi
@@ -55,10 +59,17 @@ PROJECT_DIR=$(git rev-parse --show-toplevel)
 echo "=========================================================================================="
 echo "Install Pods"
 
-cd $PROJECT_DIR/CutBox
+pushd $PROJECT_DIR/CutBox || exit 1
 
 pod install
 
+popd ||  exit 1
+
 echo "To build run: bin/build"
 
-[[ $WHICH_CHECK == 1 ]] && exit 1
+if [[ $WHICH_CHECK == 1 ]]; then
+  echo "Something missing? Setup cannot find: ${WHICH_FAILED}."
+  exit 1
+fi
+
+exit 0
