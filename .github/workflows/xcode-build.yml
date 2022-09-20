@@ -11,7 +11,8 @@ jobs:
   build:
     name: CutBox Build
     runs-on: macos-11
-
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Brew info
         run: |
@@ -46,8 +47,6 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.RELEASE }}
           release_name: ${{ env.RELEASE }}
@@ -55,7 +54,6 @@ jobs:
 
       - name: Upload CutBox.dmg
         uses: actions/upload-release-asset@v1
-        env: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./CutBox.dmg
