@@ -38,7 +38,9 @@ jobs:
 
       - name: Get Release Info
         run: |
-          echo "REL=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
+          echo "RELEASE=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
+      - name: Test
+        run: echo ${{ env.RELEASE }}
 
       - name: Create Release
         id: create_release
@@ -47,8 +49,8 @@ jobs:
           REL:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.REL }}
-          release_name: ${{ env.REL }}
+          tag_name: ${{ env.RELEASE }}
+          release_name: ${{ env.RELEASE }}
           draft: true
 
 #### TODO :
