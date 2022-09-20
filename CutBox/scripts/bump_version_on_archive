@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Check script requirements
-if [[ "$(which semver)" == "semver not found" ]]; then
+if [[ "$(npm exec which semver)" == "semver not found" ]]; then
   echo "Build without version bump"
 else
 
-  TAG_VERSIONNUM=$(semver $(git tag) | tail -1)
+  TAG_VERSIONNUM=$(npm exec semver $(git tag) | tail -1)
   VERSIONNUM=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
 
   TAG_PATCH=$(echo $TAG_VERSIONNUM | awk -F "." '{print $3}')

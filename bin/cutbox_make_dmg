@@ -10,7 +10,9 @@ if [[ $1 == "" ]]; then
 	exit 1
 fi
 
-if [[ $(which appdmg) =~ "not found" ]]; then
+if [[ -x $(npm exec which appdmg) ]]; then
+  continue
+else
   echo "Failed, missing dependency"
   echo "node-appdmg required."
   echo "visit: https://github.com/LinusU/node-appdmg"
@@ -21,4 +23,4 @@ bin_folder=$(dirname $0)
 
 echo "Making new DMG ${DMG_FILE}"
 
-appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
+npm exec appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"

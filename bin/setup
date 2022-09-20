@@ -25,6 +25,28 @@ which_check() {
   fi
 }
 
+NPM_FAILED=""
+NPM_CHECK=0
+
+npm_check() {
+  cross_mark="❌"
+  check_mark="✓"
+
+  if [ $# -ne 1 ]; then
+    message "npm_check: No arguments provided"
+    exit 1
+  else
+    if [[ -x $(npm exec which $1) ]]; then
+      printf "${check_mark}"
+    else
+      printf "${cross_mark}"
+      NPM_CHECK=1
+      NPM_FAILED="${NPM_FAILED} ${1}"
+    fi
+  fi
+}
+
+
 if [[ "$(which brew)" != "brew not found" ]]; then
   message "Running brew bundle & npm install"
   brew bundle
@@ -48,15 +70,13 @@ For release...
 
 - [$(which_check cmark)] cmark
 - [$(which_check npm)] npm
-- [$(which_check appdmg)] appdmg
-- [$(which_check semver)] semver
-- [$(which_check mustache)] mustache
+- [$(npm_check appdmg)] appdmg
+- [$(npm_check semver)] semver
+- [$(npm_check mustache)] mustache
 "
 echo "anything missing? (Get help at https://gitter.im/CutBox/Lobby)"
 
 PROJECT_DIR=$(git rev-parse --show-toplevel)
-
-appdmg --help
 
 echo "=========================================================================================="
 echo "Install Pods"
@@ -69,8 +89,8 @@ popd ||  exit 1
 
 echo "To build run: bin/build"
 
-if [[ $WHICH_CHECK == 1 ]]; then
-  echo "Something missing? Setup cannot find: ${WHICH_FAILED}."
+if [[ $WHICH_CHECK == 1  || $NPM_CHECK == 1 ]]; then
+  echo "Something missing? Setup cannot find: ${WHICH_CHECK}${NPM_FAILED}."
   exit 1
 fi
 
