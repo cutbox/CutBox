@@ -62,12 +62,10 @@ jobs:
 
       - name: Update Info.plist
         run: |
-          git status
-          git diff CutBox/CutBox/Info.plist
           git add CutBox/CutBox/Info.plist
           git commit -m "CutBox Release: ${{env.RELEASE}}"
           git push origin master
-          git status
+          git show
 
 #### TODO :
 #### Web update
