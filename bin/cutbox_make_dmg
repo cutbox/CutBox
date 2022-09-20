@@ -23,6 +23,6 @@ echo "Making new DMG ${DMG_FILE}"
 
 appdmg "${bin_folder}/cutbox_appdmg.json" "${DMG_FILE}"
 
-find "$(dirname ${DMG_FILE})" -iname="*dmg"
+find "$(dirname ${DMG_FILE})" -iname "*dmg"
 
 exit 0
