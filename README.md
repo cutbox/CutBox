@@ -32,7 +32,7 @@ If you a happy about installing apps that are open source on your Mac, you can d
 sudo spctl --master-disable
 ```
 
-I only recommend this if you feel comfortable using free software that you can code audit.  CutBox is code audited by Codacy, see above.
+I only recommend this if you feel comfortable using free software that you can code audit.  CutBox is [code audited by Codacy](https://www.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  However it doesn't participate in Apple's anti opensource gatekeeper / notarisation system or other part of [Apple's Walled Garden.](https://seekingalpha.com/article/4525092-apple-mr-cook-tear-down-walled-garden)
 
 # Enable automatic paste.
 
