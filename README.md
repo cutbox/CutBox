@@ -26,6 +26,14 @@ When you first run CutBox Macos will prompt you that the developer cannot be ide
 
 [Please read this post from Apple.](https://support.apple.com/en-us/HT202491#:~:text=If%20you%20want%20to%20open%20an%20app%20that%20hasn%E2%80%99t%20been%20notarized%20or%20is%20from%20an%20unidentified%20developer)
 
+If you a happy about installing apps that are open source on your Mac, you can do this in the terminal.
+
+```
+sudo spctl --master-disable
+```
+
+I only recommend this if you feel comfortable using free software that you can code audit.  CutBox is code audited by Codacy, see above.
+
 # Enable automatic paste.
 
 Before CutBox can paste for you (when you select something and hit enter that is.) You have to enable it to control the keyboard.
