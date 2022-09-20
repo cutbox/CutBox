@@ -3,6 +3,10 @@ name: CutBox Test/Build CI
 on:
   push:
     branches: [ "master" ]
+    paths_igore:
+      - 'README.md'
+      - 'LICENSE'
+      - '.github/**/*'
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:
