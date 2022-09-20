@@ -22,11 +22,15 @@ jobs:
 
       - name: Test
         run: |
-          bin/test
+          bin/test_ci
 
       - name: Build
         run: |
           bin/build
+
+      - name: Get Release Info
+        run: |
+          export REL="$(bin/dev_version)-$(bin/build_number)"
 
       - name: Make DMG
         run: |
@@ -38,8 +42,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
+          tag_name: ${{ env.REL }}
+          release_name: ${{ env.REL }}
           draft: true
 
 #### TODO :

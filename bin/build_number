@@ -1,0 +1,3 @@
+#!/bin/sh
+PlistBuddy -c "Print CFBundleVersion" "${PROJECT_ROOT}/CutBox/CutBox/Info.plist"
+
