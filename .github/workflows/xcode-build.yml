@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "RELEASE=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
 
-      - name: Test GitHub Environment
+      - name: Release Info
         run: echo ${{ env.RELEASE }}
 
       - name: Create Release
@@ -53,6 +53,15 @@ jobs:
           tag_name: ${{ env.RELEASE }}
           release_name: ${{ env.RELEASE }}
           draft: true
+
+      - name: Upload CutBox.dmg
+        uses: actions/upload-release-asset@v1
+        env: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./CutBox.dmg
+          asset_name: CutBox-${{env.RELEASE}}.dmg
+          asset_content_type: application/octet-stream
 
 #### TODO :
 #### Web update
