@@ -20,26 +20,27 @@ jobs:
         run: |
           bin/setup
 
-      - name: Test
-        run: |
-          bin/test_ci
+      ### - name: Test
+      ###   run: |
+      ###     bin/test_ci
 
       - name: Build
         run: |
           bin/build
 
-      - name: Get Release Info
-        run: |
-          export REL="$(bin/dev_version)-$(bin/build_number)"
-
       - name: Make DMG
         run: |
           bin/cutbox_make_dmg CutBox.dmg
+
+      - name: Get Release Info
+        run: |
+          echo "REL=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
 
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
+          REL:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ env.REL }}
