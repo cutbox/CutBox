@@ -1,0 +1,6 @@
+module Pods_CutBoxAll_CutBoxUnitTestsCI {
+  umbrella header "Pods-CutBoxAll-CutBoxUnitTestsCI-umbrella.h"
+
+  export *
+  module * { export * }
+}

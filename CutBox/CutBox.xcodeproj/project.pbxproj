@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05D7EA5110D05DCD0F0F7701 /* libPods-CutBoxAll-CutBoxUnitTestsCI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F030A4A521085BE6D02F051 /* libPods-CutBoxAll-CutBoxUnitTestsCI.a */; };
 		7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5495DE2276785B0041FA76 /* String+Utils.swift */; };
 		83981C3A4AFFF9FA3DBF5DA2 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */; };
 		883FF82B9DF08DAE9D649D05 /* libPods-CutBoxAll-CutBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A9AA28D453AAA8BDF124E3 /* libPods-CutBoxAll-CutBox.a */; };
@@ -409,6 +410,7 @@
 
 /* Begin PBXFileReference section */
 		018EC810279A5E3AA02098F4 /* Pods-CutBoxAll-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBox.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBox/Pods-CutBoxAll-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
+		0AC2B5A8CA48A97AB54B1FD8 /* Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTestsCI/Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig"; sourceTree = "<group>"; };
 		0D2AB320E399C04DE3424ECF /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		458881EB261BBFF0662C6C70 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CB2A1B284FC8AE1F0159E0D /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -418,6 +420,8 @@
 		7C5495DE2276785B0041FA76 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UtilsSpec.swift"; sourceTree = "<group>"; };
 		829EA9BE1F4F8D84CC265008 /* libPods-CutBoxAll-CutBoxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBoxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CCCBB192479CED3B61BC367 /* Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTestsCI/Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig"; sourceTree = "<group>"; };
+		8F030A4A521085BE6D02F051 /* libPods-CutBoxAll-CutBoxUnitTestsCI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBoxUnitTestsCI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		936EFC24C6FE0EBD217EAB0A /* Pods-CutBox-Testing-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox-Testing-CutBoxTests.release.xcconfig"; path = "Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 		961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
@@ -573,6 +577,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D7EA5110D05DCD0F0F7701 /* libPods-CutBoxAll-CutBoxUnitTestsCI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +607,7 @@
 				D3A9AA28D453AAA8BDF124E3 /* libPods-CutBoxAll-CutBox.a */,
 				829EA9BE1F4F8D84CC265008 /* libPods-CutBoxAll-CutBoxTests.a */,
 				5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */,
+				8F030A4A521085BE6D02F051 /* libPods-CutBoxAll-CutBoxUnitTestsCI.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -621,6 +627,8 @@
 				AB26BFB7F54EF3461A565BC5 /* Pods-CutBoxAll-CutBoxTests.release.xcconfig */,
 				458881EB261BBFF0662C6C70 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */,
 				987E5E081F7221AC03A6D6B0 /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */,
+				0AC2B5A8CA48A97AB54B1FD8 /* Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig */,
+				8CCCBB192479CED3B61BC367 /* Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1001,9 +1009,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 963CB06628D96812003F9CA5 /* Build configuration list for PBXNativeTarget "CutBoxUnitTestsCI" */;
 			buildPhases = (
+				672E09220EAC8A4C80FDE9A6 /* [CP] Check Pods Manifest.lock */,
 				963CAFE728D96812003F9CA5 /* Sources */,
 				963CB04A28D96812003F9CA5 /* Frameworks */,
 				963CB04C28D96812003F9CA5 /* Resources */,
+				7C80BEBD3A6125471B81BBF0 /* [CP] Embed Pods Frameworks */,
+				9F5DC6CD18B827EB6A917A38 /* [CP-User] Sign */,
 			);
 			buildRules = (
 			);
@@ -1272,6 +1283,46 @@
 			shellPath = /bin/sh;
 			shellScript = scripts/sign.sh;
 		};
+		672E09220EAC8A4C80FDE9A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CutBoxAll-CutBoxUnitTestsCI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C80BEBD3A6125471B81BBF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CutBoxAll-CutBoxUnitTestsCI/Pods-CutBoxAll-CutBoxUnitTestsCI-frameworks.sh",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CutBoxAll-CutBoxUnitTestsCI/Pods-CutBoxAll-CutBoxUnitTestsCI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		96085E4A206E36CC00CA77BB /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1344,6 +1395,16 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CutBoxAll-CutBox/Pods-CutBoxAll-CutBox-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		9F5DC6CD18B827EB6A917A38 /* [CP-User] Sign */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "[CP-User] Sign";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = scripts/sign.sh;
 		};
 		BAE33ABDD43120A0B3851A37 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1764,6 +1825,7 @@
 		};
 		963CB06728D96812003F9CA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AC2B5A8CA48A97AB54B1FD8 /* Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1786,6 +1848,7 @@
 		};
 		963CB06828D96812003F9CA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CCCBB192479CED3B61BC367 /* Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
