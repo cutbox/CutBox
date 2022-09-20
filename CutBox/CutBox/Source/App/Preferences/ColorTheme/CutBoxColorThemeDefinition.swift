@@ -82,8 +82,8 @@ struct CutBoxColorThemeDefinition: Codable {
 extension CutBoxColorThemeDefinition {
     init(data: Data) throws {
         do {
-            let decoder = JSONDecoder()
-            let _ = try decoder.decode(CutBoxColorThemeDefinition.self, from: data)
+            _ = try newJSONDecoder()
+              .decode(CutBoxColorThemeDefinition.self, from: data)
         } catch DecodingError.dataCorrupted(let context) {
             print(context, to: &errStream)
         } catch DecodingError.keyNotFound(let key, let context) {
@@ -98,7 +98,6 @@ extension CutBoxColorThemeDefinition {
         } catch {
             print("error: ", error, to: &errStream)
         }
-
         self = try newJSONDecoder()
             .decode(CutBoxColorThemeDefinition.self, from: data)
     }
