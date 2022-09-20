@@ -11,9 +11,7 @@
   <p>Macos Clipboard Manager</p>
 </div>
 
-CutBox is a Macos developer focussed clipboard history manager. It works only with text (no images, audio, video, blobs) but doesn't interfere with the system clipboard if you need to copy/paste things like that.  It can also transform text before you paste it, using JavaScript. 
-
-CutBox is designed as OpenSource and you are encouraged to [Compile it yourself](#compilation-setup--tooling)
+CutBox is a Macos developer focused clipboard history manager. It works only with text (no images, audio, video, blobs) but doesn't interfere with the system clipboard, or other clipboard managers, if you need copy/pasteboard history for things like that.  It's  maing strenghts are fuzzy & regexp search, and the ability to transform text using JavaScript, before you paste it.
 
 # Install via Homebrew Cask
 
