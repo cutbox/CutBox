@@ -14,6 +14,7 @@ which_check() {
   else
     if [[ $(which $1) == "$1 not found" ]]; then
       printf "${cross_mark}"
+      export WHICH_CHECK_FAILED=1
     else
       printf "${check_mark}"
     fi
@@ -21,14 +22,15 @@ which_check() {
 }
 
 if [[ "$(which brew)" != "brew not found" ]]; then
-  message "Running brew bundle"
+  message "Running brew bundle & npm install"
   brew bundle
-  npm install -g --force semver
-  npm install -g --force mustache
+  npm install
 else
   message "Homebrew must be installed and working."
   exit 1
 fi
+
+
 
 echo "PLEASE NOTE: CutBox expects:
 
@@ -42,6 +44,7 @@ For release...
 
 - [$(which_check cmark)] cmark
 - [$(which_check npm)] npm
+- [$(which_check appdmg)] appdmg
 - [$(which_check semver)] semver
 - [$(which_check mustache)] mustache
 "
@@ -56,6 +59,6 @@ cd $PROJECT_DIR/CutBox
 
 pod install
 
-echo "To build do...
+echo "To build run: bin/build"
 
-$ bin/build"
+[[ $WHICH_CHECK == 1 ]] && exit 1

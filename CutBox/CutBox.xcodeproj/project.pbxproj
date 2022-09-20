@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5495DE2276785B0041FA76 /* String+Utils.swift */; };
+		83981C3A4AFFF9FA3DBF5DA2 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */; };
 		883FF82B9DF08DAE9D649D05 /* libPods-CutBoxAll-CutBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A9AA28D453AAA8BDF124E3 /* libPods-CutBoxAll-CutBox.a */; };
 		961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
@@ -123,7 +124,6 @@
 		963CB04728D96812003F9CA5 /* HistoryServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA51D207F2E3400B9F33E /* HistoryServiceSpec.swift */; };
 		963CB04828D96812003F9CA5 /* PopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076F206F9AF30032DACD /* PopupContainerView.swift */; };
 		963CB04928D96812003F9CA5 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
-		963CB04B28D96812003F9CA5 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */; };
 		963CB04D28D96812003F9CA5 /* PreferencesGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */; };
 		963CB04E28D96812003F9CA5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		963CB04F28D96812003F9CA5 /* JSFuncItemTableRowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */; };
@@ -410,11 +410,10 @@
 /* Begin PBXFileReference section */
 		018EC810279A5E3AA02098F4 /* Pods-CutBoxAll-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBox.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBox/Pods-CutBoxAll-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
 		0D2AB320E399C04DE3424ECF /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1187FCFB8348BA356FE65FEB /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig"; sourceTree = "<group>"; };
+		458881EB261BBFF0662C6C70 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CB2A1B284FC8AE1F0159E0D /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
 		4D9D267D2A0DC4A830308CA0 /* Pods-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxTests.release.xcconfig"; path = "Target Support Files/Pods-CutBoxTests/Pods-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 		5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBoxUnitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6EDCCD7085DA8399AB395367 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		729E616F68F0143821041D78 /* Pods-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.debug.xcconfig"; path = "Target Support Files/Pods-CutBox/Pods-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
 		7C5495DE2276785B0041FA76 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UtilsSpec.swift"; sourceTree = "<group>"; };
@@ -554,6 +553,7 @@
 		96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchTextViewDelegate.swift; sourceTree = "<group>"; };
 		96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewControllerTableViewDelegate.swift; sourceTree = "<group>"; };
 		96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSetSpec.swift; sourceTree = "<group>"; };
+		987E5E081F7221AC03A6D6B0 /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		A33C3E8727BC7080521A9B95 /* Pods-CutBoxAll-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxTests/Pods-CutBoxAll-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AB26BFB7F54EF3461A565BC5 /* Pods-CutBoxAll-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxTests.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxTests/Pods-CutBoxAll-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFFB832EFE946C999FF722E4 /* Pods-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxTests/Pods-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -573,7 +573,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				963CB04B28D96812003F9CA5 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAF4D0FD74B2C7CF65DB1488 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
+				83981C3A4AFFF9FA3DBF5DA2 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,8 +619,8 @@
 				F669B605C398A30A69C66A24 /* Pods-CutBoxAll-CutBox.release.xcconfig */,
 				A33C3E8727BC7080521A9B95 /* Pods-CutBoxAll-CutBoxTests.debug.xcconfig */,
 				AB26BFB7F54EF3461A565BC5 /* Pods-CutBoxAll-CutBoxTests.release.xcconfig */,
-				6EDCCD7085DA8399AB395367 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */,
-				1187FCFB8348BA356FE65FEB /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */,
+				458881EB261BBFF0662C6C70 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */,
+				987E5E081F7221AC03A6D6B0 /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1001,12 +1001,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 963CB06628D96812003F9CA5 /* Build configuration list for PBXNativeTarget "CutBoxUnitTestsCI" */;
 			buildPhases = (
-				963CAFE628D96812003F9CA5 /* [CP] Check Pods Manifest.lock */,
 				963CAFE728D96812003F9CA5 /* Sources */,
 				963CB04A28D96812003F9CA5 /* Frameworks */,
 				963CB04C28D96812003F9CA5 /* Resources */,
-				963CB06428D96812003F9CA5 /* [CP] Embed Pods Frameworks */,
-				963CB06528D96812003F9CA5 /* [CP-User] Sign */,
 			);
 			buildRules = (
 			);
@@ -1109,8 +1106,6 @@
 				en,
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
-			packageReferences = (
-			);
 			productRefGroup = 96E1E595205D243400F994ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1304,56 +1299,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PROJECT_DIR}/../bin/warn_tag_words\"";
-		};
-		963CAFE628D96812003F9CA5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CutBoxAll-CutBoxUnitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		963CB06428D96812003F9CA5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests-frameworks.sh",
-				"${PODS_ROOT}/Sparkle/Sparkle.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		963CB06528D96812003F9CA5 /* [CP-User] Sign */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			name = "[CP-User] Sign";
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = scripts/sign.sh;
 		};
 		965F0762206F29600032DACD /* Bump version number on archive */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1819,7 +1764,6 @@
 		};
 		963CB06728D96812003F9CA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EDCCD7085DA8399AB395367 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1842,7 +1786,6 @@
 		};
 		963CB06828D96812003F9CA5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1187FCFB8348BA356FE65FEB /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1864,7 +1807,7 @@
 		};
 		965348D42843316B000FD0A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EDCCD7085DA8399AB395367 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */;
+			baseConfigurationReference = 458881EB261BBFF0662C6C70 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1887,7 +1830,7 @@
 		};
 		965348D52843316B000FD0A1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1187FCFB8348BA356FE65FEB /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */;
+			baseConfigurationReference = 987E5E081F7221AC03A6D6B0 /* Pods-CutBoxAll-CutBoxUnitTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_OBJC_WEAK = YES;

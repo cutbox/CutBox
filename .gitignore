@@ -3,7 +3,6 @@
 **/*.xcodeproj/xcuserdata/**/*
 **/CutBox/build
 CutBox.dmg
-
-bin/built_app_to_applications
-/*.json
 .idea
+/errors.json
+/node_modules/
