@@ -90,6 +90,10 @@ class SearchPreviewViewBase: NSView {
         self.container.isHidden = bool
     }
 
+    func hidePreview(_ bool: Bool) {
+        self.previewContainer.isHidden = bool
+    }
+
     func setupPlaceholder() {
         filterText
             .map { $0.isEmpty ? self.placeHolderTextString : "" }

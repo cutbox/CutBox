@@ -63,6 +63,10 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.clearHistory)
 
+        case (kVK_ANSI_P, [.command]):
+            self.events
+                .onNext(.togglePreview)
+
         default:
             return
         }
