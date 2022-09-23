@@ -64,6 +64,19 @@ jobs:
           git push origin master
           git show
 
+      - name: Update CutBox homebrew
+        run : |
+          cd homebrew-cutbox
+          BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
+          if [[ ! "$BREW_VERSION" == "$CUTBOX_VERSION" ]]; then
+            bin/update-readme $CUTBOX_VERSION
+            bin/update-formula $CUTBOX_VERSION
+            bin/update-cask $CUTBOX_VERSION
+            git diff
+
+          else
+            echo "Version $CUTBOX_VERSION already on Brew"
+          fi
 
 #### TODO :
 #### Web update
