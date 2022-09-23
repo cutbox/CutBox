@@ -64,7 +64,7 @@ jobs:
 
       - name: Update CutBox homebrew
         run : |
-          git clone git@github:cutbox/homebrew-cutbox.git
+          git clone git@github.com:cutbox/homebrew-cutbox.git
           cd homebrew-cutbox
           BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
           if [[ ! "$BREW_VERSION" == "$CUTBOX_VERSION" ]]; then
