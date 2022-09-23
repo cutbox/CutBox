@@ -90,8 +90,6 @@ You can also compile yourself... [Compile instructions](#compilation-setup--tool
 
 Any text you copy on MacOS is saved to CutBox's history.
 
-![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
-
 CutBox Search is activated using a global hotkey:
 
 <kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
@@ -103,6 +101,8 @@ CutBox Search is activated using a global hotkey:
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
 
 With the CutBox window open, search for anything you copied.
+
+![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
 
 Press <kbd>**Enter**</kbd> and the selected item will paste into your
 current app.
