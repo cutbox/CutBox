@@ -71,7 +71,7 @@ jobs:
           BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
           echo "BREW_VERSION..: $BREW_VERSION"
           echo "CUTBOX_VERSION: $CUTBOX_VERSION"
-          if [[ ! "$BREW_VERSION" == "$CUTBOX_VERSION" ]]; then
+          if [[ "$BREW_VERSION" != "$CUTBOX_VERSION" ]]; then
             bin/update-readme $CUTBOX_VERSION
             bin/update-formula $CUTBOX_VERSION
             bin/update-cask $CUTBOX_VERSION
