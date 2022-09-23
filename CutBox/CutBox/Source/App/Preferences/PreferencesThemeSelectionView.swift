@@ -17,6 +17,7 @@ class PreferencesThemeSelectionView: NSView {
     @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
     @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
     @IBOutlet weak var compactUICheckbox: NSButton!
+    @IBOutlet weak var hidePreviewCheckbox: NSButton!
     @IBOutlet weak var reloadThemesButton: NSButton!
 
     override func awakeFromNib() {
@@ -24,6 +25,7 @@ class PreferencesThemeSelectionView: NSView {
 
         self.setupThemeSelector()
         self.setupCompactUIControl()
+        self.setupHidePreviewControl()
     }
 
     @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {

@@ -156,6 +156,20 @@ class SearchViewController: NSObject {
                 self.searchView.itemsList.reloadData()
             })
             .disposed(by: self.disposeBag)
+
+        self.prefs.events
+            .compactMap {
+                switch $0 {
+                case .hidePreviewSettingChanged(let isOn):
+                    return isOn
+                default:
+                    return nil
+                }
+            }
+            .subscribe(onNext: {
+                self.searchView.hidePreview($0)
+            })
+            .disposed(by: self.disposeBag)
     }
 
     func updateSearchItemPreview() {
@@ -195,6 +209,9 @@ class SearchViewController: NSObject {
                     self.historyService.favoritesOnly = !self.historyService.favoritesOnly
                     self.searchView.itemsList.reloadData()
                     self.searchView.setSearchScopeButton(favoritesOnly: self.historyService.favoritesOnly)
+
+                case .togglePreview:
+                    self.prefs.hidePreview = !self.prefs.hidePreview
 
                 case .toggleFavorite:
                     self.toggleFavoriteItems()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,13 +15,33 @@
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B9O-7z-kGb">
                     <rect key="frame" x="60" y="23" width="444" height="270"/>
                     <subviews>
-                        <button verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="hPC-e9-vTv">
-                            <rect key="frame" x="-2" y="253" width="446" height="18"/>
-                            <buttonCell key="cell" type="check" title="Compact UI" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mAq-kc-Idb">
-                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                        </button>
+                        <stackView distribution="fillEqually" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fj-pr-W3P">
+                            <rect key="frame" x="0.0" y="254" width="444" height="16"/>
+                            <subviews>
+                                <button verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="hPC-e9-vTv">
+                                    <rect key="frame" x="-2" y="-1" width="220" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Compact UI" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mAq-kc-Idb">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <button verticalHuggingPriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="zZf-CM-JuY">
+                                    <rect key="frame" x="224" y="-1" width="220" height="18"/>
+                                    <buttonCell key="cell" type="check" title="Hide Preview" bezelStyle="regularSquare" imagePosition="left" inset="2" id="EmF-8U-ryn">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
                         <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j11-7Y-BHb">
                             <rect key="frame" x="0.0" y="226" width="444" height="20"/>
                             <subviews>
@@ -296,9 +316,9 @@ Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I r
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="hPC-e9-vTv" firstAttribute="centerX" secondItem="B9O-7z-kGb" secondAttribute="centerX" id="0iE-sS-lIf"/>
                         <constraint firstItem="v9D-EP-tpp" firstAttribute="top" secondItem="j11-7Y-BHb" secondAttribute="bottom" constant="8" id="hnj-26-MqG"/>
                         <constraint firstItem="j11-7Y-BHb" firstAttribute="centerX" secondItem="B9O-7z-kGb" secondAttribute="centerX" id="jEv-ub-39n"/>
+                        <constraint firstItem="2fj-pr-W3P" firstAttribute="width" secondItem="B9O-7z-kGb" secondAttribute="width" id="kWY-Sl-bYE"/>
                         <constraint firstAttribute="trailing" secondItem="v9D-EP-tpp" secondAttribute="trailing" id="m1T-vv-9Cr"/>
                     </constraints>
                     <visibilityPriorities>
@@ -322,6 +342,7 @@ Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I r
             </constraints>
             <connections>
                 <outlet property="compactUICheckbox" destination="hPC-e9-vTv" id="9W9-Y1-KYb"/>
+                <outlet property="hidePreviewCheckbox" destination="zZf-CM-JuY" id="7hj-rV-hQ8"/>
                 <outlet property="reloadThemesButton" destination="SzR-JK-Nne" id="gTg-re-boK"/>
                 <outlet property="themeSelectorMenu" destination="GLA-gc-GY8" id="pZj-Ya-XpQ"/>
                 <outlet property="themeSelectorTitleLabel" destination="sVt-fT-sjS" id="qtE-2Y-gUN"/>

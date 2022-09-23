@@ -26,6 +26,7 @@ enum SearchViewEvents {
     case toggleWrappingStrings
     case toggleJoinStrings
     case toggleSearchScope
+    case togglePreview
 
     case removeSelected
     case toggleFavorite

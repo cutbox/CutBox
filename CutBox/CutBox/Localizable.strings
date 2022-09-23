@@ -17,6 +17,7 @@
 "cutbox_menu_about" = "About CutBox";
 "cutbox_menu_clear_history" = "Clear History";
 "cutbox_menu_compactui" = "Compact UI";
+"cutbox_menu_hide_preview" = "Hide Preview";
 "cutbox_menu_fuzzy_match" = "Fuzzy Match";
 "cutbox_menu_preferences" = "Preferences";
 "cutbox_menu_quit" = "Quit";
@@ -57,6 +58,8 @@
 "preferences_toggle_cutbox_tooltip" = "Choose a keyboard shortcut to show/hide CutBox";
 "preferences_use_compact_ui" = "Use Compact UI";
 "preferences_use_compact_ui_tooltip" = "Compact UI hides history items and paste preview until you begin searching or press right or up";
+"preferences_hide_preview" = "Hide Preview";
+"preferences_hide_preview_tooltip" = "Hides the preview panel";
 "search_placeholder" = "Search CutBox";
 "search_scope_all" = "Search everything";
 "search_scope_favorites"  = "Search favorites";
