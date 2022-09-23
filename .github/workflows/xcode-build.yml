@@ -75,7 +75,8 @@ jobs:
             bin/update-readme $CUTBOX_VERSION
             bin/update-formula $CUTBOX_VERSION
             bin/update-cask $CUTBOX_VERSION
-            git diff --color
+            echo "================================================================================"
+            git --no-pager diff --color
           else
             echo "Version $CUTBOX_VERSION already on Brew"
           fi
