@@ -107,12 +107,14 @@ With the CutBox window open, search for anything you copied.
 Press <kbd>**Enter**</kbd> and the selected item will paste into your
 current app.
 
-To exit just press <kbd>**Esc**</kbd>.
+To exit press <kbd>**Esc**</kbd>.
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
 
+Press <kbd>Cmd</kbd> + <kbd>p</kbd> to toggle preview. (You can also set this from the Status Menu)
+
 Press <kbd>Cmd</kbd> + <kbd>s</kbd> to toggle through search modes,
-fuzzy match, regexp/i or regexp.
+fuzzy match, regexp/i or regexp. (You can also set this from the Status Menu)
 
 # Would you like to know more?
 
