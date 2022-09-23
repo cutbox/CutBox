@@ -143,9 +143,9 @@ class SearchViewController: NSObject {
             .map { $0.isEmpty }
             .subscribe(onNext: {
                 if self.prefs.useCompactUI {
-                    self.searchView.hideItemsAndPreview($0)
+                    self.searchView.hideSearchResults($0)
                 } else {
-                    self.searchView.hideItemsAndPreview(false)
+                    self.searchView.hideSearchResults(false)
                 }
             })
             .disposed(by: disposeBag)
