@@ -24,10 +24,21 @@ body:
       label: Version
       description: What version of our software are you running?
       options:
-        - 1.4.18 (Default)
-        - older than 1.4.18? Please update and try to reproduce the bug.
+        - 1.4.23
+        - 1.4.22
+        - older than 1.4.22? Please update and try to reproduce the bug.
     validations:
       required: true
+  - type: dropdown
+    id: Mac Architecture
+    attributes:
+      label: What kind of Mac are you using?
+      options:
+        - x86 Intel
+        - M1 (not currently supported)
+        - M2 (not currently supported)
+        - M3 (not currently supported)
+
   - type: dropdown
     id: MacOS
     attributes:
