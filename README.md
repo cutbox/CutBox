@@ -20,7 +20,7 @@ brew tap cutbox/cutbox
 brew intall cutbox
 ```
 
-# First run...
+# First run
 
 When you first run CutBox Macos will prompt you that the developer cannot be identified.
 
