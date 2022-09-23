@@ -4,3 +4,6 @@
 [submodule "cutbox.wiki"]
 	path = cutbox.wiki
 	url = https://github.com/cutbox/cutbox.wiki
+[submodule "homebrew-cutbox"]
+	path = homebrew-cutbox
+	url = git@github.com:cutbox/homebrew-cutbox.git
