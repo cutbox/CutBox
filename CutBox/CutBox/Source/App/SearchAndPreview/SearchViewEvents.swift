@@ -19,7 +19,7 @@ enum SearchViewEvents {
     case setSearchMode(HistorySearchMode)
     case clearHistory
     case revealItemsAndPreview
-    case hideItemsAndPreview
+    case hideSearchResults
 
     case toggleTheme
     case toggleSearchMode

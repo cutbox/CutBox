@@ -85,7 +85,7 @@ class SearchPreviewViewBase: NSView {
             .scrollRowToVisible(selectedRow)
     }
 
-    func hideItemsAndPreview(_ bool: Bool) {
+    func hideSearchResults(_ bool: Bool) {
         self.bottomBar.isHidden = bool
         self.container.isHidden = bool
     }

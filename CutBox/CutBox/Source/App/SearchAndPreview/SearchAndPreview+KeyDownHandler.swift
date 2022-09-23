@@ -15,10 +15,10 @@ extension SearchAndPreviewView {
     override func keyDown(with event: NSEvent) {
         switch (event.key, event.modifiers) {
         case (kVK_LeftArrow, _), (kVK_RightArrow, _):
-            self.hideItemsAndPreview(false)
+            self.hideSearchResults(false)
 
         case (kVK_UpArrow, _), (kVK_DownArrow, _):
-            self.hideItemsAndPreview(false)
+            self.hideSearchResults(false)
             if !HistoryService.shared.items.isEmpty {
                 self.itemsList.keyDown(with: event)
             }

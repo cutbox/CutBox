@@ -15,7 +15,7 @@ extension JSFuncSearchAndPreviewView {
         switch (event.key, event.modifiers) {
         case (kVK_UpArrow, _),
              (kVK_DownArrow, _):
-            self.hideItemsAndPreview(false)
+            self.hideSearchResults(false)
             if !JSFuncService.shared.isEmpty {
                 self.itemsList.keyDown(with: event)
             }
