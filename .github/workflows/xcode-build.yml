@@ -81,6 +81,11 @@ jobs:
             echo "Version $CUTBOX_VERSION already on Brew"
           fi
 
+          if [[ "$(git -C .. show -s --format=%B)" == *"[release]"*  ]]; then
+            echo "Release Commit - Update Homebrew... (Dry Run)"
+          fi
+
+
 #### TODO :
 #### Web update
 #### Update Homebrew tap
