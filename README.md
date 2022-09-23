@@ -82,7 +82,7 @@ Anything else?
 
 Get the current release:
 
-https://github.com/cutbox/CutBox/releases/download/1.4.22/CutBox.dmg
+https://github.com/cutbox/CutBox/releases/download/1.4.23/CutBox.dmg
 
 You can also compile yourself... [Compile instructions](#compilation-setup--tooling)
 
