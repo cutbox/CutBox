@@ -1,3 +1,4 @@
+brew "coreutils"
 brew "node" unless system "which node"
 brew "cmark" unless system "which cmark"
 brew "xcbeautify" unless system "which xcbeautify"
