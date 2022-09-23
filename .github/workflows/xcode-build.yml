@@ -66,6 +66,7 @@ jobs:
 
       - name: Update CutBox homebrew
         run : |
+          export CUTBOX_VERSION="${{ env.CUTBOX_VERSION }}"
           cd homebrew-cutbox
           BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
           if [[ ! "$BREW_VERSION" == "$CUTBOX_VERSION" ]]; then
