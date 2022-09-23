@@ -12,10 +12,6 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: Brew info
-        run: |
-          brew info --json --installed
-
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -38,6 +34,7 @@ jobs:
       - name: Get Release Info
         run: |
           echo "RELEASE=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
+          echo "CUTBOX_VERSION=$(bin/dev_version)" >> $GITHUB_ENV
 
       - name: Release Info
         run: echo ${{ env.RELEASE }}
@@ -55,7 +52,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: CutBox.dmg
-          asset_name: CutBox-${{env.RELEASE}}.dmg
+          asset_name: CutBox-${{env.CUTBOX_VERSION}}.dmg
           asset_content_type: application/octet-stream
 
       - name: Update Info.plist
@@ -64,6 +61,21 @@ jobs:
           git commit -m "CutBox Release: ${{env.RELEASE}}"
           git push origin master
           git show
+
+      - name: Update CutBox homebrew
+        run : |
+          git clone git@github:cutbox/homebrew-cutbox.git
+          cd homebrew-cutbox
+          BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
+          if [[ ! "$BREW_VERSION" == "$CUTBOX_VERSION" ]]; then
+            bin/update-readme $CUTBOX_VERSION
+            bin/update-formula $CUTBOX_VERSION
+            bin/update-cask $CUTBOX_VERSION
+
+            git diff
+          else
+            echo "Version $CUTBOX_VERSION already on Brew"
+          fi
 
 #### TODO :
 #### Web update
