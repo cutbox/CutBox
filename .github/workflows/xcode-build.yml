@@ -100,6 +100,8 @@ jobs:
             git commit -m "sync homebrew ($CUTBOX_VERSION)"
             git pull --rebase
             git push
+          else
+            echo "Commit was not tagged as a [release]"
           fi
 
 #### TODO :
