@@ -84,7 +84,7 @@ jobs:
             echo "Version $CUTBOX_VERSION already on Brew" && exit 1
           fi
 
-          if [[ "$(git -C .. show -s --format=%B)" == *"[release]"*  ]]; then
+          if [[ "$(git -C .. show -s --format=%B)" =~ "\[release\]"  ]]; then
             echo "Release CutBox $CUTBOX_VERSION via homebrew"
             git add \
               README.md \
