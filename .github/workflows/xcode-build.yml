@@ -17,6 +17,10 @@ jobs:
         with:
           submodules: recursive
 
+      - name; Get commit message
+        run: |
+          echo "CUTBOX_COMMIT=\"$(git -C .. show HEAD^ -s --format=%B)\"" >> $GITHUB_ENV
+
       - name: Setup
         run: |
           bin/setup
@@ -67,6 +71,7 @@ jobs:
       - name: Update CutBox homebrew
         run : |
           export CUTBOX_VERSION="${{ env.CUTBOX_VERSION }}"
+          export cutbox_commit="${{ env.CUTBOX_COMMIT }}"
           cd homebrew-cutbox
           git checkout main
           BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
@@ -83,7 +88,6 @@ jobs:
           else
             echo "Version $CUTBOX_VERSION already on Brew" && exit 1
           fi
-          cutbox_commit="$(git -C .. show -s --format=%B)"
           if [[ "$cutbox_commit" =~ "\[release\]"  ]]; then
             echo "Release CutBox $CUTBOX_VERSION via homebrew"
             git add \
