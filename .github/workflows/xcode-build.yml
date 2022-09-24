@@ -89,6 +89,7 @@ jobs:
           else
             echo "Version $CUTBOX_VERSION already on Brew" && exit 1
           fi
+          echo "Commit: $cutbox_commit"
           if [[ "$cutbox_commit" =~ "\[release\]"  ]]; then
             echo "Release CutBox $CUTBOX_VERSION via homebrew"
             git add \
