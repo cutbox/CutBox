@@ -83,8 +83,8 @@ jobs:
           else
             echo "Version $CUTBOX_VERSION already on Brew" && exit 1
           fi
-
-          if [[ "$(git -C .. show -s --format=%B)" =~ "\[release\]"  ]]; then
+          cutbox_commit="$(git -C .. show -s --format=%B)"
+          if [[ "$cutbox_commit" =~ "\[release\]"  ]]; then
             echo "Release CutBox $CUTBOX_VERSION via homebrew"
             git add \
               README.md \
@@ -101,7 +101,9 @@ jobs:
             git pull --rebase
             git push
           else
-            echo "Commit was not tagged as a [release]"
+            echo "Commit was not tagged as [release]"
+            echo "----"
+            echo "$cutbox_commit"
           fi
 
 #### TODO :
