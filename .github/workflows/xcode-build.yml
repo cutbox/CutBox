@@ -78,8 +78,10 @@ jobs:
             bin/update-cask $CUTBOX_VERSION
             echo "================================================================================"
             git --no-pager diff --color
+            bin/test-cask || exit 1
+            bin/test-formula || exit 1
           else
-            echo "Version $CUTBOX_VERSION already on Brew"
+            echo "Version $CUTBOX_VERSION already on Brew" && exit 1
           fi
 
           if [[ "$(git -C .. show -s --format=%B)" == *"[release]"*  ]]; then
@@ -101,4 +103,3 @@ jobs:
 
 #### TODO :
 #### Web update
-#### Update Homebrew tap
