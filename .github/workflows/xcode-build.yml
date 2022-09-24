@@ -82,6 +82,7 @@ jobs:
           export cutbox_commit="${{ env.CUTBOX_COMMIT }}"
           cd homebrew-cutbox
           git checkout main
+          git pull --rebase
           BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
           echo "BREW_VERSION..: $BREW_VERSION"
           echo "CUTBOX_VERSION: $CUTBOX_VERSION"
@@ -105,7 +106,6 @@ jobs:
               Formula/cutbox.rb \
               Casks/cutbox.rb
             git commit -m "Update Homebrew: CutBox $CUTBOX_VERSION"
-            git pull --rebase
             git tag $CUTBOX_VERSION
             git push
             git push --tags
