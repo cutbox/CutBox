@@ -19,7 +19,7 @@ jobs:
 
       - name: Get Commit Message
         run: |
-          echo "CUTBOX_COMMIT='$(git -C .. show HEAD^ -s --format=%B)'" >> $GITHUB_ENV
+          echo "CUTBOX_COMMIT='$(git -C .. show -s --format=%B)'" >> $GITHUB_ENV
 
       - name: Setup
         run: |
