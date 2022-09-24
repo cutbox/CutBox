@@ -63,6 +63,7 @@ jobs:
 
       - name: Update Info.plist
         run: |
+          git pull
           git add CutBox/CutBox/Info.plist
           git commit -m "CutBox Release: ${{env.RELEASE}}"
           git push origin master
