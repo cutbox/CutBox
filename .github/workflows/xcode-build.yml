@@ -68,6 +68,7 @@ jobs:
         run : |
           export CUTBOX_VERSION="${{ env.CUTBOX_VERSION }}"
           cd homebrew-cutbox
+          git checkout main
           BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
           echo "BREW_VERSION..: $BREW_VERSION"
           echo "CUTBOX_VERSION: $CUTBOX_VERSION"
@@ -82,9 +83,21 @@ jobs:
           fi
 
           if [[ "$(git -C .. show -s --format=%B)" == *"[release]"*  ]]; then
-            echo "Release Commit - Update Homebrew... (Dry Run)"
+            git add \
+              README.md \
+              Formula/cutbox.rb \
+              Casks/cutbox.rb
+            git commit -m "Update Homebrew: CutBox $CUTBOX_VERSION"
+            git pull --rebase
+            git tag $CUTBOX_VERSION
+            git push
+            git push --tags
+            cd ..
+            git add homebrew-cutbox
+            git commit -m "sync homebrew ($CUTBOX_VERSION)"
+            git pull --rebase
+            git push
           fi
-
 
 #### TODO :
 #### Web update
