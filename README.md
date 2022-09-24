@@ -120,7 +120,7 @@ fuzzy match, regexp/i or regexp. (You can also set this from the Status Menu)
 
 [More information is in the wiki](https://github.com/cutbox/CutBox/wiki)
 
-# Bugs...
+# Found something wrong?
 
 If you find a bug, [click here to tell me what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPLATE.md)
 
