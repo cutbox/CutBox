@@ -15,6 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: ssh-agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+         ssh-private-key: ${{ secrets.SUBMODULE_ID }}
+
       - name: Get Commit Message
         run: |
           echo "CUTBOX_COMMIT='$(git show -s --format=%B)'" >> $GITHUB_ENV
