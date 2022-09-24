@@ -8,7 +8,7 @@
 
 <div align="center">
     <h1>CutBox</h1>
-  <p>Macos Clipboard Manager</p>
+  <p>Text Clipboard Manager for MacOS</p>
 </div>
 
 CutBox is a Macos developer focused clipboard history manager. It works only with text (no images, audio, video, blobs) but doesn't interfere with the system clipboard, or other clipboard managers, if you need copy/pasteboard history for things like that.  It's  main features are: Fuzzy matching, regexp search, favorites and the ability to transform text by pasting multiple clipboard entries at once, and/or using JavaScript to process text, before you paste it.
