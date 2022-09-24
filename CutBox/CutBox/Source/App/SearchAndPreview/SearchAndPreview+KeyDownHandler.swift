@@ -27,6 +27,10 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.justClose)
 
+        case (kVK_ANSI_G, [.control]):
+            self.events
+                .onNext(.justClose)
+
         case (kVK_Return, [.command]):
             self.events
                 .onNext(.selectJavascriptFunction)
