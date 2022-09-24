@@ -95,7 +95,14 @@ jobs:
             bin/test-cask || exit 1
             bin/test-formula || exit 1
           else
-            echo "Version $CUTBOX_VERSION already on Brew" && exit 1
+            echo "Version $CUTBOX_VERSION already on Brew"
+            cd ..
+            git pull --rebase
+            git status -s 
+            git add homebrew-cutbox            
+            git commit -m "sync homebrew ($CUTBOX_VERSION)"
+            git push
+            exit 0
           fi
           echo "Commit: $cutbox_commit"
           if grep -q "[release]" <<<$cutbox_commit
