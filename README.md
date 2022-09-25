@@ -8,7 +8,8 @@
 <div align="center">
     <h1>CutBox</h1>
   <p>Text Clipboard Manager for MacOS</p>
-    <img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/cutbox/cutbox?color=%230099AA&label=CutBox&sort=semver&style=for-the-badge">
+
+  <a href="https://github.com/cutbox/CutBox/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/cutbox/cutbox?color=%230099AA&label=CutBox&sort=semver&style=for-the-badge"></a>
 
 </div>
 
