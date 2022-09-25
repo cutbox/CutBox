@@ -17,9 +17,12 @@ jobs:
 
       - name: /bin/ check
         run: |
-          for b in bin/ci_is_production bin/ci_get_release_info bin/ci_update_info_plist bin/ci_update_cutbox_homebrew bin/setup bin/test bin/build
+          for b in ci_is_production ci_get_release_info ci_update_info_plist ci_update_cutbox_homebrew setup test build
           do
-            [[ -x $b ]] || echo "Missing or non-executable: $b" && exit
+            if [[ -x bin/$b ]]; then
+              echo "[✓] $b executable."
+            else
+              echo "Missing or non-executable: bin/$b" && exit
           done
 
       - name: ssh-agent
