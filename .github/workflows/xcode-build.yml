@@ -15,14 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: /bin/ check
+      - name: CI bin check
         run: |
           for b in ci_is_production ci_get_release_info ci_update_info_plist ci_update_cutbox_homebrew setup test build
           do
             if [[ -x bin/$b ]]; then
-              echo "[✓] $b executable."
+              echo "[✓] bin/$b executable."
             else
-              echo "Missing or non-executable: bin/$b" && exit
+              echo "[❌] bin/$b - missing or non-executable" && exit 1
+            fi
           done
 
       - name: ssh-agent
