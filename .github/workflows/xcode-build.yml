@@ -15,6 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: /bin/ check
+        run: |
+          for b in bin/ci_is_production bin/ci_get_release_info bin/ci_update_info_plist bin/ci_update_cutbox_homebrew bin/setup bin/test bin/build
+          do
+            [[ -x $b ]] || echo "Missing or non-executable: $b" && exit
+          done
+
       - name: ssh-agent
         uses: webfactory/ssh-agent@v0.5.4
         with:
