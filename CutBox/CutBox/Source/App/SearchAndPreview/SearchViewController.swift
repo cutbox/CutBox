@@ -221,6 +221,10 @@ class SearchViewController: NSObject {
                     self.prefs.scaleTextUp()
                     self.reloadDataWithExistingSelection()
 
+                case .scaleTextNormalize:
+                    self.prefs.scaleTextNormalize()
+                    self.reloadDataWithExistingSelection()
+
                 case .toggleFavorite:
                     self.toggleFavoriteItems()
 
@@ -242,7 +246,9 @@ class SearchViewController: NSObject {
 
     private func reloadDataWithExistingSelection() {
         let selected = self.searchView.itemsList.selectedRowIndexes
+        self.searchView.updateLayer()
         self.searchView.itemsList.reloadData()
+        self.searchView.setTextScale()
         self.searchView.itemsList.selectRowIndexes(selected, byExtendingSelection: false)
     }
 

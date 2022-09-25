@@ -60,15 +60,19 @@ class CutBoxPreferencesService {
 
     var themes: [CutBoxColorTheme]
 
-    var minItemSize: CGFloat = 24.0
-    var maxItemSize: CGFloat = 40.0
+    var minItemSize: CGFloat = 12
+    var maxItemSize: CGFloat = 20
 
-    var minPreviewSize: CGFloat = 12.0
-    var maxPreviewSize: CGFloat = 40.0
+    var minPreviewSize: CGFloat = 12
+    var maxPreviewSize: CGFloat = 20
 
     var searchViewTextFieldFont = NSFont(
         name: "Helvetica Neue",
         size: 28)
+
+    var searchViewClipTextFieldFont = NSFont(
+        name: "Helvetica Neue",
+        size: 12)
 
     var searchViewClipPreviewFont = NSFont(
         name: "Menlo",

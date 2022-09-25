@@ -73,6 +73,10 @@ class SearchPreviewViewBase: NSView {
         return true
     }
 
+    func setTextScale() {
+        preview.font = prefs.searchViewClipPreviewFont
+    }
+
     func itemSelect(lambda: (_ index: Int, _ total: Int) -> Int) {
         let row = itemsList.selectedRow
         let total = itemsList.numberOfRows

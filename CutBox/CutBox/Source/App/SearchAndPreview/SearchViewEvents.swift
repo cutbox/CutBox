@@ -30,6 +30,7 @@ enum SearchViewEvents {
 
     case scaleTextUp
     case scaleTextDown
+    case scaleTextNormalize
 
     case removeSelected
     case toggleFavorite

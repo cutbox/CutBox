@@ -12,10 +12,10 @@ import Cocoa
 extension CutBoxPreferencesService {
 
     func scaleTextDown() {
-        if let itemSize = self.searchViewTextFieldFont?.pointSize,
+        if let itemSize = self.searchViewClipTextFieldFont?.pointSize,
             let previewSize = self.searchViewClipPreviewFont?.pointSize {
             if itemSize > minItemSize {
-                self.searchViewTextFieldFont = NSFont(name: "Helvetica Neue", size: itemSize - 1)
+                self.searchViewClipTextFieldFont = NSFont(name: "Helvetica Neue", size: itemSize - 1)
             }
 
             if previewSize > minPreviewSize {
@@ -27,10 +27,10 @@ extension CutBoxPreferencesService {
     }
 
     func scaleTextUp() {
-        if let itemSize = self.searchViewTextFieldFont?.pointSize,
+        if let itemSize = self.searchViewClipTextFieldFont?.pointSize,
             let previewSize = self.searchViewClipPreviewFont?.pointSize {
             if itemSize < maxItemSize {
-                self.searchViewTextFieldFont = NSFont(name: "Helvetica Neue", size: itemSize + 1.0)
+                self.searchViewClipTextFieldFont = NSFont(name: "Helvetica Neue", size: itemSize + 1.0)
             }
 
             if previewSize < maxPreviewSize {
@@ -39,5 +39,10 @@ extension CutBoxPreferencesService {
         } else {
             fatalError("ScaleTextUp get font size error")
         }
+    }
+
+    func scaleTextNormalize() {
+        self.searchViewClipPreviewFont = NSFont(name: "Menlo", size: 12.0)
+        self.searchViewClipTextFieldFont = NSFont(name: "Helvetica Neue", size: 12.0)
     }
 }

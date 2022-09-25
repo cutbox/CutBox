@@ -54,6 +54,7 @@ extension SearchViewController: NSTableViewDelegate {
         case "string":
             let rowTextView = tableView.getRowView() as ClipItemTableRowTextView
             rowTextView.data = record
+            rowTextView.title.font = prefs.searchViewClipTextFieldFont
             rowTextView.color = theme.clip.textColor
             rowView?.textView = rowTextView
 

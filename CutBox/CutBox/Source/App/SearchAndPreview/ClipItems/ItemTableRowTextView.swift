@@ -12,6 +12,8 @@ class ItemTableRowTextView: NSView {
 
     @IBOutlet weak var title: NSTextField!
 
+    let prefs = CutBoxPreferencesService.shared
+
     var internalColor: NSColor = NSColor.textColor
     var color: NSColor {
         get {
@@ -36,5 +38,6 @@ class ItemTableRowTextView: NSView {
     }
 
     func setup() {
+        title.font = self.prefs.searchViewClipTextFieldFont
     }
 }

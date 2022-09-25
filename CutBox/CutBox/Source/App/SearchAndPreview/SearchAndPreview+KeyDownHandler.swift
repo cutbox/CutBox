@@ -51,11 +51,15 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.toggleJoinStrings)
 
-        case (kVK_ANSI_Minus, [.command, .option]):
+        case (kVK_ANSI_0, [.command, .shift]):
+            self.events
+                .onNext(.scaleTextNormalize)
+
+        case (kVK_ANSI_Minus, [.command, .shift]):
             self.events
                 .onNext(.scaleTextDown)
 
-        case (kVK_ANSI_Equal, [.command, .option]):
+        case (kVK_ANSI_Equal, [.command, .shift]):
             self.events
                 .onNext(.scaleTextUp)
 
