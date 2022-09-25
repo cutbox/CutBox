@@ -3,7 +3,7 @@
 echo "Check in Info.plist after build number update"
 echo "Commit: CutBox Release: ${RELEASE}"
 
-git add CutBox/CutBox/Info.plist
+git add .
 git commit -m "CutBox Release: ${RELEASE}"
-git pull --rebase
+git pull --rebase || git diff
 git push origin master
