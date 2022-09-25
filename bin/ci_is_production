@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if git show -s --format=%B | grep -q "\[release\]"; then
+  echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
+fi

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+pushd homebrew-cutbox || echo "Cannot enter ./homebrew-cutbox" && exit 1
+git checkout main
+git pull --rebase
+
+BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
+
+if [[ "$BREW_VERSION" != "$RELEASE" ]]; then
+  bin/update-readme $RELEASE
+  bin/update-formula $RELEASE
+  bin/update-cask $RELEASE
+  bin/test-cask || echo "Test Cask failed" && exit 1
+  bin/test-formula || echo "Test Formula failed" && exit 1
+fi
+
+if [[ "$PRODUCTION_RUN" == "1" ]]; then
+  # Update Homebrew Cask and Formula
+  echo "Release CutBox $CUTBOX_VERSION via homebrew"
+  git add \
+      README.md \
+      Formula/cutbox.rb \
+      Casks/cutbox.rb
+  git commit -m "Update Homebrew: CutBox $CUTBOX_VERSION"
+  git tag $CUTBOX_VERSION
+  git push --all
+
+  popd || echo "Cannot exit ./homebrew-cutbox" && exit 1
+
+  # Synchronize Homebrew Submodule
+  git add homebrew-cutbox
+  git commit -m "sync homebrew ($CUTBOX_VERSION)"
+  git pull --rebase
+  git push
+else
+  echo "Commit was not tagged as [release]"
+fi

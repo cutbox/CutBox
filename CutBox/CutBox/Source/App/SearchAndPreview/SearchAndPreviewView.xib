@@ -254,6 +254,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Brl-mU-3gG"/>
                                             <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="5" id="IZT-KF-OMi"/>
                                             <constraint firstItem="xGH-m9-3kp" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="4" id="Uea-Vv-81h"/>
                                         </constraints>

@@ -20,9 +20,9 @@ jobs:
         with:
          ssh-private-key: ${{ secrets.SUBMODULE_ID }}
 
-      - name: Get Commit Message
+      - name: Check production release
         run: |
-          echo "CUTBOX_COMMIT='$(git show -s --format=%B)'" >> $GITHUB_ENV
+          bin/ci_is_production
 
       - name: Checkout submodules
         run: |
@@ -46,11 +46,10 @@ jobs:
 
       - name: Get Release Info
         run: |
-          echo "RELEASE=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
-          echo "CUTBOX_VERSION=$(bin/dev_version)" >> $GITHUB_ENV
+          bin/ci_get_release_info
 
       - name: Release Info
-        run: echo ${{ env.RELEASE }}
+        run: echo "${{ env.RELEASE }}"
 
       - name: Create Release
         id: create_release
@@ -58,7 +57,8 @@ jobs:
         with:
           tag_name: ${{ env.RELEASE }}
           release_name: ${{ env.RELEASE }}
-          draft: true
+          draft: false
+          prerelease: ${{ env.PRODUCTION_RUN != 1}}
 
       - name: Upload CutBox.dmg
         uses: actions/upload-release-asset@v1
@@ -70,65 +70,11 @@ jobs:
 
       - name: Update Info.plist
         run: |
-          git add CutBox/CutBox/Info.plist
-          git commit -m "CutBox Release: ${{env.RELEASE}}"
-          git status
-          git diff
-          echo "--------------------"
-          git pull --rebase
-          git push origin master
-          git show
+          bin/ci_update_info_plist
 
       - name: Update CutBox homebrew
         run : |
-          export CUTBOX_VERSION="${{ env.CUTBOX_VERSION }}"
-          export cutbox_commit="${{ env.CUTBOX_COMMIT }}"
-          cd homebrew-cutbox
-          git checkout main
-          git pull --rebase
-          BREW_VERSION="$(grep "VERSION: " README.md | awk '{ print $2 }')"
-          echo "BREW_VERSION..: $BREW_VERSION"
-          echo "CUTBOX_VERSION: $CUTBOX_VERSION"
-          if [[ "$BREW_VERSION" != "$CUTBOX_VERSION" ]]; then
-            bin/update-readme $CUTBOX_VERSION
-            bin/update-formula $CUTBOX_VERSION
-            bin/update-cask $CUTBOX_VERSION
-            echo "================================================================================"
-            git --no-pager diff --color
-            bin/test-cask || exit 1
-            bin/test-formula || exit 1
-          else
-            echo "Version $CUTBOX_VERSION already on Brew"
-            cd ..
-            git pull --rebase
-            git status -s 
-            git add homebrew-cutbox            
-            git commit -m "sync homebrew ($CUTBOX_VERSION)"
-            git push
-            exit 0
-          fi
-          echo "Commit: $cutbox_commit"
-          if grep -q "[release]" <<<$cutbox_commit
-          then
-            echo "Release CutBox $CUTBOX_VERSION via homebrew"
-            git add \
-              README.md \
-              Formula/cutbox.rb \
-              Casks/cutbox.rb
-            git commit -m "Update Homebrew: CutBox $CUTBOX_VERSION"
-            git tag $CUTBOX_VERSION
-            git push
-            git push --tags
-            cd ..
-            git add homebrew-cutbox
-            git commit -m "sync homebrew ($CUTBOX_VERSION)"
-            git pull --rebase
-            git push
-          else
-            echo "Commit was not tagged as [release]"
-            echo "----"
-            echo "$cutbox_commit"
-          fi
+          bin/ci_update_cutbox_homebrew
 
 #### TODO :
 #### Web update

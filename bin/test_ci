@@ -1,5 +1,0 @@
-#!/bin/sh
-xcodebuild \
-    -workspace CutBox/CutBox.xcworkspace \
-    -scheme CutBoxUnitTestsCI \
-    test | xcbeautify
