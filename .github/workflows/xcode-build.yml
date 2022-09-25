@@ -72,6 +72,9 @@ jobs:
         run: |
           git add CutBox/CutBox/Info.plist
           git commit -m "CutBox Release: ${{env.RELEASE}}"
+          git status
+          git diff
+          echo "--------------------"
           git pull --rebase
           git push origin master
           git show
