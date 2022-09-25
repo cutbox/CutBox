@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-xcodebuild \
+set -o pipefail && xcodebuild \
     -workspace CutBox/CutBox.xcworkspace \
     -scheme CutBoxUnitTests \
-    test | xcbeautify
+    test | xcbeautify --is-ci
