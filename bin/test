@@ -1,4 +1,5 @@
 #!/bin/sh
+
 xcodebuild \
     -workspace CutBox/CutBox.xcworkspace \
     -scheme CutBoxUnitTests \

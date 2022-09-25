@@ -227,6 +227,7 @@
 		96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
+		96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
 		96DA65C928DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
 		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
@@ -1231,6 +1232,7 @@
 				9653490D28434752000FD0A1 /* ItemTableRowImageView.swift in Sources */,
 				9653494228434862000FD0A1 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */,
 				965348E62843471D000FD0A1 /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
+				96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */,
 				965348FB28434735000FD0A1 /* PreferencesThemeSelectionView.swift in Sources */,
 				9653492928434785000FD0A1 /* NSTableView+getRowView.swift in Sources */,
 				9653493828434795000FD0A1 /* PopupPanel.swift in Sources */,
