@@ -77,18 +77,6 @@ class SearchPreviewViewBase: NSView {
         preview.font = prefs.searchViewClipPreviewFont
     }
 
-    func itemSelect(lambda: (_ index: Int, _ total: Int) -> Int) {
-        let row = itemsList.selectedRow
-        let total = itemsList.numberOfRows
-
-        let selectedRow = lambda(row, total)
-
-        itemsList
-            .selectRowIndexes([selectedRow], byExtendingSelection: false)
-        itemsList
-            .scrollRowToVisible(selectedRow)
-    }
-
     func hideSearchResults(_ bool: Bool) {
         self.bottomBar.isHidden = bool
         self.container.isHidden = bool
