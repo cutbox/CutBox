@@ -191,6 +191,8 @@ class CutBoxController: NSObject {
             .asObservable()
             .subscribe(onNext: { event in
                 switch event {
+                case .openPreferences:
+                    self.preferencesController.open()
                 case .toggleSearchMode:
                     self.checkSearchModeItem()
                 case .setSearchMode(let mode):

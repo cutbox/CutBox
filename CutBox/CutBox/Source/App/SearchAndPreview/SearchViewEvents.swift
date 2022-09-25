@@ -34,4 +34,5 @@ enum SearchViewEvents {
 
     case removeSelected
     case toggleFavorite
+    case openPreferences
 }
