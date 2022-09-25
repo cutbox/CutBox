@@ -65,8 +65,8 @@ jobs:
         with:
           tag_name: ${{ env.RELEASE }}
           release_name: ${{ env.RELEASE }}
-          draft: false
-          prerelease: ${{ env.PRODUCTION_RUN != 1}}
+          draft: ${{ env.PRODUCTION_RUN != 1}}
+          prerelease: false
 
       - name: Upload CutBox.dmg
         uses: actions/upload-release-asset@v1
