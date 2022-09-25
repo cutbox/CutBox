@@ -213,6 +213,14 @@ class SearchViewController: NSObject {
                 case .togglePreview:
                     self.prefs.hidePreview = !self.prefs.hidePreview
 
+                case .scaleTextDown:
+                    self.prefs.scaleTextDown()
+                    self.reloadDataWithExistingSelection()
+
+                case .scaleTextUp:
+                    self.prefs.scaleTextUp()
+                    self.reloadDataWithExistingSelection()
+
                 case .toggleFavorite:
                     self.toggleFavoriteItems()
 

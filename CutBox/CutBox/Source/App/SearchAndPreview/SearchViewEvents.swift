@@ -28,6 +28,9 @@ enum SearchViewEvents {
     case toggleSearchScope
     case togglePreview
 
+    case scaleTextUp
+    case scaleTextDown
+
     case removeSelected
     case toggleFavorite
 }

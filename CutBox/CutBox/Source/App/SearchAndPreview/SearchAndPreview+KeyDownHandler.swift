@@ -51,6 +51,14 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.toggleJoinStrings)
 
+        case (kVK_ANSI_Minus, [.command, .option]):
+            self.events
+                .onNext(.scaleTextDown)
+
+        case (kVK_ANSI_Equal, [.command, .option]):
+            self.events
+                .onNext(.scaleTextUp)
+
         case (kVK_ANSI_F, [.command]):
             self.events
                 .onNext(.toggleSearchScope)
@@ -76,5 +84,4 @@ extension SearchAndPreviewView {
         }
     }
     // swiftlint:enable cyclomatic_complexity
-
 }
