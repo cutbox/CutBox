@@ -1,0 +1,6 @@
+#!/bin/bash
+
+git add CutBox/CutBox/Info.plist
+git commit -m "CutBox Release: ${RELEASE}"
+git pull --rebase
+git push origin master
