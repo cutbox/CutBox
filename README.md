@@ -115,10 +115,12 @@ More shortcuts/key commands:
 
 | Shortcut Keys | Action |
 |---|---|
-| <kbd>**Esc**</kbd> | exit search |
-| <kbd>**Ctrl**</kbd><kbd>**g**</kbd> | exit search |
-| <kbd>**Cmd**</kbd><kbd>**Comma**</kbd> | open preferences |
+| <kbd>Esc</kbd> | exit search |
+| <kbd>Ctrl</kbd><kbd>g</kbd> | exit search |
+| <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
 | <kbd>Cmd</kbd><kbd>p</kbd> |  toggle preview |
+| <kbd>Enter</kbd> | Paste selected |
+| <kbd>Cmd</kdb><kbd>Enter</kbd> | Paste through JavaScript Functions selected (you'll need `~/.cutbox.js` set up) |
 | <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd>  |  zoom/scale up text |
 | <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> |  zoom/scale down text |
 | <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> |  reset text scale/zoom |
