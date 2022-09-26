@@ -15,3 +15,5 @@ xcodebuild archive \
 mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
 
 codesign --deep --force -s - "${build_folder}/CutBox.app"
+
+git --no-pager diff --color
