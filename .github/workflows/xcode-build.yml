@@ -17,6 +17,9 @@ jobs:
 
       - name: CI diagnostics
         run: |
+          git pull --tags
+          git log --oneline
+          echo "============================================================"
           for b in ci_is_production ci_get_release_info ci_update_info_plist ci_update_cutbox_homebrew setup test build
           do
             if [[ -x bin/$b ]]; then
@@ -25,8 +28,6 @@ jobs:
               echo "[❌] bin/$b - missing or non-executable" && exit 1
             fi
           done
-
-          git log --oneline
 
       - name: ssh-agent
         uses: webfactory/ssh-agent@v0.5.4
