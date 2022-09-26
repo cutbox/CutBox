@@ -14,10 +14,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+          ref: master
 
       - name: CI diagnostics
         run: |
-          git pull --tags
           git log --oneline
           echo "============================================================"
           for b in ci_is_production ci_get_release_info ci_update_info_plist ci_update_cutbox_homebrew setup test build
@@ -29,18 +32,9 @@ jobs:
             fi
           done
 
-      - name: ssh-agent
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-         ssh-private-key: ${{ secrets.SUBMODULE_ID }}
-
       - name: Check production release
         run: |
           bin/ci_is_production
-
-      - name: Checkout submodules
-        run: |
-          git submodule update --init --recursive
 
       - name: Setup
         run: |
