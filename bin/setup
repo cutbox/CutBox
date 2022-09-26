@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 message() {
   echo "CutBox Setup: ${1}"
@@ -15,12 +15,12 @@ which_check() {
     message "which_check: No arguments provided"
     exit 1
   else
-    if [[ $(which $1) == "$1 not found" ]]; then
+    if [ -x "$(which $1)" ]; then
+      printf "${check_mark}"
+    else
       printf "${cross_mark}"
       WHICH_CHECK=1
       WHICH_FAILED="${WHICH_FAILED} ${1}"
-    else
-      printf "${check_mark}"
     fi
   fi
 }
@@ -36,7 +36,7 @@ npm_check() {
     message "npm_check: No arguments provided"
     exit 1
   else
-    if [[ -x $(npm exec which $1) ]]; then
+    if [ -x "$(npm exec which $1)" ]; then
       printf "${check_mark}"
     else
       printf "${cross_mark}"
@@ -47,7 +47,7 @@ npm_check() {
 }
 
 
-if [[ "$(which brew)" != "brew not found" ]]; then
+if [ -x "$(which brew)" ]; then
   message "Running brew bundle & npm install"
   brew bundle
   npm install
@@ -63,7 +63,6 @@ echo "PLEASE NOTE: CutBox expects:
 Build & release tooling...
 
 - [$(which_check brew)] homebrew (in case anything is missing)
-- [$(which_check ruby)] ruby (just for cocoapods)
 - [$(which_check pod)] cocoapods
 
 For release...
@@ -72,7 +71,6 @@ For release...
 - [$(which_check npm)] npm
 - [$(npm_check appdmg)] appdmg
 - [$(npm_check semver)] semver
-- [$(npm_check mustache)] mustache
 "
 echo "anything missing? (Get help at https://gitter.im/CutBox/Lobby)"
 
@@ -89,8 +87,10 @@ popd ||  exit 1
 
 echo "To build run: bin/build"
 
-if [[ $WHICH_CHECK == 1  || $NPM_CHECK == 1 ]]; then
-  echo "Something missing? Setup cannot find: ${WHICH_CHECK}${NPM_FAILED}."
+if [[ $WHICH_CHECK == 1 || $NPM_CHECK == 1 ]]; then
+  echo "Something missing? Setup cannot find:
+${WHICH_FAILED}
+${NPM_FAILED}."
   exit 1
 fi
 
