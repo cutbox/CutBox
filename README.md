@@ -118,6 +118,7 @@ More shortcuts/key commands:
 | <kbd>Esc</kbd> | exit search |
 | <kbd>Ctrl</kbd><kbd>g</kbd> | exit search |
 | <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
+| <kbd>Cmd</kbd><kbd>t</kbd> |  toggle color themes |
 | <kbd>Cmd</kbd><kbd>p</kbd> |  toggle preview |
 | <kbd>Enter</kbd> | Paste selected |
 | <kbd>Cmd</kbd><kbd>Enter</kbd> | Paste through JavaScript Functions selected (you'll need `~/.cutbox.js` set up) |
