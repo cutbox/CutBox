@@ -85,7 +85,7 @@ jobs:
 
       - name: Notify brew tap cutbox
         run: |
-          if [[ "${{ env.PRODUCTION_RUN }} ==  "1" ]]; then
+          if [[ "$PRODUCTION_RUN" ==  "1" ]]; then
             curl \
                -s \
                -XPOST \
@@ -97,13 +97,13 @@ jobs:
 
       - name: Notify cutbox.github.io
         run: |
-          if [[ "${{ env.PRODUCTION_RUN }} ==  "1" ]]; then
+          if [[ "$PRODUCTION_RUN" ==  "1" ]]; then
             curl \
                -s \
                -XPOST \
                -H "Accept: application/vnd.github+json" \
                -H "Authorization: Bearer ${{ secrets.CUTBOX_PAT }}" \
-               https://api.github.com/repos/cutbox/cutbox.github.io/actions/workflows/35793720/dispatches \
-               --data '{"ref":"main","inputs":{"release":"${{ env.RELEASE }}"}}'
+               https://api.github.com/repos/cutbox/cutbox.github.io/actions/workflows/35834026/dispatches \
+               --data '{"ref":"master,"inputs":{"release":"${{ env.RELEASE }}"}}'
           fi
 
