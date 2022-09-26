@@ -5,7 +5,7 @@ if [ "$PRODUCTION_RUN" -eq "1" ]; then
     echo "RELEASE=$(bin/dev_version)" >> $GITHUB_ENV
 else
     RELEASE="$(bin/dev_version)-$(bin/build_number)"
-    echo "RELEASE=$(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
+    echo RELEASE="pre-release $(bin/dev_version)-$(bin/build_number)" >> $GITHUB_ENV
 fi
 
 export RELEASE
