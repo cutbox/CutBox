@@ -2,7 +2,9 @@
 
 echo "Check in Info.plist after build number update"
 echo "Commit: CutBox Release: ${RELEASE}"
-
+echo "-- post build diff -----------------------------------------------------------"
+git diff
+echo "------------------------------------------------------------------------------"
 git add .
 git commit -m "CutBox Release: ${RELEASE}"
 git pull --rebase || git diff
