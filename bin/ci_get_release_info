@@ -9,4 +9,4 @@ else
 fi
 
 export RELEASE
-echo $RELEASE
+echo "[check-point] CutBox Release: " $RELEASE
