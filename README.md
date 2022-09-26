@@ -28,7 +28,7 @@ When you first run CutBox Macos will prompt you that the developer cannot be ide
 
 [Please read this post from Apple.](https://support.apple.com/en-us/HT202491#:~:text=If%20you%20want%20to%20open%20an%20app%20that%20hasn%E2%80%99t%20been%20notarized%20or%20is%20from%20an%20unidentified%20developer)
 
-If you a happy about installing apps that are open source on your Mac, you can do this in the terminal.
+If you prefer to install open source software that isn't notarized (such as CutBox, or Chromium) on your Mac, you can do this in the terminal.
 
 ```
 sudo spctl --master-disable
