@@ -3,4 +3,4 @@
 set -o pipefail && xcodebuild \
     -workspace CutBox/CutBox.xcworkspace \
     -scheme CutBoxUnitTests \
-    test | xcbeautify --is-ci
+    test | xcbeautify --is-ci -q
