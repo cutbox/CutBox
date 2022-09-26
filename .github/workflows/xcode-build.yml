@@ -42,7 +42,7 @@ jobs:
 
       - name: Assemble release notes
         run: |
-          bin/get_release_notes
+          echo RELEASE_NOTES="$(bin/get_release_notes)" >> $GITHUB_ENV
 
       - name: Test
         run: |
@@ -68,6 +68,8 @@ jobs:
           release_name: ${{ env.RELEASE }}
           draft: ${{ env.PRODUCTION_RUN != 1}}
           prerelease: false
+          body: ${{ env.RELEASE_NOTES }}
+
 
       - name: Upload CutBox.dmg
         uses: actions/upload-release-asset@v1
