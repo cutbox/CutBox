@@ -80,7 +80,7 @@ jobs:
         run: |
           bin/ci_update_info_plist
 
-      - name: Update Homebrew Tap
+      - name: Notify CutBox Homebrew Tap
         run: |
           if [[ ${{ env.PRODUCTION_RUN == 1 }} ]]; then
             curl -XPOST \
