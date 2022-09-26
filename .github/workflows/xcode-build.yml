@@ -80,5 +80,22 @@ jobs:
         run: |
           bin/ci_update_info_plist
 
+      - name: Update Homebrew Tap
+        run: |
+          if [[ ${{ env.PRODUCTION_RUN == 1 }} ]]; then
+            curl -XPOST \
+               -H "Authorization: Bearer ${{secrets.CUTBOX_PAT}}" \
+               -H "Accept:application/vnd.github" \
+               -H "Content-Type:application/json" \
+               https://api.github.com/cutbox/homebrew-cutbox/actions/workflows/homebrew-update.yml/dispatches \
+               --data '
+               {
+                 "event-type":"trigger-event",
+                   "client_payload":
+                     {
+                       "release": "${{ env.RELEASE }}"
+                     }
+               }'
+          fi
 #### TODO :
 #### Web update
