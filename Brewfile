@@ -1,5 +1,6 @@
 brew "coreutils"
 brew "node" unless system "which node"
+brew "ripgrep" unless system "which rg"
 brew "cmark" unless system "which cmark"
 brew "xcbeautify" unless system "which xcbeautify"
 brew "cocoapods" unless system "which pod"
