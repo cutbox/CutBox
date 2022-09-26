@@ -85,7 +85,7 @@ jobs:
 
       - name: Notify CutBox Homebrew Tap
         run: |
-          if [[ ${{ env.PRODUCTION_RUN == 1 }} ]]; then
+          if [ false -ne ${{ env.PRODUCTION_RUN == 1 }} ]; then
             curl -XPOST \
                -H "Authorization: Bearer ${{secrets.CUTBOX_PAT}}" \
                -H "Accept:application/vnd.github" \
