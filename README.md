@@ -58,8 +58,6 @@ These work best before CutBox is run. (Macos will suggest restarting CutBox anyw
 
 FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
 
-
-
 # About CutBox
 
 CutBox keeps your pasteboard cut/copy history and lets you paste
@@ -117,11 +115,14 @@ More shortcuts/key commands:
 
 | Shortcut Keys | Action |
 |---|---|
-| <kbd>Cmd</kbd> + <kbd>p</kbd> | to toggle preview. (You can also set this from the Status Menu) |
-| <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>=</kbd>  | to zoom/scale up text |
-| <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>-</kbd> | to zoom/scale down text |
-| <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd> | to reset text scale/zoom |
-| <kbd>Cmd</kbd> + <kbd>s</kbd> | to toggle through search modes, fuzzy match, regexp/i or regexp. (You can also set this from the Status Menu) |
+| <kbd>**Esc**</kbd> | exit search |
+| <kbd>**Ctrl**</kbd><kbd>**g**</kbd> | exit search |
+| <kbd>**Cmd**</kbd><kbd>**Comma**</kbd> | open preferences |
+| <kbd>Cmd</kbd><kbd>p</kbd> |  toggle preview |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd>  |  zoom/scale up text |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> |  zoom/scale down text |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> |  reset text scale/zoom |
+| <kbd>Cmd</kbd><kbd>s</kbd> | toggle search modes, fuzzy match, regexp/i or regexp |
 
 # Would you like to know more?
 
