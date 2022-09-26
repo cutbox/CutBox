@@ -11,7 +11,7 @@ if [[ $1 == "" ]]; then
 fi
 
 if [[ -x $(npm exec which appdmg) ]]; then
-  continue
+  echo "[✓] appdmg ok"
 else
   echo "Failed, missing dependency"
   echo "node-appdmg required."
