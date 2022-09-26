@@ -4,7 +4,7 @@
 if [[ "$(npm exec which semver)" == "semver not found" ]]; then
   echo "Build without version bump"
 else
-
+  echo "Check verion:"
   TAG_VERSIONNUM=$(npm exec semver $(git tag) | tail -1)
   VERSIONNUM=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PROJECT_DIR}/${INFOPLIST_FILE}")
 
@@ -14,6 +14,7 @@ else
   NEWPATCH=$(($PATCH + 1))
 
   NEWVERSIONSTRING=$(echo $VERSIONNUM | awk -F "." '{print $1 "." $2 ".'$NEWPATCH'" }')
+  echo "[check-point] Building Version: $NEWVERSIONSTRING"
 
   if [[ $TAG_PATCH == $PATCH ]]; then
   /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $NEWVERSIONSTRING" "${PROJECT_DIR}/${INFOPLIST_FILE}"
