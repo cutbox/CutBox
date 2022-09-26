@@ -83,22 +83,27 @@ jobs:
         run: |
           bin/ci_update_info_plist
 
-      - name: Notify CutBox Homebrew Tap
+      - name: Notify brew tap cutbox
         run: |
-          if [ false -ne ${{ env.PRODUCTION_RUN == 1 }} ]; then
-            curl -XPOST \
-               -H "Authorization: Bearer ${{secrets.CUTBOX_PAT}}" \
-               -H "Accept:application/vnd.github" \
-               -H "Content-Type:application/json" \
-               https://api.github.com/cutbox/homebrew-cutbox/actions/workflows/homebrew-update.yml/dispatches \
-               --data '
-               {
-                 "event-type":"trigger-event",
-                   "client_payload":
-                     {
-                       "release": "${{ env.RELEASE }}"
-                     }
-               }'
+          if [[ "${{ env.PRODUCTION_RUN }} ==  "1" ]]; then
+            curl \
+               -s \
+               -XPOST \
+               -H "Accept: application/vnd.github+json" \
+               -H "Authorization: Bearer ${{ secrets.CUTBOX_PAT }}" \
+               https://api.github.com/repos/cutbox/homebrew-cutbox/actions/workflows/35793720/dispatches \
+               --data '{"ref":"main","inputs":{"release":"${{ env.RELEASE }}"}}'
           fi
-#### TODO :
-#### Web update
+
+      - name: Notify cutbox.github.io
+        run: |
+          if [[ "${{ env.PRODUCTION_RUN }} ==  "1" ]]; then
+            curl \
+               -s \
+               -XPOST \
+               -H "Accept: application/vnd.github+json" \
+               -H "Authorization: Bearer ${{ secrets.CUTBOX_PAT }}" \
+               https://api.github.com/repos/cutbox/cutbox.github.io/actions/workflows/35793720/dispatches \
+               --data '{"ref":"main","inputs":{"release":"${{ env.RELEASE }}"}}'
+          fi
+
