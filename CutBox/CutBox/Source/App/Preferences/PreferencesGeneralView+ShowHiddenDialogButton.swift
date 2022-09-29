@@ -24,10 +24,9 @@ extension PreferencesGeneralView {
     }
 
     func resetAllHiddenDialogBoxes() {
-        for key in self.prefs.defaults.dictionaryRepresentation().keys {
-            if key.contains("CutBoxSuppressed") {
-                self.prefs.defaults.removeObject(forKey: key)
-            }
+        for key in self.prefs.defaults.dictionaryRepresentation().keys 
+        where key.contains("CutBoxSuppressed") {
+            self.prefs.defaults.removeObject(forKey: key)
         }
     }
 }
