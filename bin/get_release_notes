@@ -27,10 +27,3 @@ git log \
   | \
   sed 's/\[release notes\]//'
 
-echo "
-- - -
-
-Additional Notes
-"
-
-cat release-notes.md
