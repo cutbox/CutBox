@@ -18,15 +18,12 @@ extension PreferencesGeneralView {
             .rx
             .tap
             .bind { [self] in
-                resetAllHiddenDialogBoxes()
+                self.resetAllHiddenDialogBoxes()
             }
             .disposed(by: disposeBag)
     }
 
     func resetAllHiddenDialogBoxes() {
-        for key in self.prefs.defaults.dictionaryRepresentation().keys
-        where key.contains("CutBoxSuppressed") {
-            self.prefs.defaults.removeObject(forKey: key)
-        }
+        self.prefs.resetSuppressedDialogBoxes()
     }
 }
