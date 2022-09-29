@@ -15,6 +15,54 @@
 
 CutBox is a Macos developer focused clipboard history manager. It works only with text (no images, audio, video, blobs) but doesn't interfere with the system clipboard, or other clipboard managers, if you need copy/pasteboard history for things like that.  It's  main features are: Fuzzy matching, regexp search, favorites and the ability to transform text by pasting multiple clipboard entries at once, and/or using JavaScript to process text, before you paste it.
 
+Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
+
+![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
+
+![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
+
+## Using CutBox
+
+Any text you copy on MacOS is saved to CutBox's history.
+
+CutBox Search is activated using a global hotkey:
+
+<kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
+
+(This can be customized in preferences.)
+
+### Searching and pasting
+
+With the CutBox window open, search for anything you copied.
+
+Press <kbd>**Enter**</kbd> and the selected item will paste into your
+current app.
+
+To exit press <kbd>**Esc**</kbd>.
+
+# Shortcuts / Key commands:
+
+| Shortcut Keys | Action |
+|---|---|
+| <kbd>Esc</kbd> | exit search |
+| <kbd>Ctrl</kbd><kbd>g</kbd> | exit search |
+| <kbd>Enter</kbd> | Paste selected |
+| <kbd>Cmd</kbd><kbd>Enter</kbd> | Paste through JavaScript Functions selected (you'll need `~/.cutbox.js` set up) |
+| <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
+| <kbd>Cmd</kbd><kbd>Delete</kbd> | Delete selected item(s) |
+| <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
+| <kbd>Cmd</kbd><kbd>t</kbd> |  toggle color themes |
+| <kbd>Cmd</kbd><kbd>p</kbd> |  toggle preview |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd>  |  zoom/scale up text |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> |  zoom/scale down text |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> |  reset text scale/zoom |
+| <kbd>Cmd</kbd><kbd>s</kbd> | toggle search modes, fuzzy match, regexp/i or regexp |
+| <kbd>Cmd</kbd><kbd>f</kbd> | toggle search favorites / everything (use the right click menu, to favorite) |
+
+### Status bar menu
+
+![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
+
 # Install via Homebrew Cask
 
 ```
@@ -58,75 +106,6 @@ These work best before CutBox is run. (Macos will suggest restarting CutBox anyw
 
 FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
 
-# About CutBox
-
-CutBox keeps your pasteboard cut/copy history and lets you paste
-anything back to your current app by searching for items.
-
-Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
-
-![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
-
-![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
-
-As well as copy / paste history you can:
-
-- Make items favorite
-- Select and paste multiple items joined as a single piece of text.
-
-Anything else?
-
-- You can send your pasted text through [Javascript functions](https://github.com/cutbox/CutBox/wiki/Javascript-support-in-CutBox)
-
-# Download / install...
-
-Get the current release:
-
-https://github.com/cutbox/CutBox/releases/download/1.4.23/CutBox.dmg
-
-You can also compile yourself... [Compile instructions](#compilation-setup--tooling)
-
-## Using CutBox
-
-Any text you copy on MacOS is saved to CutBox's history.
-
-CutBox Search is activated using a global hotkey:
-
-<kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
-
-(This can be customized in preferences.)
-
-### Searching and pasting
-
-![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
-
-With the CutBox window open, search for anything you copied.
-
-![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
-
-Press <kbd>**Enter**</kbd> and the selected item will paste into your
-current app.
-
-To exit press <kbd>**Esc**</kbd>.
-
-![](CutBox/CutBox/GraphicAssets/cutbox-search-mode.gif)
-
-More shortcuts/key commands:
-
-| Shortcut Keys | Action |
-|---|---|
-| <kbd>Esc</kbd> | exit search |
-| <kbd>Ctrl</kbd><kbd>g</kbd> | exit search |
-| <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
-| <kbd>Cmd</kbd><kbd>t</kbd> |  toggle color themes |
-| <kbd>Cmd</kbd><kbd>p</kbd> |  toggle preview |
-| <kbd>Enter</kbd> | Paste selected |
-| <kbd>Cmd</kbd><kbd>Enter</kbd> | Paste through JavaScript Functions selected (you'll need `~/.cutbox.js` set up) |
-| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd>  |  zoom/scale up text |
-| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> |  zoom/scale down text |
-| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> |  reset text scale/zoom |
-| <kbd>Cmd</kbd><kbd>s</kbd> | toggle search modes, fuzzy match, regexp/i or regexp |
-
 # Would you like to know more?
 
 [More information is in the wiki](https://github.com/cutbox/CutBox/wiki)
@@ -135,7 +114,7 @@ More shortcuts/key commands:
 
 If you find a bug, [click here to tell me what happened.](https://github.com/cutbox/CutBox/issues/new?template=ISSUE_TEMPLATE.md)
 
-# Developers
+# Contributing
 
 - Pull requests must have test cover, existing tests should not break.
 - Open an issue if tests are already failing, so I know I need to fix them.
