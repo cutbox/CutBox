@@ -1,0 +1,43 @@
+name: CutBox Test/Build PR
+
+on:
+  pull_request:  
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: CutBox Build
+    runs-on: macos-11
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+          ref: master
+
+      - name: CI diagnostics
+        run: |
+          echo "============================================================"
+          for b in setup test build
+          do
+            if [[ -x bin/$b ]]; then
+              echo "[✓] bin/$b executable."
+            else
+              echo "[❌] bin/$b - missing or non-executable" && exit 1
+            fi
+          done
+
+      - name: Setup
+        run: |
+          bin/setup
+
+      - name: Test
+        run: |
+          bin/test
+
+      - name: Build
+        run: |
+          bin/build
