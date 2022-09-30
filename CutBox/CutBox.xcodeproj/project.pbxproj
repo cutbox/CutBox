@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34934CDA28E7642B009635D4 /* SearchViewControllerMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34934CD928E7642B009635D4 /* SearchViewControllerMenuDelegate.swift */; };
 		34A2908628DD41490024C81C /* PreferencesThemeSelectionView+HidePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD078A28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift */; };
 		34BD078B28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD078A28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift */; };
 		7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5495DE2276785B0041FA76 /* String+Utils.swift */; };
@@ -289,6 +290,7 @@
 		018EC810279A5E3AA02098F4 /* Pods-CutBoxAll-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBox.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBox/Pods-CutBoxAll-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
 		0AC2B5A8CA48A97AB54B1FD8 /* Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTestsCI/Pods-CutBoxAll-CutBoxUnitTestsCI.debug.xcconfig"; sourceTree = "<group>"; };
 		0D2AB320E399C04DE3424ECF /* Pods-CutBox-Testing-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBox-Testing-CutBoxTests/Pods-CutBox-Testing-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		34934CD928E7642B009635D4 /* SearchViewControllerMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerMenuDelegate.swift; sourceTree = "<group>"; };
 		34BD078A28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesThemeSelectionView+HidePreview.swift"; sourceTree = "<group>"; };
 		458881EB261BBFF0662C6C70 /* Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTests/Pods-CutBoxAll-CutBoxUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4CB2A1B284FC8AE1F0159E0D /* Pods-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.release.xcconfig"; path = "Target Support Files/Pods-CutBox/Pods-CutBox.release.xcconfig"; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 				968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */,
 				964CA4E1207CC85A00B9F33E /* SearchAndPreview+KeyDownHandler.swift */,
 				965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */,
+				34934CD928E7642B009635D4 /* SearchViewControllerMenuDelegate.swift */,
 				965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */,
 				9672FF2C2078E5DC00E4571E /* SearchTextView.swift */,
 				965F076D206F58A40032DACD /* SearchViewEvents.swift */,
@@ -1409,6 +1412,7 @@
 				9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */,
 				964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */,
 				961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */,
+				34934CDA28E7642B009635D4 /* SearchViewControllerMenuDelegate.swift in Sources */,
 				9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */,
 				963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */,
 				96FD7C2220ADBE3700818925 /* JSFuncItemTableRowImageView.swift in Sources */,

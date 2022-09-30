@@ -11,7 +11,7 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-class SearchAndPreviewView: SearchPreviewViewBase, NSMenuDelegate {
+class SearchAndPreviewView: SearchPreviewViewBase {
 
     @IBOutlet weak var searchModeToggle: NSButton!
     @IBOutlet weak var jsIconButton: NSButton!
@@ -108,15 +108,8 @@ class SearchAndPreviewView: SearchPreviewViewBase, NSMenuDelegate {
         let contextMenu = NSMenu()
         contextMenu.addItem(remove)
         contextMenu.addItem(favorite)
-        contextMenu.delegate = self
 
         self.itemsList.menu = contextMenu
-    }
-
-    func menuWillOpen(_ menu: NSMenu) {
-        if !itemsList.selectedRowIndexes.map({ Int($0) }).contains(itemsList.clickedRow) {
-            itemsList.selectRowIndexes(IndexSet(integer: itemsList.clickedRow), byExtendingSelection: false)
-        }
     }
 
     override func applyTheme() {

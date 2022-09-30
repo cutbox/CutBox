@@ -61,6 +61,7 @@ class SearchViewController: NSObject {
 
     func setupClipItemsContextMenu() {
         self.searchView.setupClipItemsContextMenu()
+        self.searchView.itemsList.menu?.delegate = self
     }
 
     func togglePopup() {
