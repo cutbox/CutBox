@@ -3,7 +3,7 @@
 //  CutBox
 //
 //  Created by Carlos Enumo on 22/09/22.
-//  Copyright © 2022 Carlos Enumo. All rights reserved.
+//  Copyright © 2022 ocodo. All rights reserved.
 //
 
 import RxCocoa
