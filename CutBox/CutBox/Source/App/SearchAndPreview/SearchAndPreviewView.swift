@@ -114,7 +114,6 @@ class SearchAndPreviewView: SearchPreviewViewBase, NSMenuDelegate {
     }
 
     func menuWillOpen(_ menu: NSMenu) {
-
         if !itemsList.selectedRowIndexes.map({ Int($0) }).contains(itemsList.clickedRow) {
             itemsList.selectRowIndexes(IndexSet(integer: itemsList.clickedRow), byExtendingSelection: false)
         }
