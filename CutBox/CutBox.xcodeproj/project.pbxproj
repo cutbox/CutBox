@@ -19,7 +19,6 @@
 		962D6D492073544F007E3785 /* HotKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D482073544F007E3785 /* HotKeyService.swift */; };
 		962D6D4B207356DA007E3785 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4A207356DA007E3785 /* Constants.swift */; };
 		962D6D4D207357ED007E3785 /* VersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4C207357ED007E3785 /* VersionService.swift */; };
-		962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4E20735DF6007E3785 /* SearchViewController.swift */; };
 		962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D532073BE5B007E3785 /* Array+String+SwiftyStringScore.swift */; };
 		962D6D7220746109007E3785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D7120746109007E3785 /* AppDelegate.m */; };
 		962D6D7420746109007E3785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 962D6D7320746109007E3785 /* Assets.xcassets */; };
@@ -97,7 +96,6 @@
 		9653490E28434752000FD0A1 /* ClipItemTableRowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4620A3480C00EE08A4 /* ClipItemTableRowImageView.xib */; };
 		9653490F28434752000FD0A1 /* ClipItemTableRowTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B4920A34C7000EE08A4 /* ClipItemTableRowTextView.swift */; };
 		965349102843475E000FD0A1 /* SearchPreviewViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650C20B16D5B00DE369A /* SearchPreviewViewBase.swift */; };
-		965349112843475E000FD0A1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4E20735DF6007E3785 /* SearchViewController.swift */; };
 		965349122843475E000FD0A1 /* SearchAndPreview+KeyDownHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA4E1207CC85A00B9F33E /* SearchAndPreview+KeyDownHandler.swift */; };
 		965349132843475E000FD0A1 /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965349142843475E000FD0A1 /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
@@ -165,6 +163,9 @@
 		9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */; };
 		965B02B328E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
 		965B02B428E5481E003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
+		965B02B628E7E0A6003770BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4E20735DF6007E3785 /* SearchViewController.swift */; };
+		965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34934CD928E7642B009635D4 /* SearchViewControllerMenuDelegate.swift */; };
+		965B02B828E7E95E003770BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4E20735DF6007E3785 /* SearchViewController.swift */; };
 		965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */; };
 		965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0766206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift */; };
 		965F076C206F586A0032DACD /* SearchViewTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076B206F586A0032DACD /* SearchViewTextViewDelegate.swift */; };
@@ -1279,11 +1280,13 @@
 				96A225942844F5CD00C9502D /* CutBoxThemeSpec.swift in Sources */,
 				9653494C2843486B000FD0A1 /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */,
 				9653494628434862000FD0A1 /* String+UtilsSpec.swift in Sources */,
+				965B02B828E7E95E003770BD /* SearchViewController.swift in Sources */,
 				9653492428434785000FD0A1 /* NSAttributedString+HTML.swift in Sources */,
 				965349412843484E000FD0A1 /* JSFuncServiceSpec.swift in Sources */,
 				9653490928434752000FD0A1 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				9653490428434742000FD0A1 /* JSFuncSearchViewController.swift in Sources */,
 				965348EF28434735000FD0A1 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */,
+				965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */,
 				9653492F28434785000FD0A1 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9653494828434862000FD0A1 /* JSContext+subscriptSpec.swift in Sources */,
 				965348FA28434735000FD0A1 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */,
@@ -1304,7 +1307,6 @@
 				965348F128434735000FD0A1 /* PreferencesTabViewController.swift in Sources */,
 				965348E22843471D000FD0A1 /* CutBoxColorThemeDefinition.swift in Sources */,
 				965B02B428E5481E003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */,
-				965349112843475E000FD0A1 /* SearchViewController.swift in Sources */,
 				965348DC284346CD000FD0A1 /* Constants.swift in Sources */,
 				9653492028434772000FD0A1 /* JSFuncService.swift in Sources */,
 				9653490628434752000FD0A1 /* ItemTableRowTextView.swift in Sources */,
@@ -1337,7 +1339,6 @@
 				965F0767206F4C2A0032DACD /* SearchViewControllerTableViewDelegate.swift in Sources */,
 				967EFEB020A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift in Sources */,
 				96FD7C2420ADBE6500818925 /* ItemTableRowImageView.swift in Sources */,
-				962D6D4F20735DF6007E3785 /* SearchViewController.swift in Sources */,
 				962D6D542073BE5B007E3785 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9667650D20B16D5B00DE369A /* SearchPreviewViewBase.swift in Sources */,
 				9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */,
@@ -1391,6 +1392,7 @@
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */,
+				965B02B628E7E0A6003770BD /* SearchViewController.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift in Sources */,
 				96A16B3E209FD77500EE08A4 /* ClipItemTableRowImageView.swift in Sources */,
 				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
