@@ -104,6 +104,6 @@ jobs:
                -H "Accept: application/vnd.github+json" \
                -H "Authorization: Bearer ${{ secrets.CUTBOX_PAT }}" \
                https://api.github.com/repos/cutbox/cutbox.github.io/actions/workflows/35834026/dispatches \
-               --data '{"ref":"master,"inputs":{"release":"${{ env.RELEASE }}"}}'
+               --data '{"ref":"master","inputs":{"release":"${{ env.RELEASE }}"}}'
           fi
 
