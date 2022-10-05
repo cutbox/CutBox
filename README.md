@@ -65,9 +65,18 @@ To exit press <kbd>**Esc**</kbd>.
 
 # Install via Homebrew Cask
 
+Install the compiled package.
 ```
 brew tap cutbox/cutbox
-brew intall cutbox
+brew install --cask cutbox
+```
+
+# Install via Homebrew
+
+For advanced users. Builds the package from source, full Xcode installation needed.
+```
+brew tap cutbox/cutbox
+brew install cutbox
 ```
 
 # First run
