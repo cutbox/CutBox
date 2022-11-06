@@ -155,6 +155,7 @@ class SearchViewController: NSObject {
             .subscribe(onNext: {
                 self.historyService.filterText = $0
                 self.searchView.itemsList.reloadData()
+                self.searchView.itemsList.scrollRowToVisible(0)
             })
             .disposed(by: self.disposeBag)
 
