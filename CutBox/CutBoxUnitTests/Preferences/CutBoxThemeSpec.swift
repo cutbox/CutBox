@@ -60,7 +60,8 @@ class CutBoxThemeSpec: QuickSpec {
                     PreviewTheme(
                         textColor: "#EEEEEE".color!,
                         backgroundColor: "#000000".color!,
-                        selectedTextBackgroundColor: "#FF0000".color!
+                        selectedTextBackgroundColor: "#FF0000".color!,
+                        selectedTextColor: "#EEEEEE".color!
                     ),
                 spacing: 1.0
             )
@@ -84,7 +85,8 @@ class CutBoxThemeSpec: QuickSpec {
                     "preview": {
                         "textColor": "#EEEEEE",
                         "backgroundColor": "#000000",
-                        "selectedTextBackgroundColor": "#FF0000"
+                        "selectedTextBackgroundColor": "#FF0000",
+                        "selectedTextColor": "#EEEEEE"
                     },
                     "spacing": 1.0
                 }
@@ -112,6 +114,8 @@ class CutBoxThemeSpec: QuickSpec {
                         .to(equal(subjectB.preview.backgroundColor))
                     expect(subjectA.preview.selectedTextBackgroundColor)
                         .to(equal(subjectB.preview.selectedTextBackgroundColor))
+                    expect(subjectA.preview.selectedTextColor)
+                        .to(equal(subjectB.preview.selectedTextColor))
                 }
 
                 it("search") {

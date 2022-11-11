@@ -11,12 +11,13 @@
         "backgroundColor":    "#282B32",
         "textColor":          "#86D6FF",
         "highlightColor":     "#8DD0C9",
-        "highlightTextColor": "#86D6FF"
+        "highlightTextColor": "#141617"
     },
     "preview": {
         "textColor":                   "#6CAFD1",
         "backgroundColor":             "#141617",
-        "selectedTextBackgroundColor": "#8DD0C9"
+        "selectedTextBackgroundColor": "#8DD0C9",
+        "selectedTextColor":           "#141617"
     },
     "spacing": 1
 }

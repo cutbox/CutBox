@@ -139,6 +139,6 @@ class SearchPreviewViewBase: NSView {
         preview.textColor = theme.preview.textColor
 
         preview.selectedTextAttributes[.backgroundColor] = theme.preview.selectedTextBackgroundColor
-        preview.selectedTextAttributes[.foregroundColor] = theme.preview.textColor
+        preview.selectedTextAttributes[.foregroundColor] = theme.preview.selectedTextColor
     }
 }

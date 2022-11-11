@@ -52,7 +52,8 @@ extension CutBoxColorTheme {
                   preview: PreviewTheme(
                     textColor: theme.preview.textColor.color!,
                     backgroundColor: theme.preview.backgroundColor.color!,
-                    selectedTextBackgroundColor: theme.preview.selectedTextBackgroundColor.color!
+                    selectedTextBackgroundColor: theme.preview.selectedTextBackgroundColor.color!,
+                    selectedTextColor: theme.preview.selectedTextColor.color!
                   ),
                   spacing: CGFloat(theme.spacing))
     }
@@ -201,11 +202,13 @@ struct Preview: Codable {
     let textColor: String
     let backgroundColor: String
     let selectedTextBackgroundColor: String
+    let selectedTextColor: String
 
     enum CodingKeys: String, CodingKey {
         case textColor
         case backgroundColor
         case selectedTextBackgroundColor
+        case selectedTextColor
     }
 }
 
@@ -230,12 +233,14 @@ extension Preview {
     func with(
       textColor: String? = nil,
       backgroundColor: String? = nil,
-      selectedTextBackgroundColor: String? = nil
+      selectedTextBackgroundColor: String? = nil,
+      selectedTextColor: String? = nil
     ) -> Preview {
         return Preview(
           textColor: textColor ?? self.textColor,
           backgroundColor: backgroundColor ?? self.backgroundColor,
-          selectedTextBackgroundColor: selectedTextBackgroundColor ?? self.selectedTextBackgroundColor
+          selectedTextBackgroundColor: selectedTextBackgroundColor ?? self.selectedTextBackgroundColor,
+          selectedTextColor: selectedTextColor ?? self.selectedTextColor
         )
     }
 
