@@ -16,7 +16,8 @@
     "preview": {
         "textColor":                   "#EF7031",
         "backgroundColor":             "#000000",
-        "selectedTextBackgroundColor": "#EC3C1A"
+        "selectedTextBackgroundColor": "#EC3C1A",
+        "selectedTextColor":           "#EF7031"
     },
     "spacing": 1
 }

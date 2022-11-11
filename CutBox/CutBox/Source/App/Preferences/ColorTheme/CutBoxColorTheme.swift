@@ -25,7 +25,8 @@ typealias ClipTheme = (
 typealias PreviewTheme = (
     textColor: NSColor,
     backgroundColor: NSColor,
-    selectedTextBackgroundColor: NSColor
+    selectedTextBackgroundColor: NSColor,
+    selectedTextColor: NSColor
 )
 
 class CutBoxColorTheme {
@@ -36,19 +37,11 @@ class CutBoxColorTheme {
 
     let popupBackgroundColor: NSColor
 
-    let searchText: (cursorColor: NSColor,
-    textColor: NSColor,
-    backgroundColor: NSColor,
-    placeholderTextColor: NSColor)
+    let searchText: SearchTextTheme
 
-    let clip: (backgroundColor: NSColor,
-    textColor: NSColor,
-    highlightColor: NSColor,
-    highlightTextColor: NSColor)
+    let clip: ClipTheme
 
-    let preview: (textColor: NSColor,
-    backgroundColor: NSColor,
-    selectedTextBackgroundColor: NSColor)
+    let preview: PreviewTheme
 
     init(name: String,
          popupBackgroundColor: NSColor,
