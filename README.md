@@ -13,6 +13,8 @@
 
 </div>
 
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)
+
 CutBox is a Macos developer focused clipboard history manager. It works only with text (no images, audio, video, blobs) but doesn't interfere with the system clipboard, or other clipboard managers, if you need copy/pasteboard history for things like that.  It's  main features are: Fuzzy matching, regexp search, favorites and the ability to transform text by pasting multiple clipboard entries at once, and/or using JavaScript to process text, before you paste it.
 
 Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
