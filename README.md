@@ -137,6 +137,10 @@ The command line tool must be compiled at the moment, from the `cutbox_command` 
 swift build -c release; cp .build/release/cutbox /usr/local/bin/
 ```
 
+This will build and install the command to `/usr/local/bin`
+
+The command will fail to run if CutBox is not installed and has history.
+
 # Would you like to know more?
 
 [More information is in the wiki](https://github.com/cutbox/CutBox/wiki)
