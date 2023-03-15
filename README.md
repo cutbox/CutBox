@@ -117,6 +117,20 @@ These work best before CutBox is run. (Macos will suggest restarting CutBox anyw
 
 FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
 
+# Command line access
+
+The CutBox repo includes a command line tool to access history.
+
+```
+Usage:
+
+cutbox [-f query] [limit]
+
+History items can be filtered by Query (string contained in a history item)
+
+Limit will show the top n items (after filtering if used.)
+```
+
 # Would you like to know more?
 
 [More information is in the wiki](https://github.com/cutbox/CutBox/wiki)
