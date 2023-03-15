@@ -131,6 +131,12 @@ History items can be filtered by Query (string contained in a history item)
 Limit will show the top n items (after filtering if used.)
 ```
 
+The command line tool must be compiled at the moment, from the `cutbox_command` folder you can run:
+
+```sh
+swift build -c release; cp .build/release/cutbox /usr/local/bin/
+```
+
 # Would you like to know more?
 
 [More information is in the wiki](https://github.com/cutbox/CutBox/wiki)
