@@ -15,9 +15,23 @@
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)
 
-CutBox is a Macos developer focused clipboard history manager. It works only with text (no images, audio, video, blobs) but doesn't interfere with the system clipboard, or other clipboard managers, if you need copy/pasteboard history for things like that.  It's  main features are: Fuzzy matching, regexp search, favorites and the ability to transform text by pasting multiple clipboard entries at once, and/or using JavaScript to process text, before you paste it.
+CutBox is a clipboard manager for MacOS, designed for developers. It is used to manage and organize text copied from various sources. Some of its features include fuzzy matching, regular expression search, favorites, and the ability to transform text by pasting multiple clipboard entries at once. CutBox works by saving any text copied on MacOS to its history, which can be accessed using a global hotkey. The program supports shortcuts for exiting the search, pasting selected items, and opening the preferences. CutBox can be installed using Homebrew Cask or Homebrew.
 
-Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
+- - -
+
+CutBox has JavaScript features that allow you to process text before pasting it. To use this feature, you need to have a file named ~/.cutbox.js in your home directory. This file can contain custom JavaScript code that will be executed when you paste text using CutBox.
+
+You can access this feature by selecting an item from the CutBox clipboard history and then pressing <kbd>Cmd</kbd><kbd>Enter</kbd>. This will open the JavaScript processing dialog where you can enter or modify the JavaScript code to process the text. When you're done, press <kbd>Enter</kbd> to apply the processing and paste the modified text.
+
+Note that the JavaScript code should be safe and not contain any malicious code. Always be careful when running code from untrusted sources.
+
+- - -
+
+Cutbox also has a command-line interface called `cutbox`. It allows you to fetch items from history, filter by search, and get n entries from the most recent or searched items. [See the below](https://github.com/cutbox/CutBox/blob/master/README.md#command-line-access)
+
+- - -
+
+Originally Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
 
