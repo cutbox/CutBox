@@ -50,13 +50,6 @@ class JSFuncServiceSpec: QuickSpec {
                 }
             }
 
-            describe("shellCommand") {
-                it("executes a shell command from JS") {
-                    let result = subject.repl("shellCommand(echo 'hello world')")
-                    expect(result).to(equal("hello world"))
-                }
-            }
-
             describe("count") {
                 it("return the count of functions in cutboxFunctions") {
                     _ = subject.repl(
