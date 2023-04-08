@@ -23,6 +23,8 @@ CutBox has JavaScript features that allow you to process text before pasting it.
 
 You can access this feature by selecting an item from the CutBox clipboard history and then pressing <kbd>Cmd</kbd><kbd>Enter</kbd>. This will open the JavaScript processing dialog where you can enter or modify the JavaScript code to process the text. When you're done, press <kbd>Enter</kbd> to apply the processing and paste the modified text.
 
+The JavaScript parser will recognize `require(javascript_file)` and `shellCommand(command_args)` to give you complete flexibility, and lets you process text through any js library or shell command before pasting it at your cursor.
+
 Note that the JavaScript code should be safe and not contain any malicious code. Always be careful when running code from untrusted sources.
 
 - - -
