@@ -27,7 +27,7 @@ Note that the JavaScript code should be safe and not contain any malicious code.
 
 - - -
 
-Cutbox also has a command-line interface called `cutbox`. It allows you to fetch items from history, filter by search, and get n entries from the most recent or searched items. [See the below](https://github.com/cutbox/CutBox/blob/master/README.md#command-line-access)
+Cutbox also has a command-line interface called `cutbox`. It allows you to fetch items from history, filter by search, and get n entries from the most recent or searched items. [See below](https://github.com/cutbox/CutBox/blob/master/README.md#command-line-access)
 
 - - -
 
