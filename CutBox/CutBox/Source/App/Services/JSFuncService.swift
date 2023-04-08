@@ -35,6 +35,19 @@ class JSFuncService: NSObject {
         return JSFuncService.shared.js.evaluateScript(fileContent)
     }
 
+    let shellCommand: @convention(block) (String) -> String = { command in
+        let task = Process()
+        task.launchPath = "/bin/bash"
+        task.arguments = ["-c", command]
+
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        return String(data: data, encoding: .utf8) ?? ""
+    }
+
     var filterText: String = ""
 
     var funcs: [(String, Int)] {
@@ -88,6 +101,7 @@ class JSFuncService: NSObject {
     func setup() {
         self.js = JSContext()
         self.js["require"] = self.require
+        self.js["shellCommand"] = self.shellCommand
     }
 
     func reload() {

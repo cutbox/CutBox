@@ -27,6 +27,13 @@ class JSFuncServiceSpec: QuickSpec {
                 }
             }
 
+            describe("shellCommand") {
+                it("runs a shell command from JS and returns a string") {
+                    let result = subject.repl("shellCommand('printf \"hello world\"')")
+                    expect(result).to(equal("hello world"))
+                }
+            }
+
             describe("require") {
                 let fileManager = FileManager.default
                 let path = "\(fileManager.currentDirectoryPath)/test-require.js"
