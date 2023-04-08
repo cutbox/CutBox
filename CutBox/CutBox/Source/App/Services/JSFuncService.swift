@@ -35,6 +35,21 @@ class JSFuncService: NSObject {
         return JSFuncService.shared.js.evaluateScript(fileContent)
     }
 
+    let shellCommand: @convention(block) (String) -> String = { command in
+        let task = Process()
+        task.launchPath = "/bin/bash"
+        task.arguments = ["-c", command]
+
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output = String(data: data, encoding: .utf8) ?? ""
+
+        return output
+    }
+
     var filterText: String = ""
 
     var funcs: [(String, Int)] {
@@ -88,6 +103,7 @@ class JSFuncService: NSObject {
     func setup() {
         self.js = JSContext()
         self.js["require"] = self.require
+        self.js["shellCommand"] = self.shellCommand
     }
 
     func reload() {
@@ -125,7 +141,6 @@ class JSFuncService: NSObject {
     func process(_ fnIndex: Int, items: [String]) -> String {
         return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
     }
-
 }
 
 func getStringFromFile(_ expandedFilename: String) -> String? {
