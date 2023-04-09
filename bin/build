@@ -16,4 +16,4 @@ mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
 
 codesign --deep --force -s - "${build_folder}/CutBox.app"
 
-git rev-parse --is-inside-work-tree && git --no-pager diff --color
+git rev-parse --is-inside-work-tree > /dev/null 2>&1 && git --no-pager diff --color
