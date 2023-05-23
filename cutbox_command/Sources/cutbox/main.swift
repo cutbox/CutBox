@@ -3,9 +3,6 @@ import Foundation
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
 let stringKey = "string"
-
-// var limit = Int.max
-
 let usage = """
 Usage: cutbox [options] [limit]
 
@@ -26,7 +23,7 @@ func parseCommandLineArgs() -> CommandParams {
     let args = CommandLine.arguments
 
     // check for -f flag and query
-    var query: String? = nil
+    var query: String?
     if let fIndex = args.firstIndex(of: "-f") {
         if args.indices.contains(fIndex+1) && !args[fIndex+1].starts(with: "-") {
             query = args[fIndex+1].replacingOccurrences(of: "\"", with: "")
@@ -34,7 +31,7 @@ func parseCommandLineArgs() -> CommandParams {
     }
 
     // check for limit
-    var limit: Int? = nil
+    var limit: Int?
     if let lastArg = args.last, !lastArg.starts(with: "-") {
         limit = Int(lastArg)
     }
@@ -51,12 +48,14 @@ guard let plistData = FileManager.default.contents(atPath: plistPath) else {
     exit(1)
 }
 
-guard let plist = try PropertyListSerialization.propertyList(from: plistData, options: [], format: nil) as? [String:Any] else {
+guard let plist = try PropertyListSerialization.propertyList(from: plistData,
+                                                             options: [],
+                                                             format: nil) as? [String: Any] else {
     print("Error: CutBox history file was not readable.")
     exit(1)
 }
 
-guard let historyDict = plist[historyKey] as? [[String:Any]] else {
+guard let historyDict = plist[historyKey] as? [[String: Any]] else {
     print("Error: CutBox history store was not readable.")
     exit(1)
 }
@@ -73,4 +72,3 @@ if let limit = commandParams.limit {
 } else {
     print(history.joined(separator: "\n"))
 }
-
