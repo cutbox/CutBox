@@ -10,12 +10,7 @@ import JavaScriptCore
 
 extension JSContext {
     subscript(_ get: String) -> JSValue! {
-        get {
-            return self.objectForKeyedSubscript(get)
-        }
-        set {
-            fatalError("get: cannot be used to set")
-        }
+        return self.objectForKeyedSubscript(get)
     }
 
     subscript(_ set: String) -> Any! {

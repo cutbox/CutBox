@@ -12,7 +12,6 @@ import Magnet
 import KeyHolder
 
 class PreferencesGeneralView: NSView {
-
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
