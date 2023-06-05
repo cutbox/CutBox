@@ -29,9 +29,9 @@ class PreferencesJavascriptTransformView: NSView {
     }
 
     func applyJavascriptREPLTheme() {
-        let textColor = NSColor.black
-        let backgroundColor = NSColor.white
-        let commandLineBackground = #colorLiteral(red: 0.8720445421, green: 0.9284945442, blue: 0.95, alpha: 1)
+        let textColor = NSColor.white
+        let backgroundColor = NSColor.black
+        let commandLineBackground = #colorLiteral(red: 0.03556041353, green: 0.08317251856, blue: 0.1092823802, alpha: 1)
 
         self.javascriptTransformREPLOutput.font = NSFont.userFixedPitchFont(ofSize: 13)
         self.javascriptTransformREPLOutput.textColor = textColor
