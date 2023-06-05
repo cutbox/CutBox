@@ -278,8 +278,12 @@ class HistoryService: NSObject {
 
         guard clip != nil else { return }
 
-        self.historyRepo.insert(clip!, isFavorite: isFavorite)
-        self.truncateItems()
+        if clip!.isEmpty {
+            self.removeLatest()
+        } else {
+            self.historyRepo.insert(clip!, isFavorite: isFavorite)
+            self.truncateItems()
+        }
         self.saveToDefaults()
     }
 
@@ -318,5 +322,14 @@ class HistoryService: NSObject {
 
     func bytesFormatted() -> String {
         return self.historyRepo.bytesFormatted()
+    }
+
+    func removeLatest() {
+        self.historyRepo.remove(at: 0)
+        self.invalidateCaches()
+        NSPasteboard.general.clearContents()
+        if let topClip = self.historyRepo.items.first {
+            NSPasteboard.general.setString(topClip, forType: .string)
+        }
     }
 }

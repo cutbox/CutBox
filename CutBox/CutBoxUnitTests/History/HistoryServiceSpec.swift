@@ -109,6 +109,16 @@ class HistoryServiceSpec: QuickSpec {
                 expect(subject.count).to(equal(0))
             }
 
+            context("password manager support") {
+                it("Removes the most recent item when an empty string is the current pasteboard item") {
+                    addToFakePasteboardAndPoll(string: "",
+                                               subject: subject,
+                                               pboard: mockPasteboard)
+                    expect(subject.items.count).to(equal(16))
+                    expect(subject.items.first).to(equal("#FF0022"))
+                }
+            }
+
             context("duplicate handling") {
                 it("removes duplicate items and inserts them as first history item") {
                     expect(subject.items.count).to(equal(17))

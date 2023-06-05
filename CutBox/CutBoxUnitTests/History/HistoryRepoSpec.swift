@@ -31,7 +31,8 @@ class HistoryRepoSpec: QuickSpec {
 
             it("provides access to the dictionary store") {
                 subject.insert("Hello")
-                expect(subject.dict.first).to(equal(["string": "Hello"]))
+                let timestamp = ISO8601DateFormatter().string(from: Date())
+                expect(subject.dict.first).to(equal(["string": "Hello", "timestamp": timestamp]))
             }
 
             it("returns string items in the expected order") {
@@ -56,6 +57,17 @@ class HistoryRepoSpec: QuickSpec {
                     "Third",
                     "First"
                     ]))
+            }
+
+            it("can remove the last iten inserted") {
+                subject.insert("First")
+                subject.insert("Second")
+                subject.insert("Third")
+                subject.insert("Latest")
+
+                subject.remove(at: 0)
+
+                expect(subject.items.first).to(equal("Third"))
             }
 
             it("can remove string items at a given IndexSet") {

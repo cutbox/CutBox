@@ -17,8 +17,13 @@ class HistoryRepo {
     private var storeDefaultsKey = "historyStore"
     private var stringKey = "string"
     private var favoriteKey = "favorite"
+    private var timestampKey = "timestamp"
 
     private var kProtectFavorites = "protectFavorites"
+
+    var itemsByDate: [[String: String]] {
+        self.store.sorted { $0[timestampKey] ?? "" > $1[timestampKey] ?? "" }
+    }
 
     var items: [String] {
        return self.store.map { $0[self.stringKey]! }
@@ -50,7 +55,6 @@ class HistoryRepo {
 
     func clear() {
         self.store.removeAll(protectFavorites: prefs.protectFavorites)
-
         self.saveToDefaults()
     }
 
@@ -64,6 +68,7 @@ class HistoryRepo {
 
     func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false) {
         var item = [stringKey: newElement]
+        item[self.timestampKey] = ISO8601DateFormatter().string(from: Date())
 
         if isFavorite {
             item[self.favoriteKey] = self.favoriteKey
@@ -73,14 +78,14 @@ class HistoryRepo {
     }
 
     func remove(at: Int) {
-        self.store.remove(at: at)
-
-        self.saveToDefaults()
+        if at >= 0 && self.store.count > at {
+            self.store.remove(at: at)
+            self.saveToDefaults()
+        }
     }
 
     func removeAtIndexes(indexes: IndexSet) {
         self.store.removeAtIndexes(indexes: indexes)
-
         self.saveToDefaults()
     }
 
@@ -88,23 +93,19 @@ class HistoryRepo {
         for i in indexes {
             toggleFavorite(at: i)
         }
-
         self.saveToDefaults()
     }
 
     func toggleFavorite(at i: Int) {
         let item = self.store[i]
-
         let isFavorite = item[self.favoriteKey] == self.favoriteKey
             ? ""
             : self.favoriteKey
-
         self.store[i][favoriteKey] = isFavorite
     }
 
     func removeSubrange(_ bounds: Range<Int>) {
         self.store.removeSubrange(bounds)
-
         self.saveToDefaults()
     }
 
@@ -118,7 +119,6 @@ class HistoryRepo {
 
     func loadFromDefaults() {
         let key = self.storeDefaultsKey
-
         if let historyStore = self.defaults.array(forKey: key) as? [[String: String]] {
             self.store = historyStore
         } else {
