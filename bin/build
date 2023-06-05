@@ -10,7 +10,7 @@ xcodebuild archive \
     -workspace CutBox/CutBox.xcworkspace \
     -scheme CutBox \
     -configuration Release \
-    -archivePath "${archive_at}" | xcbeautify
+    -archivePath "${archive_at}"
 
 mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
 
