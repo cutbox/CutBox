@@ -3,7 +3,7 @@
 //  CutBox
 //
 //  Created by Carlos Enumo on 30/09/22.
-//  Copyright © 2022 ocodo. All rights reserved.
+//  Copyright © 2023 ocodo. All rights reserved.
 //
 
 import Cocoa

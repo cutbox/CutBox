@@ -2,8 +2,8 @@
 //  String+UtilsSpec.swift
 //  CutBoxTests
 //
-//  Created by denis.st on 29/4/19.
-//  Copyright © 2019 ocodo. All rights reserved.
+//  Created by Jason on 29/4/19
+//  Copyright © 2023 ocodo. All rights reserved.
 //
 
 import Quick

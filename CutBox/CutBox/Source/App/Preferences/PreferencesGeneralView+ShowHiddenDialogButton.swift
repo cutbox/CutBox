@@ -3,7 +3,7 @@
 //  CutBox
 //
 //  Created by Jason Milkins on 11/5/20.
-//  Copyright © 2020 ocodo. All rights reserved.
+//  Copyright © 2023 ocodo. All rights reserved.
 //
 
 import Foundation
