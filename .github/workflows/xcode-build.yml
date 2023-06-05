@@ -33,6 +33,7 @@ jobs:
 
       - name: Check production release
         run: |
+          # If the commit message contains [release]
           bin/ci_is_production
 
       - name: Setup
