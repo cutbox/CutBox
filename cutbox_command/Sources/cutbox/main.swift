@@ -4,14 +4,17 @@ let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plis
 let historyKey = "historyStore"
 let stringKey = "string"
 let usage = """
-Usage: cutbox [options] [limit]
+OVERVIEW:
+        Inspect the cutbox history from the command line
 
-Return items from cutbox history, from the latest item up to [limit].
+USAGE:  cutbox [options] [limit]
 
-options:
+        Return items from cutbox history, from the latest item up to [limit].
 
--f <query> fuzzy match items, limit will be applied to results if given.
+OPTIONS:
+        -f <query> fuzzy match items, limit will be applied to results if given.
 
+        help, -h or --help show this message.
 """
 
 struct CommandParams {
@@ -21,6 +24,14 @@ struct CommandParams {
 
 func parseCommandLineArgs() -> CommandParams {
     let args = CommandLine.arguments
+
+    // Show usage for -h or --help or help arg
+    if args.contains("-h") ||
+         args.contains("--help") ||
+         args.contains("help") {
+        print(usage)
+        exit(0)
+    }
 
     // check for -f flag and query
     var query: String?
@@ -56,19 +67,28 @@ guard let plist = try PropertyListSerialization.propertyList(from: plistData,
 }
 
 guard let historyDict = plist[historyKey] as? [[String: Any]] else {
-    print("Error: CutBox history store was not readable.")
+    print("""
+            Error: CutBox history store was not in the expected format.
+            Recommended Action: Check with earlier version of cutbox command-line utility.
+            """)
     exit(1)
 }
 
-var history = historyDict.flatMap({ $0.values.compactMap({ $0 as? String }) })
-
-if let query = commandParams.query {
-    history = history.filter { $0.contains(query) }
+// create list of strings from history
+var historyStrings = historyDict.compactMap {
+    if let item = $0[stringKey] as? String {
+        return item
+    } else {
+        return nil
+    }
 }
 
-// Print
+if let query = commandParams.query {
+    historyStrings = historyStrings.filter { $0.contains(query) }
+}
+
 if let limit = commandParams.limit {
-    print(history.prefix(limit).joined(separator: "\n"))
+    print(historyStrings.prefix(limit).joined(separator: "\n"))
 } else {
-    print(history.joined(separator: "\n"))
+    print(historyStrings.joined(separator: "\n"))
 }
