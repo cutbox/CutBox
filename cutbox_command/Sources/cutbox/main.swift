@@ -75,8 +75,8 @@ guard let historyDict = plist[historyKey] as? [[String: Any]] else {
 }
 
 // create list of strings from history
-var historyStrings = historyDict.compactMap {
-    if let item = $0[stringKey] as? String {
+var historyStrings = historyDict.compactMap { (n) -> String? in
+    if let item = n[stringKey] as? String {
         return item
     } else {
         return nil
