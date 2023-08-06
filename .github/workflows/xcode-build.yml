@@ -48,6 +48,10 @@ jobs:
         run: |
           bin/build
 
+      - name: Command line test
+        run: |
+          bin/command_line_test
+
       - name: Make DMG
         run: |
           bin/cutbox_make_dmg CutBox.dmg

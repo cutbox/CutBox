@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd cutbox_command || exit 1
+xcodebuild || exit 1
+
+if [[ -e build/Release/cutbox ]]; then
+    cutbox --help
+
+    if [[ -d ../CutBox/build/CutBox.app  ]]; then
+        # run CutBox
+        open ../CutBox/build/CutBox.app
+        # Copy to pasteboard
+        echo "Test Passed?" | pbcopy
+
+        # Check last history item
+        if [[ "$(build/Release/cutbox 1)" == "Test Passed?" ]]; then
+            echo "Test Passed"
+            exit 0
+        else
+            echo "Test failed"
+            exit 1
+        fi
+    fi
+fi
