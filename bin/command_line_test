@@ -1,31 +1,22 @@
 #!/bin/bash
 
+cutbox=build/Release/cutbox
+
 cd cutbox_command || exit 1
 xcodebuild || exit 1
 
-if [[ -e build/Release/cutbox ]]; then
-    build/Release/cutbox --help
+if [[ -e $cutbox ]]; then
+    $cutbox --help
 
-    if [[ -d ../CutBox/build/CutBox.app  ]]; then
-        # run CutBox
-        open ../CutBox/build/CutBox.app
+    # Add item to history via command line:
+    defaults write info.ocodo.cutbox historyStore -array-add '<dict><key>string</key><string>Test Passed?</string></dict>'
 
-        # Copy something to pasteboard
-        echo "Test Passed?" | pbcopy
-
-        # Allow for async
-        sleep 1
-
-        # Show contents of History via PlistBuddy
-        /usr/libexec/PlistBuddy -c "print historyStore" ~/Library/Preferences/info.ocodo.cutbox.plist
-
-        # Check last history item
-        if [[ "$(build/Release/cutbox 1)" == "Test Passed?" ]]; then
-            echo "Test Passed"
-            exit 0
-        else
-            echo "Test failed"
-            exit 1
-        fi
+    # Check last history item:
+    if [[ "$($cutbox 1)" == "Test Passed?" ]]; then
+        echo "Test Passed"
+        exit 0
+    else
+        echo "Test Failed"
+        exit 1
     fi
 fi
