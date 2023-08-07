@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox command line v0.0.63"
+let version = "CutBox v1.5.8 - command line v0.0.70"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -33,20 +33,22 @@ OPTIONS:
         --since-date <ISO 8601 datetime>
 
         --before-seconds-ago <seconds>
-        --since-seconds <seconds>
+        --since-seconds-ago <seconds>
 
-        --before-minutes <minutes>
-        --since-minutes <minutes>
+        --before-minutes-ago <minutes>
+        --since-minutes-ago <minutes>
 
         --before-hours-ago <hours>
-        --since-hours <hours>
+        --since-hours-ago <hours>
 
-        --before-days <days>
-        --since-days <days>
+        --before-days-ago <days>
+        --since-days=ago <days>
+
+        Misc
 
         --missing-date                     Display history items with no date (before CutBox v1.5.5)
 
-        --version                          Display version number \(version)
+        --version                          \(version)
 
         -h or --help show this message.
 """
@@ -147,6 +149,21 @@ class CommandParams {
         return nil
     }
 
+    private func parseTimeOptions(_ prefix: String) -> TimeInterval? {
+        let timeLevels = [
+          "date",
+          "days-ago",
+          "hours-ago",
+          "minutes-ago",
+          "seconds-ago",
+        ]
+
+        return timeLevels
+          .map { "\(prefix)\($0)" }
+          .compactMap { timeOpt($0) }
+          .first
+    }
+
     private func parse() {
         // Show usage for -h or --help or help arg
         if hasFlag(["-h", "--help"]) {
@@ -178,16 +195,8 @@ class CommandParams {
         }
 
         // Date
-        let timeLevels = [
-          "date",
-          "days",
-          "hours",
-          "minutes",
-          "seconds",
-        ]
-
-        beforeDate = timeLevels.map { "--before-\($0)" }.map { timeOpt($0) }.compactMap({$0}).first
-        sinceDate = timeLevels.map { "--since-\($0)" }.map { timeOpt($0) }.compactMap({$0}).first
+        beforeDate = parseTimeOptions("--before-")
+        sinceDate = parseTimeOptions("--since-")
 
         // Favorites
         favorites = hasFlag("--favorites")
@@ -234,7 +243,6 @@ guard let historyDict = plist[historyKey] as? [[String: Any]] else {
             """)
     exit(1)
 }
-
 
 // create list of strings from history
 let dateFormatter = DateFormatter()
