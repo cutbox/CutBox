@@ -8,15 +8,26 @@ xcodebuild || exit 1
 if [[ -e $cutbox ]]; then
     $cutbox --help
 
-    # Add item to history via command line:
-    defaults write info.ocodo.cutbox historyStore -array-add '<dict><key>string</key><string>Test Passed?</string></dict>'
+    # Add history item via macos defaults write command line:
+    defaults write info.ocodo.cutbox historyStore -array-add '<dict>
+                                                                  <key>string</key>
+                                                                  <string>Test Passed?</string>
+                                                              </dict>'
 
-    # Check last history item:
-    if [[ "$($cutbox 1)" == "Test Passed?" ]]; then
-        echo "Test Passed"
-        exit 0
+    # Test show history item from cutbox command line...
+    if [[ "$($cutbox)" == "Test Passed?" ]]; then
+        echo "Test 001 Passed"
     else
-        echo "Test Failed"
+        echo "Test 001 Failed"
         exit 1
     fi
+
+    # Test fuzzy filter
+    if [[ "$($cutbox zoo)" == "" ]]; then
+        echo "Test 002 Passed"
+    else
+        echo "Test 002 Failed"
+        exit 1
+    fi
+
 fi
