@@ -31,7 +31,7 @@ jobs:
             fi
           done
 
-      - name: Check production release
+      - name: Is this a production run?
         run: |
           # If the commit message contains [release]
           bin/ci_is_production
