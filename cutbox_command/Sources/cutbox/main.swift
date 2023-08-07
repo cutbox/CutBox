@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.70"
+let version = "CutBox v1.5.8 - command line v0.0.71"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -155,7 +155,7 @@ class CommandParams {
           "days-ago",
           "hours-ago",
           "minutes-ago",
-          "seconds-ago",
+          "seconds-ago"
         ]
 
         return timeLevels
