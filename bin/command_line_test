@@ -16,6 +16,9 @@ if [[ -e build/Release/cutbox ]]; then
         # Copy something to pasteboard
         echo "Test Passed?" | pbcopy
 
+        # Show contents of History via PlistBuddy
+        PlistBuddy -c "print historyStore" ~/Library/Preferences/info.ocodo.cutbox.plist
+
         # Check last history item
         if [[ "$(build/Release/cutbox 1)" == "Test Passed?" ]]; then
             echo "Test Passed"
