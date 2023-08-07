@@ -10,14 +10,14 @@ if [[ -e build/Release/cutbox ]]; then
         # run CutBox
         open ../CutBox/build/CutBox.app
 
-        # Show CutBox running on MacOs
-        ps -A | grep CutBox
-
         # Copy something to pasteboard
         echo "Test Passed?" | pbcopy
 
+        # Allow for async
+        sleep 1
+
         # Show contents of History via PlistBuddy
-        PlistBuddy -c "print historyStore" ~/Library/Preferences/info.ocodo.cutbox.plist
+        /usr/libexec/PlistBuddy -c "print historyStore" ~/Library/Preferences/info.ocodo.cutbox.plist
 
         # Check last history item
         if [[ "$(build/Release/cutbox 1)" == "Test Passed?" ]]; then
