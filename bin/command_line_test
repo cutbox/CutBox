@@ -23,7 +23,7 @@ if [[ -e $cutbox ]]; then
     fi
 
     # Test fuzzy filter
-    if [[ "$($cutbox zoo)" == "" ]]; then
+    if [[ "$($cutbox -f zoo)" == "" ]]; then
         echo "Test 002 Passed"
     else
         echo "Test 002 Failed"
