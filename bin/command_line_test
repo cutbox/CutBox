@@ -9,7 +9,11 @@ if [[ -e build/Release/cutbox ]]; then
     if [[ -d ../CutBox/build/CutBox.app  ]]; then
         # run CutBox
         open ../CutBox/build/CutBox.app
-        # Copy to pasteboard
+
+        # Show CutBox running on MacOs
+        ps -A | grep CutBox
+
+        # Copy something to pasteboard
         echo "Test Passed?" | pbcopy
 
         # Check last history item
