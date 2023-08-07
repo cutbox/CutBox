@@ -4,7 +4,7 @@ cd cutbox_command || exit 1
 xcodebuild || exit 1
 
 if [[ -e build/Release/cutbox ]]; then
-    cutbox --help
+    build/Release/cutbox --help
 
     if [[ -d ../CutBox/build/CutBox.app  ]]; then
         # run CutBox
