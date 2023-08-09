@@ -6,8 +6,7 @@ let package = Package(
     name: "cutbox",
     dependencies: [],
     targets: [
-        .executableTarget(
-            name: "cutbox",
-            dependencies: []),
+      .executableTarget( name: "cutbox",
+                         dependencies: [] )
     ]
 )
