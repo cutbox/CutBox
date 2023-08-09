@@ -93,14 +93,14 @@ class CommandParams {
     }
 
     private func hasOpt(_ opt: String) -> Int? {
-        if let string:String = hasOpt(opt) {
+        if let string: String = hasOpt(opt) {
             return Int(string)
         }
         return nil
     }
 
     private func hasOpt(_ opt: [String]) -> Int? {
-        let found = opt.compactMap({ (s: String) -> Int? in hasOpt(s) })
+        let found = opt.compactMap({ (string: String) -> Int? in hasOpt(string) })
         if found.count > 0 {
             return found[0]
         }
@@ -118,7 +118,7 @@ class CommandParams {
     }
 
     private func hasOpt(_ opt: [String]) -> String? {
-        let found = opt.compactMap({ (s) -> String? in hasOpt(s) })
+        let found = opt.compactMap({ (string) -> String? in hasOpt(string) })
         if found.count > 0 {
             return found[0]
         }
@@ -258,13 +258,16 @@ class CommandParams {
 func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
     let range = NSRange(location: 0, length: string.utf16.count)
     if caseSensitive {
-        let regex = try! NSRegularExpression(pattern: pattern)
-        return regex.firstMatch(in: string, options: [], range: range) != nil
+        if let regex = try? NSRegularExpression(pattern: pattern) {
+            return regex.firstMatch(in: string, options: [], range: range) != nil
+        }
     } else {
         let regexOptions: NSRegularExpression.Options = [.caseInsensitive]
-        let regex = try! NSRegularExpression(pattern: pattern, options: regexOptions)
-        return regex.firstMatch(in: string, options: [], range: range) != nil
+        if let regex = try? NSRegularExpression(pattern: pattern, options: regexOptions) {
+            return regex.firstMatch(in: string, options: [], range: range) != nil
+        }
     }
+    return false
 }
 
 let params = CommandParams()
@@ -294,14 +297,14 @@ guard let historyDict = plist[historyKey] as? [[String: Any]] else {
 let dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
-var historyStrings: [String] = historyDict.compactMap { n in
-    guard let item = n[stringKey] as? String else { return nil }
+var historyStrings: [String] = historyDict.compactMap { item in
+    guard let text = item[stringKey] as? String else { return nil }
 
-    if params.favorites && ((n[favoriteKey] as? String) != isFavorite) {
+    if params.favorites && ((item[favoriteKey] as? String) != isFavorite) {
         return nil
     }
 
-    if let dateString = n[timestampKey] as? String,
+    if let dateString = item[timestampKey] as? String,
        let date = dateFormatter.date(from: dateString)?.timeIntervalSince1970 {
 
         if let beforeDate = params.beforeDate, date >= beforeDate {
@@ -314,21 +317,21 @@ var historyStrings: [String] = historyDict.compactMap { n in
     }
 
     if params.missingDate {
-        if n[timestampKey] == nil {
-            return item
+        if item[timestampKey] == nil {
+            return text
         } else {
             return nil
         }
     }
 
-    return item
+    return text
 }
 
 if let query = params.query {
-    switch (params.searchMode) {
+    switch params.searchMode {
     case .fuzzy: historyStrings = historyStrings.filter { $0.contains(query) }
     case .regex: historyStrings = historyStrings.filter { regexpMatch($0, query) }
-    case .regexi: historyStrings = historyStrings.filter { regexpMatch($0, query, caseSensitive: false)}
+    case .regexi: historyStrings = historyStrings.filter { regexpMatch($0, query, caseSensitive: false) }
     default: break
     }
 }
