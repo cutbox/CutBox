@@ -7,13 +7,11 @@ github_summary() {
 
 summary_test() {
     if [[ "$2" == "$3" ]]; then
-        github_summary "| $1 | Passed ✅ |"
+        github_summary "| $1 | ✅ |"
+        github_summary "| $2 | $3 |"
     else
-        github_summary "| $1 | Failed ☠ |"
-
-        echo "$2"
-        echo "  did not match"
-        echo "$3"
+        github_summary "| $1 | ☠ |"
+        github_summary "| $2 | $3 |"
     fi
 }
 
@@ -42,54 +40,54 @@ github_summary \
 |------|--|"
 
 summary_test \
-"- Show history items from cutbox command line" \
+"- \`cutbox\`" \
 "$($cutbox)" \
 "Test Passed?
 Copied Text
 Copied text"
 
-summary_test "- --fuzzy text" \
+summary_test "\`cutbox --fuzzy text\`" \
 "$($cutbox --fuzzy text)" \
 "Copied text"
 
-summary_test "- --fuzzy zoo - no results" \
+summary_test "\`cutbox --fuzzy zoo\`" \
 "$($cutbox --fuzzy zoo)" \
 ""
 
-summary_test "- --regex Text" \
+summary_test "\`cutbox --regex Text\`" \
 "$($cutbox --regex Text)" \
 "Copied Text"
 
-summary_test "- --regexi Text" \
+summary_test "\`cutbox --regexi Text\`" \
 "$($cutbox --regexi Text)" \
 "Copied Text
 Copied text"
 
-summary_test "- --favorites" \
+summary_test "\`cutbox --favorites\`" \
 "$($cutbox --favorites)" \
 "Test Passed?"
 
-summary_test "- --missing-date" \
+summary_test "\`cutbox --missing-date\`" \
 "$($cutbox --missing-date)" \
 "Test Passed?"
 
-summary_test "- --since 61mins" \
+summary_test "\`cutbox --since 61mins\`" \
 "$($cutbox --since 61mins)" \
 "Test Passed?
 Copied Text"
 
-summary_test "- --since 1.1day" \
+summary_test "\`cutbox --since 1.1day\`" \
 "$($cutbox --since 1.1day)" \
 "Test Passed?
 Copied Text
 Copied text"
 
-summary_test "- --before 1.1hour" \
+summary_test "\`cutbox --before 1.1hour\`" \
 "$($cutbox --before 1.1hour)" \
 "Test Passed?
 Copied text"
 
-summary_test "- --before 1.1day" \
+summary_test "\`cutbox --before 1.1day\`" \
 "$($cutbox --before 1.1day)" \
 "Test Passed?"
 
