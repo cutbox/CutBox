@@ -177,8 +177,7 @@ class CommandParams {
               (["-h", "--help"], usage),
               (["--version"], version)
             ]
-            where hasFlag(infoFlag.0)
-        {
+            where hasFlag(infoFlag.0) {
             print(infoFlag.1)
             exit(0)
         }
