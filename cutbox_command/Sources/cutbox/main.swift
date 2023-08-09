@@ -100,11 +100,7 @@ class CommandParams {
     }
 
     private func hasOpt(_ opt: [String]) -> Int? {
-        let found = opt.compactMap({ (string: String) -> Int? in hasOpt(string) })
-        if found.count > 0 {
-            return found[0]
-        }
-        return nil
+        return opt.compactMap({ (string: String) -> Int? in hasOpt(string) }).first
     }
 
     private func hasOpt(_ opt: String) -> String? {
@@ -118,16 +114,12 @@ class CommandParams {
     }
 
     private func hasOpt(_ opt: [String]) -> String? {
-        let found = opt.compactMap({ (string) -> String? in hasOpt(string) })
-        if found.count > 0 {
-            return found[0]
-        }
-        return nil
+        return opt.compactMap({ (string) -> String? in hasOpt(string) }).first
     }
 
     /// Filter out non-numeric chars from string
     private func filterNums(_ string: String) -> Double? {
-        return Double(string.filter { $0 >= "0" && $0 <= "9" })
+        return Double(string.filter { $0 == "." || $0 >= "0" && $0 <= "9" })
     }
 
     /// Parse string to optional time interval. Any non-numeric chars will be
