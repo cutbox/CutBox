@@ -16,13 +16,16 @@ jobs:
     runs-on: ${{ matrix.macos_version }}
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+          ref: master
+
       - name: Test cubox_command
         run: |
-          echo "- find -------------------------------------------------------------------------"
-          echo "$(find .)"
-          echo "--------------------------------------------------------------------------------"
           test_bin/cutbox -h
-          echo "--------------------------------------------------------------------------------"
 
           if [ $? == 0 ]; then
             echo "cutbox_command Test passed ${{ matrix.macos_version }}"
