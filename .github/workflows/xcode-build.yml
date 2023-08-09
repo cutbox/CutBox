@@ -88,7 +88,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: cutbox_command/build/Release/cutbox
-          asset_name: cutbox
+          asset_name: cutbox-cli
           asset_content_type: application/octet-stream
 
       - name: Update Info.plist (commit/push)
