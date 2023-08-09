@@ -7,9 +7,9 @@ github_summary() {
 
 summary_test() {
     if [[ "$2" == "$3" ]]; then
-        github_summary "$1 - Passed ✅"
+        github_summary "| $1 | Passed ✅ |"
     else
-        github_summary "$1 - Failed ☠"
+        github_summary "| $1 | Failed ☠ |"
 
         echo "$2"
         echo "  did not match"
@@ -37,6 +37,9 @@ defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
 
 github_summary "# CutBox CLI Tests"
+github_summary \
+"| Test |  |
+|------|--|"
 
 summary_test \
 "- Show history items from cutbox command line" \
