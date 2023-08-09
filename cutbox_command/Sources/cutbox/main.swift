@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.100"
+let version = "CutBox v1.5.8 - command line v0.0.101"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -173,15 +173,14 @@ class CommandParams {
     }
 
     private func parse() {
-
         for infoFlag in  [
               (["-h", "--help"], usage),
               (["--version"], version)
-            ] {
-            if hasFlag(infoFlag.0) {
-                print(infoFlag.1)
-                exit(0)
-            }
+            ]
+            where hasFlag(infoFlag.0)
+        {
+            print(infoFlag.1)
+            exit(0)
         }
 
         favorites = hasFlag(["-F", "--favorites"])

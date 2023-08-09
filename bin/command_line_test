@@ -24,16 +24,46 @@ fi
 
 github_summary "$($cutbox --help)"
 
+date_hour_ago=$(TZ=UTC gdate -d "-1 hour" +%Y-%m-%dT%H:%M:%SZ)
+date_day_ago=$(TZ=UTC gdate -d "-1 day" +%Y-%m-%dT%H:%M:%SZ)
+
 # Fake history item via macos defaults write command line:
-defaults write info.ocodo.cutbox historyStore -array-add \
-    '<dict>
-         <key>string</key>
-         <string>Test Passed?</string>
-     </dict>'
+defaults write info.ocodo.cutbox historyStore -array-add "
+<dict><key>string</key><string>Test Passed?</string><key>favorite</key><string>favorite</string></dict>
+<dict><key>string</key><string>Copied Text</string><key>timestamp</key>${date_hour_ago}<string></string></dict>
+<dict><key>string</key><string>Copied text</string><key>timestamp</key>${date_day_ago}<string></string></dict>
+"
 
 github_summary "# CutBox CLI Tests"
 
-summary_test "- 001: Test show history item from cutbox command line" "$($cutbox)" "Test Passed?"
-summary_test "- 002: Test fuzzy filter" "$($cutbox -f zoo)" ""
+summary_test "- Show history items from cutbox command line" "$($cutbox)" \
+"Test Passed?
+Copied Text
+Copied text"
+
+summary_test "- --fuzzy text" "$($cutbox --fuzzy text)" \
+"Copied Text
+Copied text"
+
+summary_test "- --fuzzy zoo - no results" "$($cutbox --fuzzy zoo)" ""
+
+summary_test "- --regex Text" "$($cutbox --regex zoo)" "Copied Text"
+
+summary_test "- --regexi Text" \
+"Copied Text
+Copied text"
+
+summary_test "- --favorites" "$($cutbox --favorites)" "Test Passed?"
+
+summary_test "- --missing-date" "$($cutbox --missing-date)" "Test Passed?"
+
+summary_test "- --since 1.1hour" "$($cutbox --since 1.1hour)" "Copied Text"
+summary_test "- --since 1.1day" "$($cutbox --since 1.1day)" \
+"Copied Text
+Copied text"
+
+summary_test "- --before 1.1hour" "$($cutbox --before 1.1hour)" "Copied text"
+summary_test "- --before 1.1day" "$($cutbox --before 1.1day)" ""
 
 grep "☠" "$GITHUB_STEP_SUMMARY" && exit 1
+
