@@ -20,7 +20,9 @@ jobs:
         run: |
           echo ${{ matrix.macos_version }}
           echo "--------------------------------------------------------------------------------"
-          $(git rev-parse --show-toplevel)/test_bin/cutbox -h
+          ls
+          echo "--------------------------------------------------------------------------------"
+          test_bin/cutbox -h
 
           if [ $? == 0 ]; then
             echo "cutbox_command Test passed"
