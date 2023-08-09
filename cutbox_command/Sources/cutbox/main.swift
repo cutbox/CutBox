@@ -59,6 +59,22 @@ enum SearchMode {
     case fuzzy, regex, regexi
 }
 
+func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
+    let range = NSRange(location: 0, length: string.utf16.count)
+    if caseSensitive {
+        if let regex = try? NSRegularExpression(pattern: pattern) {
+            return regex.firstMatch(in: string, options: [], range: range) != nil
+        }
+    } else {
+        let regexOptions: NSRegularExpression.Options = [.caseInsensitive]
+        if let regex = try? NSRegularExpression(pattern: pattern, options: regexOptions) {
+            return regex.firstMatch(in: string, options: [], range: range) != nil
+        }
+    }
+    return false
+}
+
+
 class CommandParams {
     var query: String?
     var limit: Int?
@@ -87,29 +103,18 @@ class CommandParams {
         return flag.map { hasFlag($0) }.contains(true)
     }
 
-    private func hasOpt(_ opt: String) -> Int? {
-        if let string: String = hasOpt(opt) {
-            return Int(string)
-        }
-        return nil
-    }
-
-    private func hasOpt(_ opt: [String]) -> Int? {
-        return opt.compactMap({ (string: String) -> Int? in hasOpt(string) }).first
-    }
-
-    private func hasOpt(_ opt: String) -> String? {
+    private func hasOpt<T>(_ opts: String...) -> T? {
         let args = CommandLine.arguments
-        if let index = args.firstIndex(of: opt) {
-            if args.indices.contains(index+1) && !args[index+1].starts(with: "-") {
-                return args[index+1]
+        for opt in opts {
+            if let index = args.firstIndex(of: opt) {
+                if args.indices.contains(index+1) && !args[index+1].starts(with: "-") {
+                    if let value = args[index+1] as? T {
+                        return value
+                    }
+                }
             }
         }
         return nil
-    }
-
-    private func hasOpt(_ opt: [String]) -> String? {
-        return opt.compactMap({ (string) -> String? in hasOpt(string) }).first
     }
 
     /// Filter out non-numeric chars from string
@@ -190,39 +195,24 @@ class CommandParams {
         sinceDate = parseTimeOptions("--since")
 
         // Limit
-        limit = hasOpt(["-l", "--limit"])
+        limit = hasOpt("-l", "--limit")
 
         // Search
-        if let rawQuery: String = hasOpt(["-f", "--fuzzy"]) {
+        if let rawQuery: String = hasOpt("-f", "--fuzzy") {
             searchMode = SearchMode.fuzzy
             query = rawQuery.replacingOccurrences(of: "\"", with: "")
         }
 
-        if let rawQuery: String = hasOpt(["-r", "--regex"]) {
+        if let rawQuery: String = hasOpt("-r", "--regex") {
             searchMode = SearchMode.regex
             query = rawQuery.replacingOccurrences(of: "\"", with: "")
         }
 
-        if let rawQuery: String = hasOpt(["-i", "--regexi"]) {
+        if let rawQuery: String = hasOpt("-i", "--regexi") {
             searchMode = SearchMode.regexi
             query = rawQuery.replacingOccurrences(of: "\"", with: "")
         }
     }
-}
-
-func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
-    let range = NSRange(location: 0, length: string.utf16.count)
-    if caseSensitive {
-        if let regex = try? NSRegularExpression(pattern: pattern) {
-            return regex.firstMatch(in: string, options: [], range: range) != nil
-        }
-    } else {
-        let regexOptions: NSRegularExpression.Options = [.caseInsensitive]
-        if let regex = try? NSRegularExpression(pattern: pattern, options: regexOptions) {
-            return regex.firstMatch(in: string, options: [], range: range) != nil
-        }
-    }
-    return false
 }
 
 let params = CommandParams()
