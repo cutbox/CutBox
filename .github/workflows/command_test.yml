@@ -29,9 +29,9 @@ jobs:
 
           if [ $? == 0 ]; then
             echo "# CutBox precompiled CLI success on ${{ matrix.macos_version }} ✅" >> $GITHUB_STEP_SUMMARY
-            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
             test_bin/cutbox -h >> $GITHUB_STEP_SUMMARY
-            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
           else
             echo "# CutBox precompiled CLI failed on ${{ matrix.macos_version }} ☠" >> $GITHUB_STEP_SUMMARY
             exit 1

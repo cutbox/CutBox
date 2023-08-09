@@ -1,33 +1,39 @@
 #!/bin/bash
 
+github_summary() {
+    echo "$1" >> $GITHUB_STEP_SUMMARY
+}
+
+summary_test() {
+    github_summary "$1"
+    if [[ "$2" == "$3" ]]; then
+        github_summary "  - Passed ✅"
+    else
+        github_summary "  - Failed ☠"
+    fi
+}
+
 cutbox=build/Release/cutbox
 
 cd cutbox_command || exit 1
 xcodebuild || exit 1
 
-if [[ -e $cutbox ]]; then
-    $cutbox --help
-
-    # Add history item via macos defaults write command line:
-    defaults write info.ocodo.cutbox historyStore -array-add '<dict>
-                                                                  <key>string</key>
-                                                                  <string>Test Passed?</string>
-                                                              </dict>'
-
-    # Test show history item from cutbox command line...
-    if [[ "$($cutbox)" == "Test Passed?" ]]; then
-        echo "Test 001 Passed"
-    else
-        echo "Test 001 Failed"
-        exit 1
-    fi
-
-    # Test fuzzy filter
-    if [[ "$($cutbox -f zoo)" == "" ]]; then
-        echo "Test 002 Passed"
-    else
-        echo "Test 002 Failed"
-        exit 1
-    fi
-
+if [[ ! -e $cutbox ]]; then
+    exit 1
 fi
+
+github_summary "$($cutbox --help)"
+
+# Fake history item via macos defaults write command line:
+defaults write info.ocodo.cutbox historyStore -array-add \
+    '<dict>
+         <key>string</key>
+         <string>Test Passed?</string>
+     </dict>'
+
+github_summary "# CutBox CLI Tests"
+
+summary_test "- 001: Test show history item from cutbox command line" "$($cutbox)" "Test Passed?"
+summary_test "- 002: Test fuzzy filter" "$($cutbox -f zoo)" ""
+
+grep "☠" "$GITHUB_STEP_SUMMARY" && exit 1

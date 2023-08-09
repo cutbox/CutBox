@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.92"
+let version = "CutBox v1.5.8 - command line v0.0.93"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -9,51 +9,51 @@ let timestampKey = "timestamp"
 let favoriteKey = "favorite"
 let isFavorite = "favorite"
 let usage = """
-OVERVIEW:
-        CutBox history CLI
+CutBox history CLI
+==================
 
-USAGE:  cutbox [options]
+    cutbox [options]
 
-        Display items from CutBox history. Recent items first.
+Display items from CutBox history. Recent items first.
 
-OPTIONS:
-        -l or --limit <num>                Return first num items
+OPTIONS
+-------
 
-        Search
+    -l or --limit <num>        Return first num items
 
-        -f or --fuzzy <query>              Fuzzy match items
-        -r or --regex <query>              Regexp match items
-        -i or --regexi <query>             Regexp match items (case insensitive)
+Search
+------
 
-        --favorites                        Only favorites
+    -f or --fuzzy <query>      Fuzzy match items
+    -r or --regex <query>      Regexp match items
+    -i or --regexi <query>     Regexp match items (case insensitive)
 
-        Filter by Date / time
+    --favorites                Only favorites
 
-        --since-date <ISO 8601 datetime>  e.g. 2023-06-05T09:21:59Z
-        --before-date <ISO 8601 datetime>
+Filter by Date / time
+---------------------
 
-        --since-seconds-ago <seconds>
-        --before-seconds-ago <seconds>
+Filter by ISO 8601 datetime e.g. 2023-06-05T09:21:59Z
 
-        --since-minutes-ago <minutes>
-        --before-minutes-ago <minutes>
+    --since-date <datetime>
+    --before-date <datetime>
 
-        --since-hours-ago <hours>
-        --before-hours-ago <hours>
+Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 1.5hours.
+Supports seconds, minutes, hours, days, weeks.
 
-        --since-days-ago <days>
-        --before-days-ago <days>
+    --since <time>
+    --before <time>
 
-        --since <time>                    e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 1.5hours etc.
-        --before <time>
+Misc
+----
 
-        Misc
+Only display history
 
-        --missing-date                     Only display history items without a date (pre CutBox v1.5.5)
+    --missing-date   only list items missing a date (copied pre CutBox v1.5.5)
 
-        --version                          \(version)
+    --version        show the current version
 
-        -h or --help show this message.
+    -h or --help show this.
 """
 
 enum SearchMode {
