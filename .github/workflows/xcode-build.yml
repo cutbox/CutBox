@@ -65,7 +65,7 @@ jobs:
           mkdir tmp/
           bin/get_release_notes | tee tmp/release-notes.md
 
-      - name: Create Release (${{ env.RELEASE }})
+      - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         with:
@@ -88,7 +88,7 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: cutbox_command/build/Release/cutbox
-          asset_name: cutbox-cli
+          asset_name: cutbox
           asset_content_type: application/octet-stream
 
       - name: Update Info.plist (commit/push)

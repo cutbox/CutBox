@@ -2,13 +2,23 @@
 
 github_summary() {
     echo "$1" >> $GITHUB_STEP_SUMMARY
+    echo "$1"
 }
 
 summary_test() {
     github_summary "$1"
+
     if [[ "$2" == "$3" ]]; then
+        echo "$2"
+        echo "  equals"
+        echo "$3"
+
         github_summary "  - Passed ✅"
     else
+        echo "$2"
+        echo "  not equal to"
+        echo "$3"
+
         github_summary "  - Failed ☠"
     fi
 }
@@ -47,9 +57,9 @@ Copied text"
 
 summary_test "- --fuzzy zoo - no results" "$($cutbox --fuzzy zoo)" ""
 
-summary_test "- --regex Text" "$($cutbox --regex zoo)" "Copied Text"
+summary_test "- --regex Text" "$($cutbox --regex Text)" "Copied Text"
 
-summary_test "- --regexi Text" \
+summary_test "- --regexi Text" "$($cutbox --regexi Text)" \
 "Copied Text
 Copied text"
 
@@ -57,7 +67,7 @@ summary_test "- --favorites" "$($cutbox --favorites)" "Test Passed?"
 
 summary_test "- --missing-date" "$($cutbox --missing-date)" "Test Passed?"
 
-summary_test "- --since 1.1hour" "$($cutbox --since 1.1hour)" "Copied Text"
+summary_test "- --since 61mins" "$($cutbox --since 61mins)" "Copied Text"
 summary_test "- --since 1.1day" "$($cutbox --since 1.1day)" \
 "Copied Text
 Copied text"
