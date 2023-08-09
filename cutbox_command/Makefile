@@ -1,12 +1,13 @@
-xcbuild:
+.PHONY: build test_bin install verify_test
+
+build:
 	xcodebuild
 
-run_show_all:
-	build/Release/cutbox
+test_bin: build
+	cp -v build/Release/cutbox ../test_bin/
 
-show_help:
-	build/Release/cutbox --help
-
-install:
-	xcodebuild
+install: build
 	cp -v build/Release/cutbox /usr/local/bin/cutbox
+
+verify_test: test_bin
+	../test_bin/cutbox -h

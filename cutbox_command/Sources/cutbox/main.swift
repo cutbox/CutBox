@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.71"
+let version = "CutBox v1.5.8 - command line v0.0.72"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -42,7 +42,7 @@ OPTIONS:
         --since-hours-ago <hours>
 
         --before-days-ago <days>
-        --since-days=ago <days>
+        --since-days-ago <days>
 
         Misc
 
