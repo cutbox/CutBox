@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.72"
+let version = "CutBox v1.5.8 - command line v0.0.75"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -10,11 +10,11 @@ let favoriteKey = "favorite"
 let isFavorite = "favorite"
 let usage = """
 OVERVIEW:
-        Inspect the cutbox history from the command line
+        CutBox history CLI
 
 USAGE:  cutbox [options]
 
-        Display items from cutbox history, starting at the most recent item.
+        Display items from CutBox history. Recent items first.
 
 OPTIONS:
         -l or --limit <num>                Return first num items
