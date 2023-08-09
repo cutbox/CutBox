@@ -30,13 +30,13 @@ Note: Search modes are mutually exclusive
     -r or --regex <query>      Regexp match items
     -i or --regexi <query>     Regexp match items (case insensitive)
 
-Flags: (can be combined with search modes)
+Filtering
+---------
+
+Filter flags
 
     --favorites                Only list favorites
     --missing-date             Only list items missing a date (copied pre CutBox v1.5.5)
-
-Filter by Date / time
----------------------
 
 Filter by ISO 8601 datetime e.g. 2023-06-05T09:21:59Z
 
@@ -70,10 +70,6 @@ class CommandParams {
     var searchMode: SearchMode?
     var missingDate: Bool = false
     var favorites: Bool = false
-
-    private let MINUTE = 60.0
-    private let HOUR = 3600.0
-    private let DAY = 86400.0
 
     private let dateFormatter = DateFormatter()
 
@@ -124,35 +120,30 @@ class CommandParams {
         return Double(string.filter { $0 == "." || $0 >= "0" && $0 <= "9" })
     }
 
+    private let timeUnitsTable = [
+      (pattern: "m|minutes|min|minute",      factor: 60.0),
+      (pattern: "h|hours|hr|hrs|hour",       factor: 60.0 * 60.0),
+      (pattern: "d|days|day",                factor: 24.0 * 60.0 * 60.0),
+      (pattern: "w|week|weeks|wk|wks",       factor: 7.0 * 24.0 * 60.0 * 60.0),
+      (pattern: "s|sec|secs|second|seconds", factor: 1.0)
+    ]
+
     /// Parse string to optional time interval. Any non-numeric chars will be
     /// filtered out after matching on seconds (or s,sec,secs), minutes (or
     /// m,min,mins), hours (or h,hr,hrs), days (or d,day). (case insensitive)
     private func parseToSeconds(_ time: String) -> Double? {
-        switch time {
-        case _ where regexpMatch(time, "m|minutes|min|minute", caseSensitive: false):
-            if let seconds = filterNums(time) {
-                return seconds * MINUTE
-            }
-        case _ where regexpMatch(time, "h|hours|hr|hrs|hour", caseSensitive: false):
-            if let seconds = filterNums(time) {
-                return seconds * HOUR
-            }
-        case _ where regexpMatch(time, "d|days|day", caseSensitive: false):
-            if let seconds = filterNums(time) {
-                return seconds * DAY
-            }
-        case _ where regexpMatch(time, "s|seconds|sec|secs", caseSensitive: false):
-            if let seconds = filterNums(time) {
-                return seconds
-            }
-        default:
-            break
+        if let seconds = filterNums(time) {
+            return timeUnitsTable.compactMap { (unit: (pattern: String, factor: Double)) -> Double? in
+                if regexpMatch(time, unit.pattern, caseSensitive: false) {
+                    return seconds * unit.factor
+                }
+                return nil
+            }.first
         }
 
         return nil
     }
 
-    // swiftlint:disable cyclomatic_complexity
     private func timeOpt(_ option: String) -> TimeInterval? {
         if let value: String = hasOpt(option) {
             let opt = option as NSString
@@ -160,22 +151,6 @@ class CommandParams {
             case _ where opt.contains("date"):
                 if let date = dateFormatter.date(from: value) {
                     return date.timeIntervalSince1970
-                }
-            case _ where opt.contains("seconds"):
-                if let seconds = Double(value) {
-                    return Date().timeIntervalSince1970 - seconds
-                }
-            case _ where opt.contains("minutes"):
-                if let minutes = Double(value) {
-                    return Date().timeIntervalSince1970 - minutes * 60
-                }
-            case _ where opt.contains("hours"):
-                if let hours = Double(value) {
-                    return Date().timeIntervalSince1970 - hours * 3600
-                }
-            case _ where opt.contains("days"):
-                if let days = Double(value) {
-                    return Date().timeIntervalSince1970 - days * 86400
                 }
             case _ where parseToSeconds(value) != nil:
                 if let seconds = parseToSeconds(value) {
