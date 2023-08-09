@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.90"
+let version = "CutBox v1.5.8 - command line v0.0.91"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -127,7 +127,7 @@ class CommandParams {
 
     /// Filter out non-numeric chars from string
     private func filterNums(_ string: String) -> Double? {
-        return Double(string.filter{ $0 >= "0" && $0 <= "9" })
+        return Double(string.filter { $0 >= "0" && $0 <= "9" })
     }
 
     /// Parse string to optional time interval. Any non-numeric chars will be
@@ -158,6 +158,7 @@ class CommandParams {
         return nil
     }
 
+    // swiftlint:disable cyclomatic_complexity
     private func timeOpt(_ option: String) -> TimeInterval? {
         if let value: String = hasOpt(option) {
             let opt = option as NSString
