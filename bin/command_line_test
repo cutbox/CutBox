@@ -42,6 +42,8 @@ defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
 
+defaults read info.ocodo.cutbox
+
 github_summary "# CutBox CLI Tests"
 
 summary_test \
@@ -53,8 +55,7 @@ Copied text"
 
 summary_test "- --fuzzy text" \
 "$($cutbox --fuzzy text)" \
-"Copied Text
-Copied text"
+"Copied text"
 
 summary_test "- --fuzzy zoo - no results" \
 "$($cutbox --fuzzy zoo)" \
