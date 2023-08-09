@@ -9,3 +9,5 @@ install :: build
 
 verify_test :: test_bin
 	../test_bin/cutbox -h
+
+all :: install verify_test

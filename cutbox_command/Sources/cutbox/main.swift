@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.75"
+let version = "CutBox v1.5.8 - command line v0.0.90"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -44,9 +44,12 @@ OPTIONS:
         --before-days-ago <days>
         --since-days-ago <days>
 
+        --before <time> e.g. time is 7d, 1min, 5hr, 30s, 25sec etc.
+        --since <time>
+
         Misc
 
-        --missing-date                     Display history items with no date (before CutBox v1.5.5)
+        --missing-date                     Only display history items without a date (pre CutBox v1.5.5)
 
         --version                          \(version)
 
@@ -65,6 +68,10 @@ class CommandParams {
     var searchMode: SearchMode?
     var missingDate: Bool = false
     var favorites: Bool = false
+
+    private let MINUTE = 60.0
+    private let HOUR = 3600.0
+    private let DAY = 86400.0
 
     private let dateFormatter = DateFormatter()
 
@@ -118,29 +125,66 @@ class CommandParams {
         return nil
     }
 
-    func timeOpt(_ opt: String) -> TimeInterval? {
-        if let value: String = hasOpt(opt) {
-            let nsOpt = opt as NSString
-            switch nsOpt {
-            case _ where nsOpt.contains("date"):
+    /// Filter out non-numeric chars from string
+    private func filterNums(_ string: String) -> Double? {
+        return Double(string.filter{ $0 >= "0" && $0 <= "9" })
+    }
+
+    /// Parse string to optional time interval. Any non-numeric chars will be
+    /// filtered out after matching on seconds (or s,sec,secs), minutes (or
+    /// m,min,mins), hours (or h,hr,hrs), days (or d,day). (case insensitive)
+    private func parseToSeconds(_ time: String) -> Double? {
+        switch time {
+        case _ where regexpMatch(time, "m|minutes|min|minute", caseSensitive: false):
+            if let seconds = filterNums(time) {
+                return seconds * MINUTE
+            }
+        case _ where regexpMatch(time, "h|hours|hr|hrs|hour", caseSensitive: false):
+            if let seconds = filterNums(time) {
+                return seconds * HOUR
+            }
+        case _ where regexpMatch(time, "d|days|day", caseSensitive: false):
+            if let seconds = filterNums(time) {
+                return seconds * DAY
+            }
+        case _ where regexpMatch(time, "s|seconds|sec|secs", caseSensitive: false):
+            if let seconds = filterNums(time) {
+                return seconds
+            }
+        default:
+            break
+        }
+
+        return nil
+    }
+
+    private func timeOpt(_ option: String) -> TimeInterval? {
+        if let value: String = hasOpt(option) {
+            let opt = option as NSString
+            switch opt {
+            case _ where opt.contains("date"):
                 if let date = dateFormatter.date(from: value) {
                     return date.timeIntervalSince1970
                 }
-            case _ where nsOpt.contains("seconds"):
+            case _ where opt.contains("seconds"):
                 if let seconds = Double(value) {
                     return Date().timeIntervalSince1970 - seconds
                 }
-            case _ where nsOpt.contains("minutes"):
+            case _ where opt.contains("minutes"):
                 if let minutes = Double(value) {
                     return Date().timeIntervalSince1970 - minutes * 60
                 }
-            case _ where nsOpt.contains("hours"):
+            case _ where opt.contains("hours"):
                 if let hours = Double(value) {
                     return Date().timeIntervalSince1970 - hours * 3600
                 }
-            case _ where nsOpt.contains("days"):
+            case _ where opt.contains("days"):
                 if let days = Double(value) {
                     return Date().timeIntervalSince1970 - days * 86400
+                }
+            case _ where parseToSeconds(value) != nil:
+                if let seconds = parseToSeconds(value) {
+                    return Date().timeIntervalSince1970 - seconds
                 }
             default:
                 break
@@ -151,11 +195,12 @@ class CommandParams {
 
     private func parseTimeOptions(_ prefix: String) -> TimeInterval? {
         let timeLevels = [
-          "date",
-          "days-ago",
-          "hours-ago",
-          "minutes-ago",
-          "seconds-ago"
+          "",
+          "-date",
+          "-days-ago",
+          "-hours-ago",
+          "-minutes-ago",
+          "-seconds-ago"
         ]
 
         return timeLevels
@@ -195,8 +240,8 @@ class CommandParams {
         }
 
         // Date
-        beforeDate = parseTimeOptions("--before-")
-        sinceDate = parseTimeOptions("--since-")
+        beforeDate = parseTimeOptions("--before")
+        sinceDate = parseTimeOptions("--since")
 
         // Favorites
         favorites = hasFlag("--favorites")
@@ -209,8 +254,6 @@ class CommandParams {
     }
 }
 
-let params = CommandParams()
-
 func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
     let range = NSRange(location: 0, length: string.utf16.count)
     if caseSensitive {
@@ -222,6 +265,8 @@ func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true
         return regex.firstMatch(in: string, options: [], range: range) != nil
     }
 }
+
+let params = CommandParams()
 
 // Read cutbox history"
 guard let plistData = FileManager.default.contents(atPath: plistPath) else {
