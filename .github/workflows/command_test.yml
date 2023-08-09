@@ -28,11 +28,11 @@ jobs:
           test_bin/cutbox -h
 
           if [ $? == 0 ]; then
-            echo "# CutBox cli Success on ${{ matrix.macos_version }}" >> $GITHUB_STEP_SUMMARY
+            echo "# CutBox CLI Success on ${{ matrix.macos_version }}" >> $GITHUB_STEP_SUMMARY
             echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
             test_bin/cutbox -h >> $GITHUB_STEP_SUMMARY
             echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
           else
-            echo "# CutBox cli Failed on ${{ matrix.macos_version }}" >> $GITHUB_STEP_SUMMARY
+            echo "# CutBox CLI Failed on ${{ matrix.macos_version }}" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
