@@ -42,8 +42,6 @@ defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
 
-defaults read info.ocodo.cutbox
-
 github_summary "# CutBox CLI Tests"
 
 summary_test \
@@ -71,7 +69,7 @@ summary_test "- --regexi Text" \
 Copied text"
 
 summary_test "- --favorites" \
-"$($cutbox --favorites)"
+"$($cutbox --favorites)" \
 "Test Passed?"
 
 summary_test "- --missing-date" \
@@ -80,20 +78,23 @@ summary_test "- --missing-date" \
 
 summary_test "- --since 61mins" \
 "$($cutbox --since 61mins)" \
-"Copied Text"
+"Test Passed?
+Copied Text"
 
 summary_test "- --since 1.1day" \
 "$($cutbox --since 1.1day)" \
-"Copied Text
+"Test Passed?
+Copied Text
 Copied text"
 
 summary_test "- --before 1.1hour" \
 "$($cutbox --before 1.1hour)" \
-"Copied text"
+"Test Passed?
+Copied text"
 
 summary_test "- --before 1.1day" \
 "$($cutbox --before 1.1day)" \
-""
+"Test Passed?"
 
 grep "☠" "$GITHUB_STEP_SUMMARY" && exit 1
 
