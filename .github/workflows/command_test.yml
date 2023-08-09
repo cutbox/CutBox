@@ -18,15 +18,15 @@ jobs:
     steps:
       - name: Test cubox_command
         run: |
-          echo ${{ matrix.macos_version }}
           echo "--------------------------------------------------------------------------------"
-          ls
+          echo $(ls -R)
           echo "--------------------------------------------------------------------------------"
           test_bin/cutbox -h
+          echo "--------------------------------------------------------------------------------"
 
           if [ $? == 0 ]; then
-            echo "cutbox_command Test passed"
+            echo "cutbox_command Test passed ${{ matrix.macos_version }}"
           else
-            echo "cutbox_command Test failed"
+            echo "cutbox_command Test failed ${{ matrix.macos_version }}"
             exit 1
           fi
