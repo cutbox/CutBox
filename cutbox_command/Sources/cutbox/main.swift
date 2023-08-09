@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.95"
+let version = "CutBox v1.5.8 - command line v0.0.100"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -16,46 +16,43 @@ Display items from CutBox history. Most recent items first.
 
     cutbox [options]
 
-OPTIONS
--------
-
-    -l or --limit <num>        Limit to num items
+Options:
+========
 
 Search
 ------
 
 Note: Search modes are mutually exclusive
 
-    -f or --fuzzy <query>      Fuzzy match items (case insensitive)
-    -r or --regex <query>      Regexp match items
-    -i or --regexi <query>     Regexp match items (case insensitive)
+    -f or --fuzzy <query>   Fuzzy match items (case insensitive)
+    -r or --regex <query>   Regexp match items
+    -i or --regexi <query>  Regexp match items (case insensitive)
 
 Filtering
 ---------
 
 Filter flags
 
-    --favorites                Only list favorites
-    --missing-date             Only list items missing a date (copied pre CutBox v1.5.5)
+    -l or --limit <num>     Limit to num items
+    -F or --favorites       Only list favorites
+    -M or --missing-date    Only list items missing a date (copied pre CutBox v1.5.5)
 
-Filter by ISO 8601 datetime e.g. 2023-06-05T09:21:59Z
-
-    --since-date <datetime>
-    --before-date <datetime>
-
-Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 1.5hours.
+Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 2wks, 1.5hours, etc.
 Supports seconds, minutes, hours, days, weeks.
 
     --since <time>
     --before <time>
 
-Misc
+Filter by ISO 8601 date e.g. 2023-06-05T09:21:59Z
+
+    --since-date <date>
+    --before-date <date>
+
+Info
 ----
 
-
-    --version        Show the current version
-
-    -h or --help     Show this help page
+    --version               Show the current version
+    -h or --help            Show this help page
 """
 
 enum SearchMode {
@@ -164,63 +161,54 @@ class CommandParams {
     }
 
     private func parseTimeOptions(_ prefix: String) -> TimeInterval? {
-        let timeLevels = [
+        let timeOptions = [
           "",
-          "-date",
-          "-days-ago",
-          "-hours-ago",
-          "-minutes-ago",
-          "-seconds-ago"
+          "-date"
         ]
 
-        return timeLevels
+        return timeOptions
           .map { "\(prefix)\($0)" }
           .compactMap { timeOpt($0) }
           .first
     }
 
     private func parse() {
-        // Show usage for -h or --help or help arg
-        if hasFlag(["-h", "--help"]) {
-            print(usage)
-            exit(0)
+
+        for infoFlag in  [
+              (["-h", "--help"], usage),
+              (["--version"], version)
+            ] {
+            if hasFlag(infoFlag.0) {
+                print(infoFlag.1)
+                exit(0)
+            }
         }
 
-        if hasFlag(["--version"]) {
-            print(version)
-            exit(0)
-        }
-
-        // check for fuzzy opt
-        if let rawQuery: String = hasOpt(["-f", "--fuzzy"]) {
-            searchMode = SearchMode.fuzzy
-            query = rawQuery.replacingOccurrences(of: "\"", with: "")
-        }
-
-        // check for regex opt
-        if let rawQuery: String = hasOpt(["-r", "--regex"]) {
-            searchMode = SearchMode.regex
-            query = rawQuery.replacingOccurrences(of: "\"", with: "")
-        }
-
-        // check for regexi opt
-        if let rawQuery: String = hasOpt(["-i", "--regexi"]) {
-            searchMode = SearchMode.regexi
-            query = rawQuery.replacingOccurrences(of: "\"", with: "")
-        }
+        favorites = hasFlag(["-F", "--favorites"])
+        missingDate = hasFlag(["-M", "--missing-date"])
 
         // Date
         beforeDate = parseTimeOptions("--before")
         sinceDate = parseTimeOptions("--since")
 
-        // Favorites
-        favorites = hasFlag("--favorites")
-
-        // Favorites
-        missingDate = hasFlag("--missing-date")
-
         // Limit
         limit = hasOpt(["-l", "--limit"])
+
+        // Search
+        if let rawQuery: String = hasOpt(["-f", "--fuzzy"]) {
+            searchMode = SearchMode.fuzzy
+            query = rawQuery.replacingOccurrences(of: "\"", with: "")
+        }
+
+        if let rawQuery: String = hasOpt(["-r", "--regex"]) {
+            searchMode = SearchMode.regex
+            query = rawQuery.replacingOccurrences(of: "\"", with: "")
+        }
+
+        if let rawQuery: String = hasOpt(["-i", "--regexi"]) {
+            searchMode = SearchMode.regexi
+            query = rawQuery.replacingOccurrences(of: "\"", with: "")
+        }
     }
 }
 
