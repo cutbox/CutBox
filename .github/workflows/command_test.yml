@@ -22,4 +22,7 @@ jobs:
           test_bin/cutbox -h
           if [ $? == 0 ]; then
             echo "cutbox_command Test passed"
+          else
+            echo "cutbox_command Test failed"
+            exit 1
           fi
