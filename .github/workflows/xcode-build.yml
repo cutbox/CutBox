@@ -19,6 +19,13 @@ jobs:
           fetch-depth: 0
           ref: master
 
+      - name: Test cubox_command
+        run: |
+          test_bin/cutbox -h
+          if [ $? == 0 ]; then
+            echo "cutbox_command Test passed"
+          fi
+
       - name: CI diagnostics
         run: |
           echo "============================================================"
