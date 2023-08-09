@@ -75,13 +75,20 @@ jobs:
           prerelease: false
           body_path: tmp/release-notes.md
 
-
-      - name: Upload CutBox.dmg
+      - name: Upload CutBox.dmg release asset
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: CutBox.dmg
           asset_name: CutBox-${{env.RELEASE}}.dmg
+          asset_content_type: application/octet-stream
+
+      - name: Upload CutBox cli release asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: cutbox_command/build/Release/cutbox
+          asset_name: cutbox
           asset_content_type: application/octet-stream
 
       - name: Update Info.plist

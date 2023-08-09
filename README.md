@@ -129,27 +129,54 @@ FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
 
 # Command line access
 
-The CutBox repo includes a command line tool to access history.
+The CutBox also has a CLI tool to access history via the terminal.  Download the CLI command `cutbox` from [releases](https://github.com/cutbox/CutBox/releases). (From v1.5.8 onwards.)
+
+Note the CLI only performs read-only actions on CutBox history.
 
 ```
-Usage:
+OVERVIEW:
+        CutBox history CLI
 
-cutbox [-f query] [limit]
+USAGE:  cutbox [options]
 
-History items can be filtered by Query (string contained in a history item)
+        Display items from CutBox history. Recent items first.
 
-Limit will show the top n items (after filtering if used.)
+OPTIONS:
+        -l or --limit <num>                Return first num items
+
+        Search
+
+        -f or --fuzzy <query>              Fuzzy match items
+        -r or --regex <query>              Regexp match items
+        -i or --regexi <query>             Regexp match items (case insensitive)
+
+        --favorites                        Only favorites
+
+        Filter by Date / time
+
+        --before-date <ISO 8601 datetime>  e.g. 2023-06-05T09:21:59Z
+        --since-date <ISO 8601 datetime>
+
+        --before-seconds-ago <seconds>
+        --since-seconds-ago <seconds>
+
+        --before-minutes-ago <minutes>
+        --since-minutes-ago <minutes>
+
+        --before-hours-ago <hours>
+        --since-hours-ago <hours>
+
+        --before-days-ago <days>
+        --since-days-ago <days>
+
+        Misc
+
+        --missing-date                     Display history items with no date (before CutBox v1.5.5)
+
+        --version                          CutBox v1.5.8 - command line v0.0.75
+
+        -h or --help show this message.
 ```
-
-The command line tool must be compiled at the moment, from the `cutbox_command` folder you can run:
-
-```sh
-swift build -c release; cp .build/release/cutbox /usr/local/bin/
-```
-
-This will build and install the command to `/usr/local/bin`
-
-The command will fail to run if CutBox is not installed and has history.
 
 # Would you like to know more?
 
