@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.93"
+let version = "CutBox v1.5.8 - command line v0.0.95"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -12,23 +12,28 @@ let usage = """
 CutBox history CLI
 ==================
 
-    cutbox [options]
+Display items from CutBox history. Most recent items first.
 
-Display items from CutBox history. Recent items first.
+    cutbox [options]
 
 OPTIONS
 -------
 
-    -l or --limit <num>        Return first num items
+    -l or --limit <num>        Limit to num items
 
 Search
 ------
 
-    -f or --fuzzy <query>      Fuzzy match items
+Note: Search modes are mutually exclusive
+
+    -f or --fuzzy <query>      Fuzzy match items (case insensitive)
     -r or --regex <query>      Regexp match items
     -i or --regexi <query>     Regexp match items (case insensitive)
 
-    --favorites                Only favorites
+Flags: (can be combined with search modes)
+
+    --favorites                Only list favorites
+    --missing-date             Only list items missing a date (copied pre CutBox v1.5.5)
 
 Filter by Date / time
 ---------------------
@@ -47,13 +52,10 @@ Supports seconds, minutes, hours, days, weeks.
 Misc
 ----
 
-Only display history
 
-    --missing-date   only list items missing a date (copied pre CutBox v1.5.5)
+    --version        Show the current version
 
-    --version        show the current version
-
-    -h or --help show this.
+    -h or --help     Show this help page
 """
 
 enum SearchMode {
