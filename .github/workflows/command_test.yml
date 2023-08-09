@@ -19,7 +19,7 @@ jobs:
       - name: Test cubox_command
         run: |
           echo ${{ matrix.macos_version }}
-          test_bin/cutbox -h
+          ../test_bin/cutbox -h
           if [ $? == 0 ]; then
             echo "cutbox_command Test passed"
           else
