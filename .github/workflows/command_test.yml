@@ -1,4 +1,4 @@
-name: Command Line run tests
+name: CutBox cli run testing
 
 on:
   push:
@@ -28,8 +28,11 @@ jobs:
           test_bin/cutbox -h
 
           if [ $? == 0 ]; then
-            echo "cutbox_command Test passed ${{ matrix.macos_version }}"
+            echo "# CutBox cli Success on ${{ matrix.macos_version }}" >> $GITHUB_STEP_SUMMARY
+            echo "```" >> $GITHUB_STEP_SUMMARY
+            test_bin/cutbox -h >> $GITHUB_STEP_SUMMARY
+            echo "```" >> $GITHUB_STEP_SUMMARY
           else
-            echo "cutbox_command Test failed ${{ matrix.macos_version }}"
+            echo "# CutBox cli Failed on ${{ matrix.macos_version }}" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
