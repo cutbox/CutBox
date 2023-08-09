@@ -1,6 +1,6 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.91"
+let version = "CutBox v1.5.8 - command line v0.0.92"
 
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
@@ -29,23 +29,23 @@ OPTIONS:
 
         Filter by Date / time
 
-        --before-date <ISO 8601 datetime>  e.g. 2023-06-05T09:21:59Z
-        --since-date <ISO 8601 datetime>
+        --since-date <ISO 8601 datetime>  e.g. 2023-06-05T09:21:59Z
+        --before-date <ISO 8601 datetime>
 
-        --before-seconds-ago <seconds>
         --since-seconds-ago <seconds>
+        --before-seconds-ago <seconds>
 
-        --before-minutes-ago <minutes>
         --since-minutes-ago <minutes>
+        --before-minutes-ago <minutes>
 
-        --before-hours-ago <hours>
         --since-hours-ago <hours>
+        --before-hours-ago <hours>
 
-        --before-days-ago <days>
         --since-days-ago <days>
+        --before-days-ago <days>
 
-        --before <time> e.g. time is 7d, 1min, 5hr, 30s, 25sec etc.
-        --since <time>
+        --since <time>                    e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 1.5hours etc.
+        --before <time>
 
         Misc
 
