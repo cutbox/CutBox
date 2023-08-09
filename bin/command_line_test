@@ -6,20 +6,18 @@ github_summary() {
 }
 
 summary_test() {
-    github_summary "$1"
-
     if [[ "$2" == "$3" ]]; then
         echo "$2"
         echo "  equals"
         echo "$3"
 
-        github_summary "  - Passed ✅"
+        github_summary "$1 - Passed ✅"
     else
         echo "$2"
         echo "  not equal to"
         echo "$3"
 
-        github_summary "  - Failed ☠"
+        github_summary "$1 - Failed ☠"
     fi
 }
 
@@ -96,5 +94,4 @@ summary_test "- --before 1.1day" \
 "$($cutbox --before 1.1day)" \
 "Test Passed?"
 
-grep "☠" "$GITHUB_STEP_SUMMARY" && exit 1
-
+[[ "$(grep "☠" "$GITHUB_STEP_SUMMARY")" == "" ]]  ||  exit 1
