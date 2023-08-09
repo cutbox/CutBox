@@ -7,17 +7,13 @@ github_summary() {
 
 summary_test() {
     if [[ "$2" == "$3" ]]; then
-        echo "$2"
-        echo "  equals"
-        echo "$3"
-
         github_summary "$1 - Passed ✅"
     else
-        echo "$2"
-        echo "  not equal to"
-        echo "$3"
-
         github_summary "$1 - Failed ☠"
+
+        echo "$2"
+        echo "  did not match"
+        echo "$3"
     fi
 }
 
