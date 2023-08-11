@@ -11,7 +11,6 @@
 		34A2908628DD41490024C81C /* PreferencesThemeSelectionView+HidePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD078A28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift */; };
 		34BD078B28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BD078A28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift */; };
 		7C5495DF2276785B0041FA76 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5495DE2276785B0041FA76 /* String+Utils.swift */; };
-		83981C3A4AFFF9FA3DBF5DA2 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */; };
 		883FF82B9DF08DAE9D649D05 /* libPods-CutBoxAll-CutBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A9AA28D453AAA8BDF124E3 /* libPods-CutBoxAll-CutBox.a */; };
 		961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
@@ -462,7 +461,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAF4D0FD74B2C7CF65DB1488 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
-				83981C3A4AFFF9FA3DBF5DA2 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -942,7 +940,7 @@
 					cutboxLogo,
 				);
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = ocodo;
 				TargetAttributes = {
 					962D6D6D20746109007E3785 = {
@@ -1468,6 +1466,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CutBoxHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1490,6 +1489,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CutBoxHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1513,9 +1513,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1536,9 +1537,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxUnitTests;
@@ -1583,6 +1585,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1644,6 +1647,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1673,6 +1677,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CutBox/Info.plist;
@@ -1697,6 +1702,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CutBox/Info.plist;
