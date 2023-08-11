@@ -917,7 +917,7 @@
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
 				962D6D802074622A007E3785 /* CopyFiles */,
 				964CA52D207F92AA00B9F33E /* CopyFiles */,
-				9689879620D2037300D40C02 /* ShellScript */,
+				9689879620D2037300D40C02 /* Swiftlint */,
 				BF6D2BA12FA09425F0F3B6F6 /* [CP-User] Sign */,
 				9E83FAFE5121711CF945CA64 /* [CP] Embed Pods Frameworks */,
 			);
@@ -1109,6 +1109,7 @@
 		};
 		96085E4A206E36CC00CA77BB /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -1150,13 +1151,15 @@
 			shellPath = /bin/sh;
 			shellScript = "${PROJECT_DIR}/scripts/bump_version_on_archive\n";
 		};
-		9689879620D2037300D40C02 /* ShellScript */ = {
+		9689879620D2037300D40C02 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

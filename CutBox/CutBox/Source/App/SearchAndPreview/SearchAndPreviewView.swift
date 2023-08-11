@@ -52,6 +52,15 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     private func setupHistoryScopeButton() {
         colorizeHistoryScopeIcon(color: prefs.currentTheme.searchText.placeholderTextColor,
                                  alpha: 0.4)
+
+        self.historyScopeImageButton.rx.tap
+            .bind { [weak self] in self?.historyScopeClicked() }
+            .disposed(by: disposeBag)
+    }
+
+    private func historyScopeClicked() {
+        /// TODO: This should activate the historyScope popup UI
+        print("historyScopeClicked()")
     }
 
     private func setupSearchModeToggle() {
