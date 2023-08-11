@@ -50,7 +50,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func setupHistoryScopeButton() {
-        colorizeHistoryScope()
+        colorizeHistoryScopeIcon(color: prefs.currentTheme.searchText.placeholderTextColor,
+                                 alpha: 0.4)
     }
 
     private func setupSearchModeToggle() {
@@ -120,7 +121,9 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     override func applyTheme() {
         super.applyTheme()
 
-        colorizeHistoryScope()
+        colorizeHistoryScopeIcon(color: prefs.currentTheme.searchText.placeholderTextColor,
+                                 alpha: 0.4)
+
         setSearchModeButton(mode: HistoryService.shared.searchMode)
         setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }

@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import Cocoa
+import CoreImage
 
 class SearchPreviewViewBase: NSView {
 
@@ -116,12 +117,14 @@ class SearchPreviewViewBase: NSView {
         self.searchScopeImageButton.toolTip = toolTip
     }
 
-    func colorizeHistoryScope(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
-                              tooltip: String = "history_scope_tooltip_all".l7n) {
+    func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
+                                  tooltip: String = "history_scope_tooltip_all".l7n,
+                                  color: NSColor,
+                                  alpha: Double = 0.75) {
         let image = image
         let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
 
-        self.historyScopeImageButton.alphaValue = 0.75
+        self.historyScopeImageButton.alphaValue = alpha
         self.historyScopeImageButton.image = blended
         self.historyScopeImageButton.toolTip = tooltip
     }
