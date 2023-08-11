@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -243,6 +243,17 @@
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="Elj-qC-DgK">
                                         <rect key="frame" x="0.0" y="0.0" width="927" height="50"/>
                                         <subviews>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="GES-NZ-iAa" userLabel="History Scope Image Button ">
+                                                <rect key="frame" x="8" y="10" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="L9a-aO-3ww"/>
+                                                    <constraint firstAttribute="width" constant="32" id="VEn-0U-d2h"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="IgD-dS-vkI">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
                                                 <rect key="frame" x="904" y="24" width="18" height="22"/>
                                                 <constraints>
@@ -255,8 +266,10 @@
                                             </button>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="GES-NZ-iAa" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="8" id="0IC-Ik-4Jq"/>
                                             <constraint firstAttribute="height" constant="50" id="Brl-mU-3gG"/>
                                             <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="5" id="IZT-KF-OMi"/>
+                                            <constraint firstItem="GES-NZ-iAa" firstAttribute="leading" secondItem="Elj-qC-DgK" secondAttribute="leading" constant="8" id="MfF-fA-9hX"/>
                                             <constraint firstItem="xGH-m9-3kp" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="4" id="Uea-Vv-81h"/>
                                         </constraints>
                                     </customView>
@@ -299,6 +312,7 @@
             <connections>
                 <outlet property="bottomBar" destination="Elj-qC-DgK" id="TLS-5x-Rz7"/>
                 <outlet property="container" destination="2wd-Z7-k0t" id="rWB-qr-Awu"/>
+                <outlet property="historyScopeImageButton" destination="GES-NZ-iAa" id="963-PP-bHK"/>
                 <outlet property="iconImageView" destination="Zhs-Ng-XLx" id="c3E-tJ-Oo8"/>
                 <outlet property="itemsList" destination="0vd-d6-rKt" id="4u9-5e-y45"/>
                 <outlet property="jsIconButton" destination="29J-mY-iGz" id="Wfc-pr-vbs"/>

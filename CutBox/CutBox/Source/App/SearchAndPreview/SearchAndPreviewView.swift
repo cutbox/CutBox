@@ -23,6 +23,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         setupSearchText()
         setupSearchModeToggle()
         setupSearchScopeToggle()
+        setupHistoryScopeButton()
         setupJSIconButton()
         super.awakeFromNib()
     }
@@ -46,6 +47,10 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
         self.searchModeToggle.attributedTitle = titleString
         self.searchModeToggle.toolTip = mode.toolTip()
+    }
+
+    private func setupHistoryScopeButton() {
+        colorizeHistoryScope()
     }
 
     private func setupSearchModeToggle() {
@@ -115,6 +120,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     override func applyTheme() {
         super.applyTheme()
 
+        colorizeHistoryScope()
         setSearchModeButton(mode: HistoryService.shared.searchMode)
         setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }

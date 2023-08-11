@@ -229,6 +229,7 @@
 		96B04643284518E500011A58 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 96B04641284518E400011A58 /* themes */; };
 		96B046452845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
 		96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
+		96C8ABA12A85F3A800C0F42F /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
@@ -415,6 +416,7 @@
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96B04641284518E400011A58 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		96B046442845275200011A58 /* CutBoxThemeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLoader.swift; sourceTree = "<group>"; };
+		96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history-clock-face-white.png"; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
 		96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+TextScaling.swift"; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
+				96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */,
 				967DFB5920C28D3E0063B050 /* js_badge.png */,
 				967DFB5320C246BD0063B050 /* cutbox-js-icon.png */,
 				96A16B4120A0675700EE08A4 /* page.png */,
@@ -1025,6 +1028,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96C8ABA12A85F3A800C0F42F /* history-clock-face-white.png in Resources */,
 				96E1E59A205D243400F994ED /* Assets.xcassets in Resources */,
 				96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */,
 				964CA517207E6CA200B9F33E /* cutbox-icon.png in Resources */,

@@ -24,6 +24,31 @@ class HistoryRepoSpec: QuickSpec {
                 subject = HistoryRepo(defaults: defaults)
             }
 
+            describe("Time based operations") {
+                describe("Clear items by time") {
+                    it("clear items that were copied in the last 10 seconds") {
+                        let oneDayAgo: TimeInterval = -86400.0
+                        let oneHourAgo: TimeInterval = -3600.0
+                        let oneMinAgo: TimeInterval = -60.0
+                        let thirtySecondsAgo: TimeInterval = -10.0
+
+                        subject.insert("Yesterday Item", date: Date(timeIntervalSinceNow: oneDayAgo))
+                        subject.insert("Hour Ago Item", date: Date(timeIntervalSinceNow: oneHourAgo))
+                        subject.insert("Minute Ago Item", date: Date(timeIntervalSinceNow: oneMinAgo))
+                        subject.insert("Thirty Seconds Ago Item", date: Date(timeIntervalSinceNow: thirtySecondsAgo))
+
+                        expect(subject.items).to(equal([
+                                                         "Thirty Seconds Ago Item",
+                                                         "Minute Ago Item",
+                                                         "Hour Ago Item",
+                                                         "Yesterday Item"
+                        ]))
+
+                        // subject.setTimeFilter(before: -60.0, since: nil)
+                    }
+                }
+            }
+
             it("can insert string items and provide them as an array") {
                 subject.insert("Hello")
                 expect(subject.items).to(contain("Hello"))
@@ -59,7 +84,7 @@ class HistoryRepoSpec: QuickSpec {
                     ]))
             }
 
-            it("can remove the last iten inserted") {
+            it("can remove the last item inserted") {
                 subject.insert("First")
                 subject.insert("Second")
                 subject.insert("Third")
@@ -98,13 +123,7 @@ class HistoryRepoSpec: QuickSpec {
             }
 
             it("can migrate an array of strings") {
-                subject.migrate([
-                    "1",
-                    "2",
-                    "3",
-                    "4"
-                    ])
-
+                subject.migrate(["1", "2", "3", "4"])
                 expect(subject.items).to(equal(["1", "2", "3", "4"]))
             }
 

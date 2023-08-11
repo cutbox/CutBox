@@ -21,22 +21,18 @@ class HistoryRepo {
 
     private var kProtectFavorites = "protectFavorites"
 
-    var itemsByDate: [[String: String]] {
-        self.store.sorted { $0[timestampKey] ?? "" > $1[timestampKey] ?? "" }
-    }
-
     var items: [String] {
-       return self.store.map { $0[self.stringKey]! }
+       return self.dict.map { $0[self.stringKey]! }
     }
 
     var favorites: [String] {
-        return self.store
+        return self.dict
             .filter { $0[favoriteKey] == self.favoriteKey }
             .map { $0[self.stringKey]! }
     }
 
     var favoritesDict: [[String: String]] {
-        return self.store
+        return self.dict
             .filter { $0[favoriteKey] == self.favoriteKey }
     }
 
@@ -66,15 +62,24 @@ class HistoryRepo {
         return items.firstIndex(of: string)
     }
 
-    func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false) {
+    func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false, date: Date = Date()) {
         var item = [stringKey: newElement]
-        item[self.timestampKey] = ISO8601DateFormatter().string(from: Date())
+        item[self.timestampKey] = ISO8601DateFormatter().string(from: date)
 
         if isFavorite {
             item[self.favoriteKey] = self.favoriteKey
         }
 
         self.store.insert(item, at: index)
+    }
+
+    /// TODO:
+    /// clearTimeFilter()
+    ///
+    /// Apply time filter to dict
+
+    func setTimeFilter(before: TimeInterval?, since: TimeInterval?) {
+        ///
     }
 
     func remove(at: Int) {
@@ -110,9 +115,9 @@ class HistoryRepo {
     }
 
     func migrate(_ newElements: [String], at: Int = 0) {
-        newElements.forEach {
+        newElements.reversed().forEach {
             if index(of: $0) == nil {
-                self.store.append([stringKey: $0])
+                self.insert($0)
             }
         }
     }

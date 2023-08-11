@@ -20,6 +20,7 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet var preview: NSTextView!
     @IBOutlet weak var previewContainer: NSBox!
     @IBOutlet weak var iconImageView: NSImageView!
+    @IBOutlet weak var historyScopeImageButton: NSButton!
     @IBOutlet weak var searchScopeImageButton: NSButton!
     @IBOutlet weak var mainContainer: NSStackView!
     @IBOutlet weak var container: NSStackView!
@@ -113,6 +114,16 @@ class SearchPreviewViewBase: NSView {
         self.searchScopeImageButton.alphaValue = 0.75
         self.searchScopeImageButton.image = blended
         self.searchScopeImageButton.toolTip = toolTip
+    }
+
+    func colorizeHistoryScope(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
+                              tooltip: String = "history_scope_tooltip_all".l7n) {
+        let image = image
+        let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
+
+        self.historyScopeImageButton.alphaValue = 0.75
+        self.historyScopeImageButton.image = blended
+        self.historyScopeImageButton.toolTip = tooltip
     }
 
     func applyTheme() {
