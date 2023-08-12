@@ -33,8 +33,6 @@ extension CutBoxColorTheme {
     convenience init(theme: CutBoxColorThemeDefinition) {
         print("Theme initializing: \(theme.name )", to: &errStream)
 
-        // print("⟶  \(theme)", to: &errStream)
-
         self.init(name: theme.name,
                   popupBackgroundColor: theme.popupBackgroundColor.color!,
                   searchText: SearchTextTheme(

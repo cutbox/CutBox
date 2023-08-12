@@ -38,27 +38,27 @@ jobs:
 
       - name: Setup
         run: |
-          bin/setup
+          make setup
 
       - name: Test
         run: |
-          bin/test
+          make test
 
       - name: Build
         run: |
-          bin/build
+          make build
 
       - name: Command line test
         run: |
-          bin/command_line_test
+          make cli_test
 
       - name: Make DMG
         run: |
-          bin/cutbox_make_dmg CutBox.dmg
+          make dmg
 
       - name: Get Release Info
         run: |
-          bin/ci_get_release_info
+          make ci_get_release_info
 
       - name: Assemble release notes
         run: |
