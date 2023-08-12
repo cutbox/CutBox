@@ -18,7 +18,8 @@ summary_test() {
 
 cutbox_cli=cutbox_command/build/Release/cutbox
 
-make -f cutbox_command/Makefile -C cutbox_command build || exit 1
+cd cutbox_command || exit 1
+xcodebuild || exit 1
 
 if [[ ! -e $cutbox_cli ]]; then
     echo "Error: cutbox cli command not built" 1>&2
