@@ -1,7 +1,7 @@
 #!/bin/bash
 
 github_summary() {
-    echo "$1" >> $GITHUB_STEP_SUMMARY
+    [ "$GITHUB_STEP_SUMMARY" != "" ] && echo "$1" >> $GITHUB_STEP_SUMMARY
     echo "$1"
 }
 
@@ -16,22 +16,59 @@ summary_test() {
     fi
 }
 
-cutbox=build/Release/cutbox
 
 cd cutbox_command || exit 1
 xcodebuild || exit 1
 
-if [[ ! -e $cutbox ]]; then
+cutbox_cli=build/Release/cutbox
+
+if [[ ! -e $cutbox_cli ]]; then
     exit 1
 fi
 
-
 github_summary "$($cutbox_cli --help)"
 
+cat <<-EOF
+====================================================
+ CutBox - cutbox cli - build success
+====================================================
+
+Testing...
+----------------------------------------------------
+EOF
+
+# Tests expect a clean machine to prepare dummy data.
+# User is required to backup and remove the cutbox preferences
+# (contains settings and history.)
+if [[ -e $HOME/Library/Preferences/info.ocodo.CutBox.plist ]]; then
+    cat <<-EOF
+
+====================================================
+
+    WARNING: CutBox Installed / In Use
+             CLI Tests Cancelled
+----------------------------------------------------
+NOTE:
+
+To run tests backup & delete
+
+    ~/Library/Preferences/info.ocodo.CutBox.plist
+
+The CutBox.app should be closed before preparing and
+running cli tests
+
+[Script target: macOS on CI instance]
+====================================================
+
+EOF
+
+    exit 1
+fi
+
+# Fake history item via macos defaults write command line:
 date_hour_ago=$(TZ=UTC gdate -d "-1 hour" +%Y-%m-%dT%H:%M:%SZ)
 date_day_ago=$(TZ=UTC gdate -d "-1 day" +%Y-%m-%dT%H:%M:%SZ)
 
-# Fake history item via macos defaults write command line:
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Test Passed?</string><key>favorite</key><string>favorite</string></dict>"
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
 defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
@@ -93,4 +130,4 @@ summary_test "\`cutbox --before 1.1day\`" \
 "$($cutbox_cli --before 1.1day)" \
 "Test Passed?"
 
-[[ "$(grep "☠" "$GITHUB_STEP_SUMMARY")" == "" ]]  ||  exit 1
+[ "$GITHUB_STEP_SUMMARY" != "" ] &&  [[ "$(grep "☠" "$GITHUB_STEP_SUMMARY")" == "" ]]  ||  exit 1
