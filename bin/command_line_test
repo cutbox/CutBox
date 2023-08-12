@@ -7,7 +7,7 @@ github_summary() {
 
 summary_test() {
     if [[ "$2" == "$3" ]]; then
-        github_summary "| $1 | ✅ |"
+        github_summary "| $1 | ✓ |"
     else
         github_summary "| $1 | ☠ |"
         echo "$2"
@@ -79,7 +79,7 @@ github_summary \
 |------|--|"
 
 summary_test \
-"- \`cutbox\`" \
+"\`cutbox\`" \
 "$($cutbox_cli)" \
 "Test Passed?
 Copied Text
