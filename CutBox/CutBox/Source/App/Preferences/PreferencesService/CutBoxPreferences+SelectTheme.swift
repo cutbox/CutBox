@@ -12,21 +12,26 @@ extension CutBoxPreferencesService {
 
     var theme: Int {
         get {
+            // 1.5.8 - theme saved to prefs as themeName
             if let name = defaults.string(forKey: "themeName"),
             let index = themes.firstIndex(where: { $0.name == name }) {
                 return index
             }
 
-            let temp = defaults.integer(forKey: "theme")
-            if themes.count - 1 < temp {
+            let legacyIndex = defaults.integer(forKey: "theme")
+            if themes.count < legacyIndex + 1 {
                 self.theme = 0
                 return 0
             }
-            return temp
+            return legacyIndex
         }
+
         set {
             defaults.set(newValue, forKey: "theme")
+
+            // 1.5.8 - theme saved to prefs as themeName
             defaults.set(themes[newValue].name, forKey: "themeName")
+
             self.events.onNext(.themeChanged)
         }
     }
@@ -42,6 +47,6 @@ extension CutBoxPreferencesService {
     var currentTheme: CutBoxColorTheme { return themes[theme] }
 
     func toggleTheme() {
-        theme = ((theme + 1) % themes.count)
+        theme = (theme + 1) % themes.count
     }
 }
