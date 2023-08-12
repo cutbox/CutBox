@@ -13,7 +13,9 @@ import JSONSchema
 class CutBoxPreferencesServiceSpec: QuickSpec {
     override func spec() {
         describe("CutBoxPreferencesServiceSpec") {
-            let subject = CutBoxPreferencesService()
+            let defaults: UserDefaults = UserDefaultsMock()
+            let subject = CutBoxPreferencesService(defaults: defaults)
+
             let bundledThemes = subject.themes
                 .map { $0.name }
                 .filter { !$0.contains("*") } // Filter out user themes
@@ -33,6 +35,13 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
                     "macOS",
                     "macOS Graphite"
                 ]))
+            }
+
+            it("stores the theme index and name in defaults") {
+                expect(defaults.integer(forKey: "theme")).to(equal(0))
+                subject.theme = 2
+                expect(defaults.integer(forKey: "theme")).to(equal(2))
+                expect(defaults.string(forKey: "themeName")).to(equal("Sandy Beach"))
             }
         }
     }

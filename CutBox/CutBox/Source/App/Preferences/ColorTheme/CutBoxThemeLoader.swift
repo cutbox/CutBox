@@ -10,8 +10,6 @@ import Foundation
 
 class CutBoxThemeLoader {
 
-    private var themeIndex: Int = 0
-
     static func getBundledThemes() -> [CutBoxColorTheme] {
         let bundle = Bundle(for: Self.self)
 
@@ -21,8 +19,6 @@ class CutBoxThemeLoader {
 
         let themes: [CutBoxColorTheme] = themePaths.sorted().map {
             do {
-                print("Theme index: \(themeIndex)", to: &errStream)
-                themeIndex += 1
                 return CutBoxColorTheme(try String(contentsOfFile: $0))
             } catch {
                 print("There was a problem reading bundled theme: $0", to: &errStream)
@@ -37,10 +33,7 @@ class CutBoxThemeLoader {
         let jsonThemes = loadUserThemesFiles()
         let userThemeIdentifier = "*"
 
-        return jsonThemes.map {
-            let theme = CutBoxColorTheme($0)
-            print("Theme index: \(themeIndex)", to: &errStream)
-            themeIndex += 1
+        return jsonThemes.map { let theme = CutBoxColorTheme($0)
             return CutBoxColorTheme(
                 name: "\(theme.name) \(userThemeIdentifier)",
                 theme: theme

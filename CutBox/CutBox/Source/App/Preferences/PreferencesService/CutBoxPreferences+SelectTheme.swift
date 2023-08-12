@@ -12,6 +12,11 @@ extension CutBoxPreferencesService {
 
     var theme: Int {
         get {
+            if let name = defaults.string(forKey: "themeName"),
+            let index = themes.firstIndex(where: { $0.name == name }) {
+                return index
+            }
+
             let temp = defaults.integer(forKey: "theme")
             if themes.count - 1 < temp {
                 self.theme = 0
@@ -21,8 +26,17 @@ extension CutBoxPreferencesService {
         }
         set {
             defaults.set(newValue, forKey: "theme")
+            defaults.set(themes[newValue].name, forKey: "themeName")
             self.events.onNext(.themeChanged)
         }
+    }
+
+    var themeName: String {
+        if let name = defaults.string(forKey: "themeName"),
+            themes.contains(where: { $0.name == name }) {
+            return name
+        }
+        return themes[theme].name
     }
 
     var currentTheme: CutBoxColorTheme { return themes[theme] }
