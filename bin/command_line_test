@@ -16,15 +16,15 @@ summary_test() {
     fi
 }
 
-cutbox_cli=cutbox_command/build/Release/cutbox
+cutbox=build/Release/cutbox
 
 cd cutbox_command || exit 1
 xcodebuild || exit 1
 
-if [[ ! -e $cutbox_cli ]]; then
-    echo "Error: cutbox cli command not built" 1>&2
+if [[ ! -e $cutbox ]]; then
     exit 1
 fi
+
 
 github_summary "$($cutbox_cli --help)"
 
