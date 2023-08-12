@@ -8,10 +8,20 @@
 
 import Cocoa
 
-extension SearchAndPreviewView: NSTextViewDelegate {
+extension SearchAndPreviewView: NSTextViewDelegate, NSTextFieldDelegate {
+
+    func controlTextDidChange(_ obj: Notification) {
+        if let textField = obj.object as? NSTextField, textField == timeFilterText {
+            print("Time filter string: \(timeFilterText.stringValue)")
+
+            timeUntilFilterTextPublisher.onNext(timeFilterText.stringValue)
+        }
+    }
 
     func textDidChange(_ notification: Notification) {
-        self.filterText.onNext(self.searchText.string)
+        if let _ = notification.object as? SearchTextView {
+            self.filterTextPublisher.onNext(self.searchText.string)
+        }
     }
 
     private var useTextCommands: [Selector] {
@@ -20,7 +30,7 @@ extension SearchAndPreviewView: NSTextViewDelegate {
             "deleteForwards:",
             "deleteWord:",
             "deleteWordBackwards:"
-            ].map { Selector($0) }
+        ].map { Selector($0) }
     }
 
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {

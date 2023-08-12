@@ -16,9 +16,11 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
-    @IBOutlet var searchText: NSTextView!
+    @IBOutlet weak var searchText: SearchTextView!
+    @IBOutlet weak var timeFilterText: ValidTextField!
+    @IBOutlet weak var timeFilterLabel: NSTextField!
     @IBOutlet weak var itemsList: NSTableView!
-    @IBOutlet var preview: NSTextView!
+    @IBOutlet weak var preview: NSTextView!
     @IBOutlet weak var previewContainer: NSBox!
     @IBOutlet weak var iconImageView: NSImageView!
     @IBOutlet weak var historyScopeImageButton: NSButton!
@@ -56,8 +58,9 @@ class SearchPreviewViewBase: NSView {
         }
     }
 
-    var filterText = PublishSubject<String>()
-    var placeholderText = PublishSubject<String>()
+    var timeUntilFilterTextPublisher = PublishSubject<String>()
+    var filterTextPublisher = PublishSubject<String>()
+
     var placeHolderTextString = ""
 
     let disposeBag = DisposeBag()
@@ -89,7 +92,7 @@ class SearchPreviewViewBase: NSView {
     }
 
     func setupPlaceholder() {
-        filterText
+        filterTextPublisher
             .map { $0.isEmpty ? self.placeHolderTextString : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)

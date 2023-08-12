@@ -22,7 +22,7 @@
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVV-sS-zG8">
                                 <rect key="frame" x="5" y="5" width="927" height="511"/>
                                 <subviews>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="nR0-jH-24Q">
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="nR0-jH-24Q" userLabel="Head Bar">
                                         <rect key="frame" x="0.0" y="461" width="927" height="50"/>
                                         <subviews>
                                             <box boxType="custom" cornerRadius="1" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="3Ur-r1-gus">
@@ -130,7 +130,7 @@
                                             <constraint firstItem="29J-mY-iGz" firstAttribute="top" secondItem="nR0-jH-24Q" secondAttribute="top" id="wPu-wK-hpB"/>
                                         </constraints>
                                     </customView>
-                                    <stackView autoresizesSubviews="NO" distribution="fillEqually" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-Z7-k0t">
+                                    <stackView autoresizesSubviews="NO" distribution="fillEqually" orientation="horizontal" alignment="top" spacing="5" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wd-Z7-k0t" userLabel="Middle Section">
                                         <rect key="frame" x="0.0" y="55" width="927" height="401"/>
                                         <subviews>
                                             <scrollView borderType="none" horizontalLineScroll="18" horizontalPageScroll="0.0" verticalLineScroll="18" verticalPageScroll="0.0" hasHorizontalScroller="NO" horizontalScrollElasticity="none" verticalScrollElasticity="allowed" translatesAutoresizingMaskIntoConstraints="NO" id="T18-14-tFk" userLabel="Table View">
@@ -255,19 +255,34 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                             </button>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0l-js-Gef">
-                                                <rect key="frame" x="54" y="17" width="818" height="16"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" title="Placeholder" usesSingleLineMode="YES" id="9OO-Ex-d1Q">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-ED-bmB" userLabel="Time Filter Label">
+                                                <rect key="frame" x="48" y="14" width="37" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="xRk-wx-5tN"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="nUH-VZ-2UY">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3kg-12-02p" customClass="ValidTextField" customModule="CutBox" customModuleProvider="target">
+                                                <rect key="frame" x="93" y="18" width="100" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="Il2-jU-Wra"/>
+                                                </constraints>
+                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" drawsBackground="YES" usesSingleLineMode="YES" id="6YX-FO-X3j">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xGH-m9-3kp">
-                                                <rect key="frame" x="904" y="24" width="18" height="22"/>
+                                                <rect key="frame" x="899" y="24" width="18" height="22"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="GtY-gK-rMs"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="gOy-EF-FU9"/>
+                                                    <constraint firstAttribute="width" constant="18" id="wVV-Ez-qhc"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="recessed" bezelStyle="recessed" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7pj-Pa-cXP">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -277,10 +292,14 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="GES-NZ-iAa" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="8" id="0IC-Ik-4Jq"/>
+                                            <constraint firstItem="3kg-12-02p" firstAttribute="leading" secondItem="yoQ-ED-bmB" secondAttribute="trailing" constant="10" id="1bl-Hg-e74"/>
+                                            <constraint firstItem="yoQ-ED-bmB" firstAttribute="leading" secondItem="GES-NZ-iAa" secondAttribute="trailing" constant="10" id="4Rw-Gd-QRk"/>
                                             <constraint firstAttribute="height" constant="50" id="Brl-mU-3gG"/>
-                                            <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="5" id="IZT-KF-OMi"/>
+                                            <constraint firstItem="xGH-m9-3kp" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="4" id="F3U-Hc-f37"/>
+                                            <constraint firstItem="3kg-12-02p" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="16" id="LIN-e2-MbV"/>
                                             <constraint firstItem="GES-NZ-iAa" firstAttribute="leading" secondItem="Elj-qC-DgK" secondAttribute="leading" constant="8" id="MfF-fA-9hX"/>
-                                            <constraint firstItem="xGH-m9-3kp" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="4" id="Uea-Vv-81h"/>
+                                            <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="10" id="hih-z9-sS6"/>
+                                            <constraint firstItem="yoQ-ED-bmB" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="16" id="oWD-wC-HvR"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
@@ -340,8 +359,10 @@
                 <outlet property="searchTextContainer" destination="3Ur-r1-gus" id="OB8-yo-zzc"/>
                 <outlet property="searchTextContainerHeight" destination="uCL-d6-9j9" id="kN6-KC-5i8"/>
                 <outlet property="searchTextPlaceholder" destination="iRL-Y7-w6T" id="Qj5-Xf-PGg"/>
+                <outlet property="timeFilterLabel" destination="yoQ-ED-bmB" id="p4h-Eh-A6N"/>
+                <outlet property="timeFilterText" destination="3kg-12-02p" id="B4d-2m-jiE"/>
             </connections>
-            <point key="canvasLocation" x="149.5" y="18"/>
+            <point key="canvasLocation" x="149.5" y="17.5"/>
         </customView>
     </objects>
     <resources>

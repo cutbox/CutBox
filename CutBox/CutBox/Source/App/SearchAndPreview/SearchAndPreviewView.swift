@@ -24,6 +24,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         setupSearchModeToggle()
         setupSearchScopeToggle()
         setupHistoryScopeButton()
+        setupTimeFilter()
         setupJSIconButton()
         super.awakeFromNib()
     }
@@ -59,8 +60,9 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func historyScopeClicked() {
-        /// TODO: This should activate the historyScope popup UI
-        print("historyScopeClicked()")
+        self.timeFilterLabel.isHidden = !self.timeFilterLabel.isHidden
+        self.timeFilterText.isHidden = !self.timeFilterText.isHidden
+         self.timeFilterText.isValid = !self.timeFilterText.isValid
     }
 
     private func setupSearchModeToggle() {
@@ -101,6 +103,16 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     private func setupSearchText() {
         self.searchText.delegate = self
         self.searchText.isFieldEditor = true
+    }
+
+    private func setupTimeFilter() {
+        self.timeFilterLabel.isHidden = true
+        self.timeFilterLabel.stringValue = "Time Filter"
+
+        self.timeFilterText.delegate = self
+        self.timeFilterText.isHidden = true
+        self.timeFilterText.placeholderString = "Enter time filter...".l7n
+        self.timeFilterText.isValid = false
     }
 
     @objc func removeSelectedItems() {

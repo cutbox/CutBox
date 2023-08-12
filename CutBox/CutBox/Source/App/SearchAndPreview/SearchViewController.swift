@@ -132,7 +132,7 @@ class SearchViewController: NSObject {
 
     private func resetSearchText() {
         self.searchView.searchText.string = ""
-        self.searchView.filterText.onNext("")
+        self.searchView.filterTextPublisher.onNext("")
         self.searchView.itemsList.reloadData()
     }
 
@@ -140,7 +140,7 @@ class SearchViewController: NSObject {
         self.searchView.itemsList.dataSource = self
         self.searchView.itemsList.delegate = self
 
-        self.searchView.filterText
+        self.searchView.filterTextPublisher
             .map { $0.isEmpty }
             .subscribe(onNext: {
                 if self.prefs.useCompactUI {
@@ -151,7 +151,7 @@ class SearchViewController: NSObject {
             })
             .disposed(by: disposeBag)
 
-        self.searchView.filterText
+        self.searchView.filterTextPublisher
             .subscribe(onNext: {
                 self.historyService.filterText = $0
                 self.searchView.itemsList.reloadData()

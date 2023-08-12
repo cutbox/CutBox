@@ -43,7 +43,7 @@ class JSFuncSearchViewController: NSObject {
         self.jsFuncView.itemsList.dataSource = self
         self.jsFuncView.itemsList.delegate = self
 
-        self.jsFuncView.filterText
+        self.jsFuncView.filterTextPublisher
             .subscribe(onNext: {
                 self.jsFuncService.filterText = $0
                 self.jsFuncView.itemsList.reloadData()
@@ -71,7 +71,7 @@ class JSFuncSearchViewController: NSObject {
 
     private func resetJSFuncSearchText() {
         self.jsFuncView.searchText.string = ""
-        self.jsFuncView.filterText.onNext("")
+        self.jsFuncView.filterTextPublisher.onNext("")
         self.jsFuncView.itemsList.reloadData()
     }
 
