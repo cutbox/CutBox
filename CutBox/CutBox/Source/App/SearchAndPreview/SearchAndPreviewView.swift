@@ -62,7 +62,6 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     private func historyScopeClicked() {
         self.timeFilterLabel.isHidden = !self.timeFilterLabel.isHidden
         self.timeFilterText.isHidden = !self.timeFilterText.isHidden
-         self.timeFilterText.isValid = !self.timeFilterText.isValid
     }
 
     private func setupSearchModeToggle() {
@@ -107,24 +106,27 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
     private func setupTimeFilter() {
         self.timeFilterLabel.isHidden = true
-        self.timeFilterLabel.stringValue = "Time Filter On "
+        self.timeFilterLabel.textColor = prefs.currentTheme.searchText.cursorColor
 
-        let timeFilterObservable = self.timeFilterText.rx.text.orEmpty.asObservable()
-        timeFilterObservable.subscribe { [weak self] event in
-            if let text = self?.timeFilterText.stringValue {
+        self.timeFilterText.rx.text
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] text in
                 let filter = TimeFilterValidator(value: text)
                 self?.timeFilterText.isValid = filter.isValid
+
                 if let seconds = filter.seconds {
-                    /// ... do something with the seconds.
-                    print(seconds)
-                    print(TimeFilterValidator.secondsToTime(seconds: Int(seconds)))
+                    let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
+                    // TODO: "search_time_filter_label_active"
+                    self?.timeFilterLabel.stringValue = "Search only items copied between now and \(formatted) ago".l7n
+                } else {
+                    self?.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
                 }
-            }
-        }
-        .disposed(by: disposeBag)
+
+            })
+            .disposed(by: disposeBag)
 
         self.timeFilterText.isHidden = true
-        self.timeFilterText.placeholderString = "10min|1day|30sec etc".l7n
+        self.timeFilterText.placeholderString = "...".l7n
         self.timeFilterText.isValid = false
     }
 

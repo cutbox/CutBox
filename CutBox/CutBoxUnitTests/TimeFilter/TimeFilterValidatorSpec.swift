@@ -14,25 +14,27 @@ class TimeFilterValidatorSpec: QuickSpec {
     override func spec() {
         describe("TimeFilterValidator") {
             describe("secondsToTime") {
-                let values = [
-                    (inputValue: 1230, expectedResult: "20 minutes 30 seconds"),
-                    (inputValue: 60, expectedResult: "1 minute"),
-                    (inputValue: 61, expectedResult: "1 minute 1 second"),
-                    (inputValue: 90, expectedResult: "1 minute 30 seconds"),
-                    (inputValue: 110, expectedResult: "1 minute 50 seconds"),
-                    (inputValue: 3610, expectedResult: "1 hour 10 seconds"),
-                    (inputValue: 3780, expectedResult: "1 hour 3 minutes"),
-                    (inputValue: 86400, expectedResult: "1 day"),
-                    (inputValue: 86461, expectedResult: "1 day 1 minute 1 second"),
-                    (inputValue: 604800, expectedResult: "1 week")
+                let values: [(input: Int, result: String)] = [
+                    (input: 1230, result: "20 minutes 30 seconds"),
+                    (input: 60, result: "1 minute"),
+                    (input: 61, result: "1 minute 1 second"),
+                    (input: 90, result: "1 minute 30 seconds"),
+                    (input: 110, result: "1 minute 50 seconds"),
+                    (input: 3610, result: "1 hour 10 seconds"),
+                    (input: 3780, result: "1 hour 3 minutes"),
+                    (input: 86400, result: "1 day"),
+                    (input: 86461, result: "1 day 1 minute 1 second"),
+                    (input: 604800, result: "1 week"),
+                    (input: 398472, result: "4 days 14 hours 41 minutes 12 seconds"),
+                    (input: 34514456400, result: "1094 years 23 weeks 3 days 21 hours")
                 ]
 
-                for (inputValue, expectedResult) in values {
-                    it("formats \(inputValue) to \(expectedResult)") {
+                for (input, result) in values {
+                    it("formats \(input) to \(result)") {
                         let timeString = TimeFilterValidator
-                            .secondsToTime(seconds: inputValue)
-                        
-                        expect(timeString).to(equal(expectedResult))
+                            .secondsToTime(seconds: input)
+
+                        expect(timeString).to(equal(result))
                     }
                 }
             }
@@ -47,6 +49,21 @@ class TimeFilterValidatorSpec: QuickSpec {
                 let value = "10 mice"
                 let subject = TimeFilterValidator(value: value)
                 expect(subject.isValid).to(beFalse())
+            }
+
+            describe("special cases") {
+                let specialCases = [
+                    (value: "Today", result: 86400.0),
+                    (value: "This Week", result: 604800.0),
+                    (value: "Yesterday", result: 172800.0)
+                ]
+
+                for (value, result) in specialCases {
+                    it("matches \(value) as \(result) seconds") {
+                        let seconds = TimeFilterValidator(value: value).seconds
+                        expect(seconds).to(equal(result))
+                    }
+                }
             }
 
             describe("validates multiple time units") {

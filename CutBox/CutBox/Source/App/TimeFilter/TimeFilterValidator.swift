@@ -13,7 +13,7 @@ class TimeFilterValidator {
     private static let HOUR: Int = 3600
     private static let DAY: Int = 86400
     private static let WEEK: Int = 604800
-    private static let YEAR: Int = 220752000
+    private static let YEAR: Int = 31536000
 
     public typealias TimeUnitLabels = [(name: String, plural: String)]
 
@@ -45,7 +45,7 @@ class TimeFilterValidator {
             seconds % MINUTE
         ]
 
-        var components: [String] = zip(secondsToComponents, labels).map { value, label in
+        let components: [String] = zip(secondsToComponents, labels).map { value, label in
             switch value {
             case 1:
                 return "\(Int(value)) \(label.name)"
@@ -61,7 +61,7 @@ class TimeFilterValidator {
         }
 
         return components
-            .filter{ $0 != "" }
+            .filter { $0 != "" }
             .joined(separator: " ")
     }
 
@@ -116,6 +116,15 @@ class TimeFilterValidator {
 
     init(value: String) {
         self.value = value
-        self.seconds = Self.parseToSeconds(value)
+        switch value {
+        case _ where "today" == value.localizedLowercase:
+            self.seconds = Double(Self.DAY)
+        case _ where "this week" == value.localizedLowercase:
+            self.seconds = Double(Self.WEEK)
+        case _ where "yesterday" == value.localizedLowercase:
+            self.seconds = 2 * Double(Self.DAY)
+        default:
+            self.seconds = Self.parseToSeconds(value)
+        }
     }
 }
