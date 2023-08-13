@@ -13,7 +13,7 @@ class Markdown < XCPretty::Simple
 
   def format_test_suite_started(name)
     if name != "All tests"
-      "| - | #{name} |"
+      "| 🗎 | **#{name}** |"
     else
       ""
     end
