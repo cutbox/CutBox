@@ -7,7 +7,7 @@ class Markdown < XCPretty::Simple
 
 # Started: #{name}
 
-| Status | Name |
+| - | Name |
 |:-----|:-----|}
   end
 
