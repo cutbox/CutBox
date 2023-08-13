@@ -8,6 +8,10 @@
 
 import Cocoa
 
+/// Setting the isValid property updates the
+/// field border color (green/red)
+///
+/// Validation logic is handled externally
 class ValidTextField: NSTextField {
 
     override init(frame frameRect: NSRect) {
@@ -23,18 +27,17 @@ class ValidTextField: NSTextField {
 
     var isValid: Bool = false {
         didSet {
-            // Update the appearance based on the validity status
             updateBorderColor()
         }
     }
 
     private func updateBorderColor() {
-        let greenColor = NSColor.green.withAlphaComponent(0.15).cgColor
-        let redColor = NSColor.red.withAlphaComponent(0.15).cgColor
+        let green = NSColor.green.withAlphaComponent(0.15).cgColor
+        let red = NSColor.red.withAlphaComponent(0.15).cgColor
 
         if let fieldLayer = self.layer {
-            fieldLayer.borderColor = isValid ? redColor : greenColor
-            fieldLayer.borderWidth = 1
+            fieldLayer.borderColor = isValid ? green : red
+            fieldLayer.borderWidth = 2
             fieldLayer.cornerRadius = 3
         }
     }

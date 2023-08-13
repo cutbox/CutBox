@@ -181,6 +181,9 @@
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
 		967940072A87EADD00D14B87 /* ValidTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidTextField.swift */; };
+		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
+		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
+		9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
 		967DFB5520C246BD0063B050 /* cutbox-js-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5320C246BD0063B050 /* cutbox-js-icon.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967DFB5A20C28D3F0063B050 /* js_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js_badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */; };
@@ -368,6 +371,8 @@
 		9672FF282078C2DE00E4571E /* Array+IndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexSet.swift"; sourceTree = "<group>"; };
 		9672FF2C2078E5DC00E4571E /* SearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextView.swift; sourceTree = "<group>"; };
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
+		967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidatorSpec.swift; sourceTree = "<group>"; };
+		9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidator.swift; sourceTree = "<group>"; };
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
 		967DFB5320C246BD0063B050 /* cutbox-js-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-js-icon.png"; sourceTree = "<group>"; };
 		967DFB5920C28D3E0063B050 /* js_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = js_badge.png; sourceTree = "<group>"; };
@@ -687,6 +692,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				967940082A887BFF00D14B87 /* TimeFilter */,
 				96658CEE20BA7B2000BDA8F4 /* JSFunc */,
 				9667650920B148F000DE369A /* SharedMocks */,
 				96429D57208C11A90055D678 /* Extensions */,
@@ -737,6 +743,22 @@
 				9667650620B1486C00DE369A /* UserDefaultsMock.swift */,
 			);
 			path = SharedMocks;
+			sourceTree = "<group>";
+		};
+		967940082A887BFF00D14B87 /* TimeFilter */ = {
+			isa = PBXGroup;
+			children = (
+				967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */,
+			);
+			path = TimeFilter;
+			sourceTree = "<group>";
+		};
+		9679400B2A887D0200D14B87 /* TimeFilter */ = {
+			isa = PBXGroup;
+			children = (
+				9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */,
+			);
+			path = TimeFilter;
 			sourceTree = "<group>";
 		};
 		96A16B5120A4731000EE08A4 /* ClipItems */ = {
@@ -817,6 +839,7 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
+				9679400B2A887D0200D14B87 /* TimeFilter */,
 				96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */,
 				962D6D4A207356DA007E3785 /* Constants.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
@@ -1242,6 +1265,7 @@
 				9653490128434742000FD0A1 /* JSFuncSearchAndPreviewView.swift in Sources */,
 				965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */,
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
+				9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */,
 				965348E928434735000FD0A1 /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,
 				9653492528434785000FD0A1 /* DisableScrollView.swift in Sources */,
 				965348E52843471D000FD0A1 /* CutBoxPreferencesService.swift in Sources */,
@@ -1297,6 +1321,7 @@
 				9653490928434752000FD0A1 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				9653490428434742000FD0A1 /* JSFuncSearchViewController.swift in Sources */,
 				965348EF28434735000FD0A1 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */,
+				9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
 				965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */,
 				9653492F28434785000FD0A1 /* Array+String+SwiftyStringScore.swift in Sources */,
 				9653494828434862000FD0A1 /* JSContext+subscriptSpec.swift in Sources */,
@@ -1370,6 +1395,7 @@
 				96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */,
 				968B4F0620A68CB300F150BE /* JSContext+subscript.swift in Sources */,
 				96FD7C1E20ADBDCA00818925 /* ItemTableRowTextView.swift in Sources */,
+				9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
 				964CA5492083296600B9F33E /* String+L10n.swift in Sources */,
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,

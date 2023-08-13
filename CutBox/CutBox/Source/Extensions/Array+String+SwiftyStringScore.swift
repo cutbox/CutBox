@@ -48,9 +48,6 @@ extension Array where Element == String {
     }
 
     func regexpSearchFiltered(search: String, options: NSRegularExpression.Options) -> [String] {
-        // We need a *do* block because the incoming
-        // search string might be an invalid regexp.
-        // Return an empty array in that case.
         do {
             let regexp: NSRegularExpression =
                 try NSRegularExpression(pattern: search,

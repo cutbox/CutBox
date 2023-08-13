@@ -107,11 +107,23 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
     private func setupTimeFilter() {
         self.timeFilterLabel.isHidden = true
-        self.timeFilterLabel.stringValue = "Time Filter"
+        self.timeFilterLabel.stringValue = "Time Filter On "
 
-        self.timeFilterText.delegate = self
+        // self.timeFilterText.delegate = self
+        let timeFilterObservable = self.timeFilterText.rx.text.orEmpty.asObservable()
+        timeFilterObservable.subscribe { [weak self] text in
+            let filter = TimeFilterValidator(value: text)
+            self?.timeFilterText.isValid = filter.isValid
+            if let seconds = filter.seconds {
+                /// ... do something with the seconds.
+                print(seconds)
+                print(TimeFilterValidator.secondsToTime(seconds: Int(seconds)))
+            }
+        }
+        .disposed(by: disposeBag)
+
         self.timeFilterText.isHidden = true
-        self.timeFilterText.placeholderString = "Enter time filter...".l7n
+        self.timeFilterText.placeholderString = "10min|1day|30sec etc".l7n
         self.timeFilterText.isValid = false
     }
 

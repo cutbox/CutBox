@@ -58,7 +58,7 @@ class SearchPreviewViewBase: NSView {
         }
     }
 
-    var timeUntilFilterTextPublisher = PublishSubject<String>()
+    var timeUntilFilterTextPublisher = PublishSubject<Double>()
     var filterTextPublisher = PublishSubject<String>()
 
     var placeHolderTextString = ""

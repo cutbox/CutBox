@@ -123,7 +123,7 @@ class CommandParams {
     }
 
     private let timeUnitsTable = [
-      (pattern: "m|minutes|min|minute", factor: 60.0),
+      (pattern: "m|minutes|min|mins|minute", factor: 60.0),
       (pattern: "h|hours|hr|hrs|hour", factor: 60.0 * 60.0),
       (pattern: "d|days|day", factor: 24.0 * 60.0 * 60.0),
       (pattern: "w|week|weeks|wk|wks", factor: 7.0 * 24.0 * 60.0 * 60.0),
