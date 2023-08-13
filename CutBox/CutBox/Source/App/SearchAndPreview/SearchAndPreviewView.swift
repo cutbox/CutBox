@@ -116,12 +116,10 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
                 if let seconds = filter.seconds {
                     let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
-                    // TODO: "search_time_filter_label_active"
-                    self?.timeFilterLabel.stringValue = "Search only items copied between now and \(formatted) ago".l7n
+                    self?.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
                 } else {
                     self?.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
                 }
-
             })
             .disposed(by: disposeBag)
 
