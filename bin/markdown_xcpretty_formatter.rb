@@ -3,7 +3,12 @@ require 'xcpretty'
 class Markdown < XCPretty::Simple
 
   def format_test_run_started(name)
-    "\n\n# Started: #{name}\n\n| Status | Name |\n|:-----|:-----|\n"
+    %{
+
+# Started: #{name}
+
+| Status | Name |
+|:-----|:-----|}
   end
 
   def format_test_suite_started(name)
@@ -20,10 +25,10 @@ class Markdown < XCPretty::Simple
 
 
   def format_failing_test(suite, test, reason, file_path)
-    "| ✗ | #{suite} #{test}  |\n|   | #{file_path}      |\n|   | Reason: #{reason} |"
+    %{| ✗ | #{suite} #{test}  |
+|   | #{file_path}      |
+|   | Reason: #{reason} |}
   end
-
-  # You can add more methods to format different events as needed
 
   private
 
