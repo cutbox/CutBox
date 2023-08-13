@@ -20,12 +20,12 @@ class Markdown < XCPretty::Simple
   end
 
   def format_passing_test(suite, test_case, time)
-    "| ✓ | #{suite} #{test_case} (#{time}) |"
+    "| ✓ | #{test_case} (#{time}) |"
   end
 
 
-  def format_failing_test(suite, test, reason, file_path)
-    %{| ✗ | #{suite} #{test}  |
+  def format_failing_test(suite, test_case, reason, file_path)
+    %{| ✗ | #{test_case}  |
 |   | #{file_path}      |
 |   | Reason: #{reason} |}
   end
