@@ -3,12 +3,12 @@ require 'xcpretty'
 class Markdown < XCPretty::Simple
 
   def format_test_run_started(name)
-    "\n\n# Started: #{name}\n\n"
+    "\n\n# Started: #{name}\n\n| Status | Name |\n|:-----|:-----|\n"
   end
 
   def format_test_suite_started(name)
     if name != "All tests"
-      "\n\n## Test Suite: #{name}\n\n| Status | Test Case |\n|-----|-----|"
+      "| - | #{name} |"
     else
       ""
     end
