@@ -60,9 +60,20 @@ class TimeFilterValidator {
             return "0 seconds"
         }
 
-        return components
-            .filter { $0 != "" }
-            .joined(separator: " ")
+        var captured = ""
+        for component in components where component != "" {
+            if let index = components.firstIndex(of: component) {
+                if components.count > index + 1 {
+                    let adjacent = components[index + 1]
+                    captured = "\(component) \(adjacent)"
+                } else {
+                    captured = component
+                }
+                break
+            }
+        }
+
+        return captured
     }
 
     private static let timeUnitsTable = [
@@ -70,6 +81,7 @@ class TimeFilterValidator {
         (pattern: #"^(\d+(?:\.\d+)?) ?(h|hours|hr|hrs|hour)$"#, factor: 3600.0),
         (pattern: #"^(\d+(?:\.\d+)?) ?(d|days|day)$"#, factor: 86400.0),
         (pattern: #"^(\d+(?:\.\d+)?) ?(w|week|weeks|wk|wks)$"#, factor: 604800.0),
+        (pattern: #"^(\d+(?:\.\d+)?) ?(y|year|years|yr|yrs)$"#, factor: 31536000.0),
         (pattern: #"^(\d+(?:\.\d+)?) ?(s|sec|secs|second|seconds)$"#, factor: 1.0)
     ]
 
