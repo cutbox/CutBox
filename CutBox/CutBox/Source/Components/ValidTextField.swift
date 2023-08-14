@@ -16,13 +16,28 @@ class ValidTextField: NSTextField {
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        self.cell?.focusRingType = .none
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.cell?.focusRingType = .none
-        self.isBordered = true
+    }
+
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+
+        if let fieldLayer = self.layer {
+            if stringValue == "" {
+                fieldLayer.borderColor = NSColor
+                    .white
+                    .withAlphaComponent(0.15).cgColor
+            }
+            fieldLayer.borderWidth = 1.5
+            fieldLayer.cornerRadius = 6
+            fieldLayer.backgroundColor = NSColor
+                .black
+                .withAlphaComponent(0.25).cgColor
+        }
     }
 
     var isValid: Bool = false {
@@ -36,6 +51,7 @@ class ValidTextField: NSTextField {
         let red = NSColor.red.withAlphaComponent(0.15).cgColor
 
         if let fieldLayer = self.layer {
+
             fieldLayer.borderColor = isValid ? green : red
             fieldLayer.borderWidth = 2
             fieldLayer.cornerRadius = 3
