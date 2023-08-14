@@ -21,7 +21,7 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
                 .filter { !$0.contains("*") } // Filter out user themes
 
             it("initializes with bundled themes") {
-                expect(bundledThemes.count).to(equal(10))
+                expect(bundledThemes.count).to(equal(11))
                 expect(bundledThemes)
                     .to(equal([
                     "Darkness",
@@ -33,7 +33,8 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
                     "Verdant",
                     "Amber Cathode",
                     "macOS",
-                    "macOS Graphite"
+                    "macOS Graphite",
+                    "Standard Dark"
                 ]))
             }
 

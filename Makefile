@@ -7,6 +7,9 @@ test ::
 test_ci ::
 	bin/test_ci
 
+test_themes ::
+	bin/test_themes
+
 build ::
 	bin/build
 

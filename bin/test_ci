@@ -6,3 +6,5 @@ test | xcpretty -f bin/markdown_xcpretty_formatter.rb | sed -n -e '/^# Started: 
 
 cat markdown_test_report.md >> $GITHUB_STEP_SUMMARY
 rm markdown_test_report.md
+
+[ "$GITHUB_STEP_SUMMARY" != "" ] &&  [[ "$(grep "✗" "$GITHUB_STEP_SUMMARY")" == "" ]]  ||  exit 1

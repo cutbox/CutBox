@@ -48,6 +48,10 @@ jobs:
         run: |
           make build
 
+      - name: Theme validation
+        run: |
+          make test_themes
+
       - name: Command line test
         run: |
           make cli_test
