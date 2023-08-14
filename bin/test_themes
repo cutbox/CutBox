@@ -9,11 +9,10 @@ echo_summary "# CutBox Theme Validation"
 echo_summary "| Theme Name | |"
 echo_summary "|---|---|"
 for theme in CutBox/CutBox/themes/*cutboxTheme; do
-if bin/cutbox_theme_validator "$theme"; then
-    echo_summary "| $(basename "$theme") | passed |"
-else
-    echo_summary "| $(basename "$theme") | failed |"
-    exit 1
-fi
-
+    if bin/cutbox_theme_validator "$theme"; then
+        echo_summary "| $(basename "$theme") | ✓ |"
+    else
+        echo_summary "| $(basename "$theme") | ✗ |"
+        exit 1
+    fi
 done
