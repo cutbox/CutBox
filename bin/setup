@@ -46,24 +46,24 @@ npm_check() {
   fi
 }
 
-
 if [ -x "$(which brew)" ]; then
   message "Running brew bundle & npm install"
   brew bundle
   npm install
+  go install github.com/santhosh-tekuri/jsonschema/cmd/jv@latest
 else
   message "Homebrew must be installed and working."
   exit 1
 fi
 
-
-
 echo "PLEASE NOTE: CutBox expects:
 
-Build & release tooling...
+Build/Test & release tooling...
 
 - [$(which_check brew)] homebrew (in case anything is missing)
 - [$(which_check pod)] cocoapods
+- [$(which_check xcpretty)] xcpretty
+- [$(which_check jv)] jv (json validator)
 
 For release...
 
