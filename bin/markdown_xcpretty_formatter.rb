@@ -3,7 +3,7 @@ require 'xcpretty'
 class Markdown < XCPretty::Simple
 
   def format_test_case_name(name)
-    separator = " ➠ "
+    separator = " ⇒ "
     name = name.gsub('Don_t', "Don't")
     name = name.gsub(/(\d+)_(\d+)/, '\1.\2')
     name = name.gsub('____', separator)
@@ -17,13 +17,13 @@ class Markdown < XCPretty::Simple
 
 # Started: #{name}
 
-| 🧪   | Name |
+|      | Name |
 |:-----|:-----|}
   end
 
   def format_test_suite_started(name)
     if name != "All tests"
-      "| 🗎 | **#{name}** |"
+      "| 🞋 | **#{name}** |"
     else
       ""
     end

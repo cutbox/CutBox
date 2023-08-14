@@ -194,8 +194,12 @@ class SearchViewController: NSObject {
                     self.searchView.itemsList.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
-                case .toggleTheme:
-                    self.prefs.toggleTheme()
+                case .setTimeFilter(let seconds):
+                    self.historyService.setTimeFilter(seconds: seconds)
+                    self.searchView.itemsList.reloadData()
+
+                case .cycleTheme:
+                    self.prefs.cycleTheme()
                     self.searchView.applyTheme()
                     self.reloadDataWithExistingSelection()
 

@@ -86,7 +86,7 @@ class HistoryService: NSObject {
     private var searchFavoritesOnly = "searchFavoritesOnly"
     private var legacyHistoryStoreKey = "pasteStore"
 
-    @available(*, message: "Deprecated use historyRepo")
+    @available(*, message: "HistoryService: .legacyHistoryStore is deprecated use .historyRepo")
     private var legacyHistoryStore: [String]? = []
 
     var historyRepo: HistoryRepo!
@@ -331,5 +331,10 @@ class HistoryService: NSObject {
         if let topClip = self.historyRepo.items.first {
             NSPasteboard.general.setString(topClip, forType: .string)
         }
+    }
+
+    func setTimeFilter(seconds: Double?) {
+        print("time filter set to \(String(describing: seconds))")
+        self.historyRepo.timeFilter = seconds
     }
 }

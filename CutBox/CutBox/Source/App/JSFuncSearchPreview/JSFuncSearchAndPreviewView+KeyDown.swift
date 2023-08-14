@@ -22,7 +22,7 @@ extension JSFuncSearchAndPreviewView {
 
         case (kVK_ANSI_T, [.command]):
             self.events
-                .onNext(.toggleTheme)
+                .onNext(.cycleTheme)
 
         case (kVK_Return, _):
             self.events.onNext(.closeAndPaste)

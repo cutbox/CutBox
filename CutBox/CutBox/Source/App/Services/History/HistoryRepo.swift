@@ -19,10 +19,26 @@ class HistoryRepo {
     private var favoriteKey = "favorite"
     private var timestampKey = "timestamp"
 
+    public var timeFilter: Double?
+
     private var kProtectFavorites = "protectFavorites"
 
     var items: [String] {
-       return self.dict.map { $0[self.stringKey]! }
+        if let seconds = self.timeFilter {
+            let latest = iso8601(seconds: seconds)
+            return self.dict
+                .filter {
+                    if let timestamp = $0[self.timestampKey] {
+                        return timestamp > latest
+                    } else {
+                        return false
+                    }
+                }
+                .map { $0[self.stringKey]! }
+        } else {
+            return self.dict
+                .map { $0[self.stringKey]! }
+        }
     }
 
     var favorites: [String] {
@@ -62,9 +78,18 @@ class HistoryRepo {
         return items.firstIndex(of: string)
     }
 
+    private func iso8601(date: Date) -> String {
+        return ISO8601DateFormatter().string(from: date)
+    }
+
+    private func iso8601(seconds: Double) -> String {
+        let date = Date(timeIntervalSinceNow: seconds)
+        return iso8601(date: date)
+    }
+
     func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false, date: Date = Date()) {
         var item = [stringKey: newElement]
-        item[self.timestampKey] = ISO8601DateFormatter().string(from: date)
+        item[self.timestampKey] = iso8601(date: date)
 
         if isFavorite {
             item[self.favoriteKey] = self.favoriteKey

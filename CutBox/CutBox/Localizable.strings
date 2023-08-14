@@ -71,5 +71,5 @@
 "searchmode_regexp_strict" = "RegExp";
 "searchmode_regexp_strict_tooltip" = "Regular expression search (strict case)";
 "searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
-"search_time_filter_label_active" = "Search only items copied between now and %s ago";
+"search_time_filter_label_active" = "Search only items copied between now and %@ ago";
 "search_time_filter_label_hint" = "Enter N sec, min, hr, day, week or year";

@@ -45,7 +45,7 @@ extension SearchAndPreviewView {
 
         case (kVK_ANSI_T, [.command]):
             self.events
-                .onNext(.toggleTheme)
+                .onNext(.cycleTheme)
 
         case (kVK_ANSI_LeftBracket, [.command]):
             self.events

@@ -110,13 +110,14 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
         self.timeFilterText.rx.text
             .compactMap { $0 }
-            .subscribe(onNext: { [weak self] text in
+            .subscribe(onNext: { [weak self] (text: String) in
                 let filter = TimeFilterValidator(value: text)
                 self?.timeFilterText.isValid = filter.isValid
 
                 if let seconds = filter.seconds {
                     let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
                     self?.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
+                    self?.events.onNext(.setTimeFilter(seconds: seconds))
                 } else {
                     self?.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
                 }

@@ -9,7 +9,7 @@
 enum SearchJSFuncViewEvents {
     case closeAndPaste
     case justClose
-    case toggleTheme
+    case cycleTheme
 }
 
 enum SearchViewEvents {
@@ -17,11 +17,12 @@ enum SearchViewEvents {
     case selectJavascriptFunction
     case justClose
     case setSearchMode(HistorySearchMode)
+    case setTimeFilter(seconds: Double?)
     case clearHistory
     case revealItemsAndPreview
     case hideSearchResults
 
-    case toggleTheme
+    case cycleTheme
     case toggleSearchMode
     case toggleWrappingStrings
     case toggleJoinStrings
