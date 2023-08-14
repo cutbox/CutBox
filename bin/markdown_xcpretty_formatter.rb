@@ -3,9 +3,11 @@ require 'xcpretty'
 class Markdown < XCPretty::Simple
 
   def format_test_case_name(name)
+    name = name.gsub('Don_t', "Don't")
     name = name.gsub(/(\d+)_(\d+)/, '\1.\2')
-    name = name.gsub('_', ' ')
+    name = name.gsub('____', ' : ')
     name = name.gsub('__', ' : ')
+    name = name.gsub('_', ' ')
     name = name.split(' : ').map(&:capitalize).join(' : ')
     name
   end
