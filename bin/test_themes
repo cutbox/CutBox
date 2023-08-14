@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export has_fails="no"
-
 echo_summary() {
     [ "$GITHUB_STEP_SUMMARY" != "" ] && echo "$1" >> $GITHUB_STEP_SUMMARY
     echo "$1"
@@ -14,10 +12,8 @@ for theme in CutBox/CutBox/themes/*cutboxTheme; do
 if bin/cutbox_theme_validator "$theme"; then
     echo_summary "| $(basename "$theme") | passed |"
 else
-    export has_fails="yes"
     echo_summary "| $(basename "$theme") | failed |"
+    exit 1
 fi
 
 done
-
-[ $has_fails == "yes" ] && exit 1
