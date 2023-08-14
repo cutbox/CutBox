@@ -256,7 +256,7 @@
                                                 </buttonCell>
                                             </button>
                                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3kg-12-02p" customClass="ValidTextField" customModule="CutBox" customModuleProvider="target">
-                                                <rect key="frame" x="45" y="21" width="104" height="16"/>
+                                                <rect key="frame" x="45" y="18" width="104" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="Il2-jU-Wra"/>
                                                 </constraints>
@@ -278,7 +278,7 @@
                                                 </buttonCell>
                                             </button>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-ED-bmB" userLabel="Time Filter Label">
-                                                <rect key="frame" x="153" y="17" width="37" height="20"/>
+                                                <rect key="frame" x="153" y="15" width="37" height="20"/>
                                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="nUH-VZ-2UY">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -290,11 +290,11 @@
                                             <constraint firstItem="GES-NZ-iAa" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="8" id="0IC-Ik-4Jq"/>
                                             <constraint firstItem="xGH-m9-3kp" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="6" id="59l-sy-rsB"/>
                                             <constraint firstItem="yoQ-ED-bmB" firstAttribute="leading" secondItem="3kg-12-02p" secondAttribute="trailing" constant="8" symbolic="YES" id="8iP-qK-H7Q"/>
-                                            <constraint firstItem="yoQ-ED-bmB" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="13" id="8tv-Tn-hLN"/>
+                                            <constraint firstItem="yoQ-ED-bmB" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="15" id="8tv-Tn-hLN"/>
                                             <constraint firstAttribute="trailing" secondItem="xGH-m9-3kp" secondAttribute="trailing" constant="10" id="A68-Lb-4Fp"/>
                                             <constraint firstAttribute="height" constant="50" id="Brl-mU-3gG"/>
-                                            <constraint firstItem="yoQ-ED-bmB" firstAttribute="bottom" secondItem="GES-NZ-iAa" secondAttribute="bottom" constant="-7" id="GgU-K6-AUr"/>
-                                            <constraint firstItem="3kg-12-02p" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="13" id="LIN-e2-MbV"/>
+                                            <constraint firstItem="yoQ-ED-bmB" firstAttribute="bottom" secondItem="GES-NZ-iAa" secondAttribute="bottom" constant="-5" id="GgU-K6-AUr"/>
+                                            <constraint firstItem="3kg-12-02p" firstAttribute="top" secondItem="Elj-qC-DgK" secondAttribute="top" constant="16" id="LIN-e2-MbV"/>
                                             <constraint firstItem="yoQ-ED-bmB" firstAttribute="leading" secondItem="Elj-qC-DgK" secondAttribute="leading" constant="155" id="LuE-e2-vKw"/>
                                             <constraint firstItem="GES-NZ-iAa" firstAttribute="leading" secondItem="Elj-qC-DgK" secondAttribute="leading" constant="8" id="MfF-fA-9hX"/>
                                             <constraint firstItem="3kg-12-02p" firstAttribute="leading" secondItem="GES-NZ-iAa" secondAttribute="trailing" constant="7" id="WNl-h4-Zja"/>
