@@ -135,6 +135,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
             self.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
             self.events.onNext(.setTimeFilter(seconds: seconds))
         } else {
+            self.events.onNext(.setTimeFilter(seconds: nil))
             self.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
         }
     }
