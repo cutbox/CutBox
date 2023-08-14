@@ -37,6 +37,13 @@ class Markdown < XCPretty::Simple
     "| #{format_test_case_name(test_case)} (#{time}) |  ✓  |"
   end
 
+  def format_test_run_finished(name, time)
+    ""
+  end
+
+  def format_test_summary(executed_message, failures_per_suite)
+    ""
+  end
 
   def format_failing_test(suite, test_case, reason, file_path)
     %{| #{format_test_case_name(test_case)} | ✗ |
