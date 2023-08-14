@@ -8,7 +8,6 @@ class Markdown < XCPretty::Simple
     name = name.gsub('____', ' : ')
     name = name.gsub('__', ' : ')
     name = name.gsub('_', ' ')
-    name = name.split(' : ').map(&:capitalize).join(' : ')
     name
   end
 
