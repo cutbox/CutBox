@@ -17,27 +17,27 @@ class Markdown < XCPretty::Simple
 
 # Started: #{name}
 
-|      | Name |
+| Test/Suite | |
 |:-----|:-----|}
   end
 
   def format_test_suite_started(name)
-    if name != "All tests"
-      "| 🞋 | **#{name}** |"
+    if name != "All tests" # We don't consider "All tests" a suite.
+      "| **#{name}** | |"
     else
       ""
     end
   end
 
   def format_passing_test(suite, test_case, time)
-    "| ✓ | #{format_test_case_name(test_case)} (#{time}) |"
+    "| #{format_test_case_name(test_case)} (#{time}) |  ✓  |"
   end
 
 
   def format_failing_test(suite, test_case, reason, file_path)
-    %{| ✗ | #{format_test_case_name(test_case)} |
-|   | #{file_path}      |
-|   | Reason: #{reason} |}
+    %{| #{format_test_case_name(test_case)} | ✗ |
+| #{file_path}     | |
+| Reason: #{reason}| |}
   end
 
   private
