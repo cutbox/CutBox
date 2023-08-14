@@ -31,9 +31,8 @@ jobs:
             fi
           done
 
-      - name: Is this a production run?
+      - name: Production Release when commit message has tag [release]
         run: |
-          # If the commit message contains [release]
           bin/ci_is_production
 
       - name: Setup

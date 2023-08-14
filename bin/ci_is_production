@@ -2,7 +2,7 @@
 
 if git show -s --format=%B | grep -q "\[release\]"; then
   echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
-  echo "[✓] Production Run"
+  echo "✓ - Production Run"
 else
-  echo "[-] Prerelease run"
+  echo "✗ - Prerelease Run"
 fi
