@@ -1,0 +1,23 @@
+{
+    "name": "Standard Dark",
+    "popupBackgroundColor":            "#191E25",
+    "searchText": {
+        "cursorColor":                 "#E1EFED77",
+        "textColor":                   "#F9F9F9DD",
+        "backgroundColor":             "#191E25",
+        "placeholderTextColor":        "#63636388"
+    },
+    "clip": {
+        "backgroundColor":    "#161A22",
+        "textColor":          "#FFECE3",
+        "highlightColor":     "#515D5FA9",
+        "highlightTextColor": "#FFECE3"
+    },
+    "preview": {
+        "textColor":                   "#FFECE3",
+        "backgroundColor":             "#0D1116",
+        "selectedTextBackgroundColor": "#515D5F30",
+        "selectedTextColor":           "#E0ECF380"
+    },
+    "spacing": 0
+}
