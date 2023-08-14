@@ -25,7 +25,7 @@ class HistoryRepo {
 
     var items: [String] {
         if let seconds = self.timeFilter {
-            let latest = iso8601(seconds: seconds)
+            let latest = secondsBeforeTimeNowISO8601(seconds: seconds)
             return self.dict
                 .filter {
                     if let timestamp = $0[self.timestampKey] {
@@ -78,15 +78,6 @@ class HistoryRepo {
         return items.firstIndex(of: string)
     }
 
-    private func iso8601(date: Date) -> String {
-        return ISO8601DateFormatter().string(from: date)
-    }
-
-    private func iso8601(seconds: Double) -> String {
-        let date = Date(timeIntervalSinceNow: seconds)
-        return iso8601(date: date)
-    }
-
     func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false, date: Date = Date()) {
         var item = [stringKey: newElement]
         item[self.timestampKey] = iso8601(date: date)
@@ -96,15 +87,6 @@ class HistoryRepo {
         }
 
         self.store.insert(item, at: index)
-    }
-
-    /// TODO:
-    /// clearTimeFilter()
-    ///
-    /// Apply time filter to dict
-
-    func setTimeFilter(before: TimeInterval?, since: TimeInterval?) {
-        ///
     }
 
     func remove(at: Int) {
@@ -184,4 +166,15 @@ class HistoryRepo {
             return ""
         }
     }
+
+    func iso8601(date: Date) -> String {
+        return ISO8601DateFormatter().string(from: date)
+    }
+
+    func secondsBeforeTimeNowISO8601(seconds: Double) -> String {
+        let date = Date(timeIntervalSinceNow: -seconds)
+        return iso8601(date: date)
+    }
 }
+
+

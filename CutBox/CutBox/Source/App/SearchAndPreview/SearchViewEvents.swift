@@ -28,6 +28,7 @@ enum SearchViewEvents {
     case toggleJoinStrings
     case toggleSearchScope
     case togglePreview
+    case toggleTimeFilter
 
     case scaleTextUp
     case scaleTextDown

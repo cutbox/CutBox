@@ -198,6 +198,11 @@ class SearchViewController: NSObject {
                     self.historyService.setTimeFilter(seconds: seconds)
                     self.searchView.itemsList.reloadData()
 
+                case .toggleTimeFilter:
+                    self.searchView.toggleTimeFilter()
+                    self.historyService.setTimeFilter(seconds: nil)
+                    self.searchView.itemsList.reloadData()
+
                 case .cycleTheme:
                     self.prefs.cycleTheme()
                     self.searchView.applyTheme()

@@ -60,8 +60,14 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func historyScopeClicked() {
+        self.events.onNext(.toggleTimeFilter)
+    }
+
+    func toggleTimeFilter() {
         self.timeFilterLabel.isHidden = !self.timeFilterLabel.isHidden
         self.timeFilterText.isHidden = !self.timeFilterText.isHidden
+
+        self.timeFilterText.stringValue = ""
     }
 
     private func setupSearchModeToggle() {
@@ -111,22 +117,26 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         self.timeFilterText.rx.text
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] (text: String) in
-                let filter = TimeFilterValidator(value: text)
-                self?.timeFilterText.isValid = filter.isValid
-
-                if let seconds = filter.seconds {
-                    let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
-                    self?.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
-                    self?.events.onNext(.setTimeFilter(seconds: seconds))
-                } else {
-                    self?.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
-                }
+                self?.onTimeFilterTextChanged(text: text)
             })
             .disposed(by: disposeBag)
 
         self.timeFilterText.isHidden = true
         self.timeFilterText.placeholderString = "...".l7n
         self.timeFilterText.isValid = false
+    }
+
+    func onTimeFilterTextChanged(text: String) {
+        let filter = TimeFilterValidator(value: text)
+        self.timeFilterText.isValid = filter.isValid
+
+        if let seconds = filter.seconds {
+            let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
+            self.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
+            self.events.onNext(.setTimeFilter(seconds: seconds))
+        } else {
+            self.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
+        }
     }
 
     @objc func removeSelectedItems() {

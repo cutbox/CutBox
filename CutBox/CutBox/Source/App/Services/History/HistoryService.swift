@@ -334,7 +334,8 @@ class HistoryService: NSObject {
     }
 
     func setTimeFilter(seconds: Double?) {
-        print("time filter set to \(String(describing: seconds))")
         self.historyRepo.timeFilter = seconds
+        invalidateCaches()
+        self.events.onNext(.didLoadDefaults)
     }
 }
