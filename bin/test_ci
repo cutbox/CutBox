@@ -1,0 +1,8 @@
+#!/bin/bash
+set -o pipefail && xcodebuild \
+-workspace CutBox/CutBox.xcworkspace \
+-scheme CutBoxUnitTests \
+test | xcpretty -f bin/markdown_xcpretty_formatter.rb | sed -n -e '/^# Started: CutBoxUnitTests.xctest$/,/^      Executed/p' | tee markdown_test_report.md
+
+cat markdown_test_report.md >> $GITHUB_STEP_SUMMARY
+rm markdown_test_report.md
