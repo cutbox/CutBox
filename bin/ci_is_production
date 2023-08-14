@@ -3,6 +3,8 @@
 if git show -s --format=%B | grep -q "\[release\]"; then
   echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
   echo "✓ - Production Run"
+  echo "# CutBox Production Release" >> $GITHUB_STEP_SUMMARY
 else
   echo "✗ - Prerelease Run"
+  echo "# CutBox PreRelease" >> $GITHUB_STEP_SUMMARY
 fi
