@@ -3,8 +3,10 @@
 if git show -s --format=%B | grep -q "\[release\]"; then
   echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
   echo "✓ - Production Run"
-  echo "# CutBox Production Release $(bin/dev_version) (build: $(bc <<<"$(bin/build_number) + 1"))" >> $GITHUB_STEP_SUMMARY
+  echo "# CutBox Production Release $(bin/dev_version) (build: $(bc <<<"$(bin/build_number) + 2"))" >> $GITHUB_STEP_SUMMARY
 else
   echo "✗ - Prerelease Run"
-  echo "# CutBox PreRelease $(bin/dev_version) (build: $(bc <<<"$(bin/build_number) + 1"))" >> $GITHUB_STEP_SUMMARY
+  echo "# CutBox PreRelease $(bin/dev_version) (build: $(bc <<<"$(bin/build_number) + 2"))" >> $GITHUB_STEP_SUMMARY
 fi
+
+# Note: build & test will increment build number by 2 (why we do, build_numnber + 2 above.)
