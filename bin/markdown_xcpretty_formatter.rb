@@ -23,7 +23,11 @@ class Markdown < XCPretty::Simple
 
   def format_test_suite_started(name)
     if name != "All tests" # We don't consider "All tests" a suite.
-      "| **#{name}** | |"
+      text = <<~EOD
+      | | |
+      | **#{name}** | |}
+      EOD
+      text.chomp
     else
       ""
     end

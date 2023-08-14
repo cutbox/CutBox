@@ -65,7 +65,11 @@ class TimeFilterValidator {
             if let index = components.firstIndex(of: component) {
                 if components.count > index + 1 {
                     let adjacent = components[index + 1]
-                    captured = "\(component) \(adjacent)"
+                    if adjacent != "" {
+                        captured = "\(component) \(adjacent)"
+                    } else {
+                        captured = component
+                    }
                 } else {
                     captured = component
                 }

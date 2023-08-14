@@ -20,13 +20,13 @@ class TimeFilterValidatorSpec: QuickSpec {
                     (input: 61, result: "1 minute 1 second"),
                     (input: 90, result: "1 minute 30 seconds"),
                     (input: 110, result: "1 minute 50 seconds"),
-                    (input: 3610, result: "1 hour 10 seconds"),
+                    (input: 3610, result: "1 hour"),
                     (input: 3780, result: "1 hour 3 minutes"),
                     (input: 86400, result: "1 day"),
-                    (input: 86461, result: "1 day 1 minute 1 second"),
+                    (input: 86461, result: "1 day"),
                     (input: 604800, result: "1 week"),
-                    (input: 398472, result: "4 days 14 hours 41 minutes 12 seconds"),
-                    (input: 34514456400, result: "1094 years 23 weeks 3 days 21 hours")
+                    (input: 398472, result: "4 days 14 hours"),
+                    (input: 34514456400, result: "1094 years 23 weeks")
                 ]
 
                 for (input, result) in values {
