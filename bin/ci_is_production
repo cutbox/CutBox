@@ -1,5 +1,9 @@
 #!/bin/sh
 
+[ "$GITHUB_STEP_SUMMARY" == "" ] && echo "Run on GitHub actions CI only" && exit 1
+
+echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png)" >> $GITHUB_STEP_SUMMARY
+
 if git show -s --format=%B | grep -q "\[release\]"; then
   echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
   echo "✓ - Production Run"
