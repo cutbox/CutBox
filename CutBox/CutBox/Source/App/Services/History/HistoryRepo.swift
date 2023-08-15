@@ -14,7 +14,7 @@ class HistoryRepo {
 
     private var store: [[String: String]] = []
 
-    private var storeDefaultsKey = "historyStore"
+    private var historyStoreKey = "historyStore"
     private var stringKey = "string"
     private var favoriteKey = "favorite"
     private var timestampKey = "timestamp"
@@ -130,7 +130,7 @@ class HistoryRepo {
     }
 
     func loadFromDefaults() {
-        let key = self.storeDefaultsKey
+        let key = self.historyStoreKey
         if let historyStore = self.defaults.array(forKey: key) as? [[String: String]] {
             self.store = historyStore
         } else {
@@ -139,12 +139,38 @@ class HistoryRepo {
     }
 
     func saveToDefaults() {
-        self.defaults.setValue(self.store, forKey: self.storeDefaultsKey)
+        self.defaults.setValue(self.store, forKey: self.historyStoreKey)
     }
 
     func clearHistory() {
         self.clear()
-        self.defaults.removeObject(forKey: self.storeDefaultsKey)
+        self.defaults.removeObject(forKey: self.historyStoreKey)
+    }
+
+    /// Clear the history using a timestampPredicate
+    ///
+    /// Favorites are protected when `prefs.protectFavorites` is enabled
+    ///
+    /// Items without a timestamp will be ignored.
+    ///
+    /// see also: `historyOffsetPredicateFactory(offset: TimeInterval?)`
+    func clearHistory(timestampPredicate: (String) -> Bool) {
+        let keep = self.store.filter {
+            if $0[favoriteKey] != nil {
+                if prefs.protectFavorites {
+                    return true
+                }
+            }
+
+            if let timestamp: String = $0[timestampKey] {
+                return !timestampPredicate(timestamp)
+            }
+
+            return true
+        }
+
+        self.store = keep
+        saveToDefaults()
     }
 
     func bytes() throws -> Int {

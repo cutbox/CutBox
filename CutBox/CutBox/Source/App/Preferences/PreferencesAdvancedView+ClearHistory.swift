@@ -13,9 +13,7 @@ extension PreferencesAdvancedView {
     func setupClearHistoryControls() {
         clearHistoryDropDown.removeAllItems()
         clearHistoryDropDown.addItems(withTitles: clearHistoryOptions.map { $0.title })
-
         clearHistoryActionButton.title = "preferences_history_clear_history_button".l7n
-
         clearHistoryActionButton.rx.tap
             .bind(onNext: clearHistoryActionClicked)
             .disposed(by: disposeBag)
@@ -24,7 +22,12 @@ extension PreferencesAdvancedView {
     func clearHistoryActionClicked() {
         let selectedIndex = clearHistoryDropDown.indexOfSelectedItem
         if let offset = clearHistoryOptions[selectedIndex].offset {
-            prefs.events.onNext(.historyClearByOffset(offset: offset))
+            if suppressibleConfirmationDialog(
+                messageText: "\(clearHistoryOptions[selectedIndex].title.l7n)?",
+                informativeText: "confirm_warning_clear_history".l7n,
+                dialogName: "clearHistoryActionClicked") {
+                prefs.events.onNext(.historyClearByOffset(offset: offset))
+            }
         }
     }
 }

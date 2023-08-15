@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -43,9 +43,6 @@
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                             <color key="value" red="0.65273437499999998" green="0.65273437499999998" blue="0.65273437499999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
-                                        <!--
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="showsClearButton" value="YES"/>
-                                        -->
                                     </userDefinedRuntimeAttributes>
                                 </customView>
                             </subviews>
@@ -64,21 +61,21 @@
                             </customSpacing>
                         </stackView>
                         <button verticalHuggingPriority="750" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="T93-L1-O29">
-                            <rect key="frame" x="-2" y="64" width="122" height="18"/>
+                            <rect key="frame" x="-2" y="63" width="126" height="18"/>
                             <buttonCell key="cell" type="check" title="Launch on Login" bezelStyle="regularSquare" imagePosition="left" alignment="center" inset="2" id="JGH-Ww-gHu">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
                         <button toolTip="Don't clear favorites if you clear history" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q7E-Pa-cvu">
-                            <rect key="frame" x="-2" y="33" width="123" height="18"/>
+                            <rect key="frame" x="-2" y="32" width="127" height="18"/>
                             <buttonCell key="cell" type="check" title="Protect favorites" bezelStyle="regularSquare" imagePosition="left" inset="2" id="jBy-0u-Xgk">
                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
                         </button>
                         <button toolTip="Show all hidden dialog boxes" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p6L-bE-eyj">
-                            <rect key="frame" x="-6" y="-7" width="198" height="32"/>
+                            <rect key="frame" x="-7" y="-7" width="192" height="32"/>
                             <buttonCell key="cell" type="push" title="Show hidden dialog boxes" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="X0q-T7-T4T">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>

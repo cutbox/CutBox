@@ -226,17 +226,20 @@ class CutBoxController: NSObject {
     func setPreferencesEventBindings() {
         self.prefs
             .events
-            .subscribe(onNext: {
+            .subscribe(onNext: { [weak self] in
                 switch $0 {
                 case .historyLimitChanged(let limit):
-                    self.historyService.historyLimit = limit
+                    self?.historyService.historyLimit = limit
                 case .compactUISettingChanged(let isOn):
-                    self.useCompactUI.state = isOn ? .on : .off
+                    self?.useCompactUI.state = isOn ? .on : .off
                 case .hidePreviewSettingChanged(let isOn):
-                    self.hidePreview.state = isOn ? .on : .off
+                    self?.hidePreview.state = isOn ? .on : .off
                 case .historyClearByOffset(let offset):
+                    if offset == 0 {
+                        self?.historyService.clear()
+                    }
                     let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
-                    self.historyService.clearWithTimestampPredicate(predicate: predicate)
+                    self?.historyService.clearWithTimestampPredicate(predicate: predicate)
                 default:
                     break
                 }

@@ -235,14 +235,14 @@ class HistoryService: NSObject {
     func clear() {
         self.historyRepo.clearHistory()
         invalidateCaches()
-        self.events.onNext(.didClearHistory)
+        self.events.onNext(.didClearHistory) // not currently used
     }
 
     /// Clear history using timestamp predicate
     /// see historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool
     func clearWithTimestampPredicate(predicate: (String) -> Bool) {
-        print("clear with timestamp predicate")
-        print(predicate(""))
+        self.historyRepo.clearHistory(timestampPredicate: predicate)
+        invalidateCaches()
     }
 
     private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
