@@ -1,5 +1,5 @@
 /*
-  Localizable.strings
+  Localizable.en.strings
   CutBox
 
   Created by Jason Milkins on 15/4/18.
@@ -60,6 +60,10 @@
 "preferences_protect_favorites_tooltip" = "Protect favorites if you clear history";
 "preferences_show_all_hidden_dialog_boxes_button_title" = "Show hidden dialog boxes";
 "preferences_show_all_hidden_dialog_boxes_button_tootip" = "Show all dialog boxes set to 'Do not show'";
+"preferences_tab_view_general" = "General";
+"preferences_tab_view_display" = "Display";
+"preferences_tab_view_advanced" = "Advanced";
+"preferences_tab_view_javascript" = "Javascript";
 "preferences_title" = "CutBox Preferences";
 "preferences_toggle_cutbox" = "Toggle CutBox";
 "preferences_toggle_cutbox_tooltip" = "Choose a keyboard shortcut to show/hide CutBox";

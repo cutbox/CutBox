@@ -20,10 +20,10 @@ class PreferencesTabView: NSTabView {
 
     override func awakeFromNib() {
         let tabViews: [Tab] = [
-            ("General", generalTab),
-            ("Display", themeTab),
-            ("Advanced", advancedTab),
-            ("Javascript", javascriptTab)
+          ("preferences_tab_view_general".l7n, generalTab),
+          ("preferences_tab_view_display".l7n, themeTab),
+          ("preferences_tab_view_advanced".l7n, advancedTab),
+          ("preferences_tab_view_javascript".l7n, javascriptTab)
         ]
 
         tabViews.forEach {

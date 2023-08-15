@@ -1,0 +1,86 @@
+/*
+ Localizable.ja.strings
+ CutBox
+
+ Created by Jason Milkins on 15/4/18.
+ Copyright © 2019-2023 ocodo. All rights reserved.
+ */
+
+"about_cutbox_copyright_licence" = "Copyright © 2018-2023 Jason Milkins\nGPL3 ライセンスに基づく";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "警告: この操作は元に戻すことができません";
+"confirm_warning_clear_history_title" = "CutBox 履歴をクリアしますか？";
+"context_menu_favorite" = "お気に入りの切り替え";
+"context_menu_remove_selected" = "選択した項目を削除";
+"cutbox_menu_about" = "CutBox について";
+"cutbox_menu_clear_history" = "履歴をクリア";
+"cutbox_menu_compactui" = "コンパクトな UI";
+"cutbox_menu_hide_preview" = "プレビューを非表示";
+"cutbox_menu_fuzzy_match" = "曖昧な一致";
+"cutbox_menu_preferences" = "設定";
+"cutbox_menu_quit" = "終了";
+"cutbox_menu_regexp_any_case" = "大文字小文字を区別しない正規表現";
+"cutbox_menu_regexp_case_match" = "大文字小文字を区別する正規表現";
+"cutbox_menu_search_cutbox" = "CutBox を検索";
+"js_func_search_placeholder" = "JavaScript を介して貼り付け...";
+"preferences_color_theme_reload_themes" = "テーマを再読み込み";
+"preferences_color_theme_title" = "カラーテーマ";
+"preferences_history_destructive_limit_change_warning_description" = "CutBox 履歴の制限を変更すると、新しい制限を超える項目は削除されます\n\nこれは元に戻せません！\n\n確認した場合は、OK をクリックしてください";
+"preferences_history_destructive_limit_change_warning_title" = "ペーストボード履歴の制限を減少させますか？";
+"preferences_history_is_using_format" = "現在使用中: %@";
+"preferences_history_limit_checkbox_label" = "無制限";
+"preferences_history_limit_placeholder" = "制限（0 は無制限）";
+"preferences_history_limit_title" = "履歴の制限";
+"preferences_history_select_option" = "オプションを選択";
+"preferences_history_clear_last_5_minutes" = "過去 5 分をクリア";
+"preferences_history_clear_last_hour" = "過去 1 時間をクリア";
+"preferences_history_clear_last_24_hours" = "過去 24 時間をクリア";
+"preferences_history_clear_older_than_7_days" = "7 日前より古い項目をクリア";
+"preferences_history_clear_older_than_30_days" = "30 日前より古い項目をクリア";
+"preferences_history_clear_entire_history" = "全体の CutBox 履歴をクリア";
+"preferences_history_clear_history_button" = "履歴をクリア";
+"preferences_javascript_clear_button" = "クリア";
+"preferences_javascript_repl_help" = "CutBox JS:\n\nhelp を入力してください\n\n";
+"preferences_javascript_transform_reload" = "~/.cutbox.js を再読み込み";
+"preferences_javascript_transform_section_note" = "~/.cutbox.js のデバッグをサポートするために使用できます";
+"preferences_javascript_transform_section_title" = "Javascript";
+"preferences_launch_on_login" = "ログイン時に起動";
+"preferences_launch_on_login_tooltip" = "macOS にログインする際に CutBox を起動できます";
+"preferences_multi_clip_join_and_wrap_section_note" = "CutBox 履歴から複数の項目を選択して一度に貼り付けることができます";
+"preferences_multi_clip_join_and_wrap_section_title" = "結合とラップ";
+"preferences_multi_clip_join_title" = "以下で結合";
+"preferences_multi_clip_joined_by_newline" = "改行";
+"preferences_multi_clip_joined_by_string" = "テキスト";
+"preferences_multi_clip_joined_by_string_placeholder" = "各クリップをどのように結合しますか？";
+"preferences_multi_clip_wrapped_checkbox_label" = "結合されたクリップをテキストでラップしますか？";
+"preferences_multi_clip_wrapped_end_placeholder" = "終了文字列";
+"preferences_multi_clip_wrapped_start_placeholder" = "開始文字列";
+"preferences_protect_favorites" = "お気に入りを保護";
+"preferences_protect_favorites_tooltip" = "履歴をクリアする際にお気に入りを保護します";
+"preferences_show_all_hidden_dialog_boxes_button_title" = "非表示のダイアログボックスを表示";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "「表示しない」に設定されたすべてのダイアログボックスを表示します";
+"preferences_tab_view_general" = "一般";
+"preferences_tab_view_display" = "表示";
+"preferences_tab_view_advanced" = "高度な";
+"preferences_tab_view_javascript" = "JavaScript";
+"preferences_title" = "CutBox 設定";
+"preferences_toggle_cutbox" = "CutBox の切り替え";
+"preferences_toggle_cutbox_tooltip" = "CutBox を表示/非表示するためのキーボードショートカットを選択します";
+"preferences_use_compact_ui" = "コンパクトな UI を使用";
+"preferences_use_compact_ui_tooltip" = "コンパクトな UI は、検索を開始するか右または上キーを押すまで、履歴項目と貼り付けプレビューを非表示にします";
+"preferences_hide_preview" = "プレビューを非表示";
+"preferences_hide_preview_tooltip" = "プレビューパネルを非表示にします";
+"search_placeholder" = "CutBox を検索";
+"search_scope_all" = "すべてを検索";
+"search_scope_favorites"  = "お気に入りを検索";
+"search_scope_tooltip_all" = "すべての履歴を検索";
+"search_scope_tooltip_favorites" = "お気に入りのみを検索";
+"searchmode_fuzzy" = "曖昧な一致 ";
+"searchmode_fuzzy_tooltip" = "曖昧な一致検索";
+"searchmode_regexp" = "正規表現/i";
+"searchmode_regexp_strict" = "正規表現";
+"searchmode_regexp_strict_tooltip" = "正規表現検索（大文字小文字を区別）";
+"searchmode_regexp_tooltip" = "正規表現検索（大文字小文字を区別しない）";
+"search_time_filter_label_active" = "現在から %@ 前までにコピーされた項目のみを検索";
+"search_time_filter_label_hint" = "時間を N 時間単位で入力してください（例: 1 min, 2 hour, 1 week, 20 days）";

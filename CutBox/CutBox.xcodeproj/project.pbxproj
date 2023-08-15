@@ -238,6 +238,9 @@
 		96CDF2CE2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */; };
 		96CDF2CF2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */; };
 		96CDF2D22A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2D02A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift */; };
+		96CDF2D42A8B957F00ADE6B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96CDF2D32A8B957F00ADE6B4 /* Localizable.strings */; };
+		96CDF2D62A8B95D800ADE6B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96CDF2D52A8B95D800ADE6B4 /* Localizable.strings */; };
+		96CDF2D82A8BB3DF00ADE6B4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 96CDF2D72A8BB3DF00ADE6B4 /* Localizable.strings */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
@@ -431,6 +434,9 @@
 		96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+ClearHistory.swift"; sourceTree = "<group>"; };
 		96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOffsetPredicateFactory.swift; sourceTree = "<group>"; };
 		96CDF2D02A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOffsetPredicateFactorySpec.swift; sourceTree = "<group>"; };
+		96CDF2D32A8B957F00ADE6B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		96CDF2D52A8B95D800ADE6B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		96CDF2D72A8BB3DF00ADE6B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
 		96D931C12A87E16900BF594D /* ValidTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidTextField.swift; sourceTree = "<group>"; };
@@ -780,6 +786,38 @@
 			path = ClipItems;
 			sourceTree = "<group>";
 		};
+		96CDF2D92A8BB4B900ADE6B4 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				964CA5532083325600B9F33E /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				96CDF2D52A8B95D800ADE6B4 /* Localizable.strings */,
+			);
+			path = ja.lproj;
+			sourceTree = "<group>";
+		};
+		96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				96CDF2D72A8BB3DF00ADE6B4 /* Localizable.strings */,
+			);
+			path = ko.lproj;
+			sourceTree = "<group>";
+		};
+		96CDF2DD2A8BB50700ADE6B4 /* th.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				96CDF2D32A8B957F00ADE6B4 /* Localizable.strings */,
+			);
+			path = th.lproj;
+			sourceTree = "<group>";
+		};
 		96DB5387208ADB28004BAAEF /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +843,10 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
+				96CDF2DD2A8BB50700ADE6B4 /* th.lproj */,
+				96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */,
+				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
+				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
 				96E1E596205D243400F994ED /* CutBox */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				965348D12843316B000FD0A1 /* CutBoxUnitTests */,
@@ -833,7 +875,6 @@
 				965F0785206FCDC60032DACD /* GraphicAssets */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
 				96E1E59E205D243400F994ED /* Info.plist */,
-				964CA5532083325600B9F33E /* Localizable.strings */,
 				96E1E59F205D243400F994ED /* CutBox.entitlements */,
 			);
 			path = CutBox;
@@ -1068,6 +1109,7 @@
 				96A8022820AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib in Resources */,
 				96A8022720AD8F00000CBE74 /* JSFuncItemTableRowTextView.xib in Resources */,
 				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
+				96CDF2D82A8BB3DF00ADE6B4 /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */,
 				96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */,
 				96A8021D20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib in Resources */,
@@ -1078,9 +1120,11 @@
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
 				96A801BF20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib in Resources */,
 				96B04642284518E500011A58 /* themes in Resources */,
+				96CDF2D42A8B957F00ADE6B4 /* Localizable.strings in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
 				96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */,
+				96CDF2D62A8B95D800ADE6B4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1238,13 +1282,14 @@
 		};
 		BF6D2BA12FA09425F0F3B6F6 /* [CP-User] Sign */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] Sign";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = scripts/sign.sh;
+			shellScript = "scripts/sign.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1724,6 +1769,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CutBox/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1749,6 +1795,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = CutBox/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

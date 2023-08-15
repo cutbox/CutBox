@@ -1,0 +1,86 @@
+/*
+ Localizable.ko.strings
+ CutBox
+
+ Created by Jason Milkins on 15/4/18.
+ Copyright © 2019-2023 ocodo. All rights reserved.
+ */
+
+"about_cutbox_copyright_licence" = "저작권 © 2018-2023 Jason Milkins\nGPL3에 따라 사용 가능";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "경고: 이 작업을 취소할 수 없습니다";
+"confirm_warning_clear_history_title" = "CutBox 기록을 삭제하시겠습니까?";
+"context_menu_favorite" = "즐겨찾기 전환";
+"context_menu_remove_selected" = "선택한 항목 삭제";
+"cutbox_menu_about" = "CutBox 정보";
+"cutbox_menu_clear_history" = "기록 지우기";
+"cutbox_menu_compactui" = "간결한 UI";
+"cutbox_menu_hide_preview" = "미리보기 숨기기";
+"cutbox_menu_fuzzy_match" = "퍼지 일치";
+"cutbox_menu_preferences" = "환경 설정";
+"cutbox_menu_quit" = "종료";
+"cutbox_menu_regexp_any_case" = "임의의 대소문자 정규식";
+"cutbox_menu_regexp_case_match" = "대소문자 일치 정규식";
+"cutbox_menu_search_cutbox" = "CutBox에서 검색";
+"js_func_search_placeholder" = "JavaScript로 붙여넣기...";
+"preferences_color_theme_reload_themes" = "테마 다시 불러오기";
+"preferences_color_theme_title" = "색상 테마";
+"preferences_history_destructive_limit_change_warning_description" = "CutBox 기록 제한을 변경하면 새 제한을 초과하는 항목이 삭제됩니다.\n\n이 작업을 되돌릴 수 없습니다!\n\n확인을 클릭하여 진행하십시오.";
+"preferences_history_destructive_limit_change_warning_title" = "CutBox 기록 제한 축소?";
+"preferences_history_is_using_format" = "현재 사용 중: %@";
+"preferences_history_limit_checkbox_label" = "무제한";
+"preferences_history_limit_placeholder" = "제한 (0은 무제한)";
+"preferences_history_limit_title" = "기록 제한";
+"preferences_history_select_option" = "옵션 선택";
+"preferences_history_clear_last_5_minutes" = "지난 5분 내역 삭제";
+"preferences_history_clear_last_hour" = "지난 1시간 내역 삭제";
+"preferences_history_clear_last_24_hours" = "지난 24시간 내역 삭제";
+"preferences_history_clear_older_than_7_days" = "7일 이전 내역 삭제";
+"preferences_history_clear_older_than_30_days" = "30일 이전 내역 삭제";
+"preferences_history_clear_entire_history" = "전체 CutBox 기록 삭제";
+"preferences_history_clear_history_button" = "기록 삭제";
+"preferences_javascript_clear_button" = "지우기";
+"preferences_javascript_repl_help" = "CutBox 자바스크립트:\n\nhelp 를 입력하고 ENTER 키를 누르면 도움말을 볼 수 있습니다.\n\n";
+"preferences_javascript_transform_reload" = "~/.cutbox.js 다시 불러오기";
+"preferences_javascript_transform_section_note" = "~/.cutbox.js를 디버그하는 데 도움이 되는 도구입니다.";
+"preferences_javascript_transform_section_title" = "자바스크립트";
+"preferences_launch_on_login" = "로그인 시 시작";
+"preferences_launch_on_login_tooltip" = "macOS에 로그인할 때 CutBox를 시작할 수 있습니다.";
+"preferences_multi_clip_join_and_wrap_section_note" = "CutBox 기록에서 여러 항목을 선택하고 모두 한꺼번에 붙여넣을 수 있습니다.";
+"preferences_multi_clip_join_and_wrap_section_title" = "연결 및 래핑";
+"preferences_multi_clip_join_title" = "다음으로 연결";
+"preferences_multi_clip_joined_by_newline" = "새 줄";
+"preferences_multi_clip_joined_by_string" = "텍스트";
+"preferences_multi_clip_joined_by_string_placeholder" = "각 클립을 어떻게 연결할까요?";
+"preferences_multi_clip_wrapped_checkbox_label" = "연결된 클립을 래핑할까요?";
+"preferences_multi_clip_wrapped_end_placeholder" = "마지막에 뭐로 끝낼까요?";
+"preferences_multi_clip_wrapped_start_placeholder" = "처음에 뭐로 시작할까요?";
+"preferences_protect_favorites" = "즐겨찾기 보호";
+"preferences_protect_favorites_tooltip" = "기록을 삭제할 때 즐겨찾기를 보호합니다.";
+"preferences_show_all_hidden_dialog_boxes_button_title" = "숨겨진 대화 상자 표시";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "'표시하지 않음'으로 설정된 모든 대화 상자 표시";
+"preferences_tab_view_general" = "일반";
+"preferences_tab_view_display" = "디스플레이";
+"preferences_tab_view_advanced" = "고급";
+"preferences_tab_view_javascript" = "자바스크립트";
+"preferences_title" = "CutBox 환경 설정";
+"preferences_toggle_cutbox" = "CutBox 전환";
+"preferences_toggle_cutbox_tooltip" = "CutBox를 표시/숨기기 위한 키보드 바로 가기 설정";
+"preferences_use_compact_ui" = "간결한 UI 사용";
+"preferences_use_compact_ui_tooltip" = "콤팩트 UI는 검색을 시작하거나 오른쪽이나 위쪽 키를 누를 때까지 기록 항목과 붙여넣기 미리 보기를 숨깁니다.";
+"preferences_hide_preview" = "미리보기 숨기기";
+"preferences_hide_preview_tooltip" = "미리보기 패널을 숨깁니다.";
+"search_placeholder" = "CutBox에서 검색";
+"search_scope_all" = "모두 검색";
+"search_scope_favorites"  = "즐겨찾기 검색";
+"search_scope_tooltip_all" = "전체 기록 검색";
+"search_scope_tooltip_favorites" = "즐겨찾기만 검색";
+"searchmode_fuzzy" = "퍼지 일치 ";
+"searchmode_fuzzy_tooltip" = "퍼지 일치 검색";
+"searchmode_regexp" = "정규식/i";
+"searchmode_regexp_strict" = "정규식";
+"searchmode_regexp_strict_tooltip" = "정확한 대소문자 정규식 검색";
+"searchmode_regexp_tooltip" = "대소문자를 무시한 정규식 검색";
+"search_time_filter_label_active" = "현재부터 %@ 전까지 복사된 항목만 검색";
+"search_time_filter_label_hint" = "시간을 N 시간 단위로 입력하세요. 예: 1 min, 2 hour, 1 week, 20 days など";

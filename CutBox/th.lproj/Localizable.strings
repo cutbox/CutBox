@@ -1,0 +1,86 @@
+/* 
+  Localizable.th.strings
+  CutBox
+
+  Created by jason on 15/8/23.
+  Copyright © 2023 ocodo. All rights reserved.
+*/
+
+"about_cutbox_copyright_licence" = "ลิขสิทธิ์ © 2018-2023 โดย Jason Milkins\nได้รับอนุญาตภายใต้ GPL3";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "คำเตือน: คุณไม่สามารถยกเลิกการดำเนินการนี้ได้";
+"confirm_warning_clear_history_title" = "ล้างประวัติการใช้งาน CutBox?";
+"context_menu_favorite" = "สลับรายการโปรด";
+"context_menu_remove_selected" = "ลบรายการที่เลือก";
+"cutbox_menu_about" = "เกี่ยวกับ CutBox";
+"cutbox_menu_clear_history" = "ล้างประวัติ";
+"cutbox_menu_compactui" = "อินเตอร์เฟซแบบ Compact";
+"cutbox_menu_hide_preview" = "ซ่อนภาพตัวอย่าง";
+"cutbox_menu_fuzzy_match" = "ค้นหาที่ออกแบบมั่วๆ";
+"cutbox_menu_preferences" = "การตั้งค่า";
+"cutbox_menu_quit" = "ออก";
+"cutbox_menu_regexp_any_case" = "ค้นหาแบบ Regexp ทุกตัว";
+"cutbox_menu_regexp_case_match" = "ค้นหาแบบ Regexp ที่ตรงตามตัวอักษรใหญ่เล็ก";
+"cutbox_menu_search_cutbox" = "ค้นหาใน CutBox";
+"js_func_search_placeholder" = "วางผ่าน JavaScript...";
+"preferences_color_theme_reload_themes" = "โหลดธีมใหม่";
+"preferences_color_theme_title" = "ธีมสี";
+"preferences_history_destructive_limit_change_warning_description" = "การเปลี่ยนแปลงของปริมาณประวัติการใช้งาน CutBox จะทำให้รายการเก่าเกินกว่าจำนวนใหม่\n\nคุณไม่สามารถย้อนกลับได้นะครับ!\n\nหากคุณแน่ใจแล้ว โปรดคลิกตกลง";
+"preferences_history_destructive_limit_change_warning_title" = "ลดขีดจำกัดประวัติการใช้งานเครื่องมือคัทบ็อกซ์?";
+"preferences_history_is_using_format" = "ใช้: %@ ปัจจุบัน";
+"preferences_history_limit_checkbox_label" = "ไม่จำกัด";
+"preferences_history_limit_placeholder" = "ขีดจำกัด (0 คือไม่จำกัด)";
+"preferences_history_limit_title" = "ขีดจำกัดประวัติการใช้งาน";
+"preferences_history_select_option" = "เลือกตัวเลือก";
+"preferences_history_clear_last_5_minutes" = "ล้างรายการใน 5 นาทีที่ผ่านมา";
+"preferences_history_clear_last_hour" = "ล้างรายการในชั่วโมงที่ผ่านมา";
+"preferences_history_clear_last_24_hours" = "ล้างรายการใน 24 ชั่วโมงที่ผ่านมา";
+"preferences_history_clear_older_than_7_days" = "ล้างรายการเก่ากว่า 7 วัน";
+"preferences_history_clear_older_than_30_days" = "ล้างรายการเก่ากว่า 30 วัน";
+"preferences_history_clear_entire_history" = "ล้างประวัติการใช้งาน CutBox ทั้งหมด";
+"preferences_history_clear_history_button" = "ล้างประวัติ";
+"preferences_javascript_clear_button" = "ล้าง";
+"preferences_javascript_repl_help" = "CutBox JS:\n\nป้อน help แล้วกด ENTER, เพื่อดูคำสั่งช่วยเหลือ\n\n";
+"preferences_javascript_transform_reload" = "โหลด ~/.cutbox.js ใหม่";
+"preferences_javascript_transform_section_note" = "ใช้ส่วนนี้ในการตรวจสอบข้อผิดพลาดใน ~/.cutbox.js";
+"preferences_javascript_transform_section_title" = "จาวาสคริปต์";
+"preferences_launch_on_login" = "เริ่มต้นหลังเข้าสู่ระบบ";
+"preferences_launch_on_login_tooltip" = "CutBox สามารถเริ่มต้นขึ้นเมื่อคุณเข้าสู่ macOS";
+"preferences_multi_clip_join_and_wrap_section_note" = "คุณสามารถเลือกหลายรายการจากประวัติการใช้งาน CutBox และวางทั้งหมดในครั้งเดียว";
+"preferences_multi_clip_join_and_wrap_section_title" = "รวมและห่อ";
+"preferences_multi_clip_join_title" = "รวมด้วย";
+"preferences_multi_clip_joined_by_newline" = "ขึ้นบรรทัดใหม่";
+"preferences_multi_clip_joined_by_string" = "ข้อความ";
+"preferences_multi_clip_joined_by_string_placeholder" = "รวมแต่ละคลิปด้วย?";
+"preferences_multi_clip_wrapped_checkbox_label" = "ห่อข้อความรอบคลิปที่รวม?";
+"preferences_multi_clip_wrapped_end_placeholder" = "สิ้นสุดด้วย?";
+"preferences_multi_clip_wrapped_start_placeholder" = "เริ่มต้นด้วย?";
+"preferences_protect_favorites" = "ป้องกันรายการโปรด";
+"preferences_protect_favorites_tooltip" = "ป้องกันรายการโปรดเมื่อคุณล้างประวัติ";
+"preferences_show_all_hidden_dialog_boxes_button_title" = "แสดงกล่องโต้ตอบที่ซ่อนอยู่ทั้งหมด";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "แสดงกล่องโต้ตอบทั้งหมดที่ตั้งไว้ว่า 'ไม่แสดง'";
+"preferences_tab_view_general" = "ทั่วไป";
+"preferences_tab_view_display" = "แสดงผล";
+"preferences_tab_view_advanced" = "ขั้นสูง";
+"preferences_tab_view_javascript" = "จาวาสคริปต์";
+"preferences_title" = "การตั้งค่า CutBox";
+"preferences_toggle_cutbox" = "สลับ CutBox";
+"preferences_toggle_cutbox_tooltip" = "เลือกแป้นพิมพ์ลัดเพื่อแสดง/ซ่อน CutBox";
+"preferences_use_compact_ui" = "ใช้อินเตอร์เฟซแบบ Compact";
+"preferences_use_compact_ui_tooltip" = "อินเตอร์เฟซแบบ Compact ซ่อนรายการประวัติและภาพตัวอย่างของการวางจนกว่าคุณจะเริ่มค้นหาหรือกดปุ่มขวาหรือขึ้น";
+"preferences_hide_preview" = "ซ่อนภาพตัวอย่าง";
+"preferences_hide_preview_tooltip" = "ซ่อนแผงภาพตัวอย่าง";
+"search_placeholder" = "ค้นหาใน CutBox";
+"search_scope_all" = "ค้นหาทั้งหมด";
+"search_scope_favorites"  = "ค้นหารายการโปรด";
+"search_scope_tooltip_all" = "ค้นหาทั้งประวัติ";
+"search_scope_tooltip_favorites" = "ค้นหารายการโปรดเท่านั้น";
+"searchmode_fuzzy" = "ค้นหาที่มีความไม่แน่นอน ";
+"searchmode_fuzzy_tooltip" = "ค้นหาที่มีความไม่แน่นอน";
+"searchmode_regexp" = "RegExp/i";
+"searchmode_regexp_strict" = "RegExp";
+"searchmode_regexp_strict_tooltip" = "ค้นหาแบบ RegExp (ตรงตามตัวอักษรใหญ่เล็ก)";
+"searchmode_regexp_tooltip" = "ค้นหาแบบ RegExp (ไม่ตรงตามตัวอักษรใหญ่เล็ก)";
+"search_time_filter_label_active" = "ค้นหาเฉพาะรายการที่คัดลอกระหว่าง %@ และ %@ ที่ผ่านมา";
+"search_time_filter_label_hint" = "ป้อนเวลาเป็นหน่วยเวลา N, ตัวอย่างเช่น 1 min, 2 hour, 1 week, 20 days ฯลฯ";
