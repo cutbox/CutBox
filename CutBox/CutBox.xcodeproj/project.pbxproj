@@ -1289,7 +1289,7 @@
 			name = "[CP-User] Sign";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scripts/sign.sh\n";
+			shellScript = scripts/sign.sh;
 		};
 /* End PBXShellScriptBuildPhase section */
 
