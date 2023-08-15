@@ -8,7 +8,7 @@ WHICH_FAILED=""
 WHICH_CHECK=0
 
 which_check() {
-  cross_mark="❌"
+  cross_mark="✗"
   check_mark="✓"
 
   if [ $# -ne 1 ]; then
@@ -29,7 +29,7 @@ NPM_FAILED=""
 NPM_CHECK=0
 
 npm_check() {
-  cross_mark="❌"
+  cross_mark="✗"
   check_mark="✓"
 
   if [ $# -ne 1 ]; then
@@ -50,7 +50,6 @@ if [ -x "$(which brew)" ]; then
   message "Running brew bundle & npm install"
   brew bundle
   npm install
-  go install github.com/santhosh-tekuri/jsonschema/cmd/jv@latest
 else
   message "Homebrew must be installed and working."
   exit 1
