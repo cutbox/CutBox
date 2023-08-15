@@ -176,5 +176,3 @@ class HistoryRepo {
         return iso8601(date: date)
     }
 }
-
-

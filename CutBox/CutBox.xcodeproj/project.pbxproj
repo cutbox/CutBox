@@ -76,7 +76,6 @@
 		965348FB28434735000FD0A1 /* PreferencesThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */; };
 		965348FC28434735000FD0A1 /* PreferencesAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */; };
 		965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA502207E5A1000B9F33E /* PreferencesAdvancedView+JoinItems.swift */; };
-		965348FE28434735000FD0A1 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650A20B14CD900DE369A /* PreferencesAdvancedView+HistoryLimit.swift */; };
 		965348FF28434735000FD0A1 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
 		9653490028434742000FD0A1 /* JSFuncSearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8021C20AC44A6000CBE74 /* JSFuncSearchAndPreviewView.xib */; };
 		9653490128434742000FD0A1 /* JSFuncSearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8021F20AC4528000CBE74 /* JSFuncSearchAndPreviewView.swift */; };
@@ -233,6 +232,12 @@
 		96B046452845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
 		96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
 		96C8ABA12A85F3A800C0F42F /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
+		96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650A20B14CD900DE369A /* PreferencesAdvancedView+HistoryLimit.swift */; };
+		96CDF2CB2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */; };
+		96CDF2CC2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */; };
+		96CDF2CE2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */; };
+		96CDF2CF2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */; };
+		96CDF2D22A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDF2D02A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift */; };
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
@@ -423,6 +428,9 @@
 		96B04641284518E400011A58 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		96B046442845275200011A58 /* CutBoxThemeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLoader.swift; sourceTree = "<group>"; };
 		96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history-clock-face-white.png"; sourceTree = "<group>"; };
+		96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+ClearHistory.swift"; sourceTree = "<group>"; };
+		96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOffsetPredicateFactory.swift; sourceTree = "<group>"; };
+		96CDF2D02A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryOffsetPredicateFactorySpec.swift; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
 		96D931C12A87E16900BF594D /* ValidTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidTextField.swift; sourceTree = "<group>"; };
@@ -593,6 +601,7 @@
 				96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */,
 				967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */,
 				9667650A20B14CD900DE369A /* PreferencesAdvancedView+HistoryLimit.swift */,
+				96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */,
 				964CA502207E5A1000B9F33E /* PreferencesAdvancedView+JoinItems.swift */,
 				964CA4FF207E59D400B9F33E /* PreferencesAdvancedView+MultipleItemWrapping.swift */,
 				96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */,
@@ -604,8 +613,10 @@
 		96429D54208C11520055D678 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */,
 				964CA51D207F2E3400B9F33E /* HistoryServiceSpec.swift */,
 				968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */,
+				96CDF2D02A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -692,7 +703,6 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				967940082A887BFF00D14B87 /* TimeFilter */,
 				96658CEE20BA7B2000BDA8F4 /* JSFunc */,
 				9667650920B148F000DE369A /* SharedMocks */,
 				96429D57208C11A90055D678 /* Extensions */,
@@ -745,14 +755,6 @@
 			path = SharedMocks;
 			sourceTree = "<group>";
 		};
-		967940082A887BFF00D14B87 /* TimeFilter */ = {
-			isa = PBXGroup;
-			children = (
-				967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */,
-			);
-			path = TimeFilter;
-			sourceTree = "<group>";
-		};
 		9679400B2A887D0200D14B87 /* TimeFilter */ = {
 			isa = PBXGroup;
 			children = (
@@ -785,6 +787,7 @@
 				968A97C020667CF800D36B50 /* HistoryService.swift */,
 				9672FF2E2079C89400E4571E /* HistorySearchMode.swift */,
 				968D7C9D2095872200FF1236 /* HistoryRepo.swift */,
+				96CDF2CD2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -1267,6 +1270,7 @@
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
 				9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */,
 				965348E928434735000FD0A1 /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,
+				96CDF2CC2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift in Sources */,
 				9653492528434785000FD0A1 /* DisableScrollView.swift in Sources */,
 				965348E52843471D000FD0A1 /* CutBoxPreferencesService.swift in Sources */,
 				9653493A2843479B000FD0A1 /* FakeKey.swift in Sources */,
@@ -1278,6 +1282,7 @@
 				965348FB28434735000FD0A1 /* PreferencesThemeSelectionView.swift in Sources */,
 				9653492928434785000FD0A1 /* NSTableView+getRowView.swift in Sources */,
 				967940072A87EADD00D14B87 /* ValidTextField.swift in Sources */,
+				96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */,
 				9653493828434795000FD0A1 /* PopupPanel.swift in Sources */,
 				9653491C28434767000FD0A1 /* HistoryService.swift in Sources */,
 				965349132843475E000FD0A1 /* SearchViewControllerTableViewDelegate.swift in Sources */,
@@ -1303,7 +1308,6 @@
 				9653492228434772000FD0A1 /* VersionService.swift in Sources */,
 				9653490328434742000FD0A1 /* JSFuncSearchTextViewDelegate.swift in Sources */,
 				9653493C284347E8000FD0A1 /* JSFuncItemTableRowTextView.swift in Sources */,
-				965348FE28434735000FD0A1 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */,
 				34A2908628DD41490024C81C /* PreferencesThemeSelectionView+HidePreview.swift in Sources */,
 				9653490F28434752000FD0A1 /* ClipItemTableRowTextView.swift in Sources */,
 				965348E728434728000FD0A1 /* AboutPanel.swift in Sources */,
@@ -1329,11 +1333,13 @@
 				96534940284347E8000FD0A1 /* JSFuncItemTableRowContainerView.swift in Sources */,
 				9652C03E2844892A004249D9 /* NSColor+HexColorString.swift in Sources */,
 				9653492728434785000FD0A1 /* JSContext+subscript.swift in Sources */,
+				96CDF2CF2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */,
 				9653491928434767000FD0A1 /* HistorySearchMode.swift in Sources */,
 				965348E32843471D000FD0A1 /* CutBoxPreferences+SelectTheme.swift in Sources */,
 				965348F628434735000FD0A1 /* PreferencesAdvancedView.swift in Sources */,
 				9653493D284347E8000FD0A1 /* JSFuncItemTableRowImageView.swift in Sources */,
 				9653492C28434785000FD0A1 /* String+Utils.swift in Sources */,
+				96CDF2D22A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift in Sources */,
 				9653492E28434785000FD0A1 /* NSEvent+CarbonConvenience.swift in Sources */,
 				965348F928434735000FD0A1 /* PreferencesAdvancedView+HistorySize.swift in Sources */,
 				9653493928434795000FD0A1 /* PopupBackgroundView.swift in Sources */,
@@ -1396,6 +1402,7 @@
 				968B4F0620A68CB300F150BE /* JSContext+subscript.swift in Sources */,
 				96FD7C1E20ADBDCA00818925 /* ItemTableRowTextView.swift in Sources */,
 				9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
+				96CDF2CE2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */,
 				964CA5492083296600B9F33E /* String+L10n.swift in Sources */,
 				965F0770206F9AF30032DACD /* PopupContainerView.swift in Sources */,
 				96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */,
@@ -1403,6 +1410,7 @@
 				964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
 				96DA65C928DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift in Sources */,
 				969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */,
+				96CDF2CB2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift in Sources */,
 				9652C03D2844892A004249D9 /* NSColor+HexColorString.swift in Sources */,
 				96A8020220A8573D000CBE74 /* PreferencesGeneralView.swift in Sources */,
 				967EFEB220A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */,

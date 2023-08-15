@@ -234,6 +234,9 @@ class CutBoxController: NSObject {
                     self.useCompactUI.state = isOn ? .on : .off
                 case .hidePreviewSettingChanged(let isOn):
                     self.hidePreview.state = isOn ? .on : .off
+                case .historyClearByOffset(let offset):
+                    let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
+                    self.historyService.clearWithTimestampPredicate(predicate: predicate)
                 default:
                     break
                 }

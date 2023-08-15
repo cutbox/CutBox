@@ -55,7 +55,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
                                  alpha: 0.4)
 
         self.historyScopeImageButton.rx.tap
-            .bind { [weak self] in self?.historyScopeClicked() }
+            .bind(onNext: historyScopeClicked)
             .disposed(by: disposeBag)
     }
 

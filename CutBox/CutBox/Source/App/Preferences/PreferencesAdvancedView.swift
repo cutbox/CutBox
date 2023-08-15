@@ -18,6 +18,8 @@ class PreferencesAdvancedView: NSView {
     @IBOutlet weak var historyLimitTextField: NSTextField!
     @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
     @IBOutlet weak var historySizeLabel: NSTextField!
+    @IBOutlet weak var clearHistoryDropDown: NSPopUpButton!
+    @IBOutlet weak var clearHistoryActionButton: NSButton!
 
     @IBOutlet weak var joinAndWrapSectionTitle: NSTextField!
     @IBOutlet weak var joinAndWrapNote: NSTextFieldCell!
@@ -29,6 +31,16 @@ class PreferencesAdvancedView: NSView {
     @IBOutlet weak var wrapStartTextField: NSTextField!
     @IBOutlet weak var wrapEndTextField: NSTextField!
 
+    let clearHistoryOptions: [(title: String, offset: TimeInterval?)] = [
+      (title: "preferences_history_select_option".l7n, offset: nil),
+      (title: "preferences_history_clear_last_5_minutes".l7n, offset: 300),
+      (title: "preferences_history_clear_last_hour".l7n, offset: 3600),
+      (title: "preferences_history_clear_last_24_hours".l7n, offset: 86400),
+      (title: "preferences_history_clear_older_than_7_days".l7n, offset: -604800),
+      (title: "preferences_history_clear_older_than_30_days".l7n, offset: -2592000),
+      (title: "preferences_history_clear_entire_history".l7n, offset: -1)
+    ]
+
     override func awakeFromNib() {
         prefs = CutBoxPreferencesService.shared
 
@@ -36,6 +48,7 @@ class PreferencesAdvancedView: NSView {
         setupJoinStringTextField()
         setupHistoryLimitControls()
         setupHistorySizeLabel()
+        setupClearHistoryControls()
     }
 
     @IBAction func joinStyleSelectorAction(_ sender: Any) {

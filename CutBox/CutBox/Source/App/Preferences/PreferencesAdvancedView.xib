@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,14 +10,14 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="DMd-LY-Kdz" userLabel="Advanced" customClass="PreferencesAdvancedView" customModule="CutBox" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="443" height="306"/>
+            <rect key="frame" x="0.0" y="0.0" width="443" height="424"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9k-cb-OS5">
-                    <rect key="frame" x="10" y="10" width="423" height="286"/>
+                    <rect key="frame" x="10" y="90" width="423" height="324"/>
                     <subviews>
                         <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSq-jc-XQh">
-                            <rect key="frame" x="0.0" y="261" width="400" height="25"/>
+                            <rect key="frame" x="0.0" y="299" width="400" height="25"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0W-Uc-kff">
                                     <rect key="frame" x="-2" y="5" width="104" height="16"/>
@@ -61,18 +62,60 @@
                             </customSpacing>
                         </stackView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XMd-r6-Dc4">
-                            <rect key="frame" x="-2" y="240" width="28" height="11"/>
+                            <rect key="frame" x="-2" y="278" width="28" height="11"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="yxu-7t-0i5">
                                 <font key="font" metaFont="miniSystem"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obV-6W-Gl7">
+                            <rect key="frame" x="0.0" y="238" width="423" height="30"/>
+                            <subviews>
+                                <popUpButton horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YFB-w3-M4p">
+                                    <rect key="frame" x="-3" y="-4" width="323" height="35"/>
+                                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Zh6-78-uc8" id="Mcp-uw-c6a">
+                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="menu"/>
+                                        <menu key="menu" id="2Vu-Ve-xgd">
+                                            <items>
+                                                <menuItem title="Item 1" state="on" id="Zh6-78-uc8"/>
+                                                <menuItem title="Item 2" id="Aef-Wg-W0o"/>
+                                                <menuItem title="Item 3" id="p5y-Sq-PmE"/>
+                                            </items>
+                                        </menu>
+                                    </popUpButtonCell>
+                                </popUpButton>
+                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qv3-5h-Afl">
+                                    <rect key="frame" x="317" y="-7" width="113" height="42"/>
+                                    <buttonCell key="cell" type="push" title="Clear History" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MGh-t5-bFT">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="YFB-w3-M4p" firstAttribute="leading" secondItem="obV-6W-Gl7" secondAttribute="leading" id="I9R-hK-x1n"/>
+                                <constraint firstItem="qv3-5h-Afl" firstAttribute="top" secondItem="obV-6W-Gl7" secondAttribute="top" id="Iqg-Hy-5io"/>
+                                <constraint firstAttribute="bottom" secondItem="YFB-w3-M4p" secondAttribute="bottom" id="RfB-B7-1rd"/>
+                                <constraint firstAttribute="bottom" secondItem="qv3-5h-Afl" secondAttribute="bottom" id="hz0-fL-ysj"/>
+                                <constraint firstItem="YFB-w3-M4p" firstAttribute="top" secondItem="obV-6W-Gl7" secondAttribute="top" id="t2l-tM-iZa"/>
+                                <constraint firstAttribute="height" constant="30" id="uBa-aZ-mHQ"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
                         <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="26i-F5-bZz">
-                            <rect key="frame" x="0.0" y="227" width="96" height="5"/>
+                            <rect key="frame" x="0.0" y="225" width="96" height="5"/>
                         </box>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Lm-d9-Wai">
-                            <rect key="frame" x="-2" y="201" width="149" height="18"/>
+                            <rect key="frame" x="-2" y="201" width="140" height="16"/>
                             <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="Joining and Wrapping" id="jQR-CD-UpS">
                                 <font key="font" usesAppearanceFont="YES"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -143,7 +186,14 @@
                             </textFieldCell>
                         </textField>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="obV-6W-Gl7" firstAttribute="leading" secondItem="M9k-cb-OS5" secondAttribute="leading" id="2hw-30-nSg"/>
+                        <constraint firstAttribute="trailing" secondItem="obV-6W-Gl7" secondAttribute="trailing" id="77X-4x-U6E"/>
+                        <constraint firstItem="26i-F5-bZz" firstAttribute="top" secondItem="obV-6W-Gl7" secondAttribute="bottom" constant="10" id="HjT-LP-UBQ"/>
+                        <constraint firstItem="obV-6W-Gl7" firstAttribute="top" secondItem="XMd-r6-Dc4" secondAttribute="bottom" constant="10" id="MbH-4O-WCK"/>
+                    </constraints>
                     <visibilityPriorities>
+                        <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
                         <integer value="1000"/>
@@ -168,6 +218,7 @@
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
                         <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
                     </customSpacing>
                 </stackView>
             </subviews>
@@ -178,6 +229,8 @@
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="M9k-cb-OS5" secondAttribute="bottom" constant="10" id="stw-Qh-XEw"/>
             </constraints>
             <connections>
+                <outlet property="clearHistoryActionButton" destination="qv3-5h-Afl" id="fuP-7E-cmN"/>
+                <outlet property="clearHistoryDropDown" destination="YFB-w3-M4p" id="lAa-3p-ZK8"/>
                 <outlet property="historyLimitTextField" destination="9mS-Ll-w7t" id="Koh-GO-7AR"/>
                 <outlet property="historyLimitTitle" destination="x0W-Uc-kff" id="4rd-6n-sPX"/>
                 <outlet property="historySizeLabel" destination="XMd-r6-Dc4" id="kH7-dM-vy9"/>

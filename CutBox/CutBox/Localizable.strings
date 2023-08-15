@@ -6,7 +6,6 @@
   Copyright © 2019-2023 ocodo. All rights reserved.
 */
 
-
 "about_cutbox_copyright_licence" = "Copyright © 2018-2023 Jason Milkins\nLicensed under GPL3";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_title" = "CutBox";
@@ -33,6 +32,14 @@
 "preferences_history_limit_checkbox_label" = "Unlimited";
 "preferences_history_limit_placeholder" = "Limit (0 is unlimited)";
 "preferences_history_limit_title" = "History Limit";
+"preferences_history_select_option" = "Select an option";
+"preferences_history_clear_last_5_minutes" = "Clear last 5 minutes";
+"preferences_history_clear_last_hour" = "Clear last hour";
+"preferences_history_clear_last_24_hours" = "Clear last 24 hours";
+"preferences_history_clear_older_than_7_days" = "Clear older than 7 days";
+"preferences_history_clear_older_than_30_days" = "Clear older than 30 days";
+"preferences_history_clear_entire_history" = "Clear entire history";
+"preferences_history_clear_history_button" = "Clear History";
 "preferences_javascript_clear_button" = "Clear";
 "preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, for help\n\n";
 "preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";

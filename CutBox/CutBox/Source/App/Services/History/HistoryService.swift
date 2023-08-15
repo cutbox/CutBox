@@ -238,6 +238,13 @@ class HistoryService: NSObject {
         self.events.onNext(.didClearHistory)
     }
 
+    /// Clear history using timestamp predicate
+    /// see historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool
+    func clearWithTimestampPredicate(predicate: (String) -> Bool) {
+        print("clear with timestamp predicate")
+        print(predicate(""))
+    }
+
     private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
         return IndexSet(items
             .compactMap { self.items[safe: $0] }

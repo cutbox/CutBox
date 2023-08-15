@@ -18,6 +18,7 @@ enum CutBoxPreferencesEvent {
     case javascriptReload
     case themeChanged
     case themesReloaded
+    case historyClearByOffset(offset: TimeInterval)
 }
 
 func notifyUser(title: String, info: String) {
