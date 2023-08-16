@@ -65,7 +65,6 @@ To exit press <kbd>**Esc**</kbd>.
 | <kbd>Cmd</kbd><kbd>Comma</kbd>             | Open preferences                                                                          |
 | <kbd>Cmd</kbd><kbd>t</kbd>                 | Toggle color themes                                                                       |
 | <kbd>Cmd</kbd><kbd>p</kbd>                 | Toggle preview                                                                            |
-| <kbd>Cmd</kbd><kbd>h</kbd>                 | Toggle history time filtering                                                             |
 | <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd> | Zoom/scale up text                                                                        |
 | <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> | Zoom/scale down text                                                                      |
 | <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> | Reset text scale/zoom                                                                     |
