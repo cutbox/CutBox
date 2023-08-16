@@ -75,9 +75,11 @@ jobs:
         run: |
           mkdir tmp/
           bin/get_release_notes | tee tmp/release-notes.md
-          echo "- - -" >> $GITHUB_STEP_SUMMARY
-          cat tmp/release-notes.md >> $GITHUB_STEP_SUMMARY
-          echo "- - -" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "- - -"
+            cat tmp/release-notes.md
+            echo "- - -"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create Release
         id: create_release

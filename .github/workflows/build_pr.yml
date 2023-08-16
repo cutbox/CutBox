@@ -26,7 +26,7 @@ jobs:
             if [[ -x bin/$b ]]; then
               echo "[✓] bin/$b executable."
             else
-              echo "[❌] bin/$b - missing or non-executable" && exit 1
+              echo "[✗] bin/$b - missing or non-executable" && exit 1
             fi
           done
 
