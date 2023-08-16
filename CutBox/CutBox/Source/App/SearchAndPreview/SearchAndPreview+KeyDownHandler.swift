@@ -47,6 +47,10 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.cycleTheme)
 
+        case (kVK_ANSI_H, [.command]):
+            self.events
+                .onNext(.toggleTimeFilter)
+
         case (kVK_ANSI_LeftBracket, [.command]):
             self.events
                 .onNext(.toggleWrappingStrings)
