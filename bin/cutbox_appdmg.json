@@ -6,6 +6,6 @@
   "contents": [
     { "x": 183, "y": 352, "type": "file", "path": "../CutBox/build/CutBox.app" },
     { "x": 651, "y": 352, "type": "link", "path": "/Applications" },
-    { "x": 183, "y": 252, "type": "file". "path": "../cutbox_command/build/Release/cutbox" }
+    { "x": 183, "y": 252, "type": "file", "path": "../cutbox_command/build/Release/cutbox" }
   ]
 }
