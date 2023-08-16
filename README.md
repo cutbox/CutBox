@@ -54,24 +54,35 @@ To exit press <kbd>**Esc**</kbd>.
 
 # Shortcuts / Key commands:
 
-| Shortcut Keys | Action |
-|---|---|
-| <kbd>Esc</kbd> | exit search |
-| <kbd>Ctrl</kbd><kbd>g</kbd> | exit search |
-| <kbd>Enter</kbd> | Paste selected |
-| <kbd>Cmd</kbd><kbd>Enter</kbd> | Paste through JavaScript Functions selected (you'll need `~/.cutbox.js` set up) |
-| <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
-| <kbd>Cmd</kbd><kbd>Delete</kbd> | Delete selected item(s) |
-| <kbd>Cmd</kbd><kbd>Comma</kbd> | open preferences |
-| <kbd>Cmd</kbd><kbd>t</kbd> |  toggle color themes |
-| <kbd>Cmd</kbd><kbd>p</kbd> |  toggle preview |
-| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd>  |  zoom/scale up text |
-| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> |  zoom/scale down text |
-| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> |  reset text scale/zoom |
-| <kbd>Cmd</kbd><kbd>s</kbd> | toggle search modes, fuzzy match, regexp/i or regexp |
-| <kbd>Cmd</kbd><kbd>f</kbd> | toggle search favorites / everything (use the right click menu, to favorite) |
+| Shortcut Keys                              | Action                                                                                    |
+|--------------------------------------------|-------------------------------------------------------------------------------------------|
+| <kbd>Esc</kbd>                             | Exit search                                                                               |
+| <kbd>Ctrl</kbd><kbd>g</kbd>                | Exit search                                                                               |
+| <kbd>Enter</kbd>                           | Paste selected                                                                            |
+| <kbd>Cmd</kbd><kbd>Enter</kbd>             | Paste through JavaScript Functions selected (you'll need `~/.cutbox.js` set up)           |
+| <kbd>Cmd</kbd><kbd>Comma</kbd>             | Open preferences                                                                          |
+| <kbd>Cmd</kbd><kbd>Delete</kbd>            | Delete selected item(s)                                                                   |
+| <kbd>Cmd</kbd><kbd>Comma</kbd>             | Open preferences                                                                          |
+| <kbd>Cmd</kbd><kbd>t</kbd>                 | Toggle color themes                                                                       |
+| <kbd>Cmd</kbd><kbd>p</kbd>                 | Toggle preview                                                                            |
+| <kbd>Cmd</kbd><kbd>h</kbd>                 | Toggle history time filtering                                                             |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>=</kbd> | Zoom/scale up text                                                                        |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>-</kbd> | Zoom/scale down text                                                                      |
+| <kbd>Cmd</kbd><kbd>Shift</kbd><kbd>0</kbd> | Reset text scale/zoom                                                                     |
+| <kbd>Cmd</kbd><kbd>-</kbd>                 | Toggle join mode (paste multiple items, joined by newline or string: Set in preferences)  |
+| <kbd>Cmd</kbd><kbd>[</kbd>                 | Toggle wrap mode (paste multiple items, wrapped by a pair of strings: Set in preferences) |
+| <kbd>Cmd</kbd><kbd>s</kbd>                 | Toggle search modes, fuzzy match, regexp/i or regexp                                      |
+| <kbd>Cmd</kbd><kbd>f</kbd>                 | Toggle search favorites / everything (use the right click menu, to favorite)              |
+|                                            |                                                                                           |
+| **In items list**                          |                                                                                           |
+| <kbd>Alt</kbd><kbd>up</kbd>                | Move to top of items                                                                      |
+| <kbd>Alt</kbd><kbd>down</kbd>              | Move to top of items                                                                      |
+| Hold <kbd>Shift</kbd>                      | Expand single selection to new item, standard shift select                                |
+| Hold <kbd>Cmd</kbd>                        | Expand selection to new items, multiple selection groups, standard command select         |
 
 ### Status bar menu
+
+Use the status item to open Cutbox with the mouse, and access options: 
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
 
@@ -85,13 +96,14 @@ brew install --cask cutbox
 
 # Install via Homebrew
 
-For advanced users. Builds the package from source, full Xcode installation needed.
+Builds the package from source, a full Xcode installation needed.
+
 ```
 brew tap cutbox/cutbox
 brew install cutbox
 ```
 
-# First run
+# macOS Security Settings - First run
 
 When you first run CutBox Macos will prompt you that the developer cannot be identified.
 

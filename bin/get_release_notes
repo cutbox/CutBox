@@ -1,29 +1,9 @@
 #!/bin/zsh
 
-CURRENT=$(curl -s -i \
-  https://github.com/cutbox/CutBox/releases/latest \
-  | \
-  grep location: \
-  | \
-  awk '{ printf "%s", $2 }')
-
-CURRENT=$(rg -NI -o "[0-9.]*" <<<${CURRENT##*/})
-
 <<EOD | cat
 <p align="center">
 <img width="150px" src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png"/>
 </p>
-
-<h1 align="center">CutBox ${RELEASE}</h1>
-
-# New things since ${CURRENT}
-
 EOD
 
-git log \
-  --format=%B \
-  --grep="\[release notes\]" \
-  "${CURRENT}..HEAD" --\
-  | \
-  sed 's/\[release notes\]//'
-
+cat release-notes.md
