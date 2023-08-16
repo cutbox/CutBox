@@ -5,11 +5,11 @@
 
 if git show -s --format=%B | grep -q "\[release\]"; then
   echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
-  echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-release-logo.svg)" >> $GITHUB_STEP_SUMMARY
+  echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-release-icon.png)" >> $GITHUB_STEP_SUMMARY
   echo "✓ - Production Run"
   echo "# CutBox Production Release $(bin/dev_version) (build: $(echo "$(bin/build_number) + 2" | bc))" >> $GITHUB_STEP_SUMMARY
 else
-  echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-prerelease-logo.svg)" >> $GITHUB_STEP_SUMMARY
+  echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-prerelease-icon.png)" >> $GITHUB_STEP_SUMMARY
   echo "✗ - Prerelease Run"
   echo "# CutBox PreRelease $(bin/dev_version) (build: $(echo "$(bin/build_number) + 2" | bc)" >> $GITHUB_STEP_SUMMARY
 fi
