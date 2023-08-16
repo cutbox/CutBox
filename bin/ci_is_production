@@ -5,13 +5,13 @@
 
 if git show -s --format=%B | grep -q "\[release\]"; then
   echo "PRODUCTION_RUN=1" >> $GITHUB_ENV
-  echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon-2.svg)" >> $GITHUB_STEP_SUMMARY
+  echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-release-logo.svg)" >> $GITHUB_STEP_SUMMARY
   echo "✓ - Production Run"
-  echo "# CutBox Production Release $(bin/dev_version) (build: $(bc <<<"$(bin/build_number) + 2"))" >> $GITHUB_STEP_SUMMARY
+  echo "# CutBox Production Release $(bin/dev_version) (build: $(echo "$(bin/build_number) + 2" | bc))" >> $GITHUB_STEP_SUMMARY
 else
   echo "![](https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-prerelease-logo.svg)" >> $GITHUB_STEP_SUMMARY
   echo "✗ - Prerelease Run"
-  echo "# CutBox PreRelease $(bin/dev_version) (build: $(bc <<<"$(bin/build_number) + 2"))" >> $GITHUB_STEP_SUMMARY
+  echo "# CutBox PreRelease $(bin/dev_version) (build: $(echo "$(bin/build_number) + 2" | bc)" >> $GITHUB_STEP_SUMMARY
 fi
 
 # Note: build & test will increment build number by 2 (why we do, build_numnber + 2 above.)
