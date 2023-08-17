@@ -38,7 +38,7 @@ class PreferencesAdvancedView: NSView {
       (title: "preferences_history_clear_last_24_hours".l7n, offset: 86400),
       (title: "preferences_history_clear_older_than_7_days".l7n, offset: -604800),
       (title: "preferences_history_clear_older_than_30_days".l7n, offset: -2592000),
-      (title: "preferences_history_clear_entire_history".l7n, offset: -1)
+      (title: "preferences_history_clear_entire_history".l7n, offset: 0)
     ]
 
     override func awakeFromNib() {
