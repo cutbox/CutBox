@@ -29,19 +29,19 @@ Cutbox also has a command-line interface called `cutbox`. It allows you to fetch
 
 Originally Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
+## Using CutBox
+
+CutBox Search is activated using a global hotkey, by default:
+
+<kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
+
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
 
 Also Compact UI mode, which expands as above when searching.
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
 
-## Using CutBox
-
 Any text you copy on MacOS is saved to CutBox's history.
-
-CutBox Search is activated using a global hotkey:
-
-<kbd>**Cmd**</kbd> + <kbd>**Shift**</kbd> + <kbd>**V**</kbd>
 
 (This can be customized in preferences.)
 
@@ -88,7 +88,7 @@ Use the status item to open Cutbox with the mouse, and access options:
 
 ![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
 
-# Install via Homebrew Cask
+# Install via Homebrew Cask (recommended)
 
 Install the compiled package.
 ```
