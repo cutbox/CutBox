@@ -237,9 +237,10 @@ class CutBoxController: NSObject {
                 case .historyClearByOffset(let offset):
                     if offset == 0 {
                         self?.historyService.clear()
+                    } else {
+                        let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
+                        self?.historyService.clearWithTimestampPredicate(predicate: predicate)
                     }
-                    let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
-                    self?.historyService.clearWithTimestampPredicate(predicate: predicate)
                 default:
                     break
                 }
