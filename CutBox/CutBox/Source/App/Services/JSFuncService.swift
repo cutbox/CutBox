@@ -94,9 +94,24 @@ class JSFuncService: NSObject {
         return self.funcList.isEmpty
     }
 
-    var helpers = "var help = `- CutBox JS REPL-\nhelp:\nls() - List your cutboxFunctions`;" +
-    "var ls = () => cutboxFunctions.map(e => e.name).join(`\n`);" +
-    "var list = () => JSON.stringify(cutboxFunctions, null, 2);"
+    var helpers = """
+        help = `
+        CutBox JS Help:
+          cutboxFunctions - Array of loaded functions
+
+        ${ls()}`
+
+        var ls = () => cutboxFunctions.map(e => e.name).join(`\n`)
+        var list = () => JSON.stringify(cutboxFunctions, null, 2)
+        """
+
+    var noCutboxJSHelp = """
+        var help = `CutBox JS Help:\n
+          ~/.cutbox.js does not exist\n
+        Add and reload to paste through JS.
+        See the wiki for more advanced info:
+        https://github.com/cutbox/CutBox/wiki`
+        """
 
     func setup() {
         self.js = JSContext()
@@ -106,6 +121,8 @@ class JSFuncService: NSObject {
 
     func reload() {
         setup()
+
+        _ = repl(noCutboxJSHelp)
 
         let cutboxJSFilename: String = NSString(
             string: "~/.cutbox.js").expandingTildeInPath
