@@ -9,51 +9,51 @@ let timestampKey = "timestamp"
 let favoriteKey = "favorite"
 let isFavorite = "favorite"
 let usage = """
-CutBox history CLI
-==================
+    CutBox history CLI
+    ==================
 
-Display items from CutBox history. Most recent items first.
+    Display items from CutBox history. Most recent items first.
 
-    cutbox [options]
+        cutbox [options]
 
-Options:
-========
+    Options:
+    ========
 
-Search
-------
+    Search
+    ------
 
-Note: Search modes are mutually exclusive
+    Note: Search modes are mutually exclusive
 
-    -f or --fuzzy <query>   Fuzzy match items (case insensitive)
-    -r or --regex <query>   Regexp match items
-    -i or --regexi <query>  Regexp match items (case insensitive)
+        -f or --fuzzy <query>   Fuzzy match items (case insensitive)
+        -r or --regex <query>   Regexp match items
+        -i or --regexi <query>  Regexp match items (case insensitive)
 
-Filtering
----------
+    Filtering
+    ---------
 
-Filter flags
+    Filter flags
 
-    -l or --limit <num>     Limit to num items
-    -F or --favorites       Only list favorites
-    -M or --missing-date    Only list items missing a date (copied pre CutBox v1.5.5)
+        -l or --limit <num>     Limit to num items
+        -F or --favorites       Only list favorites
+        -M or --missing-date    Only list items missing a date (copied pre CutBox v1.5.5)
 
-Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 2wks, 1.5hours, etc.
-Supports seconds, minutes, hours, days, weeks.
+    Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 2wks, 1.5hours, etc.
+    Supports seconds, minutes, hours, days, weeks.
 
-    --since <time>
-    --before <time>
+        --since <time>
+        --before <time>
 
-Filter by ISO 8601 date e.g. 2023-06-05T09:21:59Z
+    Filter by ISO 8601 date e.g. 2023-06-05T09:21:59Z
 
-    --since-date <date>
-    --before-date <date>
+        --since-date <date>
+        --before-date <date>
 
-Info
-----
+    Info
+    ----
 
-    --version               Show the current version
-    -h or --help            Show this help page
-"""
+        --version               Show the current version
+        -h or --help            Show this help page
+    """
 
 enum SearchMode {
     case fuzzy, regex, regexi
@@ -83,6 +83,7 @@ class CommandParams {
     var searchMode: SearchMode?
     var missingDate: Bool = false
     var favorites: Bool = false
+    var showTime: Bool = false
 
     private let dateFormatter = DateFormatter()
 
@@ -187,8 +188,8 @@ class CommandParams {
             exit(0)
         }
 
-        favorites = hasFlag(["-F", "--favorites"])
-        missingDate = hasFlag(["-M", "--missing-date"])
+        favorites = hasFlag(["-F", "--favorites", "--favorite"])
+        missingDate = hasFlag(["-M", "--missing-date", "--missing-time"])
 
         // Date
         beforeDate = parseTimeOptions("--before")
@@ -196,6 +197,8 @@ class CommandParams {
 
         // Limit
         limit = hasOpt("-l", "--limit")
+
+        showTime = hasFlag(["-T", "--show-time", "--show-date"])
 
         // Search
         if let rawQuery: String = hasOpt("-f", "--fuzzy") {
@@ -242,17 +245,29 @@ guard let historyDict = plist[historyKey] as? [[String: Any]] else {
 let dateFormatter = DateFormatter()
 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
-var historyStrings: [String] = historyDict.compactMap { item in
-    guard let text = item[stringKey] as? String else { return nil }
+typealias HistoryEntry = (String, String?)
 
-    if params.favorites && ((item[favoriteKey] as? String) != isFavorite) {
+func itemAsHistoryEntry(_ item: [String: Any]) -> HistoryEntry? {
+    guard let string: String = item[stringKey] as? String else {
         return nil
     }
 
-    if let dateString = item[timestampKey] as? String,
-       let date = dateFormatter.date(from: dateString)?.timeIntervalSince1970 {
+    return (string, item[timestampKey] as? String)
+}
 
-        if let beforeDate = params.beforeDate, date >= beforeDate {
+var historyEntries: [HistoryEntry] = historyDict.compactMap { (item: [String: Any] ) -> HistoryEntry? in
+    if params.favorites && (item[favoriteKey] as? String) != isFavorite {
+        return nil
+    }
+
+    guard let historyEntry: HistoryEntry = itemAsHistoryEntry(item) else {
+        return nil
+    }
+
+    if let dateString = historyEntry.1,
+       let date = dateFormatter.date(from: dateString)?.timeIntervalSince1970 {
+        if let beforeDate = params.beforeDate,
+           date >= beforeDate {
             return nil
         }
 
@@ -262,27 +277,44 @@ var historyStrings: [String] = historyDict.compactMap { item in
     }
 
     if params.missingDate {
-        if item[timestampKey] == nil {
-            return text
+        if historyEntry.1 == nil {
+            return historyEntry
         } else {
             return nil
         }
     }
 
-    return text
+    return historyEntry
 }
 
 if let query = params.query {
     switch params.searchMode {
-    case .fuzzy: historyStrings = historyStrings.filter { $0.contains(query) }
-    case .regex: historyStrings = historyStrings.filter { regexpMatch($0, query) }
-    case .regexi: historyStrings = historyStrings.filter { regexpMatch($0, query, caseSensitive: false) }
+    case .fuzzy: historyEntries = historyEntries.filter {  $0.0.contains(query) }
+    case .regex: historyEntries = historyEntries.filter { regexpMatch($0.0, query) }
+    case .regexi: historyEntries = historyEntries.filter { regexpMatch($0.0, query, caseSensitive: false) }
     default: break
     }
 }
 
-if let limit = params.limit {
-    print(historyStrings.prefix(limit).joined(separator: "\n"))
+func printItemWithTime(_ item: HistoryEntry) -> String{
+    return "\(item.1 ?? "UNKNOWN DATETIME"): \(item.0)"
+}
+
+func printItem(_ item: HistoryEntry) -> String {
+    return item.0
+}
+
+if params.showTime {
+    if let limit = params.limit {
+        print(historyEntries.map(printItemWithTime).prefix(limit).joined(separator: "\n"))
+    } else {
+        print(historyEntries.map(printItemWithTime).joined(separator: "\n"))
+    }
+
 } else {
-    print(historyStrings.joined(separator: "\n"))
+    if let limit = params.limit {
+        print(historyEntries.map(printItem).prefix(limit).joined(separator: "\n"))
+    } else {
+        print(historyEntries.map(printItem).joined(separator: "\n"))
+    }
 }
