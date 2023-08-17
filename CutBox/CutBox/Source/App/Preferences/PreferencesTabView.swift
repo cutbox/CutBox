@@ -9,17 +9,20 @@
 import Cocoa
 import Magnet
 
-class PreferencesTabView: NSTabView {
+class PreferencesTabView: NSTabView, NSTabViewDelegate {
 
-    let generalTab: PreferencesGeneralView = PreferencesGeneralView.fromNib()!
-    let advancedTab: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
-    let themeTab: PreferencesThemeSelectionView = PreferencesThemeSelectionView.fromNib()!
-    let javascriptTab: PreferencesJavascriptTransformView = PreferencesJavascriptTransformView.fromNib()!
-
-    typealias Tab = (String, NSView)
+    private let generalTab: PreferencesGeneralView = PreferencesGeneralView.fromNib()!
+    private let advancedTab: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
+    private let themeTab: PreferencesThemeSelectionView = PreferencesThemeSelectionView.fromNib()!
+    private let javascriptTab: PreferencesJavascriptTransformView = PreferencesJavascriptTransformView.fromNib()!
 
     override func awakeFromNib() {
-        let tabViews: [Tab] = [
+
+        self.delegate = self
+
+        typealias TabInfo = (String, NSView)
+
+        let tabViews: [TabInfo] = [
           ("preferences_tab_view_general".l7n, generalTab),
           ("preferences_tab_view_display".l7n, themeTab),
           ("preferences_tab_view_advanced".l7n, advancedTab),
@@ -34,6 +37,12 @@ class PreferencesTabView: NSTabView {
             tabViewItem.view = view
 
             self.addTabViewItem(tabViewItem)
+        }
+    }
+
+    func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
+        if javascriptTab == tabViewItem?.view {
+            javascriptTab.focusReplCommandLine()
         }
     }
 }

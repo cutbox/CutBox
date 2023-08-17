@@ -44,7 +44,7 @@
 "preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, for help\n\n";
 "preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
 "preferences_javascript_transform_section_note" = "Use this to help debug your ~/.cutbox.js";
-"preferences_javascript_transform_section_title" = "Javascript REPL";
+"preferences_javascript_transform_section_title" = "Javascript";
 "preferences_launch_on_login" = "Launch on Login";
 "preferences_launch_on_login_tooltip" = "CutBox can start when you login to macOS";
 "preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";

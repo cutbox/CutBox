@@ -17,7 +17,7 @@ class PreferencesJavascriptTransformView: NSView {
     @IBOutlet weak var javascriptTransformSectionTitle: NSTextField!
     @IBOutlet weak var javascriptReplCommandLine: NSTextField!
     @IBOutlet weak var javascriptTransformInfo: NSTextField!
-    @IBOutlet var javascriptTransformREPLOutput: NSTextView!
+    @IBOutlet weak var javascriptTransformREPLOutput: NSTextView!
     @IBOutlet weak var javascriptTransformReloadButton: NSButton!
     @IBOutlet weak var javascriptClearReplButton: NSButton!
 
@@ -26,6 +26,16 @@ class PreferencesJavascriptTransformView: NSView {
 
         applyJavascriptREPLTheme()
         setupJavascriptTransformSection()
+    }
+
+    func focusReplCommandLine() {
+        if let replTextField = javascriptReplCommandLine {
+            self.window?.makeFirstResponder(replTextField)
+            if let editor = replTextField.currentEditor() as? NSTextView {
+                let size = editor.string.count
+                editor.setSelectedRange(NSRange(location: size, length: 0))
+            }
+        }
     }
 
     func applyJavascriptREPLTheme() {
