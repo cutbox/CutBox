@@ -96,7 +96,11 @@ brew tap cutbox/cutbox
 brew install --cask cutbox
 ```
 
-# Install via Homebrew
+# Install by downloading the release DMG
+
+Visit https://github.com/cutbox/CutBox/releases/latest
+
+# Install via Homebrew formula
 
 Builds the package from source, a full Xcode installation needed.
 
