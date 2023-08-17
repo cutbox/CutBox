@@ -29,9 +29,11 @@ Cutbox also has a command-line interface called `cutbox`. It allows you to fetch
 
 Originally Inspired by [JumpCut](https://github.com/snark/jumpcut) & [Flycut](https://github.com/TermiT/Flycut)
 
-![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
-
 ![](CutBox/CutBox/GraphicAssets/cutbox-search-fuzzy.png)
+
+Also Compact UI mode, which expands as above when searching.
+
+![](CutBox/CutBox/GraphicAssets/cutbox-search-bar.png)
 
 ## Using CutBox
 
