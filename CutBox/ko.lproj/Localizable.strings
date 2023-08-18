@@ -84,3 +84,4 @@
 "searchmode_regexp_tooltip" = "대소문자를 무시한 정규식 검색";
 "search_time_filter_label_active" = "현재부터 %@ 전까지 복사된 항목만 검색";
 "search_time_filter_label_hint" = "시간을 N 시간 단위로 입력하세요. 예: 1 min, 2 hour, 1 week, 20 days など";
+"search_time_filter_label_no_timestamp" = "타임스탬프가 없는 항목만 검색";

@@ -9,6 +9,7 @@
 import Foundation
 
 func historyOffsetPredicateFactory(offset: TimeInterval) -> (Date) -> Bool {
+    guard offset != 0 else { fatalError("Error:Time offset 0 is invalid") }
     let cutoffDate = Date(timeIntervalSinceNow: -abs(offset))
 
     if offset > 0 {
@@ -23,6 +24,7 @@ func historyOffsetPredicateFactory(offset: TimeInterval) -> (Date) -> Bool {
 }
 
 func historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool {
+    guard offset != 0 else { fatalError("Error:Time offset 0 is invalid") }
     let cutoffDate = ISO8601DateFormatter().string(from: Date(timeIntervalSinceNow: -abs(offset)))
 
     if offset > 0 {
