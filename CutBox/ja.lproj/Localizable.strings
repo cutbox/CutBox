@@ -84,4 +84,4 @@
 "searchmode_regexp_tooltip" = "正規表現検索（大文字小文字を区別しない）";
 "search_time_filter_label_active" = "現在から %@ 前までにコピーされた項目のみを検索";
 "search_time_filter_label_hint" = "時間を N 時間単位で入力してください（例: 1 min, 2 hour, 1 week, 20 days）";
-"search_time_filter_label_no_timestamp" = "v1.5.5 以前の古いアイテムのみを検索"
+"search_time_filter_label_no_timestamp" = "\"none\": v1.5.5 以前の古いアイテムのみを検索"

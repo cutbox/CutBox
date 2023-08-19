@@ -80,4 +80,4 @@
 "searchmode_regexp_tooltip" = "Recherche avec expression régulière (indifférente à la casse)";
 "search_time_filter_label_active" = "Rechercher uniquement les éléments copiés entre maintenant et %@ auparavant";
 "search_time_filter_label_hint" = "La limite de temps en unités anglaises, de 40s, 20min, 1h, 2 days, etc.";
-"search_time_filter_label_no_timestamp" = "Recherche uniquement les anciens éléments antérieurs à la version 1.5.5"
+"search_time_filter_label_no_timestamp" = "\"none\": Recherche uniquement les anciens éléments antérieurs à la version 1.5.5"

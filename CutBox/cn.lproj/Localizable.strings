@@ -1,0 +1,87 @@
+/* 
+  Localizable.strings
+  CutBox
+
+  Created by jason on 20/8/23.
+  Copyright © 2023 ocodo. All rights reserved.
+*/
+
+"about_cutbox_copyright_licence" = "版权所有 © 2018-2023 Jason Milkins\n根据 GPL3 许可";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "警告：此操作无法撤消";
+"confirm_warning_clear_history_title" = "清除 CutBox 历史记录？";
+"context_menu_favorite" = "切换收藏";
+"context_menu_remove_selected" = "删除所选";
+"cutbox_menu_about" = "关于 CutBox";
+"cutbox_menu_clear_history" = "清除历史记录";
+"cutbox_menu_compactui" = "紧凑界面";
+"cutbox_menu_hide_preview" = "隐藏预览";
+"cutbox_menu_fuzzy_match" = "模糊匹配";
+"cutbox_menu_preferences" = "首选项";
+"cutbox_menu_quit" = "退出";
+"cutbox_menu_regexp_any_case" = "任意大小写正则";
+"cutbox_menu_regexp_case_match" = "大小写匹配正则";
+"cutbox_menu_search_cutbox" = "搜索 CutBox";
+"js_func_search_placeholder" = "通过 JavaScript 粘贴...";
+"preferences_color_theme_reload_themes" = "重新加载主题";
+"preferences_color_theme_title" = "颜色主题";
+"preferences_history_destructive_limit_change_warning_description" = "更改 CutBox 历史记录限制\n将会丢弃超过新限制的项目\n\n此操作无法撤消！\n\n如果您确定，请点击确定";
+"preferences_history_destructive_limit_change_warning_title" = "减少剪贴板历史记录限制？";
+"preferences_history_is_using_format" = "当前使用：% @";
+"preferences_history_limit_checkbox_label" = "无限制";
+"preferences_history_limit_placeholder" = "限制（0 表示无限制）";
+"preferences_history_limit_title" = "历史记录限制";
+"preferences_history_select_option" = "选择选项";
+"preferences_history_clear_last_5_minutes" = "清除过去 5 分钟";
+"preferences_history_clear_last_hour" = "清除过去一小时";
+"preferences_history_clear_last_24_hours" = "清除过去 24 小时";
+"preferences_history_clear_older_than_7_days" = "清除早于 7 天的项目";
+"preferences_history_clear_older_than_30_days" = "清除早于 30 天的项目";
+"preferences_history_clear_entire_history" = "清除整个 CutBox 历史记录";
+"preferences_history_clear_history_button" = "清除历史记录";
+"preferences_javascript_clear_button" = "清除";
+"preferences_javascript_repl_help" = "CutBox JS REPL：\n\nhelp ENTER，获取帮助\n\n";
+"preferences_javascript_transform_reload" = "重新加载 ~/.cutbox.js";
+"preferences_javascript_transform_section_note" = "使用此功能来帮助调试 ~/.cutbox.js";
+"preferences_javascript_transform_section_title" = "JavaScript";
+"preferences_launch_on_login" = "登录时启动";
+"preferences_launch_on_login_tooltip" = "CutBox 可以在您登录 macOS 时启动";
+"preferences_multi_clip_join_and_wrap_section_note" = "您可以从 CutBox 历史记录中选择多个项目，并一次性粘贴它们";
+"preferences_multi_clip_join_and_wrap_section_title" = "连接和包装";
+"preferences_multi_clip_join_title" = "使用以下方式连接";
+"preferences_multi_clip_joined_by_newline" = "新行";
+"preferences_multi_clip_joined_by_string" = "文本";
+"preferences_multi_clip_joined_by_string_placeholder" = "使用什么连接每个剪贴板项？";
+"preferences_multi_clip_wrapped_checkbox_label" = "在连接的剪贴板项周围包装文本？";
+"preferences_multi_clip_wrapped_end_placeholder" = "以什么结束？";
+"preferences_multi_clip_wrapped_start_placeholder" = "以什么开始？";
+"preferences_protect_favorites" = "保护收藏夹";
+"preferences_protect_favorites_tooltip" = "在清除历史记录时保护收藏夹";
+"preferences_show_all_hidden_dialog_boxes_button_title" = "显示隐藏的对话框";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "显示所有设置为“不显示”的对话框";
+"preferences_tab_view_general" = "常规";
+"preferences_tab_view_display" = "显示";
+"preferences_tab_view_advanced" = "高级";
+"preferences_tab_view_javascript" = "JavaScript";
+"preferences_title" = "CutBox 首选项";
+"preferences_toggle_cutbox" = "切换 CutBox";
+"preferences_toggle_cutbox_tooltip" = "选择一个键盘快捷键来显示/隐藏 CutBox";
+"preferences_use_compact_ui" = "使用紧凑界面";
+"preferences_use_compact_ui_tooltip" = "紧凑界面在您开始搜索或按右或向上箭头键时隐藏历史项和粘贴预览";
+"preferences_hide_preview" = "隐藏预览";
+"preferences_hide_preview_tooltip" = "隐藏预览面板";
+"search_placeholder" = "搜索 CutBox";
+"search_scope_all" = "搜索所有内容";
+"search_scope_favorites"  = "搜索收藏夹";
+"search_scope_tooltip_all" = "搜索整个历史记录";
+"search_scope_tooltip_favorites" = "仅搜索收藏夹";
+"searchmode_fuzzy" = "模糊匹配 ";
+"searchmode_fuzzy_tooltip" = "模糊匹配搜索";
+"searchmode_regexp" = "正则表达式/i";
+"searchmode_regexp_strict" = "正则表达式";
+"searchmode_regexp_strict_tooltip" = "正则表达式搜索（严格匹配大小写）";
+"searchmode_regexp_tooltip" = "正则表达式搜索（不区分大小写）";
+"search_time_filter_label_active" = "仅搜索从现在开始到 %@ 之前复制的项目";
+"search_time_filter_label_hint" = "将时间限制输入为英语单位，例如 40 s，20 min，1 h，2 d，等等。";
+"search_time_filter_label_no_timestamp" = "\"none\": 仅搜索旧项目（v1.5.5 之前的版本）";

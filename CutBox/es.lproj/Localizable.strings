@@ -80,4 +80,4 @@
 "searchmode_regexp_tooltip" = "Búsqueda con expresión regular (indiferente a mayúsculas)";
 "search_time_filter_label_active" = "Buscar solo elementos copiados entre ahora y %@ atrás";
 "search_time_filter_label_hint" = "El límite de tiempo en unidades inglesas, de 40 s, 20 min, 1 h, 2 d, etc.";
-"search_time_filter_label_no_timestamp" = "Busca solo elementos antiguos anteriores a v1.5.5";
+"search_time_filter_label_no_timestamp" = "\"none\": Busca solo elementos antiguos anteriores a v1.5.5";
