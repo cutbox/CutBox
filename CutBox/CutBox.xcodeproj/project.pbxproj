@@ -364,6 +364,7 @@
 		9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorString.swift"; sourceTree = "<group>"; };
 		965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601Helpers.swift; sourceTree = "<group>"; };
+		9655D1CF2A911F2300AA902F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorThemeDefinition.swift; sourceTree = "<group>"; };
 		965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+ResetSuppressedDialogBoxes.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -724,6 +725,14 @@
 			path = CutBoxUnitTests;
 			sourceTree = "<group>";
 		};
+		9655D1CD2A911F1900AA902F /* de.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9655D1CE2A911F2300AA902F /* Localizable.strings */,
+			);
+			path = de.lproj;
+			sourceTree = "<group>";
+		};
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,10 +859,11 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				96CDF2DD2A8BB50700ADE6B4 /* th.lproj */,
-				96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */,
-				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
 				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
+				9655D1CD2A911F1900AA902F /* de.lproj */,
+				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
+				96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */,
+				96CDF2DD2A8BB50700ADE6B4 /* th.lproj */,
 				96E1E596205D243400F994ED /* CutBox */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				965348D12843316B000FD0A1 /* CutBoxUnitTests */,
@@ -1047,6 +1057,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
 			productRefGroup = 96E1E595205D243400F994ED /* Products */;
@@ -1543,6 +1554,14 @@
 				96A225992845038800C9502D /* en */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		9655D1CE2A911F2300AA902F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9655D1CF2A911F2300AA902F /* de */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */ = {

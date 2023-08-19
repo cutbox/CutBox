@@ -1,0 +1,70 @@
+/*
+ Localizable.strings
+ CutBox
+
+ Created by Jason Milkins on 15/4/18.
+ Copyright © 2019-2023 ocodo. All rights reserved.
+ */
+
+"about_cutbox_copyright_licence" = "Urheberrecht © 2018-2023 Jason Milkins\nLizenziert unter GPL3";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "Warnung: Diese Aktion kann nicht rückgängig gemacht werden";
+"confirm_warning_clear_history_title" = "CutBox-Verlauf löschen?";
+"context_menu_favorite" = "Favorit umschalten";
+"context_menu_remove_selected" = "Ausgewählte entfernen";
+"cutbox_menu_about" = "Über CutBox";
+"cutbox_menu_clear_history" = "Verlauf löschen";
+"cutbox_menu_compactui" = "Kompakte Benutzeroberfläche";
+"cutbox_menu_hide_preview" = "Vorschau ausblenden";
+"cutbox_menu_fuzzy_match" = "Ungefähre Übereinstimmung";
+"cutbox_menu_preferences" = "Einstellungen";
+"cutbox_menu_quit" = "Beenden";
+"cutbox_menu_regexp_any_case" = "Regexp ohne Groß-/Kleinschreibung";
+"cutbox_menu_regexp_case_match" = "Regexp mit Groß-/Kleinschreibung";
+"cutbox_menu_search_cutbox" = "CutBox durchsuchen";
+"js_func_search_placeholder" = "Durch Javascript einfügen...";
+"preferences_color_theme_reload_themes" = "Themen neu laden";
+"preferences_color_theme_title" = "Farbthema";
+"preferences_history_destructive_limit_change_warning_description" = "Wenn Sie das CutBox-Verlaufslimit ändern, werden\nElemente über dem neuen Limit verworfen.\n\nDies kann nicht rückgängig gemacht werden!\n\nWenn Sie sicher sind, klicken Sie auf OK.";
+"preferences_history_destructive_limit_change_warning_title" = "CutBox-Verlaufslimit reduzieren?";
+"preferences_history_is_using_format" = "Aktuell verwendet: %@";
+"preferences_history_limit_checkbox_label" = "Unbegrenzt";
+"preferences_history_limit_placeholder" = "Limit (0 bedeutet unbegrenzt)";
+"preferences_history_limit_title" = "Verlaufslimit";
+"preferences_history_select_option" = "Option auswählen";
+"preferences_history_clear_last_5_minutes" = "Letzte 5 Minuten löschen";
+"preferences_history_clear_last_hour" = "Letzte Stunde löschen";
+"preferences_history_clear_last_24_hours" = "Letzte 24 Stunden löschen";
+"preferences_history_clear_older_than_7_days" = "Älter als 7 Tage löschen";
+"preferences_history_clear_older_than_30_days" = "Älter als 30 Tage löschen";
+"preferences_history_clear_entire_history" = "Gesamten CutBox-Verlauf löschen";
+"preferences_history_clear_history_button" = "Verlauf löschen";
+"preferences_javascript_clear_button" = "Löschen";
+"preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, für Hilfe\n\n";
+"preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
+"preferences_javascript_transform_section_note" = "Verwenden Sie dies, um Ihren ~/.cutbox.js zu debuggen";
+"preferences_javascript_transform_section_title" = "Javascript REPL";
+"preferences_launch_on_login" = "Beim Start anmelden";
+"preferences_launch_on_login_tooltip" = "CutBox kann gestartet werden, wenn Sie sich bei macOS anmelden";
+"preferences_multi_clip_join_and_wrap_section_note" = "Sie können mehrere Elemente aus dem CutBox-Verlauf auswählen und sie alle auf einmal einfügen";
+"preferences_multi_clip_join_and_wrap_section_title" = "Verbinden und Einwickeln";
+"preferences_multi_clip_join_title" = "Verbinden mit";
+"preferences_multi_clip_joined_by_newline" = "Neue Zeile";
+"preferences_multi_clip_joined_by_string" = "Text";
+"preferences_multi_clip_joined_by_string_placeholder" = "Jedes Element mit verbinden?";
+"preferences_multi_clip_wrapped_checkbox_label" = "Text um verknüpfte Elemente wickeln?";
+"preferences_multi_clip_wrapped_end_placeholder" = "Ende mit?";
+"preferences_multi_clip_wrapped_start_placeholder" = "Anfang mit?";
+"preferences_protect_favorites" = "Favoriten schützen";
+"preferences_protect_favorites_tooltip" = "Favoriten schützen, wenn Verlauf gelöscht wird";
+"preferences_show_all_hidden_dialog_boxes_button_title" = "Ausgeblendete Dialogfelder anzeigen";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "Alle Dialogfelder anzeigen, die auf 'Nicht anzeigen' gesetzt sind";
+"preferences_title" = "CutBox-Einstellungen";
+"preferences_toggle_cutbox" = "CutBox umschalten";
+"preferences_toggle_cutbox_tooltip" = "Wählen Sie eine Tastenkombination aus, um CutBox anzuzeigen/auszublenden";
+"preferences_use_compact_ui" = "Kompakte Benutzeroberfläche verwenden";
+"preferences_use_compact_ui_tooltip" = "Die kompakte Benutzeroberfläche blendet Verlaufsdaten und Vorschau aus, bis Sie mit der Suche beginnen oder rechts/oben drücken";
+"preferences_hide_preview" = "Vorschau ausblenden";
+"preferences_hide_preview_tooltip" = "Blendet das Vorschau-Panel aus";
+"search
