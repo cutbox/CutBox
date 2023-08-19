@@ -84,4 +84,4 @@
 "searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
 "search_time_filter_label_active" = "Search only items copied between now and %@ ago";
 "search_time_filter_label_hint" = "Enter time as N time-unit, e.g. 1 week, 2 days, 1h, 20 min etc.";
-"search_time_filter_label_no_timestamp" = "Search only items missing timestamps";
+"search_time_filter_label_no_timestamp" = "Searches only old items pre v1.5.5"

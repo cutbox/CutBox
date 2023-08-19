@@ -83,5 +83,5 @@
 "searchmode_regexp_strict_tooltip" = "ค้นหาแบบ RegExp (ตรงตามตัวอักษรใหญ่เล็ก)";
 "searchmode_regexp_tooltip" = "ค้นหาแบบ RegExp (ไม่ตรงตามตัวอักษรใหญ่เล็ก)";
 "search_time_filter_label_active" = "ค้นหาเฉพาะรายการที่คัดลอกระหว่าง %@ และ %@ ที่ผ่านมา";
-"search_time_filter_label_hint" = "ป้อนเวลาเป็นหน่วยเวลา N, ตัวอย่างเช่น 1 min, 2 hour, 1 week, 20 days ฯลฯ";
-"search_time_filter_label_no_timestamp" = "ค้นหาเฉพาะรายการที่ไม่มีประทับเวลา";
+"search_time_filter_label_hint" = "ป้อนเวลาเป็นหน่วยเวลา N, ตัวอย่างเช่น 1 h, 2 w, 5 day, 2 min ฯลฯ";
+"search_time_filter_label_no_timestamp" = "ค้นหาเฉพาะรายการเก่าก่อน v1.5.5";

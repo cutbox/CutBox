@@ -161,6 +161,7 @@
 		9655D1CB2A9117CF00AA902F /* ISO8601Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */; };
 		9655D1CC2A9117D000AA902F /* ISO8601Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */; };
 		9655D1D52A91216700AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1D32A91216700AA902F /* Localizable.strings */; };
+		9655D1D92A91229C00AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1D72A91229C00AA902F /* Localizable.strings */; };
 		9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */; };
 		965B02B328E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
 		965B02B428E5481E003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
@@ -367,6 +368,7 @@
 		9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601Helpers.swift; sourceTree = "<group>"; };
 		9655D1CF2A911F2300AA902F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
 		9655D1D42A91216700AA902F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
+		9655D1D82A91229C00AA902F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorThemeDefinition.swift; sourceTree = "<group>"; };
 		965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+ResetSuppressedDialogBoxes.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -743,6 +745,14 @@
 			path = fr.lproj;
 			sourceTree = "<group>";
 		};
+		9655D1D62A91225800AA902F /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9655D1D72A91229C00AA902F /* Localizable.strings */,
+			);
+			path = es.lproj;
+			sourceTree = "<group>";
+		};
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -869,9 +879,10 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				9655D1D02A9120B000AA902F /* fr.lproj */,
+				9655D1D62A91225800AA902F /* es.lproj */,
 				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
 				9655D1CD2A911F1900AA902F /* de.lproj */,
+				9655D1D02A9120B000AA902F /* fr.lproj */,
 				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
 				96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */,
 				96CDF2DD2A8BB50700ADE6B4 /* th.lproj */,
@@ -1070,6 +1081,7 @@
 				en,
 				de,
 				fr,
+				es,
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
 			productRefGroup = 96E1E595205D243400F994ED /* Products */;
@@ -1152,6 +1164,7 @@
 				9655D1D52A91216700AA902F /* Localizable.strings in Resources */,
 				96B04642284518E500011A58 /* themes in Resources */,
 				96CDF2D42A8B957F00ADE6B4 /* Localizable.strings in Resources */,
+				9655D1D92A91229C00AA902F /* Localizable.strings in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
 				96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */,
@@ -1581,6 +1594,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				9655D1D42A91216700AA902F /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		9655D1D72A91229C00AA902F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9655D1D82A91229C00AA902F /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
