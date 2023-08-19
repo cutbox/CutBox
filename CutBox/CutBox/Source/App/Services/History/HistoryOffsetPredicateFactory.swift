@@ -28,8 +28,8 @@ func historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool {
     let cutoffDate = ISO8601DateFormatter().string(from: Date(timeIntervalSinceNow: -abs(offset)))
 
     if offset > 0 {
-        return { [cutoffDate] isoTimeStamp in isoTimeStamp > cutoffDate }
+        return { [cutoffDate] itemTimestamp in itemTimestamp > cutoffDate }
     } else {
-        return { [cutoffDate] isoTimeStamp in isoTimeStamp < cutoffDate }
+        return { [cutoffDate] itemTimestamp in itemTimestamp < cutoffDate }
     }
 }

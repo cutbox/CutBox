@@ -31,6 +31,9 @@ class HistoryService: NSObject {
 
     let events = PublishSubject<HistoryServiceEvents>()
 
+    /// Data store wrapper
+    var historyRepo: HistoryRepo!
+
     var internalHistoryLimit: Int = 0
     var historyLimit: Int {
         get {
@@ -72,14 +75,17 @@ class HistoryService: NSObject {
 
     var internalFavoritesOnly: Bool = false
     var favoritesOnly: Bool {
-        get {
-            return internalFavoritesOnly
-        }
+        get { internalFavoritesOnly }
         set {
             internalFavoritesOnly = newValue
             self.defaults.set(newValue, forKey: searchFavoritesOnly)
             invalidateCaches()
         }
+    }
+
+    var missingTimestampFilter: Bool {
+        get { historyRepo.missingTimestampFilter }
+        set { historyRepo.missingTimestampFilter = newValue }
     }
 
     private var searchModeKey = "searchMode"
@@ -88,8 +94,6 @@ class HistoryService: NSObject {
 
     @available(*, message: "HistoryService: .legacyHistoryStore is deprecated use .historyRepo")
     private var legacyHistoryStore: [String]? = []
-
-    var historyRepo: HistoryRepo!
 
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.defaults = defaults
@@ -105,12 +109,12 @@ class HistoryService: NSObject {
 
             if let legacyHistoryStore = self.legacyHistoryStore {
                 if self.historyRepo.items.isEmpty {
-                    self.historyRepo.migrate(legacyHistoryStore)
+                    self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
                     self.historyRepo.saveToDefaults()
                     self.historyRepo.clear()
                     self.historyRepo.loadFromDefaults()
                 } else {
-                    self.historyRepo.migrate(legacyHistoryStore)
+                    self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
                 }
             }
 
@@ -119,7 +123,7 @@ class HistoryService: NSObject {
             self.historyRepo.loadFromDefaults()
         }
 
-        self.events.onNext(.didLoadDefaults)
+        self.events.onNext(.didLoadDefaults) // not currently used
 
         super.init()
     }
@@ -178,10 +182,14 @@ class HistoryService: NSObject {
             return cached
         }
 
-        let historyItems: [[String: String]] =
-            self.favoritesOnly ?
-                historyRepo.favoritesDict
-                : historyRepo.dict
+        let historyItems: [[String: String]]!
+        if self.favoritesOnly {
+            historyItems = historyRepo.favoritesDict
+        } else if self.missingTimestampFilter {
+            historyItems = historyRepo.missingTimestampDict
+        } else {
+            historyItems = historyRepo.dict
+        }
 
         let cache: [[String: String]]
         if let search = self.filterText, search != "" {
@@ -271,9 +279,16 @@ class HistoryService: NSObject {
         invalidateCaches()
     }
 
+    func setMissingTimestampFilter(flag: Bool) {
+        self.historyRepo.timeFilter = nil
+        self.historyRepo.missingTimestampFilter = flag
+        invalidateCaches()
+        self.events.onNext(.didLoadDefaults) // not currently used
+    }
+
     func saveToDefaults() {
         self.historyRepo.saveToDefaults()
-        self.events.onNext(.didSaveDefaults)
+        self.events.onNext(.didSaveDefaults) // not currently used
     }
 
     deinit {
@@ -306,7 +321,8 @@ class HistoryService: NSObject {
             self.removeGuard = nil
         }
 
-        if let indexOfClip = historyRepo.items.firstIndex(of: currentClip) {
+        let indexes = historyRepo.findIndexSetOf(string: currentClip)
+        if let indexOfClip = indexes.first {
             if indexOfClip == 0 {
                 return (nil, false)
             }
@@ -341,8 +357,9 @@ class HistoryService: NSObject {
     }
 
     func setTimeFilter(seconds: Double?) {
+        self.setMissingTimestampFilter(flag: false)
         self.historyRepo.timeFilter = seconds
         invalidateCaches()
-        self.events.onNext(.didLoadDefaults)
+        self.events.onNext(.didLoadDefaults) // not currently used
     }
 }

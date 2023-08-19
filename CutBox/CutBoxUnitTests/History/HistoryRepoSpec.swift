@@ -16,36 +16,51 @@ class HistoryRepoSpec: QuickSpec {
     override func spec() {
         describe("HistoryRepo") {
             var subject: HistoryRepo!
-            var defaults: UserDefaults!
+            var mockedDefaults: UserDefaults!
 
             beforeEach {
-                defaults = UserDefaultsMock()
+                mockedDefaults = UserDefaultsMock()
 
-                subject = HistoryRepo(defaults: defaults)
+                subject = HistoryRepo(defaults: mockedDefaults)
             }
 
-            describe("Time based operations") {
-                describe("Clear items by time") {
-                    it("clear items that were copied in the last 10 seconds") {
-                        let oneDayAgo: TimeInterval = -86400.0
-                        let oneHourAgo: TimeInterval = -3600.0
-                        let oneMinAgo: TimeInterval = -60.0
-                        let thirtySecondsAgo: TimeInterval = -10.0
+            describe("timeFilter") {
+                beforeEach {
+                    let oneDayAgo: TimeInterval = -86400.0
+                    let oneHourAgo: TimeInterval = -3600.0
+                    let oneMinAgo: TimeInterval = -60.0
+                    let thirtySecondsAgo: TimeInterval = -10.0
 
-                        subject.insert("Yesterday Item", date: Date(timeIntervalSinceNow: oneDayAgo))
-                        subject.insert("Hour Ago Item", date: Date(timeIntervalSinceNow: oneHourAgo))
-                        subject.insert("Minute Ago Item", date: Date(timeIntervalSinceNow: oneMinAgo))
-                        subject.insert("Thirty Seconds Ago Item", date: Date(timeIntervalSinceNow: thirtySecondsAgo))
+                    subject.insert("Yesterday Item", date: Date(timeIntervalSinceNow: oneDayAgo))
+                    subject.insert("Hour Ago Item", date: Date(timeIntervalSinceNow: oneHourAgo))
+                    subject.insert("Minute Ago Item", date: Date(timeIntervalSinceNow: oneMinAgo))
+                    subject.insert("Thirty Seconds Ago Item", date: Date(timeIntervalSinceNow: thirtySecondsAgo))
+                }
 
-                        expect(subject.items).to(equal([
-                                                         "Thirty Seconds Ago Item",
-                                                         "Minute Ago Item",
-                                                         "Hour Ago Item",
-                                                         "Yesterday Item"
-                        ]))
-
-                        // subject.setTimeFilter(before: -60.0, since: nil)
+                describe("return items filtered by time") {
+                    it("will select items within the last N seconds") {
+                        subject.timeFilter = 60
+                        expect(subject.items.count).to(equal(1))
                     }
+                }
+            }
+
+            describe("missingTimestampFilter") {
+                it("return items that are missing a timestamp") {
+                    var mock = (mockedDefaults as! UserDefaultsMock)
+
+                    // fake insert, no timestamp
+                    mock.insertHistoryStoreItem("Legacy Item")
+                    subject.loadFromDefaults()
+
+                    // insert via CutBox app method
+                    subject.insert("Contemporary item")
+                    subject.saveToDefaults()
+
+                    expect(subject.items.count).to(equal(2))
+                    subject.missingTimestampFilter = true
+                    expect(subject.items.count).to(equal(1))
+                    expect(subject.missingTimestampDict.count).to(equal(1))
                 }
             }
 
@@ -55,8 +70,9 @@ class HistoryRepoSpec: QuickSpec {
             }
 
             it("provides access to the dictionary store") {
-                subject.insert("Hello")
-                let timestamp = ISO8601DateFormatter().string(from: Date())
+                let date = Date()
+                let timestamp = ISO8601DateFormatter().string(from: date)
+                subject.insert("Hello", date: date)
                 expect(subject.dict.first).to(equal(["string": "Hello", "timestamp": timestamp]))
             }
 
@@ -111,9 +127,9 @@ class HistoryRepoSpec: QuickSpec {
                 subject.insert("First")
                 subject.insert("Second")
                 subject.insert("Third")
-                subject.insert("First")
-                subject.insert("Second")
-                subject.insert("Third")
+                subject.insert("Fourth")
+                subject.insert("Fifth")
+                subject.insert("Sixth")
 
                 subject.removeSubrange(0..<5)
 
@@ -123,14 +139,14 @@ class HistoryRepoSpec: QuickSpec {
             }
 
             it("can migrate an array of strings") {
-                subject.migrate(["1", "2", "3", "4"])
+                subject.migrateLegacyPasteStore(["1", "2", "3", "4"])
                 expect(subject.items).to(equal(["1", "2", "3", "4"]))
             }
 
             it("can clear the entire history") {
-                subject.migrate(["1", "2", "3", "4", "5"])
+                subject.migrateLegacyPasteStore(["1", "2", "3", "4", "5"])
                 subject.saveToDefaults()
-                expect(defaults.array(forKey: "historyStore")).to(beAKindOf([[String: String]].self))
+                expect(mockedDefaults.array(forKey: "historyStore")).to(beAKindOf([[String: String]].self))
 
                 subject.clearHistory()
                 expect(subject.items).to(equal([]))

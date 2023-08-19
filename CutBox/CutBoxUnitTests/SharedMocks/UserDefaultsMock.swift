@@ -9,8 +9,17 @@
 import Foundation
 
 class UserDefaultsMock: UserDefaults {
+    /// fake backing store
+    var store: [String: Any] = [:]
 
-    var store = [String: Any?]()
+    let historyStoreKey = "historyStore"
+    let stringKey = "string"
+
+    func insertHistoryStoreItem(_ string: String) {
+        var history = array(forKey: historyStoreKey) as? [[String: String]] ?? [[String: String]]()
+        history.insert([stringKey: string], at: 0)
+        set(history, forKey: historyStoreKey)
+    }
 
     override func set(_ value: Bool, forKey defaultName: String) {
         store[defaultName] = value

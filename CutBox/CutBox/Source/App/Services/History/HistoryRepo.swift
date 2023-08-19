@@ -12,33 +12,45 @@ import Foundation
 
 class HistoryRepo {
 
+    /// Clip items store (cached from/to defaults by history service)
     private var store: [[String: String]] = []
 
+    /// dict keys of clip items
     private var historyStoreKey = "historyStore"
     private var stringKey = "string"
     private var favoriteKey = "favorite"
     private var timestampKey = "timestamp"
 
+    /// Optional time filter
     public var timeFilter: Double?
 
+    /// For clips recorded ≤ v1.5.5
+    public var missingTimestampFilter: Bool = false
+
+    /// preferences defaults key for protect favorites flag
     private var kProtectFavorites = "protectFavorites"
 
-    var items: [String] {
-        if let seconds = self.timeFilter {
-            let latest = secondsBeforeTimeNowISO8601(seconds: seconds)
-            return self.dict
-                .filter {
-                    if let timestamp = $0[self.timestampKey] {
-                        return timestamp > latest
-                    } else {
-                        return false
-                    }
-                }
-                .map { $0[self.stringKey]! }
+    func timeFilterPredicate(item: [String: String], earliest: String) -> Bool {
+        if let timestamp = item[self.timestampKey] {
+            return earliest < timestamp
         } else {
+            return false
+        }
+    }
+
+    var items: [String] {
+        if missingTimestampFilter {
+            let items = self.missingTimestampDict
+                .map { $0[self.stringKey]! }
+            return items
+        } else if let seconds = self.timeFilter {
+            let latest = secondsBeforeTimeNowAsISO8601(seconds: seconds)
             return self.dict
+                .filter { timeFilterPredicate(item: $0, earliest: latest) }
                 .map { $0[self.stringKey]! }
         }
+        return self.dict
+            .map { $0[self.stringKey]! }
     }
 
     var favorites: [String] {
@@ -50,6 +62,11 @@ class HistoryRepo {
     var favoritesDict: [[String: String]] {
         return self.dict
             .filter { $0[favoriteKey] == self.favoriteKey }
+    }
+
+    var missingTimestampDict: [[String: String]] {
+        return self.dict
+            .filter { $0[timestampKey] == nil }
     }
 
     var dict: [[String: String]] {
@@ -70,17 +87,17 @@ class HistoryRepo {
         self.saveToDefaults()
     }
 
-    func hasString(_ string: String) -> Bool {
-        return items.firstIndex(of: string) != nil
-    }
-
     func index(of string: String) -> Int? {
         return items.firstIndex(of: string)
     }
 
-    func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false, date: Date = Date()) {
+    func insert(_ newElement: String, at index: Int = 0, isFavorite: Bool = false, date: Date? = Date()) {
         var item = [stringKey: newElement]
-        item[self.timestampKey] = iso8601(date: date)
+
+        if let unwrappedDate = date {
+            let timestamp = ISO8601DateFormatter().string(from: unwrappedDate)
+            item[self.timestampKey] = timestamp
+        }
 
         if isFavorite {
             item[self.favoriteKey] = self.favoriteKey
@@ -99,6 +116,18 @@ class HistoryRepo {
     func removeAtIndexes(indexes: IndexSet) {
         self.store.removeAtIndexes(indexes: indexes)
         self.saveToDefaults()
+    }
+
+    func findIndexSetOf(string: String) -> IndexSet {
+        var indexes = IndexSet()
+        for item in dict {
+            if item[stringKey] == string {
+                if let index = dict.firstIndex(of: item) {
+                    indexes.insert(index)
+                }
+            }
+        }
+        return indexes
     }
 
     func toggleFavorite(indexes: IndexSet) {
@@ -121,7 +150,7 @@ class HistoryRepo {
         self.saveToDefaults()
     }
 
-    func migrate(_ newElements: [String], at: Int = 0) {
+    func migrateLegacyPasteStore(_ newElements: [String], at: Int = 0) {
         newElements.reversed().forEach {
             if index(of: $0) == nil {
                 self.insert($0)
@@ -129,6 +158,7 @@ class HistoryRepo {
         }
     }
 
+    /// Used to read user defaults to in memory history store
     func loadFromDefaults() {
         let key = self.historyStoreKey
         if let historyStore = self.defaults.array(forKey: key) as? [[String: String]] {
@@ -138,6 +168,7 @@ class HistoryRepo {
         }
     }
 
+    /// Used to persist in memory history store to user defaults
     func saveToDefaults() {
         self.defaults.setValue(self.store, forKey: self.historyStoreKey)
     }
@@ -173,6 +204,7 @@ class HistoryRepo {
         saveToDefaults()
     }
 
+    /// Size of history repo in bytes
     func bytes() throws -> Int {
         let data = try PropertyListSerialization.data(
             fromPropertyList: store,
@@ -182,6 +214,7 @@ class HistoryRepo {
         return data.count
     }
 
+    /// Bytes formatter
     func bytesFormatted() -> String {
         do {
             let i: Int = try bytes()
@@ -191,14 +224,5 @@ class HistoryRepo {
         } catch {
             return ""
         }
-    }
-
-    func iso8601(date: Date) -> String {
-        return ISO8601DateFormatter().string(from: date)
-    }
-
-    func secondsBeforeTimeNowISO8601(seconds: Double) -> String {
-        let date = Date(timeIntervalSinceNow: -seconds)
-        return iso8601(date: date)
     }
 }

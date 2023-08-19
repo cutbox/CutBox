@@ -18,6 +18,7 @@ enum SearchViewEvents {
     case justClose
     case setSearchMode(HistorySearchMode)
     case setTimeFilter(seconds: Double?)
+    case setTimeFilerNoTimestamp
     case clearHistory
     case revealItemsAndPreview
     case hideSearchResults

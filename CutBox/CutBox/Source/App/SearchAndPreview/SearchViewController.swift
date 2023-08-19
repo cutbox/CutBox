@@ -198,6 +198,10 @@ class SearchViewController: NSObject {
                     self.historyService.setTimeFilter(seconds: seconds)
                     self.searchView.itemsList.reloadData()
 
+                case .setTimeFilerNoTimestamp:
+                    self.historyService.setMissingTimestampFilter(flag: true)
+                    self.searchView.itemsList.reloadData()
+
                 case .toggleTimeFilter:
                     self.searchView.toggleTimeFilter()
                     self.historyService.setTimeFilter(seconds: nil)
