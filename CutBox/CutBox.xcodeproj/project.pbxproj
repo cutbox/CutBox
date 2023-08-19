@@ -160,6 +160,7 @@
 		9653495928434D59000FD0A1 /* js_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js_badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		9655D1CB2A9117CF00AA902F /* ISO8601Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */; };
 		9655D1CC2A9117D000AA902F /* ISO8601Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */; };
+		9655D1D52A91216700AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1D32A91216700AA902F /* Localizable.strings */; };
 		9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */; };
 		965B02B328E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
 		965B02B428E5481E003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
@@ -365,6 +366,7 @@
 		965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601Helpers.swift; sourceTree = "<group>"; };
 		9655D1CF2A911F2300AA902F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = Localizable.strings; sourceTree = "<group>"; };
+		9655D1D42A91216700AA902F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorThemeDefinition.swift; sourceTree = "<group>"; };
 		965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+ResetSuppressedDialogBoxes.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -733,6 +735,14 @@
 			path = de.lproj;
 			sourceTree = "<group>";
 		};
+		9655D1D02A9120B000AA902F /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9655D1D32A91216700AA902F /* Localizable.strings */,
+			);
+			path = fr.lproj;
+			sourceTree = "<group>";
+		};
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -859,6 +869,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
+				9655D1D02A9120B000AA902F /* fr.lproj */,
 				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
 				9655D1CD2A911F1900AA902F /* de.lproj */,
 				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
@@ -1058,6 +1069,7 @@
 			knownRegions = (
 				en,
 				de,
+				fr,
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
 			productRefGroup = 96E1E595205D243400F994ED /* Products */;
@@ -1137,6 +1149,7 @@
 				96A16B4220A0675700EE08A4 /* page.png in Resources */,
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
 				96A801BF20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib in Resources */,
+				9655D1D52A91216700AA902F /* Localizable.strings in Resources */,
 				96B04642284518E500011A58 /* themes in Resources */,
 				96CDF2D42A8B957F00ADE6B4 /* Localizable.strings in Resources */,
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
@@ -1560,6 +1573,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				9655D1CF2A911F2300AA902F /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		9655D1D32A91216700AA902F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9655D1D42A91216700AA902F /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

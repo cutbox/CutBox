@@ -1,0 +1,82 @@
+/*
+ Localizable.strings
+ CutBox
+
+ Created by Jason Milkins on 15/4/18.
+ Copyright © 2019-2023 ocodo. Tous droits réservés.
+ */
+
+"about_cutbox_copyright_licence" = "Droit d'auteur © 2018-2023 Jason Milkins\nSous licence GPL3";
+"about_cutbox_home_url" = "https://cutbox.github.io";
+"about_cutbox_title" = "CutBox";
+"confirm_warning_clear_history" = "Attention : Cette opération ne peut pas être annulée";
+"confirm_warning_clear_history_title" = "Effacer l'historique de CutBox ?";
+"context_menu_favorite" = "Basculer Favori";
+"context_menu_remove_selected" = "Supprimer la sélection";
+"cutbox_menu_about" = "À propos de CutBox";
+"cutbox_menu_clear_history" = "Effacer l'historique";
+"cutbox_menu_compactui" = "Interface Compacte";
+"cutbox_menu_hide_preview" = "Masquer l'aperçu";
+"cutbox_menu_fuzzy_match" = "Correspondance floue";
+"cutbox_menu_preferences" = "Préférences";
+"cutbox_menu_quit" = "Quitter";
+"cutbox_menu_regexp_any_case" = "Expression Régulière sans distinction de cas";
+"cutbox_menu_regexp_case_match" = "Expression Régulière avec distinction de cas";
+"cutbox_menu_search_cutbox" = "Rechercher dans CutBox";
+"js_func_search_placeholder" = "Coller via JavaScript...";
+"preferences_color_theme_reload_themes" = "Recharger les thèmes";
+"preferences_color_theme_title" = "Thème de couleur";
+"preferences_history_destructive_limit_change_warning_description" = "Changer la limite d'historique de CutBox\nsupprimera les éléments au-delà de la nouvelle limite\n\nVous ne pouvez pas annuler cela !\n\nSi vous êtes sûr, cliquez sur OK";
+"preferences_history_destructive_limit_change_warning_title" = "Réduire la limite d'historique du presse-papiers ?";
+"preferences_history_is_using_format" = "Actuellement en cours d'utilisation : %@";
+"preferences_history_limit_checkbox_label" = "Illimité";
+"preferences_history_limit_placeholder" = "Limite (0 signifie illimité)";
+"preferences_history_limit_title" = "Limite d'historique";
+"preferences_history_select_option" = "Sélectionner une option";
+"preferences_history_clear_last_5_minutes" = "Effacer les 5 dernières minutes";
+"preferences_history_clear_last_hour" = "Effacer la dernière heure";
+"preferences_history_clear_last_24_hours" = "Effacer les dernières 24 heures";
+"preferences_history_clear_older_than_7_days" = "Effacer les éléments plus anciens de 7 jours";
+"preferences_history_clear_older_than_30_days" = "Effacer les éléments plus anciens de 30 jours";
+"preferences_history_clear_entire_history" = "Effacer l'intégralité de l'historique de CutBox";
+"preferences_history_clear_history_button" = "Effacer l'historique";
+"preferences_javascript_clear_button" = "Effacer";
+"preferences_javascript_repl_help" = "CutBox JS REPL :\n\nhelp ENTER, pour obtenir de l'aide\n\n";
+"preferences_javascript_transform_reload" = "Recharger ~/.cutbox.js";
+"preferences_javascript_transform_section_note" = "Utilisez ceci pour déboguer votre ~/.cutbox.js";
+"preferences_javascript_transform_section_title" = "Javascript REPL";
+"preferences_launch_on_login" = "Lancer à la connexion";
+"preferences_launch_on_login_tooltip" = "CutBox peut démarrer lorsque vous vous connectez à macOS";
+"preferences_multi_clip_join_and_wrap_section_note" = "Vous pouvez sélectionner plusieurs éléments de l'historique de CutBox et les coller tous en même temps";
+"preferences_multi_clip_join_and_wrap_section_title" = "Joindre et Envelopper";
+"preferences_multi_clip_join_title" = "Joindre en utilisant";
+"preferences_multi_clip_joined_by_newline" = "Nouvelle ligne";
+"preferences_multi_clip_joined_by_string" = "Texte";
+"preferences_multi_clip_joined_by_string_placeholder" = "Joindre chaque élément avec ?";
+"preferences_multi_clip_wrapped_checkbox_label" = "Envelopper le texte autour des éléments joints ?";
+"preferences_multi_clip_wrapped_end_placeholder" = "Terminer par ?";
+"preferences_multi_clip_wrapped_start_placeholder" = "Commencer par ?";
+"preferences_protect_favorites" = "Protéger les favoris";
+"preferences_protect_favorites_tooltip" = "Protéger les favoris lors de la suppression de l'historique";
+"preferences_show_all_hidden_dialog_boxes_button_title" = "Afficher les boîtes de dialogue cachées";
+"preferences_show_all_hidden_dialog_boxes_button_tootip" = "Afficher toutes les boîtes de dialogue définies sur 'Ne pas afficher'";
+"preferences_title" = "Préférences CutBox";
+"preferences_toggle_cutbox" = "Basculer CutBox";
+"preferences_toggle_cutbox_tooltip" = "Choisissez un raccourci clavier pour afficher/masquer CutBox";
+"preferences_use_compact_ui" = "Utiliser l'interface compacte";
+"preferences_use_compact_ui_tooltip" = "L'interface compacte masque les éléments de l'historique et l'aperçu de collage jusqu'à ce que vous commenciez à rechercher ou que vous appuyiez sur la touche de droite ou de haut";
+"preferences_hide_preview" = "Masquer l'aperçu";
+"preferences_hide_preview_tooltip" = "Masque le panneau d'aperçu";
+"search_placeholder" = "Rechercher dans CutBox";
+"search_scope_all" = "Rechercher partout";
+"search_scope_favorites" = "Rechercher les favoris";
+"search_scope_tooltip_all" = "Rechercher dans tout l'historique";
+"search_scope_tooltip_favorites" = "Rechercher les favoris uniquement";
+"searchmode_fuzzy" = "Correspondance floue ";
+"searchmode_fuzzy_tooltip" = "Recherche par correspondance floue";
+"searchmode_regexp" = "RegExp/i";
+"searchmode_regexp_strict" = "RegExp";
+"searchmode_regexp_strict_tooltip" = "Recherche avec expression régulière (respect de la casse)";
+"searchmode_regexp_tooltip" = "Recherche avec expression régulière (indifférente à la casse)";
+"search_time_filter_label_active" = "Rechercher uniquement les éléments copiés entre maintenant et %@ auparavant";
+"search_time_filter_label_hint" = "Saisir le temps au format N unité de temps, par exemple 1 semaine, 2 jours, 1h, 20 min, etc.";
