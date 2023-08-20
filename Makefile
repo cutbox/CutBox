@@ -11,7 +11,7 @@ test_themes ::
 	bin/test_themes
 
 check_localizable_strings ::
-	plutil -lint CutBox/*lproj/*.strings
+	plutil -lint CutBox/Localization/*lproj/*.strings
 
 build ::
 	bin/build

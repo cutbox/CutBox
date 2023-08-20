@@ -763,6 +763,21 @@
 			path = cn.lproj;
 			sourceTree = "<group>";
 		};
+		9655D1DE2A91FC2F00AA902F /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				9655D1DA2A91844700AA902F /* cn.lproj */,
+				9655D1D62A91225800AA902F /* es.lproj */,
+				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
+				9655D1CD2A911F1900AA902F /* de.lproj */,
+				9655D1D02A9120B000AA902F /* fr.lproj */,
+				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
+				96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */,
+				96CDF2DD2A8BB50700ADE6B4 /* th.lproj */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,14 +904,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				9655D1DA2A91844700AA902F /* cn.lproj */,
-				9655D1D62A91225800AA902F /* es.lproj */,
-				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
-				9655D1CD2A911F1900AA902F /* de.lproj */,
-				9655D1D02A9120B000AA902F /* fr.lproj */,
-				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
-				96CDF2DC2A8BB4EF00ADE6B4 /* ko.lproj */,
-				96CDF2DD2A8BB50700ADE6B4 /* th.lproj */,
+				9655D1DE2A91FC2F00AA902F /* Localization */,
 				96E1E596205D243400F994ED /* CutBox */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				965348D12843316B000FD0A1 /* CutBoxUnitTests */,
