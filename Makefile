@@ -10,6 +10,9 @@ test_ci ::
 test_themes ::
 	bin/test_themes
 
+check_localizable_strings ::
+	plutil -lint CutBox/*lproj/*.strings
+
 build ::
 	bin/build
 
