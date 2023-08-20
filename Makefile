@@ -10,8 +10,17 @@ test_ci ::
 test_themes ::
 	bin/test_themes
 
-check_localizable_strings ::
-	plutil -lint CutBox/Localization/*lproj/*.strings
+LANGUAGES := cn ja ko th de fr es
+LOCALIZATION_FILES := $(wildcard CutBox/Localization/*.lproj/Localizable.strings)
+
+check_localized_strings:
+	echo "linting"
+	plutil -lint $(LOCALIZATION_FILES)
+	for lang in $(LANGUAGES); do \
+		bin/check_localization "CutBox/Localization/$$lang.lproj/Localizable.strings"; done
+
+check_app_strings:
+	bin/check_l7n_source
 
 build ::
 	bin/build

@@ -130,18 +130,13 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         let filter = TimeFilterValidator(value: text)
         self.timeFilterText.isValid = filter.isValid
 
-        if filter.missingTimestamp {
-            self.timeFilterLabel.stringValue = "search_time_filter_label_no_timestamp".l7n
-            self.events.onNext(.setTimeFilerNoTimestamp)
+        if let seconds = filter.seconds {
+            let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
+            self.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
+            self.events.onNext(.setTimeFilter(seconds: seconds))
         } else {
-            if let seconds = filter.seconds {
-                let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
-                self.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
-                self.events.onNext(.setTimeFilter(seconds: seconds))
-            } else {
-                self.events.onNext(.setTimeFilter(seconds: nil))
-                self.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
-            }
+            self.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
+            self.events.onNext(.setTimeFilter(seconds: nil))
         }
     }
 

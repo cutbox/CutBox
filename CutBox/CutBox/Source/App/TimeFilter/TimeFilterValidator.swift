@@ -15,8 +15,6 @@ class TimeFilterValidator {
     private static let WEEK: Int = 604800
     private static let YEAR: Int = 31536000
 
-    public var missingTimestamp: Bool = false
-
     public typealias TimeUnitLabels = [(name: String, plural: String)]
 
     private static let secondsToTimeFull: TimeUnitLabels = [
@@ -131,15 +129,12 @@ class TimeFilterValidator {
     public let seconds: Double?
 
     public var isValid: Bool {
-        return self.missingTimestamp || self.seconds != nil
+        return self.seconds != nil
     }
 
     init(value: String) {
         self.value = value
         switch value {
-        case _ where "none" == value.localizedLowercase:
-            self.missingTimestamp = true
-            self.seconds = nil
         case _ where "today" == value.localizedLowercase:
             self.seconds = Double(Self.DAY)
         case _ where "this week" == value.localizedLowercase:

@@ -9,6 +9,7 @@
 "about_cutbox_copyright_licence" = "Copyright © 2018-2023 Jason Milkins\nGPL3 ライセンスに基づく";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_title" = "CutBox";
+"cancel" = "キャンセル";
 "confirm_warning_clear_history" = "警告: この操作は元に戻すことができません";
 "confirm_warning_clear_history_title" = "CutBox 履歴をクリアしますか？";
 "context_menu_favorite" = "お気に入りの切り替え";
@@ -24,6 +25,7 @@
 "cutbox_menu_regexp_case_match" = "大文字小文字を区別する正規表現";
 "cutbox_menu_search_cutbox" = "CutBox を検索";
 "js_func_search_placeholder" = "JavaScript を介して貼り付け...";
+"ok" = "OK";
 "preferences_color_theme_reload_themes" = "テーマを再読み込み";
 "preferences_color_theme_title" = "カラーテーマ";
 "preferences_history_destructive_limit_change_warning_description" = "CutBox 履歴の制限を変更すると、新しい制限を超える項目は削除されます\n\nこれは元に戻せません！\n\n確認した場合は、OK をクリックしてください";
@@ -84,4 +86,3 @@
 "searchmode_regexp_tooltip" = "正規表現検索（大文字小文字を区別しない）";
 "search_time_filter_label_active" = "現在から %@ 前までにコピーされた項目のみを検索";
 "search_time_filter_label_hint" = "時間を N 時間単位で入力してください（例: 1 min, 2 hour, 1 week, 20 days）";
-"search_time_filter_label_no_timestamp" = "'none': v1.5.5 以前の古いアイテムのみを検索";

@@ -9,6 +9,7 @@
 "about_cutbox_copyright_licence" = "저작권 © 2018-2023 Jason Milkins\nGPL3에 따라 사용 가능";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_title" = "CutBox";
+"cancel" = "취소";
 "confirm_warning_clear_history" = "경고: 이 작업을 취소할 수 없습니다";
 "confirm_warning_clear_history_title" = "CutBox 기록을 삭제하시겠습니까?";
 "context_menu_favorite" = "즐겨찾기 전환";
@@ -24,6 +25,7 @@
 "cutbox_menu_regexp_case_match" = "대소문자 일치 정규식";
 "cutbox_menu_search_cutbox" = "CutBox에서 검색";
 "js_func_search_placeholder" = "JavaScript로 붙여넣기...";
+"ok" = "확인";
 "preferences_color_theme_reload_themes" = "테마 다시 불러오기";
 "preferences_color_theme_title" = "색상 테마";
 "preferences_history_destructive_limit_change_warning_description" = "CutBox 기록 제한을 변경하면 새 제한을 초과하는 항목이 삭제됩니다.\n\n이 작업을 되돌릴 수 없습니다!\n\n확인을 클릭하여 진행하십시오.";
@@ -84,4 +86,3 @@
 "searchmode_regexp_tooltip" = "대소문자를 무시한 정규식 검색";
 "search_time_filter_label_active" = "현재부터 %@ 전까지 복사된 항목만 검색";
 "search_time_filter_label_hint" = "시간을 N 시간 단위로 입력하세요. 예: 1 m, 2 h, 1 w, 20 d など";
-"search_time_filter_label_no_timestamp" = "v1.5.5 이전의 오래된 항목만 검색";

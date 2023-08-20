@@ -45,25 +45,6 @@ class HistoryRepoSpec: QuickSpec {
                 }
             }
 
-            describe("missingTimestampFilter") {
-                it("return items that are missing a timestamp") {
-                    var mock = (mockedDefaults as! UserDefaultsMock)
-
-                    // fake insert, no timestamp
-                    mock.insertHistoryStoreItem("Legacy Item")
-                    subject.loadFromDefaults()
-
-                    // insert via CutBox app method
-                    subject.insert("Contemporary item")
-                    subject.saveToDefaults()
-
-                    expect(subject.items.count).to(equal(2))
-                    subject.missingTimestampFilter = true
-                    expect(subject.items.count).to(equal(1))
-                    expect(subject.missingTimestampDict.count).to(equal(1))
-                }
-            }
-
             it("can insert string items and provide them as an array") {
                 subject.insert("Hello")
                 expect(subject.items).to(contain("Hello"))

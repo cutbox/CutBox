@@ -83,11 +83,6 @@ class HistoryService: NSObject {
         }
     }
 
-    var missingTimestampFilter: Bool {
-        get { historyRepo.missingTimestampFilter }
-        set { historyRepo.missingTimestampFilter = newValue }
-    }
-
     private var searchModeKey = "searchMode"
     private var searchFavoritesOnly = "searchFavoritesOnly"
     private var legacyHistoryStoreKey = "pasteStore"
@@ -185,8 +180,6 @@ class HistoryService: NSObject {
         let historyItems: [[String: String]]!
         if self.favoritesOnly {
             historyItems = historyRepo.favoritesDict
-        } else if self.missingTimestampFilter {
-            historyItems = historyRepo.missingTimestampDict
         } else {
             historyItems = historyRepo.dict
         }
@@ -253,15 +246,26 @@ class HistoryService: NSObject {
         invalidateCaches()
     }
 
-    private func itemSelectionToHistoryIndexes(items: IndexSet) -> IndexSet {
-        return IndexSet(items
+    private func itemSelectionToHistoryIndexes(selected: IndexSet) -> IndexSet {
+        return IndexSet(selected
             .compactMap { self.items[safe: $0] }
             .map { self.historyRepo.items.firstIndex(of: $0) }
             .compactMap { $0 })
     }
 
-    func remove(items: IndexSet) {
-        let indexes = itemSelectionToHistoryIndexes(items: items)
+    private func itemSelectionToHistoryDictIndexes(selected: IndexSet) -> IndexSet {
+        let storeStrings = historyRepo.dict.map { $0["string"] }
+        let dictIndexes = IndexSet(
+            selected.map {
+                storeStrings
+                    .firstIndex(of: items[$0])!
+            }
+        )
+        return dictIndexes
+    }
+
+    func remove(selected: IndexSet) {
+        let indexes = itemSelectionToHistoryIndexes(selected: selected)
 
         if indexes.contains(0) {
             self.removeGuard = self.historyRepo.items[0]
@@ -273,17 +277,10 @@ class HistoryService: NSObject {
     }
 
     func toggleFavorite(items: IndexSet) {
-        let indexes = itemSelectionToHistoryIndexes(items: items)
+        let indexes = itemSelectionToHistoryDictIndexes(selected: items)
         self.historyRepo
             .toggleFavorite(indexes: indexes)
         invalidateCaches()
-    }
-
-    func setMissingTimestampFilter(flag: Bool) {
-        self.historyRepo.timeFilter = nil
-        self.historyRepo.missingTimestampFilter = flag
-        invalidateCaches()
-        self.events.onNext(.didLoadDefaults) // not currently used
     }
 
     func saveToDefaults() {
@@ -357,7 +354,6 @@ class HistoryService: NSObject {
     }
 
     func setTimeFilter(seconds: Double?) {
-        self.setMissingTimestampFilter(flag: false)
         self.historyRepo.timeFilter = seconds
         invalidateCaches()
         self.events.onNext(.didLoadDefaults) // not currently used

@@ -30,6 +30,7 @@ class StringUtilsSpec: QuickSpec {
                 let expected = source
                 let actual = source.truncate(limit: 100)
                 expect(expected).to(equal(actual))
+                
             }
             it("Don't truncate a string with a length equal to a limit") {
                 let source   = "123456789.123456789.123"

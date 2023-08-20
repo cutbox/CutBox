@@ -1,0 +1,53 @@
+#!/bin/bash
+
+if [ $# != 1 ]; then
+    cat <<-EOF
+Usage: check_localization <localizable.strings>
+
+Check the localizable.strings file has all keys in base
+EOF
+    exit 1
+fi
+
+echo "Checking Localization for missing or unrecognized keys in translations."
+
+# Get localization keys
+basefile=CutBox/Localization/en.lproj/Localizable.strings
+keys=$(mktemp)
+rg -o '^"[^"]*"' "$basefile" > "$keys"
+file="$1"
+errors=()
+
+# Check file has all basekeys
+while IFS= read -r line; do
+    if ! rg -q "$line" "$file"; then
+        # collect errors
+        errors+=("/* Missing in $file: */")
+        errors+=("$line = \"TODO\";")
+        errors+=("/* English: $(rg -IN "$line" "$basefile") */")
+    fi
+done < "$keys"
+
+rg -o '^"[^"]*"' "$file" > "$keys"
+
+# Check file has no additional keys
+while IFS= read -r line; do
+    if ! rg -q "$line" "$basefile"; then
+        # collect errors
+        errors+=("remove: $line")
+    fi
+done < "$keys"
+
+if [ ${#errors[@]} -gt 0 ]; then
+    echo "[✗] Error in $file"
+    for error in "${errors[@]}"; do
+        echo "$error"
+    done
+    echo ""
+    exit 1
+else
+    echo "[✓] $file"
+fi
+
+rm "$keys"
+

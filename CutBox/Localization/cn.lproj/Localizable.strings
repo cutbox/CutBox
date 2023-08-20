@@ -9,6 +9,7 @@
 "about_cutbox_copyright_licence" = "版权所有 © 2018-2023 Jason Milkins\n根据 GPL3 许可";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_title" = "CutBox";
+"cancel" = "取消";
 "confirm_warning_clear_history" = "警告：此操作无法撤消";
 "confirm_warning_clear_history_title" = "清除 CutBox 历史记录？";
 "context_menu_favorite" = "切换收藏";
@@ -24,6 +25,7 @@
 "cutbox_menu_regexp_case_match" = "大小写匹配正则";
 "cutbox_menu_search_cutbox" = "搜索 CutBox";
 "js_func_search_placeholder" = "通过 JavaScript 粘贴...";
+"ok" = "确定";
 "preferences_color_theme_reload_themes" = "重新加载主题";
 "preferences_color_theme_title" = "颜色主题";
 "preferences_history_destructive_limit_change_warning_description" = "更改 CutBox 历史记录限制\n将会丢弃超过新限制的项目\n\n此操作无法撤消！\n\n如果您确定，请点击确定";
@@ -84,4 +86,3 @@
 "searchmode_regexp_tooltip" = "正则表达式搜索（不区分大小写）";
 "search_time_filter_label_active" = "仅搜索从现在开始到 %@ 之前复制的项目";
 "search_time_filter_label_hint" = "将时间限制输入为英语单位，例如 40 s，20 min，1 h，2 d，等等。";
-"search_time_filter_label_no_timestamp" = "'none': 仅搜索旧项目（v1.5.5 之前的版本）";

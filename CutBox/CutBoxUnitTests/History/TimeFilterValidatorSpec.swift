@@ -97,9 +97,6 @@ class TimeFilterValidatorSpec: QuickSpec {
                     "10.85w", "10.12130wk", "91.1wks", "23.1134wks", "10.149week",
                     "10 w", "10 wk", "91 weeks", "23 wks", "10 week",
                     "10w", "100wk", "91wks", "23wks", "10week",
-
-                    // None - used to find items missing a timestamp (≤ 1.5.5)
-                    "none"
                 ]
 
                 for value in values {

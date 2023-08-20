@@ -121,7 +121,7 @@ class SearchPreviewViewBase: NSView {
     }
 
     func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
-                                  tooltip: String = "history_scope_tooltip_all".l7n,
+                                  tooltip: String = "search_time_filter_label_hint".l7n,
                                   color: NSColor,
                                   alpha: Double = 0.75) {
         let image = image

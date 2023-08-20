@@ -101,7 +101,7 @@ class SearchViewController: NSObject {
     }
 
     func removeSelectedItems() {
-        self.historyService.remove(items: self.selectedItems)
+        self.historyService.remove(selected: self.selectedItems)
         self.searchView.itemsList.reloadData()
     }
 
@@ -196,10 +196,6 @@ class SearchViewController: NSObject {
 
                 case .setTimeFilter(let seconds):
                     self.historyService.setTimeFilter(seconds: seconds)
-                    self.searchView.itemsList.reloadData()
-
-                case .setTimeFilerNoTimestamp:
-                    self.historyService.setMissingTimestampFilter(flag: true)
                     self.searchView.itemsList.reloadData()
 
                 case .toggleTimeFilter:

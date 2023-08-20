@@ -24,9 +24,6 @@ class HistoryRepo {
     /// Optional time filter
     public var timeFilter: Double?
 
-    /// For clips recorded ≤ v1.5.5
-    public var missingTimestampFilter: Bool = false
-
     /// preferences defaults key for protect favorites flag
     private var kProtectFavorites = "protectFavorites"
 
@@ -39,18 +36,15 @@ class HistoryRepo {
     }
 
     var items: [String] {
-        if missingTimestampFilter {
-            let items = self.missingTimestampDict
-                .map { $0[self.stringKey]! }
-            return items
-        } else if let seconds = self.timeFilter {
+        if let seconds = self.timeFilter {
             let latest = secondsBeforeTimeNowAsISO8601(seconds: seconds)
             return self.dict
                 .filter { timeFilterPredicate(item: $0, earliest: latest) }
                 .map { $0[self.stringKey]! }
         }
+
         return self.dict
-            .map { $0[self.stringKey]! }
+          .map { $0[self.stringKey]! }
     }
 
     var favorites: [String] {
@@ -62,11 +56,6 @@ class HistoryRepo {
     var favoritesDict: [[String: String]] {
         return self.dict
             .filter { $0[favoriteKey] == self.favoriteKey }
-    }
-
-    var missingTimestampDict: [[String: String]] {
-        return self.dict
-            .filter { $0[timestampKey] == nil }
     }
 
     var dict: [[String: String]] {

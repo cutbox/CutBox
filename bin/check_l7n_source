@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "Check source localized app strings vs base localization"
+
+## Check base localization of strings in the app source
+temp=$(mktemp)
+rg -IN -o '".*?".l7n' CutBox/CutBox/Source | sort -u | sed 's/.l7n//' | while read a; do
+    if rg -q "$a" CutBox/Localization/en.lproj/Localizable.strings; then
+        continue
+    else
+        echo "[✗] $a // not localised"
+    fi
+done > "$temp"
+
+sort -u < "$temp"
+
+errors=$(< "$temp")
+
+rm "$temp"
+
+if [ "" == "$errors" ]; then
+    echo "[✓] App.l7n strings - Ok"
+    exit 0
+else
+    exit 1
+fi

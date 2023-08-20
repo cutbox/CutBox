@@ -9,6 +9,7 @@
 "about_cutbox_copyright_licence" = "Copyright © 2018-2023 Jason Milkins\nLicensed under GPL3";
 "about_cutbox_home_url" = "https://cutbox.github.io";
 "about_cutbox_title" = "CutBox";
+"cancel" = "Cancel";
 "confirm_warning_clear_history" = "Warning: You cannot undo this operation";
 "confirm_warning_clear_history_title" = "Clear CutBox history?";
 "context_menu_favorite" = "Toggle Favorite";
@@ -24,6 +25,7 @@
 "cutbox_menu_regexp_case_match" = "Regexp case match";
 "cutbox_menu_search_cutbox" = "Search CutBox";
 "js_func_search_placeholder" = "Paste through Javascript...";
+"ok" = "Ok";
 "preferences_color_theme_reload_themes" = "Reload themes";
 "preferences_color_theme_title" = "Color theme";
 "preferences_history_destructive_limit_change_warning_description" = "Changing the CutBox history limit\nwill discard items beyond the new limit\n\nYou cannot undo this!\n\nIf you're sure, click OK";
@@ -84,4 +86,3 @@
 "searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
 "search_time_filter_label_active" = "Search only items copied between now and %@ ago";
 "search_time_filter_label_hint" = "Enter time as N time-unit, e.g. 1 week, 2 days, 1h, 20 min etc.";
-"search_time_filter_label_no_timestamp" = "'none': Searches only old items pre v1.5.5";
