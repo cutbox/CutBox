@@ -84,4 +84,4 @@
 "searchmode_regexp_tooltip" = "正则表达式搜索（不区分大小写）";
 "search_time_filter_label_active" = "仅搜索从现在开始到 %@ 之前复制的项目";
 "search_time_filter_label_hint" = "将时间限制输入为英语单位，例如 40 s，20 min，1 h，2 d，等等。";
-"search_time_filter_label_no_timestamp" = "\"none\": 仅搜索旧项目（v1.5.5 之前的版本）";
+"search_time_filter_label_no_timestamp" = "'none': 仅搜索旧项目（v1.5.5 之前的版本）";

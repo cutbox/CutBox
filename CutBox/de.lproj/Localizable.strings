@@ -78,4 +78,4 @@
 "searchmode_regexp_tooltip" = "Regulärer Ausdruck (Groß-/Kleinschreibung nicht beachten) bei der Suche";
 "search_time_filter_label_active" = "Nur Einträge suchen, die in den letzten %@ kopiert wurden";
 "search_time_filter_label_hint" = "Die Zeitlimit in englischen Einheiten, von 40 s, 20 m, 1 h, 2 d, usw.";
-"search_time_filter_label_no_timestamp" = "\"none\": Durchsucht nur alte Elemente vor v1.5.5";
+"search_time_filter_label_no_timestamp" = "'none': Durchsucht nur alte Elemente vor v1.5.5";

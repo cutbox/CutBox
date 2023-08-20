@@ -1,6 +1,6 @@
 #!/bin/sh
 
-build_folder="$(dirname $0)/../CutBox/build"
+build_folder="$(git rev-parse --show-toplevel)/CutBox/build"
 archive_at="${build_folder}/archive/CutBox.xcarchive"
 
 rm -rvf "${build_folder}/CutBox.app"
@@ -13,7 +13,4 @@ xcodebuild archive \
     -archivePath "${archive_at}"
 
 mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
-
 codesign --deep --force -s - "${build_folder}/CutBox.app"
-
-git rev-parse --is-inside-work-tree > /dev/null 2>&1 && git --no-pager diff --color
