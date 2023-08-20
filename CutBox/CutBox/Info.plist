@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.5.9</string>
+	<string>1.6.0</string>
 	<key>CFBundleVersion</key>
-	<string>11416</string>
+	<string>11417</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
@@ -27,7 +27,7 @@
 	<key>LSUIElement</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2019-2022 Jason L Milkins. All rights reserved.</string>
+	<string>Copyright © 2018-2023 Jason L Milkins. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>CutBoxStatusMenu</string>
 	<key>NSPrincipalClass</key>
