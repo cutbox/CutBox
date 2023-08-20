@@ -41,7 +41,6 @@
 		964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* ConfirmationDialog.swift */; };
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
-		964CA5542083325600B9F33E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		9652C03D2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
 		9652C03E2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
 		9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
@@ -163,6 +162,8 @@
 		9655D1D52A91216700AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1D32A91216700AA902F /* Localizable.strings */; };
 		9655D1D92A91229C00AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1D72A91229C00AA902F /* Localizable.strings */; };
 		9655D1DD2A91847200AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1DB2A91847200AA902F /* Localizable.strings */; };
+		9655D1DF2A91FE8300AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1E22A91FE8300AA902F /* Localizable.strings */; };
+		9655D1E02A91FE8300AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1E22A91FE8300AA902F /* Localizable.strings */; };
 		9657D331283F336000F688F5 /* CutBoxColorThemeDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */; };
 		965B02B328E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
 		965B02B428E5481E003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */; };
@@ -215,7 +216,6 @@
 		96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A16B4B20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift */; };
 		96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4D20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib */; };
 		96A225942844F5CD00C9502D /* CutBoxThemeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */; };
-		96A225952844F84700C9502D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 964CA5532083325600B9F33E /* Localizable.strings */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A801B920A8177C000CBE74 /* PreferencesGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */; };
 		96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */; };
 		96A801BD20A8180F000CBE74 /* PreferencesAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */; };
@@ -363,7 +363,6 @@
 		964CA54320830C8800B9F33E /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
-		964CA5532083325600B9F33E /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorString.swift"; sourceTree = "<group>"; };
 		965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601Helpers.swift; sourceTree = "<group>"; };
@@ -371,6 +370,7 @@
 		9655D1D42A91216700AA902F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = Localizable.strings; sourceTree = "<group>"; };
 		9655D1D82A91229C00AA902F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
 		9655D1DC2A91847200AA902F /* cn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cn; path = Localizable.strings; sourceTree = "<group>"; };
+		9655D1E12A91FE8300AA902F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9657D330283F336000F688F5 /* CutBoxColorThemeDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxColorThemeDefinition.swift; sourceTree = "<group>"; };
 		965B02B228E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+ResetSuppressedDialogBoxes.swift"; sourceTree = "<group>"; };
 		965F0764206F4BE10032DACD /* ClipItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -766,9 +766,9 @@
 		9655D1DE2A91FC2F00AA902F /* Localization */ = {
 			isa = PBXGroup;
 			children = (
+				9655D1E22A91FE8300AA902F /* Localizable.strings */,
 				9655D1DA2A91844700AA902F /* cn.lproj */,
 				9655D1D62A91225800AA902F /* es.lproj */,
-				96CDF2D92A8BB4B900ADE6B4 /* en.lproj */,
 				9655D1CD2A911F1900AA902F /* de.lproj */,
 				9655D1D02A9120B000AA902F /* fr.lproj */,
 				96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */,
@@ -847,14 +847,6 @@
 			path = ClipItems;
 			sourceTree = "<group>";
 		};
-		96CDF2D92A8BB4B900ADE6B4 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				964CA5532083325600B9F33E /* Localizable.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
 		96CDF2DB2A8BB4D900ADE6B4 /* ja.lproj */ = {
 			isa = PBXGroup;
 			children = (
@@ -904,8 +896,8 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				9655D1DE2A91FC2F00AA902F /* Localization */,
 				96E1E596205D243400F994ED /* CutBox */,
+				9655D1DE2A91FC2F00AA902F /* Localization */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
 				965348D12843316B000FD0A1 /* CutBoxUnitTests */,
 				96E1E595205D243400F994ED /* Products */,
@@ -928,8 +920,8 @@
 		96E1E596205D243400F994ED /* CutBox */ = {
 			isa = PBXGroup;
 			children = (
-				96B04641284518E400011A58 /* themes */,
 				965F078E207120DB0032DACD /* Source */,
+				96B04641284518E400011A58 /* themes */,
 				965F0785206FCDC60032DACD /* GraphicAssets */,
 				96E1E599205D243400F994ED /* Assets.xcassets */,
 				96E1E59E205D243400F994ED /* Info.plist */,
@@ -1130,7 +1122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965348F328434735000FD0A1 /* PreferencesGeneralView.xib in Resources */,
-				96A225952844F84700C9502D /* Localizable.strings in Resources */,
+				9655D1E02A91FE8300AA902F /* Localizable.strings in Resources */,
 				9653493E284347E8000FD0A1 /* JSFuncItemTableRowImageView.xib in Resources */,
 				9653495628434D59000FD0A1 /* page.png in Resources */,
 				9653495528434D59000FD0A1 /* magnitude.png in Resources */,
@@ -1170,7 +1162,7 @@
 				963AA6442071C95000779697 /* AboutPanel.xib in Resources */,
 				96A8022820AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib in Resources */,
 				96A8022720AD8F00000CBE74 /* JSFuncItemTableRowTextView.xib in Resources */,
-				964CA5542083325600B9F33E /* Localizable.strings in Resources */,
+				9655D1DF2A91FE8300AA902F /* Localizable.strings in Resources */,
 				96CDF2D82A8BB3DF00ADE6B4 /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */,
 				96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */,
@@ -1631,6 +1623,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				9655D1DC2A91847200AA902F /* cn */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		9655D1E22A91FE8300AA902F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9655D1E12A91FE8300AA902F /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
