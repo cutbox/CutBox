@@ -92,6 +92,13 @@ class HistoryService: NSObject {
 
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.defaults = defaults
+
+        let migration_1_6_x = HistoryStoreMigration_1_6_x()
+        if migration_1_6_x.isMigrationRequired {
+            migration_1_6_x.applyTimestampsToLegacyItems()
+            print("historyStore migrated to 1.6.x - timestamps added")
+        }
+
         self.pasteboard = PasteboardWrapper()
         self.historyRepo = HistoryRepo()
 
