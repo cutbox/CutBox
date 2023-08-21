@@ -55,13 +55,13 @@ jobs:
         run: |
           make build
 
+      - name: Lint Localized.strings
+        run: |
+          make check_localized_strings
+
       - name: Check CutBox localized app strings
         run: |
           make check_app_strings
-
-      - name: Check Localized.strings
-        run: |
-          make check_localized_strings
 
       - name: Theme validation
         run: |
