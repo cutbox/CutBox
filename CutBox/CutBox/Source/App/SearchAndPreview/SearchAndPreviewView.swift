@@ -11,10 +11,16 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
+/// Main view of CutBox, displayed via `PopupController`
+/// communicates with the `CutBoxController` via events<`SearchViewEvents`>
+/// Extends `SearchPreviewViewBase`
 class SearchAndPreviewView: SearchPreviewViewBase {
 
     @IBOutlet weak var searchModeToggle: NSButton!
     @IBOutlet weak var jsIconButton: NSButton!
+    @IBOutlet weak var timeFilterText: ValidIndicatorTextField!
+    @IBOutlet weak var timeFilterLabel: NSTextField!
+    @IBOutlet weak var historyScopeImageButton: NSButton!
 
     var events = PublishSubject<SearchViewEvents>()
 
@@ -57,6 +63,18 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         self.historyScopeImageButton.rx.tap
             .bind(onNext: historyScopeClicked)
             .disposed(by: disposeBag)
+    }
+
+    private func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
+                                  tooltip: String = "search_time_filter_label_hint".l7n,
+                                  color: NSColor,
+                                  alpha: Double = 0.75) {
+        let image = image
+        let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
+
+        self.historyScopeImageButton.alphaValue = alpha
+        self.historyScopeImageButton.image = blended
+        self.historyScopeImageButton.toolTip = tooltip
     }
 
     private func historyScopeClicked() {
@@ -138,7 +156,6 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         self.timeFilterText.isHidden = true
         self.timeFilterText.placeholderString = "...".l7n
         self.timeFilterText.isValid = false
-
     }
 
     func onTimeFilterTextChanged(text: String) {
@@ -164,17 +181,17 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     func setupClipItemsContextMenu() {
-        let remove = NSMenuItem(title: "context_menu_remove_selected".l7n,
+        let removeItem = NSMenuItem(title: "context_menu_remove_selected".l7n,
                                 action: #selector(removeSelectedItems),
                                 keyEquivalent: "")
 
-        let favorite = NSMenuItem(title: "context_menu_favorite".l7n,
+        let favoriteItem = NSMenuItem(title: "context_menu_favorite".l7n,
                                   action: #selector(toggleFavoriteItems),
                                   keyEquivalent: "")
 
         let contextMenu = NSMenu()
-        contextMenu.addItem(remove)
-        contextMenu.addItem(favorite)
+        contextMenu.addItem(removeItem)
+        contextMenu.addItem(favoriteItem)
 
         self.itemsList.menu = contextMenu
     }

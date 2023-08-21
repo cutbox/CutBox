@@ -17,13 +17,10 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
     @IBOutlet weak var searchText: SearchTextView!
-    @IBOutlet weak var timeFilterText: ValidIndicatorTextField!
-    @IBOutlet weak var timeFilterLabel: NSTextField!
     @IBOutlet weak var itemsList: NSTableView!
     @IBOutlet weak var preview: NSTextView!
     @IBOutlet weak var previewContainer: NSBox!
     @IBOutlet weak var iconImageView: NSImageView!
-    @IBOutlet weak var historyScopeImageButton: NSButton!
     @IBOutlet weak var searchScopeImageButton: NSButton!
     @IBOutlet weak var mainContainer: NSStackView!
     @IBOutlet weak var container: NSStackView!
@@ -118,18 +115,6 @@ class SearchPreviewViewBase: NSView {
         self.searchScopeImageButton.alphaValue = alpha
         self.searchScopeImageButton.image = blended
         self.searchScopeImageButton.toolTip = toolTip
-    }
-
-    func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
-                                  tooltip: String = "search_time_filter_label_hint".l7n,
-                                  color: NSColor,
-                                  alpha: Double = 0.75) {
-        let image = image
-        let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
-
-        self.historyScopeImageButton.alphaValue = alpha
-        self.historyScopeImageButton.image = blended
-        self.historyScopeImageButton.toolTip = tooltip
     }
 
     func applyTheme() {

@@ -74,7 +74,8 @@ To exit press <kbd>**Esc**</kbd>.
 | <kbd>Cmd</kbd><kbd>[</kbd>                 | Toggle wrap mode (paste multiple items, wrapped by a pair of strings: Set in preferences) |
 | <kbd>Cmd</kbd><kbd>s</kbd>                 | Toggle search modes, fuzzy match, regexp/i or regexp                                      |
 | <kbd>Cmd</kbd><kbd>f</kbd>                 | Toggle search by favorites / everything (use the right click menu, to favorite)           |
-| <kbd>Cmd</kbd><kbd>h</kbd>                 | Toggle search by time filtered / everything (≥ v1.5.8+)                                   |
+| <kbd>Cmd</kbd><kbd>h</kbd>                 | Toggle search within time limit                                                           |
+| Enter (In time limit filter)               | Return to text search                                                                     |
 |                                            |                                                                                           |
 | **In items list**                          |                                                                                           |
 | <kbd>Alt</kbd><kbd>up</kbd>                | Move to top of items                                                                      |
@@ -91,7 +92,7 @@ Use the status item to open Cutbox with the mouse, and access options:
 # Install via Homebrew Cask (recommended)
 
 Install the compiled package.
-```
+```sh
 brew tap cutbox/cutbox
 brew install --cask cutbox
 ```
@@ -104,7 +105,7 @@ Visit https://github.com/cutbox/CutBox/releases/latest
 
 Builds the package from source, a full Xcode installation needed.
 
-```
+```sh
 brew tap cutbox/cutbox
 brew install cutbox
 ```
@@ -117,15 +118,15 @@ When you first run CutBox Macos will prompt you that the developer cannot be ide
 
 If you prefer to install open source software that isn't notarized (such as CutBox, or Chromium) on your Mac, you can do this in the terminal.
 
-```
+```sh
 sudo spctl --master-disable
 ```
 
 I only recommend this if you feel comfortable using free software that you can code audit.  CutBox is [code audited by Codacy](https://www.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  However it doesn't participate in Apple's anti opensource gatekeeper / notarisation system or any other parts of [Apple's Walled Garden.](https://seekingalpha.com/article/4525092-apple-mr-cook-tear-down-walled-garden)
 
-CutBox will be free and open forever, and is licensed under GNU/GPL3, so the source is always available.
+CutBox will be free and open forever, and is licensed under GNU/GPL3, so the source is always available. Donations are important to help keep it developed and improved.
 
-Dmg/.app builds are produced by Github Workflow actions, so you can also inspect the entire test/deploy/delivery chain. (as of Sept 2022)
+Dmg/.app builds are produced by Github Workflow actions, so you can also inspect the entire test/deploy/delivery chain.
 
 # Enable automatic paste.
 
@@ -151,7 +152,7 @@ The CutBox also has a CLI tool to access history via the terminal.  Download the
 
 Note the CLI only performs read-only actions on CutBox history.
 
-```
+```sh
 OVERVIEW:
         CutBox history CLI
 
@@ -212,11 +213,13 @@ If you find a bug, [click here to tell me what happened.](https://github.com/cut
 
 ### Clone and setup dependencies
 
-    git clone git@github.com:CutBox/CutBox
+```sh
+git clone git@github.com:CutBox/CutBox
+```
 
 ### Compilation setup / tooling
 
-```
+```sh
 gem install cocoapods
 cd CutBox
 pod install
@@ -225,14 +228,14 @@ cd ..
 
 To build **CutBox.app**:
 
-```
+```sh
 bin/build
 open CutBox/build/
 ```
 
 Run the local CutBox.app with terminal logging...
 
-```
+```sh
 CutBox/build/CutBox.app/Contents/MacOS/CutBox
 ```
 
