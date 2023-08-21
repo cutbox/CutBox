@@ -9,11 +9,11 @@
 import Cocoa
 import RxSwift
 
-/// Setting the isValid property updates the
+/// Setting isValid updates the
 /// field border color (green/red)
 ///
-/// Validation logic is handled externally
-class ValidTextField: TextFieldWithKeyUpStream {
+/// Validation logic handled externally
+class ValidIndicatorTextField: TextFieldKeyUpRxStream {
     var isValid: Bool = false {
         didSet {
             updateBorderColor()

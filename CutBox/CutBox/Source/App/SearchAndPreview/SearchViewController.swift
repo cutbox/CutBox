@@ -9,6 +9,11 @@
 import Cocoa
 import RxSwift
 
+/// Controller for `SearchAndPreviewView`
+///
+/// Subscribes any `SearchViewEvents` (from `SearchAndPreviewView`),
+/// performing the required actions,  using init injected: `searchView:SearchAndPreviewView`,
+/// `historyService:HistoryService` and `prefs:CutBoxPreferencesService`.
 class SearchViewController: NSObject {
 
     var searchView: SearchAndPreviewView
@@ -20,10 +25,12 @@ class SearchViewController: NSObject {
 
     private var searchPopup: PopupController
 
+    /// Event stream from SearchAndPreviewView
     var events: PublishSubject<SearchViewEvents> {
         return self.searchView.events
     }
 
+    /// Row indexes of selected items
     var selectedItems: IndexSet {
         return self
             .searchView
@@ -31,6 +38,7 @@ class SearchViewController: NSObject {
             .selectedRowIndexes
     }
 
+    /// Strings of selected items
     var selectedClips: [String] {
         guard !self.historyService.items.isEmpty else { return [] }
 
@@ -40,8 +48,12 @@ class SearchViewController: NSObject {
             .map { self.historyService.items[$0] }
     }
 
+    /// Rx Swift sink hole
     let disposeBag = DisposeBag()
 
+    /// Setup controller, initialize the search view and popup.
+    /// Connect the history service and tell it to start polling the pasteboard.
+    /// Connect the preferences service to itself and members.
     init(pasteboardService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
          fakeKey: FakeKey = FakeKey.shared) {
@@ -59,31 +71,37 @@ class SearchViewController: NSObject {
         configureSearchPopupAndView()
     }
 
+    /// Setup the context menu for items shown in the search view
     func setupClipItemsContextMenu() {
         self.searchView.setupClipItemsContextMenu()
         self.searchView.itemsList.menu?.delegate = self
     }
 
+    /// Toggle display of the search popup
     func togglePopup() {
         self.historyService.favoritesOnly = false
         self.searchView.applyTheme()
         self.searchPopup.togglePopup()
     }
 
+    /// Close the search popup
     func closeSearchPopup() {
         HistoryService.shared.favoritesOnly = false
         self.searchPopup.closePopup()
     }
 
+    /// Open the search popup
     func openSearchPopup() {
         self.historyService.favoritesOnly = false
         self.searchPopup.openPopup()
     }
 
+    /// Hide the app (objc selector)
     @objc func hideApp() {
         NSApp.hide(self)
     }
 
+    /// send a fake paste (Cmd V) to macOS
     @objc func fakePaste() {
         fakeKey.send(fakeKey: "V", useCommandFlag: true)
     }
@@ -100,11 +118,13 @@ class SearchViewController: NSObject {
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
+    /// Remove selected items and refresh the search view
     func removeSelectedItems() {
         self.historyService.remove(selected: self.selectedItems)
         self.searchView.itemsList.reloadData()
     }
 
+    /// Toggle favorite status on selected items
     func toggleFavoriteItems() {
         let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)
@@ -112,6 +132,7 @@ class SearchViewController: NSObject {
         self.searchView.itemsList.selectRowIndexes(selection, byExtendingSelection: false)
     }
 
+    /// Send the selected clip text to the pasteboard
     func pasteSelectedClipToPasteboard(_ useJS: Bool) {
         guard !self.selectedClips.isEmpty else { return }
 
@@ -174,6 +195,7 @@ class SearchViewController: NSObject {
             .disposed(by: self.disposeBag)
     }
 
+    /// Update the preview with selected clip(s)
     func updateSearchItemPreview() {
         let preview = prefs.prepareClips(selectedClips)
         self.searchView.preview.string = preview.truncate(limit: 50_000)

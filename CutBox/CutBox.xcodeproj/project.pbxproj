@@ -185,15 +185,15 @@
 		9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF282078C2DE00E4571E /* Array+IndexSet.swift */; };
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
-		967940072A87EADD00D14B87 /* ValidTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidTextField.swift */; };
+		967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
 		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
 		9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
 		967B9FA22A90E6C20054E9D0 /* UserDefaultsMockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967B9FA12A90E6C20054E9D0 /* UserDefaultsMockSpec.swift */; };
 		967C06A12A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A02A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift */; };
 		967C06A22A9345D8008AF0CE /* HistoryStoreMigration_1_6_x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A02A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift */; };
-		967C06A52A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */; };
-		967C06A62A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */; };
+		967C06A52A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A42A937220008AF0CE /* TextFieldKeyUpRxStream.swift */; };
+		967C06A62A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A42A937220008AF0CE /* TextFieldKeyUpRxStream.swift */; };
 		967DFB5520C246BD0063B050 /* cutbox-js-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5320C246BD0063B050 /* cutbox-js-icon.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967DFB5A20C28D3F0063B050 /* js_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js_badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */; };
@@ -255,7 +255,7 @@
 		96CFA6B32069278700BAFABB /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
 		96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */; };
 		96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
-		96D931C22A87E16900BF594D /* ValidTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidTextField.swift */; };
+		96D931C22A87E16900BF594D /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		96DA65C928DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
 		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
@@ -400,7 +400,7 @@
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
 		967B9FA12A90E6C20054E9D0 /* UserDefaultsMockSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMockSpec.swift; sourceTree = "<group>"; };
 		967C06A02A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreMigration_1_6_x.swift; sourceTree = "<group>"; };
-		967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithKeyUpStream.swift; sourceTree = "<group>"; };
+		967C06A42A937220008AF0CE /* TextFieldKeyUpRxStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldKeyUpRxStream.swift; sourceTree = "<group>"; };
 		967DFB5320C246BD0063B050 /* cutbox-js-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-js-icon.png"; sourceTree = "<group>"; };
 		967DFB5920C28D3E0063B050 /* js_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = js_badge.png; sourceTree = "<group>"; };
 		967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+getRowView.swift"; sourceTree = "<group>"; };
@@ -459,7 +459,7 @@
 		96CDF2D72A8BB3DF00ADE6B4 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		96CFA6B22069278700BAFABB /* FakeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKey.swift; sourceTree = "<group>"; };
 		96CFA6B42069C5BC00BAFABB /* CutBoxPreferencesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesService.swift; sourceTree = "<group>"; };
-		96D931C12A87E16900BF594D /* ValidTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidTextField.swift; sourceTree = "<group>"; };
+		96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidIndicatorTextField.swift; sourceTree = "<group>"; };
 		96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+TextScaling.swift"; sourceTree = "<group>"; };
 		96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenience.swift"; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -914,8 +914,8 @@
 			children = (
 				964CA54320830C8800B9F33E /* ConfirmationDialog.swift */,
 				961A49B02065D72F005BC79D /* Popup */,
-				96D931C12A87E16900BF594D /* ValidTextField.swift */,
-				967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */,
+				96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */,
+				967C06A42A937220008AF0CE /* TextFieldKeyUpRxStream.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1397,7 +1397,7 @@
 				9653490128434742000FD0A1 /* JSFuncSearchAndPreviewView.swift in Sources */,
 				965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */,
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
-				967C06A62A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */,
+				967C06A62A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */,
 				967B9FA22A90E6C20054E9D0 /* UserDefaultsMockSpec.swift in Sources */,
 				9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */,
 				965348E928434735000FD0A1 /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,
@@ -1412,7 +1412,7 @@
 				96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */,
 				965348FB28434735000FD0A1 /* PreferencesThemeSelectionView.swift in Sources */,
 				9653492928434785000FD0A1 /* NSTableView+getRowView.swift in Sources */,
-				967940072A87EADD00D14B87 /* ValidTextField.swift in Sources */,
+				967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */,
 				96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */,
 				9653493828434795000FD0A1 /* PopupPanel.swift in Sources */,
 				9653491C28434767000FD0A1 /* HistoryService.swift in Sources */,
@@ -1527,7 +1527,7 @@
 				96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */,
 				968A97C120667CF800D36B50 /* HistoryService.swift in Sources */,
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
-				96D931C22A87E16900BF594D /* ValidTextField.swift in Sources */,
+				96D931C22A87E16900BF594D /* ValidIndicatorTextField.swift in Sources */,
 				96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */,
 				96658CE020B44B0500BDA8F4 /* PreferencesThemePreview.swift in Sources */,
@@ -1573,7 +1573,7 @@
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */,
-				967C06A52A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */,
+				967C06A52A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */,
 				965B02B628E7E0A6003770BD /* SearchViewController.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift in Sources */,
 				96A16B3E209FD77500EE08A4 /* ClipItemTableRowImageView.swift in Sources */,

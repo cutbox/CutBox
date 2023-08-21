@@ -17,7 +17,7 @@ class SearchPreviewViewBase: NSView {
     @IBOutlet weak var searchTextContainer: NSBox!
     @IBOutlet weak var searchTextPlaceholder: NSTextField!
     @IBOutlet weak var searchText: SearchTextView!
-    @IBOutlet weak var timeFilterText: ValidTextField!
+    @IBOutlet weak var timeFilterText: ValidIndicatorTextField!
     @IBOutlet weak var timeFilterLabel: NSTextField!
     @IBOutlet weak var itemsList: NSTableView!
     @IBOutlet weak var preview: NSTextView!
