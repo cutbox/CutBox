@@ -19,7 +19,7 @@ class StringUtilsSpec: QuickSpec {
                 let actual = source.truncate(limit: 0)
                 expect(expected).to(equal(actual))
             }
-            
+
             it("Truncate a long string with ellipsis") {
                 let source   = "123456789.123456789.123"
                 let expected = "123456789.12345…"

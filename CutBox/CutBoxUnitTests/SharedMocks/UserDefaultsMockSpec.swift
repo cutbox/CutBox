@@ -73,7 +73,8 @@ class UserDefaultsMockSpec: QuickSpec {
                 subject.set(myArrayOfDictionaries, forKey: "myArrayOfDictionaries")
 
                 // swiftlint:disable force_cast
-                let updatedArrayOfDictionaries: [[String: Int]] = subject.array(forKey: "myArrayOfDictionaries") as! [[String: Int]]
+                let updatedArrayOfDictionaries: [[String: Int]] = subject
+                    .array(forKey: "myArrayOfDictionaries") as! [[String: Int]]
 
                 expect(updatedArrayOfDictionaries.count).to(equal(5))
                 expect(updatedArrayOfDictionaries.first).to(equal(["a": 10]))
