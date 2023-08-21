@@ -7,12 +7,18 @@
 //
 
 import Cocoa
+import RxSwift
 
 /// Setting the isValid property updates the
 /// field border color (green/red)
 ///
 /// Validation logic is handled externally
-class ValidTextField: NSTextField {
+class ValidTextField: TextFieldWithKeyUpStream {
+    var isValid: Bool = false {
+        didSet {
+            updateBorderColor()
+        }
+    }
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -37,12 +43,6 @@ class ValidTextField: NSTextField {
             fieldLayer.backgroundColor = NSColor
                 .black
                 .withAlphaComponent(0.25).cgColor
-        }
-    }
-
-    var isValid: Bool = false {
-        didSet {
-            updateBorderColor()
         }
     }
 

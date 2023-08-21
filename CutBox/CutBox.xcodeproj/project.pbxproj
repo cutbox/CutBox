@@ -192,6 +192,8 @@
 		967B9FA22A90E6C20054E9D0 /* UserDefaultsMockSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967B9FA12A90E6C20054E9D0 /* UserDefaultsMockSpec.swift */; };
 		967C06A12A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A02A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift */; };
 		967C06A22A9345D8008AF0CE /* HistoryStoreMigration_1_6_x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A02A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift */; };
+		967C06A52A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */; };
+		967C06A62A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */; };
 		967DFB5520C246BD0063B050 /* cutbox-js-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5320C246BD0063B050 /* cutbox-js-icon.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967DFB5A20C28D3F0063B050 /* js_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js_badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */; };
@@ -398,6 +400,7 @@
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
 		967B9FA12A90E6C20054E9D0 /* UserDefaultsMockSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsMockSpec.swift; sourceTree = "<group>"; };
 		967C06A02A9345CB008AF0CE /* HistoryStoreMigration_1_6_x.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreMigration_1_6_x.swift; sourceTree = "<group>"; };
+		967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithKeyUpStream.swift; sourceTree = "<group>"; };
 		967DFB5320C246BD0063B050 /* cutbox-js-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-js-icon.png"; sourceTree = "<group>"; };
 		967DFB5920C28D3E0063B050 /* js_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = js_badge.png; sourceTree = "<group>"; };
 		967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+getRowView.swift"; sourceTree = "<group>"; };
@@ -912,6 +915,7 @@
 				964CA54320830C8800B9F33E /* ConfirmationDialog.swift */,
 				961A49B02065D72F005BC79D /* Popup */,
 				96D931C12A87E16900BF594D /* ValidTextField.swift */,
+				967C06A42A937220008AF0CE /* TextFieldWithKeyUpStream.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1393,6 +1397,7 @@
 				9653490128434742000FD0A1 /* JSFuncSearchAndPreviewView.swift in Sources */,
 				965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */,
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
+				967C06A62A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */,
 				967B9FA22A90E6C20054E9D0 /* UserDefaultsMockSpec.swift in Sources */,
 				9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */,
 				965348E928434735000FD0A1 /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,
@@ -1568,6 +1573,7 @@
 				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */,
+				967C06A52A937220008AF0CE /* TextFieldWithKeyUpStream.swift in Sources */,
 				965B02B628E7E0A6003770BD /* SearchViewController.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift in Sources */,
 				96A16B3E209FD77500EE08A4 /* ClipItemTableRowImageView.swift in Sources */,

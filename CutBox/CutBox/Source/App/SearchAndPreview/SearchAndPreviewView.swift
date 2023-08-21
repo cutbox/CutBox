@@ -66,8 +66,13 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     func toggleTimeFilter() {
         self.timeFilterLabel.isHidden = !self.timeFilterLabel.isHidden
         self.timeFilterText.isHidden = !self.timeFilterText.isHidden
-
         self.timeFilterText.stringValue = ""
+
+        if self.timeFilterText.isHidden {
+            self.window?.makeFirstResponder(self.searchText)
+        } else {
+            self.window?.makeFirstResponder(self.timeFilterText)
+        }
     }
 
     private func setupSearchModeToggle() {
@@ -121,9 +126,19 @@ class SearchAndPreviewView: SearchPreviewViewBase {
             })
             .disposed(by: disposeBag)
 
+        self.timeFilterText.keyUp
+            .subscribe(onNext: { event in
+                // on Enter key
+                if event.keyCode == 36 {
+                    self.window?.makeFirstResponder(self.searchText)
+                }
+            })
+            .disposed(by: disposeBag)
+
         self.timeFilterText.isHidden = true
         self.timeFilterText.placeholderString = "...".l7n
         self.timeFilterText.isValid = false
+
     }
 
     func onTimeFilterTextChanged(text: String) {
