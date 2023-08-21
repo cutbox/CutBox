@@ -75,7 +75,7 @@ To exit press <kbd>**Esc**</kbd>.
 | <kbd>Cmd</kbd><kbd>s</kbd>                 | Toggle search modes, fuzzy match, regexp/i or regexp                                      |
 | <kbd>Cmd</kbd><kbd>f</kbd>                 | Toggle search by favorites / everything (use the right click menu, to favorite)           |
 | <kbd>Cmd</kbd><kbd>h</kbd>                 | Toggle search within time limit                                                           |
-| Enter (In time limit filter)               | Return to text search                                                                     |
+| <kbd>Enter</kbd> (In time limit filter)               | Return to text search                                                                     |
 |                                            |                                                                                           |
 | **In items list**                          |                                                                                           |
 | <kbd>Alt</kbd><kbd>up</kbd>                | Move to top of items                                                                      |
