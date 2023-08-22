@@ -1,7 +1,7 @@
 #!/bin/bash
 
 github_step_summary() {
-    [ ! -z $GITHUB_STEP_SUMMARY ] echo "$1" >> "$GITHUB_STEP_SUMMARY"
+    [ "" == "$GITHUB_STEP_SUMMARY" ] || echo "$1" >> "$GITHUB_STEP_SUMMARY"
 }
 
 output() {
