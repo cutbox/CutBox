@@ -53,15 +53,18 @@ jobs:
 
       - name: Check Localized.strings
         run: |
-          echo "## Check Localized.strings" >> "$GITHUB_STEP_SUMMARY"
-          echo "### Linting" >> "$GITHUB_STEP_SUMMARY"
-          make lint_localized_strings
+          echo "# Check Localized.strings" >> "$GITHUB_STEP_SUMMARY"
+          echo "## Linting" >> "$GITHUB_STEP_SUMMARY"
+          bin/lint_localized_strings
 
-          echo "### Strings Are Localized?" >> "$GITHUB_STEP_SUMMARY"
-          make check_app_strings
+          echo "## Languages Correlate" >> "$GITHUB_STEP_SUMMARY"
+          for lang in cn ja ko th de fr es
+          do
+              bin/check_localization "CutBox/Localization/${lang}.lproj/Localizable.strings";
+          done
 
-          echo "### Languages Correlate" >> "$GITHUB_STEP_SUMMARY"
-          make check_localized_strings
+          echo "## Strings Are Localized?" >> "$GITHUB_STEP_SUMMARY"
+          bin/check_l7n_source
 
       - name: Theme validation
         run: |

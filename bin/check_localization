@@ -18,8 +18,6 @@ EOF
     exit 1
 fi
 
-echo "Checking Localization for missing or unrecognized keys in translations."
-
 # Get localization keys
 basefile=CutBox/Localization/en.lproj/Localizable.strings
 keys=$(mktemp)
