@@ -53,7 +53,13 @@ jobs:
 
       - name: Lint Localized.strings
         run: |
-          make check_localized_strings
+          echo "## Check localization strings" >> "$GITHUB_STEP_SUMMARY"
+          make lint_localized_strings >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check Localized.strings
+        run: |
+          echo "## Ensure localization strings correlate" >> "$GITHUB_STEP_SUMMARY"
+          make check_localized_strings >> "$GITHUB_STEP_SUMMARY"
 
       - name: Check CutBox localized app strings
         run: |
