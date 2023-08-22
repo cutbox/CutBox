@@ -1,10 +1,6 @@
 #!/bin/bash
 
 output() {
-    # Markdown output for Github Actions Summary
-    if [ -z "$GITHUB_STEP_SUMMARY" ]; then
-        echo "- $1" >> "$GITHUB_STEP_SUMMARY"
-    fi
     echo "$1"
 }
 
@@ -47,14 +43,16 @@ while IFS= read -r line; do
 done < "$keys"
 
 if [ ${#errors[@]} -gt 0 ]; then
-    output "[✗] Error in $file"
+    output "- [✗] Error in $file"
+    output "\`\`\`"
     for error in "${errors[@]}"; do
         output "$error"
     done
+    output "\`\`\`"
     output ""
     exit 1
 else
-    output "[✓] $file"
+    output "- [✓] $file"
 fi
 
 rm "$keys"
