@@ -15,7 +15,7 @@
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)
 
-CutBox is a clipboard manager for MacOS, designed for developers. Search using fuzzy matching or regular expressios. Multiple clipboard items can be posted at once.
+CutBox is a clipboard manager for MacOS, designed for developers. Search using fuzzy matching or regular expressios. Multiple clipboard items can be posted at once.  You can also filter to a time limit, e.g. "10 min" will show items copied in the last 10 min, you can text search on just those items. 
 
 - - -
 
@@ -54,6 +54,8 @@ current app.
 
 To exit press <kbd>**Esc**</kbd>.
 
+
+
 # Shortcuts / Key commands:
 
 | Shortcut Keys                              | Action                                                                                    |
@@ -74,8 +76,10 @@ To exit press <kbd>**Esc**</kbd>.
 | <kbd>Cmd</kbd><kbd>[</kbd>                 | Toggle wrap mode (paste multiple items, wrapped by a pair of strings: Set in preferences) |
 | <kbd>Cmd</kbd><kbd>s</kbd>                 | Toggle search modes, fuzzy match, regexp/i or regexp                                      |
 | <kbd>Cmd</kbd><kbd>f</kbd>                 | Toggle search by favorites / everything (use the right click menu, to favorite)           |
+|                                            |                                                                                           |
+| **Time limit filter**                      |                                                                                           |
 | <kbd>Cmd</kbd><kbd>h</kbd>                 | Toggle search within time limit                                                           |
-| <kbd>Enter</kbd> (In time limit filter)               | Return to text search                                                                     |
+| <kbd>Enter</kbd> (in time limit input)     | Switch to text search input                                                               |
 |                                            |                                                                                           |
 | **In items list**                          |                                                                                           |
 | <kbd>Alt</kbd><kbd>up</kbd>                | Move to top of items                                                                      |
