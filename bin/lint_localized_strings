@@ -2,7 +2,10 @@
 
 # lint localized strings
 
+set -o pipefail
 plutil -lint CutBox/Localization/*lproj/Localizable.strings | \
     while read result; do
         [ ! -z $GITHUB_STEP_SUMMARY ] echo "- $result" >> "$GITHUB_STEP_SUMMARY"
         echo "$result"
+    done
+
