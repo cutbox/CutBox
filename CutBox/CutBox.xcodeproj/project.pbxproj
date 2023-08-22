@@ -262,6 +262,7 @@
 		96D931C22A87E16900BF594D /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		96DA65C928DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
 		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
+		96E0A04F2A951BF500D0B359 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 96E0A04E2A951BF500D0B359 /* Mockingbird */; };
 		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */; };
@@ -509,6 +510,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E0A04F2A951BF500D0B359 /* Mockingbird in Frameworks */,
 				EAF4D0FD74B2C7CF65DB1488 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1058,6 +1060,9 @@
 				96A225972844FDFA00C9502D /* PBXTargetDependency */,
 			);
 			name = CutBoxUnitTests;
+			packageProductDependencies = (
+				96E0A04E2A951BF500D0B359 /* Mockingbird */,
+			);
 			productName = CutBoxUnitTests;
 			productReference = 965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1133,6 +1138,9 @@
 				cn,
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
+			packageReferences = (
+				96E0A04D2A951BF500D0B359 /* XCRemoteSwiftPackageReference "mockingbird" */,
+			);
 			productRefGroup = 96E1E595205D243400F994ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1994,6 +2002,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96E0A04D2A951BF500D0B359 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/birdrides/mockingbird";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.20.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96E0A04E2A951BF500D0B359 /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96E0A04D2A951BF500D0B359 /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96E1E58C205D243400F994ED /* Project object */;
 }
