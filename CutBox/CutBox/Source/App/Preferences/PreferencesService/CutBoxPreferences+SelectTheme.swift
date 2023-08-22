@@ -9,7 +9,6 @@
 import Foundation
 
 extension CutBoxPreferencesService {
-
     var theme: Int {
         get {
             // 1.5.8 - theme saved to prefs as themeName
@@ -27,18 +26,18 @@ extension CutBoxPreferencesService {
         }
 
         set {
-            defaults.set(newValue, forKey: "theme")
-
             // 1.5.8 - theme saved to prefs as themeName
             defaults.set(themes[newValue].name, forKey: "themeName")
 
+            defaults.set(newValue, forKey: "theme")
             self.events.onNext(.themeChanged)
         }
     }
 
     var themeName: String {
         if let name = defaults.string(forKey: "themeName"),
-            themes.contains(where: { $0.name == name }) {
+           let themeIndex = themes.firstIndex(where: { $0.name == name }) {
+            theme = themeIndex
             return name
         }
         return themes[theme].name

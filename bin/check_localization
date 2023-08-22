@@ -1,5 +1,13 @@
 #!/bin/bash
 
+output() {
+    # Markdown output for Github Actions Summary
+    if [ -z "$GITHUB_STEP_SUMMARY" ]; then
+        echo "- $1" >> "$GITHUB_STEP_SUMMARY"
+    fi
+    echo "$1"
+}
+
 if [ $# != 1 ]; then
     cat <<-EOF
 Usage: check_localization <localizable.strings>
@@ -39,15 +47,14 @@ while IFS= read -r line; do
 done < "$keys"
 
 if [ ${#errors[@]} -gt 0 ]; then
-    echo "[✗] Error in $file"
+    output "[✗] Error in $file"
     for error in "${errors[@]}"; do
-        echo "$error"
+        output "$error"
     done
-    echo ""
+    output ""
     exit 1
 else
-    echo "[✓] $file"
+    output "[✓] $file"
 fi
 
 rm "$keys"
-

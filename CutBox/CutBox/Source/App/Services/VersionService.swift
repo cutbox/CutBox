@@ -9,9 +9,11 @@
 import Cocoa
 
 struct VersionService {
+    static var bundle = Bundle.main
+
     static var version: String {
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"],
-            let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] {
+        if let version = bundle.infoDictionary?["CFBundleShortVersionString"],
+            let buildNumber = bundle.infoDictionary?["CFBundleVersion"] {
             return "version: \(version) (\(buildNumber))"
         }
         return "ERROR: Cannot get version"

@@ -56,4 +56,8 @@ class UserDefaultsMock: UserDefaults {
     override func float(forKey defaultName: String) -> Float {
         return store[defaultName] as? Float ?? 0.0
     }
+
+    override func removeObject(forKey defaultName: String) {
+        store[defaultName] = nil
+    }
 }
