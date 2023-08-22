@@ -38,8 +38,8 @@ class ValidIndicatorTextField: TextFieldKeyUpRxStream {
                     .white
                     .withAlphaComponent(0.15).cgColor
             }
-            fieldLayer.borderWidth = 1.5
-            fieldLayer.cornerRadius = 6
+            fieldLayer.borderWidth = 1
+            fieldLayer.cornerRadius = 0
             fieldLayer.backgroundColor = NSColor
                 .black
                 .withAlphaComponent(0.25).cgColor
@@ -53,8 +53,8 @@ class ValidIndicatorTextField: TextFieldKeyUpRxStream {
         if let fieldLayer = self.layer {
 
             fieldLayer.borderColor = isValid ? green : red
-            fieldLayer.borderWidth = 2
-            fieldLayer.cornerRadius = 3
+            fieldLayer.borderWidth = 1
+            fieldLayer.cornerRadius = 0
         }
     }
 }

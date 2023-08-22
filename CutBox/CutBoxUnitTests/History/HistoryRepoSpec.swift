@@ -17,11 +17,13 @@ class HistoryRepoSpec: QuickSpec {
         describe("HistoryRepo") {
             var subject: HistoryRepo!
             var mockedDefaults: UserDefaults!
+            var preferences: CutBoxPreferencesService!
 
             beforeEach {
                 mockedDefaults = UserDefaultsMock()
-
-                subject = HistoryRepo(defaults: mockedDefaults)
+                preferences = CutBoxPreferencesService()
+                subject = HistoryRepo(defaults: mockedDefaults,
+                                      prefs: preferences)
             }
 
             describe("timeFilter") {
@@ -101,7 +103,7 @@ class HistoryRepoSpec: QuickSpec {
 
                 expect(subject.items).to(equal([
                     "Second"
-                    ]))
+                ]))
             }
 
             it("can remove string items in a given subrange") {
@@ -116,7 +118,24 @@ class HistoryRepoSpec: QuickSpec {
 
                 expect(subject.items).to(equal([
                     "First"
-                    ]))
+                ]))
+            }
+
+            it("can remove items while protecting favorites") {
+                preferences.protectFavorites = true
+
+                subject.migrateLegacyPasteStore([
+                    "Peach",
+                    "Orange",
+                    "Apple",
+                    "Mango"
+                ])
+
+                subject.toggleFavorite(at: 3)
+                subject.clearHistory()
+
+                expect(subject.items.first) == "Mango"
+                expect(subject.items.count) == 1
             }
 
             it("can migrate an array of strings") {

@@ -9,7 +9,6 @@
 import Foundation
 
 extension Array {
-
     mutating func removeAtIndexes(indexes: IndexSet) {
         var idx: Index? = indexes.last
         while idx != nil {
@@ -21,7 +20,6 @@ extension Array {
 }
 
 extension Array where Element == [String: String] {
-
     mutating func removeAll(protectFavorites: Bool) {
         if protectFavorites {
             let favorites: [[String: String]] = self.filter { $0["favorite"] == "favorite" }

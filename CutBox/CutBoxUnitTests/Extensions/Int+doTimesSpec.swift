@@ -16,7 +16,7 @@ class Int_doTimesSpec: QuickSpec {
                 it("with arg") {
                     let int = 100
                     var out = 0
-                    int.doTimes { out += $0 * $0 }
+                    int.doTimes { out += ($0 * $0) }
                     expect(out) == 328350
                 }
 
