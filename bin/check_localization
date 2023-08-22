@@ -1,7 +1,12 @@
 #!/bin/bash
 
+github_step_summary() {
+    [ ! -z $GITHUB_STEP_SUMMARY ] echo "$1" >> "$GITHUB_STEP_SUMMARY"
+}
+
 output() {
     echo "$1"
+    github_step_summary "$1"
 }
 
 if [ $# != 1 ]; then
@@ -44,11 +49,11 @@ done < "$keys"
 
 if [ ${#errors[@]} -gt 0 ]; then
     output "- [✗] Error in $file"
-    output "\`\`\`"
+    github_step_summary "\`\`\`"
     for error in "${errors[@]}"; do
         output "$error"
     done
-    output "\`\`\`"
+    github_step_summary "\`\`\`"
     output ""
     exit 1
 else

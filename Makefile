@@ -10,11 +10,13 @@ test_ci ::
 test_themes ::
 	bin/test_themes
 
-LANGUAGES := cn ja ko th de fr es
 LOCALIZATION_FILES := $(wildcard CutBox/Localization/*.lproj/Localizable.strings)
 
 lint_localized_strings:
+	bin/lint_localized_strings
 	plutil -lint $(LOCALIZATION_FILES)
+
+LANGUAGES := cn ja ko th de fr es
 
 check_localized_strings:
 	for lang in $(LANGUAGES); do \
