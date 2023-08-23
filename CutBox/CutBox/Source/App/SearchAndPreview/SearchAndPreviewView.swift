@@ -132,11 +132,11 @@ class SearchAndPreviewView: SearchPreviewViewBase {
             .disposed(by: disposeBag)
 
         self.timeFilterText.keyUp
-            .subscribe { event in
+            .subscribe(onNext: { (event: NSEvent) in
                 if event.keyCode == 36 {
                     self.window?.makeFirstResponder(self.searchText)
                 }
-            }
+            })
             .disposed(by: disposeBag)
 
         self.timeFilterLabel.isHidden = true
