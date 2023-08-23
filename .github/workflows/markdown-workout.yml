@@ -1,0 +1,44 @@
+name: Markdown Workout
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: markdown summary checks
+      run: |
+        cat <<-EOF >> "$GITHUB_STEP_SUMMARY"
+        # Github Step Summary Markdown Workout
+
+        Since the GITHUB_STEP_SUMMARY allows different markdown rules than other places on Github, this workflow is just a test of various features.
+
+        # Mermaid diagrams
+
+        \`\`\`mermaid
+          graph TD;
+          A-->B;
+          A-->C;
+          B-->D;
+          C-->D;
+        \`\`\`
+
+        # Tables with nested html elements for multiline cells.
+
+        | Title | Something else |
+        |-------|----------------|
+        | multiline | Line One<br>Line Two |
+        | pre (won't work will it?) | <pre>This is a\ntest</pre> |
+
+        # Html elements with style
+
+        <p style="color: red"> I am red.</p>
+
+        # That's all for now...
+        EOF 
+
