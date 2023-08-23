@@ -8,39 +8,34 @@
 
 import Cocoa
 
-typealias SearchTextTheme = (
-    cursorColor: NSColor,
-    textColor: NSColor,
-    backgroundColor: NSColor,
-    placeholderTextColor: NSColor
-)
+struct SearchTextTheme {
+    var cursorColor: NSColor
+    var textColor: NSColor
+    var backgroundColor: NSColor
+    var placeholderTextColor: NSColor
+}
 
-typealias ClipTheme = (
-    backgroundColor: NSColor,
-    textColor: NSColor,
-    highlightColor: NSColor,
-    highlightTextColor: NSColor
-)
+struct ClipTheme {
+    var backgroundColor: NSColor
+    var textColor: NSColor
+    var highlightColor: NSColor
+    var highlightTextColor: NSColor
+}
 
-typealias PreviewTheme = (
-    textColor: NSColor,
-    backgroundColor: NSColor,
-    selectedTextBackgroundColor: NSColor,
-    selectedTextColor: NSColor
-)
+struct PreviewTheme {
+    var textColor: NSColor
+    var backgroundColor: NSColor
+    var selectedTextBackgroundColor: NSColor
+    var selectedTextColor: NSColor
+}
 
 class CutBoxColorTheme {
 
     let name: String
-
     var spacing: CGFloat
-
     let popupBackgroundColor: NSColor
-
     let searchText: SearchTextTheme
-
     let clip: ClipTheme
-
     let preview: PreviewTheme
 
     init(name: String,
