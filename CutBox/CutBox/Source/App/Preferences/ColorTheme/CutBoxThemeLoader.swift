@@ -8,8 +8,8 @@
 
 import Foundation
 
+// swiftlint:disable convenience_type
 class CutBoxThemeLoader {
-
     static func getBundledThemes() -> [CutBoxColorTheme] {
         let bundle = Bundle(for: Self.self)
 

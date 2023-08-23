@@ -8,7 +8,7 @@
 
 import Cocoa
 
-struct VersionService {
+enum VersionService {
     static var bundle = Bundle.main
 
     static var version: String {

@@ -236,20 +236,20 @@ class SearchViewController: NSObject {
                     self.reloadDataWithExistingSelection()
 
                 case .toggleWrappingStrings:
-                    self.prefs.useWrappingStrings = !self.prefs.useWrappingStrings
+                    self.prefs.useWrappingStrings.toggle()
                     self.updateSearchItemPreview()
 
                 case .toggleJoinStrings:
-                    self.prefs.useJoinString = !self.prefs.useJoinString
+                    self.prefs.useJoinString.toggle()
                     self.updateSearchItemPreview()
 
                 case .toggleSearchScope:
-                    self.historyService.favoritesOnly = !self.historyService.favoritesOnly
+                    self.historyService.favoritesOnly.toggle()
                     self.searchView.itemsList.reloadData()
                     self.searchView.setSearchScopeButton(favoritesOnly: self.historyService.favoritesOnly)
 
                 case .togglePreview:
-                    self.prefs.hidePreview = !self.prefs.hidePreview
+                    self.prefs.hidePreview.toggle()
 
                 case .scaleTextDown:
                     self.prefs.scaleTextDown()

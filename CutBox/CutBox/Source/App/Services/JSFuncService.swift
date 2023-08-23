@@ -84,7 +84,7 @@ class JSFuncService: NSObject {
         return found
     }
 
-    public var js: JSContext = JSContext()
+    var js: JSContext = JSContext()
 
     var count: Int {
         return self.funcList.count
@@ -156,7 +156,6 @@ class JSFuncService: NSObject {
     func process(_ fnIndex: Int, items: [String]) -> String {
         return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
     }
-
 }
 
 func getStringFromFile(_ expandedFilename: String) -> String? {

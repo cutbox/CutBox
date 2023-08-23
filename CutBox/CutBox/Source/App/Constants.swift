@@ -10,7 +10,7 @@ import Magnet
 
 import Carbon.HIToolbox
 
-struct Constants {
+enum Constants {
 
     static let cutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
 

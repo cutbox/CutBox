@@ -68,11 +68,11 @@ class CutBoxController: NSObject {
     }
 
     @objc func useCompactUIClicked(_ sender: NSMenuItem) {
-        self.prefs.useCompactUI = !self.prefs.useCompactUI
+        self.prefs.useCompactUI.toggle()
     }
 
     @objc func hidePreviewClicked(_ sender: NSMenuItem) {
-        self.prefs.hidePreview = !self.prefs.hidePreview
+        self.prefs.hidePreview.toggle()
     }
 
     @objc func searchModeSelect(_ sender: NSMenuItem) {

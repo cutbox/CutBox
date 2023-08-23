@@ -15,7 +15,7 @@ class TimeFilterValidator {
     private static let WEEK: Int = 604800
     private static let YEAR: Int = 31536000
 
-    public typealias TimeUnitLabels = [(name: String, plural: String)]
+    typealias TimeUnitLabels = [(name: String, plural: String)]
 
     private static let secondsToTimeFull: TimeUnitLabels = [
         (name: "year", plural: "years"),
@@ -35,7 +35,7 @@ class TimeFilterValidator {
         (name: "s", plural: "s")
     ]
 
-    public static func secondsToTime(seconds: Int, labels: TimeUnitLabels = secondsToTimeFull) -> String {
+    static func secondsToTime(seconds: Int, labels: TimeUnitLabels = secondsToTimeFull) -> String {
         let secondsToComponents = [
             seconds / YEAR,
             (seconds % YEAR) / WEEK,
@@ -126,9 +126,9 @@ class TimeFilterValidator {
     }
 
     private let value: String
-    public let seconds: Double?
+    let seconds: Double?
 
-    public var isValid: Bool {
+    var isValid: Bool {
         return self.seconds != nil
     }
 

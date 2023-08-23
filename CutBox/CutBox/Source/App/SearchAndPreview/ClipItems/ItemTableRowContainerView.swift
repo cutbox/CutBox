@@ -40,7 +40,7 @@ class ItemTableRowContainerView: NSTableRowView {
                 imageView.color = theme.clip.highlightTextColor
             }
 
-            let selectionPath = NSBezierPath.init(rect: selectionRect)
+            let selectionPath = NSBezierPath(rect: selectionRect)
             selectionPath.fill()
         }
     }

@@ -33,7 +33,7 @@ class LoginItemsService {
             .disposed(by: disposeBag)
     }
 
-    fileprivate func setAutoLogin(_ state: NSControl.StateValue) {
+    private func setAutoLogin(_ state: NSControl.StateValue) {
         if SMLoginItemSetEnabled(self.helperAppIdentifier, state.rawValue == 1) {
             UserDefaults.standard.set(state, forKey: autoLoginEnabledKey)
             NSLog("\(state.rawValue == 1 ? "Added" : "Removed") login item \(helperAppIdentifier)")

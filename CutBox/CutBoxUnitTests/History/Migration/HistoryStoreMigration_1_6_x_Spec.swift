@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 
+// swiftlint:disable type_name
 class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
     override func spec() {
         let mockDefaults = UserDefaultsMock()

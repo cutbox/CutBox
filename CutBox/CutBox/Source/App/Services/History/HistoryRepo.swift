@@ -22,7 +22,7 @@ class HistoryRepo {
     private var timestampKey = "timestamp"
 
     /// Optional time filter
-    public var timeFilter: Double?
+    var timeFilter: Double?
 
     /// preferences defaults key for protect favorites flag
     private var kProtectFavorites = "protectFavorites"

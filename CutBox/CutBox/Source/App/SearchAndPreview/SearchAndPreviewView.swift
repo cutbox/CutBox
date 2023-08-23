@@ -58,8 +58,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func setupHistoryScopeButton() {
-        colorizeHistoryScopeIcon(color: prefs.currentTheme.searchText.placeholderTextColor,
-                                 alpha: 0.4)
+        colorizeHistoryScopeIcon(alpha: 0.4,
+                                 color: prefs.currentTheme.searchText.placeholderTextColor)
 
         self.historyScopeImageButton.rx.tap
             .bind(onNext: historyScopeClicked)
@@ -68,8 +68,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
     private func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
                                           tooltip: String = "search_time_filter_label_hint".l7n,
-                                          color: NSColor,
-                                          alpha: Double = 0.75) {
+                                          alpha: Double = 0.75,
+                                          color: NSColor = NSColor.white) {
         let image = image
         let blended = image.tint(color: color)
 
@@ -83,8 +83,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     func toggleTimeFilter() {
-        self.timeFilterLabel.isHidden = !self.timeFilterLabel.isHidden
-        self.timeFilterText.isHidden = !self.timeFilterText.isHidden
+        self.timeFilterLabel.isHidden.toggle()
+        self.timeFilterText.isHidden.toggle()
         self.timeFilterText.stringValue = ""
 
         if self.timeFilterText.isHidden {
@@ -204,8 +204,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
         timeFilterLabel.textColor = theme.searchText.placeholderTextColor
 
-        colorizeHistoryScopeIcon(color: theme.searchText.placeholderTextColor,
-                                 alpha: 0.6)
+        colorizeHistoryScopeIcon(alpha: 0.6,
+                                 color: theme.searchText.placeholderTextColor)
         setSearchModeButton(mode: HistoryService.shared.searchMode)
         setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }
