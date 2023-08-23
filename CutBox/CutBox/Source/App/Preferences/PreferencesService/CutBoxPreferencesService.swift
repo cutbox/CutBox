@@ -31,16 +31,17 @@ func notifyUser(title: String, info: String) {
 
 class CutBoxPreferencesService {
 
-    private var kMultiJoinSeparator = "multiJoinSeparator"
-    private var kUseJoinSeparator = "useJoinSeparator"
-    private var kUseWrappingStrings = "useWrappingStrings"
-    private var kWrapStringStart = "wrapStringStart"
-    private var kWrapStringEnd = "wrapStringEnd"
-    private var kHistoryLimited = "historyLimited"
-    private var kHistoryLimit = "historyLimit"
-    private var kUseCompactUI = "useCompactUI"
-    private var kHidePreview = "hidePreview"
-    private var kProtectFavorites = "protectFavorites"
+    private let kMultiJoinSeparator = "multiJoinSeparator"
+    private let kUseJoinSeparator = "useJoinSeparator"
+    private let kUseWrappingStrings = "useWrappingStrings"
+    private let kWrapStringStart = "wrapStringStart"
+    private let kWrapStringEnd = "wrapStringEnd"
+    private let kHistoryLimited = "historyLimited"
+    private let kHistoryLimit = "historyLimit"
+    private let kUseCompactUI = "useCompactUI"
+    private let kHidePreview = "hidePreview"
+    private let kProtectFavorites = "protectFavorites"
+    private let kSavedTimeFilterValue = "savedTimeFilterValue"
 
     var events: PublishSubject<CutBoxPreferencesEvent>!
 
@@ -78,6 +79,15 @@ class CutBoxPreferencesService {
     var searchViewClipPreviewFont = NSFont(
         name: "Menlo",
         size: 12)
+
+    var savedTimeFilterValue: String {
+        get {
+            return defaults.string(forKey: kSavedTimeFilterValue) ?? ""
+        }
+        set {
+            defaults.set(newValue, forKey: kSavedTimeFilterValue)
+        }
+    }
 
     var useJoinString: Bool {
         get {

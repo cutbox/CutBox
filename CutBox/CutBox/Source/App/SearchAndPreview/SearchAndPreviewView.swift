@@ -82,18 +82,6 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         self.events.onNext(.toggleTimeFilter)
     }
 
-    func toggleTimeFilter() {
-        self.timeFilterLabel.isHidden.toggle()
-        self.timeFilterText.isHidden.toggle()
-        self.timeFilterText.stringValue = ""
-
-        if self.timeFilterText.isHidden {
-            self.window?.makeFirstResponder(self.searchText)
-        } else {
-            self.window?.makeFirstResponder(self.timeFilterText)
-        }
-    }
-
     private func setupSearchModeToggle() {
         let mode = HistoryService.shared.searchMode
         setSearchModeButton(mode: mode)
@@ -136,27 +124,41 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func setupTimeFilter() {
-        self.timeFilterLabel.isHidden = true
-
-        self.timeFilterText.rx.text
+         self.timeFilterText
+            .rx
+            .text
             .compactMap { $0 }
-            .subscribe(onNext: { [weak self] (text: String) in
-                self?.onTimeFilterTextChanged(text: text)
-            })
+            .subscribe { self.onTimeFilterTextChanged(text: $0) }
             .disposed(by: disposeBag)
 
         self.timeFilterText.keyUp
-            .subscribe(onNext: { event in
-                // on Enter key
+            .subscribe { event in
                 if event.keyCode == 36 {
                     self.window?.makeFirstResponder(self.searchText)
                 }
-            })
+            }
             .disposed(by: disposeBag)
 
+        self.timeFilterLabel.isHidden = true
         self.timeFilterText.isHidden = true
         self.timeFilterText.placeholderString = "...".l7n
         self.timeFilterText.isValid = false
+    }
+
+    func toggleTimeFilter() {
+        self.timeFilterLabel.isHidden.toggle()
+        self.timeFilterText.isHidden.toggle()
+
+        if self.timeFilterText.isHidden {
+            self.window?.makeFirstResponder(self.searchText)
+            self.prefs.savedTimeFilterValue = self.timeFilterText.stringValue
+            self.timeFilterText.stringValue = ""
+        } else {
+            let newText: String = self.prefs.savedTimeFilterValue
+            self.window?.makeFirstResponder(self.timeFilterText)
+            self.timeFilterText.stringValue = newText
+            DispatchQueue.main.async { self.onTimeFilterTextChanged(text: newText) }
+        }
     }
 
     func onTimeFilterTextChanged(text: String) {
