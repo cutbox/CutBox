@@ -33,7 +33,7 @@ class ValidIndicatorTextField: TextFieldKeyUpRxStream {
         super.draw(dirtyRect)
 
         if let fieldLayer = self.layer {
-            if stringValue == "" {
+            if stringValue.isEmpty {
                 fieldLayer.borderColor = NSColor
                     .white
                     .withAlphaComponent(0.15).cgColor

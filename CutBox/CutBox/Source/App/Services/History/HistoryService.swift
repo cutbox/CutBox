@@ -157,7 +157,7 @@ class HistoryService: NSObject {
                 : historyRepo.items
 
         let cache: [String]
-        if let search = self.filterText, search != "" {
+        if let search = self.filterText, !search.isEmpty {
             switch searchMode {
             case .fuzzyMatch:
                 cache = historyItems.fuzzySearchRankedFiltered(

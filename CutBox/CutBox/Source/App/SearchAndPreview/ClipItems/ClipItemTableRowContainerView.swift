@@ -18,7 +18,7 @@ class ClipItemTableRowContainerView: ItemTableRowContainerView {
             .intersection(.deviceIndependentFlagsMask)
 
         if event.clickCount == 2
-            && modifiers == [] {
+            && modifiers.isEmpty {
             self.searchView?
                 .events
                 .onNext(.closeAndPasteSelected)

@@ -61,14 +61,14 @@ class TimeFilterValidator {
         }
 
         var captured = ""
-        for component in components where component != "" {
+        for component in components where !component.isEmpty {
             if let index = components.firstIndex(of: component) {
                 if components.count > index + 1 {
                     let adjacent = components[index + 1]
-                    if adjacent != "" {
-                        captured = "\(component) \(adjacent)"
-                    } else {
+                    if adjacent.isEmpty {
                         captured = component
+                    } else {
+                        captured = "\(component) \(adjacent)"
                     }
                 } else {
                     captured = component
