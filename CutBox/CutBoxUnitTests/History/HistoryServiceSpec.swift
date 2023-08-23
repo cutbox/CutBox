@@ -29,8 +29,8 @@ private class PasteboardWrapperMock: PasteboardWrapperType {
 }
 
 private func addToFakePasteboardAndPoll(string: String,
-                                            subject: HistoryService,
-                                            pboard: PasteboardWrapperMock) {
+                                        subject: HistoryService,
+                                        pboard: PasteboardWrapperMock) {
     pboard.addToFakePasteboard(string: string)
     subject.pollPasteboard()
 }

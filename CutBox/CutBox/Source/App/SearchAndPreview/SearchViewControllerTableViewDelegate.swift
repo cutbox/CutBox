@@ -70,9 +70,11 @@ extension SearchViewController: NSTableViewDelegate {
                    selectionIndexesForProposedSelection proposedSelectionIndexes: IndexSet) -> IndexSet {
         let proposed = proposedSelectionIndexes
 
-        guard !proposed.isEmpty else { return proposedSelectionIndexes }
+        guard !proposed.isEmpty else {
+            return proposedSelectionIndexes
+        }
 
-        let selected =  self.searchView.itemsList.selectedRowIndexes
+        let selected = self.searchView.itemsList.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)
         let theme = CutBoxPreferencesService.shared.currentTheme
         let added: IndexSet = proposed.subtracting(selected)

@@ -10,9 +10,11 @@ import Foundation
 
 extension String {
     func truncate(limit: Int, trailing: String = "…") -> String {
-        guard limit > 0 else { return "" }
+        guard limit > 0 else {
+            return ""
+        }
         if self.count > limit {
-            return String(self.prefix(limit-1)) + trailing
+            return String(self.prefix(limit - 1)) + trailing
         } else {
             return self
         }

@@ -11,7 +11,9 @@ import AppKit.NSColor
 
 extension String {
     var color: NSColor? {
-        guard let color = NSColor(hex: self) else { return nil }
+        guard let color = NSColor(hex: self) else {
+            return nil
+        }
         return color
     }
 }
@@ -30,7 +32,9 @@ extension NSColor {
 
         let length = hexSanitized.count
 
-        guard Scanner(string: hexSanitized).scanHexInt64(&rgb) else { return nil }
+        guard Scanner(string: hexSanitized).scanHexInt64(&rgb) else {
+            return nil
+        }
 
         if length == 6 {
             red = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
@@ -51,7 +55,9 @@ extension NSColor {
     }
 
     func toHex(alpha hasAlpha: Bool = false) -> String? {
-        guard let components = cgColor.components, components.count >= 3 else { return nil }
+        guard let components = cgColor.components, components.count >= 3 else {
+            return nil
+        }
         let red = Float(components[0])
         let green = Float(components[1])
         let blue = Float(components[2])
