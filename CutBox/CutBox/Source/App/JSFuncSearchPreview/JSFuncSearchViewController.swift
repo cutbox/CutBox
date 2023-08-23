@@ -96,7 +96,9 @@ class JSFuncSearchViewController: NSObject {
     }
 
     func pasteSelectedClipToPasteboard() {
-        guard !self.selectedClips.isEmpty else { return }
+        guard !self.selectedClips.isEmpty else {
+            return
+        }
 
         let row = self.jsFuncView.itemsList.selectedRow
         var clip: String

@@ -40,10 +40,11 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let column = tableColumn else {
+            return nil
+        }
 
         let funcItem = self.jsFuncService.funcList[row]
-        guard let column = tableColumn else { return nil }
-
         let theme = CutBoxPreferencesService.shared.currentTheme
         let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(
             atRow: row,
@@ -76,7 +77,9 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
         let proposed = proposedSelectionIndexes
 
-        guard !proposed.isEmpty else { return proposedSelectionIndexes }
+        guard !proposed.isEmpty else {
+            return proposedSelectionIndexes
+        }
 
         let selected = self.jsFuncView.itemsList.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)

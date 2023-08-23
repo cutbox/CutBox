@@ -33,9 +33,10 @@ extension SearchViewController: NSTableViewDelegate {
 
     func tableView(_ tableView: NSTableView,
                    viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-
-        guard let record = self.historyService.dict[safe: row] else { return nil }
-        guard let column = tableColumn else { return nil }
+        guard let record = self.historyService.dict[safe: row],
+              let column = tableColumn else {
+            return nil
+        }
 
         let theme = CutBoxPreferencesService.shared.currentTheme
         let rowView: ClipItemTableRowContainerView? = tableView

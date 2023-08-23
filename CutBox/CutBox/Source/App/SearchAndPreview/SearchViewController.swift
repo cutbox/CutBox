@@ -40,7 +40,9 @@ class SearchViewController: NSObject {
 
     /// Strings of selected items
     var selectedClips: [String] {
-        guard !self.historyService.items.isEmpty else { return [] }
+        if self.historyService.items.isEmpty {
+            return []
+        }
 
         return self
             .orderedSelection
@@ -134,7 +136,9 @@ class SearchViewController: NSObject {
 
     /// Send the selected clip text to the pasteboard
     func pasteSelectedClipToPasteboard(_ useJS: Bool) {
-        guard !self.selectedClips.isEmpty else { return }
+        guard !self.selectedClips.isEmpty else {
+            return
+        }
 
         pasteToPasteboard(self.selectedClips)
     }
@@ -279,7 +283,6 @@ class SearchViewController: NSObject {
     }
     // swiftlint:enable cyclomatic_complexity
     // swiftlint:enable function_body_length
-
 
     private func reloadDataWithExistingSelection() {
         let selected = self.searchView.itemsList.selectedRowIndexes

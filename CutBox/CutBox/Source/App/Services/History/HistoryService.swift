@@ -222,7 +222,10 @@ class HistoryService: NSObject {
     }
 
     func beginPolling() {
-        guard pollingTimer == nil else { return }
+        guard pollingTimer == nil else {
+            return
+        }
+
         pollingTimer = Timer.scheduledTimer(timeInterval: 0.2,
                                             target: self,
                                             selector: #selector(self.pollPasteboard),
@@ -231,7 +234,9 @@ class HistoryService: NSObject {
     }
 
     func endPolling() {
-        guard pollingTimer != nil else { return }
+        guard pollingTimer != nil else {
+            return
+        }
         pollingTimer?.invalidate()
         pollingTimer = nil
     }
@@ -303,8 +308,9 @@ class HistoryService: NSObject {
 
     @objc func pollPasteboard() {
         let (clip, isFavorite) = self.replaceWithLatest()
-
-        guard clip != nil else { return }
+        guard clip != nil else {
+            return
+        }
 
         if clip!.isEmpty {
             self.removeLatest()
@@ -316,7 +322,9 @@ class HistoryService: NSObject {
     }
 
     func replaceWithLatest() -> (String?, Bool) {
-        guard let currentClip = clipboardContent() else { return (nil, false) }
+        guard let currentClip = clipboardContent() else {
+            return (nil, false)
+        }
 
         let isFavorite = historyRepo.favorites.contains(currentClip)
 
