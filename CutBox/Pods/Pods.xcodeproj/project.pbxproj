@@ -3842,6 +3842,24 @@
 			};
 			name = Debug;
 		};
+		89EEAA3D4B5AE73BC396E346297A72CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF3D79F254459FFE4598C4357C18F105 /* Sparkle.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
 		933A4734B9A6BD1491CCF7E92D4AECE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F98EDB8820A6A624D27F07BDAEBCAB5E /* RxRelay.debug.xcconfig */;
@@ -3912,6 +3930,24 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
+		};
+		A942265E7027F239A3D0EB8401940DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1558DBB2E916D4D95220F43FAEED860E /* Sparkle.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
+			};
+			name = Release;
 		};
 		B008BE54C9E658EF1F0B255E8FD74C49 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -4100,24 +4136,6 @@
 			};
 			name = Debug;
 		};
-		E0D38293F6394FE1CFBAFB673A5D5CB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1558DBB2E916D4D95220F43FAEED860E /* Sparkle.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		E285C31584F7360E75DE65802DB6BB7E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 04481B93BE21E7CCF87DBC6AA8304FB7 /* Quick.debug.xcconfig */;
@@ -4140,24 +4158,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		E6F6C98BD387A4567329CA9F4D0460F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF3D79F254459FFE4598C4357C18F105 /* Sparkle.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -4245,8 +4245,8 @@
 		2C8D06A2289713323892B3638F08AC0B /* Build configuration list for PBXAggregateTarget "Sparkle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E6F6C98BD387A4567329CA9F4D0460F8 /* Debug */,
-				E0D38293F6394FE1CFBAFB673A5D5CB6 /* Release */,
+				89EEAA3D4B5AE73BC396E346297A72CC /* Debug */,
+				A942265E7027F239A3D0EB8401940DA6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

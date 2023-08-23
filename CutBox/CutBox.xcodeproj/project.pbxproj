@@ -496,7 +496,7 @@
 		AB26BFB7F54EF3461A565BC5 /* Pods-CutBoxAll-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxTests.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxTests/Pods-CutBoxAll-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFFB832EFE946C999FF722E4 /* Pods-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxTests/Pods-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3A9AA28D453AAA8BDF124E3 /* libPods-CutBoxAll-CutBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1BE6C3338381022D24B4EF5 /* CutBoxUnitTests-CutBoxMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "CutBoxUnitTests-CutBoxMocks.generated.swift"; path = "MockingbirdMocks/CutBoxUnitTests-CutBoxMocks.generated.swift"; sourceTree = "<group>"; };
+		E1BE6C3338381022D24B4EF5 /* CutBoxUnitTests-CutBoxMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "CutBoxUnitTests-CutBoxMocks.generated.swift"; path = "MockingbirdMocks/CutBoxUnitTests-CutBoxMocks.generated.swift"; sourceTree = "<group>"; };
 		F669B605C398A30A69C66A24 /* Pods-CutBoxAll-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBox.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBox/Pods-CutBoxAll-CutBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1744,7 +1744,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1767,7 +1767,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1787,7 +1787,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1811,7 +1811,7 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = DDUM6CHDSV;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBoxUnitTests;
@@ -1957,7 +1957,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1983,7 +1983,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.ocodo.CutBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

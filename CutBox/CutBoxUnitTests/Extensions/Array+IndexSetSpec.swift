@@ -10,7 +10,6 @@ import Quick
 import Nimble
 
 class ArrayIndexSetSpec: QuickSpec {
-
     override func spec() {
         describe("Array+IndexSet") {
             it("Accesses an array using an indexset") {
