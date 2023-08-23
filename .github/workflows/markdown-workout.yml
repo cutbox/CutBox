@@ -34,14 +34,20 @@ jobs:
         |-------|----------------|
         | multi-line | Line One<br>Line Two<br>Line Three<br>Line Four<br>Line Two<br>Line Five |
         | single line | Just this |
-        
+        | multiple paragraphs | <p>paragraphs</p><p>paragraphs</p><p>paragraphs</p> |
+        | <p align="center"><img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png"/></p> | image wrapped in aligned paragraph |
+
         # Html elements with style
 
-        <p style="color: red"> I am red.</p> doesn't work.<br>
+        <p style="color: red"> I am red. doesn't work.</p>
         <p color="red">Try the old school attribute</p>
-
         <p align="center"><img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png"/></p>
+        <p>Paragraph elements + align attr work</p> 
+        
+        Linebreak with br<br>
+        Work as you expect.
 
         # That's all for now...
-        EOF 
+        
+        EOF
 
