@@ -33,6 +33,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         setupTimeFilter()
         setupJSIconButton()
         super.awakeFromNib()
+        applyTheme()
     }
 
     func setupJSIconButton() {
@@ -66,11 +67,11 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
-                                  tooltip: String = "search_time_filter_label_hint".l7n,
-                                  color: NSColor,
-                                  alpha: Double = 0.75) {
+                                          tooltip: String = "search_time_filter_label_hint".l7n,
+                                          color: NSColor,
+                                          alpha: Double = 0.75) {
         let image = image
-        let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
+        let blended = image.tint(color: color)
 
         self.historyScopeImageButton.alphaValue = alpha
         self.historyScopeImageButton.image = blended
@@ -109,10 +110,11 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         if favoritesOnly {
             colorizeMagnifier(
                 image: #imageLiteral(resourceName: "star.png"),
-                tooltip: "search_scope_tooltip_favorites".l7n
+                tooltip: "search_scope_tooltip_favorites".l7n,
+                color: prefs.currentTheme.searchText.placeholderTextColor
             )
         } else {
-            colorizeMagnifier()
+            colorizeMagnifier(color: prefs.currentTheme.searchText.placeholderTextColor)
         }
     }
 
@@ -135,7 +137,6 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
     private func setupTimeFilter() {
         self.timeFilterLabel.isHidden = true
-        self.timeFilterLabel.textColor = prefs.currentTheme.searchText.cursorColor
 
         self.timeFilterText.rx.text
             .compactMap { $0 }
@@ -199,9 +200,12 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     override func applyTheme() {
         super.applyTheme()
 
-        colorizeHistoryScopeIcon(color: prefs.currentTheme.searchText.placeholderTextColor,
-                                 alpha: 0.4)
+        let theme = prefs.currentTheme
 
+        timeFilterLabel.textColor = theme.searchText.placeholderTextColor
+
+        colorizeHistoryScopeIcon(color: theme.searchText.placeholderTextColor,
+                                 alpha: 0.6)
         setSearchModeButton(mode: HistoryService.shared.searchMode)
         setSearchScopeButton(favoritesOnly: HistoryService.shared.favoritesOnly)
     }

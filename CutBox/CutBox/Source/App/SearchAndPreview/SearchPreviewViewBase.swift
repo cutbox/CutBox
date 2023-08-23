@@ -107,10 +107,11 @@ class SearchPreviewViewBase: NSView {
 
     func colorizeMagnifier(image: NSImage = #imageLiteral(resourceName: "magnitude.png"),
                            tooltip: String = "search_scope_tooltip_all".l7n,
-                           alpha: Double = 0.75) {
+                           alpha: Double = 0.75,
+                           color: NSColor) {
 
         let image = image
-        let blended = image.tint(color: prefs.currentTheme.searchText.placeholderTextColor)
+        let blended = image.tint(color: color)
 
         self.searchScopeImageButton.alphaValue = alpha
         self.searchScopeImageButton.image = blended
@@ -119,6 +120,8 @@ class SearchPreviewViewBase: NSView {
 
     func applyTheme() {
         let theme = prefs.currentTheme
+
+        colorizeMagnifier(color: theme.searchText.placeholderTextColor)
 
         self.spacing = theme.spacing
         self.searchTextHeight = 60 - (spacing * 2.0)

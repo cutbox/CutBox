@@ -40,8 +40,6 @@ class JSFuncSearchAndPreviewView: SearchPreviewViewBase {
 
     override func applyTheme() {
         super.applyTheme()
-
-        colorizeMagnifier()
     }
 
     @objc func reloadJS(_ sender: NSMenuItem) {
