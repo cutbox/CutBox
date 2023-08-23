@@ -45,7 +45,9 @@ jobs:
         <p>Paragraph elements + align attr work</p> 
         
         Linebreak with br<br>
-        Work as you expect.
+        Don't work as you expect, and double-line space as if parapraphs
+
+        &lt;p&gt; &ltbr;&gt &lt;img&gt; - work _kinda_.
 
         # That's all for now...
         
