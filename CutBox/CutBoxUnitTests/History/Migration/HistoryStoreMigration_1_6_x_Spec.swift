@@ -89,9 +89,9 @@ class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
             return true
         }
         let dateFormatter = ISO8601DateFormatter()
-        for i in 1..<timestamps.count {
-            if let date1 = dateFormatter.date(from: timestamps[i - 1]),
-               let date2 = dateFormatter.date(from: timestamps[i]) {
+        for index in 1..<timestamps.count {
+            if let date1 = dateFormatter.date(from: timestamps[index - 1]),
+               let date2 = dateFormatter.date(from: timestamps[index]) {
                 let timeDifference = date2.timeIntervalSince(date1)
                 if timeDifference != 1.0 {
                     // The date1 and date2 are not 1 sec apart.

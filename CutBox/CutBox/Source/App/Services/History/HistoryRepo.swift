@@ -109,11 +109,9 @@ class HistoryRepo {
 
     func findIndexSetOf(string: String) -> IndexSet {
         var indexes = IndexSet()
-        for item in dict {
-            if item[stringKey] == string {
-                if let index = dict.firstIndex(of: item) {
-                    indexes.insert(index)
-                }
+        for item in dict where item[stringKey] == string {
+            if let index = dict.firstIndex(of: item) {
+                indexes.insert(index)
             }
         }
         return indexes

@@ -74,7 +74,6 @@ func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true
     return false
 }
 
-
 class CommandParams {
     var query: String?
     var limit: Int?
@@ -296,7 +295,7 @@ if let query = params.query {
     }
 }
 
-func printItemWithTime(_ item: HistoryEntry) -> String{
+func printItemWithTime(_ item: HistoryEntry) -> String {
     return "\(item.1 ?? "UNKNOWN DATETIME"): \(item.0)"
 }
 

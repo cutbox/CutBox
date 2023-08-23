@@ -21,4 +21,3 @@ public class PopupBackgroundView: NSView {
         path.fill()
     }
 }
-

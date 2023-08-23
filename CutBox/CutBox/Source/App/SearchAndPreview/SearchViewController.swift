@@ -202,6 +202,7 @@ class SearchViewController: NSObject {
     }
 
     // swiftlint:disable cyclomatic_complexity
+    // swiftlint:disable function_body_length
     private func setupSearchTextEventBindings() {
         self.events
             .subscribe(onNext: { event in
@@ -276,6 +277,9 @@ class SearchViewController: NSObject {
             })
             .disposed(by: self.disposeBag)
     }
+    // swiftlint:enable cyclomatic_complexity
+    // swiftlint:enable function_body_length
+
 
     private func reloadDataWithExistingSelection() {
         let selected = self.searchView.itemsList.selectedRowIndexes

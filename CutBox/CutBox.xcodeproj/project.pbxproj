@@ -204,6 +204,7 @@
 		967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAD20A476D200A525CC /* NSImage+tint.swift */; };
 		967EFEB020A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */; };
 		967EFEB220A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEB120A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift */; };
+		968715922A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -416,6 +417,7 @@
 		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
 		967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+HistorySize.swift"; sourceTree = "<group>"; };
 		967EFEB120A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesThemeSelectionView+ThemeSelector.swift"; sourceTree = "<group>"; };
+		968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSColor+HexColorStringSpec.swift"; path = "CutBoxUnitTests/Extensions/NSColor+HexColorStringSpec.swift"; sourceTree = "<group>"; };
 		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
@@ -945,6 +947,7 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
+				968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */,
 				96E1E596205D243400F994ED /* CutBox */,
 				9655D1DE2A91FC2F00AA902F /* Localization */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
@@ -1445,6 +1448,7 @@
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
 				967C06B42A950B07008AF0CE /* Int+doTimesSpec.swift in Sources */,
 				967C06A62A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */,
+				968715922A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift in Sources */,
 				967B9FA22A90E6C20054E9D0 /* UserDefaultsMockSpec.swift in Sources */,
 				9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */,
 				965348E928434735000FD0A1 /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,

@@ -10,11 +10,11 @@ import Quick
 import Nimble
 import RxSwift
 
-fileprivate class HistoryRepoMock: HistoryRepo {
+private class HistoryRepoMock: HistoryRepo {
 
 }
 
-fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
+private class PasteboardWrapperMock: PasteboardWrapperType {
 
     var pasteboardItems: [NSPasteboardItem]?
 
@@ -28,7 +28,7 @@ fileprivate class PasteboardWrapperMock: PasteboardWrapperType {
     }
 }
 
-fileprivate func addToFakePasteboardAndPoll(string: String,
+private func addToFakePasteboardAndPoll(string: String,
                                             subject: HistoryService,
                                             pboard: PasteboardWrapperMock) {
     pboard.addToFakePasteboard(string: string)

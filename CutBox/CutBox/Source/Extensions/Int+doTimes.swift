@@ -9,12 +9,12 @@
 import Foundation
 
 extension Int {
-    /// Loop equivalent to Ruby's `int.times {|i| code }`
+    /// Loop equivalent to Ruby's `int.times {|count| code }`
     /// Usage: `doTimes { code with $0 }`
     func doTimes(_ code: (Int) -> Void) {
         guard self > 0 else { return }
-        for i in 0..<self {
-            code(i)
+        for count in 0..<self {
+            code(count)
         }
     }
 

@@ -42,13 +42,13 @@ class CutBoxThemeLoader {
     }
 
     private static func loadUserThemesFiles() -> [String] {
-        let f = FileManager.default
+        let fileManager = FileManager.default
         let cutBoxConfig = String(NSString(
             string: "~/.config/cutbox"
         ).expandingTildeInPath)
 
         guard let themefiles = try?
-                f.contentsOfDirectory(atPath: cutBoxConfig) else { return [] }
+                fileManager.contentsOfDirectory(atPath: cutBoxConfig) else { return [] }
 
         let jsonThemes: [String] = themefiles
             .filter { $0.hasSuffix(".cutboxTheme") }

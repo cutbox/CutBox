@@ -25,6 +25,7 @@ enum HistoryServiceEvents {
     case didClearHistory
 }
 
+// swiftlint:disable type_body_length
 class HistoryService: NSObject {
 
     static let shared = HistoryService()
@@ -93,6 +94,7 @@ class HistoryService: NSObject {
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.defaults = defaults
 
+        // swiftlint:disable identifier_name
         let migration_1_6_x = HistoryStoreMigration_1_6_x()
         if migration_1_6_x.isMigrationRequired {
             migration_1_6_x.applyTimestampsToLegacyItems()
