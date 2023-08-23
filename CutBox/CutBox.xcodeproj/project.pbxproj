@@ -131,7 +131,7 @@
 		9653493828434795000FD0A1 /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		9653493928434795000FD0A1 /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
 		9653493A2843479B000FD0A1 /* FakeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CFA6B22069278700BAFABB /* FakeKey.swift */; };
-		9653493B284347A7000FD0A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
+		9653493B284347A7000FD0A1 /* CutBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* CutBox.swift */; };
 		9653493C284347E8000FD0A1 /* JSFuncItemTableRowTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1F20ADBE0100818925 /* JSFuncItemTableRowTextView.swift */; };
 		9653493D284347E8000FD0A1 /* JSFuncItemTableRowImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2120ADBE3700818925 /* JSFuncItemTableRowImageView.swift */; };
 		9653493E284347E8000FD0A1 /* JSFuncItemTableRowImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A8022620AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib */; };
@@ -206,6 +206,7 @@
 		967EFEB220A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEB120A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift */; };
 		968715922A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */; };
 		968715942A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */; };
+		968715992A9634E10092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -265,7 +266,7 @@
 		96DA65C928DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
 		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
 		96E0A04F2A951BF500D0B359 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 96E0A04E2A951BF500D0B359 /* Mockingbird */; };
-		96E1E598205D243400F994ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* AppDelegate.swift */; };
+		96E1E598205D243400F994ED /* CutBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* CutBox.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */; };
 		96E1E5C5205D297900F994ED /* CutBoxController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E5C4205D297900F994ED /* CutBoxController.swift */; };
@@ -418,8 +419,9 @@
 		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
 		967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+HistorySize.swift"; sourceTree = "<group>"; };
 		967EFEB120A519D600A525CC /* PreferencesThemeSelectionView+ThemeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesThemeSelectionView+ThemeSelector.swift"; sourceTree = "<group>"; };
-		968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSColor+HexColorStringSpec.swift"; path = "CutBoxUnitTests/Extensions/NSColor+HexColorStringSpec.swift"; sourceTree = "<group>"; };
-		968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutBoxPreferencesServiceSpec.swift; path = CutBoxUnitTests/Preferences/CutBoxPreferencesServiceSpec.swift; sourceTree = "<group>"; };
+		968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorStringSpec.swift"; sourceTree = "<group>"; };
+		968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesServiceSpec.swift; sourceTree = "<group>"; };
+		968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorOutputStream.swift; sourceTree = "<group>"; };
 		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
@@ -476,7 +478,7 @@
 		96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+TextScaling.swift"; sourceTree = "<group>"; };
 		96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenience.swift"; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96E1E597205D243400F994ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96E1E597205D243400F994ED /* CutBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBox.swift; sourceTree = "<group>"; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96E1E59E205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
@@ -674,11 +676,12 @@
 		96429D56208C117E0055D678 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
-				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
 				964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */,
-				96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */,
+				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
 				967C06A72A946749008AF0CE /* CutBoxPreferencesService+SelectThemeSpec.swift */,
+				968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */,
+				96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */,
+				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -686,12 +689,13 @@
 		96429D57208C11A90055D678 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
+				96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */,
+				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
+				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
 				967C06B32A950B07008AF0CE /* Int+doTimesSpec.swift */,
 				967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */,
-				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
-				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
-				96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */,
-				964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */,
+				968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */,
 				96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */,
 				7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */,
 			);
@@ -738,6 +742,7 @@
 		964CA5652083373800B9F33E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */,
 				96CFA6B22069278700BAFABB /* FakeKey.swift */,
 				9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */,
 			);
@@ -835,7 +840,7 @@
 				964766652067A63700E7026F /* Extensions */,
 				96DB5388208ADBC6004BAAEF /* Components */,
 				964CA5652083373800B9F33E /* Utilities */,
-				96E1E597205D243400F994ED /* AppDelegate.swift */,
+				96E1E597205D243400F994ED /* CutBox.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -949,8 +954,6 @@
 		96E1E58B205D243400F994ED = {
 			isa = PBXGroup;
 			children = (
-				968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */,
-				968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */,
 				96E1E596205D243400F994ED /* CutBox */,
 				9655D1DE2A91FC2F00AA902F /* Localization */,
 				962D6D6F20746109007E3785 /* CutBoxHelper */,
@@ -989,10 +992,10 @@
 		96E1E5C3205D295000F994ED /* App */ = {
 			isa = PBXGroup;
 			children = (
-				9679400B2A887D0200D14B87 /* TimeFilter */,
-				96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */,
 				962D6D4A207356DA007E3785 /* Constants.swift */,
 				96E1E5C4205D297900F994ED /* CutBoxController.swift */,
+				96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */,
+				9679400B2A887D0200D14B87 /* TimeFilter */,
 				963AA6472071EDEB00779697 /* AboutPanel */,
 				963AA6482071EE0600779697 /* Preferences */,
 				96FD7C3120AE515A00818925 /* JSFuncSearchPreview */,
@@ -1479,7 +1482,7 @@
 				9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */,
 				967C06AB2A94783C008AF0CE /* Int+doTimes.swift in Sources */,
 				9653492B28434785000FD0A1 /* NSScreen+currentScreenForMouseLocation.swift in Sources */,
-				9653493B284347A7000FD0A1 /* AppDelegate.swift in Sources */,
+				9653493B284347A7000FD0A1 /* CutBox.swift in Sources */,
 				9653490A28434752000FD0A1 /* ItemTableRowContainerView.swift in Sources */,
 				965349182843475E000FD0A1 /* SearchAndPreviewView.swift in Sources */,
 				9653494728434862000FD0A1 /* Array+String+SwiftyStringScoreSpec.swift in Sources */,
@@ -1587,6 +1590,7 @@
 				96AFAB192074A51C00BD9F16 /* LoginItemsService.swift in Sources */,
 				96D931C22A87E16900BF594D /* ValidIndicatorTextField.swift in Sources */,
 				96A16B4C20A3C04E00EE08A4 /* ClipItemTableRowImageButtonView.swift in Sources */,
+				968715992A9634E10092DB3F /* StandardErrorOutputStream.swift in Sources */,
 				96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */,
 				96658CE020B44B0500BDA8F4 /* PreferencesThemePreview.swift in Sources */,
 				962D6D492073544F007E3785 /* HotKeyService.swift in Sources */,
@@ -1628,7 +1632,7 @@
 				34BD078B28DC931D004D8586 /* PreferencesThemeSelectionView+HidePreview.swift in Sources */,
 				96A8021620AB0AD2000CBE74 /* PreferencesTabView.swift in Sources */,
 				9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */,
-				96E1E598205D243400F994ED /* AppDelegate.swift in Sources */,
+				96E1E598205D243400F994ED /* CutBox.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
 				96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */,
 				967C06A52A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */,
