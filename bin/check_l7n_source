@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set +o pipefail
+
 output() {
     # Markdown output for Github Actions Summary
     [ "" == "$GITHUB_STEP_SUMMARY" ] || echo "$1" >> "$GITHUB_STEP_SUMMARY"

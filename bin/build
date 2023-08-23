@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 build_folder="$(git rev-parse --show-toplevel)/CutBox/build"
 archive_at="${build_folder}/archive/CutBox.xcarchive"
