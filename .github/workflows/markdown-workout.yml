@@ -32,9 +32,9 @@ jobs:
 
         | Title | Something else |
         |-------|----------------|
-        | multiline | Line One<br>Line Two |
-        | pre (won't work will it?) | <pre>This is a\ntest</pre> |
-
+        | multi-line | Line One<br>Line Two<br>Line Three<br>Line Four<br>Line Two<br>Line Five |
+        | single line | Just this |
+        
         # Html elements with style
 
         <p style="color: red"> I am red.</p>
