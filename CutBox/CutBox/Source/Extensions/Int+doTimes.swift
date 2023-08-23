@@ -12,7 +12,9 @@ extension Int {
     /// Loop equivalent to Ruby's `int.times {|count| code }`
     /// Usage: `doTimes { code with $0 }`
     func doTimes(_ code: (Int) -> Void) {
-        guard self > 0 else { return }
+        guard self > 0 else {
+            return
+        }
         for count in 0..<self {
             code(count)
         }
@@ -21,7 +23,9 @@ extension Int {
     /// Loop equivalent to Ruby's `int.times { code }`
     /// Usage: `doTimes { code }`
     func doTimes(_ code: () -> Void) {
-        guard self > 0 else { return }
+        guard self > 0 else {
+            return
+        }
         for _ in 0..<self {
             code()
         }

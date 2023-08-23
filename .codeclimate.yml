@@ -2,4 +2,4 @@ version: "2"
 exclude_patterns:
   - "**/Pods"
   - "**/*Spec.swift"
-  - "**/MockingbirdSupport"
+  - "**/CutBox/MockingbirdSupport/**"
