@@ -22,10 +22,10 @@ jobs:
 
         \`\`\`mermaid
           graph TD;
-          A-->B;
-          A-->C;
-          B-->D;
-          C-->D;
+          Anna-->Bob;
+          Anna-->Carol;
+          Bob-->David;
+          Carol-->David;
         \`\`\`
 
         # Tables with nested html elements for multiline cells.
