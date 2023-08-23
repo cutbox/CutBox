@@ -330,7 +330,6 @@
 		729E616F68F0143821041D78 /* Pods-CutBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBox.debug.xcconfig"; path = "Target Support Files/Pods-CutBox/Pods-CutBox.debug.xcconfig"; sourceTree = "<group>"; };
 		7C5495DE2276785B0041FA76 /* String+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UtilsSpec.swift"; sourceTree = "<group>"; };
-		7E10E5ECB27E763BBB1C3E42 /* CutBoxUnitTests-CutBoxMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; lastKnownFileType = sourcecode.swift; name = "CutBoxUnitTests-CutBoxMocks.generated.swift"; path = "MockingbirdMocks/CutBoxUnitTests-CutBoxMocks.generated.swift"; sourceTree = "<group>"; };
 		829EA9BE1F4F8D84CC265008 /* libPods-CutBoxAll-CutBoxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBoxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCCBB192479CED3B61BC367 /* Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxUnitTestsCI/Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig"; sourceTree = "<group>"; };
 		8F030A4A521085BE6D02F051 /* libPods-CutBoxAll-CutBoxUnitTestsCI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBoxUnitTestsCI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1291,11 +1290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
 			name = "[CP-User] Sign";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = scripts/sign.sh;
@@ -1421,11 +1416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-			);
 			name = "[CP-User] Sign";
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = scripts/sign.sh;
