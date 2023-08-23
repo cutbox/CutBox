@@ -37,7 +37,10 @@ jobs:
         
         # Html elements with style
 
-        <p style="color: red"> I am red.</p>
+        <p style="color: red"> I am red.</p> doesn't work.<br>
+        <p color="red">Try the old school attribute</p>
+
+        <p align="center"><img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png"/></p>
 
         # That's all for now...
         EOF 
