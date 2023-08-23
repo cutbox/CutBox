@@ -8,8 +8,6 @@
 
 import Foundation
 
-// swiftlint:disable identifier_name
-
 /// Migrate Cutbox historyStore to 1.6.0 (internal use)
 ///
 /// The migration applies timestamps from 30 days ago
