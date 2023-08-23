@@ -24,8 +24,10 @@ extension CutBoxColorTheme {
         do {
             try self.init(theme: CutBoxColorThemeDefinition(json))
         } catch {
-            print("Malformed CutBoxTheme JSON", to: &errStream)
-            print(json, to: &errStream)
+            print("""
+                  Malformed CutBoxTheme JSON:
+                  \(json)
+                  """, to: &errStream)
             abort()
         }
     }
@@ -120,7 +122,7 @@ extension CutBoxColorThemeDefinition {
       preview: Preview? = nil,
       spacing: CGFloat? = nil
     ) -> CutBoxColorThemeDefinition {
-        return CutBoxColorThemeDefinition(
+        CutBoxColorThemeDefinition(
           name: name ?? self.name,
           popupBackgroundColor: popupBackgroundColor ?? self.popupBackgroundColor,
           searchText: searchText ?? self.searchText,
@@ -135,7 +137,7 @@ extension CutBoxColorThemeDefinition {
     }
 
     func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
+        String(data: try self.jsonData(), encoding: encoding)
     }
 }
 

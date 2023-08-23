@@ -91,11 +91,12 @@ class PreferencesJavascriptTransformView: NSView {
             append("> " + cmd)
             append(value)
 
-            javascriptTransformREPLOutput.scrollRangeToVisible(
-                NSRange(location: (javascriptTransformREPLOutput
-                    .textStorage?
-                    .string
-                    .count)!-1, length: 1))
+            if let textStorage = javascriptTransformREPLOutput.textStorage {
+                let textCount = textStorage.string.count
+                let location = max(textCount - 1, 0)
+                let range = NSRange(location: location, length: 1)
+                javascriptTransformREPLOutput.scrollRangeToVisible(range)
+            }
         }
     }
 
