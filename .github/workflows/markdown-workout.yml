@@ -47,7 +47,7 @@ jobs:
         Linebreak with br<br>
         Don't work as you expect, and do larger line spacing than parapraphs.
 
-        &lt;p&gt; &lt;br;&gt &lt;img&gt; - work _kinda_.
+        &lt;p&gt; &lt;br&gt; &lt;img&gt; - work _kinda_.
 
         # That's all for now...
         
