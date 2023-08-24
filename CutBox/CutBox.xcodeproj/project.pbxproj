@@ -207,6 +207,7 @@
 		968715922A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */; };
 		968715942A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */; };
 		968715992A9634E10092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
+		9687159A2A96E6A80092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -1512,6 +1513,7 @@
 				9653494628434862000FD0A1 /* String+UtilsSpec.swift in Sources */,
 				965B02B828E7E95E003770BD /* SearchViewController.swift in Sources */,
 				9653492428434785000FD0A1 /* NSAttributedString+HTML.swift in Sources */,
+				9687159A2A96E6A80092DB3F /* StandardErrorOutputStream.swift in Sources */,
 				965349412843484E000FD0A1 /* JSFuncServiceSpec.swift in Sources */,
 				9653490928434752000FD0A1 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				9653490428434742000FD0A1 /* JSFuncSearchViewController.swift in Sources */,
