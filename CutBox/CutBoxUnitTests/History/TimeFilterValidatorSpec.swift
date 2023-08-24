@@ -2,7 +2,7 @@
 //  TimeFilterValidatorSpec.swift
 //  CutBoxUnitTests
 //
-//  Created by jason on 13/8/23.
+//  Created by Jason Milkins on 13/8/23.
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 

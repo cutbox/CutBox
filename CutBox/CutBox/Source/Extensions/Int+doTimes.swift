@@ -2,7 +2,7 @@
 //  Int+doTimes.swift
 //  CutBox
 //
-//  Created by jason on 22/8/23.
+//  Created by Jason Milkins on 22/8/23.
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 

@@ -208,6 +208,7 @@
 		968715942A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */; };
 		968715992A9634E10092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
 		9687159A2A96E6A80092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
+		9687159D2A9714680092DB3F /* Optional+isNil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687159B2A9714680092DB3F /* Optional+isNil.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -423,6 +424,7 @@
 		968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorStringSpec.swift"; sourceTree = "<group>"; };
 		968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesServiceSpec.swift; sourceTree = "<group>"; };
 		968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorOutputStream.swift; sourceTree = "<group>"; };
+		9687159B2A9714680092DB3F /* Optional+isNil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+isNil.swift"; sourceTree = "<group>"; };
 		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
@@ -690,6 +692,7 @@
 		96429D57208C11A90055D678 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9687159B2A9714680092DB3F /* Optional+isNil.swift */,
 				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
 				96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */,
 				964CA5352080373400B9F33E /* Array+String+SwiftyStringScoreSpec.swift */,
@@ -1556,6 +1559,7 @@
 				9653492128434772000FD0A1 /* LoginItemsService.swift in Sources */,
 				9653491B28434767000FD0A1 /* HistoryLimitNumberFormatter.swift in Sources */,
 				965348EA28434735000FD0A1 /* PreferencesGeneralView+AutoLogin.swift in Sources */,
+				9687159D2A9714680092DB3F /* Optional+isNil.swift in Sources */,
 				9653494E2843486B000FD0A1 /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */,
 				965348EC28434735000FD0A1 /* PreferencesThemePreview.swift in Sources */,
 				9653494428434862000FD0A1 /* OrderedSetSpec.swift in Sources */,

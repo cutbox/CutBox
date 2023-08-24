@@ -2,7 +2,7 @@
 //  PreferencesAdvancedView+ClearHistory.swift
 //  CutBox
 //
-//  Created by jason on 15/8/23.
+//  Created by Jason Milkins on 15/8/23.
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 

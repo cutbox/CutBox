@@ -2,7 +2,7 @@
 //  NSColor+HexColorStringSpec.swift
 //  CutBoxUnitTests
 //
-//  Created by jason on 23/8/23.
+//  Created by Jason Milkins on 23/8/23.
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 

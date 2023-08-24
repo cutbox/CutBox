@@ -1,7 +1,7 @@
 //
 //  StandardError.swift
 //
-//  Created by jason on 23/8/23.
+//  Created by Jason Milkins on 23/8/23.
 //
 
 import Foundation

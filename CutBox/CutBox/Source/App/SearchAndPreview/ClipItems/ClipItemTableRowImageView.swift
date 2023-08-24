@@ -11,19 +11,12 @@ import Cocoa
 class ClipItemTableRowImageView: ItemTableRowImageView {
 
     private var isFavorite: Bool {
-        if let data = internalData {
-            if let favoriteData = data["favorite"], !favoriteData.isEmpty {
-                return true
-            } else {
-                return false
-            }
-        }
-        return false
+        return internalData?["favorite"] != nil
     }
 
     override func setup() {
         guard self.data != nil else {
-            fatalError("Data must be initialized on ClipItemTableRowView before setup.")
+            fatalError("Data must be initialized on ClipItemTableRowImageView before setup.")
         }
 
         self.image.image = self.isFavorite

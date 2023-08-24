@@ -14,7 +14,12 @@ class ItemTableRowTextView: NSView {
 
     let prefs = CutBoxPreferencesService.shared
 
-    var internalColor: NSColor = NSColor.textColor
+    var internalColor: NSColor = .textColor {
+        didSet {
+            self.title.textColor = internalColor
+        }
+    }
+
     var color: NSColor {
         get {
             return internalColor
@@ -22,18 +27,20 @@ class ItemTableRowTextView: NSView {
 
         set {
             internalColor = newValue
-            self.title.textColor = internalColor
         }
     }
 
-    var internalData: [String: Any]?
+    var internalData: [String: Any]? {
+        didSet {
+            setup()
+        }
+    }
     var data: [String: Any]? {
         get {
             return internalData
         }
         set {
             internalData = newValue
-            setup()
         }
     }
 

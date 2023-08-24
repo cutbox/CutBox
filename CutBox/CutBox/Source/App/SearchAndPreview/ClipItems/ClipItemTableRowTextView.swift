@@ -11,14 +11,7 @@ import Cocoa
 class ClipItemTableRowTextView: ItemTableRowTextView {
 
     private var isFavorite: Bool {
-        if let data = internalData {
-            if let favoriteData = data["favorite"] as? String, !favoriteData.isEmpty {
-                return true
-            } else {
-                return false
-            }
-        }
-        return false
+        internalData?["favorite"] != nil
     }
 
     override func setup() {

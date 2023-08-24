@@ -2,7 +2,7 @@
 //  ValidTextField.swift
 //  CutBox
 //
-//  Created by jason on 12/8/23.
+//  Created by Jason Milkins on 12/8/23.
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 

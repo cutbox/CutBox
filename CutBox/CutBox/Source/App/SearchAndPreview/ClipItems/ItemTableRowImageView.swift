@@ -12,7 +12,12 @@ class ItemTableRowImageView: NSView {
 
     @IBOutlet weak var image: NSImageView!
 
-    var internalColor: NSColor = NSColor.textColor
+    var internalColor: NSColor = .textColor {
+        didSet {
+            tintImage()
+        }
+    }
+
     var color: NSColor {
         get {
             return internalColor
@@ -20,18 +25,22 @@ class ItemTableRowImageView: NSView {
 
         set {
             internalColor = newValue
-            self.tintImage()
         }
     }
 
-    var internalData: [String: String]?
+    var internalData: [String: String]? {
+        didSet {
+            setup()
+        }
+    }
+
     var data: [String: String]? {
         get {
             return internalData
         }
+
         set {
             internalData = newValue
-            setup()
         }
     }
 
