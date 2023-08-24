@@ -1,13 +1,16 @@
 <p align="center">
   <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png">
 </p>
+<p align="center">
+<img src="https://github.com/cutbox/cutbox.github.io/raw/master/images/cutbox-logo-text.png">
+</p>
+
 
 <p align="center">
-  <a href="https://gitter.im/CutBox/Lobby" title="Chat about CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>&nbsp;<a href="https://www.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/ae11b1b41bbe432c88c02ba9a50d5f2d"/></a>&nbsp;<a href="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml"><img src="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml/badge.svg" /></a>
+  <a href="https://gitter.im/CutBox/Lobby" title="Get Help for CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>&nbsp;&nbsp;<a href="https://www.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade" title="high quality software"><img src="https://app.codacy.com/project/badge/Grade/ae11b1b41bbe432c88c02ba9a50d5f2d"/></a>&nbsp;&nbsp;<a href="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml"><img src="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml/badge.svg" /></a>
 </p>
 <div align="center">
-    <h1>CutBox</h1>
-  <p>Text Clipboard Manager for MacOS</p>
+  <p>Make you macOS pasteboard awesome...</p>
 
   <a href="https://github.com/cutbox/CutBox/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/cutbox/cutbox?color=%230099AA&label=CutBox&sort=semver&style=for-the-badge"></a>
 
