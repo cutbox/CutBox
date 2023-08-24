@@ -1,7 +1,7 @@
 name: Markdown Workout
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   build:
