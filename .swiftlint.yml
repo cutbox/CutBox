@@ -3,7 +3,6 @@ disabled_rules: # rule identifiers to exclude from running
   - function_body_length
   - nesting
   - function_parameter_count
-  - private_over_fileprivate
 
 opt_in_rules: # some rules are only opt-in
   - control_statement
@@ -18,6 +17,7 @@ included: # paths to include during linting. `--path` is ignored if present.
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - CutBox/Pods
+  - CutBox/MockingbirdSupport
 
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level
@@ -29,22 +29,21 @@ type_body_length:
   - 800 # warning
   - 1000 # error
 
-# or they can set both explicitly
 file_length:
   warning: 800
   error: 1000
 
-large_tuple: # warn user when using 3 values in tuple, give error if there are 4
-   - 4
+large_tuple: # warn user when using 5 values in tuple, give error if there are 8
    - 5
+   - 8
 
 # naming rules can set warnings/errors for min_length and max_length
 # additionally they can set excluded names
 type_name:
   min_length: 2 # only warning
   max_length: # warning and error
-    warning: 60
-    error: 65
+    warning: 80
+    error: 120
   excluded: iPhone # excluded via string
   allowed_symbols: "_"
 reporter: "xcode"
