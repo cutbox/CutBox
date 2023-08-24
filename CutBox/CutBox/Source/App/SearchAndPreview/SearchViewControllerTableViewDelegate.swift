@@ -9,14 +9,12 @@
 import Cocoa
 
 extension SearchViewController: NSTableViewDataSource {
-
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.historyService.count
     }
 }
 
 extension SearchViewController: NSTableViewDelegate {
-
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 30
     }
