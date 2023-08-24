@@ -9,7 +9,6 @@
 import Quick
 import Nimble
 
-// swiftlint:disable type_name
 class Int_doTimesSpec: QuickSpec {
     override func spec() {
         describe("Int.doTimes") {

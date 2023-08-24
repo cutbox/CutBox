@@ -25,7 +25,6 @@ enum HistoryServiceEvents {
     case didClearHistory
 }
 
-// swiftlint:disable type_body_length
 class HistoryService: NSObject {
 
     static let shared = HistoryService()

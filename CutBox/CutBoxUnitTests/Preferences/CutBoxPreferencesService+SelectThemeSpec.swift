@@ -9,7 +9,6 @@
 import Quick
 import Nimble
 
-// swiftlint:disable type_name
 class CutBoxPreferencesService_SelectThemeSpec: QuickSpec {
     override func spec() {
         var subject: CutBoxPreferencesService!
