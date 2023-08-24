@@ -25,6 +25,10 @@ jobs:
 
       - name: Test cubox_command
         run: |
+          defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Test Passed?</string><key>favorite</key><string>favorite</string></dict>"
+          defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
+          defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
+
           if test_bin/cutbox -h; then
             echo "# CutBox precompiled CLI success on ${{ matrix.macos_version }} [✓]" >> "$GITHUB_STEP_SUMMARY"
             test_bin/cutbox -h >> "$GITHUB_STEP_SUMMARY"

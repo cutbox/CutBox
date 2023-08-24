@@ -16,7 +16,6 @@ summary_test() {
     fi
 }
 
-
 cd cutbox_command || exit 1
 xcodebuild || exit 1
 
@@ -25,7 +24,6 @@ cutbox_cli=build/Release/cutbox
 if [[ ! -e $cutbox_cli ]]; then
     exit 1
 fi
-
 
 cat <<-EOF
 ====================================================
@@ -63,6 +61,10 @@ EOF
 
     exit 1
 fi
+
+defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Test Passed?</string><key>favorite</key><string>favorite</string></dict>"
+defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
+defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
 
 github_summary "$($cutbox_cli --help)"
 github_summary "
