@@ -26,7 +26,6 @@ if [[ ! -e $cutbox_cli ]]; then
     exit 1
 fi
 
-github_summary "$($cutbox_cli --help)"
 
 cat <<-EOF
 ====================================================
@@ -65,15 +64,10 @@ EOF
     exit 1
 fi
 
-# Fake history item via macos defaults write command line:
-date_hour_ago=$(TZ=UTC gdate -d "-1 hour" +%Y-%m-%dT%H:%M:%SZ)
-date_day_ago=$(TZ=UTC gdate -d "-1 day" +%Y-%m-%dT%H:%M:%SZ)
-
-defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Test Passed?</string><key>favorite</key><string>favorite</string></dict>"
-defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
-defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
-
-github_summary "# CutBox CLI Tests"
+github_summary "$($cutbox_cli --help)"
+github_summary "
+# CutBox CLI Tests
+"
 github_summary \
 "| Test |  |
 |------|--|"
