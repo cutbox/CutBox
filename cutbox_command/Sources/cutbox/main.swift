@@ -1,12 +1,15 @@
 import Foundation
 
-let version = "CutBox v1.5.8 - command line v0.0.110"
+/// Init constants
+let version = "CutBox v1.6.0 - command line v0.1.0"
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
 let stringKey = "string"
 let timestampKey = "timestamp"
 let favoriteKey = "favorite"
 let isFavorite = "favorite"
+
+/// CLI Usage help page
 let usage = """
     CutBox history CLI
     ==================
@@ -75,10 +78,12 @@ guard let historyDict = plist[historyKey] as? [[String: Any]] else {
     exit(1)
 }
 
+/// Search modes
 enum SearchMode {
     case fuzzy, regex, regexi
 }
 
+/// Command line params parser
 class CommandParams {
     var query: String?
     var limit: Int?
@@ -220,6 +225,8 @@ class CommandParams {
 
 typealias HistoryEntry = (String, String?)
 
+// MARK: Utilities
+
 func itemAsHistoryEntry(_ item: [String: Any]) -> HistoryEntry? {
     guard let string: String = item[stringKey] as? String else {
         return nil
@@ -251,7 +258,7 @@ func printItem(_ item: HistoryEntry) -> String {
     return item.0
 }
 
-// MARK - main
+// MARK: Main
 
 let params = CommandParams()
 
