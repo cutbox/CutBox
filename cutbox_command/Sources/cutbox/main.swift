@@ -1,7 +1,6 @@
 import Foundation
 
 let version = "CutBox v1.5.8 - command line v0.0.110"
-
 let plistPath = "\(NSHomeDirectory())/Library/Preferences/info.ocodo.CutBox.plist"
 let historyKey = "historyStore"
 let stringKey = "string"
@@ -55,23 +54,29 @@ let usage = """
         -h or --help            Show this help page
     """
 
-enum SearchMode {
-    case fuzzy, regex, regexi
+// Read cutbox history"
+guard let plistData = FileManager.default.contents(atPath: plistPath) else {
+    print("CutBox history not found, is CutBox installed?")
+    exit(1)
 }
 
-func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
-    let range = NSRange(location: 0, length: string.utf16.count)
-    if caseSensitive {
-        if let regex = try? NSRegularExpression(pattern: pattern) {
-            return regex.firstMatch(in: string, options: [], range: range) != nil
-        }
-    } else {
-        let regexOptions: NSRegularExpression.Options = [.caseInsensitive]
-        if let regex = try? NSRegularExpression(pattern: pattern, options: regexOptions) {
-            return regex.firstMatch(in: string, options: [], range: range) != nil
-        }
-    }
-    return false
+guard let plist = try PropertyListSerialization.propertyList(from: plistData,
+                                                             options: [],
+                                                             format: nil) as? [String: Any] else {
+    print("Error: CutBox history file was not readable.")
+    exit(1)
+}
+
+guard let historyDict = plist[historyKey] as? [[String: Any]] else {
+    print("""
+            Error: CutBox history store was not in the expected format.
+            Recommended Action: Check with earlier version of cutbox command-line utility.
+            """)
+    exit(1)
+}
+
+enum SearchMode {
+    case fuzzy, regex, regexi
 }
 
 class CommandParams {
@@ -213,33 +218,6 @@ class CommandParams {
     }
 }
 
-let params = CommandParams()
-
-// Read cutbox history"
-guard let plistData = FileManager.default.contents(atPath: plistPath) else {
-    print("CutBox history not found, is CutBox installed?")
-    exit(1)
-}
-
-guard let plist = try PropertyListSerialization.propertyList(from: plistData,
-                                                             options: [],
-                                                             format: nil) as? [String: Any] else {
-    print("Error: CutBox history file was not readable.")
-    exit(1)
-}
-
-guard let historyDict = plist[historyKey] as? [[String: Any]] else {
-    print("""
-            Error: CutBox history store was not in the expected format.
-            Recommended Action: Check with earlier version of cutbox command-line utility.
-            """)
-    exit(1)
-}
-
-// create list of strings from history
-let dateFormatter = DateFormatter()
-dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-
 typealias HistoryEntry = (String, String?)
 
 func itemAsHistoryEntry(_ item: [String: Any]) -> HistoryEntry? {
@@ -249,6 +227,37 @@ func itemAsHistoryEntry(_ item: [String: Any]) -> HistoryEntry? {
 
     return (string, item[timestampKey] as? String)
 }
+
+func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
+    let range = NSRange(location: 0, length: string.utf16.count)
+    if caseSensitive {
+        if let regex = try? NSRegularExpression(pattern: pattern) {
+            return regex.firstMatch(in: string, options: [], range: range) != nil
+        }
+    } else {
+        let regexOptions: NSRegularExpression.Options = [.caseInsensitive]
+        if let regex = try? NSRegularExpression(pattern: pattern, options: regexOptions) {
+            return regex.firstMatch(in: string, options: [], range: range) != nil
+        }
+    }
+    return false
+}
+
+func printItemWithTime(_ item: HistoryEntry) -> String {
+    return "\(item.1 ?? "UNKNOWN DATETIME"): \(item.0)"
+}
+
+func printItem(_ item: HistoryEntry) -> String {
+    return item.0
+}
+
+// MARK - main
+
+let params = CommandParams()
+
+// create list of strings from history
+let dateFormatter = DateFormatter()
+dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
 var historyEntries: [HistoryEntry] = historyDict.compactMap { (item: [String: Any] ) -> HistoryEntry? in
     if params.favorites && (item[favoriteKey] as? String) != isFavorite {
@@ -289,14 +298,6 @@ if let query = params.query {
     case .regexi: historyEntries = historyEntries.filter { regexpMatch($0.0, query, caseSensitive: false) }
     default: break
     }
-}
-
-func printItemWithTime(_ item: HistoryEntry) -> String {
-    return "\(item.1 ?? "UNKNOWN DATETIME"): \(item.0)"
-}
-
-func printItem(_ item: HistoryEntry) -> String {
-    return item.0
 }
 
 if params.showTime {
