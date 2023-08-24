@@ -1,0 +1,23 @@
+{
+    "name": "Standard",
+    "popupBackgroundColor":            "#282C32",
+    "searchText": {
+        "cursorColor":                 "#F0FFFC77",
+        "textColor":                   "#FFFFFFDD",
+        "backgroundColor":             "#282C32",
+        "placeholderTextColor":        "#7C7C7C88"
+    },
+    "clip": {
+        "backgroundColor":    "#24292D",
+        "textColor":          "#FFECE3",
+        "highlightColor":     "#667578A9",
+        "highlightTextColor": "#FFECE3"
+    },
+    "preview": {
+        "textColor":                   "#FFECE3",
+        "backgroundColor":             "#202529",
+        "selectedTextBackgroundColor": "#66757830",
+        "selectedTextColor":           "#EBF7FF80"
+    },
+    "spacing": 0
+}

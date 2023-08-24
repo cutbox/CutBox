@@ -32,12 +32,12 @@ class CutBoxPreferencesService_SelectThemeSpec: QuickSpec {
                 }
 
                 context("User themes change or missing") {
-                    it("returns default theme: Darkness") {
+                    it("returns default theme: Standard") {
                         mockDefaults.set(75, forKey: "theme")
                         mockDefaults.set("ObviouslyFakeThemeName", forKey: "themeName")
                         subject = CutBoxPreferencesService(defaults: mockDefaults)
 
-                        expect(subject.themeName) == "Darkness"
+                        expect(subject.themeName) == "Standard"
                     }
                 }
 
@@ -78,7 +78,7 @@ class CutBoxPreferencesService_SelectThemeSpec: QuickSpec {
             }
 
             it("returns the selected theme name") {
-                expect(subject.themeName) == "Darkness"
+                expect(subject.themeName) == "Standard"
             }
 
             it("returns the selected theme") {
