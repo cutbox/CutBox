@@ -47,12 +47,18 @@ jobs:
         run: |
           make setup
 
-      - name: Test
+      - name: Run Tests
         run: |
           make test_ci
 
-      - name: Coverage
-        uses: sersoft-gmbh/swift-coverage-action@v3
+      - name: Upload Test Coverage to Codacy
+        run: |
+          if bin/codacy_upload_coverage; then
+            echo "### Code coverage uploaded to Codacy [✓]" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "### Failed uploaded to Codacy [✗]" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit 0
 
       - name: Check Localized.strings
         run: |
