@@ -51,6 +51,9 @@ jobs:
         run: |
           make test_ci
 
+      - name: Coverage
+        uses: sersoft-gmbh/swift-coverage-action@v3
+
       - name: Check Localized.strings
         run: |
           echo "# Check Localized.strings" >> "$GITHUB_STEP_SUMMARY"
