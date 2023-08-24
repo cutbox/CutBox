@@ -10,8 +10,6 @@ import Cocoa
 
 import RxSwift
 
-// swiftlint:disable superfluous_disable_command
-// swiftlint:disable large_tuple
 typealias StatusItemDescriptor = (Int, String, String?, String?)
 
 class CutBoxController: NSObject {
