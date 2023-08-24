@@ -166,12 +166,8 @@ class CommandParams {
     }
 
     private func parseTimeOptions(_ prefix: String) -> TimeInterval? {
-        let timeOptions = [
-          "",
-          "-date"
-        ]
-
-        return timeOptions
+        let timeOptionSuffixes = ["", "-date"]
+        return timeOptionSuffixes
           .map { "\(prefix)\($0)" }
           .compactMap { timeOpt($0) }
           .first
