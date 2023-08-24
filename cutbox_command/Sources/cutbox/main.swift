@@ -57,27 +57,6 @@ let usage = """
         -h or --help            Show this help page
     """
 
-// Read cutbox history"
-guard let plistData = FileManager.default.contents(atPath: plistPath) else {
-    print("CutBox history not found, is CutBox installed?")
-    exit(1)
-}
-
-guard let plist = try PropertyListSerialization.propertyList(from: plistData,
-                                                             options: [],
-                                                             format: nil) as? [String: Any] else {
-    print("Error: CutBox history file was not readable.")
-    exit(1)
-}
-
-guard let historyDict = plist[historyKey] as? [[String: Any]] else {
-    print("""
-            Error: CutBox history store was not in the expected format.
-            Recommended Action: Check with earlier version of cutbox command-line utility.
-            """)
-    exit(1)
-}
-
 /// Search modes
 enum SearchMode {
     case fuzzy, regex, regexi
@@ -259,6 +238,26 @@ func printItem(_ item: HistoryEntry) -> String {
 }
 
 // MARK: Main
+// Read cutbox history"
+guard let plistData = FileManager.default.contents(atPath: plistPath) else {
+    print("CutBox history not found, is CutBox installed?")
+    exit(1)
+}
+
+guard let plist = try PropertyListSerialization.propertyList(from: plistData,
+                                                             options: [],
+                                                             format: nil) as? [String: Any] else {
+    print("Error: CutBox history file was not readable.")
+    exit(1)
+}
+
+guard let historyDict = plist[historyKey] as? [[String: Any]] else {
+    print("""
+            Error: CutBox history store was not in the expected format.
+            Recommended Action: Check with earlier version of cutbox command-line utility.
+            """)
+    exit(1)
+}
 
 let params = CommandParams()
 
