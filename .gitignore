@@ -1,4 +1,5 @@
 .DS_Store
+**/Package.resolved
 **/*.xcworkspace/xcuserdata/**/*
 **/*.xcodeproj/xcuserdata/**/*
 **/CutBox/build
@@ -10,5 +11,4 @@ Brewfile.lock.json
 /tmp/
 /cutbox_command/.build/
 build/
-/CutBox/CutBox.xcworkspace/xcshareddata/swiftpm/Package.resolved
 .swiftcov
