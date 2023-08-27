@@ -2,8 +2,6 @@ import Foundation
 
 let version = "v0.2.0"
 
-let dateFormatter = ISO8601DateFormatter()
-
 struct HistoryEntry {
     let string: String
     let timestamp: String?
@@ -13,6 +11,9 @@ struct HistoryEntry {
         guard let isotime = timestamp else {
             return nil
         }
+
+        let dateFormatter: DateFormatter = iso8601()
+
         return dateFormatter
             .date(from: isotime)?.timeIntervalSince1970
     }
@@ -109,11 +110,12 @@ class CommandParams {
     }
 
     private func timeOpt(_ option: String) -> TimeInterval? {
+
         if let value: String = hasOpt(option) {
             let opt = option as NSString
             switch opt {
             case _ where opt.contains("date"):
-                if let date = dateFormatter.date(from: value) {
+                if let date = iso8601().date(from: value) {
                     return date.timeIntervalSince1970
                 }
             case _ where parseToSeconds(value) != nil:
@@ -332,6 +334,12 @@ public class Output: POutput {
     public func log(_ string: String) {
         print(string)
     }
+}
+
+public func iso8601() -> DateFormatter {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    return dateFormatter
 }
 
 public func loadPlist(path: String) -> [String: Any] {
