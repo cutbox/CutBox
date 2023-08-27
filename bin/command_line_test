@@ -21,6 +21,7 @@ make build
 
 cutbox_cli="$(swift build --show-bin-path)"/CutBoxCLI
 
+
 if [[ ! -e $cutbox_cli ]]; then
     exit 1
 fi
