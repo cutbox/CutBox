@@ -81,7 +81,7 @@ jobs:
 
       - name: Command line test
         run: |
-          make -C cutbox_command cli_test
+          make cli_test
 
       - name: CLI Build
         run: |
