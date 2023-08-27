@@ -1,17 +1,10 @@
 #!/bin/bash
 
-PROJECT_ROOT="$(git rev-parse --show-toplevel)"
-
-github_summary() {
-    [ "$GITHUB_STEP_SUMMARY" != "" ] && echo "$1" >> "$GITHUB_STEP_SUMMARY"
-    echo "$1"
-}
-
 pipe_to_github_summary() {
-    if [[ "" == "$GITHUB_STEP_SUMMARY" ]]; then
+    if [[ "" == "${GITHUB_STEP_SUMMARY}" ]]; then
         cat
     else
-        cat >> "$GITHUB_STEP_SUMMARY"
+        tee -a "${GITHUB_STEP_SUMMARY}"
     fi
 }
 
@@ -20,7 +13,6 @@ cd cutbox_command || exit 1
 make build
 
 cutbox_cli="$(swift build --show-bin-path)"/CutBoxCLI
-
 
 if [[ ! -e $cutbox_cli ]]; then
     exit 1
@@ -35,4 +27,4 @@ Testing...
 ----------------------------------------------------
 EOF
 
-make test | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb
+make test | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb | pipe_to_github_summary
