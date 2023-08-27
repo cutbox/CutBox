@@ -80,9 +80,11 @@
 "search_scope_tooltip_favorites" = "즐겨찾기만 검색";
 "searchmode_fuzzy" = "퍼지 일치 ";
 "searchmode_fuzzy_tooltip" = "퍼지 일치 검색";
-"searchmode_regexp" = "정규식/i";
 "searchmode_regexp_strict" = "정규식";
 "searchmode_regexp_strict_tooltip" = "정확한 대소문자 정규식 검색";
+"searchmode_regexp" = "정규식/i";
 "searchmode_regexp_tooltip" = "대소문자를 무시한 정규식 검색";
 "search_time_filter_label_active" = "현재부터 %@ 전까지 복사된 항목만 검색";
 "search_time_filter_label_hint" = "시간을 N 시간 단위로 입력하세요. 예: 1 m, 2 h, 1 w, 20 d など";
+"searchmode_substring" = "정확한 일치";
+"searchmode_substring_tooltip" = "정확한 일치 검색";

@@ -41,6 +41,7 @@
 		964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* ConfirmationDialog.swift */; };
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
+		964E6FFF2A9B87FD00F86FC8 /* cutbox-logo-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */; };
 		9652C03D2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
 		9652C03E2844892A004249D9 /* NSColor+HexColorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */; };
 		9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA50E207E6B4300B9F33E /* CutBoxColorTheme.swift */; };
@@ -378,6 +379,7 @@
 		964CA54320830C8800B9F33E /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
+		964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-logo-text.png"; sourceTree = "<group>"; };
 		9652C03C2844892A004249D9 /* NSColor+HexColorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorString.swift"; sourceTree = "<group>"; };
 		965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutBoxUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601Helpers.swift; sourceTree = "<group>"; };
@@ -822,6 +824,7 @@
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
+				964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */,
 				96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */,
 				967DFB5920C28D3E0063B050 /* js_badge.png */,
 				967DFB5320C246BD0063B050 /* cutbox-js-icon.png */,
@@ -1230,6 +1233,7 @@
 				96A8022820AD8F00000CBE74 /* JSFuncItemTableRowImageView.xib in Resources */,
 				96A8022720AD8F00000CBE74 /* JSFuncItemTableRowTextView.xib in Resources */,
 				9655D1DF2A91FE8300AA902F /* Localizable.strings in Resources */,
+				964E6FFF2A9B87FD00F86FC8 /* cutbox-logo-text.png in Resources */,
 				96CDF2D82A8BB3DF00ADE6B4 /* Localizable.strings in Resources */,
 				96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */,
 				96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */,

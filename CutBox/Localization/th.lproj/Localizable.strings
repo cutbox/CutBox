@@ -86,3 +86,5 @@
 "searchmode_regexp_tooltip" = "ค้นหาแบบ RegExp (ไม่ตรงตามตัวอักษรใหญ่เล็ก)";
 "search_time_filter_label_active" = "ค้นหาเฉพาะรายการที่คัดลอกระหว่าง %@ และ %@ ที่ผ่านมา";
 "search_time_filter_label_hint" = "ป้อนเวลาเป็นหน่วยเวลา N, ตัวอย่างเช่น 1 h, 2 w, 5 day, 2 min ฯลฯ";
+"searchmode_substring" = "ตรงตาม";
+"searchmode_substring_tooltip" = "ค้นหาตรงตาม";

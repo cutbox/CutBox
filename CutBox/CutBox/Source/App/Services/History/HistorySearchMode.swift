@@ -8,10 +8,14 @@
 
 import Foundation
 
-enum HistorySearchMode {
-    case fuzzyMatch, regexpAnyCase, regexpStrictCase
+// swiftlint:disable redundant_string_enum_value
+enum HistorySearchMode: String {
+    case fuzzyMatch = "fuzzyMatch"
+    case regexpAnyCase = "regexpAnyCase"
+    case regexpStrictCase = "regexpStrictCase"
+    case substringMatch = "substringMatch"
 
-    func name() -> String {
+    var name: String {
         switch self {
         case .fuzzyMatch:
             return "searchmode_fuzzy".l7n
@@ -19,52 +23,34 @@ enum HistorySearchMode {
             return "searchmode_regexp".l7n
         case .regexpStrictCase:
             return "searchmode_regexp_strict".l7n
+        case .substringMatch:
+            return "searchmode_substring".l7n
         }
     }
 
-    func toolTip() -> String {
-        switch self {
-        case .fuzzyMatch:
-            return "searchmode_fuzzy_tooltip".l7n
-        case .regexpAnyCase:
-            return "searchmode_regexp_tooltip".l7n
-        case .regexpStrictCase:
-            return "searchmode_regexp_strict_tooltip".l7n
-        }
+    var toolTip: String {
+        self.name + "_tooltip"
     }
 
-    func axID() -> String {
-        switch self {
-        case .fuzzyMatch:
-            return "fuzzyMatch"
-        case .regexpAnyCase:
-            return "regexpAnyCase"
-        case .regexpStrictCase:
-            return "regexpStrictCase"
-        }
+    var axID: String {
+        self.rawValue
     }
 
     static func searchMode(from string: String) -> HistorySearchMode {
-        switch string {
-        case "fuzzyMatch":
-            return .fuzzyMatch
-        case "regexpAnyCase":
-            return .regexpAnyCase
-        case "regexpStrictCase":
-            return .regexpStrictCase
-        default:
-            return .fuzzyMatch
-        }
+        return HistorySearchMode(rawValue: string) ?? .fuzzyMatch
     }
 
-    mutating func next() -> HistorySearchMode {
-        switch self {
-        case .fuzzyMatch:
-            return .regexpAnyCase
-        case .regexpAnyCase:
-            return .regexpStrictCase
-        case .regexpStrictCase:
+    var next: HistorySearchMode {
+        let allModes: [HistorySearchMode] = [
+            .fuzzyMatch,
+            .regexpAnyCase,
+            .regexpStrictCase,
+            .substringMatch
+        ]
+        guard let currentIndex = allModes.firstIndex(of: self) else {
             return .fuzzyMatch
         }
+        let nextIndex = (currentIndex + 1) % allModes.count
+        return allModes[nextIndex]
     }
 }

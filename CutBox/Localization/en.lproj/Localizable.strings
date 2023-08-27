@@ -84,5 +84,7 @@
 "searchmode_regexp_strict" = "RegExp";
 "searchmode_regexp_strict_tooltip" = "Regular expression search (strict case)";
 "searchmode_regexp_tooltip" = "Regular expression search (case insensitive)";
+"searchmode_substring" = "Exact match";
+"searchmode_substring_tooltip" = "Search for an exact string";
 "search_time_filter_label_active" = "Search only items copied between now and %@ ago";
 "search_time_filter_label_hint" = "Enter time as N time-unit, e.g. 1 week, 2 days, 1h, 20 min etc.";

@@ -84,5 +84,7 @@
 "searchmode_regexp_strict" = "正则表达式";
 "searchmode_regexp_strict_tooltip" = "正则表达式搜索（严格匹配大小写）";
 "searchmode_regexp_tooltip" = "正则表达式搜索（不区分大小写）";
+"searchmode_substring" = "精确匹配";
+"searchmode_substring_tooltip" = "搜索精确匹配";
 "search_time_filter_label_active" = "仅搜索从现在开始到 %@ 之前复制的项目";
 "search_time_filter_label_hint" = "将时间限制输入为英语单位，例如 40 s，20 min，1 h，2 d，等等。";

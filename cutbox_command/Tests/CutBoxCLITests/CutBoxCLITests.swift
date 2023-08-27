@@ -2,7 +2,7 @@
 //  CutBoxCLISpec.swift
 //  cutboxCLITests
 //
-//  Created by jason on 25/8/23.
+//  Created by Jason Milkins on 25/8/23.
 //
 import Foundation
 import Quick

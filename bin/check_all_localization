@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+
+find CutBox/Localization -type d |\
+    grep lproj |\
+    sed -E 's#.*/([a-z]{2})\.lproj$#\1#' |\
+    grep -v en |\
+    while read lang
+    do
+        bin/check_localization "CutBox/Localization/${lang}.lproj/Localizable.strings";
+    done

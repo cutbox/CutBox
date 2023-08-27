@@ -80,9 +80,11 @@
 "search_scope_tooltip_favorites" = "Buscar solo favoritos";
 "search_time_filter_label_active" = "Buscar solo elementos copiados entre ahora y %@ atrás";
 "search_time_filter_label_hint" = "El límite de tiempo en unidades inglesas, de 40 s, 20 min, 1 h, 2 d, etc.";
-"searchmode_fuzzy" = "Coincidencia difusa ";
+"searchmode_fuzzy" = "Difusa";
 "searchmode_fuzzy_tooltip" = "Búsqueda por coincidencia difusa";
 "searchmode_regexp" = "RegExp/i";
+"searchmode_regexp_tooltip" = "Búsqueda con expresión regular (indiferente a mayúsculas)";
 "searchmode_regexp_strict" = "RegExp";
 "searchmode_regexp_strict_tooltip" = "Búsqueda con expresión regular (distinción de mayúsculas)";
-"searchmode_regexp_tooltip" = "Búsqueda con expresión regular (indiferente a mayúsculas)";
+"searchmode_substring" = "Exacta";
+"searchmode_substring_tooltip" = "Buscar una coincidencia exacta";

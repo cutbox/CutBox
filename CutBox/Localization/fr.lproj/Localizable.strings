@@ -80,9 +80,11 @@
 "search_scope_tooltip_favorites" = "Rechercher les favoris uniquement";
 "search_time_filter_label_active" = "Rechercher uniquement les éléments copiés entre maintenant et %@ auparavant";
 "search_time_filter_label_hint" = "La limite de temps en unités anglaises, de 40s, 20min, 1h, 2 days, etc.";
-"searchmode_fuzzy" = "Correspondance floue ";
+"searchmode_fuzzy" = "Floue ";
 "searchmode_fuzzy_tooltip" = "Recherche par correspondance floue";
 "searchmode_regexp" = "RegExp/i";
 "searchmode_regexp_strict" = "RegExp";
 "searchmode_regexp_strict_tooltip" = "Recherche avec expression régulière (respect de la casse)";
 "searchmode_regexp_tooltip" = "Recherche avec expression régulière (indifférente à la casse)";
+"searchmode_substring" = "Exacte";
+"searchmode_substring_tooltip" = "Recherche d'une correspondance exacte";

@@ -21,3 +21,9 @@ dmg ::
 
 ci_get_release_info ::
 	bin/ci_get_release_info
+
+check_l7n_app ::
+	bin/check_l7n_source
+
+check_l7n_languages ::
+	bin/check_all_localization

@@ -196,7 +196,7 @@ class CutBoxController: NSObject {
                 case .toggleSearchMode:
                     self.checkSearchModeItem()
                 case .setSearchMode(let mode):
-                    self.checkSearchModeItem(mode.axID())
+                    self.checkSearchModeItem(mode.axID)
                 case .clearHistory:
                     self.clearHistoryClicked(nil)
                 case .selectJavascriptFunction:
@@ -280,7 +280,7 @@ class CutBoxController: NSObject {
             HistoryService
                 .shared
                 .searchMode
-                .axID()
+                .axID
         )
     }
 
@@ -290,7 +290,7 @@ class CutBoxController: NSObject {
     }
 
     func checkSearchModeItem() {
-        let axID = historyService.searchMode.axID()
+        let axID = historyService.searchMode.axID
         self.searchModeSelectors?.forEach { $0.state = .off }
         self.searchModeSelectorsDict?[axID]?.state = .on
     }

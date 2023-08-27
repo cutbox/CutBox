@@ -80,9 +80,11 @@
 "search_scope_tooltip_favorites" = "Nur Favoriten durchsuchen";
 "search_time_filter_label_active" = "Nur Einträge suchen, die in den letzten %@ kopiert wurden";
 "search_time_filter_label_hint" = "Die Zeitlimit in englischen Einheiten, von 40 s, 20 m, 1 h, 2 d, usw.";
-"searchmode_fuzzy" = "Verschwommene Übereinstimmung ";
-"searchmode_fuzzy_tooltip" = "Verschwommene Übereinstimmung bei der Suche";
+"searchmode_fuzzy" = "Fuzzy";
+"searchmode_fuzzy_tooltip" = "Fuzzy Übereinstimmung bei der Suche";
 "searchmode_regexp" = "RegExp/i";
+"searchmode_regexp_tooltip" = "Regulärer Ausdruck (Groß-/Kleinschreibung nicht beachten) bei der Suche";
 "searchmode_regexp_strict" = "RegExp";
 "searchmode_regexp_strict_tooltip" = "Regulärer Ausdruck (Groß-/Kleinschreibung beachten) bei der Suche";
-"searchmode_regexp_tooltip" = "Regulärer Ausdruck (Groß-/Kleinschreibung nicht beachten) bei der Suche";
+"searchmode_substring" = "Exakte";
+"searchmode_substring_tooltip" = "Suche nach einer exakten Übereinstimmung";

@@ -35,6 +35,10 @@ extension Array where Element == [String: String] {
             return []
         }
     }
+
+    func substringSearchFiltered(search: String) -> [[String: String]] {
+        self.filter { $0["string"]?.contains(search) ?? false }
+    }
 }
 
 extension Array where Element == String {
@@ -59,6 +63,12 @@ extension Array where Element == String {
             }
         } catch {
             return []
+        }
+    }
+
+    func substringSearchFiltered(search: String) -> [String] {
+        return self.filter {
+            $0.contains(search)
         }
     }
 }

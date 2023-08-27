@@ -10,12 +10,9 @@ import Quick
 import Nimble
 import RxSwift
 
-private class HistoryRepoMock: HistoryRepo {
-
-}
+private class HistoryRepoMock: HistoryRepo {}
 
 private class PasteboardWrapperMock: PasteboardWrapperType {
-
     var pasteboardItems: [NSPasteboardItem]?
 
     func addToFakePasteboard(string: String) {
@@ -36,7 +33,6 @@ private func addToFakePasteboardAndPoll(string: String,
 }
 
 class HistoryServiceSpec: QuickSpec {
-
     override func spec() {
         var subject: HistoryService!
         var mockPasteboard: PasteboardWrapperMock!
@@ -48,7 +44,8 @@ class HistoryServiceSpec: QuickSpec {
             "Fizz Buzz",
             "Bob the Hoojah Melon",
             "JR Bob Dobbs",
-            "Relatively complicated and doesn't fuzzy match with anything else, of this I'm sure.",
+            "[looks like a regex] .* use a substring match?",
+            "Most importantly doesn't fuzzy match with anything else, I'm sure.",
             "Generic code sample",
             "Boustrophedon",
             "Bobby",
@@ -77,7 +74,7 @@ class HistoryServiceSpec: QuickSpec {
         }
 
         it("starts with an empty pasteboard") {
-            expect(subject.count).to(equal(0))
+            expect(subject.count) == 0
         }
 
         context("Pasteboard items history") {
@@ -92,21 +89,18 @@ class HistoryServiceSpec: QuickSpec {
 
             it("read the latest item from the attached pasteboard") {
                 let clipboardContent = subject.clipboardContent()!
-
-                expect(clipboardContent).to(equal("Example"))
+                expect(clipboardContent) == "Example"
             }
 
             it("stores clipboard content") {
-                expect(subject.count).to(equal(17))
-                expect(subject.items.first).to(equal("Example"))
+                expect(subject.count) == 18
+                expect(subject.items.first) == "Example"
             }
 
             it("can clear its storage") {
-                expect(subject.count).to(equal(17))
-
+                expect(subject.count) == 18
                 subject.clear()
-
-                expect(subject.count).to(equal(0))
+                expect(subject.count) == 0
             }
 
             context("password manager support") {
@@ -114,42 +108,42 @@ class HistoryServiceSpec: QuickSpec {
                     addToFakePasteboardAndPoll(string: "",
                                                subject: subject,
                                                pboard: mockPasteboard)
-                    expect(subject.items.count).to(equal(16))
-                    expect(subject.items.first).to(equal("#FF0022"))
+                    expect(subject.items.count) == 17
+                    expect(subject.items.first) == "#FF0022"
                 }
             }
 
             context("duplicate handling") {
                 it("removes duplicate items and inserts them as first history item") {
-                    expect(subject.items.count).to(equal(17))
+                    expect(subject.items.count) == 18
 
                     addToFakePasteboardAndPoll(string: "JR Bob Dobbs",
                                                subject: subject,
                                                pboard: mockPasteboard)
 
-                    expect(subject.items.count).to(equal(17))
-                    expect(subject.items.first).to(equal("JR Bob Dobbs"))
+                    expect(subject.items.count) == 18
+                    expect(subject.items.first) == "JR Bob Dobbs"
                 }
             }
 
             context("history limit set") {
                 it("truncates the history to the history limit") {
                     subject.historyLimit = 10
-                    expect(subject.items.count).to(equal(10))
+                    expect(subject.items.count) == 10
 
                     subject.historyLimit = 13
-                    expect(subject.items.count).to(equal(10))
+                    expect(subject.items.count) == 10
                 }
 
                 it("adds items and removes oldest item") {
                     subject.historyLimit = 10
-                    expect(subject.items.count).to(equal(10))
+                    expect(subject.items.count) == 10
 
                     addToFakePasteboardAndPoll(string: "New New News",
                                                subject: subject,
                                                pboard: mockPasteboard)
 
-                    expect(subject.items.count).to(equal(10))
+                    expect(subject.items.count) == 10
                 }
             }
 
@@ -164,74 +158,87 @@ class HistoryServiceSpec: QuickSpec {
                         // deltas ordering factors
 
                         subject.filterText = "2"
-                        expect(subject.items).to(equal([
+                        expect(subject.items) == [
                             "#FF0022",
                             "FF443211",
                             "39124741"
-                            ]))
+                        ]
 
-                        subject.filterText = "Complicated"
-                        expect(subject.items).to(equal([
-                            "Relatively complicated and doesn't fuzzy match with anything else, of this I'm sure."
-                            ]))
+                        subject.filterText = "Most importantly"
+                        expect(subject.items) == [
+                            "Most importantly doesn't fuzzy match with anything else, I'm sure."
+                        ]
 
                         subject.filterText = "Bob"
-                        expect(subject.items).to(equal([
+                        expect(subject.items) == [
                             "Bob",
                             "Bobby",
                             "Boost boost",
                             "Bob the Hoojah Melon",
                             "JR Bob Dobbs",
                             "Robobt"
-                            ]))
+                        ]
                     }
                 }
 
-                context("regexp") {
-                    context("case insensitive") {
-                        beforeEach {
-                            subject.searchMode = .regexpAnyCase
-                        }
-
-                        it("filters regexp matches") {
-                            subject.filterText = "Bob"
-                            expect(subject.items).to(equal([
-                                "Bob",
-                                "Robobt",
-                                "Bobby",
-                                "JR Bob Dobbs",
-                                "Bob the Hoojah Melon"
-                                ]))
-
-                            subject.filterText = "^#[a-f0-9]+$"
-                            expect(subject.items).to(equal([
-                                "#FF0022",
-                                "#ff11ab"
-                                ]))
-                        }
+                context("substring") {
+                    beforeEach {
+                        subject.searchMode = .substringMatch
                     }
-                    context("case sensitive") {
-                        beforeEach {
-                            subject.searchMode = .regexpStrictCase
-                        }
 
-                        it("filters case sensitive regexp matches") {
-                            subject.filterText = "Bob"
-                            expect(subject.count).to(equal(4))
-                            expect(subject.items.last).to(equal("Bob the Hoojah Melon"))
-                            expect(subject.items).to(equal([
-                                "Bob",
-                                "Bobby",
-                                "JR Bob Dobbs",
-                                "Bob the Hoojah Melon"
-                                ]))
+                    it("does a literal string match") {
+                        subject.filterText = "[looks like a regex] .*"
+                        expect(subject.items) == [
+                            "[looks like a regex] .* use a substring match?"
+                        ]
+                    }
+                }
+            }
 
-                            subject.filterText = "^#[a-f0-9]+$"
-                            expect(subject.items.count).to(equal(1))
-                            expect(subject.items).to(equal([
-                                "#ff11ab"
-                                ]))
-                        }
+            context("regexp") {
+                context("case insensitive") {
+                    beforeEach {
+                        subject.searchMode = .regexpAnyCase
+                    }
+
+                    it("filters regexp matches") {
+                        subject.filterText = "Bob"
+                        expect(subject.items) == [
+                            "Bob",
+                            "Robobt",
+                            "Bobby",
+                            "JR Bob Dobbs",
+                            "Bob the Hoojah Melon"
+                        ]
+
+                        subject.filterText = "^#[a-f0-9]+$"
+                        expect(subject.items) == [
+                            "#FF0022",
+                            "#ff11ab"
+                        ]
+                    }
+                }
+                context("case sensitive") {
+                    beforeEach {
+                        subject.searchMode = .regexpStrictCase
+                    }
+
+                    it("filters case sensitive regexp matches") {
+                        subject.filterText = "Bob"
+                        expect(subject.count) == 4
+                        expect(subject.items.last) == "Bob the Hoojah Melon"
+                        expect(subject.items) == [
+                            "Bob",
+                            "Bobby",
+                            "JR Bob Dobbs",
+                            "Bob the Hoojah Melon"
+                        ]
+
+                        subject.filterText = "^#[a-f0-9]+$"
+                        expect(subject.items.count) == 1
+                        expect(subject.items) == [
+                            "#ff11ab"
+                        ]
                     }
                 }
             }

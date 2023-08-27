@@ -68,7 +68,7 @@ class HistoryService: NSObject {
             return internalDefaultSearchmode
         }
         set {
-            self.defaults.set(newValue.axID(), forKey: searchModeKey)
+            self.defaults.set(newValue.axID, forKey: searchModeKey)
             invalidateCaches()
         }
     }
@@ -170,6 +170,10 @@ class HistoryService: NSObject {
                 cache = historyItems.regexpSearchFiltered(
                     search: search,
                     options: [])
+            case .substringMatch:
+                cache = historyItems.substringSearchFiltered(
+                    search: search
+                )
             }
         } else {
             cache = historyItems
@@ -207,6 +211,10 @@ class HistoryService: NSObject {
                 cache = historyItems.regexpSearchFiltered(
                     search: search,
                     options: [])
+            case .substringMatch:
+                cache = historyItems.substringSearchFiltered(
+                    search: search
+                )
             }
         } else {
             cache = historyItems
@@ -221,11 +229,11 @@ class HistoryService: NSObject {
     }
 
     func beginPolling() {
-        guard pollingTimer == nil else {
+        guard self.pollingTimer == nil else {
             return
         }
 
-        pollingTimer = Timer.scheduledTimer(timeInterval: 0.2,
+        self.pollingTimer = Timer.scheduledTimer(timeInterval: 0.2,
                                             target: self,
                                             selector: #selector(self.pollPasteboard),
                                             userInfo: nil,
@@ -233,22 +241,22 @@ class HistoryService: NSObject {
     }
 
     func endPolling() {
-        guard pollingTimer != nil else {
+        guard self.pollingTimer != nil else {
             return
         }
-        pollingTimer?.invalidate()
-        pollingTimer = nil
+        self.pollingTimer?.invalidate()
+        self.pollingTimer = nil
     }
 
     @discardableResult
     func toggleSearchMode() -> HistorySearchMode {
-        self.searchMode = self.searchMode.next()
+        self.searchMode = self.searchMode.next
         return self.searchMode
     }
 
     func clear() {
         self.historyRepo.clearHistory()
-        invalidateCaches()
+        self.invalidateCaches()
         self.events.onNext(.didClearHistory) // not currently used
     }
 
@@ -256,7 +264,7 @@ class HistoryService: NSObject {
     /// see historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool
     func clearWithTimestampPredicate(predicate: (String) -> Bool) {
         self.historyRepo.clearHistory(timestampPredicate: predicate)
-        invalidateCaches()
+        self.invalidateCaches()
     }
 
     private func itemSelectionToHistoryIndexes(selected: IndexSet) -> IndexSet {
@@ -286,14 +294,14 @@ class HistoryService: NSObject {
 
         self.historyRepo
             .removeAtIndexes(indexes: indexes)
-        invalidateCaches()
+        self.invalidateCaches()
     }
 
     func toggleFavorite(items: IndexSet) {
         let indexes = itemSelectionToHistoryDictIndexes(selected: items)
         self.historyRepo
             .toggleFavorite(indexes: indexes)
-        invalidateCaches()
+        self.invalidateCaches()
     }
 
     func saveToDefaults() {
@@ -371,7 +379,7 @@ class HistoryService: NSObject {
 
     func setTimeFilter(seconds: Double?) {
         self.historyRepo.timeFilter = seconds
-        invalidateCaches()
+        self.invalidateCaches()
         self.events.onNext(.didLoadDefaults) // not currently used
     }
 }
