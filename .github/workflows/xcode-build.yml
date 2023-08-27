@@ -86,7 +86,7 @@ jobs:
 
       - name: Command line test
         run: |
-          make cli_test
+          bin/command_line_test
 
       - name: CLI Build
         run: |
