@@ -79,6 +79,10 @@ jobs:
         run: |
           make test_themes
 
+      - name: CutBox Build
+        run: |
+          make build
+
       - name: Command line test
         run: |
           make cli_test
@@ -86,10 +90,6 @@ jobs:
       - name: CLI Build
         run: |
           make -C cutbox_command dmg_bin
-
-      - name: CutBox Build
-        run: |
-          make build
 
       - name: Make DMG
         run: |
