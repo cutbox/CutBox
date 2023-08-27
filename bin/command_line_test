@@ -1,39 +1,12 @@
 #!/bin/bash
 
-cross_mark="✗"
-check_mark="✓"
-
-exists_check() {
-    if [ -e "$1" ]; then
-        printf "${check_mark}"
+pipe_to_github_summary() {
+    if [[ "" == "${GITHUB_STEP_SUMMARY}" ]]; then
+        cat
     else
-        printf "${cross_mark}"
+        tee -a "${GITHUB_STEP_SUMMARY}"
     fi
 }
-
-which_check() {
-    if which "$1" > /dev/null; then
-        printf "${check_mark}"
-    else
-        printf "${cross_mark}"
-    fi
-}
-
-not_empty_check() {
-    if [[ "$1" != "" ]]; then
-        printf "${check_mark}"
-    else
-        printf "${cross_mark}"
-    fi
-}
-
-# pipe_to_github_summary() {
-#     if [[ "" == "${GITHUB_STEP_SUMMARY}" ]]; then
-#         cat
-#     else
-#         tee -a "${GITHUB_STEP_SUMMARY}"
-#     fi
-# }
 
 cd cutbox_command || exit 1
 
@@ -49,19 +22,9 @@ cat <<-EOF
 ====================================================
  CutBox - cutbox cli - build success
 ====================================================
- Checking test runner dependencies - debugging.
 
- [$(which_check xcpretty)] xcpretty
- [$(exists_check "../bin/quickspec_markdown_xcpretty_formatter.rb")] quickspec markdown formatter for xcpretty
- [$(not_empty_check "${GITHUB_STEP_SUMMARY}")] GITHUB_STEP_SUMMARY ($GITHUB_STEP_SUMMARY)
 Testing...
 ----------------------------------------------------
 EOF
 
-swift test -Xswiftc -suppress-warnings > test_output
-xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb < test_output > markdown_output
-
-cat markdown_output >>  "$GITHUB_STEP_SUMMARY"
-cat markdown_output
-
-rm test_output markdown_output
+make test | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb | pipe_to_github_summary
