@@ -1,5 +1,32 @@
 #!/bin/bash
 
+cross_mark="✗"
+check_mark="✓"
+
+exists_check() {
+    if [ -e "$1" ]; then
+        printf "${check_mark}"
+    else
+        printf "${cross_mark}"
+    fi
+}
+
+which_check() {
+    if which "$1"; then
+        printf "${check_mark}"
+    else
+        printf "${cross_mark}"
+    fi
+}
+
+not_empty_check() {
+    if [[ "$1" != "" ]]; then
+        printf "${check_mark}"
+    else
+        printf "${cross_mark}"
+    fi
+}
+
 pipe_to_github_summary() {
     if [[ "" == "${GITHUB_STEP_SUMMARY}" ]]; then
         cat
@@ -22,7 +49,11 @@ cat <<-EOF
 ====================================================
  CutBox - cutbox cli - build success
 ====================================================
+ Checking test runner dependencies - debugging.
 
+ [$(which_check xcpretty)] xcpretty
+ [$(exists_check "../bin/quickspec_markdown_xcpretty_formatter.rb")] quickspec markdown formatter for xcpretty
+ [$(not_empty_check "${GITHUB_STEP_SUMMARY}")] GITHUB_STEP_SUMMARY ($GITHUB_STEP_SUMMARY)
 Testing...
 ----------------------------------------------------
 EOF
