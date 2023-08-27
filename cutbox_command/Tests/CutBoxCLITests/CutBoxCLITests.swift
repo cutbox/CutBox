@@ -52,8 +52,16 @@ class CutBoxCLISpec: QuickSpec {
                 if let path = bundle.path(forResource: "info.ocodo.CutBox", ofType: "plist") {
                     plist = loadPlist(path: path)
                     out = MockOutput()
+
+                    let expected =
+                      "2023-08-25T15:12:36Z: Test three\n\n" +
+                      "2023-08-25T15:12:30Z: Test two\n\n" +
+                      "2023-08-25T15:12:23Z: Test one\n\n"
+
                     let output = cutbox("--show-date")
-                    expect(output) == "2023-08-25T15:12:36Z: Test three\n\n2023-08-25T15:12:30Z: Test two\n\n2023-08-25T15:12:23Z: Test one\n\n"
+
+                    expect(output) == expected
+
                 } else {
                     fail("couldn't load \(plistFilename)")
                 }
@@ -78,7 +86,7 @@ class CutBoxCLISpec: QuickSpec {
                     // 6 minutes ago
                     "timestamp": lastTimestamp])
                 plist["historyStore"] = historyEntries
-                
+
                 out = MockOutput()
             }
 

@@ -32,7 +32,9 @@ public enum FileHelpers {
                     if fm.fileExists(atPath: fullPath) {
                         if entry == name {
                             return fullPath
-                        } else if (try? fm.attributesOfItem(atPath: fullPath))?[.type] as? FileAttributeType == .typeDirectory {
+                        } else if (try? fm
+                                     .attributesOfItem(atPath: fullPath))?[.type] as?
+                                    FileAttributeType == .typeDirectory {
                             queue.append(fullPath)
                         }
                     }
