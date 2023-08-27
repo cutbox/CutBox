@@ -12,7 +12,7 @@ exists_check() {
 }
 
 which_check() {
-    if which "$1"; then
+    if which "$1" > /dev/null; then
         printf "${check_mark}"
     else
         printf "${cross_mark}"
@@ -27,13 +27,13 @@ not_empty_check() {
     fi
 }
 
-pipe_to_github_summary() {
-    if [[ "" == "${GITHUB_STEP_SUMMARY}" ]]; then
-        cat
-    else
-        tee -a "${GITHUB_STEP_SUMMARY}"
-    fi
-}
+# pipe_to_github_summary() {
+#     if [[ "" == "${GITHUB_STEP_SUMMARY}" ]]; then
+#         cat
+#     else
+#         tee -a "${GITHUB_STEP_SUMMARY}"
+#     fi
+# }
 
 cd cutbox_command || exit 1
 
@@ -58,4 +58,10 @@ Testing...
 ----------------------------------------------------
 EOF
 
-swift test -Xswiftc -suppress-warnings | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb | pipe_to_github_summary
+swift test -Xswiftc -suppress-warnings > test_output
+xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb < test_output > markdown_output
+
+cat markdown_output >>  "$GITHUB_STEP_SUMMARY"
+cat markdown_output
+
+rm test_output markdown_output
