@@ -27,4 +27,6 @@ Testing...
 ----------------------------------------------------
 EOF
 
-make test | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb | pipe_to_github_summary
+# // make test | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb | pipe_to_github_summary
+
+swift test  -Xswiftc -suppress-warnings | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb | pipe_to_github_summary
