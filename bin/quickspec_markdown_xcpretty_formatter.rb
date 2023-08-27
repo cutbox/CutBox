@@ -1,7 +1,6 @@
 require 'xcpretty'
 
-class Markdown < XCPretty::Simple
-
+class QuickSpecMarkdown < XCPretty::Simple
   def format_test_case_name(name)
     separator = " ⇒ "
     name = name.gsub('Don_t', "Don't")
@@ -58,4 +57,4 @@ class Markdown < XCPretty::Simple
   end
 end
 
-Markdown
+QuickSpecMarkdown

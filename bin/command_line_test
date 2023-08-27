@@ -1,25 +1,25 @@
 #!/bin/bash
 
+PROJECT_ROOT="$(git rev-parse --show-toplevel)"
+
 github_summary() {
     [ "$GITHUB_STEP_SUMMARY" != "" ] && echo "$1" >> "$GITHUB_STEP_SUMMARY"
     echo "$1"
 }
 
-summary_test() {
-    if [[ "$2" == "$3" ]]; then
-        github_summary "| $1 | ✓ |"
+pipe_to_github_summary() {
+    if [[ "" == "$GITHUB_STEP_SUMMARY" ]]; then
+        cat
     else
-        github_summary "| $1 | ☠ |"
-        echo "$2"
-        echo "  not eqaul to  "
-        echo "$3"
+        cat >> "$GITHUB_STEP_SUMMARY"
     fi
 }
 
 cd cutbox_command || exit 1
-xcodebuild || exit 1
 
-cutbox_cli=build/Release/cutbox
+make build
+
+cutbox_cli="$(swift build --show-bin-path)"/CutBoxCLI
 
 if [[ ! -e $cutbox_cli ]]; then
     exit 1
@@ -34,96 +34,4 @@ Testing...
 ----------------------------------------------------
 EOF
 
-# Tests expect a clean machine to prepare dummy data.
-# User is required to backup and remove the cutbox preferences
-# (contains settings and history.)
-if [[ -e $HOME/Library/Preferences/info.ocodo.CutBox.plist ]]; then
-    cat <<-EOF
-
-====================================================
-
-    WARNING: CutBox Installed / In Use
-             CLI Tests Cancelled
-----------------------------------------------------
-NOTE:
-
-To run tests backup & delete
-
-    ~/Library/Preferences/info.ocodo.CutBox.plist
-
-The CutBox.app should be closed before preparing and
-running cli tests
-
-[Script target: macOS on CI instance]
-====================================================
-
-EOF
-
-    exit 1
-fi
-
-defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Test Passed?</string><key>favorite</key><string>favorite</string></dict>"
-defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied Text</string><key>timestamp</key><string>${date_hour_ago}</string></dict>"
-defaults write info.ocodo.cutbox historyStore -array-add "<dict><key>string</key><string>Copied text</string><key>timestamp</key><string>${date_day_ago}</string></dict>"
-
-github_summary "$($cutbox_cli --help)"
-github_summary "
-# CutBox CLI Tests
-"
-github_summary \
-"| Test |  |
-|------|--|"
-
-summary_test \
-"\`cutbox\`" \
-"$($cutbox_cli)" \
-"Test Passed?
-Copied Text
-Copied text"
-
-summary_test "\`cutbox --fuzzy text\`" \
-"$($cutbox_cli --fuzzy text)" \
-"Copied text"
-
-summary_test "\`cutbox --fuzzy zoo\`" \
-"$($cutbox_cli --fuzzy zoo)" \
-""
-
-summary_test "\`cutbox --regex Text\`" \
-"$($cutbox_cli --regex Text)" \
-"Copied Text"
-
-summary_test "\`cutbox --regexi Text\`" \
-"$($cutbox_cli --regexi Text)" \
-"Copied Text
-Copied text"
-
-summary_test "\`cutbox --favorites\`" \
-"$($cutbox_cli --favorites)" \
-"Test Passed?"
-
-summary_test "\`cutbox --missing-date\`" \
-"$($cutbox_cli --missing-date)" \
-"Test Passed?"
-
-summary_test "\`cutbox --since 61mins\`" \
-"$($cutbox_cli --since 61mins)" \
-"Test Passed?
-Copied Text"
-
-summary_test "\`cutbox --since 1.1day\`" \
-"$($cutbox_cli --since 1.1day)" \
-"Test Passed?
-Copied Text
-Copied text"
-
-summary_test "\`cutbox --before 1.1hour\`" \
-"$($cutbox_cli --before 1.1hour)" \
-"Test Passed?
-Copied text"
-
-summary_test "\`cutbox --before 1.1day\`" \
-"$($cutbox_cli --before 1.1day)" \
-"Test Passed?"
-
-[ "$GITHUB_STEP_SUMMARY" != "" ] &&  [[ "$(grep "☠" "$GITHUB_STEP_SUMMARY")" == "" ]]  ||  exit 1
+make test | xcpretty -f ../bin/quickspec_markdown_xcpretty_formatter.rb

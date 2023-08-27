@@ -2,10 +2,4 @@
 set -o pipefail && xcodebuild \
 -workspace CutBox/CutBox.xcworkspace \
 -scheme CutBoxUnitTests \
-test | xcpretty -f bin/markdown_xcpretty_formatter.rb | sed -n -e '/^# Started: CutBoxUnitTests.xctest$/,/^      Executed/p' | tee markdown_test_report.md
-
-if [ "$GITHUB_STEP_SUMMARY" != "" ]; then
-   cat markdown_test_report.md >> $GITHUB_STEP_SUMMARY
-   rm markdown_test_report.md
-   [[ "$(grep "✗" "$GITHUB_STEP_SUMMARY")" == "" ]]  ||  exit 1
-fi
+test | xcpretty -f bin/quickspec_markdown_xcpretty_formatter.rb | sed -n -e '/^# Started: CutBoxUnitTests.xctest$/,/^      Executed/p' | tee -a "$GITHUB_STEP_SUMMARY"

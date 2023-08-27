@@ -1,13 +1,17 @@
 build ::
-	xcodebuild
+	swift build
 
-test_bin :: build
-	cp -v build/Release/cutbox ../test_bin/
+test ::
+	swift test --enable-code-coverage
+
+coverage_report :: build test
+	xcrun llvm-cov show -format html -ignore-filename-regex="checkouts|CutBoxCLITests" -instr-profile .build/x86_64-apple-macosx/debug/codecov/default.profdata .build/x86_64-apple-macosx/debug/CutBoxCLIPackageTests.xctest/Contents/MacOS/CutBoxCLIPackageTests > coverage.html
+
+test_bin ::
+	cp .build/x86_64-apple-macosx/debug/CutBoxCLI ../test_bin/cutbox
 
 install :: build
-	cp -v build/Release/cutbox /usr/local/bin/cutbox
+	cp .build/x86_64-apple-macosx/debug/CutBoxCLI /usr/local/bin/cutbox
 
-verify_test :: test_bin
-	../test_bin/cutbox -h
-
-all :: install verify_test
+clean ::
+	swift package clean
