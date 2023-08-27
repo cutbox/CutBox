@@ -12,3 +12,4 @@ Brewfile.lock.json
 /cutbox_command/.build/
 build/
 **/*.lcov
+**/MockingbirdCache/**
