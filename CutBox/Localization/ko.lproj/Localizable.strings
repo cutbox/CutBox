@@ -18,11 +18,12 @@
 "cutbox_menu_clear_history" = "기록 지우기";
 "cutbox_menu_compactui" = "간결한 UI";
 "cutbox_menu_hide_preview" = "미리보기 숨기기";
-"cutbox_menu_fuzzy_match" = "퍼지 일치";
 "cutbox_menu_preferences" = "환경 설정";
 "cutbox_menu_quit" = "종료";
-"cutbox_menu_regexp_any_case" = "임의의 대소문자 정규식";
+"cutbox_menu_fuzzy_match" = "퍼지 일치";
+"cutbox_menu_regexp_any_case_match" = "임의의 대소문자 정규식";
 "cutbox_menu_regexp_case_match" = "대소문자 일치 정규식";
+"cutbox_menu_substring_match" = "정확한 일치";
 "cutbox_menu_search_cutbox" = "CutBox에서 검색";
 "js_func_search_placeholder" = "JavaScript로 붙여넣기...";
 "ok" = "확인";

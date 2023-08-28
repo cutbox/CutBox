@@ -18,11 +18,12 @@
 "cutbox_menu_clear_history" = "清除历史记录";
 "cutbox_menu_compactui" = "紧凑界面";
 "cutbox_menu_hide_preview" = "隐藏预览";
-"cutbox_menu_fuzzy_match" = "模糊匹配";
 "cutbox_menu_preferences" = "首选项";
 "cutbox_menu_quit" = "退出";
-"cutbox_menu_regexp_any_case" = "任意大小写正则";
+"cutbox_menu_fuzzy_match" = "模糊匹配";
+"cutbox_menu_regexp_any_case_match" = "任意大小写正则";
 "cutbox_menu_regexp_case_match" = "大小写匹配正则";
+"cutbox_menu_substring_match" = "精确匹配";
 "cutbox_menu_search_cutbox" = "搜索 CutBox";
 "js_func_search_placeholder" = "通过 JavaScript 粘贴...";
 "ok" = "确定";

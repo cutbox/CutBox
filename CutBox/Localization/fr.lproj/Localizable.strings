@@ -17,12 +17,13 @@
 "cutbox_menu_about" = "À propos de CutBox";
 "cutbox_menu_clear_history" = "Effacer l'historique";
 "cutbox_menu_compactui" = "Interface Compacte";
-"cutbox_menu_fuzzy_match" = "Correspondance floue";
 "cutbox_menu_hide_preview" = "Masquer l'aperçu";
 "cutbox_menu_preferences" = "Préférences";
 "cutbox_menu_quit" = "Quitter";
-"cutbox_menu_regexp_any_case" = "Expression Régulière sans distinction de cas";
+"cutbox_menu_fuzzy_match" = "Correspondance floue";
+"cutbox_menu_regexp_any_case_match" = "Expression Régulière sans distinction de cas";
 "cutbox_menu_regexp_case_match" = "Expression Régulière avec distinction de cas";
+"cutbox_menu_substring_match" = "Exacte";
 "cutbox_menu_search_cutbox" = "Rechercher dans CutBox";
 "js_func_search_placeholder" = "Coller via JavaScript...";
 "ok" = "OK";

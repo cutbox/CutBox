@@ -13,3 +13,4 @@ Brewfile.lock.json
 build/
 **/*.lcov
 **/MockingbirdCache/**
+.swiftpm

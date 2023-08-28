@@ -18,11 +18,12 @@
 "cutbox_menu_clear_history" = "Clear History";
 "cutbox_menu_compactui" = "Compact UI";
 "cutbox_menu_hide_preview" = "Hide Preview";
-"cutbox_menu_fuzzy_match" = "Fuzzy Match";
 "cutbox_menu_preferences" = "Preferences";
 "cutbox_menu_quit" = "Quit";
-"cutbox_menu_regexp_any_case" = "Regexp any case";
+"cutbox_menu_fuzzy_match" = "Fuzzy Match";
+"cutbox_menu_regexp_any_case_match" = "Regexp any case";
 "cutbox_menu_regexp_case_match" = "Regexp case match";
+"cutbox_menu_substring_match" = "Exact match";
 "cutbox_menu_search_cutbox" = "Search CutBox";
 "js_func_search_placeholder" = "Paste through Javascript...";
 "ok" = "Ok";

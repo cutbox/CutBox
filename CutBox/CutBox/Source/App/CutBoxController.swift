@@ -19,6 +19,7 @@ class CutBoxController: NSObject {
     var fuzzyMatchModeItem: NSMenuItem!
     var regexpModeItem: NSMenuItem!
     var regexpCaseSensitiveModeItem: NSMenuItem!
+    var substringSearchModeItem: NSMenuItem!
 
     @IBOutlet weak var statusMenu: NSMenu!
 
@@ -118,22 +119,23 @@ class CutBoxController: NSObject {
             (0, "cutbox_menu_search_cutbox".l7n, nil, "searchClicked:"),
             (1, "---", nil, nil),
             (2, "cutbox_menu_fuzzy_match".l7n, "fuzzyMatch", "searchModeSelect:"),
-            (3, "cutbox_menu_regexp_any_case".l7n, "regexpAnyCase", "searchModeSelect:"),
+            (3, "cutbox_menu_regexp_any_case_match".l7n, "regexpAnyCase", "searchModeSelect:"),
             (4, "cutbox_menu_regexp_case_match".l7n, "regexpStrictCase", "searchModeSelect:"),
-            (5, "---", nil, nil),
-            (6, "cutbox_menu_compactui".l7n, nil, "useCompactUIClicked:"),
-            (7, "cutbox_menu_hide_preview".l7n, nil, "hidePreviewClicked:"),
-            (8, "---", nil, nil),
-            (9, "cutbox_menu_preferences".l7n, nil, "openPreferences:"),
-            (10, "cutbox_menu_clear_history".l7n, nil, "clearHistoryClicked:"),
-            (11, "---", nil, nil),
-            (12, "preferences_javascript_transform_reload".l7n, nil, "reloadJavascript:"),
-            (13, "preferences_color_theme_reload_themes".l7n, nil, "reloadThemes:"),
-            (14, "---", nil, nil),
-            // 15: Sparkle: Check for Updates
+            (5, "cutbox_menu_substring_match".l7n, "substringMatch", "searchModeSelect:"),
+            (6, "---", nil, nil),
+            (7, "cutbox_menu_compactui".l7n, nil, "useCompactUIClicked:"),
+            (8, "cutbox_menu_hide_preview".l7n, nil, "hidePreviewClicked:"),
+            (9, "---", nil, nil),
+            (10, "cutbox_menu_preferences".l7n, nil, "openPreferences:"),
+            (11, "cutbox_menu_clear_history".l7n, nil, "clearHistoryClicked:"),
+            (12, "---", nil, nil),
+            (13, "preferences_javascript_transform_reload".l7n, nil, "reloadJavascript:"),
+            (14, "preferences_color_theme_reload_themes".l7n, nil, "reloadThemes:"),
+            (15, "---", nil, nil),
+            // 16: Sparkle: Check for Updates
             //     It will find and fill the empty slot automatically.
-            (16, "cutbox_menu_about".l7n, nil, "openAboutPanel:"),
-            (17, "cutbox_menu_quit".l7n, nil, "quitClicked:")
+            (17, "cutbox_menu_about".l7n, nil, "openAboutPanel:"),
+            (18, "cutbox_menu_quit".l7n, nil, "quitClicked:")
             //     So number all the indexes correctly, leaving a gap.
         ]
 
@@ -143,10 +145,11 @@ class CutBoxController: NSObject {
 
         setModeSelectors(fuzzyMatchModeItem: menu.item(at: 2)!,
                          regexpModeItem: menu.item(at: 3)!,
-                         regexpCaseSensitiveModeItem: menu.item(at: 4)!)
+                         regexpCaseSensitiveModeItem: menu.item(at: 4)!,
+                         substringSearchModeItem: menu.item(at: 5)!)
 
-        self.useCompactUI = menu.item(at: 6)!
-        self.hidePreview = menu.item(at: 7)!
+        self.useCompactUI = menu.item(at: 7)!
+        self.hidePreview = menu.item(at: 8)!
 
         setCompactUIMenuItem()
         setHidePreviewMenuItem()
@@ -260,20 +263,26 @@ class CutBoxController: NSObject {
 
     func setModeSelectors(fuzzyMatchModeItem: NSMenuItem,
                           regexpModeItem: NSMenuItem,
-                          regexpCaseSensitiveModeItem: NSMenuItem) {
+                          regexpCaseSensitiveModeItem: NSMenuItem,
+                          substringSearchModeItem: NSMenuItem
+                        ) {
         self.fuzzyMatchModeItem = fuzzyMatchModeItem
         self.regexpModeItem = regexpModeItem
         self.regexpCaseSensitiveModeItem = regexpCaseSensitiveModeItem
+        self.substringSearchModeItem = substringSearchModeItem
 
         self.searchModeSelectors = [
             self.fuzzyMatchModeItem,
             self.regexpModeItem,
-            self.regexpCaseSensitiveModeItem]
+            self.regexpCaseSensitiveModeItem,
+            self.substringSearchModeItem
+        ]
 
         self.searchModeSelectorsDict = [
             "fuzzyMatch": self.fuzzyMatchModeItem,
             "regexpAnyCase": self.regexpModeItem,
-            "regexpStrictCase": self.regexpCaseSensitiveModeItem
+            "regexpStrictCase": self.regexpCaseSensitiveModeItem,
+            "substringMatch": self.substringSearchModeItem
         ]
 
         checkSearchModeItem(

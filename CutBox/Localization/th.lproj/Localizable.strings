@@ -18,11 +18,12 @@
 "cutbox_menu_clear_history" = "ล้างประวัติ";
 "cutbox_menu_compactui" = "อินเตอร์เฟซแบบ Compact";
 "cutbox_menu_hide_preview" = "ซ่อนภาพตัวอย่าง";
-"cutbox_menu_fuzzy_match" = "ค้นหาที่ออกแบบมั่วๆ";
 "cutbox_menu_preferences" = "การตั้งค่า";
 "cutbox_menu_quit" = "ออก";
-"cutbox_menu_regexp_any_case" = "ค้นหาแบบ Regexp ทุกตัว";
+"cutbox_menu_fuzzy_match" = "ค้นหาที่ออกแบบมั่วๆ";
+"cutbox_menu_regexp_any_case_match" = "ค้นหาแบบ Regexp ทุกตัว";
 "cutbox_menu_regexp_case_match" = "ค้นหาแบบ Regexp ที่ตรงตามตัวอักษรใหญ่เล็ก";
+"cutbox_menu_substring_match" = "ที่แน่นอน";
 "cutbox_menu_search_cutbox" = "ค้นหาใน CutBox";
 "js_func_search_placeholder" = "วางผ่าน JavaScript...";
 "ok" = "ตกลง";
@@ -86,5 +87,5 @@
 "searchmode_regexp_tooltip" = "ค้นหาแบบ RegExp (ไม่ตรงตามตัวอักษรใหญ่เล็ก)";
 "search_time_filter_label_active" = "ค้นหาเฉพาะรายการที่คัดลอกระหว่าง %@ และ %@ ที่ผ่านมา";
 "search_time_filter_label_hint" = "ป้อนเวลาเป็นหน่วยเวลา N, ตัวอย่างเช่น 1 h, 2 w, 5 day, 2 min ฯลฯ";
-"searchmode_substring" = "ตรงตาม";
+"searchmode_substring" = "ที่แน่นอน";
 "searchmode_substring_tooltip" = "ค้นหาตรงตาม";

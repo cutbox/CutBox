@@ -18,11 +18,12 @@
 "cutbox_menu_clear_history" = "履歴をクリア";
 "cutbox_menu_compactui" = "コンパクトな UI";
 "cutbox_menu_hide_preview" = "プレビューを非表示";
-"cutbox_menu_fuzzy_match" = "曖昧な一致";
 "cutbox_menu_preferences" = "設定";
 "cutbox_menu_quit" = "終了";
-"cutbox_menu_regexp_any_case" = "大文字小文字を区別しない正規表現";
+"cutbox_menu_fuzzy_match" = "曖昧な一致";
+"cutbox_menu_regexp_any_case_match" = "大文字小文字を区別しない正規表現";
 "cutbox_menu_regexp_case_match" = "大文字小文字を区別する正規表現";
+"cutbox_menu_substring_match" = "完全一致";
 "cutbox_menu_search_cutbox" = "CutBox を検索";
 "js_func_search_placeholder" = "JavaScript を介して貼り付け...";
 "ok" = "OK";
