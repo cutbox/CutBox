@@ -263,7 +263,7 @@ struct HistoryManager {
             return []
         }
 
-        return historyDict.compactMap { itemAsHistoryEntry($0 as [String : Any]) }
+        return historyDict.compactMap { itemAsHistoryEntry($0 as [String: Any]) }
     }
 
     func itemAsHistoryEntry(_ item: [String: Any]) -> HistoryEntry? {

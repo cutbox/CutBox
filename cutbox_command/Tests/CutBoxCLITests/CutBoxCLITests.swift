@@ -98,7 +98,7 @@ class CutBoxCLISpec: QuickSpec {
                     // 6 minutes ago
                     "timestamp": lastTimestamp])
                 plist["historyStore"] = historyEntries
-                
+
                 out = MockOutput()
             }
             
