@@ -330,7 +330,7 @@ struct HistoryManager {
             case .regexi:
                 return regexpMatch(entry.string, query, caseSensitive: false)
             case .string:
-                return entry.string.localizedStandardContains(query)
+                return entry.string.contains(query)
             }
         }
     }
