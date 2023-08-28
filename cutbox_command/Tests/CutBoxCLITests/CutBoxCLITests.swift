@@ -147,13 +147,13 @@ class CutBoxCLISpec: QuickSpec {
                     expect(out.printLog) == emptyPrintedOutput
                 }
 
-                it("cutbox --string-match 'ied tex'") {
-                    cutbox("--string-match", "ied tex")
+                it("cutbox --exact 'ied tex'") {
+                    cutbox("--exact", "ied tex")
                     expect(out.printLog) == "Copied text\n"
                 }
 
-                it("cutbox -s 'text'") {
-                    cutbox("-s", "text")
+                it("cutbox -e 'text'") {
+                    cutbox("-e", "text")
                     expect(out.printLog) == "Copied text\n"
                 }
 

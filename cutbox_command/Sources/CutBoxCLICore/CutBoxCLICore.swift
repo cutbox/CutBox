@@ -234,7 +234,7 @@ class CommandParams {
             query = rawQuery.replacingOccurrences(of: "\"", with: "")
         }
 
-        if let rawQuery: String = hasOpt("-s", "--string-match") {
+        if let rawQuery: String = hasOpt("-e", "--exact") {
             searchMode = .string
             query = rawQuery
         }
@@ -375,6 +375,7 @@ func usageInfo() -> String {
     -f or --fuzzy <query>   Fuzzy match items (case insensitive)
     -r or --regex <query>   Regexp match items
     -i or --regexi <query>  Regexp match items (case insensitive)
+    -e --exact <string>     Exact substring match items (case sensitive)
 
     Filtering
     ---------
