@@ -1,4 +1,4 @@
-// swift-tools-version: 5.5
+// swift-tools-version: 5.7
 
 import PackageDescription
 
@@ -9,8 +9,6 @@ let package = Package(
         .package(url: "https://github.com/Quick/Nimble.git", from: "9.0.0")
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .executableTarget(
             name: "CutBoxCLI",
             dependencies: ["CutBoxCLICore"]),

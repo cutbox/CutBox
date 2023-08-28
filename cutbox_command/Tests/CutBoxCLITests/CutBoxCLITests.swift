@@ -10,11 +10,21 @@ import Nimble
 
 @testable import CutBoxCLICore
 
-class MockOutput: POutput {
-    var logged = ""
+class MockOutput: Output {
+    var printLog = ""
+    var errorLog = ""
 
-    func log(_ string: String) {
-        logged += string + "\n"
+    override func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+        printLog += items
+            .map { String(describing: $0) }
+            .joined(separator: separator) + terminator
+    }
+
+    override func error(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+        errorLog += items
+            .map { String(describing: $0) }
+            .compactMap{ $0 }
+            .joined(separator: separator) + terminator
     }
 }
 
@@ -27,10 +37,12 @@ class CutBoxCLISpec: QuickSpec {
         var out: MockOutput!
         var plist: [String: Any] = [:]
 
-        func cutbox(_ arguments: String ...) -> String {
+        let emptyOutput = ""
+        let emptyPrintedOutput = "\n"
+
+        func cutbox(_ arguments: String ...) {
             CommandLine.arguments = arguments
             cutBoxCliMain(out: out, plist: plist)
-            return out.logged
         }
 
         func timestampNow() -> String {
@@ -58,9 +70,9 @@ class CutBoxCLISpec: QuickSpec {
                       "2023-08-25T15:12:30Z: Test two\n\n" +
                       "2023-08-25T15:12:23Z: Test one\n\n"
 
-                    let output = cutbox("--show-date")
+                    cutbox("--show-date")
 
-                    expect(output) == expected
+                    expect(out.printLog) == expected
 
                 } else {
                     fail("couldn't load \(plistFilename)")
@@ -86,123 +98,177 @@ class CutBoxCLISpec: QuickSpec {
                     // 6 minutes ago
                     "timestamp": lastTimestamp])
                 plist["historyStore"] = historyEntries
-
+                
                 out = MockOutput()
             }
-
-            it("cutbox") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox()).to(equal(expectedOutput))
-            }
-
-            it("cutbox --show-time") {
-                let expectedOutput =
-                "\(firstTimestamp): Test Passed?\n" +
-                "UNKNOWN DATETIME: Copied Text\n" +
-                "\(lastTimestamp): Copied text\n"
-                expect(cutbox("--show-time")).to(equal(expectedOutput))
-            }
-
-            it("cutbox --limit 2") {
-                let expectedOutput = "Test Passed?\nCopied Text\n"
-                expect(cutbox("--limit", "2")).to(equal(expectedOutput))
-            }
-
-            it("cutbox -l 1") {
-                let expectedOutput = "Test Passed?\n"
-                expect(cutbox("-l", "1")).to(equal(expectedOutput))
-            }
             
-            it("cutbox --help") {
-                expect(cutbox("--help")) == usageInfo() + "\n"
+            context("valid arguments") {
+                it("cutbox") {
+                    let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
+
+                    cutbox()
+                    expect(out.printLog) == expectedOutput
+                }
+
+                it("cutbox --show-time") {
+                    let expectedOutput =
+                    "\(firstTimestamp): Test Passed?\n" +
+                    "UNKNOWN DATETIME: Copied Text\n" +
+                    "\(lastTimestamp): Copied text\n"
+
+                    cutbox("--show-time")
+                    expect(out.printLog) == expectedOutput
+                }
+
+                it("cutbox --limit 2") {
+                    let expectedOutput = "Test Passed?\nCopied Text\n"
+
+                    cutbox("--limit", "2")
+                    expect(out.printLog) == expectedOutput
+                }
+
+                it("cutbox -l 1") {
+                    cutbox("-l", "1")
+                    expect(out.printLog) == "Test Passed?\n"
+                }
+
+                it("cutbox --help") {
+                    cutbox("--help")
+                    expect(out.printLog) == usageInfo() + "\n"
+                }
+
+                it("cutbox --fuzzy text") {
+                    cutbox("--fuzzy", "text")
+                    expect(out.printLog) == "Copied Text\nCopied text\n"
+                }
+
+                it("cutbox --fuzzy zoo") {
+                    cutbox("--fuzzy", "zoo")
+                    expect(out.printLog) == emptyPrintedOutput
+                }
+
+                it("cutbox --string-match 'ied tex'") {
+                    cutbox("--string-match", "ied tex")
+                    expect(out.printLog) == "Copied text\n"
+                }
+
+                it("cutbox -s 'text'") {
+                    cutbox("-s", "text")
+                    expect(out.printLog) == "Copied text\n"
+                }
+
+                it("cutbox --regex Text") {
+                    cutbox("--regex", "Text")
+                    expect(out.printLog) == "Copied Text\n"
+                }
+
+                it("cutbox --regexi Text") {
+                    cutbox("--regexi", "Text")
+                    expect(out.printLog) == "Copied Text\nCopied text\n"
+                }
+
+                it("cutbox --favorites") {
+                    cutbox("--favorites")
+                    expect(out.printLog) == "Test Passed?\n"
+                }
+
+                it("cutbox --missing-date") {
+                    cutbox("--missing-date")
+                    expect(out.printLog) == "Copied Text\n"
+                }
+
+                it("cutbox --since 7mins") {
+                    cutbox("--since", "7mins")
+                    expect(out.printLog) == "Copied text\n"
+                }
+
+                it("cutbox --since 2.1day") {
+                    cutbox("--since", "2.1day")
+                    expect(out.printLog) == "Test Passed?\nCopied text\n"
+                }
+
+                it("cutbox --before 2.1day") {
+                    cutbox("--before", "2.1day")
+                    expect(out.printLog) == emptyPrintedOutput
+                }
+
+                it("cutbox --before 2.1sec") {
+                    let expectedOutput = "Test Passed?\nCopied text\n"
+                    cutbox("--before", "2.1sec")
+                    expect(out.printLog) == expectedOutput
+                }
+
+                it("cutbox --before 5hrs --since 2.1days") {
+                    cutbox("--before", "5hrs", "--since", "2.1days")
+                    expect(out.printLog) == "Test Passed?\n"
+                }
+
+                it("cutbox --before hour") {
+                    cutbox("--before", "hour")
+                    expect(out.printLog) == emptyOutput
+                }
+
+                it("cutbox --since-date 2023-06-05T09:21:59Z") {
+                    cutbox("--since-date", "2023-06-05T09:21:59Z")
+                    expect(out.printLog) == "Test Passed?\nCopied text\n"
+                }
+
+                it("cutbox -l 1.012") {
+                    let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
+                    cutbox("-l", "1.012")
+                    expect(out.printLog) == expectedOutput
+                }
+
+                it("cutbox -l -v missing limit value.") {
+                    let expectedError = "Invalid argument: -l \nInvalid argument: -v \n"
+
+                    cutbox("-l", "-v")
+                    expect(out.printLog) == emptyOutput
+                    expect(out.errorLog) == expectedError
+                }
+
+                it("cutbox --regex ") {
+                    let expectedOutput = emptyPrintedOutput
+                    cutbox("--regex", ".*///\\\\....\\/\\\\ }")
+                    expect(out.printLog) == expectedOutput
+                    expect(out.errorLog) == emptyOutput
+                }
+
+                it("cutbox --before-date invalid timestamp") {
+                    let expectedError = "Invalid argument: --before-date lkgjfglsdkjgsldfkjg\n"
+                    cutbox("--before-date", "lkgjfglsdkjgsldfkjg")
+                    expect(out.errorLog) == expectedError
+                    expect(out.printLog) == ""
+                }
+
+                it("cutbox --before-date missing timestamp") {
+                    cutbox("--before-date", "-v")
+                    expect(out.printLog) == emptyOutput
+                    expect(out.errorLog) == "Invalid argument: --before-date \nInvalid argument: -v \n"
+                }
+
+                it("cutbox --since-date invalid timestamp") {
+                    let expectedOutput = "Invalid argument: --since-date [^{]*....\\/\\\\ }\n"
+                    cutbox("--since-date", "[^{]*....\\/\\\\ }")
+                    expect(out.errorLog) == expectedOutput
+                    expect(out.printLog) == emptyOutput
+                }
+
+                it("cutbox --since-date missing timestamp") {
+                    let expectedError = "Invalid argument: --since-date \nInvalid argument: -v \n"
+                    cutbox("--since-date", "-v")
+                    expect(out.errorLog) == expectedError
+                    expect(out.printLog) == emptyOutput
+                }
             }
 
-            it("cutbox --fuzzy text") {
-                expect(cutbox("--fuzzy", "text")) == "Copied Text\nCopied text\n"
-            }
-
-            it("cutbox --fuzzy zoo") {
-                expect(cutbox("--fuzzy", "zoo")) == "\n"
-            }
-
-            it("cutbox --regex Text") {
-                expect(cutbox("--regex", "Text")) == "Copied Text\n"
-            }
-
-            it("cutbox --regexi Text") {
-                expect(cutbox("--regexi", "Text")) == "Copied Text\nCopied text\n"
-            }
-
-            it("cutbox --favorites") {
-                expect(cutbox("--favorites")) == "Test Passed?\n"
-            }
-
-            it("cutbox --missing-date") {
-                expect(cutbox("--missing-date")) == "Copied Text\n"
-            }
-
-            it("cutbox --since 7mins") {
-                expect(cutbox("--since", "7mins")) == "Copied text\n"
-            }
-
-            it("cutbox --since 2.1day") {
-                expect(cutbox("--since", "2.1day")) == "Test Passed?\nCopied text\n"
-            }
-
-            it("cutbox --before 2.1day") {
-                expect(cutbox("--before", "2.1day")) == "\n"
-            }
-
-            it("cutbox --before 2.1sec") {
-                let expectedOutput = "Test Passed?\nCopied text\n"
-                expect(cutbox("--before", "2.1sec")) == expectedOutput
-            }
-
-            it("cutbox --before 5hrs --since 2.1days") {
-                expect(cutbox("--before", "5hrs", "--since", "2.1days")) == "Test Passed?\n"
-            }
-
-            it("cutbox --before hour") {
-                expect(cutbox("--before", "hour")) == "Test Passed?\nCopied Text\nCopied text\n"
-            }
-
-            it("cutbox --since-date 2023-06-05T09:21:59Z") {
-                expect(cutbox("--since-date", "2023-06-05T09:21:59Z")) == "Test Passed?\nCopied text\n"
-            }
-
-            it("cutbox -l 1.012") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox("-l", "1.012")).to(equal(expectedOutput))
-            }
-
-            it("cutbox -l -v missing limit value.") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox("-l", "-v")).to(equal(expectedOutput))
-            }
-
-            it("cutbox --regex invalid") {
-                let expectedOutput = "\n"
-                expect(cutbox("--regex", "[^{]*....\\/\\\\ }")) == expectedOutput
-            }
-
-            it("cutbox --before-date invalid timestamp") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox("--before-date", "[^{]*....\\/\\\\ }")) == expectedOutput
-            }
-
-            it("cutbox --before-date missing timestamp") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox("--before-date", "-v")) == expectedOutput
-            }
-
-            it("cutbox --since-date invalid timestamp") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox("--since-date", "[^{]*....\\/\\\\ }")) == expectedOutput
-            }
-
-            it("cutbox --since-date missing timestamp") {
-                let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
-                expect(cutbox("--since-date", "-v")) == expectedOutput
+            context("invalid arguments") {
+                it("cutbox --power-level Over9000") {
+                    let expectedErrorLog = "Invalid argument: --power-level Over9000\n"
+                    cutbox("--power-level", "Over9000")
+                    expect(out.errorLog) == expectedErrorLog
+                    expect(out.printLog) == emptyOutput
+                }
             }
         }
     }

@@ -20,7 +20,7 @@ struct HistoryEntry {
 }
 
 enum SearchMode {
-    case fuzzy, regex, regexi
+    case fuzzy, regex, regexi, string
 }
 
 func regexpMatch(_ string: String, _ pattern: String, caseSensitive: Bool = true) -> Bool {
@@ -47,20 +47,53 @@ class CommandParams {
     var missingDate: Bool = false
     var favorites: Bool = false
     var showTime: Bool = false
+    var errors: [(String, String)] = []
 
-    private var out: POutput
+    private var out: Output
 
-    init(out: POutput) {
+    init(out: Output) {
         self.out = out
         parse()
     }
 
     private func hasFlag(_ flag: String) -> Bool {
-        return CommandLine.arguments.contains(flag)
+        if CommandLine.arguments.contains(flag) {
+            removeArgAndValueFromCommandLine(flag)
+            return true
+        }
+        return false
     }
 
-    private func hasFlag(_ flag: [String]) -> Bool {
-        return flag.contains { hasFlag($0) }
+    private func hasFlag(_ flags: String...) -> Bool {
+        return hasFlag(flags)
+    }
+
+    private func hasFlag(_ flags: [String]) -> Bool {
+        return flags.contains(where: hasFlag)
+    }
+
+    private func removeArgAndValueFromCommandLine(_ arg: String) {
+        if let argIndex = CommandLine.arguments.firstIndex(of: arg) {
+            CommandLine.arguments.remove(at: argIndex)
+        }
+    }
+
+    private func removeArgAndValueFromCommandLine<T>(_ arg: String, _ value: T?) {
+        if let argIndex = CommandLine.arguments.firstIndex(of: arg) {
+            CommandLine.arguments.remove(at: argIndex)
+            if let value = value, let valueIndex = CommandLine.arguments
+                .firstIndex(of: String(describing: value)) {
+                CommandLine.arguments.remove(at: valueIndex)
+            }
+        }
+    }
+
+    public func printErrors() {
+        errors.forEach(printError)
+    }
+
+    private func printError(error: (String, String)) {
+        out.error("Invalid argument: \(error.0) \(error.1)")
     }
 
     private func hasOpt<T>(_ opts: String...) -> T? {
@@ -75,10 +108,13 @@ class CommandParams {
 
         switch T.self {
         case is String.Type:
+            removeArgAndValueFromCommandLine(args[index], value)
             return value as? T
         case is Int.Type:
+            removeArgAndValueFromCommandLine(args[index], value)
             return Int(value) as? T
         case is Double.Type:
+            removeArgAndValueFromCommandLine(args[index], value)
             return Double(value) as? T
         default:
             return nil
@@ -109,21 +145,52 @@ class CommandParams {
         return nil
     }
 
-    private func timeOpt(_ option: String) -> TimeInterval? {
+    private func collectError(_ opt: String, _ value: Any, description: String = "") {
+        errors.append((opt, String(describing: value)))
+    }
 
+    private func collectErrors(_ arguments: [String]) {
+        var currentOpt: String?
+        var currentValue: String = ""
+
+        for arg in arguments {
+            if arg.hasPrefix("-") {
+                if let opt = currentOpt {
+                    collectError(opt, currentValue)
+                }
+                currentOpt = arg
+                currentValue = ""
+            } else {
+                if !currentValue.isEmpty {
+                    currentValue += " "
+                }
+                currentValue += arg
+            }
+        }
+
+        if let opt = currentOpt {
+            collectError(opt, currentValue)
+        }
+    }
+
+    private func timeOpt(_ option: String) -> TimeInterval? {
         if let value: String = hasOpt(option) {
             let opt = option as NSString
             switch opt {
             case _ where opt.contains("date"):
                 if let date = iso8601().date(from: value) {
                     return date.timeIntervalSince1970
+                } else {
+                    collectError(String(opt), value)
                 }
             case _ where parseToSeconds(value) != nil:
                 if let seconds = parseToSeconds(value) {
                     return Date().timeIntervalSince1970 - seconds
+                } else {
+                    collectError(String(opt), value)
                 }
             default:
-                break
+                collectError(String(opt), value)
             }
         }
         return nil
@@ -138,39 +205,46 @@ class CommandParams {
     }
 
     private func parse() {
-        for infoFlag in  [
-            (["-h", "--help"], usageInfo()),
-            (["--version"], version)
+        let flagAndInfoPairs: [([String], String)] = [
+            (args: ["-h", "--help"], string: usageInfo()),
+            (args: ["--version"], string: version)
         ]
-        where hasFlag(infoFlag.0) {
-            out.log(infoFlag.1)
-            exit(0)
+
+        for (args, string) in flagAndInfoPairs where hasFlag(args) {
+            out.print(string)
         }
 
-        favorites = hasFlag(["-F", "--favorites", "--favorite"])
-        missingDate = hasFlag(["-M", "--missing-date", "--missing-time"])
+        favorites = hasFlag("-F", "--favorites", "--favorite")
+        missingDate = hasFlag("-M", "--missing-date", "--missing-time")
 
         beforeDate = parseTimeOptions("--before")
         sinceDate = parseTimeOptions("--since")
 
         limit = hasOpt("-l", "--limit")
 
-        showTime = hasFlag(["-T", "--show-time", "--show-date"])
-
-        if let rawQuery: String = hasOpt("-f", "--fuzzy") {
-            searchMode = SearchMode.fuzzy
-            query = rawQuery.replacingOccurrences(of: "\"", with: "")
-        }
+        showTime = hasFlag("-T", "--show-time", "--show-date")
 
         if let rawQuery: String = hasOpt("-r", "--regex") {
-            searchMode = SearchMode.regex
+            searchMode = .regex
             query = rawQuery.replacingOccurrences(of: "\"", with: "")
         }
 
         if let rawQuery: String = hasOpt("-i", "--regexi") {
-            searchMode = SearchMode.regexi
+            searchMode = .regexi
             query = rawQuery.replacingOccurrences(of: "\"", with: "")
         }
+
+        if let rawQuery: String = hasOpt("-s", "--string-match") {
+            searchMode = .string
+            query = rawQuery
+        }
+
+        if let rawQuery: String = hasOpt("-f", "--fuzzy") {
+            searchMode = .fuzzy
+            query = rawQuery
+        }
+
+        collectErrors(CommandLine.arguments)
     }
 }
 
@@ -255,6 +329,8 @@ struct HistoryManager {
                 return regexpMatch(entry.string, query)
             case .regexi:
                 return regexpMatch(entry.string, query, caseSensitive: false)
+            case .string:
+                return entry.string.localizedStandardContains(query)
             }
         }
     }
@@ -269,16 +345,16 @@ struct OutputManager {
         return item.string
     }
 
-    func printEntries(_ entries: [HistoryEntry], params: CommandParams, out: POutput) {
-        let log = out.log
+    func printEntries(_ entries: [HistoryEntry], params: CommandParams, out: Output) {
         let printFunc: (HistoryEntry) -> String
         if params.showTime {
             printFunc = printItemWithTime
         } else {
             printFunc = printItem
         }
+
         let formattedEntries = entries.map(printFunc).joined(separator: "\n")
-        log(formattedEntries)
+        out.print(formattedEntries)
     }
 }
 
@@ -323,16 +399,17 @@ func usageInfo() -> String {
     """
 }
 
-public protocol POutput {
-    func log(_ string: String)
-}
-
-public class Output: POutput {
+public class Output {
     public init() {
     }
 
-    public func log(_ string: String) {
-        print(string)
+    public func print(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+        Swift.print(items, separator: separator, terminator: terminator)
+    }
+
+    public func error(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+        let errorOutput = items.map { String(describing: $0) }.joined(separator: separator)
+        FileHandle.standardError.write(Data((errorOutput + terminator).utf8))
     }
 }
 
@@ -353,23 +430,26 @@ public func loadPlist(path: String) -> [String: Any] {
     return plist
 }
 
-public func cutBoxCliMain(out: POutput, plist: [String: Any]) {
-    let log = out.log
+public func cutBoxCliMain(out: Output, plist: [String: Any]) {
     let args = CommandLine.arguments
 
     if args.contains("-h") || args.contains("--help") {
-        log(usageInfo())
+        out.print(usageInfo())
         return
     }
 
     let params = CommandParams(out: out)
 
-    let historyManager = HistoryManager(plist: plist)
-    var historyEntries = historyManager.loadHistoryEntries()
+    if params.errors.isEmpty {
+        let historyManager = HistoryManager(plist: plist)
+        var historyEntries = historyManager.loadHistoryEntries()
 
-    historyEntries = historyManager.filterEntries(historyEntries, params: params)
-    historyEntries = historyManager.searchEntries(historyEntries, params: params)
+        historyEntries = historyManager.filterEntries(historyEntries, params: params)
+        historyEntries = historyManager.searchEntries(historyEntries, params: params)
 
-    let outputManager = OutputManager()
-    outputManager.printEntries(historyEntries, params: params, out: out)
+        let outputManager = OutputManager()
+        outputManager.printEntries(historyEntries, params: params, out: out)
+    } else {
+        params.printErrors()
+    }
 }
