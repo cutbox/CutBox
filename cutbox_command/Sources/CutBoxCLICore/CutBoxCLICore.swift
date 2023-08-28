@@ -365,38 +365,42 @@ func usageInfo() -> String {
 
     Display items from CutBox history. Most recent items first.
 
-    cutbox [options]
+        cutbox [options]
 
     Options:
     ========
 
     Search
     ------
-    -f or --fuzzy <query>   Fuzzy match items (case insensitive)
-    -r or --regex <query>   Regexp match items
-    -i or --regexi <query>  Regexp match items (case insensitive)
-    -e --exact <string>     Exact substring match items (case sensitive)
+
+        -f or --fuzzy <query>   Fuzzy match items (case insensitive)
+        -r or --regex <query>   Regexp match items
+        -i or --regexi <query>  Regexp match items (case insensitive)
+        -e or --exact <string>  Exact substring match items (case sensitive)
 
     Filtering
     ---------
-    -l or --limit <num>     Limit to num items
-    -F or --favorites       Only list favorites
-    -M or --missing-date    Only list items missing a date (copied pre CutBox v1.5.5)
+
+        -l or --limit <num>     Limit to num items
+        -F or --favorites       Only list favorites
+        -M or --missing-date    Only list items missing a date (copied pre CutBox v1.5.5)
 
     Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 2wks, 1.5hours, etc.
     Supports seconds, minutes, hours, days, weeks.
 
-    --since <time>
-    --before <time>
+        --since <time>
+        --before <time>
 
     Filter by ISO 8601 date e.g. 2023-06-05T09:21:59Z
-    --since-date <date>
-    --before-date <date>
+
+        --since-date <date>
+        --before-date <date>
 
     Info
     ----
-    --version               Show the current version
-    -h or --help            Show this help page
+
+        --version               Show the current version
+        -h or --help            Show this help page
     """
 }
 
