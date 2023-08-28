@@ -94,7 +94,7 @@ To exit press <kbd>**Esc**</kbd>.
 
 Use the status item to open Cutbox with the mouse, and access options: 
 
-![](CutBox/CutBox/GraphicAssets/cutbox-menu.png)
+<img height="380px" src="CutBox/CutBox/GraphicAssets/cutbox-menu.png">
 
 # Install via Homebrew Cask (recommended)
 
