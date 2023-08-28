@@ -23,7 +23,7 @@ class MockOutput: Output {
     override func error(_ items: Any..., separator: String = " ", terminator: String = "\n") {
         errorLog += items
             .map { String(describing: $0) }
-            .compactMap{ $0 }
+            .compactMap { $0 }
             .joined(separator: separator) + terminator
     }
 }
