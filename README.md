@@ -47,7 +47,7 @@ Any text you copy on MacOS is saved to CutBox's history.
 
 (This can be customized in preferences.)
 
-### Searching and pasting
+### Search and Paste
 
 With the CutBox window open, search for anything you copied.
 
@@ -56,9 +56,7 @@ current app.
 
 To exit press <kbd>**Esc**</kbd>.
 
-
-
-# Shortcuts / Key commands:
+# Keyboard Shortcuts
 
 | Shortcut Keys                              | Action                                                                                    |
 |--------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -154,54 +152,51 @@ FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
 
 # Command line access
 
-The CutBox also has a CLI tool to access history via the terminal.  Download the CLI command `cutbox` from [releases](https://github.com/cutbox/CutBox/releases). (From v1.5.8 onwards.)
+CutBox also has a CLI tool to access history via the terminal.  Download the CLI command `cutbox` from [releases](https://github.com/cutbox/CutBox/releases). (From v1.5.8 onwards.)
 
 Note the CLI only performs read-only actions on CutBox history.
 
-```sh
-OVERVIEW:
-        CutBox history CLI
+CutBox history CLI
+==================
 
-USAGE:  cutbox [options]
+Display items from CutBox history. Most recent items first.
 
-        Display items from CutBox history. Recent items first.
+    cutbox [options]
 
-OPTIONS:
-        -l or --limit <num>                Return first num items
+Options:
+========
 
-        Search
+Search
+------
 
-        -f or --fuzzy <query>              Fuzzy match items
-        -r or --regex <query>              Regexp match items
-        -i or --regexi <query>             Regexp match items (case insensitive)
+    -f or --fuzzy <query>   Fuzzy match items (case insensitive)
+    -r or --regex <query>   Regexp match items
+    -i or --regexi <query>  Regexp match items (case insensitive)
+    -e or --exact <string>  Exact substring match items (case sensitive)
 
-        --favorites                        Only favorites
+Filtering
+---------
 
-        Filter by Date / time
+    -l or --limit <num>     Limit to num items
+    -F or --favorites       Only list favorites
+    -M or --missing-date    Only list items missing a date (copied pre CutBox v1.5.5)
 
-        --before-date <ISO 8601 datetime>  e.g. 2023-06-05T09:21:59Z
-        --since-date <ISO 8601 datetime>
+Filter by time units e.g. 7d, 1min, 5hr, 30s, 25sec, 3days, 2wks, 1.5hours, etc.
+Supports seconds, minutes, hours, days, weeks.
 
-        --before-seconds-ago <seconds>
-        --since-seconds-ago <seconds>
+    --since <time>
+    --before <time>
 
-        --before-minutes-ago <minutes>
-        --since-minutes-ago <minutes>
+Filter by ISO 8601 date e.g. 2023-06-05T09:21:59Z
 
-        --before-hours-ago <hours>
-        --since-hours-ago <hours>
+    --since-date <date>
+    --before-date <date>
 
-        --before-days-ago <days>
-        --since-days-ago <days>
+Info
+----
 
-        Misc
-
-        --missing-date                     Display history items with no date (before CutBox v1.5.5)
-
-        --version                          CutBox v1.5.8 - command line v0.0.75
-
-        -h or --help show this message.
-```
+    --version               Show the current version
+    -h or --help            Show this help page
 
 # Would you like to know more?
 
