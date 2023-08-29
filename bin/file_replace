@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+import sys
+
+if len(sys.argv) != 4:
+    print("Usage: {} file_to_match.txt file_to_insert.txt file_to_modify.txt".format(sys.argv[0]))
+    sys.exit(1)
+
+match_file_name = sys.argv[1]
+insert_file_name = sys.argv[2]
+modify_file_name = sys.argv[3]
+
+with open(match_file_name, 'r') as match_file:
+    match_content = match_file.read().strip()
+
+with open(modify_file_name, 'r') as modify_file:
+    modify_content = modify_file.read()
+
+replacement = ''
+with open(insert_file_name, 'r') as insert_file:
+    replacement = insert_file.read()
+
+output_content = modify_content.replace(match_content, replacement)
+
+print(output_content)

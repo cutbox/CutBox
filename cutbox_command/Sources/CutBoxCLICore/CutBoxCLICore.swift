@@ -56,7 +56,7 @@ class CommandParams {
         parse()
     }
 
-    private func hasFlag(_ flag: String) -> Bool {
+    func hasFlag(_ flag: String) -> Bool {
         if CommandLine.arguments.contains(flag) {
             removeArgAndValueFromCommandLine(flag)
             return true
@@ -64,21 +64,21 @@ class CommandParams {
         return false
     }
 
-    private func hasFlag(_ flags: String...) -> Bool {
+    func hasFlag(_ flags: String...) -> Bool {
         return hasFlag(flags)
     }
 
-    private func hasFlag(_ flags: [String]) -> Bool {
+    func hasFlag(_ flags: [String]) -> Bool {
         return flags.contains(where: hasFlag)
     }
 
-    private func removeArgAndValueFromCommandLine(_ arg: String) {
+    func removeArgAndValueFromCommandLine(_ arg: String) {
         if let argIndex = CommandLine.arguments.firstIndex(of: arg) {
             CommandLine.arguments.remove(at: argIndex)
         }
     }
 
-    private func removeArgAndValueFromCommandLine<T>(_ arg: String, _ value: T?) {
+    func removeArgAndValueFromCommandLine<T>(_ arg: String, _ value: T?) {
         if let argIndex = CommandLine.arguments.firstIndex(of: arg) {
             CommandLine.arguments.remove(at: argIndex)
             if let value = value, let valueIndex = CommandLine.arguments
@@ -88,15 +88,15 @@ class CommandParams {
         }
     }
 
-    public func printErrors() {
+    func printErrors() {
         errors.forEach(printError)
     }
 
-    private func printError(error: (String, String)) {
+    func printError(error: (String, String)) {
         out.error("Invalid argument: \(error.0) \(error.1)")
     }
 
-    private func hasOpt<T>(_ opts: String...) -> T? {
+    func hasOpt<T>(_ opts: String...) -> T? {
         let args = CommandLine.arguments
         guard let index = args.firstIndex(where: { opts.contains($0) }),
               let valueIndex = args.index(index, offsetBy: 1, limitedBy: args.endIndex),
@@ -121,11 +121,11 @@ class CommandParams {
         }
     }
 
-    private func filterNums(_ string: String) -> Double? {
+    func filterNums(_ string: String) -> Double? {
         return Double(string.filter { $0 == "." || $0 >= "0" && $0 <= "9" })
     }
 
-    private let timeUnitsTable = [
+    let timeUnitsTable = [
         (pattern: "m|minutes|min|mins|minute", factor: 60.0),
         (pattern: "h|hours|hr|hrs|hour", factor: 60.0 * 60.0),
         (pattern: "d|days|day", factor: 24.0 * 60.0 * 60.0),
@@ -133,7 +133,7 @@ class CommandParams {
         (pattern: "s|sec|secs|second|seconds", factor: 1.0)
     ]
 
-    private func parseToSeconds(_ time: String) -> Double? {
+    func parseToSeconds(_ time: String) -> Double? {
         if let seconds = filterNums(time) {
             return timeUnitsTable.compactMap { (unit: (pattern: String, factor: Double)) -> Double? in
                 if regexpMatch(time, unit.pattern, caseSensitive: false) {
@@ -145,11 +145,11 @@ class CommandParams {
         return nil
     }
 
-    private func collectError(_ opt: String, _ value: Any, description: String = "") {
+    func collectError(_ opt: String, _ value: Any, description: String = "") {
         errors.append((opt, String(describing: value)))
     }
 
-    private func collectErrors(_ arguments: [String]) {
+    func collectErrors(_ arguments: [String]) {
         var currentOpt: String?
         var currentValue: String = ""
 
@@ -173,7 +173,7 @@ class CommandParams {
         }
     }
 
-    private func timeOpt(_ option: String) -> TimeInterval? {
+    func timeOpt(_ option: String) -> TimeInterval? {
         if let value: String = hasOpt(option) {
             let opt = option as NSString
             switch opt {
@@ -196,7 +196,7 @@ class CommandParams {
         return nil
     }
 
-    private func parseTimeOptions(_ prefix: String) -> TimeInterval? {
+    func parseTimeOptions(_ prefix: String) -> TimeInterval? {
         let timeOptionSuffixes = ["", "-date"]
         return timeOptionSuffixes
             .map { "\(prefix)\($0)" }
@@ -204,7 +204,7 @@ class CommandParams {
             .first
     }
 
-    private func parse() {
+    func parse() {
         let flagAndInfoPairs: [([String], String)] = [
             (args: ["-h", "--help"], string: usageInfo()),
             (args: ["--version"], string: version)
@@ -337,11 +337,11 @@ struct HistoryManager {
 }
 
 struct OutputManager {
-    private func printItemWithTime(_ item: HistoryEntry) -> String {
+    func printItemWithTime(_ item: HistoryEntry) -> String {
         return "\(item.timestamp ?? "UNKNOWN DATETIME"): \(item.string)"
     }
 
-    private func printItem(_ item: HistoryEntry) -> String {
+    func printItem(_ item: HistoryEntry) -> String {
         return item.string
     }
 

@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+import sys
+import re
+
+def insert_css_link(file_path, css_href):
+    with open(file_path, 'r') as f:
+        content = f.read()
+
+    head_pattern = r'</head>'
+    new_link = f'<link rel="stylesheet" type="text/css" href="{css_href}">\n'
+
+    modified_content = re.sub(head_pattern, f'{new_link}\\g<0>', content, count=1)
+
+    with open(file_path, 'w') as f:
+        f.write(modified_content)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: {} input_html stylesheet_href".format(sys.argv[0]))
+        sys.exit(1)
+
+    input_html = sys.argv[1]
+    stylesheet_href = sys.argv[2]
+
+    insert_css_link(input_html, stylesheet_href)

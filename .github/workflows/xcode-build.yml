@@ -68,10 +68,12 @@ jobs:
           bin/lint_localized_strings
 
           echo "## Languages Correlate" >> "$GITHUB_STEP_SUMMARY"
-          for lang in cn ja ko th de fr es
-          do
-              bin/check_localization "CutBox/Localization/${lang}.lproj/Localizable.strings";
-          done
+
+          find CutBox/Localization \
+             -type d \
+             -name "*lproj" \
+             -not -name 'en.lproj' \
+             -exec bin/check_localization "{}"/Localizable.strings \;
 
           echo "## Strings Are Localized?" >> "$GITHUB_STEP_SUMMARY"
           bin/check_l7n_source
@@ -86,7 +88,16 @@ jobs:
 
       - name: Command line test
         run: |
+          mkdir -p docs/coverage
           bin/command_line_test
+          make -C cutbox_command coverage_report
+          bin/insert_css_link docs/coverage/index.html "index.css"
+
+      - name: CLI Coverage Report to cutbox.github.io
+        run: |
+          git add docs
+          git commit -m "Update Pages - cli coverage"
+          git push
 
       - name: CLI Build
         run: |
