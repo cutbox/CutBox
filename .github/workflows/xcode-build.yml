@@ -155,9 +155,9 @@ jobs:
         run: |
           {
             echo "- - -"
-            echo "[${{env.RELEASE}}](${{ steps.create_release.outputs.html_url }})"
-            echo "- - -"
             cat tmp/release-notes.md
+            echo ""
+            echo "### Link to [${{env.RELEASE}}](${{ steps.create_release.outputs.html_url }})"
             echo "- - -"
           } >> "$GITHUB_STEP_SUMMARY"
 
