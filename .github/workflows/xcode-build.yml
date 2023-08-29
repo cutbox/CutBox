@@ -104,11 +104,6 @@ jobs:
         run: |
           mkdir tmp/
           bin/get_release_notes | tee tmp/release-notes.md
-          {
-            echo "- - -"
-            cat tmp/release-notes.md
-            echo "- - -"
-          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create Release
         id: create_release
@@ -126,7 +121,7 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: CutBox.dmg
           asset_name: CutBox-${{env.RELEASE}}.dmg
-          asset_content_type: application/octet-stream
+          asset_content_type: application/octet-stream      
 
       - name: Update Info.plist (commit/push)
         run: |
@@ -155,4 +150,14 @@ jobs:
                https://api.github.com/repos/cutbox/cutbox.github.io/actions/workflows/35834026/dispatches \
                --data '{"ref":"master","inputs":{"release":"${{ env.RELEASE }}"}}'
           fi
+
+      - name: Release Notes to Step Summary
+        run: |
+          {
+            echo "- - -"
+            echo "[${{env.RELEASE}}](${{ steps.create_release.outputs.html_url }})"
+            echo "- - -"
+            cat tmp/release-notes.md
+            echo "- - -"
+          } >> "$GITHUB_STEP_SUMMARY"
 
