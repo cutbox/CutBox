@@ -108,7 +108,7 @@ jobs:
             echo "- - -"
             cat tmp/release-notes.md
             echo "- - -"
-          } >> RELEASE_NOTES_SUMMARY.md
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create Release
         id: create_release
@@ -127,16 +127,6 @@ jobs:
           asset_path: CutBox.dmg
           asset_name: CutBox-${{env.RELEASE}}.dmg
           asset_content_type: application/octet-stream
-
-      - name: Release notes to GitHub Step Summary
-        run: |
-          {
-            echo "- - -"
-            echo "#### ${{ steps.create_release.outputs.url }}"
-            echo "- - -"
-            cat RELEASE_NOTES_SUMMARY.md
-          } >> "$GITHUB_STEP_SUMMARY"
-          rm RELEASE_NOTES_SUMMARY.md
 
       - name: Update Info.plist (commit/push)
         run: |
