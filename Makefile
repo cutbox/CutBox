@@ -14,7 +14,7 @@ build ::
 	bin/build
 
 dmg ::
-	rm CutBox.dmg
+	rm -f CutBox.dmg
 	bin/cutbox_make_dmg CutBox.dmg
 
 ci_get_release_info ::
