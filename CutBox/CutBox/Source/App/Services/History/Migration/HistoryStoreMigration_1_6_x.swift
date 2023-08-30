@@ -25,8 +25,10 @@ class HistoryStoreMigration_1_6_x {
     private let timestampKey = "timestamp"
     private let favoriteKey = "favorite"
     private let stringKey = "string"
+    private let dateFormatter = DateFormatter()
 
     init(defaults: UserDefaults = UserDefaults.standard) {
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         self.defaults = defaults
     }
 
@@ -66,7 +68,7 @@ class HistoryStoreMigration_1_6_x {
 
         historyStore?.forEach { var item = $0
             if !item.keys.contains(timestampKey) {
-                let timestamp = ISO8601DateFormatter()
+                let timestamp = dateFormatter
                     .string(from: (Date(timeIntervalSinceNow: offset + idx)))
                 idx += 1
                 item[timestampKey] = timestamp

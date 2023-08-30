@@ -91,13 +91,20 @@ jobs:
           mkdir -p docs/coverage
           bin/command_line_test
           make -C cutbox_command coverage_report
-          bin/insert_css_link docs/coverage/index.html "index.css"
+          cp docs/customized.css docs/style.css
+          bin/fix_llvm_html_pathnames docs
 
-      - name: CLI Coverage Report to cutbox.github.io
+      - name: CLI Coverage Report to cutbox.github.io/CutBox/coverage
         run: |
           git add docs
-          git commit -m "Update Pages - cli coverage"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes to coverage report"
+          else
+            echo "Commit coverage report on docs/coverage"
+            git commit -m "Update Pages - cli coverage"
+            git pull --rebase --autostash
+            git push
+          fi
 
       - name: CLI Build
         run: |
@@ -171,5 +178,7 @@ jobs:
             cat tmp/release-notes.md
             echo ""
             echo "### Link to [${{env.RELEASE}}](${{ steps.create_release.outputs.html_url }})"
+            echo "- - -"
+            echo "### [cutbox CLI Code Coverage...](https://cutbox.github.io/CutBox/)"
             echo "- - -"
           } >> "$GITHUB_STEP_SUMMARY"

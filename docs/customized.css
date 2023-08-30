@@ -6,14 +6,20 @@
 .cyan {
   background-color: cyan;
 }
+
 body {
-  font-family: -apple-system, sans-serif; 
+  font-family: -apple-system, sans-serif;
   background-color: #2B2A33;
   color: #EFEAE8;
 }
 
+h1 { font-size: 28pt; }
+h2 { font-size: 24pt; }
+h3 { font-size: 20pt; }
+h4 { font-size: 16pt; }
+
 .source-name-title {
-  padding: 5px 10px;
+  padding: 4px 18px;
   border-bottom: 1px solid #367994;
   background-color: #eee0;
   line-height: 35px;
@@ -24,7 +30,7 @@ body {
   margin-left: left;
   margin-right: auto;
   border: 1px solid #367994;
-  border-radius: 3px;
+  border-radius: 10pt;
 }
 .expansion-view {
   background-color: #FFFFFF00;
@@ -39,42 +45,39 @@ table {
   border-collapse: collapse;
 }
 .light-row {
-  background: #ffffff;
-  border: 1px solid #367994;
+  background: unset;
+  border: 1px solid #36799444;
 }
 .light-row-bold {
-  background: #ffffff;
-  border: 1px solid #367994;
+  background: unset;
+  border: 1px solid #36799444;
   font-weight: bold;
 }
 .column-entry {
   text-align: left;
 }
 .column-entry-bold {
-  font-weight: bold;
   text-align: left;
+  font-family: monospace;
+  font-size: 16pt;
+  padding: 10px 15px;
 }
-.column-entry-yellow {
-  text-align: left;
-  background-color: #ffffd0;
-}
-.column-entry-yellow:hover {
-  background-color: #fffff0;
-}
-.column-entry-red {
-  text-align: left;
-  background-color: #ffd0d0;
-}
-.column-entry-red:hover {
-  background-color: #fff0f0;
-}
+
 .column-entry-green {
   text-align: left;
-  background-color: #d0ffd0;
+  background-color: #00FF0044;
 }
-.column-entry-green:hover {
-  background-color: #f0fff0;
+
+.column-entry-yellow {
+  text-align: left;
+  background-color: #00FFFF22;
 }
+
+.column-entry-red {
+  text-align: left;
+  background-color: #FF000033;
+}
+
 .line-number {
   text-align: right;
   color: #aaa;
@@ -125,7 +128,7 @@ table {
 }
 th, td {
   vertical-align: top;
-  padding: 2px 8px;
+  padding: 0px 10px;
   border-collapse: collapse;
   border-right: solid 1px #367994;
   border-left: solid 1px #367994;
@@ -145,6 +148,7 @@ tr:hover {
 }
 a {
   color: #367994;
+  text-decoration: unset;
 }
 
 tr:has(.covered-line) {
