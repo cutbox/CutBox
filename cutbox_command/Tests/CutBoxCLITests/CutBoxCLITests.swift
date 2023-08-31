@@ -78,6 +78,15 @@ class CutBoxCLISpec: QuickSpec {
                     fail("couldn't load \(plistFilename)")
                 }
             }
+
+            it("throws a fatalError when a plist file cannot be read") {
+                let temp = "\(FileManager.default.temporaryDirectory.path)/tmp_file.plist"
+                FileManager.default.createFile(
+                    atPath: temp,
+                    contents: "Nothing in here but plain old garbage.".data(using: .ascii)
+                )
+                expect { loadPlist(path: temp) }.to(throwAssertion())
+            }
         }
 
         describe("CutBox CLI") {
