@@ -126,7 +126,7 @@ class CutBoxCLICoreSpec: QuickSpec {
 
                 out = MockOutput()
             }
-            
+
             context("valid arguments") {
                 it("cutbox") {
                     let expectedOutput = "Test Passed?\nCopied Text\nCopied text\n"
