@@ -28,7 +28,7 @@ class MockOutput: Output {
     }
 }
 
-class CutBoxCLISpec: QuickSpec {
+class CutBoxCLICoreSpec: QuickSpec {
     override func spec() {
         let iso = DateFormatter()
         iso.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -56,7 +56,7 @@ class CutBoxCLISpec: QuickSpec {
         let firstTimestamp = timestampSecondsAgo(3600 * 24 * 2)
         let lastTimestamp = timestampSecondsAgo(360)
 
-        describe("CutBoxCLI loadPlist") {
+        describe("CutBoxCLICore loadPlist") {
             it("Loads a plist") {
                 let bundle = Bundle.module
                 let plistFilename = "info.ocodo.CutBox.plist"
@@ -86,6 +86,22 @@ class CutBoxCLISpec: QuickSpec {
                     contents: "Nothing in here but plain old garbage.".data(using: .ascii)
                 )
                 expect { loadPlist(path: temp) }.to(throwAssertion())
+            }
+        }
+
+        describe("regexpMatch") {
+            // Shallow testing, since we're wrapping NSRegularExpression
+
+            it("returns true on regexp match") {
+                expect(regexpMatch("abcdef", "[a]")).to(beTrue())
+            }
+
+            it("returns false for no regexp match") {
+                expect( regexpMatch("bcdef123", "[a]")).to(beFalse())
+            }
+
+            it("returns false if the regexp pattern is invalid") {
+                expect( regexpMatch("string to check", "[invalid pattern") ).to(beFalse())
             }
         }
 
