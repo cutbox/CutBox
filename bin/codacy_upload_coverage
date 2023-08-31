@@ -8,7 +8,7 @@ DERIVED_DATA="$(xcodebuild -showBuildSettings -workspace CutBox/CutBox.xcworkspa
 
 xcrun llvm-cov export "$DERIVED_DATA"/Products/Debug/CutBoxUnitTests.xctest/Contents/MacOS/CutBoxUnitTests \
     -instr-profile "$DERIVED_DATA/"ProfileData/**/Coverage.profdata \
-    -ignore-filename-regex "Pods|Mockingbird|Sparkle|CutBoxUnitTests" \
+    -ignore-filename-regex "Pods|Mockingbird|Sparkle|CutBoxUnitTests|Controller|View" \
     -format=lcov > CutBox.app.coverage.lcov
 
 bash <(curl -Ls https://coverage.codacy.com/get.sh)
