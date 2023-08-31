@@ -81,7 +81,7 @@ class CommandParams {
             removeArgAndValueFromCommandLine(args[index], value)
             return Double(value) as? T
         default:
-            return nil
+            fatalError("hasOpt will only return String?, Double? or Int? ")
         }
     }
 
@@ -131,8 +131,6 @@ class CommandParams {
             case _ where parseToSeconds(value) != nil:
                 if let seconds = parseToSeconds(value) {
                     return Date().timeIntervalSince1970 - seconds
-                } else {
-                    collectError(String(opt), value)
                 }
             default:
                 collectError(String(opt), value)

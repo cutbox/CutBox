@@ -53,6 +53,11 @@ class CommandParamsSpec: QuickSpec {
                 let result: String? = subject.hasOpt("--opt")
                 expect(result).to(beNil())
             }
+
+            it("will throw a fatalError if the return type is not String, Int or Double") {
+                subject.arguments  = ["--opt", ""]
+                expect { subject.hasOpt("--opt") }.to(throwAssertion())
+            }
         }
 
         describe("timeOpt") {
