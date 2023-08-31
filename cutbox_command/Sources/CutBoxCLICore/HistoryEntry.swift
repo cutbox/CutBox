@@ -1,6 +1,6 @@
 import Foundation
 
-struct HistoryEntry {
+struct HistoryEntry: Equatable {
     let string: String
     let timestamp: String?
     let favorite: String?

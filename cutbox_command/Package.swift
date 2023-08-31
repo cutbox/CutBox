@@ -17,6 +17,6 @@ let package = Package(
         .testTarget(
             name: "CutBoxCLITests",
             dependencies: ["CutBoxCLICore", "Quick", "Nimble"],
-            resources: [.copy("info.ocodo.CutBox.plist")])
+            resources: [.copy("Resources/info.ocodo.CutBox.plist")])
     ]
 )
