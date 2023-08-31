@@ -101,10 +101,7 @@ class CommandParams {
                 currentOpt = arg
                 currentValue = ""
             } else {
-                if !currentValue.isEmpty {
-                    currentValue += " "
-                }
-                currentValue += arg
+                currentValue += currentValue.isEmpty ? arg : " \(arg)"
             }
         }
 
