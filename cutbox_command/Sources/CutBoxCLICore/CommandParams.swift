@@ -85,30 +85,6 @@ class CommandParams {
         }
     }
 
-    func filterNums(_ string: String) -> Double? {
-        return Double(string.filter { $0 == "." || $0 >= "0" && $0 <= "9" })
-    }
-
-    let timeUnitsTable = [
-        (pattern: "m|minutes|min|mins|minute", factor: 60.0),
-        (pattern: "h|hours|hr|hrs|hour", factor: 60.0 * 60.0),
-        (pattern: "d|days|day", factor: 24.0 * 60.0 * 60.0),
-        (pattern: "w|week|weeks|wk|wks", factor: 7.0 * 24.0 * 60.0 * 60.0),
-        (pattern: "s|sec|secs|second|seconds", factor: 1.0)
-    ]
-
-    func parseToSeconds(_ time: String) -> Double? {
-        if let seconds = filterNums(time) {
-            return timeUnitsTable.compactMap { (unit: (pattern: String, factor: Double)) -> Double? in
-                if regexpMatch(time, unit.pattern, caseSensitive: false) {
-                    return seconds * unit.factor
-                }
-                return nil
-            }.first
-        }
-        return nil
-    }
-
     func collectError(_ opt: String, _ value: Any, description: String = "") {
         errors.append((opt, String(describing: value)))
     }
@@ -137,6 +113,14 @@ class CommandParams {
         }
     }
 
+    func parseTimeOptions(_ prefix: String) -> TimeInterval? {
+        let timeOptionSuffixes = ["", "-date"]
+        return timeOptionSuffixes
+            .map { "\(prefix)\($0)" }
+            .compactMap { timeOpt($0) }
+            .first
+    }
+
     func timeOpt(_ option: String) -> TimeInterval? {
         if let value: String = hasOpt(option) {
             let opt = option as NSString
@@ -160,12 +144,28 @@ class CommandParams {
         return nil
     }
 
-    func parseTimeOptions(_ prefix: String) -> TimeInterval? {
-        let timeOptionSuffixes = ["", "-date"]
-        return timeOptionSuffixes
-            .map { "\(prefix)\($0)" }
-            .compactMap { timeOpt($0) }
-            .first
+    func filterNums(_ string: String) -> Double? {
+        return Double(string.filter { $0 == "." || $0 >= "0" && $0 <= "9" })
+    }
+
+    let timeUnitsTable = [
+        (pattern: "m|minutes|min|mins|minute", factor: 60.0),
+        (pattern: "h|hours|hr|hrs|hour", factor: 60.0 * 60.0),
+        (pattern: "d|days|day", factor: 24.0 * 60.0 * 60.0),
+        (pattern: "w|week|weeks|wk|wks", factor: 7.0 * 24.0 * 60.0 * 60.0),
+        (pattern: "s|sec|secs|second|seconds", factor: 1.0)
+    ]
+
+    func parseToSeconds(_ time: String) -> Double? {
+        if let seconds = filterNums(time) {
+            return timeUnitsTable.compactMap { (unit: (pattern: String, factor: Double)) -> Double? in
+                if regexpMatch(time, unit.pattern, caseSensitive: false) {
+                    return seconds * unit.factor
+                }
+                return nil
+            }.first
+        }
+        return nil
     }
 
     func parse() {
