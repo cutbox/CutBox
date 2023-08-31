@@ -3,7 +3,7 @@
 import os
 import sys
 
-def modify_html_report(file_path):
+def modify_html_report(file_path, source_path_start):
     with open(file_path, 'r') as file:
         content = file.read()
 
@@ -16,10 +16,12 @@ def modify_html_report(file_path):
     while start_index != -1 and end_index != -1:
         original_path = content[start_index + len(start_tag):end_index].strip()
         print(f"found: {original_path}")
-        modified_path = original_path.split('/CutBox/')[-1]  # Get portion after /CutBox/
 
-        replacement = f".../CutBox/{modified_path}"
+        # Get path after /source_path_start/
+        modified_path = original_path.split(f'/{source_path_start}/')[-1]
+        replacement = f".../{source_path_start}/{modified_path}"
         print(f"modified to: {replacement}")
+
         content = content[:start_index + len(start_tag)] + replacement + content[end_index:]
         
         start_index = content.find(start_tag, start_index + len(replacement))
@@ -29,18 +31,19 @@ def modify_html_report(file_path):
         file.write(content)
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: {} <reports_root_path>".format(sys.argv[0]))
+    if len(sys.argv) != 3:
+        print("Usage: {} <reports_root_path> <source_path_start_at>".format(sys.argv[0]))
         sys.exit(1)
 
     reports_root = sys.argv[1]
+    source_path_start = sys.argv[2]
 
     for root, _, files in os.walk(reports_root):
         for file in files:
             if file.endswith('.html'):
                 print(f"Checking: {file}")
                 file_path = os.path.join(root, file)
-                modify_html_report(file_path)
+                modify_html_report(file_path, source_path_start)
 
 if __name__ == "__main__":
     main()

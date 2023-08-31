@@ -92,7 +92,7 @@ jobs:
           bin/command_line_test
           make -C cutbox_command coverage_report
           cp docs/customized.css docs/style.css
-          bin/fix_llvm_html_pathnames docs
+          bin/fix_llvm_html_pathnames docs cutbox_command
 
       - name: CLI Coverage Report to cutbox.github.io/CutBox/coverage
         run: |
