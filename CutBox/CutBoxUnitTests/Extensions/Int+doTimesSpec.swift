@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class Int_doTimesSpec: QuickSpec {
     override func spec() {
         describe("Int.doTimes") {

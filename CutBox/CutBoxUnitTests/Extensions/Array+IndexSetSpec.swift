@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class ArrayIndexSetSpec: QuickSpec {
     override func spec() {
         describe("Array+IndexSet") {

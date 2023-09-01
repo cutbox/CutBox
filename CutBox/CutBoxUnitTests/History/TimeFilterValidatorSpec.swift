@@ -6,9 +6,10 @@
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 
-import Foundation
 import Quick
 import Nimble
+
+@testable import CutBox
 
 class TimeFilterValidatorSpec: QuickSpec {
     override func spec() {

@@ -10,7 +10,6 @@ import Foundation
 import Cocoa
 
 extension CutBoxPreferencesService {
-
     func scaleTextDown() {
         if let itemSize = self.searchViewClipTextFieldFont?.pointSize,
             let previewSize = self.searchViewClipPreviewFont?.pointSize {

@@ -9,6 +9,7 @@
 import Quick
 import Nimble
 import JSONSchema
+@testable import CutBox
 
 class CutBoxThemeSpec: QuickSpec {
     override func spec() {

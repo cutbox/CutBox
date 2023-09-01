@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class CutBoxPreferencesServiceSpec: QuickSpec {
     override func spec() {
         describe("CutBoxPreferencesServiceSpec") {

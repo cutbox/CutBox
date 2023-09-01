@@ -6,13 +6,12 @@
 //  Copyright © 2023 ocodo. All rights reserved.
 //
 
-import Foundation
-
 import Quick
 import Nimble
 
-class HistoryRepoSpec: QuickSpec {
+@testable import CutBox
 
+class HistoryRepoSpec: QuickSpec {
     override func spec() {
         describe("HistoryRepo") {
             var subject: HistoryRepo!
@@ -22,8 +21,10 @@ class HistoryRepoSpec: QuickSpec {
             beforeEach {
                 mockedDefaults = UserDefaultsMock()
                 preferences = CutBoxPreferencesService()
-                subject = HistoryRepo(defaults: mockedDefaults,
-                                      prefs: preferences)
+                subject = HistoryRepo(
+                    defaults: mockedDefaults,
+                    prefs: preferences
+                )
             }
 
             describe("timeFilter") {
@@ -56,18 +57,25 @@ class HistoryRepoSpec: QuickSpec {
                 let date = Date()
                 let timestamp = ISO8601DateFormatter().string(from: date)
                 subject.insert("Hello", date: date)
-                expect(subject.dict.first).to(equal(["string": "Hello", "timestamp": timestamp]))
+                expect(subject.dict.first).to(equal(
+                    [
+                        "string": "Hello",
+                        "timestamp": timestamp
+                    ]
+                ))
             }
 
             it("returns string items in the expected order") {
                 subject.insert("First")
                 subject.insert("Second")
                 subject.insert("Third")
-                expect(subject.items).to(equal([
-                    "Third",
-                    "Second",
-                    "First"
-                    ]))
+                expect(subject.items).to(equal(
+                    [
+                        "Third",
+                        "Second",
+                        "First"
+                    ]
+                ))
             }
 
             it("can remove string items at a given index") {

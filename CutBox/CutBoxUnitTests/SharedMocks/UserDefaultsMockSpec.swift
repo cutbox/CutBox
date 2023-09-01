@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class UserDefaultsMockSpec: QuickSpec {
     override func spec() {
         var subject: UserDefaultsMock!

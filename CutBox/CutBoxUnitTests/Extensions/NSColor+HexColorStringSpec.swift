@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class NSColorHexColorStringSpec: QuickSpec {
     override func spec() {
         describe("NSColor+HexColorStringSpec") {

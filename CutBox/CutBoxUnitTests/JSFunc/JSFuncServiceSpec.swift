@@ -9,8 +9,9 @@
 import Quick
 import Nimble
 
-class JSFuncServiceSpec: QuickSpec {
+@testable import CutBox
 
+class JSFuncServiceSpec: QuickSpec {
     override func spec() {
         var subject: JSFuncService!
 
@@ -36,22 +37,24 @@ class JSFuncServiceSpec: QuickSpec {
 
             describe("require") {
                 let fileManager = FileManager.default
-                let path = "\(fileManager.currentDirectoryPath)/test-require.js"
+                let temp = fileManager.temporaryDirectory.path + "temp.js"
 
                 beforeEach {
-                    fileManager.createFile(
-                        atPath: path,
-                        contents: "10 * 10"
-                            .data(using: .utf8)
-                    )
+                    guard fileManager.createFile(
+                        atPath: temp,
+                        contents: "10 * 10".data(using: .utf8)
+                    ) else {
+                        fail("Could not create file: \(temp)")
+                        return
+                    }
                 }
 
                 afterEach {
-                    try? fileManager.removeItem(atPath: path)
+                    try? fileManager.removeItem(atPath: temp)
                 }
 
                 it("evaluates the file as JS") {
-                    let result = subject.repl("require(\"\(path)\");")
+                    let result = subject.repl("require(\"\(temp)\");")
 
                     expect(result).to(equal("100"))
                 }

@@ -9,8 +9,9 @@
 import Quick
 import Nimble
 
-class ArrayStringRegexpSearchFilteredSpec: QuickSpec {
+@testable import CutBox
 
+class ArrayStringRegexpSearchFilteredSpec: QuickSpec {
     override func spec() {
         describe("Array[String]+regexpSearchFiltered") {
             let subject = [

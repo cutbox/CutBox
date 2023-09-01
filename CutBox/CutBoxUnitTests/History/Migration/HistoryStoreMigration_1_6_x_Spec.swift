@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
     override func spec() {
         let mockDefaults = UserDefaultsMock()

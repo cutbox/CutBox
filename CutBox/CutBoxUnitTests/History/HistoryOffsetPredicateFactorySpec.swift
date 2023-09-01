@@ -9,6 +9,8 @@
 import Quick
 import Nimble
 
+@testable import CutBox
+
 class HistoryOffsetPredicateFactorySpec: QuickSpec {
     override func spec() {
 
