@@ -8,8 +8,6 @@
 
 import Cocoa
 
-@testable import CutBox
-
 class ClipItemTableRowContainerView: ItemTableRowContainerView {
 
     var searchView: SearchAndPreviewView?

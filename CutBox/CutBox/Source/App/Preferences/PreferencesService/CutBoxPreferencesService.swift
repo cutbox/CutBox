@@ -10,8 +10,6 @@ import Cocoa
 import Magnet
 import RxSwift
 
-@testable import CutBox
-
 enum CutBoxPreferencesEvent {
     case historyLimitChanged(limit: Int)
     case compactUISettingChanged(isOn: Bool)
