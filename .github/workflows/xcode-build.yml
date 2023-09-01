@@ -49,15 +49,15 @@ jobs:
         run: |
           make setup
 
-      - name: Run Tests
-        run: |
-          make test_ci
-
       # Temporary debugging for tests
       - name: ssh gate
         uses: lhotari/action-upterm@v1
         with:
           limit-access-to-actor: true
+
+      - name: Run Tests
+        run: |
+          make test_ci
 
       - name: Upload Test Coverage to Codacy
         run: |
