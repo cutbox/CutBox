@@ -13,10 +13,12 @@ import Carbon.HIToolbox
 enum Constants {
 
     static let cutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
-
     static let searchFuzzyMatchMinScore = 0.1
-
     static let defaultCutBoxToggleKeyCombo =
       KeyCombo(QWERTYKeyCode: kVK_ANSI_V, cocoaModifiers: [.shift, .command])!
 
+    static let kHistoryStoreKey = "historyStore"
+    static let kStringKey = "string"
+    static let kFavoriteKey = "favorite"
+    static let kTimestampKey = "timestamp"
 }

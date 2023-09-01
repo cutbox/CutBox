@@ -21,10 +21,6 @@ import Foundation
 /// an unnecessary migration.
 class HistoryStoreMigration_1_6_x {
     private var defaults: UserDefaults
-    private let historyStoreKey = "historyStore"
-    private let timestampKey = "timestamp"
-    private let favoriteKey = "favorite"
-    private let stringKey = "string"
     private let dateFormatter = DateFormatter()
 
     init(defaults: UserDefaults = UserDefaults.standard) {
@@ -40,9 +36,9 @@ class HistoryStoreMigration_1_6_x {
     /// Does historyStore contain items without timestamps?
     private var hasLegacyItems: Bool {
         if let historyStore = defaults
-            .array(forKey: "historyStore") as? [[String: String]] {
+            .array(forKey: Constants.kHistoryStoreKey) as? [[String: String]] {
             return historyStore.contains(
-                where: { $0["timestamp"] == nil }
+                where: { $0[Constants.kTimestampKey] == nil }
             )
         }
         return false
@@ -50,7 +46,7 @@ class HistoryStoreMigration_1_6_x {
 
     /// Does historyStore exist in CutBox defaults?
     private var hasExistingHistoryStore: Bool {
-        if defaults.array(forKey: "historyStore") is [[String: String]] {
+        if defaults.array(forKey: Constants.kHistoryStoreKey) is [[String: String]] {
             return true
         }
         return false
@@ -59,24 +55,24 @@ class HistoryStoreMigration_1_6_x {
     /// Apply sequential ISO8601 timestamps to the legacy items
     ///
     /// - offset: seconds ago (default 30 days) to start setting timestamps
-    /// Note: TimeStamps are applied one-second apart
+    /// Note: TimeStamps are applied approximately one-second apart
     func applyTimestampsToLegacyItems(offset: TimeInterval = -2592000.0) {
         var idx = 0.0
         let historyStore = defaults
-            .array(forKey: "historyStore") as? [[String: String]]
+            .array(forKey: Constants.kHistoryStoreKey) as? [[String: String]]
         var migratedHistoryStore: [[String: String]] = []
 
         historyStore?.forEach { var item = $0
-            if !item.keys.contains(timestampKey) {
+            if !item.keys.contains(Constants.kTimestampKey) {
                 let timestamp = dateFormatter
                     .string(from: (Date(timeIntervalSinceNow: offset + idx)))
                 idx += 1
-                item[timestampKey] = timestamp
+                item[Constants.kTimestampKey] = timestamp
             }
 
             migratedHistoryStore.append(item)
         }
 
-        self.defaults.set(migratedHistoryStore, forKey: historyStoreKey)
+        self.defaults.set(migratedHistoryStore, forKey: Constants.kHistoryStoreKey)
     }
 }

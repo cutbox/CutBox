@@ -96,12 +96,7 @@ class CutBoxController: NSObject {
     }
 
     override func awakeFromNib() {
-        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
-        icon.isTemplate = true // best for dark mode
-        self.statusItem.image = icon
-        self.statusItem.menu = statusMenu
         self.hotKeyService.configure()
-
         setHotKeyServiceEventBindings()
         setSearchEventBindings()
         setPreferencesEventBindings()
@@ -109,11 +104,12 @@ class CutBoxController: NSObject {
     }
 
     func setMenuItems() {
+        let menu = self.statusMenu!
+        self.statusItem.menu = menu
+
         let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
         icon.isTemplate = true // best for dark mode
-        self.statusItem.image = icon
-
-        let menu = self.statusMenu!
+        self.statusItem.button?.image = icon
 
         let items: [StatusItemDescriptor] = [
             (0, "cutbox_menu_search_cutbox".l7n, nil, "searchClicked:"),
