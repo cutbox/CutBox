@@ -81,7 +81,7 @@ struct HistoryManager {
                 return regexpMatch(entry.string, query)
             case .regexi:
                 return regexpMatch(entry.string, query, caseSensitive: false)
-            case .string:
+            case .exact:
                 return entry.string.contains(query)
             }
         }

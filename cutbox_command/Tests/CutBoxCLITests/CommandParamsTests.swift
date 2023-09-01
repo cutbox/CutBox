@@ -18,60 +18,60 @@ class CommandParamsSpec: QuickSpec {
             subject = CommandParams(out: MockOutput(), arguments: [])
         }
 
-        describe("hasOpt function") {
+        describe("hasOption function") {
             it("should return the specified value for String type") {
                 subject.arguments  = ["-opt", "stringValue"]
 
-                let result: String? = subject.hasOpt("-opt")
+                let result: String? = subject.hasOption("-opt")
                 expect(result).to(equal("stringValue"))
             }
 
             it("should return the specified value for Int type") {
                 subject.arguments  = ["-opt", "42"]
 
-                let result: Int? = subject.hasOpt("-opt")
+                let result: Int? = subject.hasOption("-opt")
                 expect(result).to(equal(42))
             }
 
             it("should return the specified value for Double type") {
                 subject.arguments = ["-opt", "3.14"]
 
-                let result: Double? = subject.hasOpt("-opt")
+                let result: Double? = subject.hasOption("-opt")
                 expect(result).to(beCloseTo(3.14))
             }
 
             it("should return nil if option is not present") {
                 subject.arguments  = ["--otherOpt", "value"]
 
-                let result: String? = subject.hasOpt("--opt")
+                let result: String? = subject.hasOption("--opt")
                 expect(result).to(beNil())
             }
 
             it("should return nil if option value starts with '--'") {
                 subject.arguments  = ["--opt", "--invalidValue"]
 
-                let result: String? = subject.hasOpt("--opt")
+                let result: String? = subject.hasOption("--opt")
                 expect(result).to(beNil())
             }
 
             it("will throw a fatalError if the return type is not String, Int or Double") {
                 subject.arguments  = ["--opt", ""]
-                expect { subject.hasOpt("--opt") }.to(throwAssertion())
+                expect { subject.hasOption("--opt") }.to(throwAssertion())
             }
         }
 
-        describe("timeOpt") {
+        describe("timeOption") {
             it("reads a time option and checks existing arguments") {
                 subject.arguments = ["--since", "1 day"]
                 let time = Date().timeIntervalSince1970 - 86400.0
-                let result = subject.timeOpt("--since")
+                let result = subject.timeOption("--since")
 
                 expect(result).to(beCloseTo(time, within: 1.5))
             }
 
             it("returns nil for an invalid time value") {
                 subject.arguments = ["--since", "Oi Billy"]
-                let result = subject.timeOpt("--since")
+                let result = subject.timeOption("--since")
 
                 expect(result).to(beNil())
             }
