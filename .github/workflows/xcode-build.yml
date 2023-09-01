@@ -50,8 +50,9 @@ jobs:
           make setup
 
       # Temporary debugging for tests
-      - name: ssh gate
-        uses: lhotari/action-upterm@v1
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
         with:
           limit-access-to-actor: true
 
