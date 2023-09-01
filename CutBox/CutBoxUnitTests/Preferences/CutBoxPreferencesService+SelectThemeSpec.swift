@@ -9,8 +9,6 @@
 import Quick
 import Nimble
 
-@testable import CutBox
-
 class CutBoxPreferencesService_SelectThemeSpec: QuickSpec {
     override func spec() {
         var subject: CutBoxPreferencesService!

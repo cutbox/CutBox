@@ -9,9 +9,8 @@
 import Quick
 import Nimble
 
-@testable import CutBox
-
 class ArrayStringSwiftyStringScoreSpec: QuickSpec {
+
     override func spec() {
         describe("Array+String+SwiftyStringScore") {
             let sut = [

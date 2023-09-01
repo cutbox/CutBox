@@ -9,9 +9,8 @@
 import Quick
 import Nimble
 
-@testable import CutBox
-
 class PreferencesWindowSpec: QuickSpec {
+
     override func spec() {
         describe("PreferencesWindow") {
             describe("limitChangeIsDestructive") {

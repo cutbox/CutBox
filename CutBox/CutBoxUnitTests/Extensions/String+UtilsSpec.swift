@@ -8,8 +8,7 @@
 
 import Quick
 import Nimble
-
-@testable import CutBox
+import Foundation
 
 class StringUtilsSpec: QuickSpec {
     override func spec() {

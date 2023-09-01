@@ -8,9 +8,8 @@
 
 import Foundation
 
-@testable import CutBox
-
 class UserDefaultsMock: UserDefaults {
+    /// fake backing store
     var store: [String: Any] = [:]
 
     func insertHistoryStoreItem(_ string: String) {

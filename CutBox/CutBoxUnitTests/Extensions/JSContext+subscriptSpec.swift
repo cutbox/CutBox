@@ -8,8 +8,8 @@
 
 import Quick
 import Nimble
+
 import JavaScriptCore
-@testable import CutBox
 
 class JSContextSubscriptSpec: QuickSpec {
     override func spec() {

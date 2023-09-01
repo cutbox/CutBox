@@ -14,22 +14,20 @@ typealias StatusItemDescriptor = (Int, String, String?, String?)
 
 class CutBoxController: NSObject {
 
-    @IBOutlet weak var statusMenu: NSMenu!
-
     var useCompactUI: NSMenuItem!
     var hidePreview: NSMenuItem!
-
-    var searchModeSelectors: [NSMenuItem]?
-
     var fuzzyMatchModeItem: NSMenuItem!
     var regexpModeItem: NSMenuItem!
     var regexpCaseSensitiveModeItem: NSMenuItem!
     var substringSearchModeItem: NSMenuItem!
 
+    @IBOutlet weak var statusMenu: NSMenu!
+
     let statusItem: NSStatusItem = NSStatusBar
         .system
         .statusItem(withLength: NSStatusItem.variableLength)
 
+    var searchModeSelectors: [NSMenuItem]?
     var searchModeSelectorsDict: [String: NSMenuItem]?
 
     let searchViewController: SearchViewController
@@ -94,32 +92,15 @@ class CutBoxController: NSObject {
         self.searchViewController = SearchViewController()
         self.jsFuncSearchViewController = JSFuncSearchViewController()
         self.preferencesController = PreferencesTabViewController()
-
-        super.init()
-    }
-
-    init(
-        _ searchViewController: SearchViewController = SearchViewController(),
-        _ jsFuncSearchViewController: JSFuncSearchViewController = JSFuncSearchViewController(),
-        _ preferencesController: PreferencesTabViewController = PreferencesTabViewController()
-    ) {
-        self.searchViewController = searchViewController
-        self.jsFuncSearchViewController = jsFuncSearchViewController
-        self.preferencesController = preferencesController
-
         super.init()
     }
 
     override func awakeFromNib() {
-        setup()
-    }
-
-    func setup() {
         self.hotKeyService.configure()
-        self.setHotKeyServiceEventBindings()
-        self.setSearchEventBindings()
-        self.setPreferencesEventBindings()
-        self.setMenuItems()
+        setHotKeyServiceEventBindings()
+        setSearchEventBindings()
+        setPreferencesEventBindings()
+        setMenuItems()
     }
 
     func setMenuItems() {
@@ -194,42 +175,38 @@ class CutBoxController: NSObject {
     func setHotKeyServiceEventBindings() {
         self.hotKeyService
             .events
-            .subscribe(onNext: onHotKeyEvent)
+            .subscribe(onNext: { event in
+                switch event {
+                case .search:
+                    self.searchViewController.togglePopup()
+                }
+            })
             .disposed(by: disposeBag)
-    }
-
-    func onHotKeyEvent(event: HotKeyEvents) {
-        switch event {
-        case .search:
-            self.searchViewController.togglePopup()
-        }
     }
 
     func setSearchEventBindings() {
         self.searchViewController
             .events
             .asObservable()
-            .subscribe(onNext: onSearchEvents)
+            .subscribe(onNext: { event in
+                switch event {
+                case .openPreferences:
+                    self.preferencesController.open()
+                case .toggleSearchMode:
+                    self.checkSearchModeItem()
+                case .setSearchMode(let mode):
+                    self.checkSearchModeItem(mode.axID)
+                case .clearHistory:
+                    self.clearHistoryClicked(nil)
+                case .selectJavascriptFunction:
+                    if  !JSFuncService.shared.isEmpty {
+                        self.openJavascriptPopup()
+                    }
+                default:
+                    break
+                }
+            })
             .disposed(by: disposeBag)
-    }
-
-    func onSearchEvents(event: SearchViewEvents) {
-        switch event {
-        case .openPreferences:
-            self.preferencesController.open()
-        case .toggleSearchMode:
-            self.checkSearchModeItem()
-        case .setSearchMode(let mode):
-            self.checkSearchModeItem(mode.axID)
-        case .clearHistory:
-            self.clearHistoryClicked(nil)
-        case .selectJavascriptFunction:
-            if  !JSFuncService.shared.isEmpty {
-                self.openJavascriptPopup()
-            }
-        default:
-            break
-        }
     }
 
     func openJavascriptPopup() {
@@ -248,28 +225,26 @@ class CutBoxController: NSObject {
     func setPreferencesEventBindings() {
         self.prefs
             .events
-            .subscribe(onNext: onPreferencesEvent)
+            .subscribe(onNext: { [weak self] in
+                switch $0 {
+                case .historyLimitChanged(let limit):
+                    self?.historyService.historyLimit = limit
+                case .compactUISettingChanged(let isOn):
+                    self?.useCompactUI.state = isOn ? .on : .off
+                case .hidePreviewSettingChanged(let isOn):
+                    self?.hidePreview.state = isOn ? .on : .off
+                case .historyClearByOffset(let offset):
+                    if offset == 0 {
+                        self?.historyService.clear()
+                    } else {
+                        let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
+                        self?.historyService.clearWithTimestampPredicate(predicate: predicate)
+                    }
+                default:
+                    break
+                }
+            })
             .disposed(by: disposeBag)
-    }
-
-    func onPreferencesEvent(event: CutBoxPreferencesEvent) {
-        switch event {
-        case .historyLimitChanged(let limit):
-            self.historyService.historyLimit = limit
-        case .compactUISettingChanged(let isOn):
-            self.useCompactUI.state = isOn ? .on : .off
-        case .hidePreviewSettingChanged(let isOn):
-            self.hidePreview.state = isOn ? .on : .off
-        case .historyClearByOffset(let offset):
-            if offset == 0 {
-                self.historyService.clear()
-            } else {
-                let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
-                self.historyService.clearWithTimestampPredicate(predicate: predicate)
-            }
-        default:
-            break
-        }
     }
 
     func setCompactUIMenuItem() {
