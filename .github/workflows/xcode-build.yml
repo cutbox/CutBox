@@ -53,6 +53,12 @@ jobs:
         run: |
           make test_ci
 
+      # Temporary debugging for tests
+      - name: ssh gate
+        uses: lhotari/action-upterm@v1
+        with:
+          limit-access-to-actor: true
+
       - name: Upload Test Coverage to Codacy
         run: |
           if bin/codacy_upload_coverage; then
