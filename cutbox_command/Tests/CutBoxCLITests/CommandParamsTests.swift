@@ -126,6 +126,13 @@ class CommandParamsSpec: QuickSpec {
                     expect(subject.errors[2]) == ("--opt3", "")
                     expect(subject.errors[3]) == ("--opt4", "value2")
                 }
+
+                it("concatenates consecutive values for an option") {
+                    let arguments = ["--something-invalid", "1", "day"]
+                    subject.collectErrors(arguments)
+                    expect(subject.errors.count) == 1
+                    expect(subject.errors[0]) == ("--something-invalid", "1 day")
+                }
             }
         }
     }
