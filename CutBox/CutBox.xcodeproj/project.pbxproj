@@ -267,7 +267,6 @@
 		96D931C22A87E16900BF594D /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		96DA65C928DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */; };
 		96DB53832088923C004BAAEF /* NSEvent+CarbonConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */; };
-		96E0A04F2A951BF500D0B359 /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = 96E0A04E2A951BF500D0B359 /* Mockingbird */; };
 		96E1E598205D243400F994ED /* CutBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E1E597205D243400F994ED /* CutBox.swift */; };
 		96E1E59A205D243400F994ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E599205D243400F994ED /* Assets.xcassets */; };
 		96E1E59D205D243400F994ED /* CutBoxStatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96E1E59B205D243400F994ED /* CutBoxStatusMenu.xib */; };
@@ -521,7 +520,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E0A04F2A951BF500D0B359 /* Mockingbird in Frameworks */,
 				EAF4D0FD74B2C7CF65DB1488 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1072,7 +1070,6 @@
 			buildConfigurationList = 965348D62843316B000FD0A1 /* Build configuration list for PBXNativeTarget "CutBoxUnitTests" */;
 			buildPhases = (
 				BAE33ABDD43120A0B3851A37 /* [CP] Check Pods Manifest.lock */,
-				746E6FFE2933672B62A607AB /* Generate Mockingbird Mocks */,
 				965348CC2843316B000FD0A1 /* Sources */,
 				965348CD2843316B000FD0A1 /* Frameworks */,
 				965348CE2843316B000FD0A1 /* Resources */,
@@ -1086,7 +1083,6 @@
 			);
 			name = CutBoxUnitTests;
 			packageProductDependencies = (
-				96E0A04E2A951BF500D0B359 /* Mockingbird */,
 			);
 			productName = CutBoxUnitTests;
 			productReference = 965348D02843316B000FD0A1 /* CutBoxUnitTests.xctest */;
@@ -1164,7 +1160,6 @@
 			);
 			mainGroup = 96E1E58B205D243400F994ED;
 			packageReferences = (
-				96E0A04D2A951BF500D0B359 /* XCRemoteSwiftPackageReference "mockingbird" */,
 			);
 			productRefGroup = 96E1E595205D243400F994ED /* Products */;
 			projectDirPath = "";
@@ -1308,22 +1303,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = scripts/sign.sh;
-		};
-		746E6FFE2933672B62A607AB /* Generate Mockingbird Mocks */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Generate Mockingbird Mocks";
-			outputPaths = (
-				"$(SRCROOT)/MockingbirdMocks/CutBoxUnitTests-CutBoxMocks.generated.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "set -eu\n\n# Prevent Xcode 13 from running this script while indexing.\n[[ \"${ACTION}\" == \"indexbuild\" ]] && exit 0\n\n# Infer the derived data location from the build environment.\n[[ -z \"${DERIVED_DATA+x}\" ]] && DERIVED_DATA=\"$(echo \"${BUILD_ROOT}\" | sed -n 's|\\(.*\\)/Build/.*|\\1|p')\"\n\n\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird/mockingbird\" generate --targets \"CutBox\" --disable-swiftlint --outputs \"${SRCROOT}/MockingbirdMocks/CutBoxUnitTests-CutBoxMocks.generated.swift\"";
 		};
 		96085E4A206E36CC00CA77BB /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2051,25 +2030,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		96E0A04D2A951BF500D0B359 /* XCRemoteSwiftPackageReference "mockingbird" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/birdrides/mockingbird";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.20.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		96E0A04E2A951BF500D0B359 /* Mockingbird */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 96E0A04D2A951BF500D0B359 /* XCRemoteSwiftPackageReference "mockingbird" */;
-			productName = Mockingbird;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96E1E58C205D243400F994ED /* Project object */;
 }
