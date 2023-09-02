@@ -10,59 +10,158 @@ import Quick
 import Nimble
 
 class OrderedSetSpec: QuickSpec {
-
     override func spec() {
-        describe("OrderedSetSpec") {
-            it("adds objects to itself") {
-                let subject = OrderedSet<String>()
-                subject.add("hello world")
-                expect(subject.count).to(equal(1))
+        describe("OrderedSet") {
+            var orderedSet: OrderedSet<String>!
+
+            beforeEach {
+                orderedSet = OrderedSet<String>()
             }
 
-            it("has unique value objects") {
-                let subject = OrderedSet<String>()
-                subject.add("Hello")
-                subject.add("Hello")
-                expect(subject.count).to(equal(1))
+            context("when adding elements") {
+                it("should increase the count") {
+                    orderedSet.add("Apple")
+                    expect(orderedSet.count) == 1
+
+                    orderedSet.add("Banana")
+                    expect(orderedSet.count) == 2
+                }
+
+                it("should not add duplicates") {
+                    orderedSet.add("Apple")
+                    expect(orderedSet.count) == 1
+
+                    orderedSet.add("Apple")
+                    expect(orderedSet.count) == 1
+                }
             }
 
-            it("can remove items from the set") {
-                let subject = OrderedSet<String>()
-                subject.add("Hello")
-                subject.add("Hello")
-                subject.remove("Hello")
-                expect(subject.count).to(equal(0))
+            context("when inserting elements at a specific index") {
+                it("should increase the count") {
+                    orderedSet.add("John")
+                    orderedSet.insert("Bob", at: 0)
+                    expect(orderedSet.count) == 2
+                    orderedSet.insert("Frank", at: 0)
+                    expect(orderedSet.count) == 3
+                }
+
+                it("should insert at the specified index") {
+                    orderedSet.add("John")
+                    orderedSet.insert("Apple", at: 0)
+                    orderedSet.insert("Banana", at: 0)
+
+                    expect(orderedSet.all()) == ["Banana", "Apple", "John"]
+                }
+
+                it("should not insert duplicates") {
+                    orderedSet.add("Apple")
+
+                    orderedSet.insert("Apple", at: 0)
+                    expect(orderedSet.count) == 1
+
+                    orderedSet.insert("Apple", at: 0)
+                    expect(orderedSet.count) == 1
+                }
+
+                it("should assert if the index is out of bounds") {
+                    orderedSet.add("Bob")
+                    expect { orderedSet.insert("Apple", at: 2) }.to(throwAssertion())
+                    expect { orderedSet.insert("Apple", at: -1) }.to(throwAssertion())
+                }
             }
 
-            it("finds the index of an object in the set") {
-                let subject = OrderedSet<String>()
-                subject.add("Hello")
-                subject.add("World")
-                subject.add("Foo")
-                subject.add("Bar")
-                expect(subject.indexOf("Foo")).to(equal(2))
+            context("when removing elements") {
+                it("should decrease the count") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Banana")
+
+                    orderedSet.remove("Apple")
+                    expect(orderedSet.count) == 1
+                }
+
+                it("should remove the specified element") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Banana")
+
+                    orderedSet.remove("Apple")
+                    expect(orderedSet.all()) == ["Banana"]
+                }
             }
 
-            it("can set an object at index") {
-                let subject = OrderedSet<String>()
-                subject.add("Hello")
-                subject.add("World")
-                subject.add("Foo")
-                subject.add("Bar")
-                subject.set("Plaster", at: 2)
-                expect(subject.indexOf("Foo")).to(equal(-1))
-                expect(subject.indexOf("Plaster")).to(equal(2))
+            context("when accessing elements") {
+                it("should return the element at the specified index") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Banana")
+
+                    expect(orderedSet.object(at: 0)) == "Apple"
+                    expect(orderedSet.object(at: 1)) == "Banana"
+                }
+
+                it("should assert if the index is out of bounds") {
+                    expect { _ = orderedSet.object(at: 2) }.to(throwAssertion())
+                    expect { _ = orderedSet.object(at: -1) }.to(throwAssertion())
+                }
             }
 
-            it("returns the set as an ordered array") {
-                let subject = OrderedSet<String>()
-                subject.add("Hello")
-                subject.add("World")
-                subject.add("Foo")
-                subject.add("Bar")
-                expect(subject.all()).to(equal(
-                    ["Hello", "World", "Foo", "Bar"]
-                ))
+            context("when getting the index of an element") {
+                it("should return the correct index") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Banana")
+
+                    expect(orderedSet.indexOf("Apple")) == 0
+                    expect(orderedSet.indexOf("Banana")) == 1
+                }
+
+                it("should return -1 for non-existent elements") {
+                    expect(orderedSet.indexOf("Cherry")) == -1
+                }
+            }
+        }
+
+        context("assertions") {
+            describe("object at") {
+                it("throws an assertion if the index is out of range") {
+                    let subject = OrderedSet<Int>()
+                    subject.add(10)
+                    subject.add(12)
+                    expect{ subject.object(at:2) }.to(throwAssertion())
+                }
+                it("throws an assertion if the index is less than 0") {
+                    let subject = OrderedSet<Int>()
+                    subject.add(10)
+                    subject.add(12)
+                    expect{ subject.object(at:-2) }.to(throwAssertion())
+                }
+            }
+
+            describe("insert at") {
+                it("throws an assertion if the index is out of range") {
+                    let subject = OrderedSet<Int>()
+                    subject.add(10)
+                    subject.add(12)
+                    expect{ subject.insert(20, at:2) }.to(throwAssertion())
+                }
+                it("throws an assertion if the index is less than 0") {
+                    let subject = OrderedSet<Int>()
+                    subject.add(10)
+                    subject.add(12)
+                    expect{ subject.insert(20, at:-2) }.to(throwAssertion())
+                }
+            }
+
+            describe("set") {
+                it("throws an assertion if the index is out of range") {
+                    let subject = OrderedSet<Int>()
+                    subject.add(10)
+                    subject.add(12)
+                    expect{ subject.set(20, at: 42) }.to(throwAssertion())
+                }
+                it("throws an assertion if the index is less than 0") {
+                    let subject = OrderedSet<Int>()
+                    subject.add(10)
+                    subject.add(12)
+                    expect{ subject.set(20, at:-2) }.to(throwAssertion())
+                }
             }
         }
     }
