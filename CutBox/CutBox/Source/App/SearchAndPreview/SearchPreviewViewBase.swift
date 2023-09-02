@@ -74,6 +74,53 @@ class SearchPreviewViewBase: NSView {
         return true
     }
 
+    var selectedItems: IndexSet {
+        self.itemsList
+        .selectedRowIndexes
+    }
+
+    var menuDelegate: NSMenuDelegate? {
+        get {
+            self.itemsList
+                .menu?.delegate
+        }
+
+        set {
+            self.itemsList
+                .menu?.delegate = newValue
+        }
+    }
+
+    var itemsDelegate: NSTableViewDelegate? {
+        get {
+            self.itemsList.delegate
+        }
+
+        set {
+            self.itemsList.delegate = newValue
+        }
+    }
+
+    var itemsDataSource: NSTableViewDataSource? {
+        get {
+            self.itemsList.dataSource
+        }
+
+        set {
+            self.itemsList.dataSource = newValue
+        }
+    }
+
+    var previewString: String {
+        get {
+            self.preview.string
+        }
+
+        set {
+            self.preview.string = newValue
+        }
+    }
+
     func setTextScale() {
         preview.font = prefs.searchViewClipPreviewFont
     }
@@ -92,6 +139,22 @@ class SearchPreviewViewBase: NSView {
             .map { $0.isEmpty ? self.placeHolderTextString : "" }
             .bind(to: searchTextPlaceholder.rx.text)
             .disposed(by: disposeBag)
+    }
+
+    func scrollRowToVisible(_ row: Int) {
+        self.itemsList.scrollRowToVisible(row)
+    }
+
+    func reloadData() {
+        self.itemsList.reloadData()
+    }
+
+    func selectRowIndexes(_ indexes: IndexSet, byExtendingSelection extend: Bool) {
+        self.itemsList.selectRowIndexes(indexes, byExtendingSelection: extend)
+    }
+
+    var selectedRowIndexes: IndexSet {
+        self.itemsList.selectedRowIndexes
     }
 
     override func awakeFromNib() {

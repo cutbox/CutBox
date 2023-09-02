@@ -33,9 +33,7 @@ class SearchViewController: NSObject {
     /// Row indexes of selected items
     var selectedItems: IndexSet {
         return self
-            .searchView
-            .itemsList
-            .selectedRowIndexes
+            .searchView.selectedItems
     }
 
     /// Strings of selected items
@@ -58,12 +56,14 @@ class SearchViewController: NSObject {
     /// Connect the preferences service to itself and members.
     init(pasteboardService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
-         fakeKey: FakeKey = FakeKey.shared) {
+         fakeKey: FakeKey = FakeKey.shared,
+         searchView: SearchAndPreviewView = SearchAndPreviewView.fromNib()!
+    ) {
         self.historyService = pasteboardService
         self.prefs = cutBoxPreferences
         self.fakeKey = fakeKey
 
-        self.searchView = SearchAndPreviewView.fromNib()!
+        self.searchView = searchView
         self.searchPopup = PopupController(content: self.searchView)
 
         self.historyService.beginPolling()
@@ -76,7 +76,7 @@ class SearchViewController: NSObject {
     /// Setup the context menu for items shown in the search view
     func setupClipItemsContextMenu() {
         self.searchView.setupClipItemsContextMenu()
-        self.searchView.itemsList.menu?.delegate = self
+        self.searchView.menuDelegate = self
     }
 
     /// Toggle display of the search popup
@@ -88,7 +88,7 @@ class SearchViewController: NSObject {
 
     /// Close the search popup
     func closeSearchPopup() {
-        HistoryService.shared.favoritesOnly = false
+        self.historyService.favoritesOnly = false
         self.searchPopup.closePopup()
     }
 
@@ -123,15 +123,15 @@ class SearchViewController: NSObject {
     /// Remove selected items and refresh the search view
     func removeSelectedItems() {
         self.historyService.remove(selected: self.selectedItems)
-        self.searchView.itemsList.reloadData()
+        self.searchView.reloadData()
     }
 
     /// Toggle favorite status on selected items
     func toggleFavoriteItems() {
         let selection = self.selectedItems
         self.historyService.toggleFavorite(items: self.selectedItems)
-        self.searchView.itemsList.reloadData()
-        self.searchView.itemsList.selectRowIndexes(selection, byExtendingSelection: false)
+        self.searchView.reloadData()
+        self.searchView.selectRowIndexes(selection, byExtendingSelection: false)
     }
 
     /// Send the selected clip text to the pasteboard
@@ -158,12 +158,12 @@ class SearchViewController: NSObject {
     private func resetSearchText() {
         self.searchView.searchText.string = ""
         self.searchView.filterTextPublisher.onNext("")
-        self.searchView.itemsList.reloadData()
+        self.searchView.reloadData()
     }
 
     private func setupSearchViewAndFilterBinding() {
-        self.searchView.itemsList.dataSource = self
-        self.searchView.itemsList.delegate = self
+        self.searchView.itemsDataSource = self
+        self.searchView.itemsDelegate = self
 
         self.searchView.filterTextPublisher
             .map { $0.isEmpty }
@@ -179,8 +179,8 @@ class SearchViewController: NSObject {
         self.searchView.filterTextPublisher
             .subscribe(onNext: {
                 self.historyService.filterText = $0
-                self.searchView.itemsList.reloadData()
-                self.searchView.itemsList.scrollRowToVisible(0)
+                self.searchView.reloadData()
+                self.searchView.scrollRowToVisible(0)
             })
             .disposed(by: self.disposeBag)
 
@@ -202,7 +202,7 @@ class SearchViewController: NSObject {
     /// Update the preview with selected clip(s)
     func updateSearchItemPreview() {
         let preview = prefs.prepareClips(selectedClips)
-        self.searchView.preview.string = preview.truncate(limit: 50_000)
+        self.searchView.previewString = preview.truncate(limit: 50_000)
     }
 
     // swiftlint:disable cyclomatic_complexity
@@ -213,22 +213,22 @@ class SearchViewController: NSObject {
                 switch event {
                 case .setSearchMode(let mode):
                     self.historyService.searchMode = mode
-                    self.searchView.itemsList.reloadData()
+                    self.searchView.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .toggleSearchMode:
                     let mode = self.historyService.toggleSearchMode()
-                    self.searchView.itemsList.reloadData()
+                    self.searchView.reloadData()
                     self.searchView.setSearchModeButton(mode: mode)
 
                 case .setTimeFilter(let seconds):
                     self.historyService.setTimeFilter(seconds: seconds)
-                    self.searchView.itemsList.reloadData()
+                    self.searchView.reloadData()
 
                 case .toggleTimeFilter:
                     self.searchView.toggleTimeFilter()
                     self.historyService.setTimeFilter(seconds: nil)
-                    self.searchView.itemsList.reloadData()
+                    self.searchView.reloadData()
 
                 case .cycleTheme:
                     self.prefs.cycleTheme()
@@ -245,7 +245,7 @@ class SearchViewController: NSObject {
 
                 case .toggleSearchScope:
                     self.historyService.favoritesOnly.toggle()
-                    self.searchView.itemsList.reloadData()
+                    self.searchView.reloadData()
                     self.searchView.setSearchScopeButton(favoritesOnly: self.historyService.favoritesOnly)
 
                 case .togglePreview:
@@ -285,11 +285,11 @@ class SearchViewController: NSObject {
     // swiftlint:enable function_body_length
 
     private func reloadDataWithExistingSelection() {
-        let selected = self.searchView.itemsList.selectedRowIndexes
+        let selected = self.searchView.selectedRowIndexes
         self.searchView.updateLayer()
-        self.searchView.itemsList.reloadData()
+        self.searchView.reloadData()
         self.searchView.setTextScale()
-        self.searchView.itemsList.selectRowIndexes(selected, byExtendingSelection: false)
+        self.searchView.selectRowIndexes(selected, byExtendingSelection: false)
     }
 
     private func configureSearchPopupAndView() {
