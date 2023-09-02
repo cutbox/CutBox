@@ -284,19 +284,8 @@
 		96FD7C2A20ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2920ADBF7900818925 /* JSFuncSearchAndPreviewView+KeyDown.swift */; };
 		96FD7C2E20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2D20ADC1A400818925 /* JSFuncSearchTextViewDelegate.swift */; };
 		96FD7C3020ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C2F20ADC24700818925 /* JSFuncSearchViewControllerTableViewDelegate.swift */; };
-		A2E0F261AC86012AFDB8BD9D /* CutBoxUnitTests-CutBoxMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE6C3338381022D24B4EF5 /* CutBoxUnitTests-CutBoxMocks.generated.swift */; };
 		EAF4D0FD74B2C7CF65DB1488 /* libPods-CutBoxAll-CutBoxUnitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EE7E46181D60133BD574AA9 /* libPods-CutBoxAll-CutBoxUnitTests.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		96A225962844FDFA00C9502D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96E1E58C205D243400F994ED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 96E1E593205D243400F994ED;
-			remoteInfo = CutBox;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		962D6D802074622A007E3785 /* CopyFiles */ = {
@@ -504,7 +493,6 @@
 		AB26BFB7F54EF3461A565BC5 /* Pods-CutBoxAll-CutBoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBoxTests.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBoxTests/Pods-CutBoxAll-CutBoxTests.release.xcconfig"; sourceTree = "<group>"; };
 		CFFB832EFE946C999FF722E4 /* Pods-CutBoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxTests.debug.xcconfig"; path = "Target Support Files/Pods-CutBoxTests/Pods-CutBoxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3A9AA28D453AAA8BDF124E3 /* libPods-CutBoxAll-CutBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CutBoxAll-CutBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1BE6C3338381022D24B4EF5 /* CutBoxUnitTests-CutBoxMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "CutBoxUnitTests-CutBoxMocks.generated.swift"; path = "MockingbirdMocks/CutBoxUnitTests-CutBoxMocks.generated.swift"; sourceTree = "<group>"; };
 		F669B605C398A30A69C66A24 /* Pods-CutBoxAll-CutBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CutBoxAll-CutBox.release.xcconfig"; path = "Target Support Files/Pods-CutBoxAll-CutBox/Pods-CutBoxAll-CutBox.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -565,14 +553,6 @@
 				8CCCBB192479CED3B61BC367 /* Pods-CutBoxAll-CutBoxUnitTestsCI.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		7E93FA3EFEF33B50032E5A80 /* Generated Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				E1BE6C3338381022D24B4EF5 /* CutBoxUnitTests-CutBoxMocks.generated.swift */,
-			);
-			name = "Generated Mocks";
 			sourceTree = "<group>";
 		};
 		961A49B02065D72F005BC79D /* Popup */ = {
@@ -964,7 +944,6 @@
 				9696764B20841E2F00DD3256 /* dsa_pub.pem */,
 				64C66C6CBE7B14CACAEE6C1B /* Pods */,
 				55308803509138C054DFA6AB /* Frameworks */,
-				7E93FA3EFEF33B50032E5A80 /* Generated Mocks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1079,7 +1058,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				96A225972844FDFA00C9502D /* PBXTargetDependency */,
 			);
 			name = CutBoxUnitTests;
 			packageProductDependencies = (
@@ -1657,14 +1635,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		96A225972844FDFA00C9502D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 96E1E593205D243400F994ED /* CutBox */;
-			targetProxy = 96A225962844FDFA00C9502D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		962D6D7520746109007E3785 /* MainMenu.xib */ = {
