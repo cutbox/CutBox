@@ -244,6 +244,13 @@ CutBox/build/CutBox.app/Contents/MacOS/CutBox
 
 There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
 
+# Thank You...
+
+CutBox has contributions from Carlos Enumo, Dávid Geréb, Denis Stanishevskiy,
+with support from Adam Johnson.
+
+Thanks for you contriubutions and continued support. 
+
 # Licence
 
 > CutBox is free software: you can redistribute it and/or modify
