@@ -25,7 +25,7 @@ extension PreferencesAdvancedView {
             if suppressibleConfirmationDialog(
                 messageText: "\(clearHistoryOptions[selectedIndex].title.l7n)?",
                 informativeText: "confirm_warning_clear_history".l7n,
-                dialogName: "clearHistoryActionClicked") {
+                dialogName: .clearHistoryActionClicked) {
                 prefs.events.onNext(.historyClearByOffset(offset: offset))
             }
         }

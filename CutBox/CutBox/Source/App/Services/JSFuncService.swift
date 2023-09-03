@@ -13,6 +13,8 @@ import JavaScriptCore
 class JSFuncService: NSObject {
     static let shared = JSFuncService()
 
+    let cutboxJSFilename: String = NSString(string: "~/.cutbox.js").expandingTildeInPath
+
     let require: @convention(block) (String) -> JSValue? = { path in
         let expandedPath = NSString(string: path).expandingTildeInPath
 
@@ -53,7 +55,6 @@ class JSFuncService: NSObject {
     var funcs: [(String, Int)] {
         guard let funcsDict: [[String: Any]] = js["cutboxFunctions"]
             .toArray() as? [[String: Any]] else {
-                // Notify that cutbox.js isn't valid
                 return []
         }
 
@@ -124,8 +125,7 @@ class JSFuncService: NSObject {
 
         _ = repl(noCutboxJSHelp)
 
-        let cutboxJSFilename: String = NSString(
-            string: "~/.cutbox.js").expandingTildeInPath
+
 
         guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
             return

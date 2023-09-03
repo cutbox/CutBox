@@ -19,7 +19,6 @@ class PreferencesWindow: NSWindow {
 
     override func awakeFromNib() {
         self.title = "preferences_title".l7n
-
         self.titlebarAppearsTransparent = true
     }
 }

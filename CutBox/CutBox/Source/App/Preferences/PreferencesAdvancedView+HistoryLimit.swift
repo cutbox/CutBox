@@ -65,7 +65,7 @@ extension PreferencesAdvancedView {
             if suppressibleConfirmationDialog(
                 messageText: "confirm_warning_clear_history_title".l7n,
                 informativeText: "confirm_warning_clear_history".l7n,
-                dialogName: "destructiveLimitChangeWarning") {
+                dialogName: .destructiveLimitChangeWarning) {
                 self.prefs.historyLimit = limit
             } else {
                 self.historyLimitTextField.stringValue = String(currentLimit)

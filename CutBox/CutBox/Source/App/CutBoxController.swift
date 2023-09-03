@@ -49,7 +49,7 @@ class CutBoxController: NSObject {
         if suppressibleConfirmationDialog(
             messageText: "confirm_warning_clear_history_title".l7n,
             informativeText: "confirm_warning_clear_history".l7n,
-            dialogName: "clearHistoryWarning") {
+            dialogName: .clearHistoryWarning) {
             self.searchViewController.historyService.clear()
         }
     }

@@ -186,6 +186,7 @@
 		9672FF292078C2DE00E4571E /* Array+IndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF282078C2DE00E4571E /* Array+IndexSet.swift */; };
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
+		9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */; };
 		967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
 		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
@@ -395,6 +396,7 @@
 		9672FF282078C2DE00E4571E /* Array+IndexSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+IndexSet.swift"; sourceTree = "<group>"; };
 		9672FF2C2078E5DC00E4571E /* SearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextView.swift; sourceTree = "<group>"; };
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
+		9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift"; sourceTree = "<group>"; };
 		967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidatorSpec.swift; sourceTree = "<group>"; };
 		9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidator.swift; sourceTree = "<group>"; };
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 			children = (
 				964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */,
 				964CA524207F6ED700B9F33E /* CutBoxPreferencesService+JoinAndWrapSpec.swift */,
+				9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */,
 				967C06A72A946749008AF0CE /* CutBoxPreferencesService+SelectThemeSpec.swift */,
 				968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */,
 				96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */,
@@ -1512,6 +1515,7 @@
 				96C746FF2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift in Sources */,
 				967C06A22A9345D8008AF0CE /* HistoryStoreMigration_1_6_x.swift in Sources */,
 				965349152843475E000FD0A1 /* SearchViewEvents.swift in Sources */,
+				9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */,
 				965348F228434735000FD0A1 /* PreferencesWindow.swift in Sources */,
 				9653490528434742000FD0A1 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */,
 				9653492128434772000FD0A1 /* LoginItemsService.swift in Sources */,

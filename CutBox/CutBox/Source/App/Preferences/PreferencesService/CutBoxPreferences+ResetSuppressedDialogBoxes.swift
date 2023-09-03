@@ -11,9 +11,9 @@ import Cocoa
 
 extension CutBoxPreferencesService {
     func resetSuppressedDialogBoxes() {
-        for key in self.defaults.dictionaryRepresentation().keys
-        where key.contains("CutBoxSuppressed") {
-            self.defaults.removeObject(forKey: key)
+        SuppressibleDialog.all.forEach {
+            self.defaults.removeObject(forKey: $0.defaultKey)
+            self.defaults.removeObject(forKey: $0.defaultChoiceKey)
         }
     }
 }

@@ -24,7 +24,7 @@ private func makeDialog(messageText: String,
 
 func suppressibleConfirmationDialog(messageText: String,
                                     informativeText: String,
-                                    dialogName: String,
+                                    dialogName: SuppressibleDialog,
                                     ok: String = "ok".l7n,
                                     cancel: String = "cancel".l7n,
                                     defaults: UserDefaults = UserDefaults.standard) -> Bool {
