@@ -10,6 +10,24 @@
 
 import Cocoa
 
+enum SuppressibleDialog: String, Equatable, CaseIterable {
+    case clearHistoryActionClicked
+    case destructiveLimitChangeWarning
+    case clearHistoryWarning
+
+    var defaultKey: String {
+        return "\(self)_CutBoxSuppressed"
+    }
+
+    var defaultChoiceKey: String {
+        return "\(defaultKey)Choice"
+    }
+
+    static var all: [SuppressibleDialog] {
+        return Self.allCases
+    }
+}
+
 private func makeDialog(messageText: String,
                         informativeText: String,
                         ok: String, cancel: String) -> NSAlert {

@@ -9,24 +9,6 @@
 import Cocoa
 import RxSwift
 
-enum SuppressibleDialog: String, Equatable, CaseIterable {
-    case clearHistoryActionClicked
-    case destructiveLimitChangeWarning
-    case clearHistoryWarning
-
-    var defaultKey: String{
-        return "\(self)_CutBoxSuppressed"
-    }
-
-    var defaultChoiceKey: String {
-        return "\(defaultKey)Choice"
-    }
-
-    static var all: [SuppressibleDialog] {
-        return Self.allCases
-    }
-}
-
 class PreferencesAdvancedView: NSView {
 
     var prefs: CutBoxPreferencesService!
