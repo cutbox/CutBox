@@ -1,5 +1,9 @@
 #!/bin/bash
-set -o pipefail && xcodebuild \
--workspace CutBox/CutBox.xcworkspace \
+set -o pipefail
+xcodebuild \
+-workspace test CutBox/CutBox.xcworkspace \
 -scheme CutBoxUnitTests \
-test | xcpretty -f bin/quickspec_markdown_xcpretty_formatter.rb | sed -n -e '/^# Started: CutBoxUnitTests.xctest$/,/^      Executed/p' | tee -a "$GITHUB_STEP_SUMMARY"
+-enableCodeCoverage YES \
+| xcpretty -f bin/quickspec_markdown_xcpretty_formatter.rb \
+| sed -n -e '/^# Started: CutBoxUnitTests.xctest$/,/^      Executed/p' \
+| tee -a "$GITHUB_STEP_SUMMARY"

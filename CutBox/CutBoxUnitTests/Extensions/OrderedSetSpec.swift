@@ -38,19 +38,23 @@ class OrderedSetSpec: QuickSpec {
 
             context("when inserting elements at a specific index") {
                 it("should increase the count") {
-                    orderedSet.add("John")
-                    orderedSet.insert("Bob", at: 0)
+                    orderedSet.add("Grape")
+                    orderedSet.insert("Banana", at: 0)
                     expect(orderedSet.count) == 2
-                    orderedSet.insert("Frank", at: 0)
+                    orderedSet.insert("Pear", at: 0)
                     expect(orderedSet.count) == 3
                 }
 
                 it("should insert at the specified index") {
-                    orderedSet.add("John")
+                    orderedSet.add("Grape")
                     orderedSet.insert("Apple", at: 0)
                     orderedSet.insert("Banana", at: 0)
 
-                    expect(orderedSet.all()) == ["Banana", "Apple", "John"]
+                    expect(orderedSet.all()) == ["Banana", "Apple", "Grape"]
+                }
+
+                it("does not allow insert on an empty set") {
+                    expect { orderedSet.insert("Apple", at: 0) }.to(throwAssertion())
                 }
 
                 it("should not insert duplicates") {
@@ -64,9 +68,51 @@ class OrderedSetSpec: QuickSpec {
                 }
 
                 it("should assert if the index is out of bounds") {
-                    orderedSet.add("Bob")
+                    orderedSet.add("Banana")
                     expect { orderedSet.insert("Apple", at: 2) }.to(throwAssertion())
                     expect { orderedSet.insert("Apple", at: -1) }.to(throwAssertion())
+                }
+            }
+
+            context("when setting a new index for an element") {
+                it("should assert if the index is out of bounds") {
+                    orderedSet.add("Banana")
+                    expect { orderedSet.set("Banana", at: 2) }.to(throwAssertion())
+                    expect { orderedSet.set("Banana", at: -1) }.to(throwAssertion())
+                }
+
+                it("should set the object at a given index") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Orange")
+                    orderedSet.add("Peach")
+                    orderedSet.add("Grapefruit")
+
+                    orderedSet.set("Strawberry", at: 0)
+
+                    expect(orderedSet.count) == 4
+                    expect(orderedSet.all()) == [
+                        "Strawberry",
+                        "Orange",
+                        "Peach",
+                        "Grapefruit"
+                    ]
+                }
+
+                it("cannot set the object at a given index to a duplicate value") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Orange")
+                    orderedSet.add("Peach")
+                    orderedSet.add("Grapefruit")
+
+                    orderedSet.set("Peach", at: 0)
+
+                    expect(orderedSet.count) == 4
+                    expect(orderedSet.all()) == [
+                        "Apple",
+                        "Orange",
+                        "Peach",
+                        "Grapefruit"
+                    ]
                 }
             }
 
@@ -85,6 +131,13 @@ class OrderedSetSpec: QuickSpec {
 
                     orderedSet.remove("Apple")
                     expect(orderedSet.all()) == ["Banana"]
+                }
+
+                it("return nil if the element is not found") {
+                    orderedSet.add("Apple")
+                    orderedSet.add("Banana")
+
+                    expect(orderedSet.remove("Cherry")) == ()
                 }
             }
 
@@ -116,51 +169,19 @@ class OrderedSetSpec: QuickSpec {
                     expect(orderedSet.indexOf("Cherry")) == -1
                 }
             }
-        }
 
-        context("assertions") {
-            describe("object at") {
+            context("when getting the ") {
                 it("throws an assertion if the index is out of range") {
                     let subject = OrderedSet<Int>()
                     subject.add(10)
                     subject.add(12)
-                    expect{ subject.object(at:2) }.to(throwAssertion())
+                    expect { subject.object(at: 2) }.to(throwAssertion())
                 }
                 it("throws an assertion if the index is less than 0") {
                     let subject = OrderedSet<Int>()
                     subject.add(10)
                     subject.add(12)
-                    expect{ subject.object(at:-2) }.to(throwAssertion())
-                }
-            }
-
-            describe("insert at") {
-                it("throws an assertion if the index is out of range") {
-                    let subject = OrderedSet<Int>()
-                    subject.add(10)
-                    subject.add(12)
-                    expect{ subject.insert(20, at:2) }.to(throwAssertion())
-                }
-                it("throws an assertion if the index is less than 0") {
-                    let subject = OrderedSet<Int>()
-                    subject.add(10)
-                    subject.add(12)
-                    expect{ subject.insert(20, at:-2) }.to(throwAssertion())
-                }
-            }
-
-            describe("set") {
-                it("throws an assertion if the index is out of range") {
-                    let subject = OrderedSet<Int>()
-                    subject.add(10)
-                    subject.add(12)
-                    expect{ subject.set(20, at: 42) }.to(throwAssertion())
-                }
-                it("throws an assertion if the index is less than 0") {
-                    let subject = OrderedSet<Int>()
-                    subject.add(10)
-                    subject.add(12)
-                    expect{ subject.set(20, at:-2) }.to(throwAssertion())
+                    expect { subject.object(at: -2) }.to(throwAssertion())
                 }
             }
         }

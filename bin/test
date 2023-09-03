@@ -1,6 +1,5 @@
 #!/bin/bash
-
-xcodebuild \
+xcodebuild test \
 -workspace CutBox/CutBox.xcworkspace \
 -scheme CutBoxUnitTests \
-test
+-enableCodeCoverage YES

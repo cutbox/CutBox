@@ -24,13 +24,13 @@ extension Array where Element == [String: String] {
         // Return an empty array in that case.
         do {
             let regexp: NSRegularExpression =
-                try NSRegularExpression(pattern: search,
-                                        options: options)
+            try NSRegularExpression(pattern: search,
+                                    options: options)
             return self
                 .filter {
                     let range = NSRange($0["string"]!.startIndex..., in: $0["string"]!)
                     return regexp.numberOfMatches(in: $0["string"]!, range: range) > 0
-            }
+                }
         } catch {
             return []
         }
@@ -54,13 +54,13 @@ extension Array where Element == String {
     func regexpSearchFiltered(search: String, options: NSRegularExpression.Options) -> [String] {
         do {
             let regexp: NSRegularExpression =
-                try NSRegularExpression(pattern: search,
-                                         options: options)
+            try NSRegularExpression(pattern: search,
+                                    options: options)
             return self
                 .filter {
                     let range = NSRange($0.startIndex..., in: $0)
                     return regexp.numberOfMatches(in: $0, range: range) > 0
-            }
+                }
         } catch {
             return []
         }

@@ -74,12 +74,12 @@ class JSFuncService: NSObject {
         if filterText.isEmpty {
             return names
         } else {
-            return names.fuzzySearchRankedFiltered(search: filterText, score: 0.1)
+            return names.substringSearchFiltered(search: filterText)
         }
     }
 
     func selected(name: String) -> (String, Int)? {
-        guard let found = funcs.first(where: { (s: (String, Int)) -> Bool in s.0 == name })
+        guard let found = funcs.first(where: { $0.0 == name })
             else { return nil }
         return found
     }
