@@ -1,7 +1,7 @@
 #!/bin/bash
 set -o pipefail
-xcodebuild \
--workspace test CutBox/CutBox.xcworkspace \
+xcodebuild test \
+-workspace CutBox/CutBox.xcworkspace \
 -scheme CutBoxUnitTests \
 -enableCodeCoverage YES \
 | xcpretty -f bin/quickspec_markdown_xcpretty_formatter.rb \
