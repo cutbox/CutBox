@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+import sys
+import re
+
+# Define the pattern to search for numbers
+pattern = r'\b\d+\b'
+
+# Function to replace large numbers with 2147483647
+def replace_large_numbers(filename):
+    with open(filename, 'r') as file:
+        content = file.read()
+        content = re.sub(pattern, lambda x: str(min(int(x.group()), 2147483647)), content)
+    
+    with open(filename, 'w') as file:
+        file.write(content)
+
+if __name__ == '__main__':
+    if len(sys.argv) != 2:
+        print("Usage: replace_bigints_with_max_int <filename>")
+        sys.exit(1)
+
+    filename = sys.argv[1]
+    replace_large_numbers(filename)
+    print(f"Large numbers in '{filename}' have been replaced with 2147483647.")

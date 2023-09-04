@@ -4,6 +4,7 @@ xcodebuild test \
 -workspace CutBox/CutBox.xcworkspace \
 -scheme CutBoxUnitTests \
 -enableCodeCoverage YES \
+-derivedDataPath .build \
 | xcpretty -f bin/quickspec_markdown_xcpretty_formatter.rb \
 | sed -n -e '/^# Started: CutBoxUnitTests.xctest$/,/^      Executed/p' \
 | tee -a "$GITHUB_STEP_SUMMARY"

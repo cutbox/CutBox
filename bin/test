@@ -2,4 +2,5 @@
 xcodebuild test \
 -workspace CutBox/CutBox.xcworkspace \
 -scheme CutBoxUnitTests \
--enableCodeCoverage YES
+-enableCodeCoverage YES \
+-derivedDataPath .build
