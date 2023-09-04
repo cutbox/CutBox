@@ -211,7 +211,7 @@ class HistoryRepoSpec: QuickSpec {
                     let result = subject.timeFilterPredicate(
                         item: fakeItem,
                         earliest: iso8601Timestamp(fromDate: threeDaysAgoDate))
-                    
+
                     expect(result) == false
                 }
 

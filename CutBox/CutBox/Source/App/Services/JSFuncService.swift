@@ -125,8 +125,6 @@ class JSFuncService: NSObject {
 
         _ = repl(noCutboxJSHelp)
 
-
-
         guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
             return
         }
