@@ -473,7 +473,7 @@
 		96DA65C828DF4EB800C8C2F4 /* CutBoxPreferences+TextScaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferences+TextScaling.swift"; sourceTree = "<group>"; };
 		96DB53822088923C004BAAEF /* NSEvent+CarbonConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenience.swift"; sourceTree = "<group>"; };
 		96E1E594205D243400F994ED /* CutBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CutBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96E1E597205D243400F994ED /* CutBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBox.swift; sourceTree = "<group>"; };
+		96E1E597205D243400F994ED /* CutBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBox.swift; sourceTree = "<group>"; usesTabs = 0; };
 		96E1E599205D243400F994ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96E1E59E205D243400F994ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
