@@ -3,9 +3,10 @@
 // Makes it easier to see the cover overview on mobile.
 
 function setColorBlobs(row) {
-  let grey = `<span class="blob grey">🞄</span>`
-  let green = `<span class="blob green">🞄</span>`
-  let red = `<span class="blob red">🞄</span>`
+  let blobGlyph = '⌾'
+  let grey = `<span class="blob grey">${blobGlyph}</span>`
+  let green = `<span class="blob green">${blobGlyph}</span>`
+  let red = `<span class="blob red">${blobGlyph}</span>`
   let classes = {
     "column-entry-green": green,
     "column-entry-yellow": grey,
