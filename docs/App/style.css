@@ -11,8 +11,8 @@
 .blob.grey { color: grey; }
 .blob.red { color: red; }
 .blob { background-color: unset; }
-.blob:nth-child(2) { padding: 0 10px; }
-.blob:nth-child(3) { padding: 0 10px 0 0; }
+.blob:nth-child(2) { padding: 0 5px; }
+.blob:nth-child(3) { padding: 0 5px 0 0; }
 
 body {
   font-family: -apple-system, sans-serif;
