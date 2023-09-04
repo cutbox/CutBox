@@ -9,12 +9,15 @@
 import Foundation
 
 /// Quick conversion of Date to ISO8601 timestamp
-func iso8601(date: Date) -> String {
-    return ISO8601DateFormatter().string(from: date)
+func iso8601Timestamp(fromDate: Date) -> String {
+    let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    return dateFormatter.string(from: fromDate)
 }
 
 /// Quick generation of ISO8601 timestamp of seconds (as Double) before time
 func secondsBeforeTimeNowAsISO8601(seconds: Double) -> String {
     let date = Date(timeIntervalSinceNow: -seconds)
-    return iso8601(date: date)
+    return iso8601Timestamp(fromDate: date)
 }

@@ -27,6 +27,7 @@ class HistoryRepo {
     /// preferences defaults key for protect favorites flag
     private var kProtectFavorites = "protectFavorites"
 
+    /// Standalone predicate, false for item older than an earliest timestamp
     func timeFilterPredicate(item: [String: String], earliest: String) -> Bool {
         if let timestamp = item[self.timestampKey] {
             return earliest < timestamp
@@ -84,7 +85,7 @@ class HistoryRepo {
         var item = [stringKey: newElement]
 
         if let unwrappedDate = date {
-            let timestamp = ISO8601DateFormatter().string(from: unwrappedDate)
+            let timestamp = iso8601Timestamp(fromDate: unwrappedDate)
             item[self.timestampKey] = timestamp
         }
 
@@ -160,6 +161,7 @@ class HistoryRepo {
         self.defaults.setValue(self.store, forKey: self.historyStoreKey)
     }
 
+    /// removes the historyStore completely
     func clearHistory() {
         self.clear()
         self.defaults.removeObject(forKey: self.historyStoreKey)

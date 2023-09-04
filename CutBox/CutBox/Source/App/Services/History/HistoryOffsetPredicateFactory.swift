@@ -25,7 +25,7 @@ func historyOffsetPredicateFactory(offset: TimeInterval) -> (Date) -> Bool {
 
 func historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool {
     guard offset != 0 else { fatalError("Error:Time offset 0 is invalid") }
-    let cutoffDate = ISO8601DateFormatter().string(from: Date(timeIntervalSinceNow: -abs(offset)))
+    let cutoffDate = iso8601Timestamp(fromDate: Date(timeIntervalSinceNow: -abs(offset)))
 
     if offset > 0 {
         return { [cutoffDate] itemTimestamp in itemTimestamp > cutoffDate }

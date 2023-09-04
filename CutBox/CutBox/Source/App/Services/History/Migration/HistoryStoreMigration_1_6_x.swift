@@ -21,10 +21,8 @@ import Foundation
 /// an unnecessary migration.
 class HistoryStoreMigration_1_6_x {
     private var defaults: UserDefaults
-    private let dateFormatter = DateFormatter()
 
     init(defaults: UserDefaults = UserDefaults.standard) {
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         self.defaults = defaults
     }
 
@@ -64,8 +62,7 @@ class HistoryStoreMigration_1_6_x {
 
         historyStore?.forEach { var item = $0
             if !item.keys.contains(Constants.kTimestampKey) {
-                let timestamp = dateFormatter
-                    .string(from: (Date(timeIntervalSinceNow: offset + idx)))
+                let timestamp = iso8601Timestamp(fromDate: Date(timeIntervalSinceNow: offset + idx))
                 idx += 1
                 item[Constants.kTimestampKey] = timestamp
             }

@@ -16,27 +16,39 @@ class HistoryRepoSpec: QuickSpec {
     override func spec() {
         describe("HistoryRepo") {
             var subject: HistoryRepo!
-            var mockedDefaults: UserDefaults!
+            var mockedDefaults: UserDefaultsMock!
             var preferences: CutBoxPreferencesService!
+
+            // Time offsets
+            let oneDayAgoOffset: TimeInterval = -86400.0
+            let oneHourAgoOffset: TimeInterval = -3600.0
+            let oneMinAgoOffset: TimeInterval = -60.0
+            let thirtySecondsAgoOffset: TimeInterval = -30.0
+
+            // Test Dates
+            let aDayAgoDate = Date(timeIntervalSinceNow: -86400.0)
+            let anHourAgoDate = Date(timeIntervalSinceNow: -3600.0)
+            let threeDaysAgoDate = Date(timeIntervalSinceNow: -86400.0 * 3)
+            let lastWeekDate = Date(timeIntervalSinceNow: -86400.0 * 8)
 
             beforeEach {
                 mockedDefaults = UserDefaultsMock()
-                preferences = CutBoxPreferencesService()
-                subject = HistoryRepo(defaults: mockedDefaults,
-                                      prefs: preferences)
+                preferences = CutBoxPreferencesService(defaults: mockedDefaults)
+                subject = HistoryRepo(
+                    defaults: mockedDefaults,
+                    prefs: preferences)
             }
 
             describe("timeFilter") {
                 beforeEach {
-                    let oneDayAgo: TimeInterval = -86400.0
-                    let oneHourAgo: TimeInterval = -3600.0
-                    let oneMinAgo: TimeInterval = -60.0
-                    let thirtySecondsAgo: TimeInterval = -10.0
-
-                    subject.insert("Yesterday Item", date: Date(timeIntervalSinceNow: oneDayAgo))
-                    subject.insert("Hour Ago Item", date: Date(timeIntervalSinceNow: oneHourAgo))
-                    subject.insert("Minute Ago Item", date: Date(timeIntervalSinceNow: oneMinAgo))
-                    subject.insert("Thirty Seconds Ago Item", date: Date(timeIntervalSinceNow: thirtySecondsAgo))
+                    subject.insert("Yesterday Item",
+                                   date: Date(timeIntervalSinceNow: oneDayAgoOffset))
+                    subject.insert("Hour Ago Item",
+                                   date: Date(timeIntervalSinceNow: oneHourAgoOffset))
+                    subject.insert("Minute Ago Item",
+                                   date: Date(timeIntervalSinceNow: oneMinAgoOffset))
+                    subject.insert("Thirty Seconds Ago Item",
+                                   date: Date(timeIntervalSinceNow: thirtySecondsAgoOffset))
                 }
 
                 describe("return items filtered by time") {
@@ -54,7 +66,7 @@ class HistoryRepoSpec: QuickSpec {
 
             it("provides access to the dictionary store") {
                 let date = Date()
-                let timestamp = ISO8601DateFormatter().string(from: date)
+                let timestamp = iso8601Timestamp(fromDate: date)
                 subject.insert("Hello", date: date)
                 expect(subject.dict.first).to(equal(["string": "Hello", "timestamp": timestamp]))
             }
@@ -121,6 +133,53 @@ class HistoryRepoSpec: QuickSpec {
                 ]))
             }
 
+            context("favorites") {
+                context("insert") {
+                    it("can insert an item as a favorite") {
+                        let zero = Date(timeIntervalSince1970: 0)
+                        subject.insert("First")
+                        subject.insert("Second")
+                        subject.insert("Third", isFavorite: true, date: zero)
+                        expect(subject.favoritesDict) == [
+                            [
+                                "string": "Third",
+                                "favorite": "favorite",
+                                "timestamp": "1970-01-01T00:00:00Z"
+                            ]
+                        ]
+                    }
+                }
+
+                context("toggleFavorite at index") {
+                    it("should set favorite on an item by index") {
+                        subject.insert("First")
+                        subject.insert("Second")
+                        subject.insert("Third")
+                        subject.toggleFavorite(at: 1)
+                        expect(subject.favorites) == ["Second"]
+                        subject.toggleFavorite(at: 1)
+                        expect(subject.favorites) == []
+                    }
+                }
+
+                context("toggleFavorite indexes") {
+                    it("should set favorite on items by IndexSet") {
+                        subject.insert("Apple")
+                        subject.insert("Peach")
+                        subject.insert("Grapefruit")
+                        subject.insert("Watermelon")
+                        subject.insert("Nice cup of coffee")
+
+                        subject.toggleFavorite(indexes: IndexSet(2...4))
+                        expect(subject.favorites) == ["Grapefruit", "Peach", "Apple"]
+                        subject.toggleFavorite(indexes: IndexSet(0...4))
+                        expect(subject.favorites) == ["Nice cup of coffee", "Watermelon"]
+                        subject.toggleFavorite(indexes: IndexSet(0...1))
+                        expect(subject.favorites) == []
+                    }
+                }
+            }
+
             it("can remove items while protecting favorites") {
                 preferences.protectFavorites = true
 
@@ -143,16 +202,105 @@ class HistoryRepoSpec: QuickSpec {
                 expect(subject.items).to(equal(["1", "2", "3", "4"]))
             }
 
-            it("can clear the entire history") {
-                subject.migrateLegacyPasteStore(["1", "2", "3", "4", "5"])
-                subject.saveToDefaults()
-                expect(mockedDefaults.array(forKey: "historyStore")).to(beAKindOf([[String: String]].self))
+            context("timeFilterPredicate") {
+                it("returns false for items with older timestamps") {
+                    let fakeItem = [
+                        "string": "Yesterday",
+                        "timestamp": iso8601Timestamp(fromDate: lastWeekDate)
+                    ]
+                    let result = subject.timeFilterPredicate(
+                        item: fakeItem,
+                        earliest: iso8601Timestamp(fromDate: threeDaysAgoDate))
+                    
+                    expect(result) == false
+                }
 
-                subject.clearHistory()
-                expect(subject.items).to(equal([]))
+                it("returns true for items with newer timestamps") {
+                    let fakeItem = [
+                        "string": "Yesterday",
+                        "timestamp": iso8601Timestamp(fromDate: aDayAgoDate)
+                    ]
+                    let result = subject.timeFilterPredicate(
+                        item: fakeItem,
+                        earliest: iso8601Timestamp(fromDate: threeDaysAgoDate))
 
-                subject.loadFromDefaults()
-                expect(subject.items).to(equal([]))
+                    expect(result) == true
+                }
+            }
+
+            context("clear history") {
+                it("can remove the entire history") {
+                    subject.migrateLegacyPasteStore(["1", "2", "3", "4", "5"])
+                    subject.saveToDefaults()
+                    expect(mockedDefaults.array(forKey: "historyStore")).to(beAKindOf([[String: String]].self))
+
+                    subject.clearHistory()
+                    expect(mockedDefaults.store["historyStore"]).to(beNil())
+
+                    subject.loadFromDefaults()
+                    expect(subject.items).to(equal([]))
+
+                }
+
+                context("time filtered") {
+                    context("legacy items without a timestamp") {
+                        beforeEach {
+                            subject.insert("Eggs and Bakey", date: nil)
+                            subject.insert("Wakey Wakey", date: nil)
+                            subject.insert("Good morning")
+                        }
+
+                        it("should ignore legacy items without a timestamp") {
+                            // Although they should not exist after startup historyStore migration
+                            subject.clearHistory(
+                                timestampPredicate: historyOffsetPredicateFactory(offset: -10.0))
+
+                            expect(subject.items.count) == 3
+                        }
+                    }
+
+                    context("items since 1.5.5") {
+                        beforeEach {
+                            subject.insert("Apple", date: anHourAgoDate)
+
+                            subject.insert("Peach", date: threeDaysAgoDate)
+
+                            subject.insert("Peach", isFavorite: true, date: lastWeekDate)
+                        }
+
+                        context("when favorites are protected") {
+                            it("should clear non-favorite history using a time limit") {
+                                preferences.protectFavorites = true
+
+                                expect(subject.dict.count) == 3
+
+                                // filter before today
+                                subject.clearHistory(
+                                    timestampPredicate:
+                                        historyOffsetPredicateFactory(offset: -86400.0)
+                                )
+
+                                expect(subject.dict.count) == 2
+                            }
+                        }
+
+                        context("when favorites are not protected") {
+                            it("should clear any items history using a time limit") {
+                                preferences.protectFavorites = false
+
+                                expect(subject.dict.count) == 3
+
+                                // filter before today
+                                subject.clearHistory(
+                                    timestampPredicate:
+                                        historyOffsetPredicateFactory(offset: -86400.0)
+                                )
+
+                                expect(subject.dict.count) == 1
+                            }
+                        }
+                    }
+                }
             }
         }
     }

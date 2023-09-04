@@ -12,14 +12,6 @@ class UserDefaultsMock: UserDefaults {
     /// fake backing store
     var store: [String: Any] = [:]
 
-    func insertHistoryStoreItem(_ string: String) {
-        var history = array(forKey: Constants.kHistoryStoreKey)
-        as? [[String: String]] ??
-        [[String: String]]()
-        history.insert([Constants.kStringKey: string], at: 0)
-        set(history, forKey: Constants.kHistoryStoreKey)
-    }
-
     override func set(_ value: Bool, forKey defaultName: String) {
         store[defaultName] = value
     }

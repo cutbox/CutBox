@@ -17,7 +17,7 @@ class HistoryOffsetPredicateFactorySpec: QuickSpec {
 
             beforeEach {
                 timestamps = [0, -900, -1800, -7200, -86400]
-                    .map { ISO8601DateFormatter().string(from: Date().addingTimeInterval($0)) }
+                    .map { iso8601Timestamp(fromDate: Date().addingTimeInterval($0)) }
             }
 
             context("with positive offset") {
