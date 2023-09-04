@@ -13,6 +13,10 @@ import Carbon.HIToolbox
 // swiftlint:disable function_body_length
 extension SearchAndPreviewView {
     override func keyDown(with event: NSEvent) {
+        onKeyDown(with: event)
+    }
+
+    func onKeyDown(with event: NSEvent) {
         switch (event.key, event.modifiers) {
         case (kVK_LeftArrow, _), (kVK_RightArrow, _):
             self.hideSearchResults(false)

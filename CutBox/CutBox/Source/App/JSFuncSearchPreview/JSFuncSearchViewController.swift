@@ -16,6 +16,19 @@ class JSFuncSearchViewController: NSObject {
     var prefs: CutBoxPreferencesService
     var fakeKey: FakeKey
     var jsFuncPopup: PopupController
+
+    var hasFuncs: Bool {
+        return !self.jsFuncService.isEmpty
+    }
+
+    var count: Int {
+        return self.jsFuncService.count
+    }
+
+    var funcList: [String] {
+        return self.jsFuncService.funcList
+    }
+
     var events: PublishSubject<SearchJSFuncViewEvents> {
         return self.jsFuncView.events
     }
