@@ -11,7 +11,6 @@ import Magnet
 import Carbon.HIToolbox
 
 enum Constants {
-
     static let cutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
     static let searchFuzzyMatchMinScore = 0.1
     static let defaultCutBoxToggleKeyCombo =
@@ -21,4 +20,16 @@ enum Constants {
     static let kStringKey = "string"
     static let kFavoriteKey = "favorite"
     static let kTimestampKey = "timestamp"
+
+    static let kMultiJoinSeparator = "multiJoinSeparator"
+    static let kUseJoinSeparator = "useJoinSeparator"
+    static let kUseWrappingStrings = "useWrappingStrings"
+    static let kWrapStringStart = "wrapStringStart"
+    static let kWrapStringEnd = "wrapStringEnd"
+    static let kHistoryLimited = "historyLimited"
+    static let kHistoryLimit = "historyLimit"
+    static let kUseCompactUI = "useCompactUI"
+    static let kHidePreview = "hidePreview"
+    static let kProtectFavorites = "protectFavorites"
+    static let kSavedTimeFilterValue = "savedTimeFilterValue"
 }

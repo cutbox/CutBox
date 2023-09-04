@@ -31,18 +31,6 @@ func notifyUser(title: String, info: String) {
 
 class CutBoxPreferencesService {
 
-    private let kMultiJoinSeparator = "multiJoinSeparator"
-    private let kUseJoinSeparator = "useJoinSeparator"
-    private let kUseWrappingStrings = "useWrappingStrings"
-    private let kWrapStringStart = "wrapStringStart"
-    private let kWrapStringEnd = "wrapStringEnd"
-    private let kHistoryLimited = "historyLimited"
-    private let kHistoryLimit = "historyLimit"
-    private let kUseCompactUI = "useCompactUI"
-    private let kHidePreview = "hidePreview"
-    private let kProtectFavorites = "protectFavorites"
-    private let kSavedTimeFilterValue = "savedTimeFilterValue"
-
     var events: PublishSubject<CutBoxPreferencesEvent>!
 
     var defaults: UserDefaults!
@@ -82,38 +70,38 @@ class CutBoxPreferencesService {
 
     var savedTimeFilterValue: String {
         get {
-            return defaults.string(forKey: kSavedTimeFilterValue) ?? ""
+            return defaults.string(forKey: Constants.kSavedTimeFilterValue) ?? ""
         }
         set {
-            defaults.set(newValue, forKey: kSavedTimeFilterValue)
+            defaults.set(newValue, forKey: Constants.kSavedTimeFilterValue)
         }
     }
 
     var useJoinString: Bool {
         get {
-            return defaults.bool(forKey: kUseJoinSeparator)
+            return defaults.bool(forKey: Constants.kUseJoinSeparator)
         }
         set {
-            defaults.set(newValue, forKey: kUseJoinSeparator)
+            defaults.set(newValue, forKey: Constants.kUseJoinSeparator)
         }
     }
 
     var multiJoinString: String? {
         get {
             return useJoinString ?
-                defaults.string(forKey: kMultiJoinSeparator) : nil
+            defaults.string(forKey: Constants.kMultiJoinSeparator) : nil
         }
         set {
-            defaults.set(newValue, forKey: kMultiJoinSeparator)
+            defaults.set(newValue, forKey: Constants.kMultiJoinSeparator)
         }
     }
 
     var useWrappingStrings: Bool {
         get {
-            return defaults.bool(forKey: kUseWrappingStrings)
+            return defaults.bool(forKey: Constants.kUseWrappingStrings)
         }
         set {
-            defaults.set(newValue, forKey: kUseWrappingStrings)
+            defaults.set(newValue, forKey: Constants.kUseWrappingStrings)
         }
     }
 
@@ -121,22 +109,22 @@ class CutBoxPreferencesService {
         get {
             return useWrappingStrings ?
                 (
-                    defaults.string(forKey: kWrapStringStart),
-                    defaults.string(forKey: kWrapStringEnd)
+                    defaults.string(forKey: Constants.kWrapStringStart),
+                    defaults.string(forKey: Constants.kWrapStringEnd)
                 ) : (nil, nil)
         }
         set {
-            defaults.set(newValue.0, forKey: kWrapStringStart)
-            defaults.set(newValue.1, forKey: kWrapStringEnd)
+            defaults.set(newValue.0, forKey: Constants.kWrapStringStart)
+            defaults.set(newValue.1, forKey: Constants.kWrapStringEnd)
         }
     }
 
     var historyLimited: Bool {
         get {
-            return defaults.bool(forKey: kHistoryLimited)
+            return defaults.bool(forKey: Constants.kHistoryLimited)
         }
         set {
-            defaults.set(newValue, forKey: kHistoryLimited)
+            defaults.set(newValue, forKey: Constants.kHistoryLimited)
             if !newValue {
                 historyLimit = 0
             }
@@ -146,40 +134,40 @@ class CutBoxPreferencesService {
 
     var historyLimit: Int {
         get {
-            return defaults.integer(forKey: kHistoryLimit)
+            return defaults.integer(forKey: Constants.kHistoryLimit)
         }
         set {
-            defaults.set(newValue, forKey: kHistoryLimit)
+            defaults.set(newValue, forKey: Constants.kHistoryLimit)
             events.onNext(.historyLimitChanged(limit: newValue))
         }
     }
 
     var useCompactUI: Bool {
         get {
-            return defaults.bool(forKey: kUseCompactUI)
+            return defaults.bool(forKey: Constants.kUseCompactUI)
         }
         set {
-            defaults.set(newValue, forKey: kUseCompactUI)
+            defaults.set(newValue, forKey: Constants.kUseCompactUI)
             events.onNext(.compactUISettingChanged(isOn: newValue))
         }
     }
 
     var hidePreview: Bool {
         get {
-            return defaults.bool(forKey: kHidePreview)
+            return defaults.bool(forKey: Constants.kHidePreview)
         }
         set {
-            defaults.set(newValue, forKey: kHidePreview)
+            defaults.set(newValue, forKey: Constants.kHidePreview)
             events.onNext(.hidePreviewSettingChanged(isOn: newValue))
         }
     }
 
     var protectFavorites: Bool {
         get {
-            return defaults.bool(forKey: kProtectFavorites)
+            return defaults.bool(forKey: Constants.kProtectFavorites)
         }
         set {
-            defaults.set(newValue, forKey: kProtectFavorites)
+            defaults.set(newValue, forKey: Constants.kProtectFavorites)
             events.onNext(.protectFavoritesChanged(isOn: newValue))
         }
     }
