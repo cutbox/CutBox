@@ -60,7 +60,7 @@ jobs:
         run: |
           make test_ci
 
-      - name: Upload Test Coverage to Codacy and CutBox.github.io
+      - name: Upload CutBox Test Coverage to Codacy
         run: |
           if bin/codacy_upload_coverage; then
             echo "### Code coverage uploaded to Codacy [✓]" >> "$GITHUB_STEP_SUMMARY"
@@ -69,6 +69,8 @@ jobs:
             exit 1
           fi
 
+      - name: Prepare CutBox Test Coverage Docs for Pages
+        run: |
           if bin/pages_prepare_coverage_report; then
             echo "### Code coverage prepared for to cutbox.github.io/CutBox/App/ [✓]" >> "$GITHUB_STEP_SUMMARY"
           else
