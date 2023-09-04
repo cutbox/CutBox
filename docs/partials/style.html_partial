@@ -1,4 +1,4 @@
-<style>
+<style><!-- -*- mode: web -*- -->
  :root {
      --background-color: #111014;
      --text-color: #F4F1ED;
@@ -177,4 +177,8 @@
          grid-template-columns: repeat(1, auto);
      }
  }
+
+.centered {
+     text-align: center;
+}
 </style>
