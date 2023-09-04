@@ -8,4 +8,4 @@ xcrun llvm-cov show \
 		-instr-profile .build/Build/ProfileData/**/Coverage.profdata \
 		.build/Build/Products/Debug/CutBoxUnitTests.xctest/Contents/MacOS/CutBoxUnitTests \
 		&& \
-		cp docs/style.css docs/App/
+		cp docs/customized.css docs/App/style.css
