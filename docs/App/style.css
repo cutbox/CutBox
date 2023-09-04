@@ -7,6 +7,13 @@
   background-color: cyan;
 }
 
+.blob.green { color: green; }
+.blob.grey { color: grey; }
+.blob.red { color: red; }
+.blob { background-color: unset; }
+.blob:nth-child(2) { padding: 0 10px; }
+.blob:nth-child(3) { padding: 0 10px 0 0; }
+
 body {
   font-family: -apple-system, sans-serif;
   background-color: #2B2A33;
