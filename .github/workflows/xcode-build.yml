@@ -113,6 +113,12 @@ jobs:
           bin/fix_llvm_html_pathnames docs/CLI 'cutbox_command'
           bin/fix_llvm_html_pathnames docs/App 'Source'
 
+      - name: Append addBlobs.js coverage index pages
+        run: |
+          for a in App CLI; do
+            echo '<script type="text/javascript" src="../js/addBlobs.js"></script>' >> docs/$a/index.html
+          done
+
       - name: Push Coverage Reports to cutbox.github.io/CutBox/
         run: |
           git add docs
