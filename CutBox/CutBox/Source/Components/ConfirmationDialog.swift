@@ -15,12 +15,12 @@ enum SuppressibleDialog: String, Equatable, CaseIterable {
     case destructiveLimitChangeWarning
     case clearHistoryWarning
 
-    var defaultKey: String {
+    var defaultSuppressionKey: String {
         return "\(self)_CutBoxSuppressed"
     }
 
     var defaultChoiceKey: String {
-        return "\(defaultKey)Choice"
+        return "\(defaultSuppressionKey)Choice"
     }
 
     static var all: [SuppressibleDialog] {
@@ -28,15 +28,17 @@ enum SuppressibleDialog: String, Equatable, CaseIterable {
     }
 }
 
+class DialogAlert: NSAlert {}
+
 private func makeDialog(messageText: String,
                         informativeText: String,
-                        ok: String, cancel: String) -> NSAlert {
-    let alert = NSAlert()
+                        ok: String,
+                        cancel: String,
+                        alert: DialogAlert = DialogAlert()) -> DialogAlert {
     alert.messageText = messageText
     alert.informativeText = informativeText
     alert.addButton(withTitle: ok)
     alert.addButton(withTitle: cancel)
-
     return alert
 }
 
@@ -45,7 +47,8 @@ func suppressibleConfirmationDialog(messageText: String,
                                     dialogName: SuppressibleDialog,
                                     ok: String = "ok".l7n,
                                     cancel: String = "cancel".l7n,
-                                    defaults: UserDefaults = UserDefaults.standard) -> Bool {
+                                    defaults: UserDefaults = UserDefaults.standard,
+                                    alert: DialogAlert = DialogAlert()) -> Bool {
 
     let suppressionKey = "\(dialogName)_CutBoxSuppressed"
     let suppressionChoiceKey = "\(dialogName)_CutBoxSuppressedChoice"
@@ -54,9 +57,11 @@ func suppressibleConfirmationDialog(messageText: String,
         return defaults.bool(forKey: suppressionChoiceKey)
     }
 
-    let alert = makeDialog(messageText: messageText,
-                           informativeText: informativeText,
-                           ok: ok, cancel: cancel)
+    let alert: DialogAlert = makeDialog(messageText: messageText,
+                                        informativeText: informativeText,
+                                        ok: ok,
+                                        cancel: cancel,
+                                        alert: alert)
 
     alert.showsSuppressionButton = true
 

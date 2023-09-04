@@ -187,6 +187,7 @@
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
 		9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */; };
+		9677BE9F2AA4CF4900AB537C /* ConfirmationDialogSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */; };
 		967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
 		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
@@ -397,6 +398,7 @@
 		9672FF2C2078E5DC00E4571E /* SearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextView.swift; sourceTree = "<group>"; };
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
 		9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift"; sourceTree = "<group>"; };
+		9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogSpec.swift; sourceTree = "<group>"; };
 		967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidatorSpec.swift; sourceTree = "<group>"; };
 		9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidator.swift; sourceTree = "<group>"; };
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
@@ -746,6 +748,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				9677BE9D2AA4CF1D00AB537C /* Components */,
 				96658CEE20BA7B2000BDA8F4 /* JSFunc */,
 				9667650920B148F000DE369A /* SharedMocks */,
 				96429D57208C11A90055D678 /* Extensions */,
@@ -845,6 +848,14 @@
 				9667650620B1486C00DE369A /* UserDefaultsMock.swift */,
 			);
 			path = SharedMocks;
+			sourceTree = "<group>";
+		};
+		9677BE9D2AA4CF1D00AB537C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9679400B2A887D0200D14B87 /* TimeFilter */ = {
@@ -1510,6 +1521,7 @@
 				965348DC284346CD000FD0A1 /* Constants.swift in Sources */,
 				9653492028434772000FD0A1 /* JSFuncService.swift in Sources */,
 				9653490628434752000FD0A1 /* ItemTableRowTextView.swift in Sources */,
+				9677BE9F2AA4CF4900AB537C /* ConfirmationDialogSpec.swift in Sources */,
 				9653492A28434785000FD0A1 /* Array+removeAtIndexes.swift in Sources */,
 				9653492828434785000FD0A1 /* Collection+Safe.swift in Sources */,
 				96C746FF2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift in Sources */,
