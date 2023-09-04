@@ -7,8 +7,8 @@ test ::
 coverage_report ::
 	xcrun llvm-cov show \
 		-format html \
-		-output-dir=../docs/ \
-		-ignore-filename-regex="checkouts|CutBoxCLITests|Output\.swift" \
+		-output-dir=../docs/CLI \
+		-ignore-filename-regex="checkouts|CutBoxCLITests|Mock|Output\.swift" \
 		-instr-profile .build/x86_64-apple-macosx/debug/codecov/default.profdata \
 		.build/x86_64-apple-macosx/debug/CutBoxCLIPackageTests.xctest/Contents/MacOS/CutBoxCLIPackageTests
 

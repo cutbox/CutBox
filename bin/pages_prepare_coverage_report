@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+
+set +o pipefail
+xcrun llvm-cov show \
+		-format html \
+		-output-dir=docs/App/ \
+		-ignore-filename-regex="Pods|CutBoxUnitTests" \
+		-instr-profile .build/Build/ProfileData/**/Coverage.profdata \
+		.build/Build/Products/Debug/CutBoxUnitTests.xctest/Contents/MacOS/CutBoxUnitTests \
+		&& \
+		cp docs/style.css docs/App/
