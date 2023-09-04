@@ -3,7 +3,7 @@
 // Makes it easier to see the cover overview on mobile.
 
 function setColorBlobs(row) {
-  let blobGlyph = '⌾'
+  let blobGlyph = '⬩'
   let grey = `<span class="blob grey">${blobGlyph}</span>`
   let green = `<span class="blob green">${blobGlyph}</span>`
   let red = `<span class="blob red">${blobGlyph}</span>`
