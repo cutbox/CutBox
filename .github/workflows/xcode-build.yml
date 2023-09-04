@@ -119,6 +119,8 @@ jobs:
           else
             echo "Commit coverage report on docs/coverage"
             git commit -m "Update Pages - cli coverage - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ) [codacy skip]"
+            git pull --rebase --autostash
+            git push origin master
           fi
 
       - name: CLI Build
