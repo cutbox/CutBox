@@ -109,7 +109,7 @@ jobs:
             echo "No changes to coverage report"
           else
             echo "Commit coverage report on docs/coverage"
-            git commit -m "Update Pages - cli coverage - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ)"
+            git commit -m "Update Pages - cli coverage - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ) [codacy skip]"
             git pull --rebase --autostash
             git push
           fi
