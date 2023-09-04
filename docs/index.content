@@ -1,16 +1,27 @@
 <div class="centered">
-   <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png" 
-       alt="" 
-       style="height: 257px;">
-   <br />
-   <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-logo-text.png" 
-        alt="" 
-        style="height: 100px; margin-top: -1rem; margin-bottom: -1rem;">
+    <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png"
+         alt=""
+         style="height: 257px;">
+    <br />
+    <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-logo-text.png"
+         alt=""
+         style="height: 100px; margin-top: -1rem; margin-bottom: -1rem;">
+    <p>
+        <h1>Test Coverage</h1>
+        <ul>
+            <li>
+                <h2><a href="App/">App
+                <img src="https://github.com/cutbox/CutBox/raw/master/CutBox/CutBox/GraphicAssets/cutbox-icon.png"
+                     alt=""
+                     style="height: 40px;"></a></h2>
+            </li>
+            <li>
+                <h2><a href="CLI">CLI
+                <img src="images/terminal-solid.png"></a></h2>
+            </li>
+        </ul>
+    </p>
 </div>
 
 
-<h1>Test Coverage Reports</h1>
 
-<h3><a href="App/">App coverage report</a></h3>
-
-<h3><a href="CLI/">CLI coverage report</a></h3>

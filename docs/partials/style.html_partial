@@ -1,4 +1,5 @@
-<style><!-- -*- mode: web -*- -->
+<!-- -*- mode: web -*- -->
+<style>
  :root {
      --background-color: #111014;
      --text-color: #F4F1ED;
@@ -178,7 +179,54 @@
      }
  }
 
-.centered {
+ table th.centered {
      text-align: center;
-}
+ }
+
+ table {
+    margin: auto;
+    max-width: 300px;
+    border-collapse: collapse;
+ }
+
+ table tr {
+     background-color: #0d1117;
+     border: unset;
+ }
+
+ table tr.centered td {
+     text-align: center;
+ }
+
+ table th {
+     font-weight: 600;
+ }
+
+ table th,
+ table td {
+     padding: 6px 13px;
+     border: unset;
+ }
+
+ table tr:nth-child(2n) {
+     background-color: #161b22;
+ }
+
+ table img {
+     background-color: transparent;
+ }
+
+ img.inline {
+     vertical-align: middle;
+     padding-right: 20px;
+ }
+
+ .x-large {
+     font-size: 28px;
+ }
+
+ a:hover {
+     text-decoration: none;
+     color: white;
+ }
 </style>
