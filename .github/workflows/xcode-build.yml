@@ -71,7 +71,7 @@ jobs:
 
       - name: Prepare CutBox Test Coverage Docs for Pages
         run: |
-          if bin/pages_prepare_coverage_report; then
+          if bin/pages_prepare_coverage_report ; then
             echo "### Code coverage prepared for to cutbox.github.io/CutBox/App/ [✓]" >> "$GITHUB_STEP_SUMMARY"
           else
             echo "### Failed prepare coverage for cutbox.github.io/CutBox/App/ [✗]" >> "$GITHUB_STEP_SUMMARY"
@@ -105,11 +105,14 @@ jobs:
 
       - name: Command line test
         run: |
-          mkdir -p docs/coverage
           bin/command_line_test
           make -C cutbox_command coverage_report
           cp docs/customized.css docs/style.css
-          bin/fix_llvm_html_pathnames docs cutbox_command
+
+      - name: Clean test report pathnames
+        run: |
+          bin/fix_llvm_html_pathnames docs/CLI 'cutbox_command'
+          bin/fix_llvm_html_pathnames docs/App 'Cutbox/Source'
 
       - name: Push Coverage Reports to cutbox.github.io/CutBox/
         run: |
