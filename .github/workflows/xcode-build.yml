@@ -107,12 +107,11 @@ jobs:
         run: |
           bin/command_line_test
           make -C cutbox_command coverage_report
-          cp docs/customized.css docs/style.css
 
       - name: Clean test report pathnames
         run: |
           bin/fix_llvm_html_pathnames docs/CLI 'cutbox_command'
-          bin/fix_llvm_html_pathnames docs/App 'Cutbox/Source'
+          bin/fix_llvm_html_pathnames docs/App 'Source'
 
       - name: Push Coverage Reports to cutbox.github.io/CutBox/
         run: |
