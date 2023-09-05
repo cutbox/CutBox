@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import JavaScriptCore
 
 class JSFuncServiceSpec: QuickSpec {
 
@@ -51,9 +52,9 @@ class JSFuncServiceSpec: QuickSpec {
                 }
 
                 it("evaluates the file as JS") {
-                    let result = subject.repl("require(\"\(path)\");")
+                    let result: JSValue = subject.replValue("require(\"\(path)\");")!
 
-                    expect(result).to(equal("100"))
+                    expect(result.toInt32()) == 100
                 }
             }
 
@@ -65,7 +66,25 @@ class JSFuncServiceSpec: QuickSpec {
                         this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
                         """
                     )
-                    expect(subject.count).to(equal(1))
+                    expect(subject.count) == 1
+                }
+            }
+
+            describe("WARNING: when cutboxFunctions is declared as var") {
+                it("its contents will not be found") {
+                    _ = subject.repl(
+                        """
+                        var cutboxFunctions = [{name: \"Test\", fn: i => \"done\" })]
+                        """
+                    )
+
+                    let result = subject.repl(
+                        """
+                        cutboxFunctions
+                        """
+                    )
+
+                    expect("undefined") == result
                 }
             }
 

@@ -145,6 +145,10 @@ class JSFuncService: NSObject {
         return js.evaluateScript(line).toString()
     }
 
+    func replValue(_ line: String) -> JSValue? {
+        return js.evaluateScript(line)
+    }
+
     func process(_ name: String, items: [String]) -> String {
         guard let index = selected(name: name)?.1
             else { return "" }
