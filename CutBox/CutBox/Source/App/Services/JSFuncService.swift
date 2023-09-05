@@ -50,6 +50,42 @@ class JSFuncService: NSObject {
         return String(data: data, encoding: .utf8) ?? ""
     }
 
+    let shell: @convention(block)
+    (String, String?) -> [String] = { command, stdin -> [String] in
+        let task = Process()
+
+        if let stdinString = stdin {
+            let stdinPipe = Pipe()
+            task.standardInput = stdinPipe
+            if let stdinData = stdinString.data(using: .utf8) {
+                stdinPipe.fileHandleForWriting.write(stdinData)
+                stdinPipe.fileHandleForWriting.closeFile()
+            }
+        }
+
+        task.launchPath = "/bin/bash"
+        task.arguments = ["-c", command]
+
+        let stdoutPipe = Pipe()
+        let stderrPipe = Pipe()
+        task.standardOutput = stdoutPipe
+        task.standardError = stderrPipe
+
+        do {
+            try task.run()
+        } catch {
+            return ["", "Error running: shell(command: \(command), stdin: \(String(describing: stdin))"]
+        }
+
+        let stdoutData = stdoutPipe.fileHandleForReading.readDataToEndOfFile()
+        let stderrData = stderrPipe.fileHandleForReading.readDataToEndOfFile()
+
+        let stdout = String(data: stdoutData, encoding: .utf8) ?? ""
+        let stderr = String(data: stderrData, encoding: .utf8) ?? ""
+
+        return [stdout, stderr]
+    }
+
     var filterText: String = ""
 
     var funcs: [(String, Int)] {
@@ -118,6 +154,7 @@ class JSFuncService: NSObject {
         self.js = JSContext()
         self.js["require"] = self.require
         self.js["shellCommand"] = self.shellCommand
+        self.js["shell"] = self.shell
     }
 
     func reload() {

@@ -28,34 +28,62 @@ class JSFuncServiceSpec: QuickSpec {
                 }
             }
 
-            describe("shellCommand") {
-                it("runs a shell command from JS and returns a string") {
-                    let result = subject.repl("shellCommand('printf \"hello world\"')")
-                    expect(result).to(equal("hello world"))
+            context("commands") {
+                describe("[stdout,stderr] = shell(command: String, stdin: String? = nil)") {
+                    it("runs a shell command and returns output to [stdout, stderr].") {
+                        let result = subject
+                            .repl("""
+                                var [stdout, stderr] = shell(`
+                                {
+                                  echo "Hello stdout"
+                                  echo "Hello stderr">&2
+                                }
+                                `);
+                                // The output for .repl
+                                `Out: ${stdout}\nErr: ${stderr}`;
+                                """)
+                        expect(result) == "Out: Hello stdout\n\nErr: Hello stderr\n"
+                    }
+
+                    it("runs a shell command with input from stdin") {
+                        let result = subject.repl("""
+                        let [out, err] = shell(`cat`, "Foo Foo Foo")
+                        out
+                        """)
+                        expect(result) == "Foo Foo Foo"
+                    }
                 }
-            }
 
-            describe("require") {
-                let fileManager = FileManager.default
-                let path = "\(fileManager.currentDirectoryPath)/test-require.js"
-
-                beforeEach {
-                    fileManager.createFile(
-                        atPath: path,
-                        contents: "10 * 10"
-                            .data(using: .utf8)
-                    )
+                describe("stdout = shellCommand(command)") {
+                    it("runs a shell command from JS and returns a string") {
+                        let result = subject.repl("shellCommand('printf \"hello world\"')")
+                        expect(result).to(equal("hello world"))
+                    }
                 }
 
-                afterEach {
-                    try? fileManager.removeItem(atPath: path)
+                describe("require") {
+                    let fileManager = FileManager.default
+                    let path = "\(fileManager.currentDirectoryPath)/test-require.js"
+
+                    beforeEach {
+                        fileManager.createFile(
+                            atPath: path,
+                            contents: "10 * 10"
+                                .data(using: .utf8)
+                        )
+                    }
+
+                    afterEach {
+                        try? fileManager.removeItem(atPath: path)
+                    }
+
+                    it("evaluates the file as JS") {
+                        let result: JSValue = subject.replValue("require(\"\(path)\");")!
+
+                        expect(result.toInt32()) == 100
+                    }
                 }
 
-                it("evaluates the file as JS") {
-                    let result: JSValue = subject.replValue("require(\"\(path)\");")!
-
-                    expect(result.toInt32()) == 100
-                }
             }
 
             describe("count") {
