@@ -34,12 +34,22 @@ class KeyComboUserDefaultsSpec: QuickSpec {
                 expect(loadedKeyCombo) == keyComboToSave
             }
 
-            it("should return nil when loading non-existent KeyCombo") {
-                let initialData = userDefaultsMock.data(forKey: "keyCombo")
-                expect(initialData).to(beNil())
+            it("should return nil when loading non-existent defaults entry") {
+                let loadedKeyCombo = KeyCombo.loadUserDefaults(
+                    identifier: "foobar",
+                    defaults: userDefaultsMock)
+
+                expect(loadedKeyCombo).to(beNil())
+            }
+
+            it("should return nil when loading defaults entry that is not an archived KeyCombo") {
+                let data = "Test data".data(using: .utf8)
+                let archived = NSKeyedArchiver
+                    .archivedData(withRootObject: data)
+                userDefaultsMock.set(archived, forKey: "barfoo")
 
                 let loadedKeyCombo = KeyCombo.loadUserDefaults(
-                    identifier: "keyCombo",
+                    identifier: "barfoo",
                     defaults: userDefaultsMock)
 
                 expect(loadedKeyCombo).to(beNil())
