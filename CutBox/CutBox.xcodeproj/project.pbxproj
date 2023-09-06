@@ -189,6 +189,8 @@
 		9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */; };
 		9677BE9F2AA4CF4900AB537C /* ConfirmationDialogSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */; };
 		9677BEA12AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */; };
+		9677BEA32AA81FFE00AB537C /* cutbox-jsfuncs-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */; };
+		9677BEA42AA8201500AB537C /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
 		967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
 		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
@@ -401,6 +403,7 @@
 		9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift"; sourceTree = "<group>"; };
 		9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogSpec.swift; sourceTree = "<group>"; };
 		9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenienceSpec.swift"; sourceTree = "<group>"; };
+		9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-jsfuncs-list.png"; sourceTree = "<group>"; };
 		967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidatorSpec.swift; sourceTree = "<group>"; };
 		9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidator.swift; sourceTree = "<group>"; };
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
@@ -811,6 +814,7 @@
 		965F0785206FCDC60032DACD /* GraphicAssets */ = {
 			isa = PBXGroup;
 			children = (
+				9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */,
 				964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */,
 				96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */,
 				967DFB5920C28D3E0063B050 /* js_badge.png */,
@@ -1201,6 +1205,7 @@
 				965349162843475E000FD0A1 /* SearchAndPreviewView.xib in Resources */,
 				9653495928434D59000FD0A1 /* js_badge.png in Resources */,
 				96B04643284518E500011A58 /* themes in Resources */,
+				9677BEA42AA8201500AB537C /* history-clock-face-white.png in Resources */,
 				9653495328434D59000FD0A1 /* cutbox-icon.png in Resources */,
 				9653495828434D59000FD0A1 /* cutbox-js-icon.png in Resources */,
 				9653493F284347E8000FD0A1 /* JSFuncItemTableRowTextView.xib in Resources */,
@@ -1242,6 +1247,7 @@
 				968D7C932094778900FF1236 /* magnitude.png in Resources */,
 				968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */,
 				96A16B4E20A3C0A600EE08A4 /* ClipItemTableRowImageButtonView.xib in Resources */,
+				9677BEA32AA81FFE00AB537C /* cutbox-jsfuncs-list.png in Resources */,
 				96CDF2D62A8B95D800ADE6B4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
