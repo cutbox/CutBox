@@ -9,8 +9,7 @@
 import Cocoa
 
 extension NSImage {
-
-    func tint(color: NSColor) -> NSImage {
+    func tint(color: NSColor, fill: NSCompositingOperation = .sourceAtop) -> NSImage {
         guard !self.isTemplate
             else { return self }
 
@@ -21,7 +20,7 @@ extension NSImage {
         color.set()
 
         let imageRect = NSRect(origin: NSPoint.zero, size: image.size)
-        imageRect.fill(using: .sourceAtop)
+        imageRect.fill(using: fill)
 
         image.unlockFocus()
         image.isTemplate = false
