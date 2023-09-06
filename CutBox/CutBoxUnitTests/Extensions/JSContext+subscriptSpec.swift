@@ -13,19 +13,22 @@ import JavaScriptCore
 
 class JSContextSubscriptSpec: QuickSpec {
     override func spec() {
-        describe("JSContext+subscript") {
-            let ctx = JSContext()!
-            context("subscript") {
+        let ctx = JSContext()!
 
-                it("test ES6") {
-                    expect(ctx.evaluateScript("""
+        describe("JSContext") {
+            it("test ES6") {
+                expect(ctx.evaluateScript("""
 
                       let a = (e) => e * 10
                       a(5)
 
                     """).toInt32()).to(equal(50))
-                }
+            }
+        }
 
+        describe("JSContext+subscript") {
+            let ctx = JSContext()!
+            context("subscript") {
                 context("set") {
                     it("sets objects on the JSContext") {
                         ctx["items"] = [123, 524, 213, 523, 315, 213]
