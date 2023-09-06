@@ -47,6 +47,8 @@ Any text you copy on MacOS is saved to CutBox's history.
 
 (This can be customized in preferences.)
 
+Optionally paste through a function or shell process:
+
 ![](CutBox/CutBox/GraphicAssets/cutbox-jsfuncs-list.png)
 
 ### Search and Paste
