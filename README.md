@@ -91,9 +91,11 @@ To exit press <kbd>**Esc**</kbd>.
 
 Use the status item to open Cutbox with the mouse, and access options: 
 
-<img height="380px" src="CutBox/CutBox/GraphicAssets/cutbox-menu.png">
+<img height="350px" src="CutBox/CutBox/GraphicAssets/cutbox-menu.png">
 
-# Install via Homebrew Cask (recommended)
+# Installation
+
+## Install via Homebrew Cask - Recommended
 
 Install the compiled package.
 ```sh
@@ -101,11 +103,21 @@ brew tap cutbox/cutbox
 brew install --cask cutbox
 ```
 
-# Install by downloading the release DMG
+Read the notes shown by homebrew and follow the 
 
-Visit https://github.com/cutbox/CutBox/releases/latest
+## Install by downloading the release DMG
 
-# Install via Homebrew formula
+Open the CutBox latest release page [cutbox/CutBox/releases/latest](https://github.com/cutbox/CutBox/releases/latest )
+
+Download the DMG and open it on macOS. You'll find `CutBox.app` & `cutbox` (cli tool) inside.
+
+<img width="65%" src="https://github.com/cutbox/CutBox/wiki/images/cutbox-dmg-1.6.0.png">
+
+Drag the `.app` to `/Applications` and copy `cutbox` to your somewhere in exec `$PATH`, for example, `/usr/local/bin`.
+
+Follow the [macOS Security Settings First Run](#macOs-Security-Settings-First-Run) section.
+
+## Install via Homebrew formula
 
 Builds the package from source, a full Xcode installation needed.
 
@@ -113,32 +125,39 @@ Builds the package from source, a full Xcode installation needed.
 brew tap cutbox/cutbox
 brew install cutbox
 ```
-
-# macOS Security Settings - First run
+## macOS Security Settings First Run
 
 When you first run CutBox Macos will prompt you that the developer cannot be identified.
 
 [Please read this post from Apple.](https://support.apple.com/en-us/HT202491#:~:text=If%20you%20want%20to%20open%20an%20app%20that%20hasn%E2%80%99t%20been%20notarized%20or%20is%20from%20an%20unidentified%20developer)
 
-If you prefer to install open source software that isn't notarized (such as CutBox, or Chromium) on your Mac, you can do this in the terminal.
+If you prefer to install open source software that isn't notarized (such as CutBox, Chromium or other large free opensource projects.) on your Mac, you can do this in the terminal.
 
 ```sh
 sudo spctl --master-disable
 ```
 
-I only recommend this if you feel comfortable using free software that you can code audit.  CutBox is [code audited by Codacy](https://www.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  However it doesn't participate in Apple's anti opensource gatekeeper / notarisation system or any other parts of [Apple's Walled Garden.](https://seekingalpha.com/article/4525092-apple-mr-cook-tear-down-walled-garden)
+I only recommend this if you feel comfortable using free software that you can code audit.  
+
+Remember, the notarisation process by Apple, doesn't do any software quality or security scanning, it is simply a process which applies an Apple generated hash/checksum.  Gatekeeper then looks for that hash to mark software as valid, nothing more.  In effect "security" is enhanced in one simple way, a developer who has a registered Apple ID can be directly linked to the app binary.
 
 CutBox will be free and open forever, and is licensed under GNU/GPL3, so the source is always available. Donations are important to help keep it developed and improved.
 
-Dmg/.app builds are produced by Github Workflow actions, so you can also inspect the entire test/deploy/delivery chain.
+CutBox is [code audited by Codacy](https://app.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  However it doesn't participate in Apple's anti-opensource gatekeeper / notarisation system or any other parts of [Apple's Walled Garden.](https://seekingalpha.com/article/4525092-apple-mr-cook-tear-down-walled-garden).
 
-# Enable automatic paste.
+`CutBox.app` and `cutbox` releases are build using Github actions, so you can also inspect the entire test/deploy/delivery chain online at  [cutbox/CutBox](https://github.com/cutbox/CutBox/Actions).
 
-Before CutBox can paste for you (when you select something and hit enter that is.) You have to enable it to control the keyboard.
+If you have any concerns about the integrity of your CutBox.app, make sure to build it directly from source on your local machine, this is easily achieved using Homebrew and installing XCode.  See [Install via Homebrew formula](#Install-via-Homebrew-formula)
 
-Go to **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
+## Permissions to enable CutBox paste 
 
-Unlock and add CutBox to the list of apps (also switch on the check box next to its icon). 
+After installation or upgrade, the CutBox.app requires security permissions set, so that it can paste.
+
+Open **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
+
+Unlock the panel and add CutBox to the list of apps (also switch on the check box next to its icon). 
+
+<img width="550px" src="https://github.com/cutbox/CutBox/wiki/images/apple-security-accessibility.png" alt="Apple System Preferences  -> Security & Privacy -> Privacy -> Accessibility">
 
 Do the same for input monitoring...:
 
@@ -146,9 +165,11 @@ Go to **System Preferences -> Security & Privacy -> Privacy -> Input Monitoring*
 
 Make sure CutBox is in the list and its checkbox is on.
 
-These work best before CutBox is run. (Macos will suggest restarting CutBox anyway, wait for the CutBox icon to appear before changing a checkbox in security preferences.)
+<img width="550px" src="https://github.com/cutbox/CutBox/wiki/images/apple-security-input-monitoring.png" alt="Apple System Preferences -> Security & Privacy -> Privacy -> Input Monitoring">
 
-FYI If you're upgrading, you'll need to remove and re-add the new CutBox.app.
+### Please Note
+
+CutBox.app will need to be restarted for these permissions to activate. (macOS will suggest restarting CutBox anyway.)
 
 # Command line access
 
@@ -243,6 +264,17 @@ CutBox/build/CutBox.app/Contents/MacOS/CutBox
 # Troubleshooting
 
 There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
+
+### FAQs
+
+- When I do <kbd>Cmd</kbd> <kbd>Shift</kbd> <kbd>v</kbd> in other apps, CutBox opens.  I need that command in another app!
+    - Change the CutBox hotkey to be something you're happy with, in CutBox preferences (in the macOS status-bar menu)
+- My JS functions aren't loading from my `~/.cutbox.js`?
+    - Make sure you are using `this.cutboxFunctions` or `globalThis.cutboxFunctions` using `var cutboxFunctions` or `let cutboxFunctions` will not work as expected.
+- When I select item to paste, and press enter, nothing happens.
+    - CutBox permissions must be set, [read this section](#permissions-to-enable-cutbox-paste)
+- I can't start CutBox, macOS says it's "potentially malware"
+    - This is due to Apple's misguided attempt to kill non-app-store software.  See [macos security settings](#macos-security-settings-first-run)
 
 # Thank You...
 
