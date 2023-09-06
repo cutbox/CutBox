@@ -105,10 +105,13 @@ class CutBoxCLICoreSpec: QuickSpec {
 
                 let copy = loadPlist(path: tempFilename)
 
-                let historyStore: [[String: String]] = plist["historyStore"] as! [[String: String]]
-                let historyStoreCopy: [[String: String]] = copy["historyStore"] as! [[String: String]]
+                if let historyStore: [[String: String]] = plist["historyStore"] as? [[String: String]],
+                   let historyStoreCopy: [[String: String]] = copy["historyStore"] as? [[String: String]] {
 
-                expect(historyStore.first) == historyStoreCopy.first
+                    expect(historyStore.first) == historyStoreCopy.first
+                } else {
+                    fail()
+                }
             }
         }
 
