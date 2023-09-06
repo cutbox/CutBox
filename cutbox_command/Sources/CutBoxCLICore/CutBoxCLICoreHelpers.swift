@@ -38,10 +38,10 @@ public func loadPlist(path: String) -> [String: Any] {
     return plist
 }
 
-public func savePlist(path: String, plist: [String: Any]) {
+public func savePlist(path: String, plist: [String: Any], format: PropertyListSerialization.PropertyListFormat = .binary) {
     guard let data = try? PropertyListSerialization.data(
         fromPropertyList: plist,
-        format: .xml,
+        format: format,
         options: 0
     ) else {
         fatalError("Cannot convert plist to data")
