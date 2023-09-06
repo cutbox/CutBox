@@ -56,7 +56,7 @@ class CutBoxCLICoreSpec: QuickSpec {
         let firstTimestamp = timestampSecondsAgo(3600 * 24 * 2)
         let lastTimestamp = timestampSecondsAgo(360)
 
-        describe("CutBoxCLICore loadPlist") {
+        describe("CutBoxCLICoreHelpers.loadPlist") {
             it("Loads a plist") {
                 let bundle = Bundle.module
                 let plistFilename = "info.ocodo.CutBox.plist"
@@ -86,6 +86,29 @@ class CutBoxCLICoreSpec: QuickSpec {
                     contents: "Nothing in here but plain old garbage.".data(using: .ascii)
                 )
                 expect { loadPlist(path: temp) }.to(throwAssertion())
+            }
+        }
+
+        describe("CutBoxCLICoreHelpers.savePlist") {
+            it("saves a plist to a file") {
+                let bundle = Bundle.module
+                let plistFilename = "info.ocodo.CutBox.plist"
+
+                if let path = bundle.path(forResource: "info.ocodo.CutBox", ofType: "plist") {
+                    plist = loadPlist(path: path)
+                } else {
+                    fail("couldn't load \(plistFilename)")
+                }
+
+                let tempFilename = "\(FileManager.default.temporaryDirectory.path)/save_tmp_file.plist"
+                savePlist(path: tempFilename, plist: plist)
+
+                let copy = loadPlist(path: tempFilename)
+
+                let historyStore: [[String: String]] = plist["historyStore"] as! [[String: String]]
+                let historyStoreCopy: [[String: String]] = copy["historyStore"] as! [[String: String]]
+
+                expect(historyStore.first) == historyStoreCopy.first
             }
         }
 

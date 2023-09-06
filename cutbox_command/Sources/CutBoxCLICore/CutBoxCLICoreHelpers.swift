@@ -1,5 +1,5 @@
 //
-//  CutBoxCoreCLIHelpers.swift
+//  CutBoxCLICoreHelpers.swift
 //
 //  Created by jason on 1/9/23.
 //
@@ -36,4 +36,20 @@ public func loadPlist(path: String) -> [String: Any] {
         fatalError("Cannot read file at \(path)")
     }
     return plist
+}
+
+public func savePlist(path: String, plist: [String: Any]) {
+    guard let data = try? PropertyListSerialization.data(
+        fromPropertyList: plist,
+        format: .xml,
+        options: 0
+    ) else {
+        fatalError("Cannot convert plist to data")
+    }
+
+    do {
+        try data.write(to: URL(fileURLWithPath: path))
+    } catch {
+        fatalError("Failed to write data to file: \(error)")
+    }
 }
