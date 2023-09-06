@@ -14,11 +14,10 @@ extension JSContext {
     }
 
     subscript(_ set: String) -> Any! {
-        get {
-            fatalError("set: cannot be used to get")
-        }
+        get { fatalError("unreachable code") }
         set {
             self.setObject(newValue, forKeyedSubscript: set as NSString)
         }
     }
 }
+
