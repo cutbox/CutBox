@@ -21,6 +21,16 @@ class JSFuncServiceSpec: QuickSpec {
                 subject.setup()
             }
 
+            describe("reload") {
+                it("resets JS context") {
+                    _ = subject.repl("this.marker = 'foobar'")
+                    expect(subject.repl("this.marker")) == "foobar"
+
+                    subject.reload()
+                    expect(subject.repl("this.marker")) == "undefined"
+                }
+            }
+
             describe("repl") {
                 it("processes through JS and returns a string") {
                     let result = subject.repl("123 + 123")
@@ -65,25 +75,43 @@ class JSFuncServiceSpec: QuickSpec {
                     let fileManager = FileManager.default
                     let path = "\(fileManager.currentDirectoryPath)/test-require.js"
 
-                    beforeEach {
-                        fileManager.createFile(
-                            atPath: path,
-                            contents: "10 * 10"
-                                .data(using: .utf8)
-                        )
+                    context("require a missing file") {
+                        it("returns undefined") {
+                            let result = subject.repl("require('test.js')")
+                            expect(result) == "undefined"
+                        }
                     }
 
-                    afterEach {
-                        try? fileManager.removeItem(atPath: path)
+                    context("require a unreadable file") {
+                        it("returns undefined") {
+                            let result = subject.repl("require('/')")
+                        }
                     }
 
-                    it("evaluates the file as JS") {
-                        let result: JSValue = subject.replValue("require(\"\(path)\");")!
+                    context("require an existing file") {
+                        beforeEach {
+                            fileManager.createFile(
+                                atPath: path,
+                                contents: "10 * 10".data(using: .utf8))
+                        }
 
-                        expect(result.toInt32()) == 100
+                        afterEach {
+                            try? fileManager.removeItem(atPath: path)
+                        }
+
+                        it("evaluates the file as JS") {
+                            let result: JSValue = subject.replValue("require(\"\(path)\");")!
+
+                            expect(result.toInt32()) == 100
+                        }
                     }
                 }
+            }
 
+            describe("isEmpty") {
+                it("true when no functions are loaded") {
+                    expect(subject.isEmpty) == true
+                }
             }
 
             describe("count") {
@@ -117,7 +145,6 @@ class JSFuncServiceSpec: QuickSpec {
             }
 
             describe("list") {
-
                 beforeEach {
                     _ = subject.repl(
                         """
@@ -134,21 +161,39 @@ class JSFuncServiceSpec: QuickSpec {
                     )
                 }
 
-                context("no filter") {
-                    it("returns a list of function names in cutboxFunctions") {
-                        expect(subject.funcList).to(equal(["Test", "Another"]))
+                describe("funcList") {
+                    context("no filter") {
+                        it("returns a list of function names in cutboxFunctions") {
+                            expect(subject.funcList).to(equal(["Test", "Another"]))
+                        }
+                    }
+
+                    describe("with filterText") {
+                        it("set a text filter on the function names in cutboxFunctions") {
+                            subject.filterText = "no"
+
+                            expect(subject.funcList).to(equal(["Another"]))
+                        }
+                    }
+
+                    context("invalid cutboxFunctions") {
+
+                        beforeEach {
+                            _ = subject.repl("this.cutboxFunctions = {foobar: 23}")
+                        }
+
+                        it("does not list any functions") {
+                            expect(subject.funcList) == []
+                        }
+
+                        it("does not filter") {
+                            subject.filterText = "foobar"
+                            expect(subject.funcs.count) == 0
+                        }
                     }
                 }
 
-                context("filtered") {
-                    it("returns a filtered list of function names in cutboxFunctions") {
-                        subject.filterText = "no"
-
-                        expect(subject.funcList).to(equal(["Another"]))
-                    }
-                }
-
-                context("selected") {
+                describe("selected") {
                     it("returns the index of the selected func by name") {
                         let index = subject.selected(name: "Another")!
 
@@ -156,7 +201,7 @@ class JSFuncServiceSpec: QuickSpec {
                     }
                 }
 
-                context("funcs") {
+                describe("funcs") {
                     it("returns the unfiltered function name/index list for lookup") {
                         subject.filterText = "no"
 
