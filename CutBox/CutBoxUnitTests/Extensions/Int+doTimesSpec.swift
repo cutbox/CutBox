@@ -27,6 +27,24 @@ class Int_doTimesSpec: QuickSpec {
                     expect(out) == 1000
                 }
             }
+
+            context("will not loop less than 1 time") {
+                it("using count arg") {
+                    let int = -1
+                    var leaveItAlone = 0
+                    int.doTimes {
+                        leaveItAlone += $0 * 10
+                    }
+                    expect(leaveItAlone) == 0
+                }
+
+                it("ignoring count arg") {
+                    let int = 0
+                    var leaveItAlone = 0
+                    int.doTimes { leaveItAlone += 10 }
+                    expect(leaveItAlone) == 0
+                }
+            }
         }
     }
 }
