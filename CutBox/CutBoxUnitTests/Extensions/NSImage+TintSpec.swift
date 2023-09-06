@@ -21,7 +21,7 @@ class NSImageTintSpec: QuickSpec {
                 expect(tintedImage).notTo(beIdenticalTo(image))
                 expect(tintedImage.isTemplate).to(beFalse())
                 let pixelColor = self.samplePixelColor(from: tintedImage, at: NSPoint(x: 50, y: 50))
-                expect(pixelColor?.toHex) == "DB0000" // Tints to a darker red
+                expect(pixelColor?.toHex) == "FF0000" // Tints to a darker red
             }
 
             it("should return the original image if it's a template image") {
