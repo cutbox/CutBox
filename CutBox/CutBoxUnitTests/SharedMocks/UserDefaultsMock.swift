@@ -51,4 +51,8 @@ class UserDefaultsMock: UserDefaults {
     override func removeObject(forKey defaultName: String) {
         store[defaultName] = nil
     }
+
+    override func data(forKey defaultName: String) -> Data? {
+        return store[defaultName] as? Data
+    }
 }

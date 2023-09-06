@@ -21,7 +21,11 @@ class NSImageTintSpec: QuickSpec {
                 expect(tintedImage).notTo(beIdenticalTo(image))
                 expect(tintedImage.isTemplate).to(beFalse())
                 let pixelColor = self.samplePixelColor(from: tintedImage, at: NSPoint(x: 50, y: 50))
-                expect(pixelColor?.toHex) == "FF0000" // Tints to a darker red
+
+                // Tints to a red however, exact colors are dependent on mac color calibration
+                expect(pixelColor?.redComponent).to(beCloseTo(1.0, within: 0.1))
+                expect(pixelColor?.greenComponent).to(beCloseTo(0.0, within: 0.1))
+                expect(pixelColor?.blueComponent).to(beCloseTo(0.0, within: 0.1))
             }
 
             it("should return the original image if it's a template image") {
@@ -45,6 +49,7 @@ class NSImageTintSpec: QuickSpec {
             origin: NSPoint(x: (size.width - squareSize.width) / 2, y: (size.height - squareSize.height) / 2),
             size: squareSize
         )
+
         NSBezierPath(rect: squareRect).fill()
 
         image.unlockFocus()

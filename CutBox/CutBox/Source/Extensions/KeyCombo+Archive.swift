@@ -10,15 +10,17 @@ import Magnet
 
 extension KeyCombo {
 
-    func saveUserDefaults(identifier: String) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: self)
-        UserDefaults.standard.set(data, forKey: identifier)
+    func saveUserDefaults(identifier: String, defaults: UserDefaults = .standard) {
+        let data = NSKeyedArchiver
+            .archivedData(withRootObject: self)
+        defaults.set(data, forKey: identifier)
     }
 
-    static func loadUserDefaults(identifier: String) -> KeyCombo? {
-        guard let data = UserDefaults.standard.data(forKey: identifier) else { return nil }
+    static func loadUserDefaults(identifier: String, defaults: UserDefaults = .standard) -> KeyCombo? {
+        guard let data = defaults.data(forKey: identifier) else { return nil }
 
-        if let keyCombo = NSKeyedUnarchiver.unarchiveObject(with: data) as? KeyCombo? {
+        if let keyCombo = NSKeyedUnarchiver
+            .unarchiveObject(with: data) as? KeyCombo? {
             return keyCombo
         } else {
             return nil

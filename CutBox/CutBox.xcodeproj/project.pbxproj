@@ -193,6 +193,7 @@
 		9677BEA42AA8201500AB537C /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
 		9677BEA62AA8703F00AB537C /* NSAttributedString+HTMLSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BEA52AA8703F00AB537C /* NSAttributedString+HTMLSpec.swift */; };
 		9677BEA82AA88CF100AB537C /* NSImage+TintSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BEA72AA88CF100AB537C /* NSImage+TintSpec.swift */; };
+		9677BEAA2AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BEA92AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift */; };
 		967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
 		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
@@ -408,6 +409,7 @@
 		9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-jsfuncs-list.png"; sourceTree = "<group>"; };
 		9677BEA52AA8703F00AB537C /* NSAttributedString+HTMLSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+HTMLSpec.swift"; sourceTree = "<group>"; };
 		9677BEA72AA88CF100AB537C /* NSImage+TintSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+TintSpec.swift"; sourceTree = "<group>"; };
+		9677BEA92AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyComboUserDefaultsSpec.swift; sourceTree = "<group>"; };
 		967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidatorSpec.swift; sourceTree = "<group>"; };
 		9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidator.swift; sourceTree = "<group>"; };
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 		96429D57208C11A90055D678 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9677BEA92AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift */,
 				9677BEA72AA88CF100AB537C /* NSImage+TintSpec.swift */,
 				9677BEA52AA8703F00AB537C /* NSAttributedString+HTMLSpec.swift */,
 				964CA5332080360000B9F33E /* Array+IndexSetSpec.swift */,
@@ -1520,6 +1523,7 @@
 				9653492728434785000FD0A1 /* JSContext+subscript.swift in Sources */,
 				96CDF2CF2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */,
 				9653491928434767000FD0A1 /* HistorySearchMode.swift in Sources */,
+				9677BEAA2AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift in Sources */,
 				965348E32843471D000FD0A1 /* CutBoxPreferences+SelectTheme.swift in Sources */,
 				965348F628434735000FD0A1 /* PreferencesAdvancedView.swift in Sources */,
 				968715942A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift in Sources */,
