@@ -20,4 +20,3 @@ extension JSContext {
         }
     }
 }
-
