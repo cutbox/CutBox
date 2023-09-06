@@ -188,6 +188,7 @@
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
 		9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */; };
 		9677BE9F2AA4CF4900AB537C /* ConfirmationDialogSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */; };
+		9677BEA12AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */; };
 		967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */; };
 		9679400A2A887C4F00D14B87 /* TimeFilterValidatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */; };
 		9679400D2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */; };
@@ -399,6 +400,7 @@
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
 		9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift"; sourceTree = "<group>"; };
 		9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogSpec.swift; sourceTree = "<group>"; };
+		9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenienceSpec.swift"; sourceTree = "<group>"; };
 		967940092A887C4F00D14B87 /* TimeFilterValidatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidatorSpec.swift; sourceTree = "<group>"; };
 		9679400C2A887D2100D14B87 /* TimeFilterValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFilterValidator.swift; sourceTree = "<group>"; };
 		967B32BF20A6BEED0042BD2F /* JSContext+subscriptSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSContext+subscriptSpec.swift"; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 				968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */,
 				96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */,
 				7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */,
+				9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1457,6 +1460,7 @@
 				965348F728434735000FD0A1 /* PreferencesGeneralView+KeyRecorder.swift in Sources */,
 				9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */,
 				967C06AB2A94783C008AF0CE /* Int+doTimes.swift in Sources */,
+				9677BEA12AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift in Sources */,
 				9653492B28434785000FD0A1 /* NSScreen+currentScreenForMouseLocation.swift in Sources */,
 				9653493B284347A7000FD0A1 /* CutBox.swift in Sources */,
 				9653490A28434752000FD0A1 /* ItemTableRowContainerView.swift in Sources */,
