@@ -23,15 +23,4 @@ extension NSObject {
 
         return objectArray?.first(where: { $0 is T }) as? T
     }
-
-    class func fromNib<T>(name: String) -> T? {
-        var objectArray: NSArray?
-        guard Bundle.main.loadNibNamed(
-            name,
-            owner: nil,
-            topLevelObjects: &objectArray) else {
-                fatalError("Unable to load view from nib: \(name)")
-        }
-        return objectArray?.first(where: { $0 is T }) as? T
-    }
 }
