@@ -1,6 +1,7 @@
 ---
 exclude_paths:
   - "**/Pods/**/*"
+  - "**/Source/**/*View.swift"
   - "**/CutBoxUnitTests/**/*"
   - "**/cutbox_command/**/*"
   - "**/bin/*"
