@@ -23,6 +23,20 @@ class NSColorHexColorStringSpec: QuickSpec {
                     expect(invalid).to(beNil())
                 }
             }
+
+            describe("NSColor.toHex()") {
+                it("returns a hex color with alpha component, last 2 of 8 digits") {
+                    let colorWithAlpha = NSColor(deviceRed: 1.0, green: 0, blue: 0, alpha: 0.3)
+                    expect(colorWithAlpha.toHex(alpha: true)) == "FF00004D"
+                }
+            }
+
+            describe("NSColor.toHex") {
+                it("Returns the hex string for a color") {
+                    let red = NSColor.red
+                    expect("FF0000") == red.toHex
+                }
+            }
         }
     }
 }
