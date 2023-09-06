@@ -90,8 +90,14 @@ class HistoryService: NSObject {
     @available(*, message: "HistoryService: .legacyHistoryStore is deprecated use .historyRepo")
     private var legacyHistoryStore: [String]? = []
 
-    init(defaults: UserDefaults = UserDefaults.standard) {
+    init(defaults: UserDefaults = UserDefaults.standard,
+         pasteboard: PasteboardWrapperType = PasteboardWrapper(),
+         prefs: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
         self.defaults = defaults
+        self.pasteboard = pasteboard
+        self.historyRepo = HistoryRepo(defaults: defaults, prefs: prefs)
+
+        super.init()
 
         // swiftlint:disable identifier_name
         let migration_1_6_x = HistoryStoreMigration_1_6_x()
@@ -100,35 +106,15 @@ class HistoryService: NSObject {
             print("historyStore migrated to 1.6.x - timestamps added")
         }
 
-        self.pasteboard = PasteboardWrapper()
-        self.historyRepo = HistoryRepo()
-
         self.internalFavoritesOnly = self.defaults.bool(forKey: searchFavoritesOnly)
 
         if let legacyHistoryStoreDefaults = defaults.array(forKey: self.legacyHistoryStoreKey) {
-            self.legacyHistoryStore = legacyHistoryStoreDefaults as? [String]
-
-            self.historyRepo.loadFromDefaults()
-
-            if let legacyHistoryStore = self.legacyHistoryStore {
-                if self.historyRepo.items.isEmpty {
-                    self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
-                    self.historyRepo.saveToDefaults()
-                    self.historyRepo.clear()
-                    self.historyRepo.loadFromDefaults()
-                } else {
-                    self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
-                }
-            }
-
-            defaults.removeObject(forKey: self.legacyHistoryStoreKey)
+            self.migrateLegacyHistoryStore(legacyHistoryStoreDefaults, defaults)
         } else {
             self.historyRepo.loadFromDefaults()
         }
 
         self.events.onNext(.didLoadDefaults) // not currently used
-
-        super.init()
     }
 
     private func truncateItems() {
@@ -382,4 +368,23 @@ class HistoryService: NSObject {
         self.invalidateCaches()
         self.events.onNext(.didLoadDefaults) // not currently used
     }
+
+    func migrateLegacyHistoryStore(_ legacyHistoryStoreDefaults: [Any], _ defaults: UserDefaults) {
+        self.legacyHistoryStore = legacyHistoryStoreDefaults as? [String]
+        self.historyRepo.loadFromDefaults()
+
+        if let legacyHistoryStore = self.legacyHistoryStore {
+            if self.historyRepo.items.isEmpty {
+                self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
+                self.historyRepo.saveToDefaults()
+                self.historyRepo.clear()
+                self.historyRepo.loadFromDefaults()
+            } else {
+                self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
+            }
+        }
+
+        defaults.removeObject(forKey: self.legacyHistoryStoreKey)
+    }
+
 }
