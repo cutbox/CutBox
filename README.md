@@ -21,7 +21,7 @@ CutBox is a clipboard manager for MacOS, designed for developers. Search using f
 
 - - -
 
-CutBox also has advanced JavaScript and Shell command features. Using `require(javascript_file)` and/or `shellCommand(command_args)` you can process text through any JS library or shell command before pasting it into your workflow.
+CutBox also has advanced JavaScript and Shell command features. Using `require(javascript_file)` and/or `shell(commandWithArgs)` you can process text through any JS library or shell command before pasting it into your workflow.
 
 - - -
 
@@ -46,6 +46,8 @@ Also Compact UI mode, which expands as above when searching.
 Any text you copy on MacOS is saved to CutBox's history.
 
 (This can be customized in preferences.)
+
+![](CutBox/CutBox/GraphicAssets/cutbox-jsfuncs-list.png)
 
 ### Search and Paste
 
