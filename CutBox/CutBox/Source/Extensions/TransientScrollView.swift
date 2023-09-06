@@ -1,5 +1,5 @@
 //
-//  DisableScrollView.swift
+//  TransientScrollView.swift
 //  CutBox
 //
 //  Created by Jason Milkins on 25/3/18.
@@ -10,8 +10,7 @@ import Cocoa
 
 @IBDesignable
 
-public class DisablableScrollView: NSScrollView {
-
+public class TransientScrollView: NSScrollView {
     @IBInspectable @objc(enabled) public var isEnabled: Bool = true
 
     public override func scrollWheel(with event: NSEvent) {
