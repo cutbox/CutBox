@@ -1,8 +1,9 @@
 disabled_rules: # rule identifiers to exclude from running
-  - identifier_name
   - function_body_length
-  - nesting
   - function_parameter_count
+  - identifier_name
+  - nesting
+  - private_over_fileprivate
 
 opt_in_rules: # some rules are only opt-in
   - control_statement
@@ -12,17 +13,15 @@ opt_in_rules: # some rules are only opt-in
   - comma
 
 included: # paths to include during linting. `--path` is ignored if present.
-  - CutBox/CutBox
-  - CutBox/CutBoxUnitTests
+  - ./**/CutBox/Source
+  - ./**/CutBoxUnitTests
 
 excluded: # paths to ignore during linting. Takes precedence over `included`.
-  - CutBox/Pods
-  - CutBox/MockingbirdSupport
+  - ./**/Pods/
 
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level
 force_cast: warning # implicitly. Give warning only for force casting
-
 force_try: warning # explicitly. Give warning only for force try
 
 type_body_length:
