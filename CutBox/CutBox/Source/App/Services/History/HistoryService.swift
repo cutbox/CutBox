@@ -52,7 +52,7 @@ class HistoryService: NSObject {
     var pollingTimer: Timer?
     var filterText: String? {
         didSet {
-            invalidateCaches()
+            invalidateCache()
         }
     }
 
@@ -69,7 +69,7 @@ class HistoryService: NSObject {
         }
         set {
             self.defaults.set(newValue.axID, forKey: searchModeKey)
-            invalidateCaches()
+            invalidateCache()
         }
     }
 
@@ -79,7 +79,7 @@ class HistoryService: NSObject {
         set {
             internalFavoritesOnly = newValue
             self.defaults.set(newValue, forKey: searchFavoritesOnly)
-            invalidateCaches()
+            invalidateCache()
         }
     }
 
@@ -92,10 +92,15 @@ class HistoryService: NSObject {
 
     init(defaults: UserDefaults = UserDefaults.standard,
          pasteboard: PasteboardWrapperType = PasteboardWrapper(),
+         historyRepo: HistoryRepo =
+         HistoryRepo(
+            defaults: UserDefaults.standard,
+            prefs: CutBoxPreferencesService.shared
+         ),
          prefs: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
         self.defaults = defaults
         self.pasteboard = pasteboard
-        self.historyRepo = HistoryRepo(defaults: defaults, prefs: prefs)
+        self.historyRepo = historyRepo
 
         super.init()
 
@@ -122,10 +127,10 @@ class HistoryService: NSObject {
         if limit > 0 && historyRepo.items.count > limit {
             historyRepo.removeSubrange(limit..<historyRepo.items.count)
         }
-        invalidateCaches()
+        invalidateCache()
     }
 
-    private func invalidateCaches() {
+    func invalidateCache() {
         itemsCache = nil
         dictCache = nil
     }
@@ -219,11 +224,12 @@ class HistoryService: NSObject {
             return
         }
 
-        self.pollingTimer = Timer.scheduledTimer(timeInterval: 0.2,
-                                            target: self,
-                                            selector: #selector(self.pollPasteboard),
-                                            userInfo: nil,
-                                            repeats: true)
+        self.pollingTimer = Timer.scheduledTimer(
+            timeInterval: 0.2,
+            target: self,
+            selector: #selector(self.pollPasteboard),
+            userInfo: nil,
+            repeats: true)
     }
 
     func endPolling() {
@@ -242,7 +248,7 @@ class HistoryService: NSObject {
 
     func clear() {
         self.historyRepo.clearHistory()
-        self.invalidateCaches()
+        self.invalidateCache()
         self.events.onNext(.didClearHistory) // not currently used
     }
 
@@ -250,7 +256,7 @@ class HistoryService: NSObject {
     /// see historyOffsetPredicateFactory(offset: TimeInterval) -> (String) -> Bool
     func clearWithTimestampPredicate(predicate: (String) -> Bool) {
         self.historyRepo.clearHistory(timestampPredicate: predicate)
-        self.invalidateCaches()
+        self.invalidateCache()
     }
 
     private func itemSelectionToHistoryIndexes(selected: IndexSet) -> IndexSet {
@@ -280,14 +286,14 @@ class HistoryService: NSObject {
 
         self.historyRepo
             .removeAtIndexes(indexes: indexes)
-        self.invalidateCaches()
+        self.invalidateCache()
     }
 
     func toggleFavorite(items: IndexSet) {
         let indexes = itemSelectionToHistoryDictIndexes(selected: items)
         self.historyRepo
             .toggleFavorite(indexes: indexes)
-        self.invalidateCaches()
+        self.invalidateCache()
     }
 
     func saveToDefaults() {
@@ -356,7 +362,7 @@ class HistoryService: NSObject {
 
     func removeLatest() {
         self.historyRepo.remove(at: 0)
-        self.invalidateCaches()
+        self.invalidateCache()
         NSPasteboard.general.clearContents()
         if let topClip = self.historyRepo.items.first {
             NSPasteboard.general.setString(topClip, forType: .string)
@@ -365,7 +371,7 @@ class HistoryService: NSObject {
 
     func setTimeFilter(seconds: Double?) {
         self.historyRepo.timeFilter = seconds
-        self.invalidateCaches()
+        self.invalidateCache()
         self.events.onNext(.didLoadDefaults) // not currently used
     }
 

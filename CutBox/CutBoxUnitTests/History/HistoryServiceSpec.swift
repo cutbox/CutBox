@@ -13,15 +13,22 @@ import RxSwift
 private class HistoryRepoMock: HistoryRepo {}
 
 private class PasteboardWrapperMock: PasteboardWrapperType {
-    var pasteboardItems: [NSPasteboardItem]?
+    var getCount = 0
+    var _pasteboardItems: [NSPasteboardItem]?
+    var pasteboardItems: [NSPasteboardItem]? {
+        get {
+            getCount += 1
+            return _pasteboardItems
+        }
+    }
 
     func addToFakePasteboard(string: String) {
         let item = NSPasteboardItem(pasteboardPropertyList: string, ofType: .string)!
-        pasteboardItems?.insert(item, at: 0)
+        _pasteboardItems?.insert(item, at: 0)
     }
 
     init() {
-        pasteboardItems = []
+        _pasteboardItems = []
     }
 }
 
@@ -37,7 +44,8 @@ class HistoryServiceSpec: QuickSpec {
         var subject: HistoryService!
         var mockPasteboard: PasteboardWrapperMock!
         var mockHistoryRepo: HistoryRepoMock!
-        var defaults: UserDefaults!
+        var mockDefaults: UserDefaults!
+        var mockPrefs: CutBoxPreferencesService!
 
         let fakeItems = [
             "Foo bar",
@@ -61,20 +69,146 @@ class HistoryServiceSpec: QuickSpec {
         ]
 
         beforeEach {
-            defaults = UserDefaultsMock()
-            subject = HistoryService(defaults: defaults)
-
+            mockDefaults = UserDefaultsMock()
             mockPasteboard = PasteboardWrapperMock()
-            mockHistoryRepo = HistoryRepoMock()
+            mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
+            mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
+                                              prefs: mockPrefs)
 
-            subject.pasteboard = mockPasteboard
-            subject.historyRepo = mockHistoryRepo
-
-            subject.clear()
+            subject = HistoryService(defaults: mockDefaults,
+                                     pasteboard: mockPasteboard,
+                                     historyRepo: mockHistoryRepo,
+                                     prefs: mockPrefs)
         }
 
         it("starts with an empty pasteboard") {
             expect(subject.count) == 0
+        }
+
+        describe("toggleSearchMode") {
+            it("switches through available search modes") {
+                subject.searchMode = .substringMatch
+                subject.toggleSearchMode()
+                expect(subject.searchMode) == .fuzzyMatch
+            }
+        }
+
+        describe("toggle favorite") {
+            it("toggles the favorite state of an item") {
+                ["bob", "david"].forEach {
+                    addToFakePasteboardAndPoll(string: $0,
+                                               subject: subject,
+                                               pboard: mockPasteboard)
+                }
+                expect(subject.count) == 2
+                subject.toggleFavorite(items: IndexSet(integer: 0))
+                subject.favoritesOnly = true
+                expect(subject.count) == 1
+            }
+        }
+
+        describe("remove") {
+            beforeEach {
+                ["bob", "david"].forEach {
+                    addToFakePasteboardAndPoll(string: $0,
+                                               subject: subject,
+                                               pboard: mockPasteboard)
+                }
+                // init cache
+                _ = subject.items
+                _ = subject.dict
+            }
+            it("removes an item or items") {
+                expect(subject.count) == 2
+                expect(subject.items[0]) == "david"
+                subject.remove(selected: IndexSet(integer: 0))
+                expect(subject.count) == 1
+                expect(subject.items[0]) == "bob"
+            }
+        }
+
+        context("polling") {
+            it("polls the pasteboard") {
+                expect(subject.pollingTimer).to(beNil())
+                subject.beginPolling()
+                expect(subject.pollingTimer).notTo(beNil())
+                expect(mockPasteboard.getCount)
+                    .toEventually(equal(1), pollInterval: .milliseconds(200))
+                subject.endPolling()
+            }
+        }
+
+        describe("dict") {
+            beforeEach {
+                fakeItems.forEach {
+                    addToFakePasteboardAndPoll(string: $0,
+                                               subject: subject,
+                                               pboard: mockPasteboard)
+                }
+                // init cache
+                _ = subject.dict
+                _ = subject.items
+                subject.filterText = nil
+            }
+
+            it("should match the order of .items") {
+                let result = subject.dict.map { $0["string"] }
+                let items = subject.items
+
+                expect(result[5]) == items[5]
+                expect(result[8]) == items[8]
+                expect(result[2]) == items[2]
+            }
+
+            it("will access cached dict of history items") {
+                expect(subject.dict.first?["string"]) == "Example"
+                expect(subject.dict.count) == 18
+            }
+
+            context("search modes") {
+                context("favorites only") {
+                    it("return items marked as favorites only") {
+                        subject.favoritesOnly = true
+                        expect(subject.dict.count) == 0
+
+                        mockHistoryRepo.insert("Favorite", isFavorite: true)
+                        subject.invalidateCache()
+                        expect(subject.dict.count) == 1
+                    }
+                }
+
+                context("fuzzy") {
+                    it("returns items matching a fuzzy search") {
+                        subject.searchMode = .fuzzyMatch
+                        subject.filterText = "2"
+                        expect(subject.dict.count) == 3
+                    }
+                }
+
+                context("regex") {
+                    context("returns items matching a regex") {
+                        it("can match a case sensitive regex") {
+                            subject.searchMode = .regexpStrictCase
+                            subject.filterText = "Bo.*b"
+                            expect(subject.dict.count) == 5
+                        }
+
+                        it("can match a case insensitive regex") {
+                            subject.searchMode = .regexpAnyCase
+                            subject.filterText = "Bo.*b"
+                            expect(subject.dict.count) == 6
+                        }
+                    }
+                }
+
+                context("exact") {
+                    it("matches an exact substring") {
+                        subject.searchMode = .substringMatch
+                        subject.filterText = "Bo.*b"
+                        expect(subject.count) == 0
+                    }
+                }
+            }
         }
 
         context("Pasteboard items history") {
