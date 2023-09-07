@@ -31,8 +31,8 @@ class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
                         mockDefaults.store["historyStore"] = [
                             ["string": "apple", "timestamp": "2021-04-05T08:15:30Z"],
                             ["string": "banana", "timestamp": "2023-02-10T21:45:00Z"],
-                            ["string": "orange"],
                             ["string": "grape", "timestamp": "2022-06-30T12:10:20Z"],
+                            ["string": "orange"],
                             ["string": "kiwi"],
                             ["string": "pear"],
                             ["string": "melon"],
@@ -60,7 +60,7 @@ class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
                         it("applies migration without disrupting store order") {
                             let strings = historyStore.map { $0["string"] }
                             let expected = [
-                                "apple", "banana", "orange", "grape", "kiwi", "pear", "melon", "peach"
+                                "apple", "banana", "grape", "orange", "kiwi", "pear", "melon", "peach"
                             ]
                             expect(strings).to(equal(expected))
                         }

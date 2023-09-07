@@ -68,37 +68,60 @@ class HistoryServiceSpec: QuickSpec {
             "Example"
         ]
 
-        beforeEach {
-            mockDefaults = UserDefaultsMock()
-            mockPasteboard = PasteboardWrapperMock()
-        }
-
-        context("pasteStore") {
-            context("legacy store migration 1.x") {
-                it("converts a legacy store") {
-                    // fakeLegacyStore
-                    mockDefaults.set(fakeItems, forKey: "pasteStore")
-
+        context("legacy store handling") {
+            context("historyStore pre ≤1.5.5") {
+                it("adds timestamps if required") {
+                    mockPasteboard = PasteboardWrapperMock()
+                    mockDefaults = UserDefaultsMock()
                     mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
                     mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
                                                       prefs: mockPrefs)
 
-                    expect(mockDefaults.array(forKey: "pasteStore") as? [String]) == fakeItems
+                    4.doTimes { mockHistoryRepo.insert("Test legacy \($0)", date: nil) }
+                    mockHistoryRepo.saveToDefaults()
 
                     subject = HistoryService(defaults: mockDefaults,
                                              pasteboard: mockPasteboard,
                                              historyRepo: mockHistoryRepo,
                                              prefs: mockPrefs)
 
-                    expect(subject.defaults) == mockDefaults
-                    expect(mockDefaults.array(forKey: "pasteStore") as? [String]).to(beNil())
+                    expect(subject.count) == 4
 
-                    if let resultItems: [[String: String]] = (mockDefaults.array(forKey: "historyStore") as? [[String: String]]) {
-                        expect(resultItems.count) == fakeItems.count
-                        let extracted: [String] = resultItems.map { $0["string"]! }
-                        expect(extracted) == fakeItems
-                    } else {
-                        fail()
+                    expect(subject.dict.allSatisfy { $0.keys.contains("timestamp") }).to(beTrue())
+                }
+            }
+
+            context("pasteStore") {
+                context("legacy store migration 1.x") {
+                    it("converts a legacy store") {
+                        // fakeLegacyStore
+                        mockPasteboard = PasteboardWrapperMock()
+                        mockDefaults = UserDefaultsMock()
+                        mockDefaults.set(fakeItems, forKey: "pasteStore")
+
+                        mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
+                        mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
+                                                          prefs: mockPrefs)
+
+                        expect(mockDefaults.array(forKey: "pasteStore") as? [String]) == fakeItems
+
+                        subject = HistoryService(defaults: mockDefaults,
+                                                 pasteboard: mockPasteboard,
+                                                 historyRepo: mockHistoryRepo,
+                                                 prefs: mockPrefs)
+
+                        expect(subject.defaults) == mockDefaults
+                        expect(mockDefaults.array(forKey: "pasteStore") as? [String]).to(beNil())
+
+                        if let resultItems: [[String: String]] = (
+                            mockDefaults.array(forKey: "historyStore") as? [[String: String]]
+                        ) {
+                            expect(resultItems.count) == fakeItems.count
+                            let extracted: [String] = resultItems.map { $0["string"]! }
+                            expect(extracted) == fakeItems
+                        } else {
+                            fail()
+                        }
                     }
                 }
             }
@@ -106,6 +129,8 @@ class HistoryServiceSpec: QuickSpec {
 
         context("historyStore") {
             beforeEach {
+                mockPasteboard = PasteboardWrapperMock()
+                mockDefaults = UserDefaultsMock()
                 mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
                 mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
                                                   prefs: mockPrefs)
@@ -360,11 +385,24 @@ class HistoryServiceSpec: QuickSpec {
 
                 context("password manager support") {
                     it("Removes the most recent item when an empty string is the current pasteboard item") {
+                        // Add a secret
+                        addToFakePasteboardAndPoll(string: "Password Secret",
+                                                   subject: subject,
+                                                   pboard: mockPasteboard)
+
+                        // Ensure it is at the top of the items list
+                        expect(subject.items.first) == "Password Secret"
+                        expect(subject.count) == 19
+
+                        // Simulate password manager sending enpty string to pasteboard
                         addToFakePasteboardAndPoll(string: "",
                                                    subject: subject,
                                                    pboard: mockPasteboard)
-                        expect(subject.items.count) == 17
-                        expect(subject.items.first) == "#FF0022"
+
+                        // Ensure it is removed
+                        expect(subject.count) == 18
+                        expect(subject.items.first) == "Example"
+                        expect(subject.items.contains("Password Secret")).to(beFalse())
                     }
                 }
 

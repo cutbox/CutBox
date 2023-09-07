@@ -28,30 +28,22 @@ class HistoryStoreMigration_1_6_x {
 
     /// Is there a historyStore and does it have legacy items?
     var isMigrationRequired: Bool {
-        return hasExistingHistoryStore && hasLegacyItems
+        return hasLegacyItems
     }
 
     /// Does historyStore contain items without timestamps?
     private var hasLegacyItems: Bool {
         if let historyStore = defaults
             .array(forKey: Constants.kHistoryStoreKey) as? [[String: String]] {
-            return historyStore.contains(
-                where: { $0[Constants.kTimestampKey] == nil }
-            )
+            let test = historyStore
+                .contains { $0["timestamp"] == nil }
+            return test
+        } else {
+            return false
         }
-        return false
-    }
-
-    /// Does historyStore exist in CutBox defaults?
-    private var hasExistingHistoryStore: Bool {
-        if defaults.array(forKey: Constants.kHistoryStoreKey) is [[String: String]] {
-            return true
-        }
-        return false
     }
 
     /// Apply sequential ISO8601 timestamps to the legacy items
-    ///
     /// - offset: seconds ago (default 30 days) to start setting timestamps
     /// Note: TimeStamps are applied approximately one-second apart
     func applyTimestampsToLegacyItems(offset: TimeInterval = -2592000.0) {
@@ -66,7 +58,6 @@ class HistoryStoreMigration_1_6_x {
                 idx += 1
                 item[Constants.kTimestampKey] = timestamp
             }
-
             migratedHistoryStore.append(item)
         }
 

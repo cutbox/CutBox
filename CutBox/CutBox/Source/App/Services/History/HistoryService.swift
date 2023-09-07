@@ -100,9 +100,8 @@ class HistoryService {
         self.pasteboard = pasteboard
         self.historyRepo = historyRepo
 
-
         // swiftlint:disable identifier_name
-        let migration_1_6_x = HistoryStoreMigration_1_6_x()
+        let migration_1_6_x = HistoryStoreMigration_1_6_x(defaults: defaults)
         if migration_1_6_x.isMigrationRequired {
             migration_1_6_x.applyTimestampsToLegacyItems()
             print("historyStore migrated to 1.6.x - timestamps added")
