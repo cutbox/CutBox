@@ -229,17 +229,15 @@ class HistoryRepoSpec: QuickSpec {
             }
 
             context("clear history") {
-                it("can remove the entire history") {
+                it("removes history") {
                     subject.migrateLegacyPasteStore(["1", "2", "3", "4", "5"])
                     subject.saveToDefaults()
                     expect(mockedDefaults.array(forKey: "historyStore")).to(beAKindOf([[String: String]].self))
 
                     subject.clearHistory()
-                    expect(mockedDefaults.store["historyStore"]).to(beNil())
 
                     subject.loadFromDefaults()
                     expect(subject.items).to(equal([]))
-
                 }
 
                 context("time filtered") {

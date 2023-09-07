@@ -23,7 +23,7 @@ extension PreferencesAdvancedView {
     func updateHistorySizeLabel() {
         self.historySizeLabel.stringValue = String(
             format: "preferences_history_is_using_format".l7n,
-            HistoryService.shared.bytesFormatted()
+            HistoryService.shared.historyMemorySize()
         )
     }
 }

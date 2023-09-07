@@ -16,10 +16,10 @@ class HistoryRepo {
     private var store: [[String: String]] = []
 
     /// dict keys of clip items
-    private var historyStoreKey = "historyStore"
-    private var stringKey = "string"
-    private var favoriteKey = "favorite"
-    private var timestampKey = "timestamp"
+    private var historyStoreKey = Constants.kHistoryStoreKey
+    private var stringKey = Constants.kStringKey
+    private var favoriteKey = Constants.kFavoriteKey
+    private var timestampKey = Constants.kTimestampKey
 
     /// Optional time filter
     var timeFilter: Double?
@@ -158,13 +158,12 @@ class HistoryRepo {
 
     /// Used to persist in memory history store to user defaults
     func saveToDefaults() {
-        self.defaults.setValue(self.store, forKey: self.historyStoreKey)
+        self.defaults.set(self.store, forKey: self.historyStoreKey)
     }
 
     /// removes the historyStore completely
     func clearHistory() {
         self.clear()
-        self.defaults.removeObject(forKey: self.historyStoreKey)
     }
 
     /// Clear the history using a timestampPredicate

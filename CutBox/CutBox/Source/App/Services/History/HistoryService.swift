@@ -25,7 +25,7 @@ enum HistoryServiceEvents {
     case didClearHistory
 }
 
-class HistoryService: NSObject {
+class HistoryService {
 
     static let shared = HistoryService()
 
@@ -92,17 +92,14 @@ class HistoryService: NSObject {
 
     init(defaults: UserDefaults = UserDefaults.standard,
          pasteboard: PasteboardWrapperType = PasteboardWrapper(),
-         historyRepo: HistoryRepo =
-         HistoryRepo(
-            defaults: UserDefaults.standard,
-            prefs: CutBoxPreferencesService.shared
-         ),
+         historyRepo: HistoryRepo = HistoryRepo(defaults: UserDefaults.standard,
+                                                prefs: CutBoxPreferencesService.shared),
          prefs: CutBoxPreferencesService = CutBoxPreferencesService.shared) {
+
         self.defaults = defaults
         self.pasteboard = pasteboard
         self.historyRepo = historyRepo
 
-        super.init()
 
         // swiftlint:disable identifier_name
         let migration_1_6_x = HistoryStoreMigration_1_6_x()
@@ -356,7 +353,7 @@ class HistoryService: NSObject {
             .string(forType: .string)
     }
 
-    func bytesFormatted() -> String {
+    func historyMemorySize() -> String {
         return self.historyRepo.bytesFormatted()
     }
 
@@ -383,8 +380,6 @@ class HistoryService: NSObject {
             if self.historyRepo.items.isEmpty {
                 self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
                 self.historyRepo.saveToDefaults()
-                self.historyRepo.clear()
-                self.historyRepo.loadFromDefaults()
             } else {
                 self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
             }
