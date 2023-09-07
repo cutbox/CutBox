@@ -1,6 +1,6 @@
 #!/bin/bash
 
-build_folder="$(git rev-parse --show-toplevel)/CutBox/build"
+build_folder="$(git rev-parse --show-toplevel)/build"
 archive_at="${build_folder}/archive/CutBox.xcarchive"
 
 rm -rvf "${build_folder}/CutBox.app"
@@ -10,7 +10,7 @@ xcodebuild archive \
     -workspace CutBox/CutBox.xcworkspace \
     -scheme CutBox \
     -configuration Release \
-    -derivedDataPath .build \
+    -derivedDataPath "${build_folder}" \
     -archivePath "${archive_at}"
 
 mv "${archive_at}/Products/Applications/CutBox.app" "${build_folder}"
