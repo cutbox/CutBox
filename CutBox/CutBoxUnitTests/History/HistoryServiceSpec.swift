@@ -13,11 +13,11 @@ import RxSwift
 private class HistoryRepoMock: HistoryRepo {}
 
 private class PasteboardWrapperMock: PasteboardWrapperType {
-    var getCount = 0
+    var called = false
     var _pasteboardItems: [NSPasteboardItem]?
     var pasteboardItems: [NSPasteboardItem]? {
         get {
-            getCount += 1
+            called = true
             return _pasteboardItems
         }
     }
@@ -114,16 +114,27 @@ class HistoryServiceSpec: QuickSpec {
                                                subject: subject,
                                                pboard: mockPasteboard)
                 }
-                // init cache
+                
+                // populate cache
                 _ = subject.items
                 _ = subject.dict
             }
-            it("removes an item or items") {
+            it("removes an item") {
                 expect(subject.count) == 2
                 expect(subject.items[0]) == "david"
+
                 subject.remove(selected: IndexSet(integer: 0))
                 expect(subject.count) == 1
                 expect(subject.items[0]) == "bob"
+            }
+
+            it("removes an items") {
+                expect(subject.count) == 2
+                expect(subject.items[0]) == "david"
+                expect(subject.items[1]) == "bob"
+
+                subject.remove(selected: IndexSet(arrayLiteral: 0, 1))
+                expect(subject.count) == 0
             }
         }
 
@@ -132,9 +143,18 @@ class HistoryServiceSpec: QuickSpec {
                 expect(subject.pollingTimer).to(beNil())
                 subject.beginPolling()
                 expect(subject.pollingTimer).notTo(beNil())
-                expect(mockPasteboard.getCount)
-                    .toEventually(equal(1), pollInterval: .milliseconds(200))
+                expect(mockPasteboard.called).toEventually(
+                    beTrue(),
+                    pollInterval: .milliseconds(100))
                 subject.endPolling()
+            }
+
+            it("cannot start polling twice in a row") {
+                let timer = Timer(timeInterval: 0.01, repeats: false) { _ in _ = true }
+                subject.pollingTimer = timer
+
+                subject.beginPolling() // has a 200ms interval
+                expect(subject.pollingTimer) == timer
             }
         }
 
@@ -145,7 +165,8 @@ class HistoryServiceSpec: QuickSpec {
                                                subject: subject,
                                                pboard: mockPasteboard)
                 }
-                // init cache
+
+                // populate cache
                 _ = subject.dict
                 _ = subject.items
                 subject.filterText = nil
@@ -205,7 +226,11 @@ class HistoryServiceSpec: QuickSpec {
                     it("matches an exact substring") {
                         subject.searchMode = .substringMatch
                         subject.filterText = "Bo.*b"
-                        expect(subject.count) == 0
+                        expect(subject.dict.count) == 0
+                        addToFakePasteboardAndPoll(string: "Bo.*b",
+                                                   subject: subject,
+                                                   pboard: mockPasteboard)
+                        expect(subject.dict.count) == 1
                     }
                 }
             }

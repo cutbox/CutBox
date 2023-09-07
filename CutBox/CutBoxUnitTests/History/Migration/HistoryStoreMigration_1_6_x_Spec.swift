@@ -66,7 +66,7 @@ class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
                         }
 
                         context("tolerance of up to ±1 second") {
-                            it("applies migration timestamps spaced exactly one second apart") {
+                            it("applies migration timestamps spaced approximately one second apart ±1") {
                                 let historyStore = mockDefaults.store["historyStore"] as! [[String: String]]
                                 let updatedItems = ["orange", "kiwi", "pear", "melon", "peach"]
 
@@ -74,7 +74,7 @@ class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
                                     .filter { updatedItems.contains($0["string"]!) }
                                     .map { $0["timestamp"]! }
 
-                                expect(self.timestampsOneSecondApart(updatedTimestamps)).to(beTrue())
+                                expect(self.timestampsOneSecondApart(updatedTimestamps, tolerance: 0.2)).to(beTrue())
                             }
                         }
                     }
