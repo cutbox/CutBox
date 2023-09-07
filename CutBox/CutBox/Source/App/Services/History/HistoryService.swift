@@ -377,15 +377,10 @@ class HistoryService {
         self.historyRepo.loadFromDefaults()
 
         if let legacyHistoryStore = self.legacyHistoryStore {
-            if self.historyRepo.items.isEmpty {
-                self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
-                self.historyRepo.saveToDefaults()
-            } else {
-                self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
-            }
+            self.historyRepo.migrateLegacyPasteStore(legacyHistoryStore)
+            self.historyRepo.saveToDefaults()
         }
 
         defaults.removeObject(forKey: self.legacyHistoryStoreKey)
     }
-
 }
