@@ -7,12 +7,15 @@
 //
 
 import Cocoa
-
 import RxSwift
 
 typealias StatusItemDescriptor = (Int, String, String?, String?)
 
 class CutBoxController: NSObject {
+    @IBOutlet weak var statusMenu: NSMenu!
+    var statusItem: NSStatusItem = NSStatusBar
+        .system
+        .statusItem(withLength: NSStatusItem.variableLength)
 
     var useCompactUI: NSMenuItem!
     var hidePreview: NSMenuItem!
@@ -20,26 +23,16 @@ class CutBoxController: NSObject {
     var regexpModeItem: NSMenuItem!
     var regexpCaseSensitiveModeItem: NSMenuItem!
     var substringSearchModeItem: NSMenuItem!
-
-    @IBOutlet weak var statusMenu: NSMenu!
-
-    let statusItem: NSStatusItem = NSStatusBar
-        .system
-        .statusItem(withLength: NSStatusItem.variableLength)
-
     var searchModeSelectors: [NSMenuItem]?
     var searchModeSelectorsDict: [String: NSMenuItem]?
-
-    let searchViewController: SearchViewController
-    let jsFuncSearchViewController: JSFuncSearchViewController
-    let preferencesController: PreferencesTabViewController
-    let aboutPanel: AboutPanel = AboutPanel.fromNib()!
-
-    let hotKeyService = HotKeyService.shared
-    let prefs = CutBoxPreferencesService.shared
-    let historyService = HistoryService.shared
-
-    private let disposeBag = DisposeBag()
+    var searchViewController: SearchViewController
+    var jsFuncSearchViewController: JSFuncSearchViewController
+    var preferencesController: PreferencesTabViewController
+    var aboutPanel: AboutPanel = AboutPanel.fromNib()!
+    var hotKeyService = HotKeyService.shared
+    var prefs = CutBoxPreferencesService.shared
+    var historyService = HistoryService.shared
+    var disposeBag = DisposeBag()
 
     @objc func searchClicked(_ sender: NSMenuItem) {
         self.searchViewController.togglePopup()
@@ -102,7 +95,9 @@ class CutBoxController: NSObject {
         setPreferencesEventBindings()
         setMenuItems()
     }
+}
 
+extension CutBoxController {
     func setMenuItems() {
         let menu = self.statusMenu!
         self.statusItem.menu = menu
@@ -171,44 +166,77 @@ class CutBoxController: NSObject {
             menu.insertItem(item, at: descriptor.0)
         }
     }
+}
 
+extension CutBoxController {
     func setHotKeyServiceEventBindings() {
-        self.hotKeyService
-            .events
-            .subscribe(onNext: { event in
-                switch event {
-                case .search:
-                    self.searchViewController.togglePopup()
-                }
-            })
+        self.hotKeyService.events
+            .subscribe(onNext: onNext)
             .disposed(by: disposeBag)
     }
 
     func setSearchEventBindings() {
-        self.searchViewController
-            .events
-            .asObservable()
-            .subscribe(onNext: { event in
-                switch event {
-                case .openPreferences:
-                    self.preferencesController.open()
-                case .toggleSearchMode:
-                    self.checkSearchModeItem()
-                case .setSearchMode(let mode):
-                    self.checkSearchModeItem(mode.axID)
-                case .clearHistory:
-                    self.clearHistoryClicked(nil)
-                case .selectJavascriptFunction:
-                    if  self.jsFuncSearchViewController.hasFuncs {
-                        self.openJavascriptPopup()
-                    }
-                default:
-                    break
-                }
-            })
+        self.searchViewController.events
+            .subscribe(onNext: onNext)
             .disposed(by: disposeBag)
     }
 
+    func setPreferencesEventBindings() {
+        self.prefs.events
+            .subscribe(onNext: onNext)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension CutBoxController {
+    func onNext(event: HotKeyEvents) {
+        switch event {
+        case .search:
+            self.searchViewController.togglePopup()
+        }
+    }
+
+    func onNext(event: SearchViewEvents) {
+        switch event {
+        case .openPreferences:
+            self.preferencesController.open()
+        case .toggleSearchMode:
+            self.checkSearchModeItem()
+        case .setSearchMode(let mode):
+            self.checkSearchModeItem(mode.axID)
+        case .clearHistory:
+            self.clearHistoryClicked(nil)
+        case .selectJavascriptFunction:
+            if  self.jsFuncSearchViewController.hasFuncs {
+                self.openJavascriptPopup()
+            }
+        default:
+            break
+        }
+    }
+
+    func onNext(event: CutBoxPreferencesEvent) {
+        switch event {
+        case .historyLimitChanged(let limit):
+            self.historyService.historyLimit = limit
+        case .compactUISettingChanged(let isOn):
+            self.useCompactUI.state = isOn ? .on : .off
+        case .hidePreviewSettingChanged(let isOn):
+            self.hidePreview.state = isOn ? .on : .off
+        case .historyClearByOffset(let offset):
+            if offset == 0 {
+                self.historyService.clear()
+            } else {
+                let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
+                self.historyService.clearWithTimestampPredicate(predicate: predicate)
+            }
+        default:
+            break
+        }
+    }
+}
+
+extension CutBoxController {
     func openJavascriptPopup() {
         let items = self.searchViewController.selectedClips
         self.jsFuncSearchViewController.selectedClips = items
@@ -221,32 +249,9 @@ class CutBoxController: NSObject {
             .jsFuncPopup
             .togglePopup()
     }
+}
 
-    func setPreferencesEventBindings() {
-        self.prefs
-            .events
-            .subscribe(onNext: { [weak self] in
-                switch $0 {
-                case .historyLimitChanged(let limit):
-                    self?.historyService.historyLimit = limit
-                case .compactUISettingChanged(let isOn):
-                    self?.useCompactUI.state = isOn ? .on : .off
-                case .hidePreviewSettingChanged(let isOn):
-                    self?.hidePreview.state = isOn ? .on : .off
-                case .historyClearByOffset(let offset):
-                    if offset == 0 {
-                        self?.historyService.clear()
-                    } else {
-                        let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
-                        self?.historyService.clearWithTimestampPredicate(predicate: predicate)
-                    }
-                default:
-                    break
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-
+extension CutBoxController {
     func setCompactUIMenuItem() {
         self.useCompactUI.title = "preferences_use_compact_ui".l7n
         self.useCompactUI.state = self.prefs.useCompactUI ? .on : .off
@@ -256,7 +261,9 @@ class CutBoxController: NSObject {
         self.hidePreview.title = "preferences_hide_preview".l7n
         self.hidePreview.state = self.prefs.hidePreview ? .on : .off
     }
+}
 
+extension CutBoxController {
     func setModeSelectors(fuzzyMatchModeItem: NSMenuItem,
                           regexpModeItem: NSMenuItem,
                           regexpCaseSensitiveModeItem: NSMenuItem,
