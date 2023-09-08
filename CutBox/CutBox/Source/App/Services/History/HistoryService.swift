@@ -106,6 +106,7 @@ class HistoryService {
             migration_1_6_x.applyTimestampsToLegacyItems()
             print("historyStore migrated to 1.6.x - timestamps added")
         }
+        // swiftlint:enable identifier_name
 
         self.internalFavoritesOnly = self.defaults.bool(forKey: searchFavoritesOnly)
 

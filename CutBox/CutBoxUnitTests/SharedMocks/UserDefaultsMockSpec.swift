@@ -94,12 +94,14 @@ class UserDefaultsMockSpec: QuickSpec {
                     subject.set([1, 2, 3, 4], forKey: "numArray")
                     // swiftlint:disable force_cast
                     var myArray = subject.array(forKey: "numArray") as! [Int]
+                    // swiftlint:enable force_cast
                     expect(myArray).to(equal([1, 2, 3, 4]))
 
                     myArray.insert(10, at: 0)
                     subject.set(myArray, forKey: "numArray")
                     // swiftlint:disable force_cast
                     let updatedArray = subject.array(forKey: "numArray") as! [Int]
+                    // swiftlint:enable force_cast
 
                     expect(updatedArray.count).to(equal(5))
                     expect(updatedArray.first).to(equal(10))

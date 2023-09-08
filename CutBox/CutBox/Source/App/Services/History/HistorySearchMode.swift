@@ -8,12 +8,11 @@
 
 import Foundation
 
-// swiftlint:disable redundant_string_enum_value
 enum HistorySearchMode: String {
-    case fuzzyMatch = "fuzzyMatch"
-    case regexpAnyCase = "regexpAnyCase"
-    case regexpStrictCase = "regexpStrictCase"
-    case substringMatch = "substringMatch"
+    case fuzzyMatch
+    case regexpAnyCase
+    case regexpStrictCase
+    case substringMatch
 
     var name: String {
         switch self {

@@ -1104,6 +1104,7 @@
 			buildConfigurationList = 96E1E5B8205D243400F994ED /* Build configuration list for PBXNativeTarget "CutBox" */;
 			buildPhases = (
 				31640E3BC3FE8B3E4C1687E8 /* [CP] Check Pods Manifest.lock */,
+				9689879620D2037300D40C02 /* Swiftlint */,
 				96085E4A206E36CC00CA77BB /* Bump build number */,
 				965F0762206F29600032DACD /* Bump version number on archive */,
 				96E1E590205D243400F994ED /* Sources */,
@@ -1112,7 +1113,6 @@
 				96085E4D206E3D3900CA77BB /* Warn TODO / FIXME */,
 				962D6D802074622A007E3785 /* CopyFiles */,
 				964CA52D207F92AA00B9F33E /* CopyFiles */,
-				9689879620D2037300D40C02 /* Swiftlint */,
 				BF6D2BA12FA09425F0F3B6F6 /* [CP-User] Sign */,
 				9E83FAFE5121711CF945CA64 /* [CP] Embed Pods Frameworks */,
 			);

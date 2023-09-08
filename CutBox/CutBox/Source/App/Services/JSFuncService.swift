@@ -6,8 +6,6 @@
 //  Copyright © 2018-2023 ocodo. All rights reserved.
 //
 
-// swiftlint:disable identifier_name
-
 import JavaScriptCore
 
 class JSFuncService: NSObject {
