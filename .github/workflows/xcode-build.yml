@@ -2,7 +2,7 @@ name: CutBox Test/Build CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "ci_check", "master" ]
   workflow_dispatch:
 
 jobs:
