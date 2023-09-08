@@ -229,6 +229,9 @@
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
 		9696D6D02AAB7A1600600C59 /* AboutPanelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6CF2AAB7A1600600C59 /* AboutPanelSpec.swift */; };
 		9696D6D12AAB7AFF00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6CB2AAAE09E00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift */; };
+		9696D6D32AAB7DB000600C59 /* LinkTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D22AAB7DB000600C59 /* LinkTextSpec.swift */; };
+		9696D6D52AAB823A00600C59 /* LinkText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D42AAB823A00600C59 /* LinkText.swift */; };
+		9696D6D62AAB823A00600C59 /* LinkText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D42AAB823A00600C59 /* LinkText.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -445,6 +448,8 @@
 		9696D6C92AAAE04000600C59 /* AboutPanelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPanelSpec.swift; sourceTree = "<group>"; };
 		9696D6CB2AAAE09E00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocationSpec.swift"; sourceTree = "<group>"; };
 		9696D6CF2AAB7A1600600C59 /* AboutPanelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPanelSpec.swift; sourceTree = "<group>"; };
+		9696D6D22AAB7DB000600C59 /* LinkTextSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTextSpec.swift; sourceTree = "<group>"; };
+		9696D6D42AAB823A00600C59 /* LinkText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkText.swift; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowTextView.xib; sourceTree = "<group>"; };
@@ -880,6 +885,7 @@
 		9677BE9D2AA4CF1D00AB537C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9696D6D22AAB7DB000600C59 /* LinkTextSpec.swift */,
 				9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */,
 			);
 			path = Components;
@@ -966,6 +972,7 @@
 		96DB5388208ADBC6004BAAEF /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9696D6D42AAB823A00600C59 /* LinkText.swift */,
 				964CA54320830C8800B9F33E /* ConfirmationDialog.swift */,
 				961A49B02065D72F005BC79D /* Popup */,
 				96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */,
@@ -1486,6 +1493,7 @@
 				967C06A82A946749008AF0CE /* CutBoxPreferencesService+SelectThemeSpec.swift in Sources */,
 				965348DD284346E2000FD0A1 /* CutBoxController.swift in Sources */,
 				965348F728434735000FD0A1 /* PreferencesGeneralView+KeyRecorder.swift in Sources */,
+				9696D6D32AAB7DB000600C59 /* LinkTextSpec.swift in Sources */,
 				9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */,
 				967C06AB2A94783C008AF0CE /* Int+doTimes.swift in Sources */,
 				9677BEA12AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift in Sources */,
@@ -1542,6 +1550,7 @@
 				968715942A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift in Sources */,
 				9653493D284347E8000FD0A1 /* JSFuncItemTableRowImageView.swift in Sources */,
 				9653492C28434785000FD0A1 /* String+Utils.swift in Sources */,
+				9696D6D62AAB823A00600C59 /* LinkText.swift in Sources */,
 				96CDF2D22A8B416400ADE6B4 /* HistoryOffsetPredicateFactorySpec.swift in Sources */,
 				9653492E28434785000FD0A1 /* NSEvent+CarbonConvenience.swift in Sources */,
 				965348F928434735000FD0A1 /* PreferencesAdvancedView+HistorySize.swift in Sources */,
@@ -1664,6 +1673,7 @@
 				964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */,
 				967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */,
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
+				9696D6D52AAB823A00600C59 /* LinkText.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */,
 				964766692067B82900E7026F /* TransientScrollView.swift in Sources */,
 				965B02B328E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */,
