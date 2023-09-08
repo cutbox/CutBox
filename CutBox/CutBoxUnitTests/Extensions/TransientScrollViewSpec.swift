@@ -25,6 +25,19 @@ class TransientScrollViewSpec: QuickSpec {
             var scrollView: TransientScrollView!
             var mockNextResponder: MockResponder!
 
+            let wheelCount: UInt32 = 2
+            let xScroll: Int32 = -1 // Negative for right
+            let yScroll: Int32 = -2 // Negative for down
+
+            let event = CGEvent(
+                scrollWheelEvent2Source: nil,
+                units: .pixel,
+                wheelCount: wheelCount,
+                wheel1: xScroll,
+                wheel2: yScroll,
+                wheel3: 0 // Additional wheel value, set to 0
+            )!
+
             beforeEach {
                 scrollView = TransientScrollView()
                 mockNextResponder = MockResponder()
@@ -37,25 +50,9 @@ class TransientScrollViewSpec: QuickSpec {
                 }
 
                 it("should handle scrollWheel events") {
-                    // Create a realistic CGEvent for scroll wheel
-                    let wheelCount: UInt32 = 2
-                    let xScroll: Int32 = -1 // Negative for right
-                    let yScroll: Int32 = -2 // Negative for down
-
-                    let event = CGEvent(
-                        scrollWheelEvent2Source: nil,
-                        units: .line,
-                        wheelCount: wheelCount,
-                        wheel1: xScroll,
-                        wheel2: yScroll,
-                        wheel3: 0 // Additional wheel value, set to 0
-                    )!
-
-                    // Create NSEvent from CGEvent
                     if let theEvent = NSEvent(cgEvent: event) {
                         expect { scrollView.scrollWheel(with: theEvent) }.toNot(throwError())
-
-                        // Verify that the scrollWheel method of mockNextResponder was not called
+                        // The next responder should not get the scroll wheel event
                         expect(mockNextResponder.scrollWheelCalled).to(beFalse())
                     } else {
                         fail("Failed to create NSEvent from CGEvent")
@@ -69,25 +66,9 @@ class TransientScrollViewSpec: QuickSpec {
                 }
 
                 it("should pass scrollWheel events to next responder") {
-                    // Create a realistic CGEvent for scroll wheel
-                    let wheelCount: UInt32 = 2
-                    let xScroll: Int32 = -1 // Negative for right
-                    let yScroll: Int32 = -2 // Negative for down
-
-                    let event = CGEvent(
-                        scrollWheelEvent2Source: nil,
-                        units: .line,
-                        wheelCount: wheelCount,
-                        wheel1: xScroll,
-                        wheel2: yScroll,
-                        wheel3: 0 // Additional wheel value, set to 0
-                    )!
-
-                    // Create NSEvent from CGEvent
                     if let theEvent = NSEvent(cgEvent: event) {
                         expect { scrollView.scrollWheel(with: theEvent) }.toNot(throwError())
-
-                        // Verify that the scrollWheel method of mockNextResponder was called
+                        // The next responder should get the scroll wheel event
                         expect(mockNextResponder.scrollWheelCalled).to(beTrue())
                     } else {
                         fail("Failed to create NSEvent from CGEvent")
