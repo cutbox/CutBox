@@ -227,7 +227,6 @@
 		968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7C9D2095872200FF1236 /* HistoryRepo.swift */; };
 		968D7CA32095FF6A00FF1236 /* Array+removeAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */; };
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
-		9696D6C62AAAA51D00600C59 /* TransientScrollViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6C52AAAA51D00600C59 /* TransientScrollViewSpec.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -692,7 +691,6 @@
 		96429D57208C11A90055D678 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9696D6C52AAAA51D00600C59 /* TransientScrollViewSpec.swift */,
 				9677BEAB2AA8CA8F00AB537C /* NSTableView_GetRowViewSpec.swift */,
 				9677BEA92AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift */,
 				9677BEA72AA88CF100AB537C /* NSImage+TintSpec.swift */,
@@ -1523,7 +1521,6 @@
 				965349412843484E000FD0A1 /* JSFuncServiceSpec.swift in Sources */,
 				9653490928434752000FD0A1 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				9653490428434742000FD0A1 /* JSFuncSearchViewController.swift in Sources */,
-				9696D6C62AAAA51D00600C59 /* TransientScrollViewSpec.swift in Sources */,
 				965348EF28434735000FD0A1 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */,
 				9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
 				965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */,

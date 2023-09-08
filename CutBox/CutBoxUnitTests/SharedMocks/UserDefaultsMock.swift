@@ -40,7 +40,7 @@ class UserDefaultsMock: UserDefaults {
         return store[defaultName] as? String
     }
 
-    override func dictionary(forKey defaultName: String) -> [String: Any]? {
+    override func dictionary(forKey defaultName: String) -> [String : Any]? {
         return store[defaultName] as? [String: Any]
     }
 
