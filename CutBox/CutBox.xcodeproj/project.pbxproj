@@ -442,6 +442,8 @@
 		968D7CA52096063C00FF1236 /* HistoryRepoSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepoSpec.swift; sourceTree = "<group>"; };
 		9696764B20841E2F00DD3256 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = Sparkle/dsa_pub.pem; sourceTree = "<group>"; };
 		9696D6C52AAAA51D00600C59 /* TransientScrollViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransientScrollViewSpec.swift; sourceTree = "<group>"; };
+		9696D6C92AAAE04000600C59 /* AboutPanelSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPanelSpec.swift; sourceTree = "<group>"; };
+		9696D6CB2AAAE09E00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocationSpec.swift"; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowTextView.xib; sourceTree = "<group>"; };
@@ -705,6 +707,7 @@
 				96FD7C3420B1028E00818925 /* OrderedSetSpec.swift */,
 				7CA72F192289BCBC00D5E50B /* String+UtilsSpec.swift */,
 				9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */,
+				9696D6CB2AAAE09E00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -769,6 +772,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				9696D6C92AAAE04000600C59 /* AboutPanelSpec.swift */,
 				9677BE9D2AA4CF1D00AB537C /* Components */,
 				96658CEE20BA7B2000BDA8F4 /* JSFunc */,
 				9667650920B148F000DE369A /* SharedMocks */,
@@ -1547,6 +1551,7 @@
 				965348F128434735000FD0A1 /* PreferencesTabViewController.swift in Sources */,
 				965348E22843471D000FD0A1 /* CutBoxColorThemeDefinition.swift in Sources */,
 				965B02B428E5481E003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */,
+				9696D6CA2AAAE04000600C59 /* AboutPanelSpec.swift in Sources */,
 				965348DC284346CD000FD0A1 /* Constants.swift in Sources */,
 				9653492028434772000FD0A1 /* JSFuncService.swift in Sources */,
 				9653490628434752000FD0A1 /* ItemTableRowTextView.swift in Sources */,
@@ -1559,6 +1564,7 @@
 				9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */,
 				965348F228434735000FD0A1 /* PreferencesWindow.swift in Sources */,
 				9653490528434742000FD0A1 /* JSFuncSearchViewControllerTableViewDelegate.swift in Sources */,
+				9696D6CC2AAAE09E00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift in Sources */,
 				9653492128434772000FD0A1 /* LoginItemsService.swift in Sources */,
 				9653491B28434767000FD0A1 /* HistoryLimitNumberFormatter.swift in Sources */,
 				965348EA28434735000FD0A1 /* PreferencesGeneralView+AutoLogin.swift in Sources */,

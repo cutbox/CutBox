@@ -3,7 +3,7 @@
 import os
 import sys
 
-def modify_html_report(file_path, source_path_start):
+def modify_html_report(file_path, source_path_start, show_source_start = False):
     with open(file_path, 'r') as file:
         content = file.read()
 
@@ -15,20 +15,26 @@ def modify_html_report(file_path, source_path_start):
     
     while start_index != -1 and end_index != -1:
         original_path = content[start_index + len(start_tag):end_index].strip()
-        print(f"found: {original_path}")
 
-        # Get path after /source_path_start/
-        modified_path = original_path.split(f'/{source_path_start}/')[-1]
-        replacement = f".../{source_path_start}/{modified_path}"
-        print(f"modified to: {replacement}")
+        if original_path.find(".../") == -1:
+            print(f"found: {original_path}")
+            modified_path = original_path.split(f'/{source_path_start}/')[-1]
 
-        content = content[:start_index + len(start_tag)] + replacement + content[end_index:]
-        
-        start_index = content.find(start_tag, start_index + len(replacement))
-        end_index = content.find(end_tag, start_index)
+            if show_source_start:
+                replacement = f".../{source_path_start}/{modified_path}"
+            else:
+                replacement = f".../{modified_path}"
 
-    with open(file_path, 'w') as file:
-        file.write(content)
+            print(f"modified to: {replacement}")
+            content = content[:start_index + len(start_tag)] + replacement + content[end_index:]
+            start_index = content.find(start_tag, start_index + len(replacement))
+            end_index = content.find(end_tag, start_index)
+
+            with open(file_path, 'w') as file:
+                file.write(content)
+        else:
+            print(f"  - Path already has leading .../")
+            return
 
 def main():
     if len(sys.argv) != 3:

@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+xcrun llvm-cov export .build/**/CutBoxUnitTests \
+    -instr-profile .build/**/Coverage.profdata \
+    -ignore-filename-regex "Pods|Sparkle|CutBoxUnitTests|Controller|View" \
+    -format=lcov > coverage.lcov
+
