@@ -38,13 +38,8 @@ class SearchAndPreviewView: SearchPreviewViewBase {
 
     func setupJSIconButton() {
         jsIconButton.setAccessibilityIdentifier("jsIconButton")
-
-        jsIconButton
-            .rx
-            .tap
-            .map { _ in
-                .selectJavascriptFunction
-            }
+        jsIconButton.rx.tap
+            .map { .selectJavascriptFunction }
             .bind(to: self.events)
             .disposed(by: disposeBag)
     }
@@ -86,9 +81,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         let mode = HistoryService.shared.searchMode
         setSearchModeButton(mode: mode)
 
-        self.searchModeToggle
-            .rx
-            .tap
+        self.searchModeToggle.rx.tap
             .map { .toggleSearchMode }
             .bind(to: self.events)
             .disposed(by: disposeBag)
@@ -110,9 +103,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
         let favoritesOnly = HistoryService.shared.favoritesOnly
         setSearchScopeButton(favoritesOnly: favoritesOnly)
 
-        self.searchScopeImageButton
-            .rx
-            .tap
+        self.searchScopeImageButton.rx.tap
             .map { .toggleSearchScope }
             .bind(to: self.events)
             .disposed(by: disposeBag)
@@ -124,9 +115,7 @@ class SearchAndPreviewView: SearchPreviewViewBase {
     }
 
     private func setupTimeFilter() {
-         self.timeFilterText
-            .rx
-            .text
+         self.timeFilterText.rx.text
             .compactMap { $0 }
             .subscribe { self.onTimeFilterTextChanged(text: $0) }
             .disposed(by: disposeBag)
