@@ -16,10 +16,8 @@ private class PasteboardWrapperMock: PasteboardWrapperType {
     var called = false
     var _pasteboardItems: [NSPasteboardItem]?
     var pasteboardItems: [NSPasteboardItem]? {
-        get {
-            called = true
-            return _pasteboardItems
-        }
+        called = true
+        return _pasteboardItems
     }
 
     func addToFakePasteboard(string: String) {
@@ -177,7 +175,8 @@ class HistoryServiceSpec: QuickSpec {
                                            date: Date(timeIntervalSinceNow: -29))
                     expect(subject.items.count) == 2
 
-                    let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: 30.0) // up to 30 seconds ago
+                    let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: 30.0)
+                    // up to 30 seconds ago
                     subject.clearWithTimestampPredicate(predicate: predicate)
 
                     expect(subject.items) == ["an hour ago"]
@@ -193,7 +192,8 @@ class HistoryServiceSpec: QuickSpec {
                     expect(subject.items.count) == 2
                     mockPrefs.protectFavorites = true
 
-                    let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: 30.0) // up to 30 seconds ago
+                    let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: 30.0)
+                    // up to 30 seconds ago
                     subject.clearWithTimestampPredicate(predicate: predicate)
 
                     expect(subject.items.count) == 2
@@ -254,7 +254,8 @@ class HistoryServiceSpec: QuickSpec {
                     expect(subject.items[0]) == "david"
                     expect(subject.items[1]) == "bob"
 
-                    subject.remove(selected: IndexSet(arrayLiteral: 0, 1))
+                    let indexes: IndexSet = [0, 1]
+                    subject.remove(selected: indexes)
                     expect(subject.count) == 0
                 }
             }
