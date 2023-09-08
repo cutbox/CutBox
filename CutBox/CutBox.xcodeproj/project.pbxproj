@@ -228,6 +228,7 @@
 		968D7CA32095FF6A00FF1236 /* Array+removeAtIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7CA22095FF6A00FF1236 /* Array+removeAtIndexes.swift */; };
 		9696764D20841E2F00DD3256 /* dsa_pub.pem in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9696764B20841E2F00DD3256 /* dsa_pub.pem */; };
 		9696D6D02AAB7A1600600C59 /* AboutPanelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6CF2AAB7A1600600C59 /* AboutPanelSpec.swift */; };
+		9696D6D12AAB7AFF00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6CB2AAAE09E00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -1464,6 +1465,7 @@
 				965348E928434735000FD0A1 /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,
 				96CDF2CC2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift in Sources */,
 				9653492528434785000FD0A1 /* TransientScrollView.swift in Sources */,
+				9696D6D12AAB7AFF00600C59 /* NSScreen+currentScreenForMouseLocationSpec.swift in Sources */,
 				965348E52843471D000FD0A1 /* CutBoxPreferencesService.swift in Sources */,
 				9653493A2843479B000FD0A1 /* FakeKey.swift in Sources */,
 				9653492D28434785000FD0A1 /* NSObject+fromNib.swift in Sources */,
