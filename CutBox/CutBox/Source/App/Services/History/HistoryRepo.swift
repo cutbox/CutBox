@@ -124,11 +124,11 @@ class HistoryRepo {
     }
 
     func toggleFavorite(at i: Int) {
-        let item = self.store[i]
-        let isFavorite = item[self.favoriteKey] == self.favoriteKey
-            ? ""
-            : self.favoriteKey
-        self.store[i][favoriteKey] = isFavorite
+        if self.store[i].keys.contains(favoriteKey) {
+            self.store[i].removeValue(forKey: favoriteKey)
+        } else {
+            self.store[i][favoriteKey] = favoriteKey
+        }
     }
 
     func removeSubrange(_ bounds: Range<Int>) {
