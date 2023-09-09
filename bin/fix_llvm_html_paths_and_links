@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+
+import os
+import shutil
+import argparse
+from bs4 import BeautifulSoup
+
+# Function to recursively search for the "Source" directory
+def find_source_dir(starting_path, source_dir):
+    for root, dirs, files in os.walk(starting_path):
+        if source_dir in dirs:
+            source_path = os.path.join(root, source_dir)
+            before_source = os.path.relpath(source_path, starting_path)
+            after_source = os.path.relpath(starting_path, source_path)
+            return before_source
+    return None, None
+
+def process_docs(source_dir, docs_root):
+    # Define the path to the index.html file
+    index_html_path = os.path.join(docs_root, "index.html")
+
+    # Read the index.html file
+    with open(index_html_path, "r") as html_file:
+        index_html_content = html_file.read()
+    html = BeautifulSoup(index_html_content, "html.parser")
+
+    # Modify links and associated html files within each tr.light-row
+    for tr in html.find_all("tr", class_="light-row"):
+        link = tr.find("a", href=True)
+        if link:
+            href = link["href"]
+            # Fix linked file title and css href
+            filepath = os.path.join(docs_root, href)
+            fix_code_html(filepath, source_dir)
+
+            source_root_index = href.find(source_dir)
+            if source_root_index != -1:
+                trimmed_href = href[source_root_index:]
+                link["href"] = f"coverage/{trimmed_href}"
+
+    # Save the modified HTML content back to the index.html file
+    with open(index_html_path, "w") as modified_html_file:
+        modified_html_file.write(str(html))
+
+def fix_code_html(path_filename, source_dir):
+    with open(path_filename, "r") as html_file:
+        html_content = html_file.read()
+    html = BeautifulSoup(html_content, "html.parser")
+
+    # fix css href
+    link = html.find("link")
+    css = link["href"].split('/')[-1]
+    depth = path_filename.split("Source")[-1].count('/')
+    parent_nav = "../" * (depth + 1)
+    link["href"] = f"{parent_nav}{css}"
+
+    # fix title
+    title = html.select_one('.source-name-title pre')
+    fixed_title = f".../{source_dir}{title.text.split(source_dir)[-1]}"
+    title.string = fixed_title
+
+    # resave
+    with open(path_filename, "w") as html_file:
+        html_file.write(str(html))
+
+# Parse command line arguments
+parser = argparse.ArgumentParser(description="Reorganize an llvm-cov html report to use relative paths.")
+parser.add_argument("--source-dir", required=True, help="Name of Source directory within the report coverage/ path")
+parser.add_argument("--docs-root", required=True, help="Path to the docs folder containing index.html and coverage/ path.")
+args = parser.parse_args()
+
+process_docs(args.source_dir, args.docs_root)
+
+# find --source-root --docs-folder/coverage/... path .../
+coverage_path = os.path.join(args.docs_root, "coverage")
+source_path = os.path.join(args.docs_root, "coverage", find_source_dir(coverage_path, args.source_dir))
+
+shutil.move(source_path, coverage_path)

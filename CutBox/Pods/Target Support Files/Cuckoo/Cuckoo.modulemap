@@ -1,0 +1,6 @@
+module Cuckoo {
+  umbrella header "Cuckoo-umbrella.h"
+
+  export *
+  module * { export * }
+}
