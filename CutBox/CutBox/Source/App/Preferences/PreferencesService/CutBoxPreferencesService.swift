@@ -10,12 +10,13 @@ import Cocoa
 import Magnet
 import RxSwift
 
-enum CutBoxPreferencesEvent {
+enum CutBoxPreferencesEvent: Equatable {
     case historyLimitChanged(limit: Int)
     case compactUISettingChanged(isOn: Bool)
     case hidePreviewSettingChanged(isOn: Bool)
     case protectFavoritesChanged(isOn: Bool)
     case javascriptReload
+    case javascriptReloaded
     case themeChanged
     case themesReloaded
     case historyClearByOffset(offset: TimeInterval)
@@ -34,6 +35,8 @@ class CutBoxPreferencesService {
     var events: PublishSubject<CutBoxPreferencesEvent>!
 
     var defaults: UserDefaults!
+
+    var js = JSFuncService.shared
 
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.events = PublishSubject<CutBoxPreferencesEvent>()
@@ -173,6 +176,6 @@ class CutBoxPreferencesService {
     }
 
     func loadJavascript() {
-        JSFuncService.shared.reload()
+        js.reload()
     }
 }

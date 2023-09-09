@@ -221,6 +221,8 @@ extension CutBoxController {
 
     func onNext(event: CutBoxPreferencesEvent) {
         switch event {
+        case .javascriptReloaded:
+            break;
         case .historyLimitChanged(let limit):
             self.historyService.historyLimit = limit
         case .compactUISettingChanged(let isOn):

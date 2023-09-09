@@ -8,6 +8,7 @@
 
 import Quick
 import Nimble
+import RxSwift
 
 class CutBoxPreferencesService_SelectThemeSpec: QuickSpec {
     override func spec() {
@@ -91,6 +92,16 @@ class CutBoxPreferencesService_SelectThemeSpec: QuickSpec {
                 expect(subject.theme) == 1
                 (count - 1).doTimes { subject.cycleTheme() }
                 expect(subject.theme) == 0
+            }
+
+            it("loads themes") {
+                var nextEvent: CutBoxPreferencesEvent?
+                let trash = DisposeBag()
+
+                subject.events.bind(onNext: { nextEvent = $0 }).disposed(by: trash)
+
+                subject.loadThemes()
+                expect(nextEvent) == .themesReloaded
             }
         }
     }
