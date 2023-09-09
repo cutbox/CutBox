@@ -218,6 +218,7 @@
 		968715942A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */; };
 		968715992A9634E10092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
 		9687159A2A96E6A80092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
+		968767882AAC41DF00DA256E /* Swizzlor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968767872AAC41DF00DA256E /* Swizzlor.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -436,6 +437,7 @@
 		968715912A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+HexColorStringSpec.swift"; sourceTree = "<group>"; };
 		968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesServiceSpec.swift; sourceTree = "<group>"; };
 		968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorOutputStream.swift; sourceTree = "<group>"; };
+		968767872AAC41DF00DA256E /* Swizzlor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Swizzlor.swift; path = SharedMocks/Swizzlor.swift; sourceTree = "<group>"; };
 		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
@@ -780,6 +782,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				968767872AAC41DF00DA256E /* Swizzlor.swift */,
 				9696D6D72AAC08DC00600C59 /* Controllers */,
 				9696D6C92AAAE04000600C59 /* AboutPanelSpec.swift */,
 				9677BE9D2AA4CF1D00AB537C /* Components */,
@@ -1490,6 +1493,7 @@
 				9653490D28434752000FD0A1 /* ItemTableRowImageView.swift in Sources */,
 				9653494228434862000FD0A1 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */,
 				965348E62843471D000FD0A1 /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
+				968767882AAC41DF00DA256E /* Swizzlor.swift in Sources */,
 				96D31FC328E08BBF001D64E4 /* CutBoxPreferences+TextScaling.swift in Sources */,
 				965348FB28434735000FD0A1 /* PreferencesThemeSelectionView.swift in Sources */,
 				9653492928434785000FD0A1 /* NSTableView+getRowView.swift in Sources */,
