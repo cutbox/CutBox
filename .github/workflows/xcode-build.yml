@@ -114,8 +114,8 @@ jobs:
 
       - name: Refry llvm-cov html reports
         run: |
-          bin/llvm_cov_refryer --docs-root="docs/CLI" --source-dir="cutbox_command"
-          bin/llvm_cov_refryer --docs-root="docs/App" --source-dir="Source"
+           bin/fix_llvm_html_pathnames docs/CLI 'cutbox_command'
+           bin/llvm_cov_refryer --docs-root="docs/App" --source-dir="Source"
 
       - name: Append addBlobs.js to coverage index pages
         run: |
