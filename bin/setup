@@ -4,6 +4,28 @@ message() {
   echo "CutBox Setup: ${1}"
 }
 
+EXISTS_FAILED=""
+EXISTS_CHECK=0
+
+exists_check() {
+  cross_mark="✗"
+  check_mark="✓"
+
+  if [ $# -ne 1 ]; then
+    message "exists_check: No arguments provided"
+    exit 1
+  else
+    if [ -x "$(exists $1)" ]; then
+      printf "${check_mark}"
+    else
+      printf "${cross_mark}"
+      EXISTS_CHECK=1
+      EXISTS_FAILED="${EXISTS_FAILED} ${1}"
+    fi
+  fi
+}
+
+
 WHICH_FAILED=""
 WHICH_CHECK=0
 
@@ -47,15 +69,17 @@ npm_check() {
 }
 
 if [ -x "$(which brew)" ]; then
-  message "Running brew bundle & npm install"
+  message "Running brew bundle, npm install and pip install -r requirements.txt"
   brew bundle
   npm install
+  pip install -r requirements.txt
 else
   message "Homebrew must be installed and working."
   exit 1
 fi
-
-echo "PLEASE NOTE: CutBox expects:
+PROJECT_DIR=$(git rev-parse --show-toplevel)
+cat <<EOF
+PLEASE NOTE: CutBox expects:
 
 Build/Test & release tooling...
 
@@ -63,6 +87,7 @@ Build/Test & release tooling...
 - [$(which_check pod)] cocoapods
 - [$(which_check xcpretty)] xcpretty
 - [$(which_check jv)] jv (json validator)
+- [$(exists_check /usr/local/opt/llvm/bin/llvm-cov)] llvm-cov /usr/local/opt/llvm/bin/llvm-cov
 
 For release...
 
@@ -70,13 +95,12 @@ For release...
 - [$(which_check npm)] npm
 - [$(npm_check appdmg)] appdmg
 - [$(npm_check semver)] semver
-"
-echo "anything missing? (Get help at https://gitter.im/CutBox/Lobby)"
 
-PROJECT_DIR=$(git rev-parse --show-toplevel)
+anything missing? (Get help at https://gitter.im/CutBox/Lobby)
 
-echo "=========================================================================================="
-echo "Install Pods"
+=========================================================================================="
+Install Pods
+EOF
 
 pushd $PROJECT_DIR/CutBox || exit 1
 
@@ -86,7 +110,7 @@ popd ||  exit 1
 
 echo "To build run: bin/build"
 
-if [[ $WHICH_CHECK == 1 || $NPM_CHECK == 1 ]]; then
+if [[ $WHICH_CHECK == 1 || $NPM_CHECK == 1 || $EXISTS_CHECK == 1 ]]; then
   echo "Something missing? Setup cannot find:
 ${WHICH_FAILED}
 ${NPM_FAILED}."

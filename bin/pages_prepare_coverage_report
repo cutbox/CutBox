@@ -1,11 +1,17 @@
 #!/usr/bin/env zsh
 
 set +o pipefail
-xcrun llvm-cov show \
-		-format html \
-		-output-dir=docs/App/ \
-		-ignore-filename-regex="Pods|CutBoxUnitTests" \
-		-instr-profile .build/Build/ProfileData/**/Coverage.profdata \
-		.build/Build/Products/Debug/CutBoxUnitTests.xctest/Contents/MacOS/CutBoxUnitTests \
-		&& \
-		cp docs/customized.css docs/App/style.css
+
+## xcrun llvm-cov is ancient
+## - we use a brew installed llvm for llvm-cov show
+/usr/local/opt/llvm/bin/llvm-cov show \
+    -format html \
+    -project-title="CutBox.app" \
+    -output-dir=docs/App/ \
+    -compilation-dir=./CutBox \
+    -coverage-watermark="60.0,25.0" \
+    -ignore-filename-regex="Pods|CutBoxUnitTests" \
+    -instr-profile .build/Build/ProfileData/**/Coverage.profdata \
+    .build/Build/Products/Debug/CutBoxUnitTests.xctest/Contents/MacOS/CutBoxUnitTests \
+    && \
+    cp docs/customized.css docs/App/style.css
