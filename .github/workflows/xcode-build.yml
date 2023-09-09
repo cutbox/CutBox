@@ -19,7 +19,11 @@ jobs:
           submodules: true
           fetch-depth: 0
           ref: master
-          
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
       - name: Cache Go deps
         uses: gacts/setup-go-with-cache@v1
         with:
