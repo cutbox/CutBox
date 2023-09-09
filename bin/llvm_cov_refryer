@@ -15,6 +15,25 @@ def find_source_dir(starting_path, source_dir):
             return before_source
     return None, None
 
+def delete_empty_directory(relative_path):
+    # Get the absolute path by joining the current working directory with the relative path
+    absolute_path = os.path.abspath(relative_path)
+
+    # Check if the directory exists
+    if os.path.exists(absolute_path) and os.path.isdir(absolute_path):
+        # Check if the directory is empty
+        if not os.listdir(absolute_path):
+            # Directory is empty, so it's safe to delete
+            try:
+                os.rmdir(absolute_path)
+                print(f"Deleted empty directory: {relative_path}")
+            except OSError as e:
+                print(f"Error deleting directory: {e}")
+        else:
+            print(f"Directory is not empty: {relative_path}")
+    else:
+        print(f"Directory does not exist: {relative_path}")
+
 def process_docs(source_dir, docs_root):
     # Define the path to the index.html file
     index_html_path = os.path.join(docs_root, "index.html")
@@ -76,3 +95,10 @@ coverage_path = os.path.join(args.docs_root, "coverage")
 source_path = os.path.join(args.docs_root, "coverage", find_source_dir(coverage_path, args.source_dir))
 
 shutil.move(source_path, coverage_path)
+
+# We can assume the original folder tree starts
+# with Users so we will delete that carefully
+disgraced_former_cov_docs_path = os.path.join(coverage_path, "Users")
+
+# Delete the original path, if it's tree is empty.
+delete_empty_directory(disgraced_former_cov_docs_path)
