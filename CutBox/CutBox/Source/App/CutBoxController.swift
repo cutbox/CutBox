@@ -89,11 +89,15 @@ class CutBoxController: NSObject {
     }
 
     override func awakeFromNib() {
+        self.setup()
+    }
+
+    func setup() {
         self.hotKeyService.configure()
-        setHotKeyServiceEventBindings()
-        setSearchEventBindings()
-        setPreferencesEventBindings()
-        setMenuItems()
+        self.setHotKeyServiceEventBindings()
+        self.setSearchEventBindings()
+        self.setPreferencesEventBindings()
+        self.setMenuItems()
     }
 }
 

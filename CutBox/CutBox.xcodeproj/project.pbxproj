@@ -232,6 +232,7 @@
 		9696D6D32AAB7DB000600C59 /* LinkTextSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D22AAB7DB000600C59 /* LinkTextSpec.swift */; };
 		9696D6D52AAB823A00600C59 /* LinkText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D42AAB823A00600C59 /* LinkText.swift */; };
 		9696D6D62AAB823A00600C59 /* LinkText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D42AAB823A00600C59 /* LinkText.swift */; };
+		9696D6D92AAC090100600C59 /* CutBoxControllerSpec+HotKeyEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9696D6D82AAC090100600C59 /* CutBoxControllerSpec+HotKeyEvents.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -450,6 +451,7 @@
 		9696D6CF2AAB7A1600600C59 /* AboutPanelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPanelSpec.swift; sourceTree = "<group>"; };
 		9696D6D22AAB7DB000600C59 /* LinkTextSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTextSpec.swift; sourceTree = "<group>"; };
 		9696D6D42AAB823A00600C59 /* LinkText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkText.swift; sourceTree = "<group>"; };
+		9696D6D82AAC090100600C59 /* CutBoxControllerSpec+HotKeyEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxControllerSpec+HotKeyEvents.swift"; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowTextView.xib; sourceTree = "<group>"; };
@@ -778,6 +780,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				9696D6D72AAC08DC00600C59 /* Controllers */,
 				9696D6C92AAAE04000600C59 /* AboutPanelSpec.swift */,
 				9677BE9D2AA4CF1D00AB537C /* Components */,
 				96658CEE20BA7B2000BDA8F4 /* JSFunc */,
@@ -913,6 +916,14 @@
 				96C746FE2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift */,
 			);
 			path = Migration;
+			sourceTree = "<group>";
+		};
+		9696D6D72AAC08DC00600C59 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9696D6D82AAC090100600C59 /* CutBoxControllerSpec+HotKeyEvents.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		96A16B5120A4731000EE08A4 /* ClipItems */ = {
@@ -1511,6 +1522,7 @@
 				9653491A28434767000FD0A1 /* HistoryRepo.swift in Sources */,
 				9653492628434785000FD0A1 /* KeyCombo+Archive.swift in Sources */,
 				9653493628434795000FD0A1 /* PopupControllerWindowDelegate.swift in Sources */,
+				9696D6D92AAC090100600C59 /* CutBoxControllerSpec+HotKeyEvents.swift in Sources */,
 				9677BEA82AA88CF100AB537C /* NSImage+TintSpec.swift in Sources */,
 				965349172843475E000FD0A1 /* SearchViewTextViewDelegate.swift in Sources */,
 				9653492228434772000FD0A1 /* VersionService.swift in Sources */,
