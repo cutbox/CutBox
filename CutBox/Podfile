@@ -23,4 +23,14 @@ abstract_target 'CutBoxAll' do
         pod 'Cuckoo'
         pod 'SwiftyStringScore',  git: 'git@github.com:8bytes/SwiftyStringScore'
     end
+
+    post_install do |installer|
+        installer.pods_project.targets.each do |target|
+            if target.name == "Cuckoo" then
+                target.build_configurations.each do |config|
+                    config.build_settings['ENABLE_TESTING_SEARCH_PATHS'] = 'YES'
+                end
+            end
+        end
+    end
 end

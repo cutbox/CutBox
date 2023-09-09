@@ -3763,6 +3763,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREFIX_HEADER = "Target Support Files/Cuckoo/Cuckoo-prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -3839,6 +3840,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PREFIX_HEADER = "Target Support Files/Cuckoo/Cuckoo-prefix.pch";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
