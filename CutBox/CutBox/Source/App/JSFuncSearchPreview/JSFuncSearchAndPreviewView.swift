@@ -11,7 +11,7 @@ import Cocoa
 import RxSwift
 import RxCocoa
 
-class JSFuncSearchAndPreviewView: SearchPreviewViewBase {
+class JSFuncSearchAndPreviewView: SearchAndPreviewViewBase {
 
     var events = PublishSubject<SearchJSFuncViewEvents>()
 

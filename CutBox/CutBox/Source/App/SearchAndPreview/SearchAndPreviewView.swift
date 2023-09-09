@@ -13,8 +13,8 @@ import RxCocoa
 
 /// Main view of CutBox, displayed via `PopupController`
 /// communicates with the `CutBoxController` via events<`SearchViewEvents`>
-/// Extends `SearchPreviewViewBase`
-class SearchAndPreviewView: SearchPreviewViewBase {
+/// Extends `SearchAndPreviewViewBase`
+class SearchAndPreviewView: SearchAndPreviewViewBase {
 
     @IBOutlet weak var searchModeToggle: NSButton!
     @IBOutlet weak var jsIconButton: NSButton!
