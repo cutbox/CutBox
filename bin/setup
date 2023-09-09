@@ -15,7 +15,7 @@ exists_check() {
     message "exists_check: No arguments provided"
     exit 1
   else
-    if [ -x "$(exists $1)" ]; then
+    if [ -x  $1 ]; then
       printf "${check_mark}"
     else
       printf "${cross_mark}"
@@ -24,7 +24,6 @@ exists_check() {
     fi
   fi
 }
-
 
 WHICH_FAILED=""
 WHICH_CHECK=0
