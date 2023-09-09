@@ -108,12 +108,12 @@ jobs:
           bin/command_line_test
           make -C cutbox_command coverage_report
 
-      - name: Clean test report pathnames
+      - name: Refry llvm-cov html reports
         run: |
-          bin/fix_llvm_html_pathnames docs/CLI 'cutbox_command'
-          bin/fix_llvm_html_pathnames docs/App 'Source'
+          bin/llvm_cov_refryer --docs-root="docs/CLI" --source-dir="cutbox_command"
+          bin/llvm_cov_refryer --docs-root="docs/App" --source-dir="Source"
 
-      - name: Append addBlobs.js coverage index pages
+      - name: Append addBlobs.js to coverage index pages
         run: |
           for a in App CLI; do
             echo '<script type="text/javascript" src="../js/addBlobs.js"></script>' >> docs/$a/index.html

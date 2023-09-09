@@ -64,7 +64,7 @@ def fix_code_html(path_filename, source_dir):
         html_file.write(str(html))
 
 # Parse command line arguments
-parser = argparse.ArgumentParser(description="Reorganize an llvm-cov html report to use relative paths.")
+parser = argparse.ArgumentParser(description="Transmogrify a llvm-cov report to use relative paths to source.")
 parser.add_argument("--source-dir", required=True, help="Name of Source directory within the report coverage/ path")
 parser.add_argument("--docs-root", required=True, help="Path to the docs folder containing index.html and coverage/ path.")
 args = parser.parse_args()
