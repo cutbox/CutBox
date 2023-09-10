@@ -17,20 +17,18 @@ extension PreferencesThemeSelectionView {
 
         self.compactUICheckbox.state = self.prefs.useCompactUI ? .on : .off
 
-        self.compactUICheckbox
-            .rx
-            .state
+        self.compactUICheckbox.rx.state
             .map { $0 == .on }
             .subscribe(onNext: { self.prefs.useCompactUI = $0 })
             .disposed(by: disposeBag)
 
-        self.prefs
-            .events
-            .subscribe(onNext: {
-                if case .compactUISettingChanged(let isOn) = $0 {
-                    self.compactUICheckbox.state = isOn ? .on : .off
-                }
-            })
+        self.prefs.events.subscribe(onNext: onNext)
             .disposed(by: disposeBag)
+    }
+
+    func onNext(event: CutBoxPreferencesEvent) {
+        if case .compactUISettingChanged(let isOn) = event {
+            self.compactUICheckbox.state = isOn ? .on : .off
+        }
     }
 }
