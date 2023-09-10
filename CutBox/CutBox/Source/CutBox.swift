@@ -20,3 +20,6 @@ import Magnet
         HotKeyCenter.shared.unregisterAll()
     }
 }
+
+public class CutBoxBaseView: NSView {}
+public class CutBoxBaseWindowController: NSWindowController {}

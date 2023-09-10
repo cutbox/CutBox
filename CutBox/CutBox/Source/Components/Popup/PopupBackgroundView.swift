@@ -8,7 +8,7 @@
 
 import Cocoa
 
-public class PopupBackgroundView: NSView {
+public class PopupBackgroundView: CutBoxBaseView {
     public var cornerRadius: CGFloat = 0
     public var backgroundColor = NSColor.clear
 

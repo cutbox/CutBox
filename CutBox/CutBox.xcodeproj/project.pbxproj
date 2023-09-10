@@ -1334,13 +1334,14 @@
 		};
 		64C7BD4EDAE24A6AF883EB2A /* [CP-User] Sign */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			name = "[CP-User] Sign";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = scripts/sign.sh;
+			shellScript = "scripts/sign.sh\n";
 		};
 		96085E4A206E36CC00CA77BB /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;

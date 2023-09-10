@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PopupController: NSWindowController {
+class PopupController: CutBoxBaseWindowController {
 
     let panel = PopupPanel()
 
