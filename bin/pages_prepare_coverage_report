@@ -8,7 +8,6 @@ set +o pipefail
     -format html \
     -project-title="CutBox.app" \
     -output-dir=docs/App/ \
-    -compilation-dir=./CutBox \
     -coverage-watermark="60.0,25.0" \
     -ignore-filename-regex="Pods|CutBoxUnitTests" \
     -instr-profile .build/Build/ProfileData/**/Coverage.profdata \
