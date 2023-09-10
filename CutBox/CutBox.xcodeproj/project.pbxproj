@@ -219,7 +219,6 @@
 		968715992A9634E10092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
 		9687159A2A96E6A80092DB3F /* StandardErrorOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */; };
 		968767882AAC41DF00DA256E /* Swizzlor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968767872AAC41DF00DA256E /* Swizzlor.swift */; };
-		9687678B2AACDA3000DA256E /* GeneratedMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687678A2AACDA3000DA256E /* GeneratedMocks.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -439,7 +438,6 @@
 		968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxPreferencesServiceSpec.swift; sourceTree = "<group>"; };
 		968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardErrorOutputStream.swift; sourceTree = "<group>"; };
 		968767872AAC41DF00DA256E /* Swizzlor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Swizzlor.swift; path = SharedMocks/Swizzlor.swift; sourceTree = "<group>"; };
-		9687678A2AACDA3000DA256E /* GeneratedMocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedMocks.swift; sourceTree = "<group>"; };
 		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
@@ -784,7 +782,6 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				9687678A2AACDA3000DA256E /* GeneratedMocks.swift */,
 				968767872AAC41DF00DA256E /* Swizzlor.swift */,
 				9696D6D72AAC08DC00600C59 /* Controllers */,
 				9696D6C92AAAE04000600C59 /* AboutPanelSpec.swift */,
@@ -1114,7 +1111,6 @@
 			buildConfigurationList = 965348D62843316B000FD0A1 /* Build configuration list for PBXNativeTarget "CutBoxUnitTests" */;
 			buildPhases = (
 				BAE33ABDD43120A0B3851A37 /* [CP] Check Pods Manifest.lock */,
-				968767892AACD24D00DA256E /* Cuckoo */,
 				965348CC2843316B000FD0A1 /* Sources */,
 				965348CD2843316B000FD0A1 /* Frameworks */,
 				965348CE2843316B000FD0A1 /* Resources */,
@@ -1390,25 +1386,6 @@
 			shellPath = /bin/sh;
 			shellScript = "${PROJECT_DIR}/scripts/bump_version_on_archive\n";
 		};
-		968767892AACD24D00DA256E /* Cuckoo */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Cuckoo;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "scripts/cuckoo.sh\n";
-		};
 		9689879620D2037300D40C02 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1568,7 +1545,6 @@
 				965349412843484E000FD0A1 /* JSFuncServiceSpec.swift in Sources */,
 				9653490928434752000FD0A1 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				9653490428434742000FD0A1 /* JSFuncSearchViewController.swift in Sources */,
-				9687678B2AACDA3000DA256E /* GeneratedMocks.swift in Sources */,
 				965348EF28434735000FD0A1 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */,
 				9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
 				965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */,

@@ -1,7 +1,4 @@
 PODS:
-  - Cuckoo (1.5.1):
-    - Cuckoo/Swift (= 1.5.1)
-  - Cuckoo/Swift (1.5.1)
   - JSONSchema (0.6.0)
   - KeyHolder (4.1.0):
     - Magnet (~> 3.3.0)
@@ -20,7 +17,6 @@ PODS:
   - SwiftyStringScore (0.2.2)
 
 DEPENDENCIES:
-  - Cuckoo
   - JSONSchema (from `https://github.com/kylef/JSONSchema.swift`)
   - KeyHolder
   - Nimble
@@ -32,7 +28,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - Cuckoo
     - KeyHolder
     - Magnet
     - Nimble
@@ -58,7 +53,6 @@ CHECKOUT OPTIONS:
     :git: "git@github.com:8bytes/SwiftyStringScore"
 
 SPEC CHECKSUMS:
-  Cuckoo: 9124fe138270854903483c270370e6e7658fbc9b
   JSONSchema: 2fcb0c33de01b60afa07701b395732d66dfbd936
   KeyHolder: 7fce073043392cddc3e3126f3f9bdaa5ecf1f19e
   Magnet: a44a5a14eecc77433cbaad1431b78f7d20725bf2
@@ -71,6 +65,6 @@ SPEC CHECKSUMS:
   Sparkle: 5ef7097e655c60f4aeb23fd1658fc3e8dd50f4ec
   SwiftyStringScore: e9a3a4d84d313f68a90fe30f0520b00c7834167a
 
-PODFILE CHECKSUM: 8ed111023ea55a9515379028cdf96266ca824f8a
+PODFILE CHECKSUM: 9615dce552a9e80583a7c0f0c16d60d7600a5723
 
 COCOAPODS: 1.12.1
