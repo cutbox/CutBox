@@ -1,52 +1,112 @@
+:root {
+  --red: #a6511987;  /* Red */
+  --red-line-number: #FF8800EE;
+  --gray: #666666; /* Gray */
+  --teal: #308080; /* Teal */
+
+  --red-column-bg: #FF000033;
+  --green-column-bg: #00BB6633;
+  --yellow-column-bg: #00FFFF33;
+
+  --covered-line-row: #30907035;
+  --uncovered-line-row: #000F;
+
+  --bg: #2B2A33;
+  --fg: #EFEAE8;
+  --link-color: #26999CAA;
+
+  --vert-border: #36799455;
+  --title-border: #fff3;
+  --code-title-color: #9ff7;
+  --tint-black: #0002;
+}
+
+.column-entry-green {
+  text-align: left;
+  background-color: var(--green-column-bg);
+}
+
+.column-entry-yellow {
+  text-align: left;
+  background-color: var(--yellow-column-bg);
+}
+
+.column-entry-red {
+  text-align: left;
+  background-color: var(--red-column-bg);
+}
+
 .red {
-  background-color: #ff6600;
+  background-color: var(--red);
   color: white;
   font-weight: bold;
 }
+
 .cyan {
-  background-color: cyan;
+  background-color: var(--teal);
 }
 
-.blob.green { color: green; }
-.blob.grey { color: grey; }
-.blob.red { color: red; }
+.blob.green { color: var(--teal); }
+.blob.grey { color: var(--gray); }
+.blob.red { color: var(--red); }
 .blob { background-color: unset; }
 .blob:nth-child(2) { padding: 0 5px; }
 .blob:nth-child(3) { padding: 0 5px 0 0; }
 
 body {
-  font-family: -apple-system, sans-serif;
-  background-color: #2B2A33;
-  color: #EFEAE8;
+  font-family: "Helvetica Neue", -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
-h1 { font-size: 28pt; }
-h2 { font-size: 24pt; }
+h1 { font-size: 35pt; letter-spacing: -2px; margin: 20px 0 10px 15px;}
+h2 { font-size: 22pt; font-weight: lighter; margin: 3px 0 0 48px;}
 h3 { font-size: 20pt; }
-h4 { font-size: 16pt; }
+h4 { font-size: 14pt; font-weight: lighter; margin: 3px 0 10px 50px;}
 
-.source-name-title {
+.source-name-title pre {
   padding: 4px 18px;
-  border-bottom: 1px solid #367994;
-  background-color: #eee0;
+  border-bottom: 1px solid var(--title-border);
   line-height: 35px;
-  color: #367994;
+  color: var(--code-title-color);
+  font-weight: lighter;
+  font-size: 16pt;
+  font-family: "Helvetica Neue", sans-serif !important;
 }
+
+.line-number pre {
+  font-size: small;
+  color: var(--code-title-color);
+  filter: brightness(0.6);
+}
+
+.covered-line pre {
+  font-size: small;
+  color: var(--code-title-color);
+  filter: brightness(0.6);
+}
+
+.uncovered-line pre {
+  font-size: small;
+  color: var(--red);
+  filter: brightness(0.6);
+}
+
 .centered {
   display: table;
   margin-left: left;
   margin-right: auto;
-  border: 1px solid #367994;
-  border-radius: 10pt;
+  /*! border: 1px solid #367994; */
+  /*! border-radius: 10pt; */
 }
 .expansion-view {
-  background-color: #FFFFFF00;
+  background-color: var(--tint-black);
   margin-left: 0px;
   margin-top: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
-  border: 1px solid #367994;
-  border-radius: 3px;
+  /*! border: 1px solid #367994; */
+  /*! border-radius: 3px; */
 }
 table {
   border-collapse: collapse;
@@ -68,21 +128,6 @@ table {
   font-family: monospace;
   font-size: 16pt;
   padding: 10px 15px;
-}
-
-.column-entry-green {
-  text-align: left;
-  background-color: #00FF0044;
-}
-
-.column-entry-yellow {
-  text-align: left;
-  background-color: #00FFFF22;
-}
-
-.column-entry-red {
-  text-align: left;
-  background-color: #FF000033;
 }
 
 .line-number {
@@ -137,8 +182,8 @@ th, td {
   vertical-align: top;
   padding: 0px 10px;
   border-collapse: collapse;
-  border-right: solid 1px #367994;
-  border-left: solid 1px #367994;
+  border-right: solid 1px var(--vert-border);
+  border-left: solid 1px var(--vert-border);
   text-align: left;
 }
 td pre {
@@ -154,12 +199,20 @@ tr:hover {
   background-color: #26415e87;
 }
 a {
-  color: #367994;
+  color: var(--link-color);
   text-decoration: unset;
 }
 
 tr:has(.covered-line) {
-  background-color: #00FF0013;
+  background-color: var(--covered-line-row);
+}
+
+tr:has(.uncovered-line) {
+  background-color: var(--uncovered-line-row);
+}
+
+tr:has(td.code .red) td.line-number pre {
+  color: var(--red-line-number);
 }
 
 pre {
@@ -171,4 +224,26 @@ pre {
 
 pre, code {
   font-family: monospace !important;
+}
+
+tbody > tr:nth-child(1) pre {
+  font-family: "Helvetica Neue", sans-serif !important;
+  font-size: 9pt;
+  padding: 0 0 10pt 0;
+  margin: -10pt 0 0 -4pt;
+}
+
+body > p:nth-child(4) {
+  font-style: italic;
+  font-weight: lighter;
+  color: var(--fg);
+  filter: brightness(0.50);
+  margin: 0 0 10pt 40pt;
+  font-size: small;
+}
+
+.column-entry-bold {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 10pt;
+  font-weight: lighter;
 }
