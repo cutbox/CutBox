@@ -53,6 +53,7 @@
      const images = document.querySelectorAll('.cov-graph');
      images.forEach(image => {
          image.addEventListener('click', () => {
+             images.forEach( i => (i != image) ? i.classList.remove('enlarged') : null )
              image.classList.toggle('enlarged');
          });
      });
