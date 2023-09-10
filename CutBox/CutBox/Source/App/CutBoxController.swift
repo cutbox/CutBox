@@ -237,7 +237,7 @@ extension CutBoxController {
     }
 }
 
-extension CutBoxController{
+extension CutBoxController {
     func clearHistoryByTimeOffset(offset: TimeInterval) {
         if offset == 0 {
             self.historyService.clear()
