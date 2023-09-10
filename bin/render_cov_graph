@@ -26,6 +26,7 @@ hsubtitle = {
 # Create an argument parser
 parser = argparse.ArgumentParser(description="Generate a line chart from JSON data and save it as an SVG file.")
 parser.add_argument("--output", required=True, help="Output SVG filename")
+parser.add_argument("--title", required=True, help="Chart title")
 
 # Parse the command-line arguments
 args = parser.parse_args()
@@ -60,7 +61,7 @@ with plt.style.context('dark_background'):
     plt.plot(datetimes, region_percentages, label="Region", linewidth=0.5, color="#6600AA")
     plt.xlabel("Time", **hsubtitle)
     plt.ylabel("Coverage %",**hsmall)
-    plt.title("CutBox.app Test Coverage Progress",**htitle)
+    plt.title(args.title, **htitle)
     plt.legend(frameon=False)
     plt.grid(which="Major", linewidth=0.1)
     plt.grid(which="Minor", linewidth=0.1)
