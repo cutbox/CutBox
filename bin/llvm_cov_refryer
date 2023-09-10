@@ -16,14 +16,9 @@ def find_source_dir(starting_path, source_dir):
     return None, None
 
 def delete_empty_directory(relative_path):
-    # Get the absolute path by joining the current working directory with the relative path
     absolute_path = os.path.abspath(relative_path)
-
-    # Check if the directory exists
     if os.path.exists(absolute_path) and os.path.isdir(absolute_path):
-        # Check if the directory is empty
         if not os.listdir(absolute_path):
-            # Directory is empty, so it's safe to delete
             try:
                 os.rmdir(absolute_path)
                 print(f"Deleted empty directory: {relative_path}")
@@ -31,6 +26,17 @@ def delete_empty_directory(relative_path):
                 print(f"Error deleting directory: {e}")
         else:
             print(f"Directory is not empty: {relative_path}")
+    else:
+        print(f"Directory does not exist: {relative_path}")
+
+def remove_directory_if_exists(relative_path):
+    absolute_path = os.path.abspath(relative_path)
+    if os.path.exists(absolute_path) and os.path.isdir(absolute_path):
+        try:
+            shutil.rmtree(absolute_path)
+            print(f"Removed directory and its contents: {relative_path}")
+        except OSError as e:
+            print(f"Error removing directory: {e}")
     else:
         print(f"Directory does not exist: {relative_path}")
 
@@ -93,6 +99,9 @@ process_docs(args.source_dir, args.docs_root)
 # find --source-root --docs-folder/coverage/... path .../
 coverage_path = os.path.join(args.docs_root, "coverage")
 source_path = os.path.join(args.docs_root, "coverage", find_source_dir(coverage_path, args.source_dir))
+
+# clear destination if needed
+remove_directory_if_exists(os.path.join(coverage_path, args.source_dir))
 
 shutil.move(source_path, coverage_path)
 
