@@ -15,19 +15,41 @@ def find_source_dir(starting_path, source_dir):
             return before_source
     return None, None
 
+def check_for_siblings(docs_root, source_dir):
+    all_dirs = [os.path.join(docs_root, d) for d in os.listdir(docs_root) if os.path.isdir(os.path.join(docs_root, d))]
+    if not os.path.exists(docs_root):
+        return 1, None
+
+    source_path = os.path.abspath(os.path.join(docs_root, source_dir))
+    if not os.path.exists(source_path):
+        return 2, all_dirs
+
+    sibling_dirs = [d for d in all_dirs if not os.path.samefile(d, source_path)]
+
+    if sibling_dirs:
+        return 3, sibling_dirs
+
+    return 0, None
+
+def has_files(path):
+    for root, _, files in os.walk(path):
+        if files:
+            return True
+    return False
+
 def delete_empty_directory(relative_path):
     absolute_path = os.path.abspath(relative_path)
-    if os.path.exists(absolute_path) and os.path.isdir(absolute_path):
-        if not os.listdir(absolute_path):
-            try:
-                os.rmdir(absolute_path)
-                print(f"Deleted empty directory: {relative_path}")
-            except OSError as e:
-                print(f"Error deleting directory: {e}")
-        else:
-            print(f"Directory is not empty: {relative_path}")
-    else:
+    if not os.path.exists(absolute_path):
         print(f"Directory does not exist: {relative_path}")
+        return
+    if has_files(absolute_path):
+        print(f"Directory is not empty: {relative_path}")
+        return
+    try:
+        shutil.rmtree(absolute_path)
+        print(f"Deleted: {relative_path}")
+    except OSError as e:
+        print(f"Error deleting directory: {e}")
 
 def remove_directory_if_exists(relative_path):
     absolute_path = os.path.abspath(relative_path)
@@ -94,14 +116,19 @@ parser.add_argument("--source-dir", required=True, help="Name of Source director
 parser.add_argument("--docs-root", required=True, help="Path to the docs folder containing index.html and coverage/ path.")
 args = parser.parse_args()
 
-process_docs(args.source_dir, args.docs_root)
-
-# find --source-root --docs-folder/coverage/... path .../
 coverage_path = os.path.join(args.docs_root, "coverage")
-source_path = os.path.join(args.docs_root, "coverage", find_source_dir(coverage_path, args.source_dir))
 
-# clear destination if needed
-remove_directory_if_exists(os.path.join(coverage_path, args.source_dir))
+status, dirs = check_for_siblings(coverage_path, args.source_dir)
+
+if status == 1:
+    print(f"{args.docs_root} does not exist.")
+    exit(1)
+
+if status == 3:
+    remove_directory_if_exists(os.path.join(coverage_path, args.source_dir))
+
+process_docs(args.source_dir, args.docs_root)
+source_path = os.path.join(args.docs_root, "coverage", find_source_dir(coverage_path, args.source_dir))
 
 shutil.move(source_path, coverage_path)
 
