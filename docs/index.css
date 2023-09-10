@@ -1,5 +1,5 @@
 :root {
-    --background-color: #111014;
+    --background-color: #262A2F;
     --text-color: #F4F1ED;
     --link-color: #726F6B;
     --link-active-color: #7F7C78;
@@ -183,8 +183,8 @@ table th.centered {
 
 table {
     margin: auto;
-    max-width: 300px;
     border-collapse: collapse;
+    padding: 20pt;
 }
 
 table tr {
@@ -226,4 +226,52 @@ img.inline {
 a:hover {
     text-decoration: none;
     color: white;
+}
+
+img.cov-graph {
+    border: solid 1pt #fff3;
+    border-radius:20px;
+    width:700px
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.centered {
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.grid-item {
+    padding: 10px;
+    text-align: center;
+}
+
+.cov-graph {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+}
+
+.cov-title {
+    font-size: 10pt;
+    font-weight: lighter;
+    margin: 8pt;
+}
+
+.cov-graph.enlarged {
+    transform: scale(2); /* Increase size to 110% when clicked */
+}
+
+.cov-graph.enlarged:hover {
+    cursor: zoom-out; /* Change cursor on hover when enlarged */
 }
