@@ -123,6 +123,12 @@ jobs:
             echo '<script type="text/javascript" src="../js/addBlobs.js"></script>' >> docs/$a/index.html
           done
 
+      - name: Render coverage charts
+        run: |
+          for a in App CLI; do
+            bin/get_coverage_numbers "docs/$a/index.html" | bin/render_cov_graph --output docs/$a/cov.svg
+          done
+
       - name: Push Coverage Reports to cutbox.github.io/CutBox/
         run: |
           git add docs

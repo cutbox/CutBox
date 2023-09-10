@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+
+import argparse
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from datetime import datetime
+import json
+import sys
+
+hsmall = {
+    'family': 'Avenir Next',
+    'size': 8,
+    'weight': 'light' }
+hmedium = {
+    'family':'Avenir Next',
+    'size': 12,
+    'weight': 'light' }
+htitle = {
+    'family':'Avenir Next',
+    'size': 24,
+    'weight': 'bold' }
+hsubtitle = {
+    'family':'Avenir Next',
+    'size': 14 }
+
+# Create an argument parser
+parser = argparse.ArgumentParser(description="Generate a line chart from JSON data and save it as an SVG file.")
+parser.add_argument("--output", required=True, help="Output SVG filename")
+
+# Parse the command-line arguments
+args = parser.parse_args()
+
+# Read JSON data from stdin
+try:
+    data = json.load(sys.stdin)
+except json.JSONDecodeError as e:
+    print("Error parsing JSON input:", e)
+    sys.exit(1)
+
+# Sort data by datetime
+data.sort(key=lambda x: x["datetime"])
+
+# Extract percentage values from fn, line, and region
+fn_percentages = [float(node["fn"].split()[0].replace("%", "")) for node in data]
+line_percentages = [float(node["line"].split()[0].replace("%", "")) for node in data]
+region_percentages = [float(node["region"].split()[0].replace("%", "")) for node in data]
+
+# Convert datetime strings to datetime objects
+datetimes = [datetime.fromisoformat(node["datetime"][:-6]) for node in data]
+
+# Create a time series plot
+with plt.style.context('dark_background'):
+    plt.rcParams['font.family'] = 'Avenir Next'
+    plt.rcParams['font.size'] = 8
+    plt.figure(figsize=(12, 6))
+    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
+    plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))
+    plt.plot(datetimes, fn_percentages, label="Function", linewidth=0.5, color="#0066AA")
+    plt.plot(datetimes, line_percentages, label="Line", linewidth=0.5, color="#FF66AA")
+    plt.plot(datetimes, region_percentages, label="Region", linewidth=0.5, color="#6600AA")
+    plt.xlabel("Time", **hsubtitle)
+    plt.ylabel("Coverage %",**hsmall)
+    plt.title("CutBox.app Test Coverage Progress",**htitle)
+    plt.legend(frameon=False)
+    plt.grid(which="Major", linewidth=0.1)
+    plt.grid(which="Minor", linewidth=0.1)
+    plt.box(False)
+
+    # Save the plot directly as SVG without converting text to paths
+    plt.savefig(args.output, format="svg")
+
+# Optionally, display a message indicating that the SVG file has been saved
+print(f"Line chart saved as {args.output}")
