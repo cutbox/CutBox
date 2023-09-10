@@ -72,17 +72,14 @@ class SearchTextView: NSTextView {
             super.doCommand(by: selector)
             self.nextResponder?.keyDown(with: keyDownEvent!)
             keyDownEvent = nil
-            return
-        }
-
-        if skippedSelectors.contains(selector) {
+        } else if skippedSelectors.contains(selector) {
             self.nextResponder?.keyDown(with: keyDownEvent!)
             keyDownEvent = nil
-            return
         } else {
             super.doCommand(by: selector)
             keyDownEvent = nil
-            return
         }
+
+        return
     }
 }
