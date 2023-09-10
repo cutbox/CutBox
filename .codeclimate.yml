@@ -5,3 +5,7 @@ exclude_patterns:
   - "**/*spec.*"
   - "**/*Test.*"
   - "**/*Spec.*"
+
+plugins:
+  swiftlint:
+    enabled: true
