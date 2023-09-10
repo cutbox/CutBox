@@ -102,15 +102,8 @@ class CutBoxController: NSObject {
 }
 
 extension CutBoxController {
-    func setMenuItems() {
-        let menu = self.statusMenu!
-        self.statusItem.menu = menu
-
-        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
-        icon.isTemplate = true // best for dark mode
-        self.statusItem.button?.image = icon
-
-        let items: [StatusItemDescriptor] = [
+    var statusMenuItems: [StatusItemDescriptor] {
+        [
             (0, "cutbox_menu_search_cutbox".l7n, nil, "searchClicked:"),
             (1, "---", nil, nil),
             (2, "cutbox_menu_fuzzy_match".l7n, "fuzzyMatch", "searchModeSelect:"),
@@ -133,9 +126,19 @@ extension CutBoxController {
             (18, "cutbox_menu_quit".l7n, nil, "quitClicked:")
             //     So number all the indexes correctly, leaving a gap.
         ]
+    }
 
-        items.forEach { addMenuItems(menu: menu, descriptor: $0) }
+    func setMenuItems() {
+        let menu = self.statusMenu!
+        self.statusItem.menu = menu
 
+        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
+        icon.isTemplate = true // best for dark mode
+        self.statusItem.button?.image = icon
+        self.statusMenuItems
+            .forEach {
+                addMenuItems(menu: menu, descriptor: $0)
+            }
         self.statusItem.menu = menu
 
         setModeSelectors(fuzzyMatchModeItem: menu.item(at: 2)!,
@@ -160,13 +163,10 @@ extension CutBoxController {
             let item: NSMenuItem = NSMenuItem(title: title,
                                               action: action,
                                               keyEquivalent: "")
-
             item.target = self
-
             if axID != nil {
                 item.setAccessibilityIdentifier(axID)
             }
-
             menu.insertItem(item, at: descriptor.0)
         }
     }
