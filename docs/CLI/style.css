@@ -128,7 +128,7 @@ table {
 .column-entry {
   text-align: left;
 }
-.column-entry-bold {
+.column-entry-bold, tr:last-child td:first-child {
   text-align: left;
   font-family: monospace;
   font-size: 16pt;
@@ -231,11 +231,21 @@ pre, code {
   font-family: monospace !important;
 }
 
-tbody > tr:nth-child(1) pre {
+tr:first-child pre {
   font-family: "Helvetica Neue", sans-serif !important;
   font-size: 9pt;
   padding: 0 0 10pt 0;
   margin: -10pt 0 0 -4pt;
+  font-weight: lighter;
+}
+
+tr:last-child td:first-child pre {
+  font-family: "Helvetica Neue", sans-serif !important;
+  font-size: 9pt;
+  padding: 0 0 10pt 0;
+  margin: -10pt 0 0 -4pt;
+  font-weight: lighter;
+  opacity: 0.7;
 }
 
 body > p:nth-child(4) {
@@ -252,7 +262,8 @@ body > p:nth-child(4) {
   font-size: 10pt;
   font-weight: lighter;
 }
-tr:has(td:nth-child(2).column-entry-red) td:nth-child(1) pre a
+
+tr:has(td:nth-child(2).column-entry-red) td:first-child() pre a
 {
   color: var(--red-file-name);
 }
