@@ -1,6 +1,7 @@
 :root {
   --red: #a6511987;  /* Red */
   --red-line-number: #FF8800EE;
+  --red-file-name: #FF6600BB;
   --gray: #666666; /* Gray */
   --teal: #308080; /* Teal */
 
@@ -63,6 +64,10 @@ h1 { font-size: 35pt; letter-spacing: -2px; margin: 20px 0 10px 15px;}
 h2 { font-size: 22pt; font-weight: lighter; margin: 3px 0 0 48px;}
 h3 { font-size: 20pt; }
 h4 { font-size: 14pt; font-weight: lighter; margin: 3px 0 10px 50px;}
+
+h4 + p > a { color: var(--teal); filter: brightness(+1.9); }
+
+h5 { font-size: 10pt; font-weight: lighter; margin: 20px 0 10px 0; filter: brightness(0.5);}
 
 .source-name-title pre {
   padding: 4px 18px;
@@ -246,4 +251,8 @@ body > p:nth-child(4) {
   font-family: "Helvetica Neue", sans-serif;
   font-size: 10pt;
   font-weight: lighter;
+}
+tr:has(td:nth-child(2).column-entry-red) td:nth-child(1) pre a
+{
+  color: var(--red-file-name);
 }
