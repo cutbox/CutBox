@@ -230,14 +230,20 @@ extension CutBoxController {
         case .hidePreviewSettingChanged(let isOn):
             self.hidePreview.state = isOn ? .on : .off
         case .historyClearByOffset(let offset):
-            if offset == 0 {
-                self.historyService.clear()
-            } else {
-                let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
-                self.historyService.clearWithTimestampPredicate(predicate: predicate)
-            }
+            self.clearHistoryByTimeOffset(offset: offset)
         default:
             break
+        }
+    }
+}
+
+extension CutBoxController{
+    func clearHistoryByTimeOffset(offset: TimeInterval) {
+        if offset == 0 {
+            self.historyService.clear()
+        } else {
+            let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
+            self.historyService.clearWithTimestampPredicate(predicate: predicate)
         }
     }
 }
