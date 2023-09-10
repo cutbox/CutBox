@@ -11,7 +11,7 @@ import RxCocoa
 import Cocoa
 import CoreImage
 
-class SearchAndPreviewViewBase: NSView {
+class SearchAndPreviewViewBase: CutBoxBaseView {
 
     @IBOutlet weak var searchContainer: NSBox!
     @IBOutlet weak var searchTextContainer: NSBox!
