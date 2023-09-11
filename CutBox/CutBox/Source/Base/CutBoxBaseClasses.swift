@@ -26,6 +26,7 @@ public class CutBoxBaseWindowController: NSWindowController {
 
 public class CutBoxBaseWindow: NSWindow {
     var initWithParamsCalled = false
+    var awakeFromNibWasCalled = false
 
     public override init(contentRect: NSRect,
                          styleMask style: NSWindow.StyleMask,
@@ -36,6 +37,11 @@ public class CutBoxBaseWindow: NSWindow {
                    backing: backingStoreType,
                    defer: flag)
         self.initWithParamsCalled = true
+    }
+
+    public override func awakeFromNib() {
+        super.awakeFromNib()
+        self.awakeFromNibWasCalled = true
     }
 }
 

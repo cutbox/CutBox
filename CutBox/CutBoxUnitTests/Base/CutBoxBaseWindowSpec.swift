@@ -22,6 +22,16 @@ class CutBoxBaseWindowSpec: QuickSpec {
                     defer: false)
                 expect(window.initWithParamsCalled).to(beTrue())
             }
+
+            it("should awakeFromNib") {
+                let window = ExampleWindow(
+                    contentRect: .zero,
+                    styleMask: .titled,
+                    backing: .buffered,
+                    defer: false)
+                window.awakeFromNib()
+                expect(window.awakeFromNibWasCalled).to(beTrue())
+            }
         }
     }
 }
