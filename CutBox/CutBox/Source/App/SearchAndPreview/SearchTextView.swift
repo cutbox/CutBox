@@ -9,7 +9,7 @@
 import Cocoa
 import Carbon.HIToolbox
 
-class SearchTextView: NSTextView {
+class SearchTextView: CutBoxBaseTextView {
 
     private var keyDownEvent: NSEvent?
 

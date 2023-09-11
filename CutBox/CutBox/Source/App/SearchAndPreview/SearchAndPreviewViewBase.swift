@@ -24,7 +24,7 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
     @IBOutlet weak var searchScopeImageButton: NSButton!
     @IBOutlet weak var mainContainer: NSStackView!
     @IBOutlet weak var container: NSStackView!
-    @IBOutlet weak var bottomBar: NSView!
+    @IBOutlet weak var bottomBar: CutBoxBaseView!
 
     @IBOutlet weak var searchTextContainerHeight: NSLayoutConstraint!
     @IBOutlet weak var mainTopConstraint: NSLayoutConstraint!

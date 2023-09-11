@@ -16,9 +16,7 @@ class AboutPanel: NSPanel {
 
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true
-
         productVersion.stringValue = VersionService.version
-
         productTitle.stringValue = "about_cutbox_title".l7n
         productLicense.stringValue = "about_cutbox_copyright_licence".l7n
     }
