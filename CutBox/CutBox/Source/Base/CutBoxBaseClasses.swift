@@ -129,6 +129,9 @@ class CutBoxBaseTabViewItem: NSTabViewItem {
 class CutBoxBaseTabView: NSTabView {
 }
 
+class CutBoxBaseTabViewController: NSTabViewController {
+}
+
 class CutBoxBaseTextContainer: NSTextContainer {
 }
 
@@ -157,6 +160,15 @@ func cutBoxGetStatusItem() -> NSStatusItem {
 }
 
 class CutBoxBaseStatusItem: NSStatusItem {
+}
+
+class CutBoxBaseImage: NSImage {
+}
+
+class CutBoxBaseImageView: NSImageView {
+}
+
+class CutBoxBaseStackView: NSStackView {
 }
 
 // Plan for NSWrappers

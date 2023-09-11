@@ -9,7 +9,7 @@
 import RxSwift
 
 /// Provide keyUp event stream on a NSTextField
-class TextFieldKeyUpRxStream: NSTextField {
+class TextFieldKeyUpRxStream: CutBoxBaseTextField {
     let keyUp = PublishSubject<NSEvent>()
 
     override func keyUp(with event: NSEvent) {

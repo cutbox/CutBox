@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +54,7 @@
                                                             <rect key="frame" x="47" y="16" width="814" height="16"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Vjp-Gw-55f">
                                                                 <rect key="frame" x="0.0" y="0.0" width="814" height="16"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textView drawsBackground="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" allowsNonContiguousLayout="YES" id="uWo-BC-ODB" customClass="SearchTextView" customModule="CutBox" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="814" height="16"/>
@@ -136,7 +137,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="461" height="401"/>
                                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="BOQ-ox-zBD">
                                                     <rect key="frame" x="0.0" y="0.0" width="461" height="401"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <tableView focusRingType="none" verticalHuggingPriority="750" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="none" columnReordering="NO" columnResizing="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" floatsGroupRows="NO" id="0vd-d6-rKt">
                                                             <rect key="frame" x="0.0" y="0.0" width="492" height="401"/>
@@ -193,7 +194,7 @@
                                                             <rect key="frame" x="10" y="10" width="439" height="379"/>
                                                             <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="UO5-NP-mCp">
                                                                 <rect key="frame" x="0.0" y="0.0" width="439" height="379"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <textView editable="NO" drawsBackground="NO" importsGraphics="NO" richText="NO" horizontallyResizable="YES" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" allowsDocumentBackgroundColorChange="YES" textCompletion="NO" id="eKA-mf-B4d">
                                                                         <rect key="frame" x="0.0" y="0.0" width="439" height="379"/>

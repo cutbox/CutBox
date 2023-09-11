@@ -9,7 +9,7 @@
 import Cocoa
 import Magnet
 
-class PreferencesTabView: NSTabView, NSTabViewDelegate {
+class PreferencesTabView: CutBoxBaseTabView, NSTabViewDelegate {
 
     private let generalTab: PreferencesGeneralView = PreferencesGeneralView.fromNib()!
     private let advancedTab: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
@@ -31,7 +31,7 @@ class PreferencesTabView: NSTabView, NSTabViewDelegate {
 
         tabViews.forEach {
             let (name, view) = $0
-            let tabViewItem = NSTabViewItem()
+            let tabViewItem = CutBoxBaseTabViewItem()
             tabViewItem.label = name
             tabViewItem.identifier = name
             tabViewItem.view = view

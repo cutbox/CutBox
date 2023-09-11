@@ -13,17 +13,17 @@ import CoreImage
 
 class SearchAndPreviewViewBase: CutBoxBaseView {
 
-    @IBOutlet weak var searchContainer: NSBox!
-    @IBOutlet weak var searchTextContainer: NSBox!
-    @IBOutlet weak var searchTextPlaceholder: NSTextField!
+    @IBOutlet weak var searchContainer: CutBoxBaseBox!
+    @IBOutlet weak var searchTextContainer: CutBoxBaseBox!
+    @IBOutlet weak var searchTextPlaceholder: CutBoxBaseTextField!
     @IBOutlet weak var searchText: SearchTextView!
     @IBOutlet weak var itemsList: NSTableView!
-    @IBOutlet weak var preview: NSTextView!
-    @IBOutlet weak var previewContainer: NSBox!
-    @IBOutlet weak var iconImageView: NSImageView!
-    @IBOutlet weak var searchScopeImageButton: NSButton!
-    @IBOutlet weak var mainContainer: NSStackView!
-    @IBOutlet weak var container: NSStackView!
+    @IBOutlet weak var preview: CutBoxBaseTextView!
+    @IBOutlet weak var previewContainer: CutBoxBaseBox!
+    @IBOutlet weak var iconImageView: CutBoxBaseImageView!
+    @IBOutlet weak var searchScopeImageButton: CutBoxBaseButton!
+    @IBOutlet weak var mainContainer: CutBoxBaseStackView!
+    @IBOutlet weak var container: CutBoxBaseStackView!
     @IBOutlet weak var bottomBar: CutBoxBaseView!
 
     @IBOutlet weak var searchTextContainerHeight: NSLayoutConstraint!

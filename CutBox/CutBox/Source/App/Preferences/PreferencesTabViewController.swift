@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PreferencesTabViewController: NSTabViewController {
+class PreferencesTabViewController: CutBoxBaseTabViewController {
     let window: PreferencesWindow = PreferencesWindow.fromNib()!
 
     override func viewDidLoad() {

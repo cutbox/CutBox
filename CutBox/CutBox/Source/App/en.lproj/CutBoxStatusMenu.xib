@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -19,9 +20,9 @@
             </connections>
         </customObject>
         <customObject id="gSk-na-fI8" customClass="SUUpdater"/>
-        <menu id="r5R-nF-u2D">
+        <menu id="r5R-nF-u2D" customClass="CutBoxBaseMenu" customModule="CutBox" customModuleProvider="target">
             <items>
-                <menuItem title="Check for updates" id="MVu-fM-PnG">
+                <menuItem title="Check for updates" id="MVu-fM-PnG" customClass="CutBoxBaseMenuItem" customModule="CutBox" customModuleProvider="target">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="checkForUpdates:" target="gSk-na-fI8" id="Jls-RZ-Qnf"/>

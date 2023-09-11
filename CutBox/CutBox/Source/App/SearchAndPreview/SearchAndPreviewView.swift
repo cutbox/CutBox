@@ -16,11 +16,11 @@ import RxCocoa
 /// Extends `SearchAndPreviewViewBase`
 class SearchAndPreviewView: SearchAndPreviewViewBase {
 
-    @IBOutlet weak var searchModeToggle: NSButton!
-    @IBOutlet weak var jsIconButton: NSButton!
+    @IBOutlet weak var searchModeToggle: CutBoxBaseButton!
+    @IBOutlet weak var jsIconButton: CutBoxBaseButton!
     @IBOutlet weak var timeFilterText: ValidIndicatorTextField!
-    @IBOutlet weak var timeFilterLabel: NSTextField!
-    @IBOutlet weak var historyScopeImageButton: NSButton!
+    @IBOutlet weak var timeFilterLabel: CutBoxBaseTextField!
+    @IBOutlet weak var historyScopeImageButton: CutBoxBaseButton!
 
     var events = PublishSubject<SearchViewEvents>()
 
@@ -61,7 +61,7 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
             .disposed(by: disposeBag)
     }
 
-    private func colorizeHistoryScopeIcon(image: NSImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
+    private func colorizeHistoryScopeIcon(image: CutBoxBaseImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
                                           tooltip: String = "search_time_filter_label_hint".l7n,
                                           alpha: Double = 0.75,
                                           color: NSColor = NSColor.white) {
@@ -173,15 +173,15 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
     }
 
     func setupClipItemsContextMenu() {
-        let removeItem = NSMenuItem(title: "context_menu_remove_selected".l7n,
+        let removeItem = CutBoxBaseMenuItem(title: "context_menu_remove_selected".l7n,
                                 action: #selector(removeSelectedItems),
                                 keyEquivalent: "")
 
-        let favoriteItem = NSMenuItem(title: "context_menu_favorite".l7n,
+        let favoriteItem = CutBoxBaseMenuItem(title: "context_menu_favorite".l7n,
                                   action: #selector(toggleFavoriteItems),
                                   keyEquivalent: "")
 
-        let contextMenu = NSMenu()
+        let contextMenu = CutBoxBaseMenu()
         contextMenu.addItem(removeItem)
         contextMenu.addItem(favoriteItem)
 

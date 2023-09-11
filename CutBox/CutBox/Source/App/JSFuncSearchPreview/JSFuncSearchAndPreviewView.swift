@@ -28,11 +28,11 @@ class JSFuncSearchAndPreviewView: SearchAndPreviewViewBase {
     }
 
     func setupClipItemsContextMenu() {
-        let reload = NSMenuItem(title: "preferences_javascript_transform_reload".l7n,
+        let reload = CutBoxBaseMenuItem(title: "preferences_javascript_transform_reload".l7n,
                                 action: #selector(reloadJS),
                                 keyEquivalent: "")
 
-        let contextMenu = NSMenu()
+        let contextMenu = CutBoxBaseMenu()
         contextMenu.addItem(reload)
 
         self.itemsList.menu = contextMenu
@@ -42,7 +42,7 @@ class JSFuncSearchAndPreviewView: SearchAndPreviewViewBase {
         super.applyTheme()
     }
 
-    @objc func reloadJS(_ sender: NSMenuItem) {
+    @objc func reloadJS(_ sender: CutBoxBaseMenuItem) {
         prefs.loadJavascript()
         self.itemsList.reloadData()
     }

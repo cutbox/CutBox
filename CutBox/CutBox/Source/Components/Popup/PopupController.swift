@@ -14,7 +14,7 @@ class PopupController: CutBoxBaseWindowController {
 
     let backgroundView = PopupBackgroundView()
     let containerView = PopupContainerView()
-    var contentView: NSView
+    var contentView: CutBoxBaseView
 
     var currentHeight: Double = 0
     var currentWidth: Double = 0
@@ -52,14 +52,14 @@ class PopupController: CutBoxBaseWindowController {
     var lastKeyDownEvent: NSEvent?
     var keyDownEventMonitor: Any?
 
-    init(content: NSView) {
+    init(content: CutBoxBaseView) {
         self.contentView = content
         super.init(window: panel)
         setup()
     }
 
     required init?(coder: NSCoder) {
-        self.contentView = coder.decodeObject(forKey: "contentView") as? NSView ?? NSView()
+        self.contentView = coder.decodeObject(forKey: "contentView") as? CutBoxBaseView ?? CutBoxBaseView()
         super.init(coder: coder)
         self.window = panel
         setup()

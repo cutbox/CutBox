@@ -8,10 +8,10 @@
 
 import Cocoa
 
-class PopupContainerView: NSView {
+class PopupContainerView: CutBoxBaseView {
     var contentInset: CGFloat = 1
 
-    var contentView: NSView? {
+    var contentView: CutBoxBaseView? {
         didSet {
             removeConstraints(constraints)
             guard let contentView = contentView
