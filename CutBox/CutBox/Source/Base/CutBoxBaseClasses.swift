@@ -46,15 +46,19 @@ public class CutBoxBaseWindow: NSWindow {
 }
 
 public class CutBoxBaseViewController: NSViewController {
+    var initCoderWasCalled = false
+    var initWithParamsWasCalled = false
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.initCoderWasCalled = true
     }
 
     public override init(nibName nibNameOrNil: NSNib.Name?,
                          bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil,
                    bundle: nibBundleOrNil)
+        initWithParamsWasCalled = true
     }
 }
 
