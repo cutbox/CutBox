@@ -10,7 +10,7 @@ import Cocoa
 
 class ItemTableRowTextView: NSView {
 
-    @IBOutlet weak var title: NSTextField!
+    @IBOutlet weak var title: CutBoxBaseTextField!
 
     let prefs = CutBoxPreferencesService.shared
 

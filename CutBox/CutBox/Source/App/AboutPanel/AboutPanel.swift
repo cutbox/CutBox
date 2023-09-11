@@ -9,10 +9,10 @@
 import Cocoa
 
 class AboutPanel: NSPanel {
-    @IBOutlet weak var productTitle: NSTextField!
-    @IBOutlet weak var productVersion: NSTextField!
+    @IBOutlet weak var productTitle: CutBoxBaseTextField!
+    @IBOutlet weak var productVersion: CutBoxBaseTextField!
     @IBOutlet weak var productHomeUrl: LinkText!
-    @IBOutlet weak var productLicense: NSTextField!
+    @IBOutlet weak var productLicense: CutBoxBaseTextField!
 
     override func awakeFromNib() {
         self.titlebarAppearsTransparent = true

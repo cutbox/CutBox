@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class LinkText: NSTextField {
+class LinkText: CutBoxBaseTextField {
     // Injectable NSWorkspace
     var workspace: NSWorkspace = NSWorkspace.shared
 

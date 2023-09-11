@@ -9,7 +9,7 @@
 import Cocoa
 import RxSwift
 
-class PreferencesThemeSelectionView: NSView {
+class PreferencesThemeSelectionView: CutBoxBaseView {
 
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()

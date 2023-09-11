@@ -138,7 +138,7 @@
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
-                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jE2-l7-2ea">
+                        <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jE2-l7-2ea" customClass="CutBoxBaseSegmentedControl" customModule="CutBox" customModuleProvider="target">
                             <rect key="frame" x="-2" y="118" width="115" height="24"/>
                             <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="7hh-eD-Hte">
                                 <font key="font" metaFont="system"/>

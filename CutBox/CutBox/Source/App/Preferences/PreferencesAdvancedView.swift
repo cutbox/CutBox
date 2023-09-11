@@ -9,27 +9,27 @@
 import Cocoa
 import RxSwift
 
-class PreferencesAdvancedView: NSView {
+class PreferencesAdvancedView: CutBoxBaseView {
 
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
-    @IBOutlet weak var historyLimitTitle: NSTextField!
-    @IBOutlet weak var historyLimitTextField: NSTextField!
-    @IBOutlet weak var historyUnlimitedCheckbox: NSButton!
-    @IBOutlet weak var historySizeLabel: NSTextField!
-    @IBOutlet weak var clearHistoryDropDown: NSPopUpButton!
-    @IBOutlet weak var clearHistoryActionButton: NSButton!
+    @IBOutlet weak var historyLimitTitle: CutBoxBaseTextField!
+    @IBOutlet weak var historyLimitTextField: CutBoxBaseTextField!
+    @IBOutlet weak var historyUnlimitedCheckbox: CutBoxBaseButton!
+    @IBOutlet weak var historySizeLabel: CutBoxBaseTextField!
+    @IBOutlet weak var clearHistoryDropDown: CutBoxBasePopUpButton!
+    @IBOutlet weak var clearHistoryActionButton: CutBoxBaseButton!
 
-    @IBOutlet weak var joinAndWrapSectionTitle: NSTextField!
-    @IBOutlet weak var joinAndWrapNote: NSTextFieldCell!
-    @IBOutlet weak var joinClipsTitle: NSTextField!
-    @IBOutlet weak var joinStyleSelector: NSSegmentedControl!
-    @IBOutlet weak var joinStringTextField: NSTextField!
+    @IBOutlet weak var joinAndWrapSectionTitle: CutBoxBaseTextField!
+    @IBOutlet weak var joinAndWrapNote: CutBoxBaseTextFieldCell!
+    @IBOutlet weak var joinClipsTitle: CutBoxBaseTextField!
+    @IBOutlet weak var joinStyleSelector: CutBoxBaseSegmentedControl!
+    @IBOutlet weak var joinStringTextField: CutBoxBaseTextField!
 
-    @IBOutlet weak var shouldWrapMultipleSelection: NSButton!
-    @IBOutlet weak var wrapStartTextField: NSTextField!
-    @IBOutlet weak var wrapEndTextField: NSTextField!
+    @IBOutlet weak var shouldWrapMultipleSelection: CutBoxBaseButton!
+    @IBOutlet weak var wrapStartTextField: CutBoxBaseTextField!
+    @IBOutlet weak var wrapEndTextField: CutBoxBaseTextField!
 
     let clearHistoryOptions: [(title: String, offset: TimeInterval?)] = [
       (title: "preferences_history_select_option".l7n, offset: nil),

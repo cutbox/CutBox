@@ -20,7 +20,7 @@ class PreferencesTabView: NSTabView, NSTabViewDelegate {
 
         self.delegate = self
 
-        typealias TabInfo = (String, NSView)
+        typealias TabInfo = (String, CutBoxBaseView)
 
         let tabViews: [TabInfo] = [
           ("preferences_tab_view_general".l7n, generalTab),

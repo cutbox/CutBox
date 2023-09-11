@@ -11,7 +11,7 @@ import RxSwift
 import Magnet
 import KeyHolder
 
-class PreferencesGeneralView: NSView {
+class PreferencesGeneralView: CutBoxBaseView {
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 

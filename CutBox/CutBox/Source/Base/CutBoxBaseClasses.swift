@@ -114,6 +114,30 @@ public class CutBoxBaseTextView: NSTextView {
     }
 }
 
+class CutBoxBaseTextField: NSTextField {
+}
+
+class CutBoxBaseTextFieldCell: NSTextFieldCell {
+}
+
+class CutBoxBaseButton: NSButton {
+}
+
+class CutBoxBaseTabViewItem: NSTabViewItem {
+}
+
+class CutBoxBaseTabView: NSTabView {
+}
+
+class CutBoxBaseTextContainer: NSTextContainer {
+}
+
+class CutBoxBasePopUpButton: NSPopUpButton {
+}
+
+class CutBoxBaseSegmentedControl: NSSegmentedControl {
+}
+
 // Plan for NSWrappers
 // marshall calls to super
 
