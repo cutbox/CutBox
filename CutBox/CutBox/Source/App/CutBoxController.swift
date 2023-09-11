@@ -12,19 +12,16 @@ import RxSwift
 typealias StatusItemDescriptor = (Int, String, String?, String?)
 
 class CutBoxController: NSObject {
-    @IBOutlet weak var statusMenu: NSMenu!
-    var statusItem: NSStatusItem = NSStatusBar
-        .system
-        .statusItem(withLength: NSStatusItem.variableLength)
-
-    var useCompactUI: NSMenuItem!
-    var hidePreview: NSMenuItem!
-    var fuzzyMatchModeItem: NSMenuItem!
-    var regexpModeItem: NSMenuItem!
-    var regexpCaseSensitiveModeItem: NSMenuItem!
-    var substringSearchModeItem: NSMenuItem!
-    var searchModeSelectors: [NSMenuItem]?
-    var searchModeSelectorsDict: [String: NSMenuItem]?
+    @IBOutlet weak var statusMenu: CutBoxBaseMenu!
+    var statusItem: NSStatusItem = cutBoxGetStatusItem()
+    var useCompactUI: CutBoxBaseMenuItem!
+    var hidePreview: CutBoxBaseMenuItem!
+    var fuzzyMatchModeItem: CutBoxBaseMenuItem!
+    var regexpModeItem: CutBoxBaseMenuItem!
+    var regexpCaseSensitiveModeItem: CutBoxBaseMenuItem!
+    var substringSearchModeItem: CutBoxBaseMenuItem!
+    var searchModeSelectors: [CutBoxBaseMenuItem]?
+    var searchModeSelectorsDict: [String: CutBoxBaseMenuItem]?
     var searchViewController: SearchViewController
     var jsFuncSearchViewController: JSFuncSearchViewController
     var preferencesController: PreferencesTabViewController
@@ -34,11 +31,11 @@ class CutBoxController: NSObject {
     var historyService = HistoryService.shared
     var disposeBag = DisposeBag()
 
-    @objc func searchClicked(_ sender: NSMenuItem) {
+    @objc func searchClicked(_ sender: CutBoxBaseMenuItem) {
         self.searchViewController.togglePopup()
     }
 
-    @objc func clearHistoryClicked(_ sender: NSMenuItem?) {
+    @objc func clearHistoryClicked(_ sender: CutBoxBaseMenuItem?) {
         if suppressibleConfirmationDialog(
             messageText: "confirm_warning_clear_history_title".l7n,
             informativeText: "confirm_warning_clear_history".l7n,
@@ -47,37 +44,37 @@ class CutBoxController: NSObject {
         }
     }
 
-    @objc func openPreferences(_ sender: NSMenuItem) {
+    @objc func openPreferences(_ sender: CutBoxBaseMenuItem) {
         NSApplication.shared.activate(ignoringOtherApps: true)
         preferencesController.open()
     }
 
-    @objc func openAboutPanel(_ sender: NSMenuItem) {
+    @objc func openAboutPanel(_ sender: CutBoxBaseMenuItem) {
         aboutPanel.makeKeyAndOrderFront(self)
         aboutPanel.center()
     }
 
-    @objc func quitClicked(_ sender: NSMenuItem) {
+    @objc func quitClicked(_ sender: CutBoxBaseMenuItem) {
         NSApp.terminate(sender)
     }
 
-    @objc func useCompactUIClicked(_ sender: NSMenuItem) {
+    @objc func useCompactUIClicked(_ sender: CutBoxBaseMenuItem) {
         self.prefs.useCompactUI.toggle()
     }
 
-    @objc func hidePreviewClicked(_ sender: NSMenuItem) {
+    @objc func hidePreviewClicked(_ sender: CutBoxBaseMenuItem) {
         self.prefs.hidePreview.toggle()
     }
 
-    @objc func searchModeSelect(_ sender: NSMenuItem) {
+    @objc func searchModeSelect(_ sender: CutBoxBaseMenuItem) {
         searchModeSelectAxID(sender.accessibilityIdentifier())
     }
 
-    @objc func reloadJavascript(_ sender: NSMenuItem) {
+    @objc func reloadJavascript(_ sender: CutBoxBaseMenuItem) {
         self.prefs.loadJavascript()
     }
 
-    @objc func reloadThemes(_ sender: NSMenuItem) {
+    @objc func reloadThemes(_ sender: CutBoxBaseMenuItem) {
         self.prefs.loadThemes()
     }
 
@@ -153,14 +150,14 @@ extension CutBoxController {
         setHidePreviewMenuItem()
     }
 
-    func addMenuItems(menu: NSMenu, descriptor: StatusItemDescriptor) {
+    func addMenuItems(menu: CutBoxBaseMenu, descriptor: StatusItemDescriptor) {
         let title = descriptor.1
         if title == "---" {
-            menu.insertItem(NSMenuItem.separator(), at: descriptor.0)
+            menu.insertItem(CutBoxBaseMenuItem.separator(), at: descriptor.0)
         } else {
             let axID = descriptor.2
             let action = Selector(descriptor.3!)
-            let item: NSMenuItem = NSMenuItem(title: title,
+            let item: CutBoxBaseMenuItem = CutBoxBaseMenuItem(title: title,
                                               action: action,
                                               keyEquivalent: "")
             item.target = self
@@ -276,10 +273,10 @@ extension CutBoxController {
 }
 
 extension CutBoxController {
-    func setModeSelectors(fuzzyMatchModeItem: NSMenuItem,
-                          regexpModeItem: NSMenuItem,
-                          regexpCaseSensitiveModeItem: NSMenuItem,
-                          substringSearchModeItem: NSMenuItem
+    func setModeSelectors(fuzzyMatchModeItem: CutBoxBaseMenuItem,
+                          regexpModeItem: CutBoxBaseMenuItem,
+                          regexpCaseSensitiveModeItem: CutBoxBaseMenuItem,
+                          substringSearchModeItem: CutBoxBaseMenuItem
                         ) {
         self.fuzzyMatchModeItem = fuzzyMatchModeItem
         self.regexpModeItem = regexpModeItem

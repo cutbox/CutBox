@@ -9,24 +9,24 @@
 import Cocoa
 import RxSwift
 
-class PreferencesThemePreview: NSBox {
+class PreferencesThemePreview: CutBoxBaseBox {
 
-    @IBOutlet weak var topBar: NSBox!
-    @IBOutlet weak var searchCutBox: NSTextField!
-    @IBOutlet weak var footerBox: NSBox!
-    @IBOutlet weak var itemsBox: NSBox!
+    @IBOutlet weak var topBar: CutBoxBaseBox!
+    @IBOutlet weak var searchCutBox: CutBoxBaseTextField!
+    @IBOutlet weak var footerBox: CutBoxBaseBox!
+    @IBOutlet weak var itemsBox: CutBoxBaseBox!
 
-    @IBOutlet weak var previewBox: NSBox!
-    @IBOutlet weak var previewText: NSTextField!
+    @IBOutlet weak var previewBox: CutBoxBaseBox!
+    @IBOutlet weak var previewText: CutBoxBaseTextField!
 
-    @IBOutlet weak var selectedItem: NSTextField!
+    @IBOutlet weak var selectedItem: CutBoxBaseTextField!
 
-    @IBOutlet weak var label1: NSTextField!
-    @IBOutlet weak var label2: NSTextField!
-    @IBOutlet weak var label3: NSTextField!
-    @IBOutlet weak var label4: NSTextField!
-    @IBOutlet weak var label5: NSTextField!
-    @IBOutlet weak var label6: NSTextField!
+    @IBOutlet weak var label1: CutBoxBaseTextField!
+    @IBOutlet weak var label2: CutBoxBaseTextField!
+    @IBOutlet weak var label3: CutBoxBaseTextField!
+    @IBOutlet weak var label4: CutBoxBaseTextField!
+    @IBOutlet weak var label5: CutBoxBaseTextField!
+    @IBOutlet weak var label6: CutBoxBaseTextField!
 
     let prefs = CutBoxPreferencesService.shared
 

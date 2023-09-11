@@ -20,10 +20,10 @@ class PreferencesGeneralView: CutBoxBaseView {
     var loginItemsService: LoginItemsService!
 
     @IBOutlet weak var mainKeyRecorder: RecordView!
-    @IBOutlet weak var mainKeyRecorderLabel: NSTextField!
-    @IBOutlet weak var autoLoginCheckbox: NSButton!
-    @IBOutlet weak var protectFavoritesCheckbox: NSButton!
-    @IBOutlet weak var showAllHiddenDialogBoxesButton: NSButton!
+    @IBOutlet weak var mainKeyRecorderLabel: CutBoxBaseTextField!
+    @IBOutlet weak var autoLoginCheckbox: CutBoxBaseButton!
+    @IBOutlet weak var protectFavoritesCheckbox: CutBoxBaseButton!
+    @IBOutlet weak var showAllHiddenDialogBoxesButton: CutBoxBaseButton!
 
     override func awakeFromNib() {
         self.loginItemsService = LoginItemsService.shared

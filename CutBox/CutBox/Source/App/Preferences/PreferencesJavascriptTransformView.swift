@@ -14,12 +14,12 @@ class PreferencesJavascriptTransformView: CutBoxBaseView {
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
-    @IBOutlet weak var javascriptTransformSectionTitle: NSTextField!
-    @IBOutlet weak var javascriptReplCommandLine: NSTextField!
-    @IBOutlet weak var javascriptTransformInfo: NSTextField!
-    @IBOutlet weak var javascriptTransformREPLOutput: NSTextView!
-    @IBOutlet weak var javascriptTransformReloadButton: NSButton!
-    @IBOutlet weak var javascriptClearReplButton: NSButton!
+    @IBOutlet weak var javascriptTransformSectionTitle: CutBoxBaseTextField!
+    @IBOutlet weak var javascriptReplCommandLine: CutBoxBaseTextField!
+    @IBOutlet weak var javascriptTransformInfo: CutBoxBaseTextField!
+    @IBOutlet weak var javascriptTransformREPLOutput: CutBoxBaseTextView!
+    @IBOutlet weak var javascriptTransformReloadButton: CutBoxBaseButton!
+    @IBOutlet weak var javascriptClearReplButton: CutBoxBaseButton!
 
     override func awakeFromNib() {
         self.prefs = CutBoxPreferencesService.shared
@@ -31,7 +31,7 @@ class PreferencesJavascriptTransformView: CutBoxBaseView {
     func focusReplCommandLine() {
         if let replTextField = javascriptReplCommandLine {
             self.window?.makeFirstResponder(replTextField)
-            if let editor = replTextField.currentEditor() as? NSTextView {
+            if let editor = replTextField.currentEditor() as? CutBoxBaseTextView {
                 let size = editor.string.count
                 editor.setSelectedRange(NSRange(location: size, length: 0))
             }

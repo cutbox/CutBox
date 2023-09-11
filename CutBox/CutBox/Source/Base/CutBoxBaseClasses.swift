@@ -138,6 +138,27 @@ class CutBoxBasePopUpButton: NSPopUpButton {
 class CutBoxBaseSegmentedControl: NSSegmentedControl {
 }
 
+class CutBoxBaseBox: NSBox {
+}
+
+class CutBoxBaseMenu: NSMenu {
+    override func item(at index: Int) -> CutBoxBaseMenuItem? {
+        return super.item(at: index) as? CutBoxBaseMenuItem
+    }
+}
+
+class CutBoxBaseMenuItem: NSMenuItem {
+}
+
+func cutBoxGetStatusItem() -> NSStatusItem {
+    return NSStatusBar
+        .system
+        .statusItem(withLength: NSStatusItem.variableLength)
+}
+
+class CutBoxBaseStatusItem: NSStatusItem {
+}
+
 // Plan for NSWrappers
 // marshall calls to super
 

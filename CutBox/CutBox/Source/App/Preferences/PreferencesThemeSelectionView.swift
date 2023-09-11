@@ -2,7 +2,7 @@
 //  PreferencesThemeSelectionView.swift
 //  CutBox
 //
-//  Created by Jason Milkins on 13/5/18.
+//  Created by Jason MilkiCutBoxBase on 13/5/18.
 //  Copyright © 2018-2023 ocodo. All rights reserved.
 //
 
@@ -14,11 +14,11 @@ class PreferencesThemeSelectionView: CutBoxBaseView {
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()
 
-    @IBOutlet weak var themeSelectorTitleLabel: NSTextField!
-    @IBOutlet weak var themeSelectorMenu: NSPopUpButton!
-    @IBOutlet weak var compactUICheckbox: NSButton!
-    @IBOutlet weak var hidePreviewCheckbox: NSButton!
-    @IBOutlet weak var reloadThemesButton: NSButton!
+    @IBOutlet weak var themeSelectorTitleLabel: CutBoxBaseTextField!
+    @IBOutlet weak var themeSelectorMenu: CutBoxBasePopUpButton!
+    @IBOutlet weak var compactUICheckbox: CutBoxBaseButton!
+    @IBOutlet weak var hidePreviewCheckbox: CutBoxBaseButton!
+    @IBOutlet weak var reloadThemesButton: CutBoxBaseButton!
 
     override func awakeFromNib() {
         prefs = CutBoxPreferencesService.shared
@@ -28,7 +28,7 @@ class PreferencesThemeSelectionView: CutBoxBaseView {
         self.setupHidePreviewControl()
     }
 
-    @IBAction func themeSelectorMenuChanges(_ sender: NSPopUpButton) {
+    @IBAction func themeSelectorMenuChanges(_ sender: CutBoxBasePopUpButton) {
         prefs.theme = sender.index(of: sender.selectedItem!)
     }
 }
