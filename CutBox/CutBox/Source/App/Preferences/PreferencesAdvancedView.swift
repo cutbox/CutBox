@@ -52,7 +52,7 @@ class PreferencesAdvancedView: CutBoxBaseView {
     }
 
     @IBAction func joinStyleSelectorAction(_ sender: Any) {
-        if let selector: NSSegmentedControl = sender as? NSSegmentedControl {
+        if let selector: CutBoxBaseSegmentedControl = sender as? CutBoxBaseSegmentedControl {
             let bool = selector.selectedSegment == 1
             joinStringTextField.isHidden = !bool
             joinStringTextField.isEnabled = bool
