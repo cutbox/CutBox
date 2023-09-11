@@ -25,6 +25,8 @@ public class CutBoxBaseWindowController: NSWindowController {
 }
 
 public class CutBoxBaseWindow: NSWindow {
+    var initWithParamsCalled = false
+
     public override init(contentRect: NSRect,
                          styleMask style: NSWindow.StyleMask,
                          backing backingStoreType: NSWindow.BackingStoreType,
@@ -33,6 +35,7 @@ public class CutBoxBaseWindow: NSWindow {
                    styleMask: style,
                    backing: backingStoreType,
                    defer: flag)
+        self.initWithParamsCalled = true
     }
 }
 

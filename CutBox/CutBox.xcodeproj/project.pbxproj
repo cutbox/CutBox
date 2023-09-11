@@ -225,6 +225,7 @@
 		968767942AAEC34100DA256E /* CutBoxBaseViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968767932AAEC34100DA256E /* CutBoxBaseViewSpec.swift */; };
 		968767962AAEC3AD00DA256E /* MockCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968767952AAEC3AD00DA256E /* MockCoder.swift */; };
 		968767992AAEF47800DA256E /* CutBoxBaseTextViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968767982AAEF47800DA256E /* CutBoxBaseTextViewSpec.swift */; };
+		9687679B2AAF020C00DA256E /* CutBoxBaseWindowSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687679A2AAF020C00DA256E /* CutBoxBaseWindowSpec.swift */; };
 		968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */; };
 		968A97BE2066745D00D36B50 /* SearchAndPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */; };
 		968A97C120667CF800D36B50 /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968A97C020667CF800D36B50 /* HistoryService.swift */; };
@@ -449,6 +450,7 @@
 		968767932AAEC34100DA256E /* CutBoxBaseViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxBaseViewSpec.swift; sourceTree = "<group>"; };
 		968767952AAEC3AD00DA256E /* MockCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockCoder.swift; path = CutBoxUnitTests/SpecHelpers/MockCoder.swift; sourceTree = SOURCE_ROOT; };
 		968767982AAEF47800DA256E /* CutBoxBaseTextViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxBaseTextViewSpec.swift; sourceTree = "<group>"; };
+		9687679A2AAF020C00DA256E /* CutBoxBaseWindowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxBaseWindowSpec.swift; sourceTree = "<group>"; };
 		9687843F2469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButton.swift"; sourceTree = "<group>"; };
 		968A97BD2066745D00D36B50 /* SearchAndPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAndPreviewView.xib; sourceTree = "<group>"; };
 		968A97C020667CF800D36B50 /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
@@ -946,6 +948,7 @@
 		968767902AAEAEE200DA256E /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				9687679A2AAF020C00DA256E /* CutBoxBaseWindowSpec.swift */,
 				968767982AAEF47800DA256E /* CutBoxBaseTextViewSpec.swift */,
 				968767932AAEC34100DA256E /* CutBoxBaseViewSpec.swift */,
 				968767912AAEAF0300DA256E /* CutBoxBaseWindowControllerSpec.swift */,
@@ -1529,6 +1532,7 @@
 				9653493A2843479B000FD0A1 /* FakeKey.swift in Sources */,
 				9653492D28434785000FD0A1 /* NSObject+fromNib.swift in Sources */,
 				9653490D28434752000FD0A1 /* ItemTableRowImageView.swift in Sources */,
+				9687679B2AAF020C00DA256E /* CutBoxBaseWindowSpec.swift in Sources */,
 				9653494228434862000FD0A1 /* Array+String+RegexpSearchFilteredSpec.swift in Sources */,
 				965348E62843471D000FD0A1 /* CutBoxPreferences+JoinAndWrap.swift in Sources */,
 				968767882AAC41DF00DA256E /* Swizzlor.swift in Sources */,
