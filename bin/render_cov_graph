@@ -63,7 +63,7 @@ with plt.style.context('dark_background'):
     plt.plot(datetimes, region_percentages, label="Region", linewidth=0.5, color="#6600AA")
     plt.xlabel("Time", **hsubtitle)
     plt.ylabel("Coverage %",**hsmall)
-    plt.title(f"{args.title} - {current_avg_percentage}%", **htitle)
+    plt.title(f"{args.title} - {current_avg_percentage:.2f}%", **htitle)
     plt.legend(frameon=False)
     plt.grid(which="Major", linewidth=0.1)
     plt.grid(which="Minor", linewidth=0.1)
