@@ -25,9 +25,14 @@ public class CutBoxBaseWindowController: NSWindowController {
 }
 
 public class CutBoxBaseWindow: NSWindow {
-
-    public override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
-        super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
+    public override init(contentRect: NSRect,
+                         styleMask style: NSWindow.StyleMask,
+                         backing backingStoreType: NSWindow.BackingStoreType,
+                         defer flag: Bool) {
+        super.init(contentRect: contentRect,
+                   styleMask: style,
+                   backing: backingStoreType,
+                   defer: flag)
     }
 }
 
@@ -37,22 +42,30 @@ public class CutBoxBaseViewController: NSViewController {
         super.init(coder: coder)
     }
 
-    public override init(nibName nibNameOrNil: NSNib.Name?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    public override init(nibName nibNameOrNil: NSNib.Name?,
+                         bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil,
+                   bundle: nibBundleOrNil)
     }
 }
 
 public class CutBoxBaseView: NSView {
+    var awakeFromNibWasCalled = false
+    var initCoderWasCalled = false
+    var initFrameWasCalled = false
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.initCoderWasCalled = true
     }
 
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        self.initFrameWasCalled = true
     }
 
-    public override class func awakeFromNib() {
+    public override func awakeFromNib() {
+        awakeFromNibWasCalled = true
         super.awakeFromNib()
     }
 }
