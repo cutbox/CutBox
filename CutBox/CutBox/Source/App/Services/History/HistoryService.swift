@@ -62,13 +62,13 @@ class HistoryService {
 
     var searchMode: HistorySearchMode {
         get {
-            if let axID = self.defaults.string(forKey: searchModeKey) {
-                return HistorySearchMode.searchMode(from: axID)
+            if let rawValue = self.defaults.string(forKey: searchModeKey) {
+                return HistorySearchMode.searchMode(from: rawValue)
             }
             return internalDefaultSearchmode
         }
         set {
-            self.defaults.set(newValue.axID, forKey: searchModeKey)
+            self.defaults.set(newValue.rawValue, forKey: searchModeKey)
             invalidateCache()
         }
     }

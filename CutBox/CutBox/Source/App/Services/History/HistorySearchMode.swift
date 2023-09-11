@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum HistorySearchMode: String {
+enum HistorySearchMode: String, CaseIterable {
     case fuzzyMatch
     case regexpAnyCase
     case regexpStrictCase
@@ -31,25 +31,15 @@ enum HistorySearchMode: String {
         self.name + "_tooltip"
     }
 
-    var axID: String {
-        self.rawValue
-    }
-
     static func searchMode(from string: String) -> HistorySearchMode {
         return HistorySearchMode(rawValue: string) ?? .fuzzyMatch
     }
 
     var next: HistorySearchMode {
-        let allModes: [HistorySearchMode] = [
-            .fuzzyMatch,
-            .regexpAnyCase,
-            .regexpStrictCase,
-            .substringMatch
-        ]
-        guard let currentIndex = allModes.firstIndex(of: self) else {
+        guard let currentIndex = Self.allCases.firstIndex(of: self) else {
             return .fuzzyMatch
         }
-        let nextIndex = (currentIndex + 1) % allModes.count
-        return allModes[nextIndex]
+        let nextIndex = (currentIndex + 1) % Self.allCases.count
+        return Self.allCases[nextIndex]
     }
 }

@@ -16,11 +16,6 @@ class CutBoxController: NSObject {
     var statusItem: NSStatusItem = cutBoxGetStatusItem()
     var useCompactUI: CutBoxBaseMenuItem!
     var hidePreview: CutBoxBaseMenuItem!
-    var fuzzyMatchModeItem: CutBoxBaseMenuItem!
-    var regexpModeItem: CutBoxBaseMenuItem!
-    var regexpCaseSensitiveModeItem: CutBoxBaseMenuItem!
-    var substringSearchModeItem: CutBoxBaseMenuItem!
-    var searchModeSelectors: [CutBoxBaseMenuItem]?
     var searchModeSelectorsDict: [String: CutBoxBaseMenuItem]?
     var searchViewController: SearchViewController
     var jsFuncSearchViewController: JSFuncSearchViewController
@@ -201,7 +196,7 @@ extension CutBoxController {
         case .toggleSearchMode:
             self.checkSearchModeItem()
         case .setSearchMode(let mode):
-            self.checkSearchModeItem(mode.axID)
+            self.checkSearchModeItem(mode.rawValue)
         case .clearHistory:
             self.clearHistoryClicked(nil)
         case .selectJavascriptFunction:
@@ -271,26 +266,16 @@ extension CutBoxController {
 
 extension CutBoxController {
     func setModeSelectors(_ items: [NSMenuItem]) {
-        self.fuzzyMatchModeItem = items.find(axID: "fuzzyMatch")
-        self.regexpModeItem = items.find(axID: "regexpAnyCase")
-        self.regexpCaseSensitiveModeItem = items.find(axID: "regexpStrictCase")
-        self.substringSearchModeItem = items.find(axID: "substringMatch")
-
-        var searchModeDict: [String: CutBoxBaseMenuItem]? = [
-            "fuzzyMatch": self.fuzzyMatchModeItem,
-            "regexpAnyCase": self.regexpModeItem,
-            "regexpStrictCase": self.regexpCaseSensitiveModeItem,
-            "substringMatch": self.substringSearchModeItem
-        ]
-
-        self.searchModeSelectorsDict = searchModeDict
-        self.searchModeSelectors = searchModeDict?.map { $0.value }
+        self.searchModeSelectorsDict = Dictionary(uniqueKeysWithValues: [
+            "fuzzyMatch",
+            "regexpAnyCase",
+            "regexpStrictCase",
+            "substringMatch",
+        ].map { ($0, items.find(axID: $0)) })
 
         checkSearchModeItem(
             HistoryService
-                .shared
-                .searchMode
-                .axID
+                .shared.searchMode.rawValue
         )
     }
 
@@ -300,13 +285,13 @@ extension CutBoxController {
     }
 
     func checkSearchModeItem() {
-        let axID = historyService.searchMode.axID
-        self.searchModeSelectors?.forEach { $0.state = .off }
-        self.searchModeSelectorsDict?[axID]?.state = .on
+        let rawValue = historyService.searchMode.rawValue
+        self.searchModeSelectorsDict?.values.forEach { $0.state = .off }
+        self.searchModeSelectorsDict?[rawValue]?.state = .on
     }
 
     func checkSearchModeItem(_ axID: String) {
-        self.searchModeSelectors?.forEach { $0.state = .off }
+        self.searchModeSelectorsDict?.values.forEach { $0.state = .off }
         self.searchModeSelectorsDict?[axID]?.state = .on
     }
 }
