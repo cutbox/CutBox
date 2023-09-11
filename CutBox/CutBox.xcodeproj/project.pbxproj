@@ -278,6 +278,7 @@
 		96C07DBF2AAF5821001983ED /* CutBoxGetStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DBE2AAF5821001983ED /* CutBoxGetStatusItem.swift */; };
 		96C07DC12AAF61AE001983ED /* Array+MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */; };
 		96C07DC22AAF61AE001983ED /* Array+MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */; };
+		96C07DC32AAF7FC3001983ED /* CutBoxGetStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DBE2AAF5821001983ED /* CutBoxGetStatusItem.swift */; };
 		96C746FF2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C746FE2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift */; };
 		96C8ABA12A85F3A800C0F42F /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
 		96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650A20B14CD900DE369A /* PreferencesAdvancedView+HistoryLimit.swift */; };
@@ -1555,6 +1556,7 @@
 				9653492928434785000FD0A1 /* NSTableView+getRowView.swift in Sources */,
 				967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */,
 				96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */,
+				96C07DC32AAF7FC3001983ED /* CutBoxGetStatusItem.swift in Sources */,
 				9653493828434795000FD0A1 /* PopupPanel.swift in Sources */,
 				9653491C28434767000FD0A1 /* HistoryService.swift in Sources */,
 				965349132843475E000FD0A1 /* SearchViewControllerTableViewDelegate.swift in Sources */,
