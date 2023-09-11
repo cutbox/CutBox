@@ -138,10 +138,7 @@ extension CutBoxController {
             }
         self.statusItem.menu = menu
 
-        setModeSelectors(fuzzyMatchModeItem: menu.item(at: 2)!,
-                         regexpModeItem: menu.item(at: 3)!,
-                         regexpCaseSensitiveModeItem: menu.item(at: 4)!,
-                         substringSearchModeItem: menu.item(at: 5)!)
+        setModeSelectors(menu.items)
 
         self.useCompactUI = menu.item(at: 7)!
         self.hidePreview = menu.item(at: 8)!
@@ -273,29 +270,21 @@ extension CutBoxController {
 }
 
 extension CutBoxController {
-    func setModeSelectors(fuzzyMatchModeItem: CutBoxBaseMenuItem,
-                          regexpModeItem: CutBoxBaseMenuItem,
-                          regexpCaseSensitiveModeItem: CutBoxBaseMenuItem,
-                          substringSearchModeItem: CutBoxBaseMenuItem
-                        ) {
-        self.fuzzyMatchModeItem = fuzzyMatchModeItem
-        self.regexpModeItem = regexpModeItem
-        self.regexpCaseSensitiveModeItem = regexpCaseSensitiveModeItem
-        self.substringSearchModeItem = substringSearchModeItem
+    func setModeSelectors(_ items: [NSMenuItem]) {
+        self.fuzzyMatchModeItem = items.find(axID: "fuzzyMatch")
+        self.regexpModeItem = items.find(axID: "regexpAnyCase")
+        self.regexpCaseSensitiveModeItem = items.find(axID: "regexpStrictCase")
+        self.substringSearchModeItem = items.find(axID: "substringMatch")
 
-        self.searchModeSelectors = [
-            self.fuzzyMatchModeItem,
-            self.regexpModeItem,
-            self.regexpCaseSensitiveModeItem,
-            self.substringSearchModeItem
-        ]
-
-        self.searchModeSelectorsDict = [
+        var searchModeDict: [String: CutBoxBaseMenuItem]? = [
             "fuzzyMatch": self.fuzzyMatchModeItem,
             "regexpAnyCase": self.regexpModeItem,
             "regexpStrictCase": self.regexpCaseSensitiveModeItem,
             "substringMatch": self.substringSearchModeItem
         ]
+
+        self.searchModeSelectorsDict = searchModeDict
+        self.searchModeSelectors = searchModeDict?.map { $0.value }
 
         checkSearchModeItem(
             HistoryService

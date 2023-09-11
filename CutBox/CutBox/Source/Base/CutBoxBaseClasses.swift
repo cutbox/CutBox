@@ -153,12 +153,6 @@ class CutBoxBaseMenu: NSMenu {
 class CutBoxBaseMenuItem: NSMenuItem {
 }
 
-func cutBoxGetStatusItem() -> NSStatusItem {
-    return NSStatusBar
-        .system
-        .statusItem(withLength: NSStatusItem.variableLength)
-}
-
 class CutBoxBaseImage: NSImage {
 }
 

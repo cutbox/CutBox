@@ -54,12 +54,15 @@
         <script>
          // Add click event listeners to toggle the image enlargement
          const images = document.querySelectorAll('.cov-graph');
-         images.forEach(image => {
-             image.addEventListener('click', () => {
-                 images.forEach( i => (i != image) ? i.classList.remove('enlarged') : null )
-                 image.classList.toggle('enlarged');
-             });
-         });
+
+         document.body.addEventListener('click', (event) => {
+            if (event.target.matches('.cov-graph')) {
+                event.target.classList.toggle('enlarged')
+                images.forEach( i => i == event.target || i.classList.remove('enlarged') )
+            } else {
+                images.forEach( i => i.classList.remove('enlarged') )
+            }
+         })
         </script>
     </body>
 </html>
