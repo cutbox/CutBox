@@ -21,9 +21,11 @@ class SearchTextView: CutBoxBaseTextView {
         super.init(frame: frameRect, textContainer: aTextContainer)
     }
 
-    override func keyDown(with: NSEvent) {
-        keyDownEvent = with
-        super.keyDown(with: with)
+    override func keyDown(with event: NSEvent?) {
+        if let event = event {
+            keyDownEvent = event
+            super.keyDown(with: event)
+        }
     }
 
     private var augmentedSelectors: [Selector] { return [
@@ -44,42 +46,38 @@ class SearchTextView: CutBoxBaseTextView {
     }
 
     // MARK: Pass through noop and specific keyboard events to nextResponder
-    override func doCommand(by selector: Selector) {
-        if let keyEvent = keyDownEvent {
-            switch (keyEvent.key, keyEvent.modifiers) {
-            case (kVK_ANSI_A, [.command]):
-                self.selectAll(self)
-                return
+    override func doCommand(by selector: Selector?) {
+        if let selector = selector {
+            if let keyEvent = keyDownEvent {
+                switch (keyEvent.key, keyEvent.modifiers) {
+                case (kVK_ANSI_A, [.command]):
+                    self.selectAll(self)
+                    return
+                case (kVK_ANSI_X, [.command]):
+                    self.cut(self)
+                    return
+                case (kVK_ANSI_C, [.command]):
+                    self.copy(self)
+                    return
+                case (kVK_ANSI_V, [.command]):
+                    self.paste(self)
+                    return
+                default:
+                    break
+                }
+            }
 
-            case (kVK_ANSI_X, [.command]):
-                self.cut(self)
-                return
-
-            case (kVK_ANSI_C, [.command]):
-                self.copy(self)
-                return
-
-            case (kVK_ANSI_V, [.command]):
-                self.paste(self)
-                return
-
-            default:
-                break
+            if augmentedSelectors.contains(selector) {
+                super.doCommand(by: selector)
+                self.nextResponder?.keyDown(with: keyDownEvent!)
+                keyDownEvent = nil
+            } else if skippedSelectors.contains(selector) {
+                self.nextResponder?.keyDown(with: keyDownEvent!)
+                keyDownEvent = nil
+            } else {
+                super.doCommand(by: selector)
+                keyDownEvent = nil
             }
         }
-
-        if augmentedSelectors.contains(selector) {
-            super.doCommand(by: selector)
-            self.nextResponder?.keyDown(with: keyDownEvent!)
-            keyDownEvent = nil
-        } else if skippedSelectors.contains(selector) {
-            self.nextResponder?.keyDown(with: keyDownEvent!)
-            keyDownEvent = nil
-        } else {
-            super.doCommand(by: selector)
-            keyDownEvent = nil
-        }
-
-        return
     }
 }

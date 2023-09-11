@@ -65,51 +65,63 @@ public class CutBoxBaseView: NSView {
     }
 
     public override func awakeFromNib() {
-        awakeFromNibWasCalled = true
         super.awakeFromNib()
+        self.awakeFromNibWasCalled = true
     }
 }
 
 public class CutBoxBaseTextView: NSTextView {
+    var initCoderWasCalled = false
+    var initFrameWasCalled = false
+    var keyDownWasCalled = false
+    var doCommandWasCalled = false
 
     public override init(frame frameRect: NSRect, textContainer container: NSTextContainer?) {
         super.init(frame: frameRect, textContainer: container)
+        self.initFrameWasCalled = true
     }
 
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.initCoderWasCalled = true
     }
 
-    public override func keyDown(with event: NSEvent) {
-        super.keyDown(with: event)
+    public override func keyDown(with event: NSEvent?) {
+        if let event = event {
+            super.keyDown(with: event)
+        }
+        self.keyDownWasCalled = true
     }
 
-    public override func doCommand(by selector: Selector) {
-        super.doCommand(by: selector)
+    public override func doCommand(by selector: Selector?) {
+        if let selector = selector {            
+            super.doCommand(by: selector)
+        }
+        self.doCommandWasCalled = true
     }
-
-    // Plan for NSWrappers
-    // marshall calls to super
-
-    // Step 1: All existing subclasses or uses of NS(T) cocoa
-    // objects demand a App Base sub-class of NS(T) to exist
-    // and be used instead.
-
-    // Caveat:
-    // (Monitor carefully for breakage before tests are
-    // added on the view & controller layers)
-
-    // Step 2: Trial the idea of T.static var testMode: Bool
-    // To provide a test mode, so all super calls to base
-    // class can be caught and recorded in test state
-    // Turning this App Base layer into a  set of function
-    // spies.
-
-    // Caveat:
-    // Move slowly and catch one super call at a time
-    // per Test / Commit cycle.
-
-    // Step 3: Utilize test mode, write specs for the larger
-    // controller classes, add more testing/encapsulation
-    // via the app base classes as required.
 }
+
+// Plan for NSWrappers
+// marshall calls to super
+
+// Step 1: All existing subclasses or uses of NS(T) cocoa
+// objects demand a App Base sub-class of NS(T) to exist
+// and be used instead.
+
+// Caveat:
+// (Monitor carefully for breakage before tests are
+// added on the view & controller layers)
+
+// Step 2: Trial the idea of T.static var testMode: Bool
+// To provide a test mode, so all super calls to base
+// class can be caught and recorded in test state
+// Turning this App Base layer into a  set of function
+// spies.
+
+// Caveat:
+// Move slowly and catch one super call at a time
+// per Test / Commit cycle.
+
+// Step 3: Utilize test mode, write specs for the larger
+// controller classes, add more testing/encapsulation
+// via the app base classes as required.

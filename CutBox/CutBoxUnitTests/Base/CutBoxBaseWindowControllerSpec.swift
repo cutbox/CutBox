@@ -17,8 +17,8 @@ class CutBoxBaseWindowControllerSpec: QuickSpec {
             context("wraps NSWindowController") {
                 it("should monitor init coder calls") {
                     let object = NSWindowController()
-                    let example = ExampleWindowController(coder: mockCoder(for: object)!)
-                    expect(example?.initCoderWasCalled).to(beTrue())
+                    let example = ExampleWindowController(coder: mockCoder(for: object)!)!
+                    expect(example.initCoderWasCalled).to(beTrue())
                 }
 
                 it("should monitor init window calls") {
