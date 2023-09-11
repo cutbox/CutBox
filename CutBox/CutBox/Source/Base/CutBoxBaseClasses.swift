@@ -159,9 +159,6 @@ func cutBoxGetStatusItem() -> NSStatusItem {
         .statusItem(withLength: NSStatusItem.variableLength)
 }
 
-class CutBoxBaseStatusItem: NSStatusItem {
-}
-
 class CutBoxBaseImage: NSImage {
 }
 
