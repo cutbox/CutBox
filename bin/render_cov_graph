@@ -46,6 +46,8 @@ fn_percentages = [float(node["fn"].split()[0].replace("%", "")) for node in data
 line_percentages = [float(node["line"].split()[0].replace("%", "")) for node in data]
 region_percentages = [float(node["region"].split()[0].replace("%", "")) for node in data]
 
+current_avg_percentage = (fn_percentages[0] + line_percentages[0] + region_percentages[0]) / 3
+
 # Convert datetime strings to datetime objects
 datetimes = [datetime.fromisoformat(node["datetime"][:-6]) for node in data]
 
@@ -61,7 +63,7 @@ with plt.style.context('dark_background'):
     plt.plot(datetimes, region_percentages, label="Region", linewidth=0.5, color="#6600AA")
     plt.xlabel("Time", **hsubtitle)
     plt.ylabel("Coverage %",**hsmall)
-    plt.title(args.title, **htitle)
+    plt.title(f"{args.title} - {current_avg_percentage}%", **htitle)
     plt.legend(frameon=False)
     plt.grid(which="Major", linewidth=0.1)
     plt.grid(which="Minor", linewidth=0.1)
