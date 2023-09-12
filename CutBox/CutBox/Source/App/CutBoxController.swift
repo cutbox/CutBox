@@ -266,12 +266,10 @@ extension CutBoxController {
 
 extension CutBoxController {
     func setModeSelectors(_ items: [NSMenuItem]) {
-        self.searchModeSelectorsDict = Dictionary(uniqueKeysWithValues: [
-            "fuzzyMatch",
-            "regexpAnyCase",
-            "regexpStrictCase",
-            "substringMatch",
-        ].map { ($0, items.find(axID: $0)) })
+        self.searchModeSelectorsDict = Dictionary(
+            uniqueKeysWithValues: HistorySearchMode
+                .allCases.map { $0.rawValue }
+                .map { ($0, items.find(axID: $0)) })
 
         checkSearchModeItem(
             HistoryService
