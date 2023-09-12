@@ -246,17 +246,14 @@ git clone git@github.com:CutBox/CutBox
 ### Compilation setup / tooling
 
 ```sh
-gem install cocoapods
-cd CutBox
-pod install
-cd ..
+bin/setup
 ```
 
 To build **CutBox.app**:
 
 ```sh
 bin/build
-open CutBox/build/
+bin/use_build_as_local_app
 ```
 
 Run the local CutBox.app with terminal logging...
@@ -267,7 +264,9 @@ CutBox/build/CutBox.app/Contents/MacOS/CutBox
 
 # Troubleshooting
 
-There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox)
+There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox) 
+
+Or open an issue https://github.com/cutbox/CutBox/issues
 
 ### FAQs
 
