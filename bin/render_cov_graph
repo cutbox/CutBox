@@ -6,21 +6,63 @@ import matplotlib.dates as mdates
 from datetime import datetime
 import json
 import sys
+import numpy as np
+
+def adjust_spacing(arr, minimum_spacing):
+    min_val = min(arr)
+    mid_val = mid(arr)
+
+    if min_val <= 5:
+        idx = arr.index(min_val)
+        min_val = 5
+        arr[idx] = min_val
+
+    if (mid_val - min_val) < minimum_spacing:
+        idx = arr.index(mid_val)
+        mid_val = min_val + minimum_spacing
+        arr[idx] = mid_val
+
+    arr = np.array(arr)
+    reversed = sorted(arr, reverse=True)
+    adjusted = reversed[0:1]
+    for num in reversed[1:]:
+        diff = adjusted[-1] - minimum_spacing
+        adjusted.append(num if num < diff else diff)
+
+    respaced = list(np.array(adjusted)[np.argsort(np.argsort(-arr))])
+
+    return respaced
+
+def mid(tuple_of_three):
+    sorted_values = sorted(tuple_of_three)
+    return sorted_values[1]
+
+def annotate_callout(ctx, percent, text_y, color):
+    ctx.annotate(f'{percent:0.2f}%',
+                 xycoords=('axes fraction', 'data'),
+                 textcoords='axes fraction',
+                 xy=(1, percent),
+                 xytext=(0.97, text_y),
+                 fontsize=12,
+                 backgroundcolor=color,
+                 bbox=dict(boxstyle='round', edgecolor=color, facecolor=color, pad=0.4))
+
+fontName = 'Gill Sans'
 
 hsmall = {
-    'family': 'Avenir Next',
+    'family': fontName,
     'size': 8,
     'weight': 'light' }
 hmedium = {
-    'family':'Avenir Next',
+    'family':fontName,
     'size': 12,
     'weight': 'light' }
 htitle = {
-    'family':'Avenir Next',
-    'size': 24,
-    'weight': 'bold' }
+    'family':fontName,
+    'size': 26,
+    'weight': 'light' }
 hsubtitle = {
-    'family':'Avenir Next',
+    'family':fontName,
     'size': 14 }
 
 # Create an argument parser
@@ -41,32 +83,50 @@ except json.JSONDecodeError as e:
 # Sort data by datetime
 data.sort(key=lambda x: x["datetime"])
 
+width = 12
+height = 7
+
 # Extract percentage values from fn, line, and region
 fn_percentages = [float(node["fn"].split()[0].replace("%", "")) for node in data]
-line_percentages = [float(node["line"].split()[0].replace("%", "")) for node in data]
-region_percentages = [float(node["region"].split()[0].replace("%", "")) for node in data]
+ln_percentages = [float(node["line"].split()[0].replace("%", "")) for node in data]
+rg_percentages = [float(node["region"].split()[0].replace("%", "")) for node in data]
 
-current_avg_percentage = (fn_percentages[0] + line_percentages[0] + region_percentages[0]) / 3
+percentages = [fn_percentages, ln_percentages, rg_percentages]
 
 # Convert datetime strings to datetime objects
 datetimes = [datetime.fromisoformat(node["datetime"][:-6]) for node in data]
+line_colors = ["#8B5000","#106A77","#50486C"]
+labels = ["Function","Line","Region"]
 
 # Create a time series plot
+latest = (fn_percentages[-1], ln_percentages[-1], rg_percentages[-1])
+perc_max = max(max(fn_percentages), max(ln_percentages), max(rg_percentages))
+perc_min = min(min(fn_percentages), min(ln_percentages), min(rg_percentages))
+perc_range = (perc_max / 100) - (perc_min / 100)
+normalised = [(perc - perc_min) / perc_range for perc in latest]
+text_y = [(perc / 100) for perc in adjust_spacing(normalised, 12)]
+
 with plt.style.context('dark_background'):
-    plt.rcParams['font.family'] = 'Avenir Next'
+    plt.rcParams['font.family'] = fontName
+    plt.rcParams['font.weight'] = 'ultralight'
     plt.rcParams['font.size'] = 8
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(width, height))
+
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
     plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=1))
-    plt.plot(datetimes, fn_percentages, label="Function", linewidth=0.5, color="#0066AA")
-    plt.plot(datetimes, line_percentages, label="Line", linewidth=0.5, color="#FF66AA")
-    plt.plot(datetimes, region_percentages, label="Region", linewidth=0.5, color="#6600AA")
+
+    for i in [0,1,2]:
+        plt.plot(datetimes, percentages[i], label=labels[i], linewidth=2, color=line_colors[i])
+        annotate_callout(plt, latest[i], text_y[i], line_colors[i])
+
     plt.xlabel("Time", **hsubtitle)
     plt.ylabel("Coverage %",**hsmall)
-    plt.title(f"{args.title} - {current_avg_percentage:.2f}%", **htitle)
+    plt.title(f"{args.title}", **htitle)
+
     plt.legend(frameon=False)
-    plt.grid(which="Major", linewidth=0.1)
-    plt.grid(which="Minor", linewidth=0.1)
+
+    plt.grid(which="Major", color="#444")
+    plt.grid(which="Minor", color="#444")
     plt.box(False)
 
     # Save the plot directly as SVG without converting text to paths

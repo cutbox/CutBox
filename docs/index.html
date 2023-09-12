@@ -32,8 +32,7 @@
                     </a>
                 </div>
                 <div class="grid-item">
-                    <img class="cov-graph" src="App/cov.svg" alt="Coverage graph for CutBox App">
-                    <div class="cov-title">App Coverage Progression over time</div>
+                    <div class="cov-graph" style="background-image: url(App/cov.svg)" alt="Coverage graph for CutBox.app"></div>
                 </div>
                 <div class="grid-item">
                     <a href="CLI/">
@@ -46,23 +45,9 @@
                     </a>
                 </div>
                 <div class="grid-item">
-                    <img class="cov-graph" src="CLI/cov.svg" alt="Coverage graph for CutBox CLI">
-                    <div class="cov-title">CLI Coverage Progression over time</div>
+                    <div class="cov-graph" style="background-image: url(CLI/cov.svg)" alt="Coverage graph for CutBox CLI"></div>
                 </div>
             </div>
         </div>
-        <script>
-         // Add click event listeners to toggle the image enlargement
-         const images = document.querySelectorAll('.cov-graph');
-
-         document.body.addEventListener('click', (event) => {
-            if (event.target.matches('.cov-graph')) {
-                event.target.classList.toggle('enlarged')
-                images.forEach( i => i == event.target || i.classList.remove('enlarged') )
-            } else {
-                images.forEach( i => i.classList.remove('enlarged') )
-            }
-         })
-        </script>
     </body>
 </html>
