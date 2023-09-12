@@ -141,13 +141,11 @@ If you prefer to install open source software that isn't notarized (such as CutB
 sudo spctl --master-disable
 ```
 
-I only recommend this if you feel comfortable using free software that you can code audit.  
+I only recommend this if you feel comfortable using free software that you can code audit.
 
-Remember, the notarisation process by Apple, doesn't do any software quality or security scanning, it is simply a process which applies an Apple generated hash/checksum.  Gatekeeper then looks for that hash to mark software as valid, nothing more.  In effect "security" is enhanced in one simple way, a developer who has a registered Apple ID can be directly linked to the app binary.
+CutBox doesn't participate in Apple notarisation. CutBox will be free and open forever, and is licensed under GNU/GPL3, so the source is always available. Donations are important to help keep it developed and improved.
 
-CutBox will be free and open forever, and is licensed under GNU/GPL3, so the source is always available. Donations are important to help keep it developed and improved.
-
-CutBox is [code audited by Codacy](https://app.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  However it doesn't participate in Apple's anti-opensource gatekeeper / notarisation system or any other parts of [Apple's Walled Garden.](https://seekingalpha.com/article/4525092-apple-mr-cook-tear-down-walled-garden).
+CutBox is [quality checked by Codacy](https://app.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  
 
 `CutBox.app` and `cutbox` releases are build using Github actions, so you can also inspect the entire test/deploy/delivery chain online at  [cutbox/CutBox](https://github.com/cutbox/CutBox/Actions).
 
@@ -278,7 +276,8 @@ There's a Gitter channel if you have problems getting up and running (https://gi
 - When I select item to paste, and press enter, nothing happens.
     - CutBox permissions must be set, [read this section](#permissions-to-enable-cutbox-paste)
 - I can't start CutBox, macOS says it's "potentially malware"
-    - This is due to Apple's misguided attempt to kill non-app-store software.  See [macos security settings](#macos-security-settings-first-run)
+  - Apple seems to confuse independent open source software, with "potential malware", this seems dishonest.
+  - To enable CutBox follow the guide on [macos security settings](#macos-security-settings-first-run)
 
 # Thank You...
 
