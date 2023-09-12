@@ -13,14 +13,37 @@ enum HotKeyEvents {
     case search
 }
 
+class CutBoxHotkeyProvider: NSObject {
+    static var testMode: Bool = false
+    var createWasCalled: Bool = false
+
+    func create(identifier: String,
+                keyCombo: KeyCombo,
+                target: AnyObject,
+                action: Selector
+    ) -> HotKey? {
+        self.createWasCalled = true
+        guard !Self.testMode  else { return nil }
+        return HotKey(
+            identifier: identifier,
+            keyCombo: keyCombo,
+            target: target,
+            action: action
+        )
+    }
+}
+
 class HotKeyService: NSObject {
-    static let shared = HotKeyService()
+    static let shared = HotKeyService(hotkeyProvider: CutBoxHotkeyProvider())
+    var hotkeyProvider: CutBoxHotkeyProvider
+    var searchKeyCombo = PublishSubject<KeyCombo>()
+    var events = PublishSubject<HotKeyEvents>()
 
     private let disposeBag = DisposeBag()
 
-    var searchKeyCombo = PublishSubject<KeyCombo>()
-
-    var events = PublishSubject<HotKeyEvents>()
+    init(hotkeyProvider: CutBoxHotkeyProvider) {
+        self.hotkeyProvider = hotkeyProvider
+    }
 
     func configure() {
         self.searchKeyCombo
@@ -48,15 +71,14 @@ class HotKeyService: NSObject {
     }
 
     fileprivate func changeGlobalToggle(keyCombo: KeyCombo) {
-        let hotKey = HotKey(
+        if let hotKey = hotkeyProvider.create(
             identifier: Constants.cutBoxToggleKeyCombo,
             keyCombo: keyCombo,
             target: self,
             action: #selector(search(_:))
-        )
-
-        hotKey.register()
-
-        keyCombo.saveUserDefaults(identifier: Constants.cutBoxToggleKeyCombo)
+        ) {
+            hotKey.register()
+            keyCombo.saveUserDefaults(identifier: Constants.cutBoxToggleKeyCombo)
+        }
     }
 }
