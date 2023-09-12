@@ -279,6 +279,7 @@
 		96C07DC12AAF61AE001983ED /* Array+MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */; };
 		96C07DC22AAF61AE001983ED /* Array+MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */; };
 		96C07DC32AAF7FC3001983ED /* CutBoxGetStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DBE2AAF5821001983ED /* CutBoxGetStatusItem.swift */; };
+		96C07DC52AB0C8AC001983ED /* CutBoxHotkeyProviderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DC42AB0C8AC001983ED /* CutBoxHotkeyProviderSpec.swift */; };
 		96C746FF2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C746FE2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift */; };
 		96C8ABA12A85F3A800C0F42F /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
 		96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650A20B14CD900DE369A /* PreferencesAdvancedView+HistoryLimit.swift */; };
@@ -509,6 +510,7 @@
 		96C07DBC2AAF5502001983ED /* CutBoxGetStatusItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxGetStatusItemSpec.swift; sourceTree = "<group>"; };
 		96C07DBE2AAF5821001983ED /* CutBoxGetStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxGetStatusItem.swift; sourceTree = "<group>"; };
 		96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+MenuItems.swift"; sourceTree = "<group>"; };
+		96C07DC42AB0C8AC001983ED /* CutBoxHotkeyProviderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxHotkeyProviderSpec.swift; sourceTree = "<group>"; };
 		96C746FE2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryStoreMigration_1_6_x_Spec.swift; sourceTree = "<group>"; };
 		96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history-clock-face-white.png"; sourceTree = "<group>"; };
 		96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+ClearHistory.swift"; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 				968767912AAEAF0300DA256E /* CutBoxBaseWindowControllerSpec.swift */,
 				9687679C2AAF13BA00DA256E /* CutBoxBaseViewControllerSpec.swift */,
 				96C07DBC2AAF5502001983ED /* CutBoxGetStatusItemSpec.swift */,
+				96C07DC42AB0C8AC001983ED /* CutBoxHotkeyProviderSpec.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1531,6 +1534,7 @@
 				968767962AAEC3AD00DA256E /* MockCoder.swift in Sources */,
 				9653494F2843486B000FD0A1 /* PreferencesWindowSpec.swift in Sources */,
 				9653495028434873000FD0A1 /* HistoryRepoSpec.swift in Sources */,
+				96C07DC52AB0C8AC001983ED /* CutBoxHotkeyProviderSpec.swift in Sources */,
 				9653490128434742000FD0A1 /* JSFuncSearchAndPreviewView.swift in Sources */,
 				965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */,
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
