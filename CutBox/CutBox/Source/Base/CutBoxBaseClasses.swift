@@ -107,7 +107,7 @@ public class CutBoxBaseTextView: NSTextView {
     }
 
     public override func doCommand(by selector: Selector?) {
-        if let selector = selector {            
+        if let selector = selector {
             super.doCommand(by: selector)
         }
         self.doCommandWasCalled = true
