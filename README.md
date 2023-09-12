@@ -159,6 +159,8 @@ Open **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
 
 Unlock the panel and add CutBox to the list of apps (also switch on the check box next to its icon). 
 
+If CutBox is already in the list of apps, you have to replace it with the new version that was installed.
+
 <img width="550px" src="https://github.com/cutbox/CutBox/wiki/images/apple-security-accessibility.png" alt="Apple System Preferences  -> Security & Privacy -> Privacy -> Accessibility">
 
 Do the same for input monitoring...:
