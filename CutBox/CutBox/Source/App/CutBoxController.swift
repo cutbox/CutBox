@@ -88,10 +88,8 @@ class CutBoxController: NSObject {
 
     func setup() {
         self.hotKeyService.configure()
-        self.setHotKeyServiceEventBindings()
-        self.setSearchEventBindings()
-        self.setPreferencesEventBindings()
         self.setMenuItems()
+        self.setupEventBindings()
     }
 }
 
@@ -168,6 +166,12 @@ extension CutBoxController {
 }
 
 extension CutBoxController {
+    func setupEventBindings() {
+        self.setHotKeyServiceEventBindings()
+        self.setSearchEventBindings()
+        self.setPreferencesEventBindings()
+    }
+
     func setHotKeyServiceEventBindings() {
         self.hotKeyService.events
             .subscribe(onNext: onNext)
