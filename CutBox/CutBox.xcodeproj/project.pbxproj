@@ -38,7 +38,7 @@
 		964CA511207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA510207E6B8000B9F33E /* CutBoxPreferences+SelectTheme.swift */; };
 		964CA517207E6CA200B9F33E /* cutbox-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 964CA516207E6CA200B9F33E /* cutbox-icon.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		964CA523207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA522207F6E6800B9F33E /* CutBoxPreferences+JoinAndWrap.swift */; };
-		964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* ConfirmationDialog.swift */; };
+		964CA54420830C8800B9F33E /* DialogFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* DialogFactory.swift */; };
 		964CA54620830EE400B9F33E /* HistoryLimitNumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */; };
 		964CA5492083296600B9F33E /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		964E6FFF2A9B87FD00F86FC8 /* cutbox-logo-text.png in Resources */ = {isa = PBXBuildFile; fileRef = 964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */; };
@@ -125,7 +125,7 @@
 		9653493128434785000FD0A1 /* String+L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA5482083296600B9F33E /* String+L10n.swift */; };
 		9653493228434785000FD0A1 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020920AACD4E000CBE74 /* OrderedSet.swift */; };
 		9653493328434785000FD0A1 /* Array+IndexSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF282078C2DE00E4571E /* Array+IndexSet.swift */; };
-		965349342843478C000FD0A1 /* ConfirmationDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* ConfirmationDialog.swift */; };
+		965349342843478C000FD0A1 /* DialogFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CA54320830C8800B9F33E /* DialogFactory.swift */; };
 		9653493528434795000FD0A1 /* PopupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662D3602064BA3400F8A9D5 /* PopupController.swift */; };
 		9653493628434795000FD0A1 /* PopupControllerWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0771206F9B190032DACD /* PopupControllerWindowDelegate.swift */; };
 		9653493728434795000FD0A1 /* PopupContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F076F206F9AF30032DACD /* PopupContainerView.swift */; };
@@ -187,7 +187,7 @@
 		9672FF2D2078E5DC00E4571E /* SearchTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2C2078E5DC00E4571E /* SearchTextView.swift */; };
 		9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9672FF2E2079C89400E4571E /* HistorySearchMode.swift */; };
 		9677BE9C2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */; };
-		9677BE9F2AA4CF4900AB537C /* ConfirmationDialogSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */; };
+		9677BE9F2AA4CF4900AB537C /* DialogFactorySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BE9E2AA4CF4900AB537C /* DialogFactorySpec.swift */; };
 		9677BEA12AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */; };
 		9677BEA32AA81FFE00AB537C /* cutbox-jsfuncs-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */; };
 		9677BEA42AA8201500AB537C /* history-clock-face-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */; };
@@ -405,7 +405,7 @@
 		964CA5372080395B00B9F33E /* Collection+SafeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSpec.swift"; sourceTree = "<group>"; };
 		964CA53B2082251800B9F33E /* CutBoxPreferencesService+HistoryLimitSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+HistoryLimitSpec.swift"; sourceTree = "<group>"; };
 		964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowSpec.swift; sourceTree = "<group>"; };
-		964CA54320830C8800B9F33E /* ConfirmationDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialog.swift; sourceTree = "<group>"; };
+		964CA54320830C8800B9F33E /* DialogFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFactory.swift; sourceTree = "<group>"; };
 		964CA54520830EE400B9F33E /* HistoryLimitNumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatter.swift; sourceTree = "<group>"; };
 		964CA5482083296600B9F33E /* String+L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+L10n.swift"; sourceTree = "<group>"; };
 		964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-logo-text.png"; sourceTree = "<group>"; };
@@ -437,7 +437,7 @@
 		9672FF2C2078E5DC00E4571E /* SearchTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextView.swift; sourceTree = "<group>"; };
 		9672FF2E2079C89400E4571E /* HistorySearchMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorySearchMode.swift; sourceTree = "<group>"; };
 		9677BE9B2AA464EB00AB537C /* CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CutBoxPreferencesService+ResetSuppressedDialogBoxesSpec.swift"; sourceTree = "<group>"; };
-		9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationDialogSpec.swift; sourceTree = "<group>"; };
+		9677BE9E2AA4CF4900AB537C /* DialogFactorySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogFactorySpec.swift; sourceTree = "<group>"; };
 		9677BEA02AA817F500AB537C /* NSEvent+CarbonConvenienceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSEvent+CarbonConvenienceSpec.swift"; sourceTree = "<group>"; };
 		9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-jsfuncs-list.png"; sourceTree = "<group>"; };
 		9677BEA52AA8703F00AB537C /* NSAttributedString+HTMLSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+HTMLSpec.swift"; sourceTree = "<group>"; };
@@ -946,7 +946,7 @@
 			isa = PBXGroup;
 			children = (
 				9696D6D22AAB7DB000600C59 /* LinkTextSpec.swift */,
-				9677BE9E2AA4CF4900AB537C /* ConfirmationDialogSpec.swift */,
+				9677BE9E2AA4CF4900AB537C /* DialogFactorySpec.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1072,7 +1072,7 @@
 			isa = PBXGroup;
 			children = (
 				9696D6D42AAB823A00600C59 /* LinkText.swift */,
-				964CA54320830C8800B9F33E /* ConfirmationDialog.swift */,
+				964CA54320830C8800B9F33E /* DialogFactory.swift */,
 				961A49B02065D72F005BC79D /* Popup */,
 				96D931C12A87E16900BF594D /* ValidIndicatorTextField.swift */,
 				967C06A42A937220008AF0CE /* TextFieldKeyUpRxStream.swift */,
@@ -1614,7 +1614,7 @@
 				96EF84FC2AB1896500CC8022 /* String+dashedSpec.swift in Sources */,
 				965348F828434735000FD0A1 /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */,
 				965348FF28434735000FD0A1 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */,
-				965349342843478C000FD0A1 /* ConfirmationDialog.swift in Sources */,
+				965349342843478C000FD0A1 /* DialogFactory.swift in Sources */,
 				9653491A28434767000FD0A1 /* HistoryRepo.swift in Sources */,
 				9653492628434785000FD0A1 /* KeyCombo+Archive.swift in Sources */,
 				9653493628434795000FD0A1 /* PopupControllerWindowDelegate.swift in Sources */,
@@ -1678,7 +1678,7 @@
 				96EF84F22AB1834F00CC8022 /* CutBoxImageRef.swift in Sources */,
 				9653490628434752000FD0A1 /* ItemTableRowTextView.swift in Sources */,
 				9687678E2AAEA95F00DA256E /* CutBoxBaseClasses.swift in Sources */,
-				9677BE9F2AA4CF4900AB537C /* ConfirmationDialogSpec.swift in Sources */,
+				9677BE9F2AA4CF4900AB537C /* DialogFactorySpec.swift in Sources */,
 				9653492A28434785000FD0A1 /* Array+removeAtIndexes.swift in Sources */,
 				9653492828434785000FD0A1 /* Collection+Safe.swift in Sources */,
 				96C746FF2A92FA4B00EA0F4D /* HistoryStoreMigration_1_6_x_Spec.swift in Sources */,
@@ -1784,7 +1784,7 @@
 				965B02B628E7E0A6003770BD /* SearchViewController.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift in Sources */,
 				96A16B3E209FD77500EE08A4 /* ClipItemTableRowImageView.swift in Sources */,
-				964CA54420830C8800B9F33E /* ConfirmationDialog.swift in Sources */,
+				964CA54420830C8800B9F33E /* DialogFactory.swift in Sources */,
 				965F0765206F4BE10032DACD /* ClipItemTableRowContainerView.swift in Sources */,
 				968D7C9E2095872200FF1236 /* HistoryRepo.swift in Sources */,
 				968784402469571D00F6FD60 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */,

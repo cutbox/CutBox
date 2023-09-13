@@ -86,6 +86,8 @@ class DialogFactory {
                                informativeText: informativeText,
                                ok: ok, cancel: cancel)
 
-        return alert.runModal() == .alertFirstButtonReturn
+        let alertResponse = Self.testing ? Self.testResponse : alert.runModal() == .alertFirstButtonReturn
+
+        return alertResponse
     }
 }
