@@ -65,7 +65,7 @@ class PopupController: CutBoxBaseWindowController {
         setup()
     }
 
-    private func setup() {
+    func setup() {
         panel.windowController = self
         panel.acceptsMouseMovedEvents = true
 

@@ -35,7 +35,7 @@ class JSFuncSearchAndPreviewView: SearchAndPreviewViewBase {
         let contextMenu = CutBoxBaseMenu()
         contextMenu.addItem(reload)
 
-        self.itemsList.menu = contextMenu
+        self.itemsList?.menu = contextMenu
     }
 
     override func applyTheme() {

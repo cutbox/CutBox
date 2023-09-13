@@ -17,6 +17,20 @@ class CutBoxControllerSpec: QuickSpec {
         }
     }
 
+    class MockJSFuncPopup: PopupController {
+        var togglePopupWasCalled = false
+        override func togglePopup() {
+            togglePopupWasCalled = true
+        }
+    }
+
+    class MockJSFuncView: JSFuncSearchAndPreviewView {
+        var applyThemeWasCalled = false
+        override func applyTheme() {
+            applyThemeWasCalled = true
+        }
+    }
+
     class MockPreferencesTabViewController: PreferencesTabViewController {
         var openWasCalled = false
         override func open() {
@@ -46,6 +60,7 @@ class CutBoxControllerSpec: QuickSpec {
     override func spec() {
         var subject: CutBoxController!
         var mockSearchViewController: MockSearchViewController!
+        var mockJSFuncSearchViewController: JSFuncSearchViewController!
         var mockHistoryService: HistoryService!
         var mockPreferencesService: CutBoxPreferencesService!
         var mockUserDefaults: UserDefaultsMock!
@@ -53,6 +68,8 @@ class CutBoxControllerSpec: QuickSpec {
         var mockAboutPanel: MockAboutPanel!
         var mockHotKeyService: MockHotKeyService!
         var mockStatusMenu: MockStatusMenu!
+        var mockJSFuncView: MockJSFuncView!
+        var mockJSFuncPopup: MockJSFuncPopup!
 
         describe("CutBoxController") {
             beforeEach {
@@ -60,6 +77,8 @@ class CutBoxControllerSpec: QuickSpec {
                 mockPreferencesService = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockHistoryService = HistoryService(defaults: mockUserDefaults, prefs: mockPreferencesService)
                 mockSearchViewController = MockSearchViewController(pasteboardService: mockHistoryService)
+                mockJSFuncView = MockJSFuncView(frame: NSRect(x: 0, y: 0, width: 500, height: 300))
+                mockJSFuncPopup = MockJSFuncPopup(content: mockJSFuncView)
                 mockPreferencesTabViewController = MockPreferencesTabViewController()
                 mockAboutPanel = MockAboutPanel()
                 mockHotKeyService = MockHotKeyService(hotkeyProvider: CutBoxHotkeyProvider())
@@ -82,6 +101,34 @@ class CutBoxControllerSpec: QuickSpec {
                     expect(subject.hotKeyService.events.hasObservers).to(beTrue())
                     expect(subject.searchViewController.events.hasObservers).to(beTrue())
                     expect(subject.prefs.events.hasObservers).to(beTrue())
+                }
+            }
+
+            context("openJavascriptPopup") {
+                it("should trigger the opening of the Javascript popup") {
+                    subject.jsFuncSearchViewController.jsFuncPopup = mockJSFuncPopup
+                    subject.jsFuncSearchViewController.jsFuncView = mockJSFuncView
+
+                    subject.openJavascriptPopup()
+
+                    expect(mockJSFuncView.applyThemeWasCalled).to(beTrue())
+                    expect(mockJSFuncPopup.togglePopupWasCalled).to(beTrue())
+                }
+            }
+
+            context("checkSearchModeItem") {
+                it("should set the menu item to match the search mode in history service") {
+                    subject.statusMenu.addItem(CutBoxBaseMenuItem())
+                    subject.setMenuItems()
+                    subject.historyService.searchMode = .substringMatch
+
+                    subject.checkSearchModeItem()
+                    let result = subject.searchModeSelectorsDict?
+                        .first(where: { (_: String, value: CutBoxBaseMenuItem) in
+                        value.state == .on
+                    })
+
+                    expect(result?.key) == "substringMatch"
                 }
             }
 

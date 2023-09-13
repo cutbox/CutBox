@@ -37,24 +37,28 @@ class JSFuncSearchViewController: NSObject {
 
     init(jsFuncService: JSFuncService = JSFuncService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
-         fakeKey: FakeKey = FakeKey.shared) {
+         fakeKey: FakeKey = FakeKey.shared,
+         jsFuncView: JSFuncSearchAndPreviewView = JSFuncSearchAndPreviewView.fromNib()!) {
 
         self.jsFuncService = jsFuncService
         self.prefs = cutBoxPreferences
         self.fakeKey = fakeKey
-        self.jsFuncView = JSFuncSearchAndPreviewView.fromNib()!
+        self.jsFuncView = jsFuncView
         self.jsFuncPopup = PopupController(content: self.jsFuncView)
 
         super.init()
+        self.setup()
+    }
 
+    func setup() {
         self.configureJSPopupAndView()
         self.setupSearchTextEventBindings()
         self.setupSearchViewAndFilterBinding()
     }
 
     private func setupSearchViewAndFilterBinding() {
-        self.jsFuncView.itemsList.dataSource = self
-        self.jsFuncView.itemsList.delegate = self
+        self.jsFuncView.itemsList?.dataSource = self
+        self.jsFuncView.itemsList?.delegate = self
 
         self.jsFuncView.filterTextPublisher
             .subscribe(onNext: {
