@@ -67,7 +67,6 @@ class DialogFactory {
 
         alert.showsSuppressionButton = true
 
-
         let alertResponse = Self.testing ? Self.testResponse : alert.runModal() == .alertFirstButtonReturn
 
         if alert.suppressionButton?.state == .on {
