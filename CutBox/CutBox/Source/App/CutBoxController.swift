@@ -25,13 +25,15 @@ class CutBoxController: NSObject {
     var prefs = CutBoxPreferencesService.shared
     var historyService = HistoryService.shared
     var disposeBag = DisposeBag()
+    var dialogFactory = DialogFactory()
+    var nsAppProvider = CutBoxNSAppProvider()
 
     @objc func searchClicked(_ sender: CutBoxBaseMenuItem) {
         self.searchViewController.togglePopup()
     }
 
     @objc func clearHistoryClicked(_ sender: CutBoxBaseMenuItem?) {
-        if suppressibleConfirmationDialog(
+        if dialogFactory.suppressibleConfirmationDialog(
             messageText: "confirm_warning_clear_history_title".l7n,
             informativeText: "confirm_warning_clear_history".l7n,
             dialogName: .clearHistoryWarning) {
@@ -50,7 +52,7 @@ class CutBoxController: NSObject {
     }
 
     @objc func quitClicked(_ sender: CutBoxBaseMenuItem) {
-        NSApp.terminate(sender)
+        nsAppProvider.terminate(sender)
     }
 
     @objc func useCompactUIClicked(_ sender: CutBoxBaseMenuItem) {
@@ -112,8 +114,10 @@ extension CutBoxController {
             (13, "preferences_javascript_transform_reload".l7n, nil, "reloadJavascript:"),
             (14, "preferences_color_theme_reload_themes".l7n, nil, "reloadThemes:"),
             (15, "---", nil, nil),
+
             // 16: Sparkle: Check for Updates
             //     It will find and fill the empty slot automatically.
+
             (17, "cutbox_menu_about".l7n, nil, "openAboutPanel:"),
             (18, "cutbox_menu_quit".l7n, nil, "quitClicked:")
             //     So number all the indexes correctly, leaving a gap.
@@ -124,13 +128,10 @@ extension CutBoxController {
         let menu = self.statusMenu!
         self.statusItem.menu = menu
 
-        let icon = #imageLiteral(resourceName: "statusIcon") // invisible on dark xcode source theme
+        let icon = CutBoxImageRef.statusIcon.image(with: "")
         icon.isTemplate = true // best for dark mode
         self.statusItem.button?.image = icon
-        self.statusMenuItems
-            .forEach {
-                addMenuItems(menu: menu, descriptor: $0)
-            }
+        self.statusMenuItems.forEach { addMenuItems(menu: menu, descriptor: $0) }
         self.statusItem.menu = menu
 
         setModeSelectors(menu.items)
@@ -144,19 +145,24 @@ extension CutBoxController {
 
     func addMenuItems(menu: CutBoxBaseMenu, descriptor: StatusItemDescriptor) {
         let title = descriptor.1
+        let index = descriptor.0
+
         if title == "---" {
-            menu.insertItem(CutBoxBaseMenuItem.separator(), at: descriptor.0)
+            menu.insertItem(CutBoxBaseMenuItem.separator(), at: index)
         } else {
             let axID = descriptor.2
             let action = Selector(descriptor.3!)
-            let item: CutBoxBaseMenuItem = CutBoxBaseMenuItem(title: title,
-                                              action: action,
-                                              keyEquivalent: "")
+
+            let item: CutBoxBaseMenuItem = CutBoxBaseMenuItem(
+                title: title,
+                action: action,
+                keyEquivalent: "")
+
             item.target = self
             if axID != nil {
                 item.setAccessibilityIdentifier(axID)
             }
-            menu.insertItem(item, at: descriptor.0)
+            menu.insertItem(item, at: index)
         }
     }
 }

@@ -8,7 +8,8 @@
 
 import Cocoa
 
-func cutBoxGetStatusItem() -> NSStatusItem {
+func cutBoxGetStatusItem(testing: Bool = false) -> NSStatusItem {
+    guard !testing else { return NSStatusItem() }
     return NSStatusBar.system
         .statusItem(withLength: NSStatusItem.variableLength)
 }

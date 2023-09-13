@@ -177,5 +177,6 @@ class CutBoxPreferencesService {
 
     func loadJavascript() {
         js.reload()
+        events.onNext(.javascriptReloaded)
     }
 }

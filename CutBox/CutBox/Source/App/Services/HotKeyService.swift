@@ -14,7 +14,7 @@ enum HotKeyEvents {
 }
 
 class CutBoxHotkeyProvider: NSObject {
-    static var testMode: Bool = false
+    var testing: Bool = false
     var createWasCalled: Bool = false
 
     func create(identifier: String,
@@ -23,7 +23,7 @@ class CutBoxHotkeyProvider: NSObject {
                 action: Selector
     ) -> HotKey? {
         self.createWasCalled = true
-        guard !Self.testMode  else { return nil }
+        guard !self.testing  else { return nil }
         return HotKey(
             identifier: identifier,
             keyCombo: keyCombo,

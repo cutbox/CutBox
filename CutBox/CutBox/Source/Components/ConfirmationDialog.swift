@@ -28,59 +28,65 @@ enum SuppressibleDialog: String, Equatable, CaseIterable {
 
 class DialogAlert: NSAlert {}
 
-private func makeDialog(messageText: String,
-                        informativeText: String,
-                        ok: String,
-                        cancel: String,
-                        alert: DialogAlert = DialogAlert()) -> DialogAlert {
-    alert.messageText = messageText
-    alert.informativeText = informativeText
-    alert.addButton(withTitle: ok)
-    alert.addButton(withTitle: cancel)
-    return alert
-}
+class DialogFactory {
+    static var testing: Bool = false
+    static var testResponse: Bool = false
 
-func suppressibleConfirmationDialog(messageText: String,
-                                    informativeText: String,
-                                    dialogName: SuppressibleDialog,
-                                    ok: String = "ok".l7n,
-                                    cancel: String = "cancel".l7n,
-                                    defaults: UserDefaults = UserDefaults.standard,
-                                    alert: DialogAlert = DialogAlert()) -> Bool {
-
-    let suppressionKey = "\(dialogName)_CutBoxSuppressed"
-    let suppressionChoiceKey = "\(dialogName)_CutBoxSuppressedChoice"
-
-    if defaults.bool(forKey: suppressionKey) {
-        return defaults.bool(forKey: suppressionChoiceKey)
+    private func makeDialog(messageText: String,
+                            informativeText: String,
+                            ok: String,
+                            cancel: String,
+                            alert: DialogAlert = DialogAlert()) -> DialogAlert {
+        alert.messageText = messageText
+        alert.informativeText = informativeText
+        alert.addButton(withTitle: ok)
+        alert.addButton(withTitle: cancel)
+        return alert
     }
 
-    let alert: DialogAlert = makeDialog(messageText: messageText,
-                                        informativeText: informativeText,
-                                        ok: ok,
-                                        cancel: cancel,
-                                        alert: alert)
+    func suppressibleConfirmationDialog(messageText: String,
+                                        informativeText: String,
+                                        dialogName: SuppressibleDialog,
+                                        ok: String = "ok".l7n,
+                                        cancel: String = "cancel".l7n,
+                                        defaults: UserDefaults = UserDefaults.standard,
+                                        alert: DialogAlert = DialogAlert()) -> Bool {
 
-    alert.showsSuppressionButton = true
+        let suppressionKey = "\(dialogName)_CutBoxSuppressed"
+        let suppressionChoiceKey = "\(dialogName)_CutBoxSuppressedChoice"
 
-    let alertResponse = alert.runModal() == .alertFirstButtonReturn
+        if defaults.bool(forKey: suppressionKey) {
+            return defaults.bool(forKey: suppressionChoiceKey)
+        }
 
-    if alert.suppressionButton?.state == .on {
-        defaults.set(true, forKey: suppressionKey)
-        defaults.set(alertResponse, forKey: suppressionChoiceKey)
+        let alert: DialogAlert = makeDialog(messageText: messageText,
+                                            informativeText: informativeText,
+                                            ok: ok,
+                                            cancel: cancel,
+                                            alert: alert)
+
+        alert.showsSuppressionButton = true
+
+
+        let alertResponse = Self.testing ? Self.testResponse : alert.runModal() == .alertFirstButtonReturn
+
+        if alert.suppressionButton?.state == .on {
+            defaults.set(true, forKey: suppressionKey)
+            defaults.set(alertResponse, forKey: suppressionChoiceKey)
+        }
+
+        return alertResponse
     }
 
-    return alertResponse
-}
+    func confirmationDialog(messageText: String,
+                            informativeText: String,
+                            ok: String = "ok".l7n,
+                            cancel: String = "cancel".l7n) -> Bool {
 
-func confirmationDialog(messageText: String,
-                        informativeText: String,
-                        ok: String = "ok".l7n,
-                        cancel: String = "cancel".l7n) -> Bool {
+        let alert = makeDialog(messageText: messageText,
+                               informativeText: informativeText,
+                               ok: ok, cancel: cancel)
 
-    let alert = makeDialog(messageText: messageText,
-                           informativeText: informativeText,
-                           ok: ok, cancel: cancel)
-
-    return alert.runModal() == .alertFirstButtonReturn
+        return alert.runModal() == .alertFirstButtonReturn
+    }
 }

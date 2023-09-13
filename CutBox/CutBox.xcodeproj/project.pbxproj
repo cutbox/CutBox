@@ -310,6 +310,8 @@
 		96EF84FA2AB1893A00CC8022 /* String+dashed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84F82AB1893A00CC8022 /* String+dashed.swift */; };
 		96EF84FC2AB1896500CC8022 /* String+dashedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FB2AB1896500CC8022 /* String+dashedSpec.swift */; };
 		96EF84FE2AB19CB800CC8022 /* NSImage+fakeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FD2AB19CB800CC8022 /* NSImage+fakeSpec.swift */; };
+		96EF85002AB1C82700CC8022 /* CutBoxNSAppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */; };
+		96EF85012AB1C82700CC8022 /* CutBoxNSAppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */; };
 		96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		96FD7C1820ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
 		96FD7C1A20ADBCDB00818925 /* ItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */; };
@@ -545,6 +547,7 @@
 		96EF84F82AB1893A00CC8022 /* String+dashed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dashed.swift"; sourceTree = "<group>"; };
 		96EF84FB2AB1896500CC8022 /* String+dashedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dashedSpec.swift"; sourceTree = "<group>"; };
 		96EF84FD2AB19CB800CC8022 /* NSImage+fakeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+fakeSpec.swift"; sourceTree = "<group>"; };
+		96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxNSAppProvider.swift; sourceTree = "<group>"; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
 		96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -807,6 +810,7 @@
 		964CA5652083373800B9F33E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */,
 				96EF84F02AB1834F00CC8022 /* CutBoxImageRef.swift */,
 				968715982A9634E10092DB3F /* StandardErrorOutputStream.swift */,
 				96CFA6B22069278700BAFABB /* FakeKey.swift */,
@@ -1560,6 +1564,7 @@
 				965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */,
 				965348FD28434735000FD0A1 /* PreferencesAdvancedView+JoinItems.swift in Sources */,
 				967C06B42A950B07008AF0CE /* Int+doTimesSpec.swift in Sources */,
+				96EF85012AB1C82700CC8022 /* CutBoxNSAppProvider.swift in Sources */,
 				967C06A62A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */,
 				968715922A95DCAC0092DB3F /* NSColor+HexColorStringSpec.swift in Sources */,
 				967B9FA22A90E6C20054E9D0 /* UserDefaultsMockSpec.swift in Sources */,
@@ -1792,6 +1797,7 @@
 				965F0784206FC4F60032DACD /* PreferencesWindow.swift in Sources */,
 				9696D6D52AAB823A00600C59 /* LinkText.swift in Sources */,
 				96CFA6B52069C5BC00BAFABB /* CutBoxPreferencesService.swift in Sources */,
+				96EF85002AB1C82700CC8022 /* CutBoxNSAppProvider.swift in Sources */,
 				964766692067B82900E7026F /* TransientScrollView.swift in Sources */,
 				965B02B328E54811003770BD /* CutBoxPreferences+ResetSuppressedDialogBoxes.swift in Sources */,
 				964CA500207E59D400B9F33E /* PreferencesAdvancedView+MultipleItemWrapping.swift in Sources */,

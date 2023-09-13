@@ -38,15 +38,17 @@ class ConfirmationDialogSpec: QuickSpec {
                 var mockedDefaults: UserDefaultsMock!
                 var stubbedAlert: StubbedDialogAlert!
                 var dialogName: SuppressibleDialog!
+                var dialogFactory: DialogFactory!
 
                 beforeEach {
                     mockedDefaults = UserDefaultsMock()
                     stubbedAlert = StubbedDialogAlert()
+                    dialogFactory = DialogFactory()
                     dialogName = .clearHistoryActionClicked
                 }
 
                 it("wraps an alert, configures it, returns true when the alertFirstButton is clicked") {
-                    let result = suppressibleConfirmationDialog(
+                    let result = dialogFactory.suppressibleConfirmationDialog(
                         messageText: "Message",
                         informativeText: "Very informative it is too",
                         dialogName: dialogName,
@@ -64,7 +66,7 @@ class ConfirmationDialogSpec: QuickSpec {
                     expect( mockedDefaults.bool(forKey: dialogName.defaultSuppressionKey) ) == false
                     expect( mockedDefaults.bool(forKey: dialogName.defaultChoiceKey) ) == false
 
-                    _ = suppressibleConfirmationDialog(
+                    _ = dialogFactory.suppressibleConfirmationDialog(
                         messageText: "",
                         informativeText: "",
                         dialogName: dialogName,
@@ -82,7 +84,7 @@ class ConfirmationDialogSpec: QuickSpec {
                     // automatic user choice: cancel
                     mockedDefaults.set(false, forKey: dialogName.defaultChoiceKey)
 
-                    let result = suppressibleConfirmationDialog(
+                    let result = dialogFactory.suppressibleConfirmationDialog(
                         messageText: "",
                         informativeText: "",
                         dialogName: dialogName,
@@ -99,7 +101,7 @@ class ConfirmationDialogSpec: QuickSpec {
                     // automatic user choice: cancel
                     mockedDefaults.set(true, forKey: dialogName.defaultChoiceKey)
 
-                    let result = suppressibleConfirmationDialog(
+                    let result = dialogFactory.suppressibleConfirmationDialog(
                         messageText: "",
                         informativeText: "",
                         dialogName: dialogName,

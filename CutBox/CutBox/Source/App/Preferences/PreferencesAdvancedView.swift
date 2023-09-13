@@ -31,6 +31,8 @@ class PreferencesAdvancedView: CutBoxBaseView {
     @IBOutlet weak var wrapStartTextField: CutBoxBaseTextField!
     @IBOutlet weak var wrapEndTextField: CutBoxBaseTextField!
 
+    var dialogFactory: DialogFactory = DialogFactory()
+
     let clearHistoryOptions: [(title: String, offset: TimeInterval?)] = [
       (title: "preferences_history_select_option".l7n, offset: nil),
       (title: "preferences_history_clear_last_5_minutes".l7n, offset: 300),

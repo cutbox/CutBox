@@ -22,7 +22,7 @@ class CutBoxHotkeyProviderSpec: QuickSpec {
                         let keyCombo = KeyCombo(QWERTYKeyCode: kVK_ANSI_V,
                                                       cocoaModifiers: [.shift, .command])!
                         let provider = CutBoxHotkeyProvider()
-                        CutBoxHotkeyProvider.testMode = true
+                        provider.testing = true
                         let combo = provider.create(identifier: "Noop",
                                                     keyCombo: keyCombo,
                                                     target: self,
@@ -35,7 +35,7 @@ class CutBoxHotkeyProviderSpec: QuickSpec {
                         let keyCombo = KeyCombo(QWERTYKeyCode: kVK_ANSI_V,
                                                 cocoaModifiers: [.shift, .command])!
                         let provider = CutBoxHotkeyProvider()
-                        CutBoxHotkeyProvider.testMode = false
+                        provider.testing = false
                         let combo = provider.create(identifier: "Noop",
                                                     keyCombo: keyCombo,
                                                     target: self,
