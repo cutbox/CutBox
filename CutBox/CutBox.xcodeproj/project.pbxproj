@@ -309,6 +309,7 @@
 		96EF84F92AB1893A00CC8022 /* String+dashed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84F82AB1893A00CC8022 /* String+dashed.swift */; };
 		96EF84FA2AB1893A00CC8022 /* String+dashed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84F82AB1893A00CC8022 /* String+dashed.swift */; };
 		96EF84FC2AB1896500CC8022 /* String+dashedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FB2AB1896500CC8022 /* String+dashedSpec.swift */; };
+		96EF84FE2AB19CB800CC8022 /* NSImage+fakeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FD2AB19CB800CC8022 /* NSImage+fakeSpec.swift */; };
 		96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		96FD7C1820ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
 		96FD7C1A20ADBCDB00818925 /* ItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */; };
@@ -543,6 +544,7 @@
 		96EF84F52AB1841A00CC8022 /* NSImage+fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+fake.swift"; sourceTree = "<group>"; };
 		96EF84F82AB1893A00CC8022 /* String+dashed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dashed.swift"; sourceTree = "<group>"; };
 		96EF84FB2AB1896500CC8022 /* String+dashedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dashedSpec.swift"; sourceTree = "<group>"; };
+		96EF84FD2AB19CB800CC8022 /* NSImage+fakeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+fakeSpec.swift"; sourceTree = "<group>"; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
 		96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 		96429D57208C11A90055D678 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				96EF84FD2AB19CB800CC8022 /* NSImage+fakeSpec.swift */,
 				9677BEAB2AA8CA8F00AB537C /* NSTableView_GetRowViewSpec.swift */,
 				9677BEA92AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift */,
 				9677BEA72AA88CF100AB537C /* NSImage+TintSpec.swift */,
@@ -1627,6 +1630,7 @@
 				9653490C28434752000FD0A1 /* ClipItemTableRowContainerView.swift in Sources */,
 				9653493228434785000FD0A1 /* OrderedSet.swift in Sources */,
 				96A225942844F5CD00C9502D /* CutBoxThemeSpec.swift in Sources */,
+				96EF84FE2AB19CB800CC8022 /* NSImage+fakeSpec.swift in Sources */,
 				9653494C2843486B000FD0A1 /* CutBoxPreferencesService+JoinAndWrapSpec.swift in Sources */,
 				9653494628434862000FD0A1 /* String+UtilsSpec.swift in Sources */,
 				965B02B828E7E95E003770BD /* SearchViewController.swift in Sources */,
