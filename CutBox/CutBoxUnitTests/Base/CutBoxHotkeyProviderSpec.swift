@@ -28,6 +28,7 @@ class CutBoxHotkeyProviderSpec: QuickSpec {
                                                     target: self,
                                                     action: #selector(self.noopSelector))
                         expect(combo).to(beNil())
+                        expect(provider.createWasCalled).to(beTrue())
                     }
 
                     it("should return a valid object") {

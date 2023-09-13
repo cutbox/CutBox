@@ -153,12 +153,6 @@ class CutBoxBaseMenu: NSMenu {
 class CutBoxBaseMenuItem: NSMenuItem {
 }
 
-class CutBoxBaseImage: NSImage {
-}
-
-class CutBoxBaseImageView: NSImageView {
-}
-
 class CutBoxBaseStackView: NSStackView {
 }
 

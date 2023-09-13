@@ -20,8 +20,8 @@ class ClipItemTableRowImageView: ItemTableRowImageView {
         }
 
         self.image.image = self.isFavorite
-            ? #imageLiteral(resourceName: "star.png")
-            : #imageLiteral(resourceName: "page.png")
+        ? CutBoxImageRef.star.image()
+        : CutBoxImageRef.page.image()
 
         self.tintImage()
     }

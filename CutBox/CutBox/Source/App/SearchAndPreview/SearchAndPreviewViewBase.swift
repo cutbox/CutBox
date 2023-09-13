@@ -20,7 +20,7 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
     @IBOutlet weak var itemsList: NSTableView!
     @IBOutlet weak var preview: CutBoxBaseTextView!
     @IBOutlet weak var previewContainer: CutBoxBaseBox!
-    @IBOutlet weak var iconImageView: CutBoxBaseImageView!
+    @IBOutlet weak var iconImageView: NSImageView!
     @IBOutlet weak var searchScopeImageButton: CutBoxBaseButton!
     @IBOutlet weak var mainContainer: CutBoxBaseStackView!
     @IBOutlet weak var container: CutBoxBaseStackView!
@@ -168,7 +168,7 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
         setupPlaceholder()
     }
 
-    func colorizeMagnifier(image: NSImage = #imageLiteral(resourceName: "magnitude.png"),
+    func colorizeMagnifier(image: NSImage = CutBoxImageRef.magnitude.image(),
                            tooltip: String = "search_scope_tooltip_all".l7n,
                            alpha: Double = 0.75,
                            color: NSColor = NSColor.white) {

@@ -61,7 +61,7 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
             .disposed(by: disposeBag)
     }
 
-    private func colorizeHistoryScopeIcon(image: CutBoxBaseImage = #imageLiteral(resourceName: "history-clock-face-white.png"),
+    private func colorizeHistoryScopeIcon(image: NSImage = CutBoxImageRef.historyClockFaceWhite.image(true),
                                           tooltip: String = "search_time_filter_label_hint".l7n,
                                           alpha: Double = 0.75,
                                           color: NSColor = NSColor.white) {
