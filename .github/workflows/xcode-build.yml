@@ -127,8 +127,11 @@ jobs:
 
       - name: Render coverage charts
         run: |
-          bin/get_coverage_numbers docs/App/index.html | bin/render_cov_graph --output docs/App/cov.svg --title "CutBox.app coverage progress"
-          bin/get_coverage_numbers docs/CLI/index.html | bin/render_cov_graph --output docs/CLI/cov.svg --title "CutBox CLI coverage progress"
+          bin/get_coverage_numbers docs/App/index.html > docs/App/cov_progress.json
+          bin/render_cov_graph --output docs/App/cov.svg --title "CutBox.app coverage progress" < docs/App/cov_progress.json
+
+          bin/get_coverage_numbers docs/CLI/index.html > docs/CLI/cov_progress.json
+          bin/render_cov_graph --output docs/CLI/cov.svg --title "CutBox CLI coverage progress" < docs/CLI/cov_progress.json
 
       - name: Push Coverage Reports to cutbox.github.io/CutBox/
         run: |
