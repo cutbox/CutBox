@@ -12,22 +12,19 @@ import Nimble
 class NSEvent_CarbonConvenienceSpec: QuickSpec {
     override func spec() {
         describe("NSEvent") {
-            let subject = NSEvent.keyEvent(with: .keyDown,
-                                           location: .zero,
-                                           modifierFlags: [.command],
-                                           timestamp: 0.0,
-                                           windowNumber: 1,
-                                           context: nil,
-                                           characters: "",
-                                           charactersIgnoringModifiers: "",
-                                           isARepeat: false,
-                                           keyCode: 48)
+            it("creates a key event") {
+                let subject = NSEvent.keyEvent(with: .keyDown,
+                                               location: .zero,
+                                               modifierFlags: [.command],
+                                               timestamp: 0.0,
+                                               windowNumber: 1,
+                                               context: nil,
+                                               characters: "",
+                                               charactersIgnoringModifiers: "",
+                                               isARepeat: false,
+                                               keyCode: 48)
 
-            describe("key") {
                 expect(subject?.key) == Int(48)
-            }
-
-            describe("modifiers") {
                 expect(subject?.modifiers) == [.command]
             }
         }

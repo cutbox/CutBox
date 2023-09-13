@@ -38,10 +38,6 @@ class CutBoxControllerSpec: QuickSpec {
     }
 
     class MockHotKeyService: HotKeyService {
-        var configureWasCalled = false
-        override func configure() {
-            configureWasCalled = true
-        }
     }
 
     class MockStatusMenu: CutBoxBaseMenu {
@@ -77,6 +73,16 @@ class CutBoxControllerSpec: QuickSpec {
                 subject.hotKeyService = mockHotKeyService
                 subject.statusMenu = mockStatusMenu
                 subject.statusItem = cutBoxGetStatusItem(testing: true)
+            }
+
+            context("event bindings") {
+                it("binds to cutbox event backbone") {
+                    subject.setupEventBindings()
+
+                    expect(subject.hotKeyService.events.hasObservers).to(beTrue())
+                    expect(subject.searchViewController.events.hasObservers).to(beTrue())
+                    expect(subject.prefs.events.hasObservers).to(beTrue())
+                }
             }
 
             context("status menu actions") {
