@@ -185,7 +185,7 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
         contextMenu.addItem(removeItem)
         contextMenu.addItem(favoriteItem)
 
-        self.itemsList.menu = contextMenu
+        self.itemsList?.menu = contextMenu
     }
 
     override func applyTheme() {

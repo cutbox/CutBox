@@ -31,9 +31,8 @@ class SearchViewController: NSObject {
     }
 
     /// Row indexes of selected items
-    var selectedItems: IndexSet {
-        return self
-            .searchView.selectedItems
+    var selectedItems: IndexSet? {
+        return self.searchView.selectedItems
     }
 
     /// Strings of selected items
@@ -42,18 +41,15 @@ class SearchViewController: NSObject {
             return []
         }
 
-        return self
-            .orderedSelection
-            .all()
+        return self.orderedSelection.all()
             .map { self.historyService.items[$0] }
     }
 
-    /// Rx Swift sink hole
     let disposeBag = DisposeBag()
 
     /// Setup controller, initialize the search view and popup.
     /// Connect the history service and tell it to start polling the pasteboard.
-    /// Connect the preferences service to itself and members.
+    /// Connect the preferences service to self and members.
     init(pasteboardService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
          fakeKey: FakeKey = FakeKey(),
@@ -122,16 +118,19 @@ class SearchViewController: NSObject {
 
     /// Remove selected items and refresh the search view
     func removeSelectedItems() {
-        self.historyService.remove(selected: self.selectedItems)
-        self.searchView.reloadData()
+        if let selection = self.selectedItems {
+            self.historyService.remove(selected: selection)
+            self.searchView.reloadData()
+        }
     }
 
     /// Toggle favorite status on selected items
     func toggleFavoriteItems() {
-        let selection = self.selectedItems
-        self.historyService.toggleFavorite(items: self.selectedItems)
-        self.searchView.reloadData()
-        self.searchView.selectRowIndexes(selection, byExtendingSelection: false)
+        if  let selection = self.selectedItems {
+            self.historyService.toggleFavorite(items: selection)
+            self.searchView.reloadData()
+            self.searchView.selectRowIndexes(selection, byExtendingSelection: false)
+        }
     }
 
     /// Send the selected clip text to the pasteboard
@@ -186,12 +185,10 @@ class SearchViewController: NSObject {
 
         self.prefs.events
             .compactMap {
-                switch $0 {
-                case .hidePreviewSettingChanged(let isOn):
+                if case .hidePreviewSettingChanged(let isOn) = $0 {
                     return isOn
-                default:
-                    return nil
                 }
+                return nil
             }
             .subscribe(onNext: {
                 self.searchView.hidePreview($0)
@@ -287,11 +284,12 @@ class SearchViewController: NSObject {
     // swiftlint:enable function_body_length
 
     private func reloadDataWithExistingSelection() {
-        let selected = self.searchView.selectedRowIndexes
-        self.searchView.updateLayer()
-        self.searchView.reloadData()
-        self.searchView.setTextScale()
-        self.searchView.selectRowIndexes(selected, byExtendingSelection: false)
+        if let selected = self.searchView.selectedRowIndexes {
+            self.searchView.updateLayer()
+            self.searchView.reloadData()
+            self.searchView.setTextScale()
+            self.searchView.selectRowIndexes(selected, byExtendingSelection: false)
+        }
     }
 
     private func configureSearchPopupAndView() {

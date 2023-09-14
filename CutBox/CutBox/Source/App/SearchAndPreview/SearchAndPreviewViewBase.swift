@@ -74,40 +74,40 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
         return true
     }
 
-    var selectedItems: IndexSet {
-        self.itemsList
+    var selectedItems: IndexSet? {
+        self.itemsList?
         .selectedRowIndexes
     }
 
     var menuDelegate: NSMenuDelegate? {
         get {
-            self.itemsList
+            self.itemsList?
                 .menu?.delegate
         }
 
         set {
-            self.itemsList
+            self.itemsList?
                 .menu?.delegate = newValue
         }
     }
 
     var itemsDelegate: NSTableViewDelegate? {
         get {
-            self.itemsList.delegate
+            self.itemsList?.delegate
         }
 
         set {
-            self.itemsList.delegate = newValue
+            self.itemsList?.delegate = newValue
         }
     }
 
     var itemsDataSource: NSTableViewDataSource? {
         get {
-            self.itemsList.dataSource
+            self.itemsList?.dataSource
         }
 
         set {
-            self.itemsList.dataSource = newValue
+            self.itemsList?.dataSource = newValue
         }
     }
 
@@ -142,19 +142,19 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
     }
 
     func scrollRowToVisible(_ row: Int) {
-        self.itemsList.scrollRowToVisible(row)
+        self.itemsList?.scrollRowToVisible(row)
     }
 
     func reloadData() {
-        self.itemsList.reloadData()
+        self.itemsList?.reloadData()
     }
 
     func selectRowIndexes(_ indexes: IndexSet, byExtendingSelection extend: Bool) {
-        self.itemsList.selectRowIndexes(indexes, byExtendingSelection: extend)
+        self.itemsList?.selectRowIndexes(indexes, byExtendingSelection: extend)
     }
 
-    var selectedRowIndexes: IndexSet {
-        self.itemsList.selectedRowIndexes
+    var selectedRowIndexes: IndexSet? {
+        self.itemsList?.selectedRowIndexes
     }
 
     override func awakeFromNib() {
