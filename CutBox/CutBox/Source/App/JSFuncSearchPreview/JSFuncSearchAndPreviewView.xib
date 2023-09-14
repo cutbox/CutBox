@@ -102,7 +102,7 @@
                                                     <size key="offset" width="1" height="-2"/>
                                                     <color key="color" white="0.0" alpha="0.50171232880000005" colorSpace="calibratedWhite"/>
                                                 </shadow>
-                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="js_badge" id="gjk-dz-H4Q"/>
+                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="js-badge" id="gjk-dz-H4Q"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -302,6 +302,6 @@
         </customView>
     </objects>
     <resources>
-        <image name="js_badge" width="192" height="192"/>
+        <image name="js-badge" width="192" height="192"/>
     </resources>
 </document>

@@ -157,7 +157,7 @@
 		9653495628434D59000FD0A1 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B4120A0675700EE08A4 /* page.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		9653495728434D59000FD0A1 /* text-document.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3F20A002C500EE08A4 /* text-document.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		9653495828434D59000FD0A1 /* cutbox-js-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5320C246BD0063B050 /* cutbox-js-icon.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
-		9653495928434D59000FD0A1 /* js_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js_badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
+		9653495928434D59000FD0A1 /* js-badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js-badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		9655D1CB2A9117CF00AA902F /* ISO8601Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */; };
 		9655D1CC2A9117D000AA902F /* ISO8601Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9655D1CA2A9117CF00AA902F /* ISO8601Helpers.swift */; };
 		9655D1D52A91216700AA902F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9655D1D32A91216700AA902F /* Localizable.strings */; };
@@ -209,7 +209,7 @@
 		967C06AB2A94783C008AF0CE /* Int+doTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06A92A94783C008AF0CE /* Int+doTimes.swift */; };
 		967C06B42A950B07008AF0CE /* Int+doTimesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C06B32A950B07008AF0CE /* Int+doTimesSpec.swift */; };
 		967DFB5520C246BD0063B050 /* cutbox-js-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5320C246BD0063B050 /* cutbox-js-icon.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
-		967DFB5A20C28D3F0063B050 /* js_badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js_badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
+		967DFB5A20C28D3F0063B050 /* js-badge.png in Resources */ = {isa = PBXBuildFile; fileRef = 967DFB5920C28D3E0063B050 /* js-badge.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		967EFEAB20A4763E00A525CC /* NSTableView+getRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */; };
 		967EFEAE20A476D200A525CC /* NSImage+tint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAD20A476D200A525CC /* NSImage+tint.swift */; };
 		967EFEB020A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */; };
@@ -456,7 +456,7 @@
 		967C06A92A94783C008AF0CE /* Int+doTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+doTimes.swift"; sourceTree = "<group>"; };
 		967C06B32A950B07008AF0CE /* Int+doTimesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+doTimesSpec.swift"; sourceTree = "<group>"; };
 		967DFB5320C246BD0063B050 /* cutbox-js-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cutbox-js-icon.png"; sourceTree = "<group>"; };
-		967DFB5920C28D3E0063B050 /* js_badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = js_badge.png; sourceTree = "<group>"; };
+		967DFB5920C28D3E0063B050 /* js-badge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "js-badge.png"; sourceTree = "<group>"; };
 		967EFEAA20A4763E00A525CC /* NSTableView+getRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTableView+getRowView.swift"; sourceTree = "<group>"; };
 		967EFEAD20A476D200A525CC /* NSImage+tint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+tint.swift"; sourceTree = "<group>"; };
 		967EFEAF20A5199400A525CC /* PreferencesAdvancedView+HistorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesAdvancedView+HistorySize.swift"; sourceTree = "<group>"; };
@@ -905,7 +905,7 @@
 				9677BEA22AA81FFE00AB537C /* cutbox-jsfuncs-list.png */,
 				964E6FFE2A9B87FD00F86FC8 /* cutbox-logo-text.png */,
 				96C8ABA02A85F3A800C0F42F /* history-clock-face-white.png */,
-				967DFB5920C28D3E0063B050 /* js_badge.png */,
+				967DFB5920C28D3E0063B050 /* js-badge.png */,
 				967DFB5320C246BD0063B050 /* cutbox-js-icon.png */,
 				96A16B4120A0675700EE08A4 /* page.png */,
 				96A16B3F20A002C500EE08A4 /* text-document.png */,
@@ -1339,7 +1339,7 @@
 				965348FC28434735000FD0A1 /* PreferencesAdvancedView.xib in Resources */,
 				9653490728434752000FD0A1 /* ClipItemTableRowImageButtonView.xib in Resources */,
 				965349162843475E000FD0A1 /* SearchAndPreviewView.xib in Resources */,
-				9653495928434D59000FD0A1 /* js_badge.png in Resources */,
+				9653495928434D59000FD0A1 /* js-badge.png in Resources */,
 				96B04643284518E500011A58 /* themes in Resources */,
 				9677BEA42AA8201500AB537C /* history-clock-face-white.png in Resources */,
 				9653495328434D59000FD0A1 /* cutbox-icon.png in Resources */,
@@ -1372,7 +1372,7 @@
 				9655D1DD2A91847200AA902F /* Localizable.strings in Resources */,
 				967DFB5520C246BD0063B050 /* cutbox-js-icon.png in Resources */,
 				96A801BD20A8180F000CBE74 /* PreferencesAdvancedView.xib in Resources */,
-				967DFB5A20C28D3F0063B050 /* js_badge.png in Resources */,
+				967DFB5A20C28D3F0063B050 /* js-badge.png in Resources */,
 				96A16B4220A0675700EE08A4 /* page.png in Resources */,
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
 				96A801BF20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib in Resources */,
