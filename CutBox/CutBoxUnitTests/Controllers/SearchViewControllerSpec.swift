@@ -9,7 +9,6 @@
 import Quick
 import Nimble
 import RxSwift
-@testable import CutBox
 
 class SearchViewControllerSpec: QuickSpec {
     override func spec() {
