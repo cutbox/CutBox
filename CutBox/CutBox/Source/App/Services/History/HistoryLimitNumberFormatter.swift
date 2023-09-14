@@ -14,18 +14,14 @@ class HistoryLimitNumberFormatter: NumberFormatter {
         get {
             return true
         }
-        set {
-            _ = newValue // unused new valuec
-        }
+        set { fatalError("HistoryLimitNumberFormatter().isPartialStringValidationEnabled is not settable") }
     }
 
     var intOnlyRegex: NSRegularExpression? {
         do {
             return try NSRegularExpression(pattern: "^[0-9]*$",
                                            options: NSRegularExpression.Options.caseInsensitive)
-        } catch {
-            fatalError("invalid regexp in intOnlyRegex")
-        }
+        } catch { fatalError("invalid regexp in intOnlyRegex") }
     }
 
     override func isPartialStringValid(_ partialString: String,
