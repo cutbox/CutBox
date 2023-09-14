@@ -10,7 +10,7 @@
 <div align="center">
   <p>Make you macOS pasteboard awesome...</p>
 
-  <a href="https://github.com/cutbox/CutBox/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/cutbox/cutbox?color=%230099AA&label=CutBox&sort=semver&style=for-the-badge"></a>
+  <a href="https://github.com/cutbox/CutBox/releases/latest"><img alt="GitHub release (latest SemVer)" src="CutBox/CutBox/GraphicAssets/cutbox-version-badge.png"></a>
 
 </div>
 
