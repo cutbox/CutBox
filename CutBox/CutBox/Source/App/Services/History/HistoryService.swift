@@ -256,6 +256,15 @@ class HistoryService {
         self.invalidateCache()
     }
 
+    func clearHistoryByTimeOffset(offset: TimeInterval) {
+        if offset == 0 {
+            self.clear()
+        } else {
+            let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
+            self.clearWithTimestampPredicate(predicate: predicate)
+        }
+    }
+
     private func itemSelectionToHistoryIndexes(selected: IndexSet) -> IndexSet {
         return IndexSet(selected
             .compactMap { self.items[safe: $0] }

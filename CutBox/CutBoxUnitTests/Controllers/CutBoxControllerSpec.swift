@@ -17,6 +17,13 @@ class CutBoxControllerSpec: QuickSpec {
         }
     }
 
+    class MockJSFuncService: JSFuncService {
+        var reloadCalled = false
+        override func reload() {
+            reloadCalled = true
+        }
+    }
+
     class MockJSFuncPopup: PopupController {
         var togglePopupWasCalled = false
         override func togglePopup() {
@@ -52,6 +59,17 @@ class CutBoxControllerSpec: QuickSpec {
     }
 
     class MockHotKeyService: HotKeyService {
+        var configureWasCalled = false
+        override func configure() {
+            configureWasCalled = true
+        }
+    }
+
+    class MockHistoryService: HistoryService {
+        var clearHistoryByTimeOffsetWasCalledWith: TimeInterval?
+        override func clearHistoryByTimeOffset(offset: TimeInterval) {
+            clearHistoryByTimeOffsetWasCalledWith = offset
+        }
     }
 
     class MockStatusMenu: CutBoxBaseMenu {
@@ -61,7 +79,7 @@ class CutBoxControllerSpec: QuickSpec {
         var subject: CutBoxController!
         var mockSearchViewController: MockSearchViewController!
         var mockJSFuncSearchViewController: JSFuncSearchViewController!
-        var mockHistoryService: HistoryService!
+        var mockHistoryService: MockHistoryService!
         var mockPreferencesService: CutBoxPreferencesService!
         var mockUserDefaults: UserDefaultsMock!
         var mockPreferencesTabViewController: MockPreferencesTabViewController!
@@ -70,28 +88,56 @@ class CutBoxControllerSpec: QuickSpec {
         var mockStatusMenu: MockStatusMenu!
         var mockJSFuncView: MockJSFuncView!
         var mockJSFuncPopup: MockJSFuncPopup!
+        var mockJSFuncService: MockJSFuncService!
 
         describe("CutBoxController") {
             beforeEach {
                 mockUserDefaults = UserDefaultsMock()
+                mockJSFuncService = MockJSFuncService()
+                JSFuncService.shared = mockJSFuncService
                 mockPreferencesService = CutBoxPreferencesService(defaults: mockUserDefaults)
-                mockHistoryService = HistoryService(defaults: mockUserDefaults, prefs: mockPreferencesService)
-                mockSearchViewController = MockSearchViewController(pasteboardService: mockHistoryService)
+                mockHistoryService = MockHistoryService(defaults: mockUserDefaults, prefs: mockPreferencesService)
                 mockJSFuncView = MockJSFuncView(frame: NSRect(x: 0, y: 0, width: 500, height: 300))
                 mockJSFuncPopup = MockJSFuncPopup(content: mockJSFuncView)
+                mockJSFuncSearchViewController = JSFuncSearchViewController(
+                    cutBoxPreferences: mockPreferencesService,
+                    jsFuncView: mockJSFuncView)
                 mockPreferencesTabViewController = MockPreferencesTabViewController()
                 mockAboutPanel = MockAboutPanel()
                 mockHotKeyService = MockHotKeyService(hotkeyProvider: CutBoxHotkeyProvider())
                 mockStatusMenu = MockStatusMenu()
+                mockSearchViewController = MockSearchViewController(pasteboardService: mockHistoryService)
 
                 subject = CutBoxController()
-                subject.prefs = mockPreferencesService
                 subject.searchViewController = mockSearchViewController
+                subject.jsFuncSearchViewController = mockJSFuncSearchViewController
                 subject.preferencesController = mockPreferencesTabViewController
+
+                subject.prefs = mockPreferencesService
                 subject.aboutPanel = mockAboutPanel
                 subject.hotKeyService = mockHotKeyService
+                subject.historyService = mockHistoryService
                 subject.statusMenu = mockStatusMenu
                 subject.statusItem = cutBoxGetStatusItem(testing: true)
+            }
+
+            context("setup") {
+                it("should set up, hotkey, menu and event bindings") {
+                    // At runtime an item is added via xib
+                    // We'll simulate that it here:
+                    subject.statusMenu.addItem(CutBoxBaseMenuItem())
+                    expect(subject.statusMenu.items.count) == 1
+
+                    subject.setup()
+
+                    expect(mockHotKeyService.configureWasCalled).to(beTrue())
+
+                    expect(subject.statusMenu.items.count) == 19
+
+                    expect(subject.hotKeyService.events.hasObservers).to(beTrue())
+                    expect(subject.searchViewController.events.hasObservers).to(beTrue())
+                    expect(subject.prefs.events.hasObservers).to(beTrue())
+                }
             }
 
             context("event bindings") {
@@ -125,8 +171,8 @@ class CutBoxControllerSpec: QuickSpec {
                     subject.checkSearchModeItem()
                     let result = subject.searchModeSelectorsDict?
                         .first(where: { (_: String, value: CutBoxBaseMenuItem) in
-                        value.state == .on
-                    })
+                            value.state == .on
+                        })
 
                     expect(result?.key) == "substringMatch"
                 }
@@ -264,6 +310,40 @@ class CutBoxControllerSpec: QuickSpec {
                         // Now the test proper.
                         subject.setMenuItems()
                         expect(subject.statusMenu.items.count) == 19
+                    }
+                }
+            }
+
+            context("onNext") {
+                context("CutBoxPreferencesEvent") {
+                    context("historyLimitChanged(limit: Int)") {
+                        it("should set the history limit") {
+                            subject.onNext(event: .historyLimitChanged(limit: 10))
+                            expect(subject.historyService.historyLimit) == 10
+                        }
+                    }
+
+                    context("compactUISettingChanged(isOn: Bool)") {
+                        it("should update the compactUI menu state to reflect the settings change") {
+                            subject.useCompactUI = CutBoxBaseMenuItem()
+                            subject.onNext(event: .compactUISettingChanged(isOn: true))
+                            expect(subject.useCompactUI.state) == .on
+                        }
+                    }
+
+                    context("hidePreviewSettingChanged(isOn: Bool)") {
+                        it("should update the hidePreview menu state to reflect the settings change") {
+                            subject.hidePreview = CutBoxBaseMenuItem()
+                            subject.onNext(event: .hidePreviewSettingChanged(isOn: true))
+                            expect(subject.hidePreview.state) == .on
+                        }
+                    }
+
+                    context("historyClearByOffset(offset: TimeInterval)") {
+                        it("should tell history service to clear") {
+                            subject.onNext(event: .historyClearByOffset(offset: 1000))
+                            expect(mockHistoryService.clearHistoryByTimeOffsetWasCalledWith) == 1000.0
+                        }
                     }
                 }
             }

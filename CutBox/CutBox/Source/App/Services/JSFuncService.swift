@@ -9,7 +9,7 @@
 import JavaScriptCore
 
 class JSFuncService: NSObject {
-    static let shared = JSFuncService()
+    static var shared = JSFuncService()
 
     let cutboxJSFilename: String = NSString(string: "~/.cutbox.js").expandingTildeInPath
 

@@ -238,12 +238,7 @@ extension CutBoxController {
 
 extension CutBoxController {
     func clearHistoryByTimeOffset(offset: TimeInterval) {
-        if offset == 0 {
-            self.historyService.clear()
-        } else {
-            let predicate: (String) -> Bool = historyOffsetPredicateFactory(offset: offset)
-            self.historyService.clearWithTimestampPredicate(predicate: predicate)
-        }
+        self.historyService.clearHistoryByTimeOffset(offset: offset)
     }
 }
 
