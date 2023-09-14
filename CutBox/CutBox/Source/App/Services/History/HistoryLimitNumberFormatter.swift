@@ -14,9 +14,9 @@ class HistoryLimitNumberFormatter: NumberFormatter {
         get {
             return true
         }
-        //swiftlint:disable unused_setter_value
+        // swiftlint:disable unused_setter_value
         set { fatalError("HistoryLimitNumberFormatter().isPartialStringValidationEnabled is not settable") }
-        //swiftlint:enable unused_setter_value
+        // swiftlint:enable unused_setter_value
     }
 
     var intOnlyRegex: NSRegularExpression? {
