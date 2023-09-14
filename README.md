@@ -252,7 +252,6 @@ To build **CutBox.app**:
 
 ```sh
 bin/build
-bin/use_build_as_local_app
 ```
 
 Run the local CutBox.app with terminal logging...
@@ -260,6 +259,14 @@ Run the local CutBox.app with terminal logging...
 ```sh
 CutBox/build/CutBox.app/Contents/MacOS/CutBox
 ```
+
+To use the newly built **CutBox.app** and move it to `/Applications/CutBox.app`:
+
+```sh
+bin/use_build_as_local_app
+```
+
+It will also prompt you to set accessibility & input monitoring so **CutBox.app** can paste.
 
 # Troubleshooting
 
