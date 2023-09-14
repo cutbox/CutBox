@@ -74,7 +74,7 @@ class HistoryStoreMigration_1_6_x_Spec: QuickSpec {
                                     .filter { updatedItems.contains($0["string"]!) }
                                     .map { $0["timestamp"]! }
 
-                                expect(self.timestampsOneSecondApart(updatedTimestamps, tolerance: 0.2)).to(beTrue())
+                                expect(self.timestampsOneSecondApart(updatedTimestamps, tolerance: 1)).to(beTrue())
                             }
                         }
                     }

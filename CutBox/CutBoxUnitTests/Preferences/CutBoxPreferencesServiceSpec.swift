@@ -16,6 +16,7 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
         let subject = CutBoxPreferencesService(defaults: mockedDefaults)
 
         describe("CutBoxPreferencesServiceSpec") {
+            LoginItemsService.testing = true
 
             let bundledThemes = subject.themes
                 .map { $0.name }

@@ -100,6 +100,8 @@ class CutBoxControllerSpec: QuickSpec {
 
         describe("CutBoxController") {
             beforeEach {
+                LoginItemsService.testing = true
+
                 mockUserDefaults = UserDefaultsMock()
                 mockJSFuncService = MockJSFuncService()
                 JSFuncService.shared = mockJSFuncService

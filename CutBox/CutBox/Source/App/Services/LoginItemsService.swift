@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 
 class LoginItemsService {
+    static var testing = false
 
     static let shared = LoginItemsService()
 
@@ -34,11 +35,13 @@ class LoginItemsService {
     }
 
     private func setAutoLogin(_ state: NSControl.StateValue) {
-        if SMLoginItemSetEnabled(self.helperAppIdentifier, state.rawValue == 1) {
-            UserDefaults.standard.set(state, forKey: autoLoginEnabledKey)
-            NSLog("\(state.rawValue == 1 ? "Added" : "Removed") login item \(helperAppIdentifier)")
-        } else {
-            NSLog("Failed to configure login item \(helperAppIdentifier).")
+        if !Self.testing {
+            if SMLoginItemSetEnabled(self.helperAppIdentifier, state.rawValue == 1) {
+                UserDefaults.standard.set(state, forKey: autoLoginEnabledKey)
+                NSLog("\(state.rawValue == 1 ? "Added" : "Removed") login item \(helperAppIdentifier)")
+            } else {
+                NSLog("Failed to configure login item \(helperAppIdentifier).")
+            }
         }
     }
 }

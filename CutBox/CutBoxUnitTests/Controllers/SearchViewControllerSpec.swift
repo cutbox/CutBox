@@ -21,6 +21,8 @@ class SearchViewControllerSpec: QuickSpec {
             var mockSearchAndPreviewView: SearchAndPreviewView!
 
             beforeEach {
+                LoginItemsService.testing = true
+
                 mockHistoryService = HistoryService()
                 mockCutBoxPreferences = CutBoxPreferencesService()
                 mockFakeKey = FakeKey()
