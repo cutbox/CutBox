@@ -10,8 +10,8 @@
 <div align="center">
   <p>Make you macOS pasteboard awesome...</p>
 
-  <a href="https://github.com/cutbox/CutBox/releases/latest"><img alt="GitHub release (latest SemVer)" src="CutBox/CutBox/GraphicAssets/cutbox-version-badge.png"></a>
-
+  <a href="https://github.com/cutbox/CutBox/releases/latest"><img alt="GitHub release (latest SemVer)" src="https://img.shields.io/github/v/release/cutbox/cutbox?color=%230099AA&label=CutBox&sort=semver&style=for-the-badge"></a>
+  
 </div>
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)
