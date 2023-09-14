@@ -13,6 +13,9 @@ test_themes ::
 build ::
 	bin/build
 
+swiftlint ::
+	swiftlint
+
 dmg ::
 	rm -f CutBox.dmg
 	bin/cutbox_make_dmg CutBox.dmg
