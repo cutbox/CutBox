@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml"><img src="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml/badge.svg" /></a>&nbsp;&nbsp;<a href="https://gitter.im/CutBox/Lobby" title="Get Help for CutBox"/><img src="https://badges.gitter.im/cutbox/CutBox.png"/></a>&nbsp;&nbsp;<a href="https://app.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade" title="high quality software"><img src="https://app.codacy.com/project/badge/Grade/ae11b1b41bbe432c88c02ba9a50d5f2d"/></a>&nbsp;<img alt="Codacy coverage" src="https://img.shields.io/codacy/coverage/ae11b1b41bbe432c88c02ba9a50d5f2d?logo=codacy&logoColor=white&label=CutBox.app%20test%20coverage">&nbsp;&nbsp;<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcutbox.github.io%2FCutBox%2FApp%2Fcov_progress.json&query=%24%5B0%5D.line&label=llvm-cov&labelColor=%23006666&color=%23555555"></p>
+  <a href="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml"><img src="https://github.com/cutbox/CutBox/actions/workflows/xcode-build.yml/badge.svg" /></a>&nbsp;&nbsp;<a href="https://app.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cutbox/CutBox&amp;utm_campaign=Badge_Grade" title="high quality software"><img src="https://app.codacy.com/project/badge/Grade/ae11b1b41bbe432c88c02ba9a50d5f2d"/></a>&nbsp;<img alt="Codacy coverage" src="https://img.shields.io/codacy/coverage/ae11b1b41bbe432c88c02ba9a50d5f2d?logo=codacy&logoColor=white&label=CutBox.app%20test%20coverage">&nbsp;&nbsp;<img alt="Dynamic JSON Badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcutbox.github.io%2FCutBox%2FApp%2Fcov_progress.json&query=%24%5B0%5D.line&label=llvm-cov&labelColor=%23006666&color=%23555555"></p>
 <div align="center">
   <p>Make you macOS pasteboard awesome...</p>
 
@@ -14,7 +14,7 @@
   
 </div>
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)&nbsp;&nbsp;[![](https://badges.gitter.im/cutbox/CutBox.png)](https://gitter.im/CutBox/Lobby)
 
 CutBox is a clipboard manager for MacOS, designed for developers. Search using fuzzy matching or regular expressios. Multiple clipboard items can be posted at once.  You can also filter to a time limit, e.g. "10 min" will show items copied in the last 10 min, you can text search on just those items. 
 
@@ -270,7 +270,7 @@ It will also prompt you to set accessibility & input monitoring so **CutBox.app*
 
 # Troubleshooting
 
-There's a Gitter channel if you have problems getting up and running (https://gitter.im/CutBox) 
+[Visit Gitter chat here, if you have problems getting up and running](https://gitter.im/CutBox/Lobby) 
 
 Or open an issue https://github.com/cutbox/CutBox/issues
 
