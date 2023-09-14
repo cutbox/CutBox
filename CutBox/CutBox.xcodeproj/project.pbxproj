@@ -313,6 +313,7 @@
 		96EF85002AB1C82700CC8022 /* CutBoxNSAppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */; };
 		96EF85012AB1C82700CC8022 /* CutBoxNSAppProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */; };
 		96EF85032AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85022AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift */; };
+		96EF850A2AB31B2800CC8022 /* FakeKeySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */; };
 		96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		96FD7C1820ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
 		96FD7C1A20ADBCDB00818925 /* ItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */; };
@@ -550,6 +551,7 @@
 		96EF84FD2AB19CB800CC8022 /* NSImage+fakeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+fakeSpec.swift"; sourceTree = "<group>"; };
 		96EF84FF2AB1C82700CC8022 /* CutBoxNSAppProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxNSAppProvider.swift; sourceTree = "<group>"; };
 		96EF85022AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatterSpec.swift; sourceTree = "<group>"; };
+		96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKeySpec.swift; sourceTree = "<group>"; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
 		96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -835,6 +837,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				96EF85082AB31B1A00CC8022 /* Utilities */,
 				96EF84F32AB1838000CC8022 /* CutBoxImageRefSpec.swift */,
 				968767972AAEC3F000DA256E /* About */,
 				968767902AAEAEE200DA256E /* Base */,
@@ -1146,6 +1149,14 @@
 				962D6D4C207357ED007E3785 /* VersionService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		96EF85082AB31B1A00CC8022 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		96FD7C3120AE515A00818925 /* JSFuncSearchPreview */ = {
@@ -1620,6 +1631,7 @@
 				965348FF28434735000FD0A1 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */,
 				965349342843478C000FD0A1 /* DialogFactory.swift in Sources */,
 				9653491A28434767000FD0A1 /* HistoryRepo.swift in Sources */,
+				96EF850A2AB31B2800CC8022 /* FakeKeySpec.swift in Sources */,
 				9653492628434785000FD0A1 /* KeyCombo+Archive.swift in Sources */,
 				9653493628434795000FD0A1 /* PopupControllerWindowDelegate.swift in Sources */,
 				968767942AAEC34100DA256E /* CutBoxBaseViewSpec.swift in Sources */,

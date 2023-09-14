@@ -37,7 +37,7 @@ class JSFuncSearchViewController: NSObject {
 
     init(jsFuncService: JSFuncService = JSFuncService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
-         fakeKey: FakeKey = FakeKey.shared,
+         fakeKey: FakeKey = FakeKey(),
          jsFuncView: JSFuncSearchAndPreviewView = JSFuncSearchAndPreviewView.fromNib()!) {
 
         self.jsFuncService = jsFuncService

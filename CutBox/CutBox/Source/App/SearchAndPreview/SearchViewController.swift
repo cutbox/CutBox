@@ -56,7 +56,7 @@ class SearchViewController: NSObject {
     /// Connect the preferences service to itself and members.
     init(pasteboardService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
-         fakeKey: FakeKey = FakeKey.shared,
+         fakeKey: FakeKey = FakeKey(),
          searchView: SearchAndPreviewView = SearchAndPreviewView.fromNib()!
     ) {
         self.historyService = pasteboardService
