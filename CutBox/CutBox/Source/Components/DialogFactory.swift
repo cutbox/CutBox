@@ -31,12 +31,14 @@ class DialogAlert: NSAlert {}
 class DialogFactory {
     static var testing: Bool = false
     static var testResponse: Bool = false
+    static var madeDialog: String = ""
 
     private func makeDialog(messageText: String,
                             informativeText: String,
                             ok: String,
                             cancel: String,
                             alert: DialogAlert = DialogAlert()) -> DialogAlert {
+        if Self.testing { Self.madeDialog = messageText }
         alert.messageText = messageText
         alert.informativeText = informativeText
         alert.addButton(withTitle: ok)

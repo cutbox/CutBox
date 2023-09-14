@@ -38,6 +38,14 @@ class CutBoxControllerSpec: QuickSpec {
         }
     }
 
+    class MockJSFuncSearchViewController: JSFuncSearchViewController {
+        var hasFuncsWasCalled = false
+        override var hasFuncs: Bool {
+            hasFuncsWasCalled = true
+            return false
+        }
+    }
+
     class MockPreferencesTabViewController: PreferencesTabViewController {
         var openWasCalled = false
         override func open() {
@@ -78,7 +86,7 @@ class CutBoxControllerSpec: QuickSpec {
     override func spec() {
         var subject: CutBoxController!
         var mockSearchViewController: MockSearchViewController!
-        var mockJSFuncSearchViewController: JSFuncSearchViewController!
+        var mockJSFuncSearchViewController: MockJSFuncSearchViewController!
         var mockHistoryService: MockHistoryService!
         var mockPreferencesService: CutBoxPreferencesService!
         var mockUserDefaults: UserDefaultsMock!
@@ -99,7 +107,7 @@ class CutBoxControllerSpec: QuickSpec {
                 mockHistoryService = MockHistoryService(defaults: mockUserDefaults, prefs: mockPreferencesService)
                 mockJSFuncView = MockJSFuncView(frame: NSRect(x: 0, y: 0, width: 500, height: 300))
                 mockJSFuncPopup = MockJSFuncPopup(content: mockJSFuncView)
-                mockJSFuncSearchViewController = JSFuncSearchViewController(
+                mockJSFuncSearchViewController = MockJSFuncSearchViewController(
                     cutBoxPreferences: mockPreferencesService,
                     jsFuncView: mockJSFuncView)
                 mockPreferencesTabViewController = MockPreferencesTabViewController()
@@ -119,13 +127,12 @@ class CutBoxControllerSpec: QuickSpec {
                 subject.historyService = mockHistoryService
                 subject.statusMenu = mockStatusMenu
                 subject.statusItem = cutBoxGetStatusItem(testing: true)
+                // simulate menu item added via xib
+                subject.statusMenu.addItem(CutBoxBaseMenuItem())
             }
 
             context("setup") {
                 it("should set up, hotkey, menu and event bindings") {
-                    // At runtime an item is added via xib
-                    // We'll simulate that it here:
-                    subject.statusMenu.addItem(CutBoxBaseMenuItem())
                     expect(subject.statusMenu.items.count) == 1
 
                     subject.setup()
@@ -164,7 +171,6 @@ class CutBoxControllerSpec: QuickSpec {
 
             context("checkSearchModeItem") {
                 it("should set the menu item to match the search mode in history service") {
-                    subject.statusMenu.addItem(CutBoxBaseMenuItem())
                     subject.setMenuItems()
                     subject.historyService.searchMode = .substringMatch
 
@@ -303,11 +309,6 @@ class CutBoxControllerSpec: QuickSpec {
 
                 context("status menu setup") {
                     it("menu should have menu items configures") {
-                        // At runtime an item is added via xib
-                        // We'll simulate that it here:
-                        subject.statusMenu.addItem(CutBoxBaseMenuItem())
-
-                        // Now the test proper.
                         subject.setMenuItems()
                         expect(subject.statusMenu.items.count) == 19
                     }
@@ -315,7 +316,66 @@ class CutBoxControllerSpec: QuickSpec {
             }
 
             context("onNext") {
+                context("SearchViewEvent") {
+
+                    context("openPreferences") {
+                        it("should tell preferences controller to open") {
+                            subject.onNext(event: .openPreferences)
+                            expect(mockPreferencesTabViewController.openWasCalled).to(beTrue())
+                        }
+                    }
+
+                    context("search mode selection events") {
+                        let searchModeIndexes = [1, 2, 3, 4]
+
+                        beforeEach {
+                            subject.setMenuItems()
+                            // uncheck search mode menu items
+                            searchModeIndexes.forEach {
+                                subject.statusMenu.item(at: $0)?.state = .off
+                            }
+                        }
+
+                        context("toggleSearchMode") {
+                            it("should update the search mode status menu items") {
+                                subject.onNext(event: .toggleSearchMode)
+                                let result = searchModeIndexes.map { subject.statusMenu.item(at: $0)?.state }
+                                    .map { $0 == .on }
+                                    .filter { $0 }
+                                    .count
+
+                                expect(result) == 1
+                            }
+                        }
+
+                        context("setSearchMode(let mode)") {
+                            it("should update the search mode status menu items using mode") {
+                                let substringMatchMenuItem = subject.searchModeSelectorsDict!["substringMatch"]
+                                subject.onNext(event: .setSearchMode(.substringMatch))
+                                expect(substringMatchMenuItem?.state) == .on
+                            }
+                        }
+                    }
+
+                    context("clearHistory") {
+                        it("should trigger clear history") {
+                            DialogFactory.testing = true
+                            DialogFactory.testResponse = false
+                            subject.onNext(event: .clearHistory)
+                            expect(DialogFactory.madeDialog) == "confirm_warning_clear_history_title".l7n
+                        }
+                    }
+
+                    context("selectJavascriptFunction") {
+                        it("should tell JS view to open") {
+                            subject.onNext(event: .selectJavascriptFunction)
+                            expect(mockJSFuncSearchViewController.hasFuncsWasCalled).to(beTrue())
+                        }
+                    }
+                }
+
                 context("CutBoxPreferencesEvent") {
+
                     context("historyLimitChanged(limit: Int)") {
                         it("should set the history limit") {
                             subject.onNext(event: .historyLimitChanged(limit: 10))
