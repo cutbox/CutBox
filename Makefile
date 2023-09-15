@@ -16,6 +16,9 @@ build ::
 swiftlint ::
 	swiftlint
 
+swiftlint_status ::
+	echo $$(swiftlint 2>&1 | grep -E -o "Done linting.*")
+
 dmg ::
 	rm -f CutBox.dmg
 	bin/cutbox_make_dmg CutBox.dmg
