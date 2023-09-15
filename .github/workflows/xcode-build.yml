@@ -125,7 +125,16 @@ jobs:
             echo '<script type="text/javascript" src="../js/addBlobs.js"></script>' >> docs/$a/index.html
           done
 
-      - name: Render coverage charts
+      - name: Commit Coverage Reports
+        run: |
+          git add docs
+          if git diff --cached --quiet; then
+            echo "No changes to coverage reports"
+          else
+            git commit -m "App & CLI coverage reports - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ) [codacy skip]"
+          fi
+
+      - name: Generate coverage graphs
         run: |
           bin/get_coverage_numbers docs/App/index.html > docs/App/cov_progress.json
           bin/render_cov_graph --output docs/App/cov.svg --title "CutBox.app coverage progress" < docs/App/cov_progress.json
@@ -133,16 +142,13 @@ jobs:
           bin/get_coverage_numbers docs/CLI/index.html > docs/CLI/cov_progress.json
           bin/render_cov_graph --output docs/CLI/cov.svg --title "CutBox CLI coverage progress" < docs/CLI/cov_progress.json
 
-      - name: Push Coverage Reports to cutbox.github.io/CutBox/
+      - name: Commit coverage graphs
         run: |
           git add docs
           if git diff --cached --quiet; then
-            echo "No changes to coverage report"
+            echo "No changes to coverage grapghs"
           else
-            echo "Commit coverage report on docs/coverage"
-            git commit -m "App & CLI coverage - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ) [codacy skip]"
-            git pull --rebase --autostash
-            git push origin master
+            git commit -m "App & CLI coverage graphs - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ) [codacy skip]"
           fi
 
       - name: CLI Build

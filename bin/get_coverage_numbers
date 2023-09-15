@@ -9,33 +9,13 @@ fi
 
 # Print the start of the JSON array
 echo "["
-
-# Flag to track the first commit
-first_commit=true
-
-# Iterate through each commit in the Git log that modified the specified file
+first_entry=0
 git log --follow --pretty=format:"%H|%aI" "$filename" | while IFS='|' read -r commit_hash commit_date; do
-    # Check if this is not the first commit, and if not, print a comma separator
-    if git ls-tree -r --name-only "$commit_hash" | grep -q "$filename"; then
-        index_html="$(git show $commit_hash:$filename)"
-    else
-        continue
-    fi
-
-    if [ "$first_commit" = false ]; then
-        echo ","
-    else
-        first_commit=false
-    fi
-
-    # Get the contents of the file in this commit, format it with pup, and display the last 6 lines
+    git ls-tree -r --name-only "$commit_hash" | grep -q "$filename" && index_html="$(git show $commit_hash:$filename)" || continue
+    if [ $first_entry -eq 0 ]; then; first_entry=1; else; echo "," ;fi
     json_object=$( pup 'tr:last-child pre json{}' <<<"$index_html" )
-
-    # Output the formatted JSON object
     echo $json_object | jq -r ".[1:4] | map(.text) | {\"fn\": .[0], \"line\": .[1], \"region\": .[2], \"commit\": \"$commit_hash\", \"datetime\": \"$commit_date\"}"
-
 done
-
 
 # Print the end of the JSON array
 echo "]"
