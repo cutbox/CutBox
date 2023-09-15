@@ -96,13 +96,12 @@ class CutBoxThemeSpec: QuickSpec {
                     it("attempts decoding of json with missing property") {
                         let json = self.fakeThemeJson()
                             .replacingOccurrences(
-                                of: "\"spacing\": 1.0",
-                                with: ""
+                                of: "\"name\": \"Test Theme\",",
+                                with: "\"name\":,"
                             )
 
                         expect { CutBoxColorTheme(json) }.to(throwAssertion())
                     }
-
                 }
             }
 
