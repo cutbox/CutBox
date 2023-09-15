@@ -22,14 +22,8 @@ extension CutBoxColorTheme {
 
     convenience init(_ json: String) {
         do {
-            try self.init(theme: CutBoxColorThemeDefinition(json))
-        } catch {
-            print("""
-                  Malformed CutBoxTheme JSON:
-                  \(json)
-                  """, to: &errStream)
-            abort()
-        }
+            self.init(theme: try CutBoxColorThemeDefinition(json))
+        } catch { fatalError("CutBoxTheme invalid: \(json)")}
     }
 
     convenience init(theme: CutBoxColorThemeDefinition) {
@@ -59,7 +53,6 @@ extension CutBoxColorTheme {
     }
 }
 
-// MARK: - CutBoxColorThemeDefinition
 struct CutBoxColorThemeDefinition: Codable {
     let name: String
     let popupBackgroundColor: String
@@ -77,8 +70,6 @@ struct CutBoxColorThemeDefinition: Codable {
         case spacing
     }
 }
-
-// MARK: CutBoxColorThemeDefinition convenience initializers and mutators
 
 extension CutBoxColorThemeDefinition {
     init(data: Data) throws {
@@ -109,39 +100,8 @@ extension CutBoxColorThemeDefinition {
         }
         try self.init(data: data)
     }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func with(
-      name: String? = nil,
-      popupBackgroundColor: String? = nil,
-      searchText: SearchText? = nil,
-      clip: Clip? = nil,
-      preview: Preview? = nil,
-      spacing: CGFloat? = nil
-    ) -> CutBoxColorThemeDefinition {
-        CutBoxColorThemeDefinition(
-          name: name ?? self.name,
-          popupBackgroundColor: popupBackgroundColor ?? self.popupBackgroundColor,
-          searchText: searchText ?? self.searchText,
-          clip: clip ?? self.clip,
-          preview: preview ?? self.preview,
-          spacing: spacing ?? self.spacing
-        )
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        String(data: try self.jsonData(), encoding: encoding)
-    }
 }
 
-// MARK: - Clip
 struct Clip: Codable {
     let backgroundColor: String
     let textColor: String
@@ -156,8 +116,6 @@ struct Clip: Codable {
     }
 }
 
-// MARK: Clip convenience initializers and mutators
-
 extension Clip {
     init(data: Data) throws {
         self = try newJSONDecoder().decode(Clip.self, from: data)
@@ -169,35 +127,8 @@ extension Clip {
         }
         try self.init(data: data)
     }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func with(
-      backgroundColor: String? = nil,
-      textColor: String? = nil,
-      highlightColor: String? = nil,
-      highlightTextColor: String? = nil
-    ) -> Clip {
-        return Clip(
-          backgroundColor: backgroundColor ?? self.backgroundColor,
-          textColor: textColor ?? self.textColor,
-          highlightColor: highlightColor ?? self.highlightColor,
-          highlightTextColor: highlightTextColor ?? self.highlightTextColor
-        )
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
-    }
 }
 
-// MARK: - Preview
 struct Preview: Codable {
     let textColor: String
     let backgroundColor: String
@@ -212,8 +143,6 @@ struct Preview: Codable {
     }
 }
 
-// MARK: Preview convenience initializers and mutators
-
 extension Preview {
     init(data: Data) throws {
         self = try newJSONDecoder().decode(Preview.self, from: data)
@@ -225,35 +154,8 @@ extension Preview {
         }
         try self.init(data: data)
     }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func with(
-      textColor: String? = nil,
-      backgroundColor: String? = nil,
-      selectedTextBackgroundColor: String? = nil,
-      selectedTextColor: String? = nil
-    ) -> Preview {
-        return Preview(
-          textColor: textColor ?? self.textColor,
-          backgroundColor: backgroundColor ?? self.backgroundColor,
-          selectedTextBackgroundColor: selectedTextBackgroundColor ?? self.selectedTextBackgroundColor,
-          selectedTextColor: selectedTextColor ?? self.selectedTextColor
-        )
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
-    }
 }
 
-// MARK: - SearchText
 struct SearchText: Codable {
     let cursorColor: String
     let textColor: String
@@ -268,8 +170,6 @@ struct SearchText: Codable {
     }
 }
 
-// MARK: SearchText convenience initializers and mutators
-
 extension SearchText {
     init(data: Data) throws {
         self = try newJSONDecoder().decode(SearchText.self, from: data)
@@ -281,35 +181,7 @@ extension SearchText {
         }
         try self.init(data: data)
     }
-
-    init(fromURL url: URL) throws {
-        try self.init(data: try Data(contentsOf: url))
-    }
-
-    func with(
-      cursorColor: String? = nil,
-      textColor: String? = nil,
-      backgroundColor: String? = nil,
-      placeholderTextColor: String? = nil
-    ) -> SearchText {
-        return SearchText(
-          cursorColor: cursorColor ?? self.cursorColor,
-          textColor: textColor ?? self.textColor,
-          backgroundColor: backgroundColor ?? self.backgroundColor,
-          placeholderTextColor: placeholderTextColor ?? self.placeholderTextColor
-        )
-    }
-
-    func jsonData() throws -> Data {
-        return try newJSONEncoder().encode(self)
-    }
-
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
-    }
 }
-
-// MARK: - Helper functions for creating encoders and decoders
 
 func newJSONDecoder() -> JSONDecoder {
     let decoder = JSONDecoder()
@@ -317,12 +189,4 @@ func newJSONDecoder() -> JSONDecoder {
         decoder.dateDecodingStrategy = .iso8601
     }
     return decoder
-}
-
-func newJSONEncoder() -> JSONEncoder {
-    let encoder = JSONEncoder()
-    if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
-        encoder.dateEncodingStrategy = .iso8601
-    }
-    return encoder
 }

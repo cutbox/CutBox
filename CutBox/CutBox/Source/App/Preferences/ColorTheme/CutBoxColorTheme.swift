@@ -8,28 +8,36 @@
 
 import Cocoa
 
-struct SearchTextTheme {
+struct SearchTextTheme: Equatable {
     var cursorColor: NSColor
     var textColor: NSColor
     var backgroundColor: NSColor
     var placeholderTextColor: NSColor
 }
 
-struct ClipTheme {
+struct ClipTheme: Equatable {
     var backgroundColor: NSColor
     var textColor: NSColor
     var highlightColor: NSColor
     var highlightTextColor: NSColor
 }
 
-struct PreviewTheme {
+struct PreviewTheme: Equatable {
     var textColor: NSColor
     var backgroundColor: NSColor
     var selectedTextBackgroundColor: NSColor
     var selectedTextColor: NSColor
 }
 
-class CutBoxColorTheme {
+class CutBoxColorTheme: Equatable, CustomStringConvertible {
+    static func == (lhs: CutBoxColorTheme, rhs: CutBoxColorTheme) -> Bool {
+        lhs.name == rhs.name &&
+        lhs.spacing == rhs.spacing &&
+        lhs.popupBackgroundColor == rhs.popupBackgroundColor &&
+        lhs.searchText == rhs.searchText &&
+        lhs.clip == rhs.clip &&
+        lhs.preview == rhs.preview
+    }
 
     let name: String
     var spacing: CGFloat
@@ -51,5 +59,33 @@ class CutBoxColorTheme {
         self.searchText = searchText
         self.clip = clip
         self.preview = preview
+    }
+
+    var description: String {
+        """
+        {
+            "name": "\(name)",
+            "popupBackgroundColor": "\(popupBackgroundColor)",
+            "searchText": {
+            "cursorColor": "\(searchText.cursorColor)",
+                    "textColor": "\(searchText.textColor)",
+                    "backgroundColor": "\(searchText.backgroundColor)",
+                    "placeholderTextColor": "\(searchText.placeholderTextColor)"
+                },
+                "clip": {
+                    "backgroundColor": "\(clip.backgroundColor)",
+                    "textColor": "\(clip.textColor)",
+                    "highlightColor": "\(clip.highlightColor)",
+                    "highlightTextColor": "\(clip.highlightTextColor)"
+                },
+                "preview": {
+                    "textColor": "\(preview.textColor)",
+                    "backgroundColor": "\(preview.backgroundColor)",
+                    "selectedTextBackgroundColor": "\(preview.selectedTextBackgroundColor)",
+                    "selectedTextColor": "\(preview.selectedTextColor)"
+                },
+            "spacing": \(spacing),
+        }
+        """
     }
 }

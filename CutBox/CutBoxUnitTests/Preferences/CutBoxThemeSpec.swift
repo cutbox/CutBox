@@ -12,7 +12,7 @@ import JSONSchema
 
 class CutBoxThemeSpec: QuickSpec {
     override func spec() {
-        describe("CutBoxThemeSpec", {
+        describe("CutBoxTheme") {
             let subjectA = CutBoxColorTheme(
                 name: "TestTheme",
                 popupBackgroundColor: "#444444".color!,
@@ -62,45 +62,23 @@ class CutBoxThemeSpec: QuickSpec {
                     },
                     "spacing": 1.0
                 }
-            """)
+                """)
 
-            describe("should match") {
+            let subjectC = CutBoxColorTheme(name: "TestTheme", theme: subjectA)
+            let subjectD = CutBoxColorTheme(name: "Borked Name", theme: subjectC)
 
-                it("name") {
-                    expect(subjectA.name).to(equal(subjectB.name))
-                }
+            context("theme initialization") {
+                describe("should match") {
+                    it("should match themes based on the same definition") {
+                        expect(subjectA) == subjectB
+                        expect(subjectB) == subjectC
+                    }
 
-                it("clip items") {
-                    expect(subjectA.clip.textColor)
-                        .to(equal(subjectB.clip.textColor))
-                    expect(subjectA.clip.highlightColor)
-                        .to(equal(subjectB.clip.highlightColor))
-                    expect(subjectA.clip.highlightTextColor)
-                        .to(equal(subjectB.clip.highlightTextColor))
-                }
-
-                it("preview") {
-                    expect(subjectA.preview.textColor)
-                        .to(equal(subjectB.preview.textColor))
-                    expect(subjectA.preview.backgroundColor)
-                        .to(equal(subjectB.preview.backgroundColor))
-                    expect(subjectA.preview.selectedTextBackgroundColor)
-                        .to(equal(subjectB.preview.selectedTextBackgroundColor))
-                    expect(subjectA.preview.selectedTextColor)
-                        .to(equal(subjectB.preview.selectedTextColor))
-                }
-
-                it("search") {
-                    expect(subjectA.searchText.textColor)
-                        .to(equal(subjectB.searchText.textColor))
-                    expect(subjectA.searchText.cursorColor)
-                        .to(equal(subjectB.searchText.cursorColor))
-                    expect(subjectA.searchText.placeholderTextColor)
-                        .to(equal(subjectB.searchText.placeholderTextColor))
-                    expect(subjectA.searchText.backgroundColor)
-                        .to(equal(subjectB.searchText.backgroundColor))
+                    it("should not match themes with different names") {
+                        expect(subjectA) != subjectD
+                    }
                 }
             }
-        })
+        }
     }
 }
