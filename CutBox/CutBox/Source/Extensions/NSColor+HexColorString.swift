@@ -54,6 +54,10 @@ extension NSColor {
         return toHex()
     }
 
+    var toHexAlpha: String? {
+        return toHex(alpha: true)
+    }
+
     func toHex(alpha hasAlpha: Bool = false) -> String? {
         guard let components = cgColor.components, components.count >= 3 else {
             return nil

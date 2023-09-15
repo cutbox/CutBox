@@ -116,19 +116,6 @@ struct Clip: Codable {
     }
 }
 
-extension Clip {
-    init(data: Data) throws {
-        self = try newJSONDecoder().decode(Clip.self, from: data)
-    }
-
-    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-        guard let data = json.data(using: encoding) else {
-            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-        }
-        try self.init(data: data)
-    }
-}
-
 struct Preview: Codable {
     let textColor: String
     let backgroundColor: String
@@ -143,19 +130,6 @@ struct Preview: Codable {
     }
 }
 
-extension Preview {
-    init(data: Data) throws {
-        self = try newJSONDecoder().decode(Preview.self, from: data)
-    }
-
-    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-        guard let data = json.data(using: encoding) else {
-            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-        }
-        try self.init(data: data)
-    }
-}
-
 struct SearchText: Codable {
     let cursorColor: String
     let textColor: String
@@ -167,19 +141,6 @@ struct SearchText: Codable {
         case textColor
         case backgroundColor
         case placeholderTextColor
-    }
-}
-
-extension SearchText {
-    init(data: Data) throws {
-        self = try newJSONDecoder().decode(SearchText.self, from: data)
-    }
-
-    init(_ json: String, using encoding: String.Encoding = .utf8) throws {
-        guard let data = json.data(using: encoding) else {
-            throw NSError(domain: "JSONDecoding", code: 0, userInfo: nil)
-        }
-        try self.init(data: data)
     }
 }
 

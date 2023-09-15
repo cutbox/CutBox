@@ -24,7 +24,7 @@ class NSColorHexColorStringSpec: QuickSpec {
                 }
             }
 
-            describe("NSColor.toHex()") {
+            describe("NSColor.toHex(alpha:)") {
                 it("returns a hex color with alpha component, last 2 of 8 digits") {
                     let colorWithAlpha = NSColor(deviceRed: 1.0, green: 0, blue: 0, alpha: 0.3)
                     expect(colorWithAlpha.toHex(alpha: true)) == "FF00004D"
@@ -35,6 +35,16 @@ class NSColorHexColorStringSpec: QuickSpec {
                 it("Returns the hex string for a color") {
                     let red = NSColor.red
                     expect("FF0000") == red.toHex
+                }
+            }
+
+            describe("NSColor.toHexAlpha") {
+                it("Returns the RGBA hex string for a color") {
+                    let red = NSColor.red
+                    expect("FF0000FF") == red.toHexAlpha
+
+                    let colorWithAlpha = NSColor(deviceRed: 1.0, green: 0, blue: 0, alpha: 0.3)
+                    expect("FF00004D") == colorWithAlpha.toHexAlpha
                 }
             }
         }

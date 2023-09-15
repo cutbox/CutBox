@@ -11,10 +11,39 @@ import Nimble
 import JSONSchema
 
 class CutBoxThemeSpec: QuickSpec {
+
+    func fakeThemeJson() -> String {
+        return """
+               {
+                   "name": "Test Theme",
+                   "popupBackgroundColor": "#444444",
+                   "searchText": {
+                       "cursorColor": "#444444",
+                       "textColor": "#444444",
+                       "backgroundColor": "#333333",
+                       "placeholderTextColor": "#FFFFFF"
+                   },
+                   "clip": {
+                       "backgroundColor": "#444444",
+                       "textColor": "#FFFFFF",
+                       "highlightColor": "#0000FF",
+                       "highlightTextColor": "#FFFFFF"
+                   },
+                   "preview": {
+                       "textColor": "#EEEEEE",
+                       "backgroundColor": "#000000",
+                       "selectedTextBackgroundColor": "#FF0000",
+                       "selectedTextColor": "#EEEEEE"
+                   },
+                   "spacing": 1.0
+               }
+               """
+    }
+
     override func spec() {
         describe("CutBoxTheme") {
             let subjectA = CutBoxColorTheme(
-                name: "TestTheme",
+                name: "Test Theme",
                 popupBackgroundColor: "#444444".color!,
                 searchText:
                     SearchTextTheme( cursorColor: "#444444".color!,
@@ -38,34 +67,44 @@ class CutBoxThemeSpec: QuickSpec {
                 spacing: 1.0
             )
 
-            let subjectB = CutBoxColorTheme("""
-                {
-                    "name": "TestTheme",
-                    "popupBackgroundColor": "#444444",
-                    "searchText": {
-                        "cursorColor": "#444444",
-                        "textColor": "#444444",
-                        "backgroundColor": "#333333",
-                        "placeholderTextColor": "#FFFFFF"
-                    },
-                    "clip": {
-                        "backgroundColor": "#444444",
-                        "textColor": "#FFFFFF",
-                        "highlightColor": "#0000FF",
-                        "highlightTextColor": "#FFFFFF"
-                    },
-                    "preview": {
-                        "textColor": "#EEEEEE",
-                        "backgroundColor": "#000000",
-                        "selectedTextBackgroundColor": "#FF0000",
-                        "selectedTextColor": "#EEEEEE"
-                    },
-                    "spacing": 1.0
-                }
-                """)
-
-            let subjectC = CutBoxColorTheme(name: "TestTheme", theme: subjectA)
+            let subjectB = CutBoxColorTheme(self.fakeThemeJson())
+            let subjectC = CutBoxColorTheme(name: "Test Theme", theme: subjectA)
             let subjectD = CutBoxColorTheme(name: "Borked Name", theme: subjectC)
+
+            context("JSON decoding errors") {
+                context("throws assertion when") {
+                    it("attempts decoding of corrupt json") {
+                        let json = "{{{{{This isn't going to end well for the decoder!"
+                        expect { CutBoxColorTheme(json) }.to(throwAssertion())
+                    }
+
+                    it("attempts decoding of json with no properties") {
+                        let json = "{}"
+                        expect { CutBoxColorTheme(json) }.to(throwAssertion())
+                    }
+
+                    it("attempts decoding of json with mismatched property type") {
+                        let json = self.fakeThemeJson()
+                            .replacingOccurrences(
+                                of: "\"spacing\": 1.0",
+                                with: "\"spacing\": \"ABC\""
+                            )
+
+                        expect { CutBoxColorTheme(json) }.to(throwAssertion())
+                    }
+
+                    it("attempts decoding of json with missing property") {
+                        let json = self.fakeThemeJson()
+                            .replacingOccurrences(
+                                of: "\"spacing\": 1.0",
+                                with: ""
+                            )
+
+                        expect { CutBoxColorTheme(json) }.to(throwAssertion())
+                    }
+
+                }
+            }
 
             context("theme initialization") {
                 describe("should match") {

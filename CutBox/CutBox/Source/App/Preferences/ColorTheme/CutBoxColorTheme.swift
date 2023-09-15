@@ -31,12 +31,7 @@ struct PreviewTheme: Equatable {
 
 class CutBoxColorTheme: Equatable, CustomStringConvertible {
     static func == (lhs: CutBoxColorTheme, rhs: CutBoxColorTheme) -> Bool {
-        lhs.name == rhs.name &&
-        lhs.spacing == rhs.spacing &&
-        lhs.popupBackgroundColor == rhs.popupBackgroundColor &&
-        lhs.searchText == rhs.searchText &&
-        lhs.clip == rhs.clip &&
-        lhs.preview == rhs.preview
+        lhs.description == rhs.description
     }
 
     let name: String
