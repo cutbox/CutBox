@@ -18,12 +18,16 @@ class SearchViewControllerSpec: QuickSpec {
             var mockCutBoxPreferences: CutBoxPreferencesService!
             var mockFakeKey: FakeKey!
             var mockSearchAndPreviewView: SearchAndPreviewView!
+            var mockUserDefaults: UserDefaultsMock!
+            var mockPasteboard: PasteboardWrapperMock!
 
             beforeEach {
                 LoginItemsService.testing = true
 
-                mockHistoryService = HistoryService()
-                mockCutBoxPreferences = CutBoxPreferencesService()
+                mockUserDefaults = UserDefaultsMock()
+                mockPasteboard = PasteboardWrapperMock()
+                mockHistoryService = HistoryService(defaults: mockUserDefaults, pasteboard: mockPasteboard)
+                mockCutBoxPreferences = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockFakeKey = FakeKey()
                 mockSearchAndPreviewView = SearchAndPreviewView()
 
@@ -49,74 +53,119 @@ class SearchViewControllerSpec: QuickSpec {
             }
 
             context("SearchViewEvents") {
-                /*
-                    case .setSearchMode(let mode):
-                        self.historyService.searchMode = mode
-
-                    case .toggleSearchMode:
-                        let mode = self.historyService.toggleSearchMode()
-                        self.searchView.reloadData()
-                        self.searchView.setSearchModeButton(mode: mode)
-
-                    case .setTimeFilter(let seconds):
-                        self.historyService.setTimeFilter(seconds: seconds)
-                        self.searchView.reloadData()
-
-                    case .toggleTimeFilter:
-                        self.searchView.toggleTimeFilter()
-                        self.historyService.setTimeFilter(seconds: nil)
-                        self.searchView.reloadData()
-
-                    case .cycleTheme:
-                        self.prefs.cycleTheme()
-                        self.searchView.applyTheme()
-                        self.reloadDataWithExistingSelection()
-
-                    case .toggleWrappingStrings:
-                        self.prefs.useWrappingStrings.toggle()
-                        self.updateSearchItemPreview()
-
-                    case .toggleJoinStrings:
-                        self.prefs.useJoinString.toggle()
-                        self.updateSearchItemPreview()
-
-                    case .toggleSearchScope:
-                        self.historyService.favoritesOnly.toggle()
-                        self.searchView.reloadData()
-                        self.searchView.setSearchScopeButton(favoritesOnly: self.historyService.favoritesOnly)
-
-                    case .togglePreview:
-                        self.prefs.hidePreview.toggle()
-
-                    case .scaleTextDown:
-                        self.prefs.scaleTextDown()
-                        self.reloadDataWithExistingSelection()
-
-                    case .scaleTextUp:
-                        self.prefs.scaleTextUp()
-                        self.reloadDataWithExistingSelection()
-
-                    case .scaleTextNormalize:
-                        self.prefs.scaleTextNormalize()
-                        self.reloadDataWithExistingSelection()
-
-                    case .toggleFavorite:
-                        self.toggleFavoriteItems()
-
-                    case .justClose:
-                        self.justClose()
-
-                    case .closeAndPasteSelected:
-                        self.closeAndPaste()
-
-                    case .removeSelected:
-                        self.removeSelectedItems()
-
-                    default:
-                        break
+                context("scaleTextUp") {
+                    it("increases clip and preview font sizes") {
+                        subject.onNext(event: .scaleTextUp)
+                        expect(subject.prefs.searchViewClipTextFieldFont?.pointSize) == 13
+                        expect(subject.prefs.searchViewClipPreviewFont?.pointSize) == 13
                     }
                 }
-                 */
+
+                context("scaleTextDown") {
+                    it("decreases clip and preview font sizes") {
+                        subject.prefs.searchViewClipTextFieldFont = NSFont(name: "Helvetica Neue", size: 14)
+                        subject.prefs.searchViewClipPreviewFont = NSFont(name: "Menlo", size: 14)
+
+                        subject.onNext(event: .scaleTextDown)
+
+                        expect(subject.prefs.searchViewClipTextFieldFont?.pointSize) == 13
+                        expect(subject.prefs.searchViewClipPreviewFont?.pointSize) == 13
+                    }
+                }
+
+                context("scaleTextNormalize") {
+                    it("resets clip and preview font sizes to default") {
+                        subject.prefs.searchViewClipTextFieldFont = NSFont(name: "Helvetica Neue", size: 18)
+                        subject.prefs.searchViewClipPreviewFont = NSFont(name: "Menlo", size: 18)
+
+                        subject.onNext(event: .scaleTextNormalize)
+
+                        expect(subject.prefs.searchViewClipTextFieldFont?.pointSize) == 12
+                        expect(subject.prefs.searchViewClipPreviewFont?.pointSize) == 12
+                    }
+                }
+
+                context("setSearchMode") {
+                    it("sets the search mode on history service") {
+                        subject.onNext(event: .setSearchMode(.regexpAnyCase))
+                        expect(subject.historyService.searchMode) == .regexpAnyCase
+                    }
+                }
+
+                context("setSearchMode") {
+                    it("sets the search mode on history service") {
+                        subject.onNext(event: .toggleSearchMode)
+                        expect(subject.historyService.searchMode) == .regexpAnyCase
+                        subject.onNext(event: .toggleSearchMode)
+                        expect(subject.historyService.searchMode) == .regexpStrictCase
+                    }
+                }
+
+                context("setTimeFilter") {
+                    it("sets the time linit filter on history service") {
+                        subject.onNext(event: .setTimeFilter(seconds: 10))
+                        expect(subject.historyService.historyRepo.timeFilter) == 10.0
+                    }
+                }
+
+                context("toggleTimeFilter") {
+                    it("clears and resets the time linit filter on history") {
+                        subject.onNext(event: .toggleTimeFilter)
+                        expect(subject.historyService.historyRepo.timeFilter).to(beNil())
+                    }
+                }
+
+                context("cycleTheme") {
+                    it("clears and resets the time linit filter on history") {
+                        subject.onNext(event: .cycleTheme)
+                        expect(subject.prefs.currentTheme.name) == "Skylight"
+                    }
+                }
+
+                context("toggleWrappingStrings") {
+                    it("toggle wrapping strings on / off") {
+                        subject.onNext(event: .toggleWrappingStrings)
+                        expect(subject.prefs.useWrappingStrings).to(beTrue())
+                    }
+                }
+
+                context("toggleJoinStrings") {
+                    it("toggle join strings on / off") {
+                        subject.onNext(event: .toggleJoinStrings)
+                        expect(subject.prefs.useJoinString).to(beTrue())
+                    }
+                }
+
+                context("toggleSearchScope") {
+                    it("toggle favorite search scope only on / off") {
+                        subject.onNext(event: .toggleSearchScope)
+                        expect(subject.historyService.favoritesOnly).to(beTrue())
+                    }
+                }
+
+                context("togglePreview") {
+                    it("toggle preview on / off") {
+                        subject.onNext(event: .togglePreview)
+                        expect(subject.prefs.hidePreview).to(beTrue())
+                    }
+                }
+
+                context("toggleFavorite") {
+                    it("toggles favorites onlyon / off") {
+                        SearchViewController.testing = true
+                        SearchViewController.testingResult = ""
+
+                        subject.onNext(event: .toggleFavorite)
+                        expect(SearchViewController.testingResult) == "toggleFavoriteItems"
+                    }
+                }
+                /*  case .justClose:
+                        self.justClose()
+                    case .closeAndPasteSelected:
+                        self.closeAndPaste()
+                    case .removeSelected:
+                        self.removeSelectedItems()
+                } */
             }
         }
     }

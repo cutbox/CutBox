@@ -16,6 +16,9 @@ import RxSwift
 /// `historyService:HistoryService` and `prefs:CutBoxPreferencesService`.
 class SearchViewController: NSObject {
 
+    static var testing = false
+    static var testingResult: String!
+
     var searchView: SearchAndPreviewView
     var historyService: HistoryService
     var prefs: CutBoxPreferencesService
@@ -126,6 +129,10 @@ class SearchViewController: NSObject {
 
     /// Toggle favorite status on selected items
     func toggleFavoriteItems() {
+        if Self.testing {
+            Self.testingResult = "toggleFavoriteItems"
+        }
+
         if  let selection = self.selectedItems {
             self.historyService.toggleFavorite(items: selection)
             self.searchView.reloadData()

@@ -6,13 +6,13 @@
 //  Copyright © 2018-2023 ocodo. All rights reserved.
 //
 
-enum SearchJSFuncViewEvents {
+enum SearchJSFuncViewEvents: Equatable {
     case closeAndPaste
     case justClose
     case cycleTheme
 }
 
-enum SearchViewEvents {
+enum SearchViewEvents: Equatable {
     case closeAndPasteSelected
     case selectJavascriptFunction
     case justClose

@@ -44,6 +44,11 @@ class ItemTableRowTextView: NSView {
         }
     }
 
+    override func viewWillDraw() {
+        super.viewWillDraw()
+        title.font = self.prefs.searchViewClipTextFieldFont
+    }
+
     func setup() {
         title.font = self.prefs.searchViewClipTextFieldFont
     }

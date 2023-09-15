@@ -10,9 +10,9 @@ import Quick
 import Nimble
 import RxSwift
 
-private class HistoryRepoMock: HistoryRepo {}
+class HistoryRepoMock: HistoryRepo {}
 
-private class PasteboardWrapperMock: PasteboardWrapperType {
+class PasteboardWrapperMock: PasteboardWrapperType {
     var called = false
     var _pasteboardItems: [NSPasteboardItem]?
     var pasteboardItems: [NSPasteboardItem]? {

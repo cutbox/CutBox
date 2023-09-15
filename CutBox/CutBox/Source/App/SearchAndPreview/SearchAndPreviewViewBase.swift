@@ -138,12 +138,12 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
     }
 
     func hideSearchResults(_ bool: Bool) {
-        self.bottomBar.isHidden = bool
-        self.container.isHidden = bool
+        self.bottomBar?.isHidden = bool
+        self.container?.isHidden = bool
     }
 
     func hidePreview(_ bool: Bool) {
-        self.previewContainer.isHidden = bool
+        self.previewContainer?.isHidden = bool
     }
 
     func setupPlaceholder() {
@@ -188,9 +188,9 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
         let image = image
         let blended = image.tint(color: color)
 
-        self.searchScopeImageButton.alphaValue = alpha
-        self.searchScopeImageButton.image = blended
-        self.searchScopeImageButton.toolTip = toolTip
+        self.searchScopeImageButton?.alphaValue = alpha
+        self.searchScopeImageButton?.image = blended
+        self.searchScopeImageButton?.toolTip = toolTip
     }
 
     func applyTheme() {

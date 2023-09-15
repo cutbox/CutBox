@@ -48,8 +48,8 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
         let color = [NSAttributedString.Key.foregroundColor: prefs.currentTheme.clip.textColor]
         let titleString = NSAttributedString(string: mode.name, attributes: color)
 
-        self.searchModeToggle.attributedTitle = titleString
-        self.searchModeToggle.toolTip = mode.toolTip
+        self.searchModeToggle?.attributedTitle = titleString
+        self.searchModeToggle?.toolTip = mode.toolTip
     }
 
     private func setupHistoryScopeButton() {
@@ -68,9 +68,9 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
         let image = image
         let blended = image.tint(color: color)
 
-        self.historyScopeImageButton.alphaValue = alpha
-        self.historyScopeImageButton.image = blended
-        self.historyScopeImageButton.toolTip = tooltip
+        self.historyScopeImageButton?.alphaValue = alpha
+        self.historyScopeImageButton?.image = blended
+        self.historyScopeImageButton?.toolTip = tooltip
     }
 
     private func historyScopeClicked() {
@@ -90,13 +90,17 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
     func setSearchScopeButton(favoritesOnly: Bool) {
         if favoritesOnly {
             colorizeMagnifier(
-                image: #imageLiteral(resourceName: "star.png"),
+                image: CutBoxImageRef.star.image(),
                 tooltip: "search_scope_tooltip_favorites".l7n,
                 color: prefs.currentTheme.searchText.placeholderTextColor
             )
         } else {
             colorizeMagnifier(color: prefs.currentTheme.searchText.placeholderTextColor)
         }
+    }
+
+    override func setTextScale() {
+        super.setTextScale()
     }
 
     private func setupSearchScopeToggle() {
@@ -135,31 +139,31 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
     }
 
     func toggleTimeFilter() {
-        self.timeFilterLabel.isHidden.toggle()
-        self.timeFilterText.isHidden.toggle()
+        self.timeFilterLabel?.isHidden.toggle()
+        self.timeFilterText?.isHidden.toggle()
 
-        if self.timeFilterText.isHidden {
+        if self.timeFilterText?.isHidden != nil {
             self.window?.makeFirstResponder(self.searchText)
             self.prefs.savedTimeFilterValue = self.timeFilterText.stringValue
             self.timeFilterText.stringValue = ""
         } else {
             let newText: String = self.prefs.savedTimeFilterValue
             self.window?.makeFirstResponder(self.timeFilterText)
-            self.timeFilterText.stringValue = newText
+            self.timeFilterText?.stringValue = newText
             DispatchQueue.main.async { self.onTimeFilterTextChanged(text: newText) }
         }
     }
 
     func onTimeFilterTextChanged(text: String) {
         let filter = TimeFilterValidator(value: text)
-        self.timeFilterText.isValid = filter.isValid
+        self.timeFilterText?.isValid = filter.isValid
 
         if let seconds = filter.seconds {
             let formatted = TimeFilterValidator.secondsToTime(seconds: Int(seconds))
-            self.timeFilterLabel.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
+            self.timeFilterLabel?.stringValue = String(format: "search_time_filter_label_active".l7n, formatted)
             self.events.onNext(.setTimeFilter(seconds: seconds))
         } else {
-            self.timeFilterLabel.stringValue = "search_time_filter_label_hint".l7n
+            self.timeFilterLabel?.stringValue = "search_time_filter_label_hint".l7n
             self.events.onNext(.setTimeFilter(seconds: nil))
         }
     }
@@ -193,7 +197,7 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
 
         let theme = prefs.currentTheme
 
-        timeFilterLabel.textColor = theme.searchText.placeholderTextColor
+        timeFilterLabel?.textColor = theme.searchText.placeholderTextColor
 
         colorizeHistoryScopeIcon(alpha: 0.6,
                                  color: theme.searchText.placeholderTextColor)
