@@ -151,6 +151,11 @@ jobs:
             git commit -m "App & CLI coverage graphs - $(TZ=UTC date +%Y-%m-%dT%H:%M:%SZ) [codacy skip]"
           fi
 
+      - name: Push runner commits
+        run: |
+          git pull --rebase
+          git push origin master
+
       - name: CLI Build
         run: |
           make -C cutbox_command dmg_bin
