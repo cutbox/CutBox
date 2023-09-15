@@ -10,6 +10,13 @@ import Quick
 import Nimble
 import RxSwift
 
+class MockJSFuncService: JSFuncService {
+    var reloadCalled = 0
+    override func reload() {
+        reloadCalled += 1
+    }
+}
+
 class CutBoxPreferencesServiceSpec: QuickSpec {
     override func spec() {
         let mockedDefaults: UserDefaults = UserDefaultsMock()
@@ -50,14 +57,7 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
 
         describe("loadJavaScript") {
             it("loads javascript") {
-                class MockJSFuncService: JSFuncService {
-                    var reloadCalled = 0
-                    override func reload() {
-                        reloadCalled += 1
-                    }
-                }
-
-                let mockJSFuncService = MockJSFuncService()
+                 let mockJSFuncService = MockJSFuncService()
                 subject.js = mockJSFuncService
                 subject.loadJavascript()
                 expect(mockJSFuncService.reloadCalled) == 1

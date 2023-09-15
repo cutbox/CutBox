@@ -316,6 +316,7 @@
 		96EF850A2AB31B2800CC8022 /* FakeKeySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */; };
 		96EF850C2AB33FCF00CC8022 /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */; };
 		96EF850E2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */; };
+		96EF85102AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */; };
 		96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		96FD7C1820ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
 		96FD7C1A20ADBCDB00818925 /* ItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */; };
@@ -556,6 +557,7 @@
 		96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKeySpec.swift; sourceTree = "<group>"; };
 		96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
 		96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencesAdvancedViewSpec.swift; path = CutBoxUnitTests/Preferences/PreferencesAdvancedViewSpec.swift; sourceTree = SOURCE_ROOT; };
+		96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewControllerSpec.swift; sourceTree = "<group>"; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
 		96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -937,6 +939,7 @@
 			isa = PBXGroup;
 			children = (
 				96658CEF20BA7B3E00BDA8F4 /* JSFuncServiceSpec.swift */,
+				96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */,
 			);
 			path = JSFunc;
 			sourceTree = "<group>";
@@ -1647,6 +1650,7 @@
 				965349172843475E000FD0A1 /* SearchViewTextViewDelegate.swift in Sources */,
 				9653492228434772000FD0A1 /* VersionService.swift in Sources */,
 				9653490328434742000FD0A1 /* JSFuncSearchTextViewDelegate.swift in Sources */,
+				96EF85102AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift in Sources */,
 				9653493C284347E8000FD0A1 /* JSFuncItemTableRowTextView.swift in Sources */,
 				34A2908628DD41490024C81C /* PreferencesThemeSelectionView+HidePreview.swift in Sources */,
 				9653490F28434752000FD0A1 /* ClipItemTableRowTextView.swift in Sources */,

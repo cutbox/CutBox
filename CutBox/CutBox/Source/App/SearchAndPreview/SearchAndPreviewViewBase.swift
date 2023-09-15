@@ -13,6 +13,8 @@ import CoreImage
 
 class SearchAndPreviewViewBase: CutBoxBaseView {
 
+    static var testing = false
+
     @IBOutlet weak var searchContainer: CutBoxBaseBox!
     @IBOutlet weak var searchTextContainer: CutBoxBaseBox!
     @IBOutlet weak var searchTextPlaceholder: CutBoxBaseTextField!
@@ -34,24 +36,34 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
 
     var searchTextHeight: CGFloat {
         get {
-            return searchTextContainerHeight.constant
+            if !Self.testing {
+                return searchTextContainerHeight.constant
+            }
+            return 0
         }
         set {
-            searchTextContainerHeight.constant = newValue
+            if !Self.testing {
+                searchTextContainerHeight.constant = newValue
+            }
         }
     }
 
     var spacing: CGFloat {
         get {
-            return mainContainer.spacing
+            if !Self.testing {
+                return mainContainer.spacing
+            }
+            return 0
         }
         set {
-            mainContainer.spacing = newValue
-            container.spacing = newValue
-            mainTopConstraint.constant = newValue
-            mainLeadingConstraint.constant = newValue
-            mainTrailingConstraint.constant = newValue
-            mainBottomConstraint.constant = newValue
+            if !Self.testing {
+                mainContainer.spacing = newValue
+                container.spacing = newValue
+                mainTopConstraint.constant = newValue
+                mainLeadingConstraint.constant = newValue
+                mainTrailingConstraint.constant = newValue
+                mainBottomConstraint.constant = newValue
+            }
         }
     }
 
@@ -111,13 +123,13 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
         }
     }
 
-    var previewString: String {
+    var previewString: String? {
         get {
-            self.preview.string
+            self.preview?.string
         }
 
         set {
-            self.preview.string = newValue
+            self.preview?.string = newValue!
         }
     }
 
@@ -189,24 +201,24 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
         self.spacing = theme.spacing
         self.searchTextHeight = 60 - (spacing * 2.0)
 
-        preview.font = prefs.searchViewClipPreviewFont
-        searchTextPlaceholder.font = prefs.searchViewTextFieldFont
-        searchText.font = prefs.searchViewTextFieldFont
+        preview?.font = prefs.searchViewClipPreviewFont
+        searchTextPlaceholder?.font = prefs.searchViewTextFieldFont
+        searchText?.font = prefs.searchViewTextFieldFont
 
-        itemsList.backgroundColor = theme.clip.backgroundColor
+        itemsList?.backgroundColor = theme.clip.backgroundColor
 
-        searchContainer.fillColor = theme.popupBackgroundColor
+        searchContainer?.fillColor = theme.popupBackgroundColor
 
-        searchText.textColor = theme.searchText.textColor
-        searchText.insertionPointColor = theme.searchText.cursorColor
-        searchTextContainer.fillColor = theme.searchText.backgroundColor
-        searchTextPlaceholder.textColor = theme.searchText.placeholderTextColor
+        searchText?.textColor = theme.searchText.textColor
+        searchText?.insertionPointColor = theme.searchText.cursorColor
+        searchTextContainer?.fillColor = theme.searchText.backgroundColor
+        searchTextPlaceholder?.textColor = theme.searchText.placeholderTextColor
 
-        preview.backgroundColor = theme.preview.backgroundColor
-        previewContainer.fillColor = theme.preview.backgroundColor
-        preview.textColor = theme.preview.textColor
+        preview?.backgroundColor = theme.preview.backgroundColor
+        previewContainer?.fillColor = theme.preview.backgroundColor
+        preview?.textColor = theme.preview.textColor
 
-        preview.selectedTextAttributes[.backgroundColor] = theme.preview.selectedTextBackgroundColor
-        preview.selectedTextAttributes[.foregroundColor] = theme.preview.selectedTextColor
+        preview?.selectedTextAttributes[.backgroundColor] = theme.preview.selectedTextBackgroundColor
+        preview?.selectedTextAttributes[.foregroundColor] = theme.preview.selectedTextColor
     }
 }
