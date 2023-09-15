@@ -315,6 +315,7 @@
 		96EF85032AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85022AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift */; };
 		96EF850A2AB31B2800CC8022 /* FakeKeySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */; };
 		96EF850C2AB33FCF00CC8022 /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */; };
+		96EF850E2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */; };
 		96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		96FD7C1820ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
 		96FD7C1A20ADBCDB00818925 /* ItemTableRowContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */; };
@@ -554,6 +555,7 @@
 		96EF85022AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatterSpec.swift; sourceTree = "<group>"; };
 		96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKeySpec.swift; sourceTree = "<group>"; };
 		96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
+		96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencesAdvancedViewSpec.swift; path = CutBoxUnitTests/Preferences/PreferencesAdvancedViewSpec.swift; sourceTree = SOURCE_ROOT; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
 		96FD7C1920ADBCDB00818925 /* ItemTableRowContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowContainerView.swift; sourceTree = "<group>"; };
@@ -1019,6 +1021,7 @@
 			children = (
 				9696D6D82AAC090100600C59 /* CutBoxControllerSpec.swift */,
 				96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */,
+				96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1631,6 +1634,7 @@
 				9653492328434772000FD0A1 /* HotKeyService.swift in Sources */,
 				96EF84FC2AB1896500CC8022 /* String+dashedSpec.swift in Sources */,
 				965348F828434735000FD0A1 /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */,
+				96EF850E2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift in Sources */,
 				965348FF28434735000FD0A1 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */,
 				965349342843478C000FD0A1 /* DialogFactory.swift in Sources */,
 				9653491A28434767000FD0A1 /* HistoryRepo.swift in Sources */,

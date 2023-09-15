@@ -24,18 +24,18 @@ extension PreferencesAdvancedView {
             ? .off
             : .on
 
-        self.historyUnlimitedCheckbox
-            .rx
-            .state
+        self.historyUnlimitedCheckbox.rx.state
             .map { $0 == .off }
-            .subscribe(onNext: {
-                self.prefs.historyLimited = $0
-                self.historyLimitTextField.isEnabled = $0
-                if !$0 {
-                    self.historyLimitTextField.stringValue = ""
-                }
-            })
+            .subscribe(onNext: onNextHistoryUnlimitedCheckboxEvent)
             .disposed(by: disposeBag)
+    }
+
+    func onNextHistoryUnlimitedCheckboxEvent(state: Bool) {
+        self.prefs.historyLimited = state
+        self.historyLimitTextField.isEnabled = state
+        if !state {
+            self.historyLimitTextField.stringValue = ""
+        }
     }
 
     func setupHistoryLimitTextField() {
@@ -48,13 +48,9 @@ extension PreferencesAdvancedView {
 
         self.historyLimitTextField.stringValue = String(historyLimit)
 
-        self.historyLimitTextField
-            .rx
-            .controlEvent // end editing
-            .subscribe(onNext: {
-                let limit = Int(self.historyLimitTextField.stringValue) ?? 0
-                self.setHistoryLimitWithConfirmation(limit)
-            })
+        self.historyLimitTextField.rx.controlEvent
+            .map { Int(self.historyLimitTextField.stringValue) ?? 0 }
+            .subscribe(onNext: setHistoryLimitWithConfirmation)
             .disposed(by: disposeBag)
     }
 
@@ -68,7 +64,7 @@ extension PreferencesAdvancedView {
                 dialogName: .destructiveLimitChangeWarning) {
                 self.prefs.historyLimit = limit
             } else {
-                self.historyLimitTextField.stringValue = String(currentLimit)
+                self.historyLimitTextField?.stringValue = String(currentLimit)
             }
         }
     }
