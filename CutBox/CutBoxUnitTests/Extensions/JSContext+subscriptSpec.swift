@@ -42,7 +42,7 @@ class JSContextSubscriptSpec: QuickSpec {
                     it("gets objects from the JSContext") {
                         ctx.evaluateScript("var items = [1,2,3,4,5,6]")
 
-                        expect(ctx["items"].toArray() as? [Int]).to(equal([1, 2, 3, 4, 5, 6]))
+                        expect(ctx["items"].toArray() as? [Int]) == [1, 2, 3, 4, 5, 6]
                     }
                 }
             }

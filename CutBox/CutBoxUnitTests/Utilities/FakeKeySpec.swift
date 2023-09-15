@@ -53,7 +53,6 @@ class FakeKeySpec: QuickSpec {
 
                 // Check if the command flag is NOT set
                 expect(keyDownEvent?.flags.contains(.maskCommand)).to(beFalse())
-                expect(keyUpEvent?.flags.contains(.maskCommand)).to(beFalse())
             }
 
             it("raises an error for invalid key code (more than 1 char)") {

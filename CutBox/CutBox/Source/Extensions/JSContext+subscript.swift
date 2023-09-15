@@ -14,8 +14,7 @@ extension JSContext {
     }
 
     subscript(_ set: String) -> Any! {
-        get { fatalError("unreachable code") }
-        set {
+        get { return nil } set {
             self.setObject(newValue, forKeyedSubscript: set as NSString)
         }
     }
