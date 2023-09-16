@@ -28,6 +28,7 @@ class SearchViewControllerSpec: QuickSpec {
             var mockSearchAndPreviewView: SearchAndPreviewView!
             var mockUserDefaults: UserDefaultsMock!
             var mockPasteboard: MockPasteboardWrapper!
+            var mockItemsList: NSTableView!
 
             beforeEach {
                 LoginItemsService.testing = true
@@ -38,6 +39,8 @@ class SearchViewControllerSpec: QuickSpec {
                 mockCutBoxPreferences = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockFakeKey = FakeKey()
                 mockSearchAndPreviewView = SearchAndPreviewView()
+                mockItemsList = NSTableView()
+                mockSearchAndPreviewView.itemsList = mockItemsList
 
                 subject = SearchViewController(
                     historyService: mockHistoryService,
@@ -57,6 +60,80 @@ class SearchViewControllerSpec: QuickSpec {
 
                 it("should set up event bindings") {
                     expect(subject.events.hasObservers).to(beTrue())
+                }
+            }
+
+            describe("Table View Delegate") {
+                beforeEach {
+                    mockHistoryService.migrateLegacyHistoryStore(["Bob", "David"], mockUserDefaults)
+                }
+
+                context("updateSearchItemPreview") {
+                    it("sets the preview string") {
+                        subject.updateSearchItemPreview()
+                    }
+                }
+
+                context("tableViewSelectionDidChange") {
+                    it("calls update search item preview") {
+                        let notification = Notification(
+                            name: NSTableView.selectionDidChangeNotification,
+                            object: mockItemsList)
+                        subject.tableViewSelectionDidChange(notification)
+                    }
+                }
+
+                context("tableView heightOfRow") {
+                    it("should return 30") {
+                        expect(subject.tableView(mockItemsList, heightOfRow: 1)) == 30
+                    }
+                }
+
+                context("tableView rowViewForRow") {
+                    it("should return a JSFuncItemTableRowContainerView") {
+                        let result = subject.tableView(mockItemsList, rowViewForRow: 1)
+                        expect(result).to(beAnInstanceOf(ClipItemTableRowContainerView.self))
+                    }
+                }
+
+                context("tableView selectionIndexesForProposedSelection") {
+                    it("gets the selected indexes") {
+                        let indexes = subject.tableView(mockItemsList,
+                                                        selectionIndexesForProposedSelection:
+                                                            IndexSet(integer: 1))
+                        expect(indexes.count) == 1
+                    }
+                }
+
+                context("tableView tableColumnView") {
+                    context("icon column") {
+                        it("should return a JSFuncItemTableRowImageView") {
+                            let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "icon"))
+                            let cell = subject.tableView(mockItemsList,
+                                                         viewFor: column,
+                                                         row: 0)
+                            expect(cell).to(beAnInstanceOf(ClipItemTableRowImageView.self))
+                        }
+                    }
+                    context("string column") {
+                        it("should return a JSFuncItemTableRowTextView") {
+                            let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "string"))
+                            let cell = subject.tableView(mockItemsList,
+                                                         viewFor: column,
+                                                         row: 0)
+                            expect(cell).to(beAnInstanceOf(ClipItemTableRowTextView.self))
+                        }
+                    }
+
+                    context("default") {
+                        it("should return nil") {
+                            let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "foobar"))
+                            let cell = subject.tableView(mockItemsList,
+                                                         viewFor: column,
+                                                         row: 0)
+                            expect(cell).to(beNil())
+                        }
+                    }
                 }
             }
 

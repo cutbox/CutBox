@@ -147,7 +147,7 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
     }
 
     func setTextScale() {
-        preview.font = prefs.searchViewClipPreviewFont
+        self.preview?.font = prefs.searchViewClipPreviewFont
     }
 
     func hideSearchResults(_ bool: Bool) {
