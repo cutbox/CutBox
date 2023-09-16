@@ -31,7 +31,7 @@ class SearchAndPreviewViewSpec: QuickSpec {
                     subject.textDidChange(notification)
                     expect(result) == subject.searchText.string
                 }
-                
+
                 it("allows key shortcut editing methods") {
                     useTextCommands
                         .forEach {
