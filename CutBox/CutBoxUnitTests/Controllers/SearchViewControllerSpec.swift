@@ -10,19 +10,15 @@ import Quick
 import Nimble
 import RxSwift
 
-class MockHistoryService: HistoryService {
-    var removeCalled = false
-    override func remove(selected: IndexSet) {
-        removeCalled = true
-    }
-
-    var clearHistoryByTimeOffsetWasCalledWith: TimeInterval?
-    override func clearHistoryByTimeOffset(offset: TimeInterval) {
-        clearHistoryByTimeOffsetWasCalledWith = offset
-    }
-}
-
 class SearchViewControllerSpec: QuickSpec {
+
+    class MockHistoryService: HistoryService {
+        var removeCalled = false
+        override func remove(selected: IndexSet) {
+            removeCalled = true
+        }
+    }
+
     override func spec() {
         describe("SearchViewController") {
             var subject: SearchViewController!
@@ -194,7 +190,7 @@ class SearchViewControllerSpec: QuickSpec {
 
                 context("removeSelected") {
                     it("remove selected items from history") {
-                        var mockTableView = NSTableView()
+                        let mockTableView = NSTableView()
                         mockTableView.selectRowIndexes(IndexSet(integer: 0),
                                                        byExtendingSelection: false)
 
