@@ -9,18 +9,8 @@
 import Cocoa
 
 extension JSFuncSearchAndPreviewView: NSTextViewDelegate {
-
     func textDidChange(_ notification: Notification) {
         self.filterTextPublisher.onNext(self.searchText.string)
-    }
-
-    private var useTextCommands: [Selector] {
-        return [
-            "deleteBackwards:",
-            "deleteForwards:",
-            "deleteWord:",
-            "deleteWordBackwards:"
-        ].map { Selector($0) }
     }
 
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {

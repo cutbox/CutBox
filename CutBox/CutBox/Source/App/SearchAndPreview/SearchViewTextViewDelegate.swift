@@ -16,23 +16,6 @@ extension SearchAndPreviewView: NSTextViewDelegate, NSTextFieldDelegate {
         }
     }
 
-    private var useTextCommands: [Selector] {
-        return [
-            "deleteBackwards:",
-            "deleteForwards:",
-            "deleteWord:",
-            "deleteWordBackwards:",
-            "deleteToBeginningOfLine",
-            "deleteToEndOfLine",
-            "cut",
-            "copy",
-            "paste",
-            "undo",
-            "redo",
-            "selectAll"
-        ].map { Selector($0) }
-    }
-
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         return useTextCommands.contains(commandSelector)
     }
@@ -40,5 +23,4 @@ extension SearchAndPreviewView: NSTextViewDelegate, NSTextFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         return useTextCommands.contains(commandSelector)
     }
-
 }

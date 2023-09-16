@@ -11,6 +11,19 @@ import RxCocoa
 import Cocoa
 import CoreImage
 
+let useTextCommands: [Selector] = [
+    "deleteBackwards:",
+    "deleteForwards:",
+    "deleteWord:",
+    "deleteWordBackwards:",
+    "cut",
+    "copy",
+    "paste",
+    "undo",
+    "redo",
+    "selectAll"
+].map { Selector($0) }
+
 class SearchAndPreviewViewBase: CutBoxBaseView {
 
     static var testing = false

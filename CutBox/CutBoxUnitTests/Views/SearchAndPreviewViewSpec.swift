@@ -1,5 +1,5 @@
 //
-//  JSFuncSearchAndPreviewViewSpec.swift
+//  SearchAndPreviewViewSpec.swift
 //  CutBoxUnitTests
 //
 //  Created by jason on 16/9/23.
@@ -8,12 +8,11 @@
 
 import Quick
 import Nimble
-import RxSwift
 
-class JSFuncSearchAndPreviewViewSpec: QuickSpec {
+class SearchAndPreviewViewSpec: QuickSpec {
     override func spec() {
-        describe("JSFuncSearchAndPreviewView") {
-            let subject = JSFuncSearchAndPreviewView()
+        describe("SearchAndPreviewView") {
+            let subject = SearchAndPreviewView()
 
             describe("Search text view delegate") {
                 let mockSearchText = SearchTextView(frame: .zero, textContainer: .none)
@@ -32,11 +31,25 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                     subject.textDidChange(notification)
                     expect(result) == subject.searchText.string
                 }
-
+                
                 it("allows key shortcut editing methods") {
                     useTextCommands
                         .forEach {
-                            expect(subject.textView(subject.searchText, doCommandBy: $0)).to(beTrue())
+                            expect(subject.textView(
+                                subject.searchText,
+                                doCommandBy: $0))
+                            .to(beTrue())
+                        }
+                }
+
+                it("allows control commands" ) {
+                    useTextCommands
+                        .forEach {
+                            expect(subject.control(
+                                NSControl(),
+                                textView: subject.searchText,
+                                doCommandBy: $0))
+                            .to(beTrue())
                         }
                 }
             }
