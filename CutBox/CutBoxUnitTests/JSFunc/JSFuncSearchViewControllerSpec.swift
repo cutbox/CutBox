@@ -26,13 +26,13 @@ class JSFuncSearchViewControllerSpec: QuickSpec {
             var mockSearchScopeImageButton = CutBoxBaseButton()
 
             beforeEach {
+                FakeKey.testing = true
                 SearchAndPreviewViewBase.testing = true
 
                 mockJSFuncService = MockJSFuncService()
                 mockUserDefaults = UserDefaultsMock()
                 prefs = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockFakeKey = FakeKey()
-                mockFakeKey.testing = true
                 mockJSFuncView = MockJSFuncSearchAndPreviewView()
                 mockJSFuncView.searchScopeImageButton = mockSearchScopeImageButton
 

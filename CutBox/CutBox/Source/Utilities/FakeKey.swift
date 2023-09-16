@@ -10,8 +10,8 @@ import Foundation
 import Carbon
 
 class FakeKey {
-    var testing = false
-    var testResult: [CGEvent?] = []
+    static var testing = false
+    static var testResult: [CGEvent?] = []
 
     private let keyCodeRange = 0x00...0x7E
 
@@ -93,12 +93,11 @@ class FakeKey {
             keyDown: false
         )
 
-        if !testing {
+        if !Self.testing {
             keyDownEvent?.post(tap: .cghidEventTap)
             keyUpEvent?.post(tap: .cghidEventTap)
         } else {
-            testResult.append(keyDownEvent)
-            testResult.append(keyUpEvent)
+            Self.testResult = [keyDownEvent, keyUpEvent]
         }
     }
 }

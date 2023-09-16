@@ -24,13 +24,13 @@ class FakeKeySpec: QuickSpec {
             }
 
             it("creates events for alpha key code with command modifier") {
-                fakeKey.testing = true
+                FakeKey.testing = true
                 fakeKey.send(fakeKey: "A", useCommandFlag: true)
 
-                expect(fakeKey.testResult.count).to(equal(2))
+                expect(FakeKey.testResult.count).to(equal(2))
 
-                let keyDownEvent = fakeKey.testResult[0]
-                let keyUpEvent = fakeKey.testResult[1]
+                let keyDownEvent = FakeKey.testResult[0]
+                let keyUpEvent = FakeKey.testResult[1]
 
                 expect(keyDownEvent).toNot(beNil())
                 expect(keyUpEvent).toNot(beNil())
@@ -40,13 +40,14 @@ class FakeKeySpec: QuickSpec {
             }
 
             it("creates events for alpha key code with no modifier") {
-                fakeKey.testing = true
+                FakeKey.testing = true
+                FakeKey.testResult = []
                 fakeKey.send(fakeKey: "B", useCommandFlag: false)
 
-                expect(fakeKey.testResult.count).to(equal(2))
+                expect(FakeKey.testResult.count).to(equal(2))
 
-                let keyDownEvent = fakeKey.testResult[0]
-                let keyUpEvent = fakeKey.testResult[1]
+                let keyDownEvent = FakeKey.testResult[0]
+                let keyUpEvent = FakeKey.testResult[1]
 
                 expect(keyDownEvent).toNot(beNil())
                 expect(keyUpEvent).toNot(beNil())

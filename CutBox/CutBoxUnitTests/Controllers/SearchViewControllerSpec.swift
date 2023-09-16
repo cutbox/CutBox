@@ -10,11 +10,23 @@ import Quick
 import Nimble
 import RxSwift
 
+class MockHistoryService: HistoryService {
+    var removeCalled = false
+    override func remove(selected: IndexSet) {
+        removeCalled = true
+    }
+
+    var clearHistoryByTimeOffsetWasCalledWith: TimeInterval?
+    override func clearHistoryByTimeOffset(offset: TimeInterval) {
+        clearHistoryByTimeOffsetWasCalledWith = offset
+    }
+}
+
 class SearchViewControllerSpec: QuickSpec {
     override func spec() {
         describe("SearchViewController") {
             var subject: SearchViewController!
-            var mockHistoryService: HistoryService!
+            var mockHistoryService: MockHistoryService!
             var mockCutBoxPreferences: CutBoxPreferencesService!
             var mockFakeKey: FakeKey!
             var mockSearchAndPreviewView: SearchAndPreviewView!
@@ -26,13 +38,13 @@ class SearchViewControllerSpec: QuickSpec {
 
                 mockUserDefaults = UserDefaultsMock()
                 mockPasteboard = PasteboardWrapperMock()
-                mockHistoryService = HistoryService(defaults: mockUserDefaults, pasteboard: mockPasteboard)
+                mockHistoryService = MockHistoryService(defaults: mockUserDefaults, pasteboard: mockPasteboard)
                 mockCutBoxPreferences = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockFakeKey = FakeKey()
                 mockSearchAndPreviewView = SearchAndPreviewView()
 
                 subject = SearchViewController(
-                    pasteboardService: mockHistoryService,
+                    historyService: mockHistoryService,
                     cutBoxPreferences: mockCutBoxPreferences,
                     fakeKey: mockFakeKey,
                     searchView: mockSearchAndPreviewView
@@ -152,20 +164,46 @@ class SearchViewControllerSpec: QuickSpec {
 
                 context("toggleFavorite") {
                     it("toggles favorites onlyon / off") {
-                        SearchViewController.testing = true
-                        SearchViewController.testingResult = ""
-
+                        subject.searchView = mockSearchAndPreviewView
                         subject.onNext(event: .toggleFavorite)
-                        expect(SearchViewController.testingResult) == "toggleFavoriteItems"
                     }
                 }
-                /*  case .justClose:
-                        self.justClose()
-                    case .closeAndPasteSelected:
-                        self.closeAndPaste()
-                    case .removeSelected:
-                        self.removeSelectedItems()
-                } */
+
+                context("justClose") {
+                    it("close cutbox popup") {
+                        subject.onNext(event: .justClose)
+                        expect(subject.searchPopup.isOpen) == false
+                    }
+                }
+
+                context("closeAndPasteSelected") {
+                     it("close cutbox and paste") {
+                        FakeKey.testing = true
+                        FakeKey.testResult = []
+
+                        subject.onNext(event: .closeAndPasteSelected)
+                        expect(subject.searchPopup.isOpen) == false
+                        expect(FakeKey.testResult.count)
+                            .toEventually(
+                                equal(2),
+                                pollInterval: .milliseconds(275))
+
+                        FakeKey.testResult = []
+                    }
+                }
+
+                context("removeSelected") {
+                    it("remove selected items from history") {
+                        var mockTableView = NSTableView()
+                        mockTableView.selectRowIndexes(IndexSet(integer: 0),
+                                                       byExtendingSelection: false)
+
+                        subject.searchView.itemsList = mockTableView
+
+                        subject.onNext(event: .removeSelected)
+                        expect(mockHistoryService.removeCalled).to(beTrue())
+                    }
+                }
             }
         }
     }

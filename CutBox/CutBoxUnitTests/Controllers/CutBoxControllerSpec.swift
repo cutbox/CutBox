@@ -73,13 +73,6 @@ class CutBoxControllerSpec: QuickSpec {
         }
     }
 
-    class MockHistoryService: HistoryService {
-        var clearHistoryByTimeOffsetWasCalledWith: TimeInterval?
-        override func clearHistoryByTimeOffset(offset: TimeInterval) {
-            clearHistoryByTimeOffsetWasCalledWith = offset
-        }
-    }
-
     class MockStatusMenu: CutBoxBaseMenu {
     }
 
@@ -116,7 +109,7 @@ class CutBoxControllerSpec: QuickSpec {
                 mockAboutPanel = MockAboutPanel()
                 mockHotKeyService = MockHotKeyService(hotkeyProvider: CutBoxHotkeyProvider())
                 mockStatusMenu = MockStatusMenu()
-                mockSearchViewController = MockSearchViewController(pasteboardService: mockHistoryService)
+                mockSearchViewController = MockSearchViewController(historyService: mockHistoryService)
 
                 subject = CutBoxController()
                 subject.searchViewController = mockSearchViewController

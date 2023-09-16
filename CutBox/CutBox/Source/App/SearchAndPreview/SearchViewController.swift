@@ -15,10 +15,6 @@ import RxSwift
 /// performing the required actions,  using init injected: `searchView:SearchAndPreviewView`,
 /// `historyService:HistoryService` and `prefs:CutBoxPreferencesService`.
 class SearchViewController: NSObject {
-
-    static var testing = false
-    static var testingResult: String!
-
     var searchView: SearchAndPreviewView
     var historyService: HistoryService
     var prefs: CutBoxPreferencesService
@@ -26,7 +22,7 @@ class SearchViewController: NSObject {
 
     var orderedSelection: OrderedSet<Int> = OrderedSet<Int>()
 
-    private var searchPopup: PopupController
+    var searchPopup: PopupController
 
     /// Event stream from SearchAndPreviewView
     var events: PublishSubject<SearchViewEvents> {
@@ -53,12 +49,12 @@ class SearchViewController: NSObject {
     /// Setup controller, initialize the search view and popup.
     /// Connect the history service and tell it to start polling the pasteboard.
     /// Connect the preferences service to self and members.
-    init(pasteboardService: HistoryService = HistoryService.shared,
+    init(historyService: HistoryService = HistoryService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
          fakeKey: FakeKey = FakeKey(),
          searchView: SearchAndPreviewView = SearchAndPreviewView.fromNib()!
     ) {
-        self.historyService = pasteboardService
+        self.historyService = historyService
         self.prefs = cutBoxPreferences
         self.fakeKey = fakeKey
 
@@ -129,10 +125,6 @@ class SearchViewController: NSObject {
 
     /// Toggle favorite status on selected items
     func toggleFavoriteItems() {
-        if Self.testing {
-            Self.testingResult = "toggleFavoriteItems"
-        }
-
         if  let selection = self.selectedItems {
             self.historyService.toggleFavorite(items: selection)
             self.searchView.reloadData()
@@ -162,7 +154,7 @@ class SearchViewController: NSObject {
     }
 
     private func resetSearchText() {
-        self.searchView.searchText.string = ""
+        self.searchView.searchText?.string = ""
         self.searchView.filterTextPublisher.onNext("")
         self.searchView.reloadData()
     }
