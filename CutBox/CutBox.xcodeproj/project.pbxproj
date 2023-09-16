@@ -275,6 +275,7 @@
 		96B04643284518E500011A58 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 96B04641284518E400011A58 /* themes */; };
 		96B046452845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
 		96B046462845275200011A58 /* CutBoxThemeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B046442845275200011A58 /* CutBoxThemeLoader.swift */; };
+		96BDAE2C2AB5B49F00C3AF31 /* PreferencesAdvancedViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BDAE2B2AB5B49F00C3AF31 /* PreferencesAdvancedViewSpec.swift */; };
 		96C07DBD2AAF5502001983ED /* CutBoxGetStatusItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DBC2AAF5502001983ED /* CutBoxGetStatusItemSpec.swift */; };
 		96C07DBF2AAF5821001983ED /* CutBoxGetStatusItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DBE2AAF5821001983ED /* CutBoxGetStatusItem.swift */; };
 		96C07DC12AAF61AE001983ED /* Array+MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */; };
@@ -316,7 +317,6 @@
 		96EF85032AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85022AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift */; };
 		96EF850A2AB31B2800CC8022 /* FakeKeySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */; };
 		96EF850C2AB33FCF00CC8022 /* SearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */; };
-		96EF850E2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */; };
 		96EF85102AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */; };
 		96FD7C1520ADBBB000818925 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		96FD7C1820ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */; };
@@ -525,6 +525,7 @@
 		96AFAB182074A51C00BD9F16 /* LoginItemsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemsService.swift; sourceTree = "<group>"; };
 		96B04641284518E400011A58 /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = themes; sourceTree = "<group>"; };
 		96B046442845275200011A58 /* CutBoxThemeLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLoader.swift; sourceTree = "<group>"; };
+		96BDAE2B2AB5B49F00C3AF31 /* PreferencesAdvancedViewSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesAdvancedViewSpec.swift; sourceTree = "<group>"; };
 		96C07DBC2AAF5502001983ED /* CutBoxGetStatusItemSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxGetStatusItemSpec.swift; sourceTree = "<group>"; };
 		96C07DBE2AAF5821001983ED /* CutBoxGetStatusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxGetStatusItem.swift; sourceTree = "<group>"; };
 		96C07DC02AAF61AE001983ED /* Array+MenuItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+MenuItems.swift"; sourceTree = "<group>"; };
@@ -549,7 +550,7 @@
 		96E1E59F205D243400F994ED /* CutBox.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBox.entitlements; sourceTree = "<group>"; };
 		96E1E5C4205D297900F994ED /* CutBoxController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxController.swift; sourceTree = "<group>"; };
 		96EF84F02AB1834F00CC8022 /* CutBoxImageRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxImageRef.swift; sourceTree = "<group>"; };
-		96EF84F32AB1838000CC8022 /* CutBoxImageRefSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutBoxImageRefSpec.swift; path = CutBoxUnitTests/CutBoxImageRefSpec.swift; sourceTree = SOURCE_ROOT; };
+		96EF84F32AB1838000CC8022 /* CutBoxImageRefSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CutBoxImageRefSpec.swift; path = CutBoxUnitTests/Utilities/CutBoxImageRefSpec.swift; sourceTree = SOURCE_ROOT; };
 		96EF84F52AB1841A00CC8022 /* NSImage+fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+fake.swift"; sourceTree = "<group>"; };
 		96EF84F82AB1893A00CC8022 /* String+dashed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dashed.swift"; sourceTree = "<group>"; };
 		96EF84FB2AB1896500CC8022 /* String+dashedSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+dashedSpec.swift"; sourceTree = "<group>"; };
@@ -558,7 +559,6 @@
 		96EF85022AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryLimitNumberFormatterSpec.swift; sourceTree = "<group>"; };
 		96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeKeySpec.swift; sourceTree = "<group>"; };
 		96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerSpec.swift; sourceTree = "<group>"; };
-		96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PreferencesAdvancedViewSpec.swift; path = CutBoxUnitTests/Preferences/PreferencesAdvancedViewSpec.swift; sourceTree = SOURCE_ROOT; };
 		96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchViewControllerSpec.swift; sourceTree = "<group>"; };
 		96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		96FD7C1720ADBC5D00818925 /* PreferencesGeneralView+ProtectFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ProtectFavorites.swift"; sourceTree = "<group>"; };
@@ -751,6 +751,7 @@
 				968715932A95FD890092DB3F /* CutBoxPreferencesServiceSpec.swift */,
 				96A225932844F5CD00C9502D /* CutBoxThemeSpec.swift */,
 				964CA5402083022800B9F33E /* PreferencesWindowSpec.swift */,
+				96BDAE2B2AB5B49F00C3AF31 /* PreferencesAdvancedViewSpec.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -846,15 +847,12 @@
 			isa = PBXGroup;
 			children = (
 				96EF85082AB31B1A00CC8022 /* Utilities */,
-				96EF84F32AB1838000CC8022 /* CutBoxImageRefSpec.swift */,
 				968767972AAEC3F000DA256E /* About */,
 				968767902AAEAEE200DA256E /* Base */,
 				9677BE9D2AA4CF1D00AB537C /* Components */,
 				9696D6D72AAC08DC00600C59 /* Controllers */,
 				96429D57208C11A90055D678 /* Extensions */,
-				96429D54208C11520055D678 /* History */,
-				96658CEE20BA7B2000BDA8F4 /* JSFunc */,
-				96429D56208C117E0055D678 /* Preferences */,
+				96658CEE20BA7B2000BDA8F4 /* Services */,
 				9667650920B148F000DE369A /* SpecHelpers */,
 			);
 			path = CutBoxUnitTests;
@@ -937,13 +935,14 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
-		96658CEE20BA7B2000BDA8F4 /* JSFunc */ = {
+		96658CEE20BA7B2000BDA8F4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				96429D56208C117E0055D678 /* Preferences */,
+				96429D54208C11520055D678 /* History */,
 				96658CEF20BA7B3E00BDA8F4 /* JSFuncServiceSpec.swift */,
-				96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */,
 			);
-			path = JSFunc;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		9667650920B148F000DE369A /* SpecHelpers */ = {
@@ -1025,9 +1024,9 @@
 			isa = PBXGroup;
 			children = (
 				9696D6D82AAC090100600C59 /* CutBoxControllerSpec.swift */,
-				96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */,
-				96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */,
+				96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */,
 				963F92322AB55DB20094C280 /* PopupControllerSpec.swift */,
+				96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1166,6 +1165,7 @@
 		96EF85082AB31B1A00CC8022 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				96EF84F32AB1838000CC8022 /* CutBoxImageRefSpec.swift */,
 				96EF85092AB31B2800CC8022 /* FakeKeySpec.swift */,
 			);
 			path = Utilities;
@@ -1623,6 +1623,7 @@
 				9653493128434785000FD0A1 /* String+L10n.swift in Sources */,
 				967C06A82A946749008AF0CE /* CutBoxPreferencesService+SelectThemeSpec.swift in Sources */,
 				965348DD284346E2000FD0A1 /* CutBoxController.swift in Sources */,
+				96BDAE2C2AB5B49F00C3AF31 /* PreferencesAdvancedViewSpec.swift in Sources */,
 				965348F728434735000FD0A1 /* PreferencesGeneralView+KeyRecorder.swift in Sources */,
 				9696D6D32AAB7DB000600C59 /* LinkTextSpec.swift in Sources */,
 				9652C0402844B0CB004249D9 /* CutBoxColorTheme.swift in Sources */,
@@ -1640,7 +1641,6 @@
 				9653492328434772000FD0A1 /* HotKeyService.swift in Sources */,
 				96EF84FC2AB1896500CC8022 /* String+dashedSpec.swift in Sources */,
 				965348F828434735000FD0A1 /* PreferencesThemeSelectionView+ThemeSelector.swift in Sources */,
-				96EF850E2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift in Sources */,
 				965348FF28434735000FD0A1 /* PreferencesGeneralView+ProtectFavorites.swift in Sources */,
 				965349342843478C000FD0A1 /* DialogFactory.swift in Sources */,
 				9653491A28434767000FD0A1 /* HistoryRepo.swift in Sources */,

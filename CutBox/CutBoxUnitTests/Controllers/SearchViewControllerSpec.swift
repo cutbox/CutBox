@@ -27,13 +27,13 @@ class SearchViewControllerSpec: QuickSpec {
             var mockFakeKey: FakeKey!
             var mockSearchAndPreviewView: SearchAndPreviewView!
             var mockUserDefaults: UserDefaultsMock!
-            var mockPasteboard: PasteboardWrapperMock!
+            var mockPasteboard: MockPasteboardWrapper!
 
             beforeEach {
                 LoginItemsService.testing = true
 
                 mockUserDefaults = UserDefaultsMock()
-                mockPasteboard = PasteboardWrapperMock()
+                mockPasteboard = MockPasteboardWrapper()
                 mockHistoryService = MockHistoryService(defaults: mockUserDefaults, pasteboard: mockPasteboard)
                 mockCutBoxPreferences = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockFakeKey = FakeKey()

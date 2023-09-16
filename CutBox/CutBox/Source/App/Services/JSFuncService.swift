@@ -11,7 +11,7 @@ import JavaScriptCore
 class JSFuncService: NSObject {
     static var shared = JSFuncService()
 
-    let cutboxJSFilename: String = NSString(string: "~/.cutbox.js").expandingTildeInPath
+    var cutboxJSFilename: String = NSString(string: "~/.cutbox.js").expandingTildeInPath
 
     let require: @convention(block) (String) -> JSValue? = { path in
         let expandedPath = NSString(string: path).expandingTildeInPath
@@ -158,14 +158,14 @@ class JSFuncService: NSObject {
     func reload() {
         setup()
 
-        _ = repl(noCutboxJSHelp)
+        repl(noCutboxJSHelp)
 
         guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
             return
         }
 
-        _ = repl(helpers)
-        _ = repl(cutboxJS)
+        repl(helpers)
+        repl(cutboxJS)
 
         if self.isEmpty {
             notifyUser(title: "Problem with ~/.cutbox.js",
@@ -176,6 +176,7 @@ class JSFuncService: NSObject {
         }
     }
 
+    @discardableResult
     func repl(_ line: String) -> String {
         return js.evaluateScript(line).toString()
     }

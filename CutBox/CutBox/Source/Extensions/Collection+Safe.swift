@@ -9,9 +9,8 @@
 import Foundation
 
 extension Array {
-
     subscript(safe index: Int) -> Element? {
-        let inRange = index < self.count
+        let inRange = index < self.count && index > -1
         return inRange ? self[index] : nil
     }
 }

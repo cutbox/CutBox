@@ -12,7 +12,13 @@ import RxSwift
 
 class HistoryRepoMock: HistoryRepo {}
 
-class PasteboardWrapperMock: PasteboardWrapperType {
+class MockPasteboardWrapper: PasteboardWrapperType {
+    var clearContentsWasCalled = false
+    func clearContents() {
+        clearContentsWasCalled = true
+        _pasteboardItems = []
+    }
+
     var called = false
     var _pasteboardItems: [NSPasteboardItem]?
     var pasteboardItems: [NSPasteboardItem]? {
@@ -20,7 +26,9 @@ class PasteboardWrapperMock: PasteboardWrapperType {
         return _pasteboardItems
     }
 
-    func addToFakePasteboard(string: String) {
+    var setStringWasCalled = false
+    func setString(string: String) {
+        setStringWasCalled = true
         let item = NSPasteboardItem(pasteboardPropertyList: string, ofType: .string)!
         _pasteboardItems?.insert(item, at: 0)
     }
@@ -32,15 +40,15 @@ class PasteboardWrapperMock: PasteboardWrapperType {
 
 private func addToFakePasteboardAndPoll(string: String,
                                         subject: HistoryService,
-                                        pboard: PasteboardWrapperMock) {
-    pboard.addToFakePasteboard(string: string)
+                                        pboard: MockPasteboardWrapper) {
+    pboard.setString(string: string)
     subject.pollPasteboard()
 }
 
 class HistoryServiceSpec: QuickSpec {
     override func spec() {
         var subject: HistoryService!
-        var mockPasteboard: PasteboardWrapperMock!
+        var mockPasteboard: MockPasteboardWrapper!
         var mockHistoryRepo: HistoryRepoMock!
         var mockDefaults: UserDefaultsMock!
         var mockPrefs: CutBoxPreferencesService!
@@ -66,25 +74,24 @@ class HistoryServiceSpec: QuickSpec {
             "Example"
         ]
 
+        beforeEach {
+            mockPasteboard = MockPasteboardWrapper()
+            mockDefaults = UserDefaultsMock()
+            mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
+            mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults, prefs: mockPrefs)
+        }
+
         context("legacy store handling") {
             context("historyStore pre ≤1.5.5") {
                 it("adds timestamps if required") {
-                    mockPasteboard = PasteboardWrapperMock()
-                    mockDefaults = UserDefaultsMock()
-                    mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
-                    mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
-                                                      prefs: mockPrefs)
-
                     4.doTimes { mockHistoryRepo.insert("Test legacy \($0)", date: nil) }
                     mockHistoryRepo.saveToDefaults()
-
                     subject = HistoryService(defaults: mockDefaults,
                                              pasteboard: mockPasteboard,
                                              historyRepo: mockHistoryRepo,
                                              prefs: mockPrefs)
 
                     expect(subject.count) == 4
-
                     expect(subject.dict.allSatisfy { $0.keys.contains("timestamp") }).to(beTrue())
                 }
             }
@@ -93,14 +100,7 @@ class HistoryServiceSpec: QuickSpec {
                 context("legacy store migration 1.x") {
                     it("converts a legacy store") {
                         // fakeLegacyStore
-                        mockPasteboard = PasteboardWrapperMock()
-                        mockDefaults = UserDefaultsMock()
                         mockDefaults.set(fakeItems, forKey: "pasteStore")
-
-                        mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
-                        mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
-                                                          prefs: mockPrefs)
-
                         expect(mockDefaults.array(forKey: "pasteStore") as? [String]) == fakeItems
 
                         subject = HistoryService(defaults: mockDefaults,
@@ -127,12 +127,6 @@ class HistoryServiceSpec: QuickSpec {
 
         context("historyStore") {
             beforeEach {
-                mockPasteboard = PasteboardWrapperMock()
-                mockDefaults = UserDefaultsMock()
-                mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
-                mockHistoryRepo = HistoryRepoMock(defaults: mockDefaults,
-                                                  prefs: mockPrefs)
-
                 subject = HistoryService(defaults: mockDefaults,
                                          pasteboard: mockPasteboard,
                                          historyRepo: mockHistoryRepo,

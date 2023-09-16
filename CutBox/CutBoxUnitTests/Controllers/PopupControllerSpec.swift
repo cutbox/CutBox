@@ -20,6 +20,16 @@ class PopupControllerSpec: QuickSpec {
                 subject = PopupController(content: mockContent)
             }
 
+            context("init coder") {
+                it("initializes with a coded view") {
+                    let instance = ExampleView(frame: .zero)
+                    let coder = mockCoder(for: instance)
+                    expect {
+                        PopupController(coder: coder!)
+                    }.toNot(throwAssertion())
+                }
+            }
+
             context("resizing") {
                 it("resizes width") {
                     subject.resizePopup(width: 600)

@@ -16,6 +16,7 @@ class JSFuncSearchViewController: NSObject {
     var prefs: CutBoxPreferencesService
     var fakeKey: FakeKey
     var jsFuncPopup: PopupController
+    var pasteboard: PasteboardWrapperType
 
     var hasFuncs: Bool {
         return !self.jsFuncService.isEmpty
@@ -38,14 +39,15 @@ class JSFuncSearchViewController: NSObject {
     init(jsFuncService: JSFuncService = JSFuncService.shared,
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
          fakeKey: FakeKey = FakeKey(),
-         jsFuncView: JSFuncSearchAndPreviewView = JSFuncSearchAndPreviewView.fromNib()!) {
+         jsFuncView: JSFuncSearchAndPreviewView = JSFuncSearchAndPreviewView.fromNib()!,
+         pasteboard: PasteboardWrapperType = PasteboardWrapper()) {
 
         self.jsFuncService = jsFuncService
         self.prefs = cutBoxPreferences
         self.fakeKey = fakeKey
         self.jsFuncView = jsFuncView
         self.jsFuncPopup = PopupController(content: self.jsFuncView)
-
+        self.pasteboard = pasteboard
         super.init()
         self.setup()
     }
@@ -63,7 +65,7 @@ class JSFuncSearchViewController: NSObject {
         self.jsFuncView.filterTextPublisher
             .subscribe(onNext: {
                 self.jsFuncService.filterText = $0
-                self.jsFuncView.itemsList.reloadData()
+                self.jsFuncView.itemsList?.reloadData()
             })
             .disposed(by: self.disposeBag)
     }
@@ -72,7 +74,6 @@ class JSFuncSearchViewController: NSObject {
         self.events
             .subscribe(onNext: { event in
                 switch event {
-
                 case .closeAndPaste:
                     self.closeAndPaste()
 
@@ -87,9 +88,9 @@ class JSFuncSearchViewController: NSObject {
     }
 
     private func resetJSFuncSearchText() {
-        self.jsFuncView.searchText.string = ""
+        self.jsFuncView.searchText?.string = ""
         self.jsFuncView.filterTextPublisher.onNext("")
-        self.jsFuncView.itemsList.reloadData()
+        self.jsFuncView.itemsList?.reloadData()
     }
 
     @objc func fakePaste() {
@@ -106,13 +107,13 @@ class JSFuncSearchViewController: NSObject {
     }
 
     private func closeAndPaste() {
-        self.pasteSelectedClipToPasteboard()
+        self.pasteSelectedClips()
         self.jsFuncPopup.closePopup()
         perform(#selector(hideApp), with: self, afterDelay: 0.1)
         perform(#selector(fakePaste), with: self, afterDelay: 0.25)
     }
 
-    func pasteSelectedClipToPasteboard() {
+    func pasteSelectedClips() {
         guard !self.selectedClips.isEmpty else {
             return
         }
@@ -120,18 +121,14 @@ class JSFuncSearchViewController: NSObject {
         let row = self.jsFuncView.itemsList.selectedRow
         var clip: String
 
-        if row == -1 {
-            clip = prefs.prepareClips(self.selectedClips)
+        if let name = jsFuncService.funcList[safe: row] {
+            clip = jsFuncService.process(name, items: self.selectedClips)
         } else {
-            if let name = JSFuncService.shared.funcList[safe: row] {
-                clip = JSFuncService.shared.process(name, items: self.selectedClips)
-            } else {
-                clip = prefs.prepareClips(self.selectedClips)
-            }
+            clip = prefs.prepareClips(self.selectedClips)
         }
 
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(clip, forType: .string)
+        pasteboard.clearContents()
+        pasteboard.setString(string: clip)
     }
 
     private func configureJSPopupAndView() {

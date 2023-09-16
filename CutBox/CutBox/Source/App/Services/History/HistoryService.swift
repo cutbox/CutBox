@@ -11,11 +11,21 @@ import RxSwift
 
 protocol PasteboardWrapperType {
     var pasteboardItems: [NSPasteboardItem]? { get }
+    func clearContents()
+    func setString(string: String)
 }
 
 class PasteboardWrapper: PasteboardWrapperType {
     var pasteboardItems: [NSPasteboardItem]? {
         return NSPasteboard.general.pasteboardItems
+    }
+
+    func clearContents() {
+        NSPasteboard.general.clearContents()
+    }
+
+    func setString(string: String) {
+        NSPasteboard.general.setString(string, forType: .string)
     }
 }
 
