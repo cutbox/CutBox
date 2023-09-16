@@ -33,7 +33,7 @@ class PopupControllerSpec: QuickSpec {
                 it("proportionally resizes") {
                     let mockScreenFrame = NSRect(
                         x: 0, y: 0,
-                        width: 1920, height: 1080
+                        width: 90, height: 70
                     )
 
                     let mockScreen = MockScreen(frame: mockScreenFrame)
@@ -45,7 +45,7 @@ class PopupControllerSpec: QuickSpec {
 
                     expect(subject.currentWidth) == 1000
                     subject.proportionalResizePopup()
-                    expect(subject.currentWidth) == 1200
+                    expect(subject.currentWidth) == 56.25
 
                     subject.contentInset = 5.0
                     expect(subject.contentInset) == 5.0
