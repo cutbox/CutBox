@@ -36,7 +36,7 @@ class PopupController: CutBoxBaseWindowController {
         }
     }
 
-    private(set)  var isOpen: Bool = false
+    var isOpen: Bool = false
 
     var isOpening: Bool = false
 

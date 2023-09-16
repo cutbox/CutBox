@@ -27,6 +27,7 @@
 		9636FFFD284B1F7700CF4C39 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
+		963F92332AB55DB20094C280 /* PopupControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963F92322AB55DB20094C280 /* PopupControllerSpec.swift */; };
 		964766642067A5F100E7026F /* NSObject+fromNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766632067A5F100E7026F /* NSObject+fromNib.swift */; };
 		964766672067A68000E7026F /* Collection+Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766662067A68000E7026F /* Collection+Safe.swift */; };
 		964766692067B82900E7026F /* TransientScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964766682067B82900E7026F /* TransientScrollView.swift */; };
@@ -390,6 +391,7 @@
 		962D6D7B20746109007E3785 /* CutBoxHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBoxHelper.entitlements; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
+		963F92322AB55DB20094C280 /* PopupControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupControllerSpec.swift; sourceTree = "<group>"; };
 		96429D58208C12200055D678 /* Array+String+RegexpSearchFilteredSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+String+RegexpSearchFilteredSpec.swift"; sourceTree = "<group>"; };
 		964766632067A5F100E7026F /* NSObject+fromNib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+fromNib.swift"; sourceTree = "<group>"; };
 		964766662067A68000E7026F /* Collection+Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Safe.swift"; sourceTree = "<group>"; };
@@ -1025,6 +1027,7 @@
 				9696D6D82AAC090100600C59 /* CutBoxControllerSpec.swift */,
 				96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */,
 				96EF850D2AB3E2F500CC8022 /* PreferencesAdvancedViewSpec.swift */,
+				963F92322AB55DB20094C280 /* PopupControllerSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1720,6 +1723,7 @@
 				9653491B28434767000FD0A1 /* HistoryLimitNumberFormatter.swift in Sources */,
 				965348EA28434735000FD0A1 /* PreferencesGeneralView+AutoLogin.swift in Sources */,
 				9653494E2843486B000FD0A1 /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */,
+				963F92332AB55DB20094C280 /* PopupControllerSpec.swift in Sources */,
 				965348EC28434735000FD0A1 /* PreferencesThemePreview.swift in Sources */,
 				9653494428434862000FD0A1 /* OrderedSetSpec.swift in Sources */,
 				9653490228434742000FD0A1 /* JSFuncSearchAndPreviewView+KeyDown.swift in Sources */,
