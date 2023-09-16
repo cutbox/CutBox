@@ -12,49 +12,81 @@ import Nimble
 class PopupControllerSpec: QuickSpec {
     override func spec() {
         describe("PopupController") {
-            var popupController: PopupController!
+            var subject: PopupController!
             var mockContent: CutBoxBaseView!
 
             beforeEach {
                 mockContent = CutBoxBaseView()
-                popupController = PopupController(content: mockContent)
+                subject = PopupController(content: mockContent)
+            }
+
+            context("resizing") {
+                it("resizes width") {
+                    subject.resizePopup(width: 600)
+                    expect(subject.currentWidth) == 600
+                }
+                it("resizes height") {
+                    subject.resizePopup(height: 600)
+                    expect(subject.currentHeight) == 600
+                }
+
+                it("proportionally resizes") {
+                    let mockScreenFrame = NSRect(
+                        x: 0, y: 0,
+                        width: 1920, height: 1080
+                    )
+
+                    let mockScreen = MockScreen(frame: mockScreenFrame)
+
+                    NSScreenMockScreen = mockScreen
+                    NSScreenTesting = true
+
+                    subject.resizePopup(width: 1000, height: 1600)
+
+                    expect(subject.currentWidth) == 1000
+                    subject.proportionalResizePopup()
+                    expect(subject.currentWidth) == 1200
+
+                    subject.contentInset = 5.0
+                    expect(subject.contentInset) == 5.0
+                }
             }
 
             context("when opening the popup") {
                 it("should set isOpen to true") {
-                    popupController.openPopup()
-                    expect(popupController.isOpen) == true
+                    subject.openPopup()
+                    expect(subject.isOpen) == true
                 }
 
                 it("should make the content view visible") {
-                    popupController.openPopup()
-                    expect(popupController.contentView.isHidden) == false
+                    subject.openPopup()
+                    expect(subject.contentView.isHidden) == false
                 }
             }
 
             context("when closing the popup") {
                 it("should set isOpen to false") {
-                    popupController.closePopup()
-                    expect(popupController.isOpen) == false
+                    subject.closePopup()
+                    expect(subject.isOpen) == false
                 }
 
                 it("should hide the content view") {
-                    popupController.closePopup()
-                    expect(popupController.contentView.isHidden) == true
+                    subject.closePopup()
+                    expect(subject.contentView.isHidden) == true
                 }
             }
 
             context("when toggling the popup") {
                 it("should open the popup if it's closed") {
-                    popupController.isOpen = false
-                    popupController.togglePopup()
-                    expect(popupController.isOpen) == true
+                    subject.isOpen = false
+                    subject.togglePopup()
+                    expect(subject.isOpen) == true
                 }
 
                 it("should close the popup if it's open") {
-                    popupController.isOpen = true
-                    popupController.togglePopup()
-                    expect(popupController.isOpen) == false
+                    subject.isOpen = true
+                    subject.togglePopup()
+                    expect(subject.isOpen) == false
                 }
             }
         }

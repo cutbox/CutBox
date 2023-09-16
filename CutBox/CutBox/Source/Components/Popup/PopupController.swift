@@ -122,6 +122,9 @@ class PopupController: CutBoxBaseWindowController {
             frame.size.width = newSize.width
         }
 
+        currentWidth = width
+        currentHeight = height
+
         containerView.resetConstraints()
         panel.setFrame(frame, display: true, animate: panel.isVisible)
     }
@@ -139,20 +142,25 @@ class PopupController: CutBoxBaseWindowController {
         let width = Double(screen.frame.width) * proportionalWidth
         let height = Double(screen.frame.height) * self.proportionalHeight
 
+        currentWidth = width
+        currentHeight = height
+
         resizePopup(width: width, height: height)
     }
 
     func resizePopup(width: Double) {
         if width != currentWidth {
-            currentWidth = width
-            resizePopup(width: width, height: Double(contentView.frame.size.height))
+            resizePopup(
+                width: width,
+                height: Double(contentView.frame.size.height))
         }
     }
 
     func resizePopup(height: Double) {
         if height != currentHeight {
-            currentHeight = height
-            resizePopup(width: Double(contentView.frame.size.width), height: height)
+            resizePopup(
+                width: Double(contentView.frame.size.width),
+                height: height)
         }
     }
 
