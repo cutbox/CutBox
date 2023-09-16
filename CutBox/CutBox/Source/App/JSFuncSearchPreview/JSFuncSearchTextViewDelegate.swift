@@ -20,7 +20,7 @@ extension JSFuncSearchAndPreviewView: NSTextViewDelegate {
             "deleteForwards:",
             "deleteWord:",
             "deleteWordBackwards:"
-            ].map { Selector($0) }
+        ].map { Selector($0) }
     }
 
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {

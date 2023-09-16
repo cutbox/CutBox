@@ -15,6 +15,7 @@
 		961A49B22065D85D005BC79D /* SearchAndPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */; };
 		961A49B62065D8B1005BC79D /* PopupPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B52065D8B1005BC79D /* PopupPanel.swift */; };
 		961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */; };
+		961D62542AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D62532AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift */; };
 		962D6D492073544F007E3785 /* HotKeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D482073544F007E3785 /* HotKeyService.swift */; };
 		962D6D4B207356DA007E3785 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4A207356DA007E3785 /* Constants.swift */; };
 		962D6D4D207357ED007E3785 /* VersionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D4C207357ED007E3785 /* VersionService.swift */; };
@@ -377,6 +378,7 @@
 		961A49B12065D85D005BC79D /* SearchAndPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewView.swift; sourceTree = "<group>"; };
 		961A49B52065D8B1005BC79D /* PopupPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupPanel.swift; sourceTree = "<group>"; };
 		961A49B72065D8DE005BC79D /* PopupBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBackgroundView.swift; sourceTree = "<group>"; };
+		961D62532AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncSearchAndPreviewViewSpec.swift; sourceTree = "<group>"; };
 		962D6D482073544F007E3785 /* HotKeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyService.swift; sourceTree = "<group>"; };
 		962D6D4A207356DA007E3785 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		962D6D4C207357ED007E3785 /* VersionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionService.swift; sourceTree = "<group>"; };
@@ -671,6 +673,14 @@
 			path = SearchAndPreview;
 			sourceTree = "<group>";
 		};
+		961D62522AB5FFB80045EE77 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				961D62532AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		962D6D6F20746109007E3785 /* CutBoxHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -846,6 +856,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				961D62522AB5FFB80045EE77 /* Views */,
 				96EF85082AB31B1A00CC8022 /* Utilities */,
 				968767972AAEC3F000DA256E /* About */,
 				968767902AAEAEE200DA256E /* Base */,
@@ -1656,6 +1667,7 @@
 				96EF85102AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift in Sources */,
 				9653493C284347E8000FD0A1 /* JSFuncItemTableRowTextView.swift in Sources */,
 				34A2908628DD41490024C81C /* PreferencesThemeSelectionView+HidePreview.swift in Sources */,
+				961D62542AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift in Sources */,
 				9653490F28434752000FD0A1 /* ClipItemTableRowTextView.swift in Sources */,
 				965348E728434728000FD0A1 /* AboutPanel.swift in Sources */,
 				965348F028434735000FD0A1 /* PreferencesJavascriptTransformView.swift in Sources */,
