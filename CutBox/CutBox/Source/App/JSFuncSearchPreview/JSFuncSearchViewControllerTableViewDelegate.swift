@@ -25,7 +25,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
         let row = self.jsFuncView.itemsList.selectedRow
         let name = self.jsFuncService.funcList[row]
         let preview = self.jsFuncService.process(name, items: self.selectedClips)
-        self.jsFuncView.preview.string = preview
+        self.jsFuncView.preview?.string = preview
     }
 
     func tableViewSelectionDidChange(_ notification: Notification) {
@@ -81,7 +81,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
             return proposedSelectionIndexes
         }
 
-        let selected = self.jsFuncView.itemsList.selectedRowIndexes
+        let selected = tableView.selectedRowIndexes
         let removed: IndexSet = selected.subtracting(proposed)
         let theme = CutBoxPreferencesService.shared.currentTheme
 

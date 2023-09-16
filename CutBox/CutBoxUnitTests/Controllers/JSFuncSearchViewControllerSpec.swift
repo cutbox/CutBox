@@ -138,6 +138,84 @@ class JSFuncSearchViewControllerSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("Table View Delegate") {
+                let clips = ["Bob", "David"]
+
+                beforeEach {
+                    subject.selectedClips = clips
+                }
+
+                context("updateSearchItemPreview") {
+                    it("sets the preview string") {
+                        subject.updateSearchItemPreview()
+                        expect(mockJSFuncService.processReturn) == "JSFunc Service Testing Mock"
+                    }
+                }
+
+                context("tableViewSelectionDidChange") {
+                    it("calls update search item preview") {
+                        let notification = Notification(
+                            name: NSTableView.selectionDidChangeNotification,
+                            object: mockItemsList)
+                        subject.tableViewSelectionDidChange(notification)
+                        expect(mockJSFuncService.processReturn) == "JSFunc Service Testing Mock"
+                    }
+                }
+
+                context("tableView heightOfRow") {
+                    it("should return 30") {
+                        expect(subject.tableView(mockItemsList, heightOfRow: 1)) == 30
+                    }
+                }
+
+                context("tableView rowViewForRow") {
+                    it("should return a JSFuncItemTableRowContainerView") {
+                        let result = subject.tableView(mockItemsList, rowViewForRow: 1)
+                        expect(result).to(beAnInstanceOf(JSFuncItemTableRowContainerView.self))
+                    }
+                }
+
+                context("tableView selectionIndexesForProposedSelection") {
+                    it("gets the selected indexes") {
+                        let indexes = subject.tableView(mockItemsList,
+                                                        selectionIndexesForProposedSelection:
+                                                            IndexSet(integer: 1))
+                        expect(indexes.count) == 1
+                    }
+                }
+
+                context("tableView tableColumnView") {
+                    context("icon column") {
+                        it("should return a JSFuncItemTableRowImageView") {
+                            let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "icon"))
+                            let cell = subject.tableView(mockItemsList,
+                                                         viewFor: column,
+                                                         row: 0)
+                            expect(cell).to(beAnInstanceOf(JSFuncItemTableRowImageView.self))
+                        }
+                    }
+                    context("string column") {
+                        it("should return a JSFuncItemTableRowTextView") {
+                            let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "string"))
+                            let cell = subject.tableView(mockItemsList,
+                                                         viewFor: column,
+                                                         row: 0)
+                            expect(cell).to(beAnInstanceOf(JSFuncItemTableRowTextView.self))
+                        }
+                    }
+
+                    context("default") {
+                        it("should return nil") {
+                            let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "foobar"))
+                            let cell = subject.tableView(mockItemsList,
+                                                         viewFor: column,
+                                                         row: 0)
+                            expect(cell).to(beNil())
+                        }
+                    }
+                }
+            }
         }
     }
 }
