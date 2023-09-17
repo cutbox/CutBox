@@ -46,7 +46,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                     var result: SearchJSFuncViewEvents?
                     _ = subject.events.subscribe(onNext: { result = $0 })
 
-                    it("Command T - cycle color themes") {
+                    it("Cmd+T cycle color themes") {
                         if let keyEvent = fakeKeyEvent(kVK_ANSI_T, [.command]) {
                             subject.keyDown(with: keyEvent)
                             expect(result) == .cycleTheme
@@ -55,7 +55,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                         }
                     }
 
-                    it("RETURN - close and paste") {
+                    it("RETURN close and paste") {
                         if let keyEvent = fakeKeyEvent(kVK_Return) {
                             subject.keyDown(with: keyEvent)
                             expect(result) == .closeAndPaste
@@ -64,7 +64,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                         }
                     }
 
-                    it("ESC - just close") {
+                    it("ESC just close") {
                         if let keyEvent = fakeKeyEvent(kVK_Escape) {
                             subject.keyDown(with: keyEvent)
                             expect(result) == .justClose
