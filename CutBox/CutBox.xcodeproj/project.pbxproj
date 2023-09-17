@@ -26,6 +26,7 @@
 		962D6D7720746109007E3785 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 962D6D7520746109007E3785 /* MainMenu.xib */; };
 		962D6D7A20746109007E3785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D7920746109007E3785 /* main.m */; };
 		962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 962D6D6E20746109007E3785 /* CutBoxHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		962E68B42AB6BFDC0074CE72 /* SearchTextViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */; };
 		9636FFFD284B1F7700CF4C39 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
 		963AA6462071E15900779697 /* KeyCombo+Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963AA6452071E15900779697 /* KeyCombo+Archive.swift */; };
@@ -393,6 +394,7 @@
 		962D6D7820746109007E3785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		962D6D7920746109007E3785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		962D6D7B20746109007E3785 /* CutBoxHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBoxHelper.entitlements; sourceTree = "<group>"; };
+		962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextViewSpec.swift; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
 		963F92322AB55DB20094C280 /* PopupControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupControllerSpec.swift; sourceTree = "<group>"; };
@@ -680,6 +682,7 @@
 			children = (
 				961D62532AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift */,
 				961D62552AB604C50045EE77 /* SearchAndPreviewViewSpec.swift */,
+				962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1690,6 +1693,7 @@
 				9653490928434752000FD0A1 /* ClipItemTableRowImageButtonView.swift in Sources */,
 				961D62562AB604C50045EE77 /* SearchAndPreviewViewSpec.swift in Sources */,
 				9653490428434742000FD0A1 /* JSFuncSearchViewController.swift in Sources */,
+				962E68B42AB6BFDC0074CE72 /* SearchTextViewSpec.swift in Sources */,
 				965348EF28434735000FD0A1 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */,
 				9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
 				965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */,
