@@ -17,9 +17,7 @@ class JSFuncServiceSpec: QuickSpec {
 
         describe("JSFuncService") {
             beforeEach {
-                JSFuncService.context = JSContext()
                 subject = JSFuncService()
-
                 subject.setup()
             }
 
@@ -27,6 +25,29 @@ class JSFuncServiceSpec: QuickSpec {
                 it("processes through JS and returns a string") {
                     let result = subject.repl("123 + 123")
                     expect(result).to(equal("246"))
+                }
+
+                context("state persistence") {
+                    it("shares a global JSContext during runtime") {
+                        subject.repl("""
+                                const a = 1
+                                let b = 2
+                                var c = 3
+                                """)
+
+                        subject.repl("""
+                                a = 10
+                                b = 1200
+                                c = a + b
+                                """)
+
+                        if let result: [Int32] = subject.replValue("[a,b,c]")?
+                            .toArray() as? [Int32] {
+                            expect(result) == [1, 2, 3]
+                        } else {
+                            fail("JS repl not using shared JSContext")
+                        }
+                    }
                 }
             }
 
@@ -82,10 +103,14 @@ class JSFuncServiceSpec: QuickSpec {
                     }
 
                     context("require an existing file") {
-                        beforeEach {
+                        func createTestFile(path: String, contents: String) {
                             fileManager.createFile(
                                 atPath: path,
-                                contents: "10 * 10".data(using: .utf8))
+                                contents: contents.data(using: .utf8))
+                        }
+
+                        beforeEach {
+                            createTestFile(path: path, contents: "10 * 10")
                         }
 
                         afterEach {
@@ -93,9 +118,22 @@ class JSFuncServiceSpec: QuickSpec {
                         }
 
                         it("evaluates the file as JS") {
-                            let result: JSValue = subject.replValue("require(\"\(path)\");")!
+                            let result = subject.repl("require(\"\(path)\");")
 
-                            expect(result.toInt32()) == 100
+                            expect(result) == "100"
+                        }
+
+                        context("using a required library") {
+                            it("evaluates the file as JS") {
+                                createTestFile(path: path, contents: """
+                                let foobar = {
+                                    fn: (i) => `Hello ${i}!`
+                                }
+                                """)
+                                subject.repl("require(\"\(path)\");")
+                                let result = subject.repl("foobar.fn(`Tuesday`)")
+                                expect(result) == "Hello Tuesday!"
+                            }
                         }
                     }
                 }
@@ -103,6 +141,7 @@ class JSFuncServiceSpec: QuickSpec {
 
             describe("isEmpty") {
                 it("true when no functions are loaded") {
+                    subject.repl("this.cutboxFunctions = null")
                     expect(subject.isEmpty) == true
                 }
             }
@@ -111,7 +150,7 @@ class JSFuncServiceSpec: QuickSpec {
                 it("return the count of functions in cutboxFunctions") {
                     _ = subject.repl(
                         """
-                        this.cutboxFunctions = this.cutboxFunctions || []
+                        this.cutboxFunctions = []
                         this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
                         """
                     )
@@ -119,29 +158,11 @@ class JSFuncServiceSpec: QuickSpec {
                 }
             }
 
-            describe("WARNING: when cutboxFunctions is declared as var") {
-                it("its contents will not be found") {
-                    _ = subject.repl(
-                        """
-                        var cutboxFunctions = [{name: \"Test\", fn: i => \"done\" })]
-                        """
-                    )
-
-                    let result = subject.repl(
-                        """
-                        cutboxFunctions
-                        """
-                    )
-
-                    expect("undefined") == result
-                }
-            }
-
             describe("list") {
                 beforeEach {
                     _ = subject.repl(
                         """
-                        this.cutboxFunctions = this.cutboxFunctions || []
+                        this.cutboxFunctions = []
                         this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
                         """
                     )
@@ -165,7 +186,7 @@ class JSFuncServiceSpec: QuickSpec {
                         it("set a text filter on the function names in cutboxFunctions") {
                             subject.filterText = "no"
 
-                            expect(subject.funcList).to(equal(["Another"]))
+                            expect(subject.funcList) == ["Another"]
                         }
                     }
 
