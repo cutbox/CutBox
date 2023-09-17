@@ -27,7 +27,9 @@ class SearchAndPreviewViewSpec: QuickSpec {
                     _ = subject.filterTextPublisher.subscribe(onNext: {
                         result = $0
                     })
-                    let notification = Notification(name: NSTextField.textDidChangeNotification, object: subject.searchText)
+                    let notification = Notification(
+                        name: NSTextField.textDidChangeNotification,
+                        object: subject.searchText)
                     subject.textDidChange(notification)
                     expect(result) == subject.searchText.string
                 }
