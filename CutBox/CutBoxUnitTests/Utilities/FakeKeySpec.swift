@@ -10,6 +10,19 @@ import Quick
 import Nimble
 import Carbon
 
+func fakeKeyEvent(_ keyCode: Int, _ modifierFlags: NSEvent.ModifierFlags = []) -> NSEvent? {
+    NSEvent.keyEvent(with: .keyDown,
+                     location: .zero,
+                     modifierFlags: [.command],
+                     timestamp: 0.0,
+                     windowNumber: 1,
+                     context: nil,
+                     characters: "",
+                     charactersIgnoringModifiers: "",
+                     isARepeat: false,
+                     keyCode: UInt16(keyCode))
+}
+
 class FakeKeySpec: QuickSpec {
     override func spec() {
         describe("FakeKey") {
