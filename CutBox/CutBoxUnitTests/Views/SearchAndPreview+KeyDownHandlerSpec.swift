@@ -15,6 +15,20 @@ class SearchAndPreview_KeyDownHandlerSpec: QuickSpec {
     override func spec() {
         describe("SearchAndPreview+KeyDownHandler") {
             let subject = SearchAndPreviewView(frame: .zero)
+            let mockDefaults = UserDefaultsMock()
+            let prefs = CutBoxPreferencesService(defaults: mockDefaults)
+            let mockHistoryService = HistoryService.shared
+            let mockHistoryRepo = HistoryRepo(defaults: mockDefaults, prefs: prefs)
+
+            mockHistoryService.historyRepo = mockHistoryRepo
+            mockHistoryService.defaults = mockDefaults
+
+            mockHistoryService.migrateLegacyHistoryStore([
+                "Bob",
+                "SteveDave",
+                "David"
+            ], mockDefaults)
+
             var result: SearchViewEvents?
             _ = subject.events.subscribe(onNext: { result = $0 })
 
@@ -157,9 +171,7 @@ class SearchAndPreview_KeyDownHandlerSpec: QuickSpec {
                         let mockTableView = MockTableView()
                         subject.itemsList = mockTableView
                         subject.keyDown(with: keyEvent)
-                        expect(mockTableView.keyDownMock)
-                            .toEventually(equal(keyEvent),
-                                          pollInterval: .milliseconds(10))
+                        expect(mockTableView.keyDownMock) == keyEvent
                     } else {
                         fail("Could not unwrap fake key event")
                     }
