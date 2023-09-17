@@ -157,7 +157,9 @@ class SearchAndPreview_KeyDownHandlerSpec: QuickSpec {
                         let mockTableView = MockTableView()
                         subject.itemsList = mockTableView
                         subject.keyDown(with: keyEvent)
-                        expect(mockTableView.keyDownMock) == keyEvent
+                        expect(mockTableView.keyDownMock)
+                            .toEventually(equal(keyEvent),
+                                          pollInterval: .milliseconds(10))
                     } else {
                         fail("Could not unwrap fake key event")
                     }

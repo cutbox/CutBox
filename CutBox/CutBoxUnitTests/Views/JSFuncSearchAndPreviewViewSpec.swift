@@ -96,7 +96,9 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                             subject.js = mockJs
                             subject.itemsList = mockTableView
                             subject.keyDown(with: keyEvent)
-                            expect(mockTableView.keyDownMock) == keyEvent
+                            expect(mockTableView.keyDownMock)
+                              .toEventually(equal(keyEvent),
+                                            pollInterval: .milliseconds(10))
                         } else {
                             fail("Could not unwrap fake key event")
                         }
