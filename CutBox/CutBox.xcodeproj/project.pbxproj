@@ -1472,7 +1472,7 @@
 			name = "[CP-User] Sign";
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scripts/sign.sh\n";
+			shellScript = scripts/sign.sh;
 		};
 		96085E4A206E36CC00CA77BB /* Bump build number */ = {
 			isa = PBXShellScriptBuildPhase;
