@@ -104,7 +104,6 @@ class CutBoxControllerSpec: QuickSpec {
 
                 mockUserDefaults = UserDefaultsMock()
                 mockJSFuncService = MockJSFuncService()
-                JSFuncService.shared = mockJSFuncService
                 mockPreferencesService = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockHistoryService = MockHistoryService(defaults: mockUserDefaults, prefs: mockPreferencesService)
                 mockJSFuncView = MockJSFuncView(frame: NSRect(x: 0, y: 0, width: 500, height: 300))

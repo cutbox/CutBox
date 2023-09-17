@@ -9,7 +9,7 @@
 import JavaScriptCore
 
 class JSFuncService: NSObject {
-    static var shared = JSFuncService()
+    static var context: JSContext = JSContext()
 
     var cutboxJSFilename: String = NSString(string: "~/.cutbox.js").expandingTildeInPath
 
@@ -32,7 +32,7 @@ class JSFuncService: NSObject {
                 return nil
         }
 
-        return JSFuncService.shared.js.evaluateScript(fileContent)
+        return JSFuncService.context.evaluateScript(fileContent)
     }
 
     let shellCommand: @convention(block) (String) -> String = { command in
@@ -119,7 +119,7 @@ class JSFuncService: NSObject {
         return found
     }
 
-    var js: JSContext = JSContext()
+    var js: JSContext = JSFuncService.context
 
     var count: Int {
         return self.funcList.count
@@ -149,7 +149,6 @@ class JSFuncService: NSObject {
         """
 
     func setup() {
-        self.js = JSContext()
         self.js["require"] = self.require
         self.js["shellCommand"] = self.shellCommand
         self.js["shell"] = self.shell
@@ -192,7 +191,8 @@ class JSFuncService: NSObject {
     }
 
     func process(_ fnIndex: Int, items: [String]) -> String {
-        return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn").call(withArguments: [items]).toString()!
+        return js.evaluateScript("cutboxFunctions[\(fnIndex)].fn")
+            .call(withArguments: [items]).toString()!
     }
 }
 

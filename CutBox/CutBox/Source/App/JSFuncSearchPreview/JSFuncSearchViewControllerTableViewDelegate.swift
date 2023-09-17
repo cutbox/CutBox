@@ -11,7 +11,7 @@ import Cocoa
 extension JSFuncSearchViewController: NSTableViewDataSource {
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return self.jsFuncService.count
+        return self.js.count
     }
 }
 
@@ -22,8 +22,8 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
 
     func updateSearchItemPreview() {
         let row = self.jsFuncView.itemsList.selectedRow
-        let name = self.jsFuncService.funcList[row]
-        let preview = self.jsFuncService.process(name, items: self.selectedClips)
+        let name = self.js.funcList[row]
+        let preview = self.js.process(name, items: self.selectedClips)
         self.jsFuncView.preview?.string = preview
     }
 
@@ -43,7 +43,7 @@ extension JSFuncSearchViewController: NSTableViewDelegate {
             return nil
         }
 
-        let funcItem = self.jsFuncService.funcList[row]
+        let funcItem = self.js.funcList[row]
         let theme = CutBoxPreferencesService.shared.currentTheme
         let rowView: JSFuncItemTableRowContainerView? = tableView.rowView(
             atRow: row,

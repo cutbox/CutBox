@@ -17,18 +17,10 @@ class JSFuncServiceSpec: QuickSpec {
 
         describe("JSFuncService") {
             beforeEach {
+                JSFuncService.context = JSContext()
                 subject = JSFuncService()
+
                 subject.setup()
-            }
-
-            describe("reload") {
-                it("resets JS context") {
-                    _ = subject.repl("this.marker = 'foobar'")
-                    expect(subject.repl("this.marker")) == "foobar"
-
-                    subject.reload()
-                    expect(subject.repl("this.marker")) == "undefined"
-                }
             }
 
             describe("repl") {
@@ -85,6 +77,7 @@ class JSFuncServiceSpec: QuickSpec {
                     context("require a unreadable file") {
                         it("returns undefined") {
                             let result = subject.repl("require('/')")
+                            expect(result) == "undefined"
                         }
                     }
 

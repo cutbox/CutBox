@@ -58,7 +58,7 @@ class JSFuncSearchViewControllerSpec: QuickSpec {
                 mockPasteboard = MockPasteboardWrapper()
 
                 subject = JSFuncSearchViewController(
-                    jsFuncService: mockJSFuncService,
+                    js: mockJSFuncService,
                     cutBoxPreferences: prefs,
                     fakeKey: mockFakeKey,
                     jsFuncView: mockJSFuncView,

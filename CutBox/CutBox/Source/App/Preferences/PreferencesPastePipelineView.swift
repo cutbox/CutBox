@@ -12,6 +12,7 @@ import RxSwift
 class PreferencesPastePipelineView: CutBoxBaseView {
 
     var prefs: CutBoxPreferencesService!
+    var js = JSFuncService()
     let disposeBag = DisposeBag()
 
     @IBOutlet weak var javascriptTransformSectionTitle: CutBoxBaseTextField!
@@ -82,7 +83,7 @@ class PreferencesPastePipelineView: CutBoxBaseView {
         javascriptReplCommandLine.stringValue = ""
 
         if !cmd.isEmpty {
-            let value = JSFuncService.shared.repl(cmd)
+            let value = js.repl(cmd)
 
             append("> " + cmd)
             append(value)

@@ -13,6 +13,7 @@ import RxCocoa
 
 class JSFuncSearchAndPreviewView: SearchAndPreviewViewBase {
 
+    var js = JSFuncService()
     var events = PublishSubject<SearchJSFuncViewEvents>()
 
     override func awakeFromNib() {

@@ -36,7 +36,7 @@ class CutBoxPreferencesService {
 
     var defaults: UserDefaults!
 
-    var js = JSFuncService.shared
+    var js = JSFuncService()
 
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.events = PublishSubject<CutBoxPreferencesEvent>()

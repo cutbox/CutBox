@@ -10,7 +10,7 @@ import RxSwift
 
 class JSFuncSearchViewController: NSObject {
 
-    var jsFuncService: JSFuncService
+    var js: JSFuncService
     var selectedClips: [String] = []
     var jsFuncView: JSFuncSearchAndPreviewView
     var prefs: CutBoxPreferencesService
@@ -19,15 +19,15 @@ class JSFuncSearchViewController: NSObject {
     var pasteboard: PasteboardWrapperType
 
     var hasFuncs: Bool {
-        return !self.jsFuncService.isEmpty
+        return !self.js.isEmpty
     }
 
     var count: Int {
-        return self.jsFuncService.count
+        return self.js.count
     }
 
     var funcList: [String] {
-        return self.jsFuncService.funcList
+        return self.js.funcList
     }
 
     var events: PublishSubject<SearchJSFuncViewEvents> {
@@ -36,13 +36,13 @@ class JSFuncSearchViewController: NSObject {
 
     let disposeBag = DisposeBag()
 
-    init(jsFuncService: JSFuncService = JSFuncService.shared,
+    init(js: JSFuncService = JSFuncService(),
          cutBoxPreferences: CutBoxPreferencesService = CutBoxPreferencesService.shared,
          fakeKey: FakeKey = FakeKey(),
          jsFuncView: JSFuncSearchAndPreviewView = JSFuncSearchAndPreviewView.fromNib()!,
          pasteboard: PasteboardWrapperType = PasteboardWrapper()) {
 
-        self.jsFuncService = jsFuncService
+        self.js = js
         self.prefs = cutBoxPreferences
         self.fakeKey = fakeKey
         self.jsFuncView = jsFuncView
@@ -64,7 +64,7 @@ class JSFuncSearchViewController: NSObject {
 
         self.jsFuncView.filterTextPublisher
             .subscribe(onNext: {
-                self.jsFuncService.filterText = $0
+                self.js.filterText = $0
                 self.jsFuncView.itemsList?.reloadData()
             })
             .disposed(by: self.disposeBag)
@@ -121,8 +121,8 @@ class JSFuncSearchViewController: NSObject {
         let row = self.jsFuncView.itemsList.selectedRow
         var clip: String
 
-        if let name = jsFuncService.funcList[safe: row] {
-            clip = jsFuncService.process(name, items: self.selectedClips)
+        if let name = js.funcList[safe: row] {
+            clip = js.process(name, items: self.selectedClips)
         } else {
             clip = prefs.prepareClips(self.selectedClips)
         }
