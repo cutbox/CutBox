@@ -82,8 +82,18 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                             }
                         }
 
+                        class MockJSFuncService: JSFuncService {
+                            var isEmptyCalled = false
+                            override var isEmpty: Bool {
+                                isEmptyCalled = true
+                                return false
+                            }
+                        }
+
                         if let keyEvent = fakeKeyEvent(kVK_UpArrow) {
+                            let mockJs = MockJSFuncService()
                             let mockTableView = MockTableView()
+                            subject.js = mockJs
                             subject.itemsList = mockTableView
                             subject.keyDown(with: keyEvent)
                             expect(mockTableView.keyDownMock) == keyEvent
