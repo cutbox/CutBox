@@ -25,7 +25,7 @@
 "cutbox_menu_regexp_case_match" = "Regexp case match";
 "cutbox_menu_substring_match" = "Exact match";
 "cutbox_menu_search_cutbox" = "Search CutBox";
-"js_func_search_placeholder" = "Paste through Javascript...";
+"js_func_search_placeholder" = "Paste Pipeline...";
 "ok" = "Ok";
 "preferences_color_theme_reload_themes" = "Reload themes";
 "preferences_color_theme_title" = "Color theme";
@@ -44,10 +44,10 @@
 "preferences_history_clear_entire_history" = "Clear Entire CutBox History";
 "preferences_history_clear_history_button" = "Clear History";
 "preferences_javascript_clear_button" = "Clear";
-"preferences_javascript_repl_help" = "CutBox JS REPL:\n\nhelp ENTER, for help\n\n";
+"preferences_javascript_repl_help" = "Paste Pipeline Console:\n\nhelp ENTER, for help\n\n";
 "preferences_javascript_transform_reload" = "Reload ~/.cutbox.js";
-"preferences_javascript_transform_section_note" = "Use this to help debug your ~/.cutbox.js";
-"preferences_javascript_transform_section_title" = "Javascript";
+"preferences_javascript_transform_section_note" = "Use this console to help debug your ~/.cutbox.js ";
+"preferences_javascript_transform_section_title" = "Paste Pipeline";
 "preferences_launch_on_login" = "Launch on Login";
 "preferences_launch_on_login_tooltip" = "CutBox can start when you login to macOS";
 "preferences_multi_clip_join_and_wrap_section_note" = "You can select multiple items from CutBox history and paste them all at once";
@@ -66,7 +66,7 @@
 "preferences_tab_view_general" = "General";
 "preferences_tab_view_display" = "Display";
 "preferences_tab_view_advanced" = "Advanced";
-"preferences_tab_view_javascript" = "Javascript";
+"preferences_tab_view_javascript" = "Paste Pipeline";
 "preferences_title" = "CutBox Preferences";
 "preferences_toggle_cutbox" = "Toggle CutBox";
 "preferences_toggle_cutbox_tooltip" = "Choose a keyboard shortcut to show/hide CutBox";

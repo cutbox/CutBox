@@ -9,7 +9,7 @@
 import Cocoa
 import RxSwift
 
-class PreferencesJavascriptTransformView: CutBoxBaseView {
+class PreferencesPastePipelineView: CutBoxBaseView {
 
     var prefs: CutBoxPreferencesService!
     let disposeBag = DisposeBag()

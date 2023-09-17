@@ -63,9 +63,9 @@
 		965348EB28434735000FD0A1 /* PreferencesGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020120A8573D000CBE74 /* PreferencesGeneralView.swift */; };
 		965348EC28434735000FD0A1 /* PreferencesThemePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96658CDF20B44B0500BDA8F4 /* PreferencesThemePreview.swift */; };
 		965348ED28434735000FD0A1 /* PreferencesThemeSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */; };
-		965348EE28434735000FD0A1 /* PreferencesJavascriptTransformView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */; };
+		965348EE28434735000FD0A1 /* PreferencesPastePipelineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BE20A8183A000CBE74 /* PreferencesPastePipelineView.xib */; };
 		965348EF28434735000FD0A1 /* PreferencesThemeSelectionView+UseCompactUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968D7C942095778800FF1236 /* PreferencesThemeSelectionView+UseCompactUI.swift */; };
-		965348F028434735000FD0A1 /* PreferencesJavascriptTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */; };
+		965348F028434735000FD0A1 /* PreferencesPastePipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020320A85772000CBE74 /* PreferencesPastePipelineView.swift */; };
 		965348F128434735000FD0A1 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD7C1420ADBBAF00818925 /* PreferencesTabViewController.swift */; };
 		965348F228434735000FD0A1 /* PreferencesWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F0783206FC4F60032DACD /* PreferencesWindow.swift */; };
 		965348F328434735000FD0A1 /* PreferencesGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */; };
@@ -259,9 +259,9 @@
 		96A801B920A8177C000CBE74 /* PreferencesGeneralView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */; };
 		96A801BB20A817B3000CBE74 /* PreferencesThemeSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */; };
 		96A801BD20A8180F000CBE74 /* PreferencesAdvancedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */; };
-		96A801BF20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */; };
+		96A801BF20A8183A000CBE74 /* PreferencesPastePipelineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A801BE20A8183A000CBE74 /* PreferencesPastePipelineView.xib */; };
 		96A8020220A8573D000CBE74 /* PreferencesGeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020120A8573D000CBE74 /* PreferencesGeneralView.swift */; };
-		96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */; };
+		96A8020420A85772000CBE74 /* PreferencesPastePipelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020320A85772000CBE74 /* PreferencesPastePipelineView.swift */; };
 		96A8020620A857B5000CBE74 /* PreferencesAdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */; };
 		96A8020820A8581B000CBE74 /* PreferencesThemeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */; };
 		96A8020A20AACD4E000CBE74 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8020920AACD4E000CBE74 /* OrderedSet.swift */; };
@@ -513,9 +513,9 @@
 		96A801B820A8177C000CBE74 /* PreferencesGeneralView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesGeneralView.xib; sourceTree = "<group>"; };
 		96A801BA20A817B3000CBE74 /* PreferencesThemeSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesThemeSelectionView.xib; sourceTree = "<group>"; };
 		96A801BC20A8180F000CBE74 /* PreferencesAdvancedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesAdvancedView.xib; sourceTree = "<group>"; };
-		96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesJavascriptTransformView.xib; sourceTree = "<group>"; };
+		96A801BE20A8183A000CBE74 /* PreferencesPastePipelineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesPastePipelineView.xib; sourceTree = "<group>"; };
 		96A8020120A8573D000CBE74 /* PreferencesGeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesGeneralView.swift; sourceTree = "<group>"; };
-		96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesJavascriptTransformView.swift; sourceTree = "<group>"; };
+		96A8020320A85772000CBE74 /* PreferencesPastePipelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPastePipelineView.swift; sourceTree = "<group>"; };
 		96A8020520A857B5000CBE74 /* PreferencesAdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesAdvancedView.swift; sourceTree = "<group>"; };
 		96A8020720A8581B000CBE74 /* PreferencesThemeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesThemeSelectionView.swift; sourceTree = "<group>"; };
 		96A8020920AACD4E000CBE74 /* OrderedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
@@ -735,8 +735,8 @@
 				96CDF2CA2A8B338600ADE6B4 /* PreferencesAdvancedView+ClearHistory.swift */,
 				964CA502207E5A1000B9F33E /* PreferencesAdvancedView+JoinItems.swift */,
 				964CA4FF207E59D400B9F33E /* PreferencesAdvancedView+MultipleItemWrapping.swift */,
-				96A801BE20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib */,
-				96A8020320A85772000CBE74 /* PreferencesJavascriptTransformView.swift */,
+				96A801BE20A8183A000CBE74 /* PreferencesPastePipelineView.xib */,
+				96A8020320A85772000CBE74 /* PreferencesPastePipelineView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -1360,7 +1360,7 @@
 				965348DE284346EB000FD0A1 /* CutBoxStatusMenu.xib in Resources */,
 				9653490828434752000FD0A1 /* ClipItemTableRowTextView.xib in Resources */,
 				965348F528434735000FD0A1 /* PreferencesWindow.xib in Resources */,
-				965348EE28434735000FD0A1 /* PreferencesJavascriptTransformView.xib in Resources */,
+				965348EE28434735000FD0A1 /* PreferencesPastePipelineView.xib in Resources */,
 				9653490028434742000FD0A1 /* JSFuncSearchAndPreviewView.xib in Resources */,
 				965348FC28434735000FD0A1 /* PreferencesAdvancedView.xib in Resources */,
 				9653490728434752000FD0A1 /* ClipItemTableRowImageButtonView.xib in Resources */,
@@ -1401,7 +1401,7 @@
 				967DFB5A20C28D3F0063B050 /* js-badge.png in Resources */,
 				96A16B4220A0675700EE08A4 /* page.png in Resources */,
 				96A16B4720A3480C00EE08A4 /* ClipItemTableRowImageView.xib in Resources */,
-				96A801BF20A8183A000CBE74 /* PreferencesJavascriptTransformView.xib in Resources */,
+				96A801BF20A8183A000CBE74 /* PreferencesPastePipelineView.xib in Resources */,
 				9655D1D52A91216700AA902F /* Localizable.strings in Resources */,
 				96B04642284518E500011A58 /* themes in Resources */,
 				96CDF2D42A8B957F00ADE6B4 /* Localizable.strings in Resources */,
@@ -1673,7 +1673,7 @@
 				961D62542AB5FFD20045EE77 /* JSFuncSearchAndPreviewViewSpec.swift in Sources */,
 				9653490F28434752000FD0A1 /* ClipItemTableRowTextView.swift in Sources */,
 				965348E728434728000FD0A1 /* AboutPanel.swift in Sources */,
-				965348F028434735000FD0A1 /* PreferencesJavascriptTransformView.swift in Sources */,
+				965348F028434735000FD0A1 /* PreferencesPastePipelineView.swift in Sources */,
 				96EF84FA2AB1893A00CC8022 /* String+dashed.swift in Sources */,
 				9653493328434785000FD0A1 /* Array+IndexSet.swift in Sources */,
 				9653494328434862000FD0A1 /* Array+IndexSetSpec.swift in Sources */,
@@ -1827,7 +1827,7 @@
 				9672FF2F2079C89400E4571E /* HistorySearchMode.swift in Sources */,
 				96E1E598205D243400F994ED /* CutBox.swift in Sources */,
 				961A49B82065D8DE005BC79D /* PopupBackgroundView.swift in Sources */,
-				96A8020420A85772000CBE74 /* PreferencesJavascriptTransformView.swift in Sources */,
+				96A8020420A85772000CBE74 /* PreferencesPastePipelineView.swift in Sources */,
 				967C06A52A937220008AF0CE /* TextFieldKeyUpRxStream.swift in Sources */,
 				965B02B628E7E0A6003770BD /* SearchViewController.swift in Sources */,
 				964CA507207E5AC700B9F33E /* PreferencesGeneralView+AutoLogin.swift in Sources */,

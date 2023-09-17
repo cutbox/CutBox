@@ -14,7 +14,7 @@ class PreferencesTabView: CutBoxBaseTabView, NSTabViewDelegate {
     private let generalTab: PreferencesGeneralView = PreferencesGeneralView.fromNib()!
     private let advancedTab: PreferencesAdvancedView = PreferencesAdvancedView.fromNib()!
     private let themeTab: PreferencesThemeSelectionView = PreferencesThemeSelectionView.fromNib()!
-    private let javascriptTab: PreferencesJavascriptTransformView = PreferencesJavascriptTransformView.fromNib()!
+    private let javascriptTab: PreferencesPastePipelineView = PreferencesPastePipelineView.fromNib()!
 
     override func awakeFromNib() {
 

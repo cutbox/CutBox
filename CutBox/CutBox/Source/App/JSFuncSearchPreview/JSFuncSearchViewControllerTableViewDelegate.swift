@@ -16,7 +16,6 @@ extension JSFuncSearchViewController: NSTableViewDataSource {
 }
 
 extension JSFuncSearchViewController: NSTableViewDelegate {
-
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 30
     }
