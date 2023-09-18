@@ -18,20 +18,23 @@ class ClipItemTableRowContainerView: ItemTableRowContainerView {
             .intersection(.deviceIndependentFlagsMask)
 
         if event.clickCount == 2
+            && event.type == .leftMouseDown
             && modifiers.isEmpty {
             self.searchView?
                 .events
                 .onNext(.closeAndPasteSelected)
         }
 
-        if event.clickCount == 2
-            && modifiers == [.control] {
+        if (event.clickCount == 2 && modifiers == [.control]) ||
+            (event.type == .rightMouseDown && modifiers == []) ||
+            (event.clickCount == 1 && event.type == .leftMouseDown && modifiers == [.command]) {
             self.searchView?
                 .events
                 .onNext(.selectJavascriptFunction)
         }
 
         if event.clickCount == 1
+            && event.type == .leftMouseDown
             && modifiers == [.option] {
             self.searchView?
                 .events
