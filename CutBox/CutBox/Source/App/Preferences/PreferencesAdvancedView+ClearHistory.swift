@@ -20,8 +20,8 @@ extension PreferencesAdvancedView {
     }
 
     func clearHistoryActionClicked() {
-        let selectedIndex = clearHistoryDropDown.indexOfSelectedItem
-        if let offset = clearHistoryOptions[selectedIndex].offset {
+        let selectedIndex = self.clearHistoryDropDown.indexOfSelectedItem
+        if let offset = self.clearHistoryOptions[selectedIndex].offset {
             if dialogFactory.suppressibleConfirmationDialog(
                 messageText: "\(clearHistoryOptions[selectedIndex].title.l7n)?",
                 informativeText: "confirm_warning_clear_history".l7n,

@@ -18,7 +18,6 @@ class PreferencesAdvancedViewSpec: QuickSpec {
 
             beforeEach {
                 subject.prefs = prefs
-
             }
 
             context("joinStyleSelectorAction") {
@@ -33,6 +32,32 @@ class PreferencesAdvancedViewSpec: QuickSpec {
                     expect(joinStringTextField.isHidden).to(beFalse())
                     expect(joinStringTextField.isEnabled).to(beTrue())
                     expect(prefs.useJoinString).to(beTrue())
+                }
+            }
+
+            context("clearHistoryActionClicked") {
+                class MockPopUpButton: CutBoxBasePopUpButton {
+                    override var indexOfSelectedItem: Int {
+                        return 1
+                    }
+                }
+
+                let popup = MockPopUpButton()
+                let historyStore = [["string": "Don"], ["string", "Dan"]]
+
+                it("Clears history") {
+                    subject.clearHistoryDropDown = popup
+                    mockUserDefaults.store[Constants.kHistoryStoreKey] = historyStore
+
+                    DialogFactory.testing = true
+                    DialogFactory.testResponse = true
+
+                    subject.clearHistoryActionClicked()
+
+                    if let updatedStore = mockUserDefaults
+                        .store[Constants.kHistoryStoreKey] as? [[String: String]] {
+                        expect(updatedStore.count) == 0
+                    }
                 }
             }
 
@@ -52,7 +77,7 @@ class PreferencesAdvancedViewSpec: QuickSpec {
                             expect(subject.prefs.historyLimit) == 60
                         }
                     }
-                    
+
                     context("and user denies") {
                         beforeEach {
                             DialogFactory.testing = true
