@@ -31,3 +31,6 @@ check_l7n_app ::
 
 check_l7n_languages ::
 	bin/check_all_localization
+
+install :: swiftlint check_l7n_app check_l7n_languages test build
+	bin/use_build_as_local_app
