@@ -114,69 +114,21 @@ public class CutBoxBaseTextView: NSTextView {
     }
 }
 
-class CutBoxBaseTextField: NSTextField {
-}
-
-class CutBoxBaseTextFieldCell: NSTextFieldCell {
-}
-
-class CutBoxBaseButton: NSButton {
-}
-
-class CutBoxBaseTabViewItem: NSTabViewItem {
-}
-
-class CutBoxBaseTabView: NSTabView {
-}
-
-class CutBoxBaseTabViewController: NSTabViewController {
-}
-
-class CutBoxBaseTextContainer: NSTextContainer {
-}
-
-class CutBoxBasePopUpButton: NSPopUpButton {
-}
-
-class CutBoxBaseSegmentedControl: NSSegmentedControl {
-}
-
-class CutBoxBaseBox: NSBox {
-}
-
 class CutBoxBaseMenu: NSMenu {
     override func item(at index: Int) -> CutBoxBaseMenuItem? {
         return super.item(at: index) as? CutBoxBaseMenuItem
     }
 }
 
-class CutBoxBaseMenuItem: NSMenuItem {
-}
-
-class CutBoxBaseStackView: NSStackView {
-}
-
-// Plan for NSWrappers
-// marshall calls to super
-
-// Step 1: All existing subclasses or uses of NS(T) cocoa
-// objects demand a App Base sub-class of NS(T) to exist
-// and be used instead.
-
-// Caveat:
-// (Monitor carefully for breakage before tests are
-// added on the view & controller layers)
-
-// Step 2: Trial the idea of T.static var testMode: Bool
-// To provide a test mode, so all super calls to base
-// class can be caught and recorded in test state
-// Turning this App Base layer into a  set of function
-// spies.
-
-// Caveat:
-// Move slowly and catch one super call at a time
-// per Test / Commit cycle.
-
-// Step 3: Utilize test mode, write specs for the larger
-// controller classes, add more testing/encapsulation
-// via the app base classes as required.
+class CutBoxBaseMenuItem: NSMenuItem {}
+class CutBoxBaseTextField: NSTextField {}
+class CutBoxBaseTextFieldCell: NSTextFieldCell {}
+class CutBoxBaseButton: NSButton {}
+class CutBoxBaseTabViewItem: NSTabViewItem {}
+class CutBoxBaseTabView: NSTabView {}
+class CutBoxBaseTabViewController: NSTabViewController {}
+class CutBoxBaseTextContainer: NSTextContainer {}
+class CutBoxBasePopUpButton: NSPopUpButton {}
+class CutBoxBaseSegmentedControl: NSSegmentedControl {}
+class CutBoxBaseBox: NSBox {}
+class CutBoxBaseStackView: NSStackView {}
