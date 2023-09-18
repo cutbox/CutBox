@@ -13,6 +13,10 @@ import Cocoa
 public class TransientScrollView: NSScrollView {
     @IBInspectable @objc(enabled) public var isEnabled: Bool = true
 
+    public override func becomeFirstResponder() -> Bool {
+        return true
+    }
+
     public override func scrollWheel(with event: NSEvent) {
         if isEnabled {
             super.scrollWheel(with: event)
