@@ -1,5 +1,5 @@
 //
-//  ValidTextField.swift
+//  ValidIndicatorTextField.swift
 //  CutBox
 //
 //  Created by Jason Milkins on 12/8/23.
@@ -51,7 +51,6 @@ class ValidIndicatorTextField: TextFieldKeyUpRxStream {
         let red = NSColor.red.withAlphaComponent(0.15).cgColor
 
         if let fieldLayer = self.layer {
-
             fieldLayer.borderColor = isValid ? green : red
             fieldLayer.borderWidth = 1
             fieldLayer.cornerRadius = 0
