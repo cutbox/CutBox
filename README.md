@@ -146,7 +146,7 @@ CutBox doesn't participate in Apple notarisation. CutBox will be free and open f
 
 CutBox is [quality checked by Codacy](https://app.codacy.com/gh/cutbox/CutBox/dashboard?utm_source=github.com&utm_medium=referral&utm_content=cutbox/CutBox&utm_campaign=Badge_Grade).  
 
-`CutBox.app` and `cutbox` releases are build using Github actions, so you can also inspect the entire test/deploy/delivery chain online at  [cutbox/CutBox](https://github.com/cutbox/CutBox/Actions).
+`CutBox.app` and `cutbox` releases are build using Github actions, so you can also inspect the entire test/deploy/delivery chain online at  [cutbox/CutBox](https://github.com/cutbox/CutBox/actions).
 
 If you have any concerns about the integrity of your CutBox.app, make sure to build it directly from source on your local machine, this is easily achieved using Homebrew and installing XCode.  See [Install via Homebrew formula](#Install-via-Homebrew-formula)
 
