@@ -262,7 +262,7 @@ class HistoryServiceSpec: QuickSpec {
                     expect((subject.pasteboard as? MockPasteboardWrapper)?.called)
                         .toEventually(
                             beTrue(),
-                            pollInterval: .milliseconds(200))
+                            pollInterval: .milliseconds(210))
                     subject.endPolling()
                 }
 
