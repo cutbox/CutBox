@@ -13,7 +13,8 @@ extension SearchViewController: NSMenuDelegate {
     func menuWillOpen(_ menu: NSMenu) {
         let clicked = searchView.itemsList.clickedRow
 
-        guard !searchView.itemsList.isRowSelected(clicked), let flags = CGEvent(source: nil)?.flags else { return }
+        guard !searchView.itemsList.isRowSelected(clicked),
+                let flags = CGEvent(source: nil)?.flags else { return }
 
         let proposedSelection: IndexSet
 

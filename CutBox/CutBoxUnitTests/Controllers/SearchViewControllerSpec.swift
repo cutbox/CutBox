@@ -63,6 +63,15 @@ class SearchViewControllerSpec: QuickSpec {
                 }
             }
 
+            describe("NSMenuDelegate menuWillOpen") {
+                it("triggers menu open") {
+                    let menu = NSMenu(title: "Hello")
+                    let tableView = NSTableView()
+                    subject.searchView.itemsList = tableView
+                    expect(subject.menuWillOpen(menu)) == ()
+                }
+            }
+
             describe("Table View Delegate") {
                 beforeEach {
                     mockHistoryService.migrateLegacyHistoryStore(["Bob", "David"], mockUserDefaults)
