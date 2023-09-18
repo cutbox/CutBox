@@ -125,7 +125,7 @@ class HistoryServiceSpec: QuickSpec {
             }
         }
 
-        context("historyStore") {
+        describe("HistoryService") {
             beforeEach {
                 subject = HistoryService(defaults: mockDefaults,
                                          pasteboard: mockPasteboard,
@@ -259,9 +259,10 @@ class HistoryServiceSpec: QuickSpec {
                     expect(subject.pollingTimer).to(beNil())
                     subject.beginPolling()
                     expect(subject.pollingTimer).notTo(beNil())
-                    expect(mockPasteboard.called).toEventually(
-                        beTrue(),
-                        pollInterval: .milliseconds(100))
+                    expect((subject.pasteboard as? MockPasteboardWrapper)?.called)
+                        .toEventually(
+                            beTrue(),
+                            pollInterval: .milliseconds(200))
                     subject.endPolling()
                 }
 
