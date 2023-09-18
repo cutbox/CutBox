@@ -32,19 +32,15 @@ extension PreferencesGeneralView: RecordViewDelegate {
     }
 
     func recordViewShouldBeginRecording(_ recordView: RecordView) -> Bool {
-        hotKeyCenter
+        hotKeyCenter?
             .unregisterHotKey(with: Constants.cutBoxToggleKeyCombo)
         return true
     }
 
     func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo?) {
         switch recordView {
-        case mainKeyRecorder:
-            hotKeyService
-                .searchKeyCombo
-                .onNext(keyCombo!)
-        default: break
-        }
+        case mainKeyRecorder: hotKeyService?.searchKeyCombo.onNext(keyCombo!)
+        default: break }
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {

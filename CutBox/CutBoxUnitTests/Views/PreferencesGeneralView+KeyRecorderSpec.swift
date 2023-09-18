@@ -11,7 +11,7 @@ import Nimble
 import KeyHolder
 import Magnet
 
-class PreferencesGeneralView_RecordViewDelegateSpec: QuickSpec {
+class PreferencesGeneralView_KeyRecorderSpec: QuickSpec {
     override func spec() {
         describe("PreferencesGeneralView_RecordViewDelegate") {
             let subject: PreferencesGeneralView = PreferencesGeneralView(frame: .zero)
@@ -24,15 +24,28 @@ class PreferencesGeneralView_RecordViewDelegateSpec: QuickSpec {
                 expect(result) == true
             }
 
-            it("recordViewShouldBeginRecording throws an assertion when keyRecorder is not configured") {
-                expect {
-                    subject.recordViewShouldBeginRecording(RecordView(frame: .zero))
-                }
-                .to(throwAssertion())
+            it("recordViewShouldBeginRecording returns true after unregistering an existing key combo") {
+                expect(subject.recordViewShouldBeginRecording(RecordView(frame: .zero)))
+                .to(beTrue())
             }
 
             it("returns void for recordViewDidEndRecording") {
                 expect(subject.recordViewDidEndRecording(RecordView(frame: .zero))) == ()
+            }
+
+            it("can record and didChangeKeyCombo keyCombo") {
+                let keyRecorder = RecordView(frame: .zero)
+                let keyCombo = KeyCombo(key: .p, cocoaModifiers: [.command, .shift])
+                subject.mainKeyRecorder = keyRecorder
+
+                subject.recordView(
+                    subject.mainKeyRecorder,
+                    didChangeKeyCombo: keyCombo)
+
+                expect(subject.mainKeyRecorder) == keyRecorder
+
+                // It needs a display...
+                expect(subject.mainKeyRecorder.keyCombo).to(beNil())
             }
         }
     }
