@@ -24,6 +24,13 @@ class PreferencesGeneralView_RecordViewDelegateSpec: QuickSpec {
                 expect(result) == true
             }
 
+            it("recordViewShouldBeginRecording throws an assertion when keyRecorder is not configured") {
+                expect {
+                    subject.recordViewShouldBeginRecording(RecordView(frame: .zero))
+                }
+                .to(throwAssertion())
+            }
+
             it("returns void for recordViewDidEndRecording") {
                 expect(subject.recordViewDidEndRecording(RecordView(frame: .zero))) == ()
             }
