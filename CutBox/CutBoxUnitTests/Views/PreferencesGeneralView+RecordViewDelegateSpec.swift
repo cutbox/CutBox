@@ -23,6 +23,10 @@ class PreferencesGeneralView_RecordViewDelegateSpec: QuickSpec {
 
                 expect(result) == true
             }
+
+            it("returns void for recordViewDidEndRecording") {
+                expect(subject.recordViewDidEndRecording(RecordView(frame: .zero))) == ()
+            }
         }
     }
 }
