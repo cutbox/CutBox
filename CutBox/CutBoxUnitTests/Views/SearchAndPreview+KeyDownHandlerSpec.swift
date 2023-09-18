@@ -69,6 +69,12 @@ class SearchAndPreview_KeyDownHandlerSpec: QuickSpec {
                 ]}
 
                 itBehavesLike("keyboard event handling") {[
+                    "title": "Cmd+a select JS Function",
+                    "expected": SearchViewEvents.selectJavascriptFunction,
+                    "key_event": fakeKeyEvent(kVK_ANSI_A, [.command])
+                ]}
+
+                itBehavesLike("keyboard event handling") {[
                     "title": "ESC just close",
                     "expected": SearchViewEvents.justClose,
                     "key_event": fakeKeyEvent(kVK_Escape)

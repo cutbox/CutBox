@@ -39,6 +39,10 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.selectJavascriptFunction)
 
+        case (kVK_ANSI_A, [.command]):
+            self.events
+                .onNext(.selectJavascriptFunction)
+
         case (kVK_ANSI_Comma, [.command]):
             self.events
                 .onNext(.openPreferences)
