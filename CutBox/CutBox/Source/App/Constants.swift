@@ -11,6 +11,9 @@ import Magnet
 import Carbon.HIToolbox
 
 enum Constants {
+    static let cutBoxUserThemesLocation = "~/.config/cutbox"
+    static let cutBoxJSLocation = "~/.cutbox.js"
+
     static let cutBoxToggleKeyCombo = "CutBoxToggleSearchPanelHotKey"
     static let searchFuzzyMatchMinScore = 0.1
     static let defaultCutBoxToggleKeyCombo =

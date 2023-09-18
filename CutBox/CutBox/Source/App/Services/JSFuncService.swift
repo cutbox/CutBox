@@ -11,7 +11,7 @@ import JavaScriptCore
 class JSFuncService: NSObject {
     static var context: JSContext = JSContext()
 
-    var cutboxJSFilename: String = NSString(string: "~/.cutbox.js").expandingTildeInPath
+    var cutboxJSFilename: String = NSString(string: Constants.cutBoxJSLocation).expandingTildeInPath
 
     let require: @convention(block) (String) -> JSValue? = { path in
         let expandedPath = NSString(string: path).expandingTildeInPath

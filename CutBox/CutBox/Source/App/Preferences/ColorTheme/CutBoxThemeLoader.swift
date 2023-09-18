@@ -43,7 +43,7 @@ class CutBoxThemeLoader {
     private static func loadUserThemesFiles() -> [String] {
         let fileManager = FileManager.default
         let cutBoxConfig = String(NSString(
-            string: "~/.config/cutbox"
+            string: Constants.cutBoxUserThemesLocation
         ).expandingTildeInPath)
 
         guard let themefiles = try?
