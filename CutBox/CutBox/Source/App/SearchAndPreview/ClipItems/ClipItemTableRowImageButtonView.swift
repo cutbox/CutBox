@@ -13,17 +13,15 @@ class ClipItemTableRowImageButtonView: NSView {
     @IBOutlet weak var imageButton: NSButton!
 
     private var isFavorite: Bool {
-        if let data = internalData {
-            if let favoriteData = data["favorite"], !favoriteData.isEmpty {
-                return true
-            } else {
-                return false
-            }
+        if let data = data,
+           let favoriteData = data["favorite"],
+            !favoriteData.isEmpty {
+            return true
         }
         return false
     }
 
-    var internalColor: NSColor = NSColor.textColor
+    private var internalColor: NSColor = NSColor.textColor
     var color: NSColor {
         get {
             return internalColor
@@ -35,7 +33,7 @@ class ClipItemTableRowImageButtonView: NSView {
         }
     }
 
-    var internalData: [String: String]?
+    private var internalData: [String: String]?
     var data: [String: String]? {
         get {
             return internalData
@@ -52,14 +50,14 @@ class ClipItemTableRowImageButtonView: NSView {
         }
 
         self.imageButton.image = self.isFavorite
-            ? #imageLiteral(resourceName: "star.png")
-            : #imageLiteral(resourceName: "page.png")
+        ? CutBoxImageRef.star.image()
+        : CutBoxImageRef.page.image()
 
         self.tintImage()
     }
 
     private func tintImage() {
-        guard let imageData = self.imageButton.image else { fatalError("No image on clip") }
+        guard let imageData = self.imageButton.image else { return }
         let blended = imageData.tint(color: self.color)
         self.imageButton.image = blended
     }
