@@ -8,57 +8,62 @@
 
 import Quick
 import Nimble
+import Carbon
 
 class SearchTextViewSpec: QuickSpec {
     override func spec() {
         describe("SearchTextView") {
-            var searchTextView: SearchTextView!
+            var subject: SearchTextView!
 
             beforeEach {
-                // Initialize your SearchTextView instance or provide necessary dependencies here
                 let coder = mockCoder(for: NSView(frame: .zero))
-                searchTextView = SearchTextView(coder: coder!)
+                subject = SearchTextView(coder: coder!)
             }
 
             it("should be an instance of CutBoxBaseTextView") {
-                expect(searchTextView).to(beAKindOf(CutBoxBaseTextView.self))
+                expect(subject).to(beAKindOf(CutBoxBaseTextView.self))
             }
 
             context("when keyDown is called with a valid event") {
-                it("should handle specific key events correctly") {
-                    // Add your test cases for handling specific key events here
-                    // Make sure to set up the event and assert the expected behavior
+                it("should handle Cmd A") {
+                    let keyEvent = fakeKey(kVK_ANSI_A, [.command])
+                    subject.keyDown(with: keyEvent)
+                    subject.doCommand(by: Selector(("noop:")))
+                    expect(subject.keyDownEvent) == keyEvent
                 }
 
-                it("should call super.keyDown with the event") {
-                    // Add your test cases to ensure super.keyDown is called correctly
+                it("should handle Cmd X") {
+                    let keyEvent = fakeKey(kVK_ANSI_X, [.command])
+                    subject.keyDown(with: keyEvent)
+                    subject.doCommand(by: Selector(("noop:")))
+                    expect(subject.keyDownEvent) == keyEvent
                 }
 
-                it("should call nextResponder.keyDown with the event for augmented selectors") {
-                    // Add your test cases for augmented selectors here
-                    // Make sure to set up the event and assert the expected behavior
+                it("should handle Cmd C") {
+                    let keyEvent = fakeKey(kVK_ANSI_C, [.command])
+                    subject.keyDown(with: keyEvent)
+                    subject.doCommand(by: Selector(("noop:")))
+                    expect(subject.keyDownEvent) == keyEvent
                 }
 
-                it("should call nextResponder.keyDown with the event for skipped selectors") {
-                    // Add your test cases for skipped selectors here
-                    // Make sure to set up the event and assert the expected behavior
+                it("should handle Cmd V") {
+                    let keyEvent = fakeKey(kVK_ANSI_V, [.command])
+                    subject.keyDown(with: keyEvent)
+                    subject.doCommand(by: Selector(("noop:")))
+                    expect(subject.keyDownEvent) == keyEvent
                 }
             }
 
             context("when doCommand is called with a selector") {
                 it("should handle specific command selectors correctly") {
-                    // Add your test cases for handling specific command selectors here
-                    // Make sure to set up the selector and assert the expected behavior
-                }
+                    expect {
+                        subject.doCommand(by: #selector(NSStandardKeyBindingResponding.moveLeft(_:)))
+                    }.toNot(throwAssertion())
 
-                it("should call super.doCommand with the selector") {
-                    // Add your test cases to ensure super.doCommand is called correctly
+                    expect {
+                        subject.doCommand(by: #selector(NSStandardKeyBindingResponding.moveDown(_:)))
+                    }.toNot(throwAssertion())
                 }
-            }
-
-            afterEach {
-                // Clean up any resources or reset state if needed
-                searchTextView = nil
             }
         }
     }

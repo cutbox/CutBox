@@ -11,14 +11,14 @@ import Nimble
 import Carbon
 
 func fakeKeyEvent(_ keyCode: Int, _ modifierFlags: NSEvent.ModifierFlags = []) -> Any {
-    if let event: NSEvent = fakeKeyEvent(keyCode, modifierFlags) {
+    if let event: NSEvent = fakeKey(keyCode, modifierFlags) {
         return event as Any
     } else {
         fatalError("Could not make NSEvent")
     }
 }
 
-func fakeKeyEvent(_ keyCode: Int, _ modifierFlags: NSEvent.ModifierFlags = []) -> NSEvent? {
+func fakeKey(_ keyCode: Int, _ modifierFlags: NSEvent.ModifierFlags = []) -> NSEvent? {
     NSEvent.keyEvent(with: .keyDown,
                      location: .zero,
                      modifierFlags: modifierFlags,

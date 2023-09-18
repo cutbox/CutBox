@@ -173,7 +173,7 @@ class SearchAndPreview_KeyDownHandlerSpec: QuickSpec {
                         }
                     }
 
-                    if let keyEvent = fakeKeyEvent(kVK_UpArrow) {
+                    if let keyEvent = fakeKey(kVK_UpArrow) {
                         let mockTableView = MockTableView()
                         subject.itemsList = mockTableView
                         subject.keyDown(with: keyEvent)

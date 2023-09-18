@@ -47,7 +47,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                     _ = subject.events.subscribe(onNext: { result = $0 })
 
                     it("Cmd+T cycle color themes") {
-                        if let keyEvent = fakeKeyEvent(kVK_ANSI_T, [.command]) {
+                        if let keyEvent = fakeKey(kVK_ANSI_T, [.command]) {
                             subject.keyDown(with: keyEvent)
                             expect(result) == .cycleTheme
                         } else {
@@ -56,7 +56,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                     }
 
                     it("RETURN close and paste") {
-                        if let keyEvent = fakeKeyEvent(kVK_Return) {
+                        if let keyEvent = fakeKey(kVK_Return) {
                             subject.keyDown(with: keyEvent)
                             expect(result) == .closeAndPaste
                         } else {
@@ -65,7 +65,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                     }
 
                     it("ESC just close") {
-                        if let keyEvent = fakeKeyEvent(kVK_Escape) {
+                        if let keyEvent = fakeKey(kVK_Escape) {
                             subject.keyDown(with: keyEvent)
                             expect(result) == .justClose
                         } else {
@@ -90,7 +90,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                             }
                         }
 
-                        if let keyEvent = fakeKeyEvent(kVK_UpArrow) {
+                        if let keyEvent = fakeKey(kVK_UpArrow) {
                             let mockJs = MockJSFuncService()
                             let mockTableView = MockTableView()
                             subject.js = mockJs

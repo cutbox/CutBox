@@ -11,7 +11,7 @@ import Carbon.HIToolbox
 
 class SearchTextView: CutBoxBaseTextView {
 
-    private var keyDownEvent: NSEvent?
+    var keyDownEvent: NSEvent?
 
     required init?(coder aCoder: NSCoder) {
         super.init(coder: aCoder)
