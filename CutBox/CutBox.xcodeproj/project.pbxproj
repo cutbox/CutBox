@@ -250,6 +250,7 @@
 		969B0A362AB7CDB000807318 /* ClipItemTableRowContainerViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A352AB7CDB000807318 /* ClipItemTableRowContainerViewSpec.swift */; };
 		969B0A382AB7D84200807318 /* ClipItemTableRowImageButtonViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A372AB7D84200807318 /* ClipItemTableRowImageButtonViewSpec.swift */; };
 		969B0A3A2AB7E4C300807318 /* ValidIndicatorTextFieldSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A392AB7E4C300807318 /* ValidIndicatorTextFieldSpec.swift */; };
+		969B0A3C2AB87D7D00807318 /* PreferencesGeneralView+RecordViewDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A3B2AB87D7D00807318 /* PreferencesGeneralView+RecordViewDelegateSpec.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -507,6 +508,7 @@
 		969B0A352AB7CDB000807318 /* ClipItemTableRowContainerViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowContainerViewSpec.swift; sourceTree = "<group>"; };
 		969B0A372AB7D84200807318 /* ClipItemTableRowImageButtonViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowImageButtonViewSpec.swift; sourceTree = "<group>"; };
 		969B0A392AB7E4C300807318 /* ValidIndicatorTextFieldSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidIndicatorTextFieldSpec.swift; sourceTree = "<group>"; };
+		969B0A3B2AB87D7D00807318 /* PreferencesGeneralView+RecordViewDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+RecordViewDelegateSpec.swift"; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowTextView.xib; sourceTree = "<group>"; };
@@ -694,6 +696,7 @@
 				964FBDDA2AB7233800DA93D7 /* SearchAndPreview+KeyDownHandlerSpec.swift */,
 				969B0A352AB7CDB000807318 /* ClipItemTableRowContainerViewSpec.swift */,
 				969B0A372AB7D84200807318 /* ClipItemTableRowImageButtonViewSpec.swift */,
+				969B0A3B2AB87D7D00807318 /* PreferencesGeneralView+RecordViewDelegateSpec.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1721,6 +1724,7 @@
 				9653492728434785000FD0A1 /* JSContext+subscript.swift in Sources */,
 				96CDF2CF2A8B409200ADE6B4 /* HistoryOffsetPredicateFactory.swift in Sources */,
 				9653491928434767000FD0A1 /* HistorySearchMode.swift in Sources */,
+				969B0A3C2AB87D7D00807318 /* PreferencesGeneralView+RecordViewDelegateSpec.swift in Sources */,
 				9677BEAA2AA8B71F00AB537C /* KeyComboUserDefaultsSpec.swift in Sources */,
 				965348E32843471D000FD0A1 /* CutBoxPreferences+SelectTheme.swift in Sources */,
 				965348F628434735000FD0A1 /* PreferencesAdvancedView.swift in Sources */,
