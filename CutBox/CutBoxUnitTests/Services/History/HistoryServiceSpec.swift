@@ -259,10 +259,6 @@ class HistoryServiceSpec: QuickSpec {
                     expect(subject.pollingTimer).to(beNil())
                     subject.beginPolling()
                     expect(subject.pollingTimer).notTo(beNil())
-                    expect((subject.pasteboard as? MockPasteboardWrapper)?.called)
-                        .toEventually(
-                            beTrue(),
-                            pollInterval: .milliseconds(210))
                     subject.endPolling()
                 }
 

@@ -39,7 +39,7 @@ extension SearchAndPreviewView {
             self.events
                 .onNext(.selectJavascriptFunction)
 
-        case (kVK_ANSI_A, [.command]):
+        case (kVK_ANSI_A, [.command, .shift]):
             self.events
                 .onNext(.selectJavascriptFunction)
 
