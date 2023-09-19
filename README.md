@@ -152,27 +152,19 @@ If you have any concerns about the integrity of your CutBox.app, make sure to bu
 
 ## Permissions to enable CutBox paste 
 
-After installation or upgrade, the CutBox.app requires security permissions set, so that it can paste.
+After installation or upgrade, the CutBox.app requires security permission for Accessibiliy. This is so that it can paste by faking <kbd>Cmd</kbd>+<kbd>V</kbd>.
 
 Open **System Preferences -> Security & Privacy -> Privacy -> Accessibility**
 
 Unlock the panel and add CutBox to the list of apps (also switch on the check box next to its icon). 
 
-If CutBox is already in the list of apps, you have to replace it with the new version that was installed.
+If CutBox is already in the list of apps, you have to remove and replace it with the new version installed.
 
 <img width="550px" src="https://github.com/cutbox/CutBox/wiki/images/apple-security-accessibility.png" alt="Apple System Preferences  -> Security & Privacy -> Privacy -> Accessibility">
 
-Do the same for input monitoring...:
-
-Go to **System Preferences -> Security & Privacy -> Privacy -> Input Monitoring**
-
-Make sure CutBox is in the list and its checkbox is on.
-
-<img width="550px" src="https://github.com/cutbox/CutBox/wiki/images/apple-security-input-monitoring.png" alt="Apple System Preferences -> Security & Privacy -> Privacy -> Input Monitoring">
-
 ### Please Note
 
-CutBox.app will need to be restarted for these permissions to activate. (macOS will suggest restarting CutBox anyway.)
+CutBox.app must be restarted, for Accessibility permissions to activate. (macOS will suggest restarting CutBox anyway.)
 
 # Command line access
 
