@@ -75,12 +75,6 @@ class SearchAndPreview_KeyDownHandlerSpec: QuickSpec {
                 ]}
 
                 itBehavesLike("keyboard event handling") {[
-                    "title": "ESC just close",
-                    "expected": SearchViewEvents.justClose,
-                    "key_event": fakeKeyEvent(kVK_Escape)
-                ]}
-
-                itBehavesLike("keyboard event handling") {[
                     "title": "Ctrl+G just close",
                     "expected": SearchViewEvents.justClose,
                     "key_event": fakeKeyEvent(kVK_ANSI_G, [.control])

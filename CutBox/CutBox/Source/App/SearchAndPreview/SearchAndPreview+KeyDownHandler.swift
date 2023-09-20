@@ -16,7 +16,6 @@ extension SearchAndPreviewView {
 
     // swiftlint:disable cyclomatic_complexity
     func onKeyDown(with event: NSEvent) {
-
         switch (event.key, event.modifiers) {
         case (kVK_LeftArrow, _), (kVK_RightArrow, _):
             self.hideSearchResults(false)
@@ -26,10 +25,6 @@ extension SearchAndPreviewView {
             if !HistoryService.shared.items.isEmpty {
                 self.itemsList.keyDown(with: event)
             }
-
-        case (kVK_Escape, _):
-            self.events
-                .onNext(.justClose)
 
         case (kVK_ANSI_G, [.control]):
             self.events

@@ -64,15 +64,6 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                         }
                     }
 
-                    it("ESC just close") {
-                        if let keyEvent = fakeKey(kVK_Escape) {
-                            subject.keyDown(with: keyEvent)
-                            expect(result) == .justClose
-                        } else {
-                            fail("Could not unwrap fake key event")
-                        }
-                    }
-
                     it("Handles Up and Down arrows as table row navigation") {
                         class MockTableView: NSTableView {
                             var keyDownMock: NSEvent?
