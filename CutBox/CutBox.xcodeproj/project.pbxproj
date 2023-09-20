@@ -253,6 +253,7 @@
 		969B0A3C2AB87D7D00807318 /* PreferencesGeneralView+KeyRecorderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A3B2AB87D7D00807318 /* PreferencesGeneralView+KeyRecorderSpec.swift */; };
 		969B0A3E2AB8A19200807318 /* TransientScrollViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A3D2AB8A19200807318 /* TransientScrollViewSpec.swift */; };
 		969B0A402AB8AA6F00807318 /* ItemTableRowContainerViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A3F2AB8AA6F00807318 /* ItemTableRowContainerViewSpec.swift */; };
+		969B0A422ABAB33500807318 /* PreferencesTabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A412ABAB33500807318 /* PreferencesTabViewControllerSpec.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -513,6 +514,7 @@
 		969B0A3B2AB87D7D00807318 /* PreferencesGeneralView+KeyRecorderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+KeyRecorderSpec.swift"; sourceTree = "<group>"; };
 		969B0A3D2AB8A19200807318 /* TransientScrollViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransientScrollViewSpec.swift; sourceTree = "<group>"; };
 		969B0A3F2AB8AA6F00807318 /* ItemTableRowContainerViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableRowContainerViewSpec.swift; sourceTree = "<group>"; };
+		969B0A412ABAB33500807318 /* PreferencesTabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewControllerSpec.swift; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowTextView.xib; sourceTree = "<group>"; };
@@ -1065,6 +1067,7 @@
 				96EF850F2AB4637500CC8022 /* JSFuncSearchViewControllerSpec.swift */,
 				963F92322AB55DB20094C280 /* PopupControllerSpec.swift */,
 				96EF850B2AB33FCF00CC8022 /* SearchViewControllerSpec.swift */,
+				969B0A412ABAB33500807318 /* PreferencesTabViewControllerSpec.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1746,6 +1749,7 @@
 				9653493028434785000FD0A1 /* NSImage+tint.swift in Sources */,
 				9653490B28434752000FD0A1 /* ClipItemTableRowImageView.swift in Sources */,
 				9653493528434795000FD0A1 /* PopupController.swift in Sources */,
+				969B0A422ABAB33500807318 /* PreferencesTabViewControllerSpec.swift in Sources */,
 				96C07DC22AAF61AE001983ED /* Array+MenuItems.swift in Sources */,
 				965348F128434735000FD0A1 /* PreferencesTabViewController.swift in Sources */,
 				965348E22843471D000FD0A1 /* CutBoxColorThemeDefinition.swift in Sources */,
