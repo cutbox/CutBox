@@ -8,13 +8,14 @@ cp -R "${project_root}/CutBox/build/CutBox.app" /Applications/
 
 open "x-apple.systempreferences:com.apple.preference.security?Privacy"
 
-echo "
+cat <<EOF
 Add CutBox to Security & Privacy > Privacy > 'Accessibility'
 (You must remove it if it's already there, and re-add it, for any new version.)
 
 Please do this before continuing...
 
-Press [y] to continue (any other key will abort)"
+Press [y] to continue (any other key will abort)
+EOF
 
 while :
 do
