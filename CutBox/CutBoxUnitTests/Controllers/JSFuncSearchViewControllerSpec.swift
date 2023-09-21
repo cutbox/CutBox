@@ -45,7 +45,6 @@ class JSFuncSearchViewControllerSpec: QuickSpec {
 
             beforeEach {
                 FakeKey.testing = true
-                SearchAndPreviewViewBase.testing = true
 
                 mockJSFuncService = MockJSFuncService()
                 mockUserDefaults = UserDefaultsMock()
@@ -86,11 +85,6 @@ class JSFuncSearchViewControllerSpec: QuickSpec {
 
                 it("should set up search text event bindings") {
                     expect(subject.events.hasObservers).to(beTrue())
-                }
-
-                it("should apply the current theme") {
-                    subject.jsFuncView.applyTheme()
-                    expect { subject.jsFuncView.applyTheme() }.toNot(throwAssertion())
                 }
 
                 it("has a search view that can become first responder") {

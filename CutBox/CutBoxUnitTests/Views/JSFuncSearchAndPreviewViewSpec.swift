@@ -13,8 +13,28 @@ import Carbon
 
 class JSFuncSearchAndPreviewViewSpec: QuickSpec {
     override func spec() {
+        let subject = JSFuncSearchAndPreviewView()
+        let mainContainer = CutBoxBaseStackView()
+        let container = CutBoxBaseStackView()
+        let mainTopConstraint = NSLayoutConstraint()
+        let mainLeadingConstraint = NSLayoutConstraint()
+        let mainTrailingConstraint = NSLayoutConstraint()
+        let mainBottomConstraint = NSLayoutConstraint()
+        let timeFilterLabel = CutBoxBaseTextField()
+        let mockDefaults = UserDefaultsMock()
+        let mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
+
+        beforeEach {
+            subject.prefs = mockPrefs
+            subject.mainContainer = mainContainer
+            subject.container = container
+            subject.mainTopConstraint = mainTopConstraint
+            subject.mainLeadingConstraint = mainLeadingConstraint
+            subject.mainTrailingConstraint = mainTrailingConstraint
+            subject.mainBottomConstraint = mainBottomConstraint
+        }
+
         describe("JSFuncSearchAndPreviewView") {
-            let subject = JSFuncSearchAndPreviewView()
 
             describe("Search text view delegate") {
                 let mockSearchText = SearchTextView(frame: .zero, textContainer: .none)

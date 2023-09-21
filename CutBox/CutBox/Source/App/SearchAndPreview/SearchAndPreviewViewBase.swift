@@ -26,8 +26,6 @@ let useTextCommands: [Selector] = [
 
 class SearchAndPreviewViewBase: CutBoxBaseView {
 
-    static var testing = false
-
     @IBOutlet weak var searchContainer: CutBoxBaseBox!
     @IBOutlet weak var searchTextContainer: CutBoxBaseBox!
     @IBOutlet weak var searchTextPlaceholder: CutBoxBaseTextField!
@@ -49,34 +47,24 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
 
     var searchTextHeight: CGFloat {
         get {
-            if !Self.testing {
-                return searchTextContainerHeight.constant
-            }
-            return 0
+            return searchTextContainerHeight.constant
         }
         set {
-            if !Self.testing {
-                searchTextContainerHeight.constant = newValue
-            }
+            searchTextContainerHeight.constant = newValue
         }
     }
 
     var spacing: CGFloat {
         get {
-            if !Self.testing {
-                return mainContainer.spacing
-            }
-            return 0
+            return mainContainer.spacing
         }
         set {
-            if !Self.testing {
-                mainContainer.spacing = newValue
-                container.spacing = newValue
-                mainTopConstraint.constant = newValue
-                mainLeadingConstraint.constant = newValue
-                mainTrailingConstraint.constant = newValue
-                mainBottomConstraint.constant = newValue
-            }
+            mainContainer.spacing = newValue
+            container.spacing = newValue
+            mainTopConstraint.constant = newValue
+            mainLeadingConstraint.constant = newValue
+            mainTrailingConstraint.constant = newValue
+            mainBottomConstraint.constant = newValue
         }
     }
 
@@ -85,7 +73,7 @@ class SearchAndPreviewViewBase: CutBoxBaseView {
     var placeHolderTextString = ""
 
     let disposeBag = DisposeBag()
-    let prefs = CutBoxPreferencesService.shared
+    var prefs = CutBoxPreferencesService.shared
 
     override init(frame: NSRect) {
         super.init(frame: frame)

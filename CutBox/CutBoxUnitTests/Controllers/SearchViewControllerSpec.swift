@@ -26,6 +26,15 @@ class SearchViewControllerSpec: QuickSpec {
             var mockCutBoxPreferences: CutBoxPreferencesService!
             var mockFakeKey: FakeKey!
             var mockSearchAndPreviewView: SearchAndPreviewView!
+
+            let mainContainer = CutBoxBaseStackView()
+            let container = CutBoxBaseStackView()
+            let searchTextContainerHeight = NSLayoutConstraint()
+            let mainTopConstraint = NSLayoutConstraint()
+            let mainLeadingConstraint = NSLayoutConstraint()
+            let mainTrailingConstraint = NSLayoutConstraint()
+            let mainBottomConstraint = NSLayoutConstraint()
+
             var mockUserDefaults: UserDefaultsMock!
             var mockPasteboard: MockPasteboardWrapper!
             var mockItemsList: NSTableView!
@@ -39,6 +48,15 @@ class SearchViewControllerSpec: QuickSpec {
                 mockCutBoxPreferences = CutBoxPreferencesService(defaults: mockUserDefaults)
                 mockFakeKey = FakeKey()
                 mockSearchAndPreviewView = SearchAndPreviewView()
+
+                mockSearchAndPreviewView.searchTextContainerHeight = searchTextContainerHeight
+                mockSearchAndPreviewView.mainContainer = mainContainer
+                mockSearchAndPreviewView.container = container
+                mockSearchAndPreviewView.mainTopConstraint = mainTopConstraint
+                mockSearchAndPreviewView.mainBottomConstraint = mainBottomConstraint
+                mockSearchAndPreviewView.mainLeadingConstraint = mainLeadingConstraint
+                mockSearchAndPreviewView.mainTrailingConstraint = mainTrailingConstraint
+
                 mockItemsList = NSTableView()
                 mockSearchAndPreviewView.itemsList = mockItemsList
 
