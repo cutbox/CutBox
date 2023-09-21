@@ -26,8 +26,7 @@ class ClipItemTableRowContainerView: ItemTableRowContainerView {
         }
 
         if (event.clickCount == 2 && modifiers == [.control]) ||
-            (event.type == .rightMouseDown && modifiers == []) ||
-            (event.clickCount == 1 && event.type == .leftMouseDown && modifiers == [.command]) {
+            (event.clickCount == 2 && modifiers == [.command]) {
             self.searchView?
                 .events
                 .onNext(.selectJavascriptFunction)
