@@ -256,6 +256,7 @@
 		969B0A422ABAB33500807318 /* PreferencesTabViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A412ABAB33500807318 /* PreferencesTabViewControllerSpec.swift */; };
 		969B0A442ABC68A900807318 /* JSFuncItemTableRowTextViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A432ABC68A900807318 /* JSFuncItemTableRowTextViewSpec.swift */; };
 		969B0A482ABC825200807318 /* SearchAndPreviewViewBaseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A472ABC825200807318 /* SearchAndPreviewViewBaseSpec.swift */; };
+		969B0A4A2ABDF39E00807318 /* ClipItemTableRowTextViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969B0A492ABDF39E00807318 /* ClipItemTableRowTextViewSpec.swift */; };
 		969F9892209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */; };
 		96A16B3A209D6D7C00EE08A4 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B39209D6D7C00EE08A4 /* star.png */; settings = {ASSET_TAGS = (cutboxLogo, ); }; };
 		96A16B3C209FD67100EE08A4 /* ClipItemTableRowTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */; };
@@ -519,6 +520,7 @@
 		969B0A412ABAB33500807318 /* PreferencesTabViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewControllerSpec.swift; sourceTree = "<group>"; };
 		969B0A432ABC68A900807318 /* JSFuncItemTableRowTextViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSFuncItemTableRowTextViewSpec.swift; sourceTree = "<group>"; };
 		969B0A472ABC825200807318 /* SearchAndPreviewViewBaseSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndPreviewViewBaseSpec.swift; sourceTree = "<group>"; };
+		969B0A492ABDF39E00807318 /* ClipItemTableRowTextViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipItemTableRowTextViewSpec.swift; sourceTree = "<group>"; };
 		969F9891209AC03700BB3039 /* NSScreen+currentScreenForMouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+currentScreenForMouseLocation.swift"; sourceTree = "<group>"; };
 		96A16B39209D6D7C00EE08A4 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		96A16B3B209FD67100EE08A4 /* ClipItemTableRowTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClipItemTableRowTextView.xib; sourceTree = "<group>"; };
@@ -711,6 +713,7 @@
 				969B0A3F2AB8AA6F00807318 /* ItemTableRowContainerViewSpec.swift */,
 				969B0A432ABC68A900807318 /* JSFuncItemTableRowTextViewSpec.swift */,
 				969B0A472ABC825200807318 /* SearchAndPreviewViewBaseSpec.swift */,
+				969B0A492ABDF39E00807318 /* ClipItemTableRowTextViewSpec.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1733,6 +1736,7 @@
 				9679400E2A887D2100D14B87 /* TimeFilterValidator.swift in Sources */,
 				965B02B728E7E94F003770BD /* SearchViewControllerMenuDelegate.swift in Sources */,
 				9653492F28434785000FD0A1 /* Array+String+SwiftyStringScore.swift in Sources */,
+				969B0A4A2ABDF39E00807318 /* ClipItemTableRowTextViewSpec.swift in Sources */,
 				9653494828434862000FD0A1 /* JSContext+subscriptSpec.swift in Sources */,
 				965348FA28434735000FD0A1 /* PreferencesGeneralView+ShowHiddenDialogButton.swift in Sources */,
 				96534940284347E8000FD0A1 /* JSFuncItemTableRowContainerView.swift in Sources */,

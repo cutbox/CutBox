@@ -10,10 +10,6 @@ import Cocoa
 
 class ClipItemTableRowTextView: ItemTableRowTextView {
 
-    private var isFavorite: Bool {
-        internalData?["favorite"] != nil
-    }
-
     override func setup() {
         guard let data = self.data else {
             fatalError("Data must be initialized on ClipItemTableRowView before setup.")
