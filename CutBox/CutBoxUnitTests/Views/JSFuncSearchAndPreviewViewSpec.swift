@@ -20,6 +20,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
         let mainLeadingConstraint = NSLayoutConstraint()
         let mainTrailingConstraint = NSLayoutConstraint()
         let mainBottomConstraint = NSLayoutConstraint()
+        let searchTextContainerHeight = NSLayoutConstraint()
         let timeFilterLabel = CutBoxBaseTextField()
         let mockDefaults = UserDefaultsMock()
         let mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
@@ -28,6 +29,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
             subject.prefs = mockPrefs
             subject.mainContainer = mainContainer
             subject.container = container
+            subject.searchTextContainerHeight = searchTextContainerHeight
             subject.mainTopConstraint = mainTopConstraint
             subject.mainLeadingConstraint = mainLeadingConstraint
             subject.mainTrailingConstraint = mainTrailingConstraint
@@ -53,6 +55,18 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                                                     object: subject.searchText)
                     subject.textDidChange(notification)
                     expect(result) == subject.searchText.string
+                }
+
+                it("applies the theme") {
+                    expect {
+                        subject.applyTheme()
+                    }.toNot(throwAssertion())
+                }
+
+                it("reload js throws an exception when view is not connected") {
+                    expect {
+                        subject.reloadJS(CutBoxBaseMenuItem())
+                    }.to(throwAssertion())
                 }
 
                 it("allows key shortcut editing methods") {
