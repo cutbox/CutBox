@@ -86,6 +86,20 @@ class PopupControllerSpec: QuickSpec {
                 }
             }
 
+            context("window should close") {
+                it("should close on windowWillClose") {
+                    expect {
+                        subject.windowWillClose(Notification(name: .NSSystemClockDidChange))
+                    }.toNot(throwAssertion())
+                }
+
+                it("should close on windowDidResignKey") {
+                    expect {
+                        subject.windowDidResignKey(Notification(name: .NSSystemClockDidChange))
+                    }.toNot(throwAssertion())
+                }
+            }
+
             context("when toggling the popup") {
                 it("should open the popup if it's closed") {
                     subject.isOpen = false
