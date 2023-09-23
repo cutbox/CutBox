@@ -84,6 +84,12 @@ class PopupControllerSpec: QuickSpec {
                     subject.closePopup()
                     expect(subject.contentView.isHidden) == true
                 }
+
+                it("should cancel operation") {
+                    expect {
+                        subject.panel.cancelOperation(NSObject())
+                    }.toNot(throwAssertion())
+                }
             }
 
             context("window should close") {

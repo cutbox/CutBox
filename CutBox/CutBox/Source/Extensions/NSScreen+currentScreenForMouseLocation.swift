@@ -14,9 +14,8 @@ extension NSScreen {
     static func currentScreenForMouseLocation() -> NSScreen? {
         if NSScreenTesting {
             return NSScreenMockScreen
-        } else {
-            let mouseLocation = NSEvent.mouseLocation
-            return screens.first(where: { NSMouseInRect(mouseLocation, $0.frame, false) })
         }
+        let mouseLocation = NSEvent.mouseLocation
+        return screens.first(where: { NSMouseInRect(mouseLocation, $0.frame, false) })
     }
 }
