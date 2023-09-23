@@ -64,6 +64,28 @@ class CutBoxPreferencesServiceSpec: QuickSpec {
             }
         }
 
+        describe("cutBoxJSLocation") {
+            it("will be ~/.cutbox.js by default") {
+                expect(subject.cutBoxJSLocation) == "~/.cutbox.js"
+            }
+
+            it("can be set to an alternative location") {
+                subject.cutBoxJSLocation = "~/.config/cutbox/cutbox.js"
+                expect(subject.cutBoxJSLocation) == "~/.config/cutbox/cutbox.js"
+            }
+        }
+
+        describe("cutBoxUserThemesLocation") {
+            it("will be ~/.config/cutbox by default") {
+                expect(subject.cutBoxUserThemesLocation) == "~/.config/cutbox"
+            }
+
+            it("can be set to an alternative location") {
+                subject.cutBoxUserThemesLocation = "~/.cutboxThemes/"
+                expect(subject.cutBoxUserThemesLocation) == "~/.cutboxThemes/"
+            }
+        }
+
         describe("savedTimeFilerValue") {
             it("saves to defaults") {
                 subject.savedTimeFilterValue = "10 min"

@@ -11,7 +11,7 @@ import JavaScriptCore
 class JSFuncService: NSObject {
     static var context: JSContext = JSContext()
 
-    var cutboxJSFilename: String = NSString(string: Constants.cutBoxJSLocation).expandingTildeInPath
+    var prefs: CutBoxPreferencesService!
 
     let require: @convention(block) (String) -> JSValue? = { path in
         let expandedPath = NSString(string: path).expandingTildeInPath
@@ -158,8 +158,9 @@ class JSFuncService: NSObject {
         setup()
 
         repl(noCutboxJSHelp)
+        let cutBoxJSLocation = prefs.cutBoxJSLocation
 
-        guard let cutboxJS = getStringFromFile(cutboxJSFilename) else {
+        guard let cutboxJS = getStringFromFile(cutBoxJSLocation) else {
             return
         }
 
@@ -167,11 +168,11 @@ class JSFuncService: NSObject {
         repl(cutboxJS)
 
         if self.isEmpty {
-            notifyUser(title: "Problem with ~/.cutbox.js",
-                       info: "cutboxFunctions has no functions")
+            notifyUser(title: "Problem in cutbox js",
+                       info: "Error: no function objects in cutboxFunctions")
         } else {
             notifyUser(title: "Javascript loaded",
-                       info: "~/.cutbox.js loaded \(self.count) function(s)")
+                       info: "cutbox js loaded \(self.count) function(s)")
         }
     }
 

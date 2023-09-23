@@ -36,16 +36,23 @@ class CutBoxPreferencesService {
 
     var defaults: UserDefaults!
 
-    var js = JSFuncService()
+    var js: JSFuncService!
 
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.events = PublishSubject<CutBoxPreferencesEvent>()
         self.defaults = defaults
-        self.themes = CutBoxThemeLoader.getBundledThemes() + CutBoxThemeLoader.getUserThemes()
+        self.js = JSFuncService()
+        self.themes = []
+        loadThemes()
+        js.prefs = self
     }
 
     func loadThemes() {
-        self.themes = CutBoxThemeLoader.getBundledThemes() + CutBoxThemeLoader.getUserThemes()
+        let themeLoader = CutBoxThemeLoader()
+        themeLoader.cutBoxUserThemesLocation = cutBoxUserThemesLocation
+        let bundledThemes = themeLoader.getBundledThemes()
+        let userThemes = themeLoader.getUserThemes()
+        self.themes = bundledThemes + userThemes
         events.onNext(.themesReloaded)
     }
 
@@ -172,6 +179,36 @@ class CutBoxPreferencesService {
         set {
             defaults.set(newValue, forKey: Constants.kProtectFavorites)
             events.onNext(.protectFavoritesChanged(isOn: newValue))
+        }
+    }
+
+    var cutBoxUserThemesLocation: String {
+        get {
+            if let userThemesLocation = defaults.string(forKey: Constants.kCutBoxUserThemesLocation) {
+                return userThemesLocation
+            }
+            let defaultLocation = "~/.config/cutbox"
+            self.cutBoxUserThemesLocation = defaultLocation
+            return defaultLocation
+        }
+
+        set {
+            defaults.set(newValue, forKey: Constants.kCutBoxUserThemesLocation)
+        }
+    }
+
+    var cutBoxJSLocation: String {
+        get {
+            if let jsLocation = defaults.string(forKey: Constants.kCutBoxJSLocation) {
+                return jsLocation
+            }
+            let defaultLocation = "~/.cutbox.js"
+            self.cutBoxJSLocation = defaultLocation
+            return defaultLocation
+        }
+        
+        set {
+            defaults.set(newValue, forKey: Constants.kCutBoxJSLocation)
         }
     }
 

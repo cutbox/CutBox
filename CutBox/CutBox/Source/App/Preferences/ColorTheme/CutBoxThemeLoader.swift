@@ -9,26 +9,25 @@
 import Foundation
 
 class CutBoxThemeLoader {
-    static func getBundledThemes() -> [CutBoxColorTheme] {
+
+    var cutBoxUserThemesLocation: String!
+
+    func getBundledThemes() -> [CutBoxColorTheme] {
         let bundle = Bundle(for: Self.self)
 
         let themePaths: [String] = bundle
             .paths(forResourcesOfType: "cutboxTheme",
                    inDirectory: "themes")
 
-        let themes: [CutBoxColorTheme] = themePaths.sorted().map {
-            do {
-                return CutBoxColorTheme(try String(contentsOfFile: $0))
-            } catch {
-                print("There was a problem reading bundled theme: $0", to: &errStream)
-                abort()
-            }
-        }
+        let themes: [CutBoxColorTheme] = themePaths.sorted()
+            .map { try? String(contentsOfFile: $0) }
+            .compactMap { $0 }
+            .map { CutBoxColorTheme($0) }
 
         return themes
     }
 
-    static func getUserThemes() -> [CutBoxColorTheme] {
+    func getUserThemes() -> [CutBoxColorTheme] {
         let jsonThemes = loadUserThemesFiles()
         let userThemeIdentifier = "*"
 
@@ -40,10 +39,10 @@ class CutBoxThemeLoader {
         }
     }
 
-    private static func loadUserThemesFiles() -> [String] {
+    func loadUserThemesFiles() -> [String] {
         let fileManager = FileManager.default
         let cutBoxConfig = String(NSString(
-            string: Constants.cutBoxUserThemesLocation
+            string: cutBoxUserThemesLocation
         ).expandingTildeInPath)
 
         guard let themefiles = try?

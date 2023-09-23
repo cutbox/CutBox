@@ -10,6 +10,13 @@ import Quick
 import Nimble
 import JavaScriptCore
 
+func createTestFile(path: String, contents: String) {
+    let fileManager = FileManager.default
+    fileManager.createFile(
+        atPath: path,
+        contents: contents.data(using: .utf8))
+}
+
 class JSFuncServiceSpec: QuickSpec {
 
     override func spec() {
@@ -103,12 +110,6 @@ class JSFuncServiceSpec: QuickSpec {
                     }
 
                     context("require an existing file") {
-                        func createTestFile(path: String, contents: String) {
-                            fileManager.createFile(
-                                atPath: path,
-                                contents: contents.data(using: .utf8))
-                        }
-
                         beforeEach {
                             createTestFile(path: path, contents: "10 * 10")
                         }

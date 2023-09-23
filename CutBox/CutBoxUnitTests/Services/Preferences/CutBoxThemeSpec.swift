@@ -10,10 +10,9 @@ import Quick
 import Nimble
 import JSONSchema
 
-class CutBoxThemeSpec: QuickSpec {
 
-    func fakeThemeJson() -> String {
-        return """
+func fakeThemeJson() -> String {
+    return """
                {
                    "name": "Test Theme",
                    "popupBackgroundColor": "#444444",
@@ -38,8 +37,9 @@ class CutBoxThemeSpec: QuickSpec {
                    "spacing": 1.0
                }
                """
-    }
+}
 
+class CutBoxThemeSpec: QuickSpec {
     override func spec() {
         describe("CutBoxTheme") {
             let subjectA = CutBoxColorTheme(
@@ -67,7 +67,7 @@ class CutBoxThemeSpec: QuickSpec {
                 spacing: 1.0
             )
 
-            let subjectB = CutBoxColorTheme(self.fakeThemeJson())
+            let subjectB = CutBoxColorTheme(fakeThemeJson())
             let subjectC = CutBoxColorTheme(name: "Test Theme", theme: subjectA)
             let subjectD = CutBoxColorTheme(name: "Borked Name", theme: subjectC)
 
@@ -84,7 +84,7 @@ class CutBoxThemeSpec: QuickSpec {
                     }
 
                     it("attempts decoding of json with mismatched property type") {
-                        let json = self.fakeThemeJson()
+                        let json = fakeThemeJson()
                             .replacingOccurrences(
                                 of: "\"spacing\": 1.0",
                                 with: "\"spacing\": \"ABC\""
@@ -94,7 +94,7 @@ class CutBoxThemeSpec: QuickSpec {
                     }
 
                     it("attempts decoding of json with missing property") {
-                        let json = self.fakeThemeJson()
+                        let json = fakeThemeJson()
                             .replacingOccurrences(
                                 of: "\"name\": \"Test Theme\",",
                                 with: "\"name\":,"
