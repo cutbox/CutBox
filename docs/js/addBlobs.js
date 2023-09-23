@@ -19,12 +19,17 @@ function setColorBlobs(row) {
   td.innerHTML = `<nobr>${blobs.join("")}${td.innerHTML}</nobr>`;
 }
 
+function removeBranchColumn(row) {
+  var last = row.querySelector('td:last-child')
+  row.removeChild(last)
+}
+
 function ready() {
-  let t = document.querySelector("table");
-  for(var i = 1; i < t.rows.length - 1; i++) {
-    setColorBlobs(t.rows.item(i));
-  }
-  console.log("Doc ready...");
+  let rows = document.querySelector("rows");
+  rows.forEach( r => {
+    setColorBlobs(r);
+    removeBranchColumn(r);
+  })
 }
 
 // inject it into the index.html for a coverage folder.
