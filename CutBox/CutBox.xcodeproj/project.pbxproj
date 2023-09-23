@@ -27,6 +27,7 @@
 		962D6D7A20746109007E3785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 962D6D7920746109007E3785 /* main.m */; };
 		962D6D8120746245007E3785 /* CutBoxHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 962D6D6E20746109007E3785 /* CutBoxHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		962D6DB92ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6DB82ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift */; };
+		962D6DBB2ABF239A0097D269 /* CutBoxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6DBA2ABF239A0097D269 /* CutBoxSpec.swift */; };
 		962E68B42AB6BFDC0074CE72 /* SearchTextViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */; };
 		9636FFFD284B1F7700CF4C39 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
@@ -407,6 +408,7 @@
 		962D6D7920746109007E3785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		962D6D7B20746109007E3785 /* CutBoxHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CutBoxHelper.entitlements; sourceTree = "<group>"; };
 		962D6DB82ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLoaderSpec.swift; sourceTree = "<group>"; };
+		962D6DBA2ABF239A0097D269 /* CutBoxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxSpec.swift; sourceTree = "<group>"; };
 		962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextViewSpec.swift; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
@@ -896,6 +898,7 @@
 		965348D12843316B000FD0A1 /* CutBoxUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				962D6DBA2ABF239A0097D269 /* CutBoxSpec.swift */,
 				961D62522AB5FFB80045EE77 /* Views */,
 				96EF85082AB31B1A00CC8022 /* Utilities */,
 				968767972AAEC3F000DA256E /* About */,
@@ -1670,6 +1673,7 @@
 				967940072A87EADD00D14B87 /* ValidIndicatorTextField.swift in Sources */,
 				962D6DB92ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift in Sources */,
 				96CDF2C92A8B330D00ADE6B4 /* PreferencesAdvancedView+HistoryLimit.swift in Sources */,
+				962D6DBB2ABF239A0097D269 /* CutBoxSpec.swift in Sources */,
 				96C07DC32AAF7FC3001983ED /* CutBoxGetStatusItem.swift in Sources */,
 				96EF85032AB2F8B700CC8022 /* HistoryLimitNumberFormatterSpec.swift in Sources */,
 				9653493828434795000FD0A1 /* PopupPanel.swift in Sources */,

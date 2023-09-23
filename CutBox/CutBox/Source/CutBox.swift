@@ -12,11 +12,14 @@ import Magnet
 /// CutBox main
 @NSApplicationMain class AppDelegate: NSObject, NSApplicationDelegate {
 
+    var prefs = CutBoxPreferencesService.shared
+    var hotkeyCenter = HotKeyCenter.shared
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        CutBoxPreferencesService.shared.loadJavascript()
+        prefs.loadJavascript()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        HotKeyCenter.shared.unregisterAll()
+        hotkeyCenter.unregisterAll()
     }
 }
