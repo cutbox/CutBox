@@ -10,6 +10,7 @@ import Foundation
 import Cocoa
 import RxSwift
 import RxCocoa
+import Carbon
 
 /// Main view of CutBox, displayed via `PopupController`
 /// communicates with the `CutBoxController` via events<`SearchViewEvents`>
@@ -139,17 +140,17 @@ class SearchAndPreviewView: SearchAndPreviewViewBase {
     }
 
     func toggleTimeFilter() {
-        self.timeFilterLabel?.isHidden.toggle()
-        self.timeFilterText?.isHidden.toggle()
+        self.timeFilterLabel.isHidden.toggle()
+        self.timeFilterText.isHidden.toggle()
 
-        if self.timeFilterText?.isHidden != nil {
+        if self.timeFilterText.isHidden {
             self.window?.makeFirstResponder(self.searchText)
             self.prefs.savedTimeFilterValue = self.timeFilterText.stringValue
             self.timeFilterText.stringValue = ""
         } else {
             let newText: String = self.prefs.savedTimeFilterValue
             self.window?.makeFirstResponder(self.timeFilterText)
-            self.timeFilterText?.stringValue = newText
+            self.timeFilterText.stringValue = newText
             DispatchQueue.main.async { self.onTimeFilterTextChanged(text: newText) }
         }
     }

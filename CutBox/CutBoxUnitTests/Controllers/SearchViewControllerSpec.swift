@@ -29,6 +29,8 @@ class SearchViewControllerSpec: QuickSpec {
 
             let mainContainer = CutBoxBaseStackView()
             let container = CutBoxBaseStackView()
+            let timeFilterLabel = CutBoxBaseTextField()
+            let timeFilterText = ValidIndicatorTextField(frame: .zero)
             let searchTextContainerHeight = NSLayoutConstraint()
             let mainTopConstraint = NSLayoutConstraint()
             let mainLeadingConstraint = NSLayoutConstraint()
@@ -56,6 +58,8 @@ class SearchViewControllerSpec: QuickSpec {
                 mockSearchAndPreviewView.mainBottomConstraint = mainBottomConstraint
                 mockSearchAndPreviewView.mainLeadingConstraint = mainLeadingConstraint
                 mockSearchAndPreviewView.mainTrailingConstraint = mainTrailingConstraint
+                mockSearchAndPreviewView.timeFilterLabel = timeFilterLabel
+                mockSearchAndPreviewView.timeFilterText = timeFilterText
 
                 mockItemsList = NSTableView()
                 mockSearchAndPreviewView.itemsList = mockItemsList
