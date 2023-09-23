@@ -91,6 +91,21 @@ class JSFuncServiceSpec: QuickSpec {
                     }
                 }
 
+                describe("process") {
+                    it("should process items to a blank string if the function name is not known") {
+                        let result = subject.process("foobar", items: ["1", "2", "3"])
+                        expect(result) == ""
+                    }
+
+                    it("should process items to a single result string using named function") {
+                        subject.repl("""
+                                this.cutboxFunctions = [{name: "foobar", fn: (i) => "Foooobarrrr"}]
+                                """)
+                        let result = subject.process("foobar", items: ["1", "2", "3"])
+                        expect(result) == "Foooobarrrr"
+                    }
+                }
+
                 describe("require") {
                     let fileManager = FileManager.default
                     let path = "\(fileManager.currentDirectoryPath)/test-require.js"
@@ -149,7 +164,7 @@ class JSFuncServiceSpec: QuickSpec {
 
             describe("count") {
                 it("return the count of functions in cutboxFunctions") {
-                    _ = subject.repl(
+                    subject.repl(
                         """
                         this.cutboxFunctions = []
                         this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
@@ -161,14 +176,14 @@ class JSFuncServiceSpec: QuickSpec {
 
             describe("list") {
                 beforeEach {
-                    _ = subject.repl(
+                    subject.repl(
                         """
                         this.cutboxFunctions = []
                         this.cutboxFunctions.push({name: \"Test\", fn: i => \"done\" })
                         """
                     )
 
-                    _ = subject.repl(
+                    subject.repl(
                         """
                         this.cutboxFunctions = this.cutboxFunctions || []
                         this.cutboxFunctions.push({name: \"Another\", fn: i => \"done\" })
@@ -194,7 +209,7 @@ class JSFuncServiceSpec: QuickSpec {
                     context("invalid cutboxFunctions") {
 
                         beforeEach {
-                            _ = subject.repl("this.cutboxFunctions = {foobar: 23}")
+                            subject.repl("this.cutboxFunctions = {foobar: 23}")
                         }
 
                         it("does not list any functions") {
@@ -226,6 +241,76 @@ class JSFuncServiceSpec: QuickSpec {
 
                         expect(names).to(equal(["Test", "Another"]))
                         expect(indecies).to(equal([0, 1]))
+                    }
+                }
+
+                describe("reload") {
+                    var temporaryDirectory: String = ""
+                    var tempUserJSFilename: String = ""
+                    var tempPathFilename: String = ""
+                    var mockUserDefaults: UserDefaultsMock!
+                    var prefs: CutBoxPreferencesService!
+
+                    context("reloading") {
+                        beforeEach {
+                            temporaryDirectory =  FileManager.default.temporaryDirectory.path
+                            tempUserJSFilename = "cutbox-test.js"
+                            tempPathFilename = "\(temporaryDirectory)/\(tempUserJSFilename)"
+                            mockUserDefaults = UserDefaultsMock()
+                            prefs = CutBoxPreferencesService(defaults: mockUserDefaults)
+                            prefs.cutBoxJSLocation = tempPathFilename
+                        }
+
+                        afterEach {
+                            try? FileManager.default.removeItem(
+                                atPath: tempPathFilename)
+                        }
+
+                        it("should reload the js file at the preferred location") {
+                            let tempCutBoxJS = """
+                                        this.cutboxFunctions = [
+                                            {
+                                                name: "foobar",
+                                                fn: i => `-=*${i.join()}*=-`
+                                            }
+                                        ]
+                                        """
+                            createTestFile(
+                                path: tempPathFilename,
+                                contents: tempCutBoxJS)
+                            subject.prefs = prefs
+                            subject.reload()
+                            expect(subject.process("foobar", items: ["Hello"])) == "-=*Hello*=-"
+                        }
+
+                        it("should not throw an error if there are no functions in cutboxFunctions") {
+                            let tempCutBoxJS = """
+                                        this.cutboxFunctions = []
+                                        """
+                            createTestFile(
+                                path: tempPathFilename,
+                                contents: tempCutBoxJS)
+                            subject.prefs = prefs
+                            expect { subject.reload() }.toNot(throwAssertion())
+                        }
+
+                        it("should throw an error if there are malformed entries in cutboxFunctions") {
+                            let tempCutBoxJS = """
+                                        this.cutboxFunctions = [
+                                            { fn: i => "nameless functions aren't allowed" }
+                                        ]
+                                        """
+                            createTestFile(
+                                path: tempPathFilename,
+                                contents: tempCutBoxJS)
+
+                            subject.prefs = prefs
+                            subject.reload()
+
+                            expect(subject.funcs.count) == 0
+                            expect(subject.funcList.count) == 0
+                            expect(subject.count) == 0
+                        }
                     }
                 }
             }

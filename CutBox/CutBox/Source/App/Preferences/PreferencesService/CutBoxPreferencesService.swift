@@ -43,8 +43,8 @@ class CutBoxPreferencesService {
         self.defaults = defaults
         self.js = JSFuncService()
         self.themes = []
-        loadThemes()
         js.prefs = self
+        loadThemes()
     }
 
     func loadThemes() {

@@ -11,7 +11,7 @@ import JavaScriptCore
 class JSFuncService: NSObject {
     static var context: JSContext = JSContext()
 
-    var prefs: CutBoxPreferencesService!
+    var prefs: CutBoxPreferencesService?
 
     let require: @convention(block) (String) -> JSValue? = { path in
         let expandedPath = NSString(string: path).expandingTildeInPath
@@ -93,24 +93,25 @@ class JSFuncService: NSObject {
         }
 
         var idx = 0
-        return funcsDict.map { (dict: [String: Any]) -> (String, Int) in
-            guard let name = dict["name"] as? String else {
-                fatalError("cutboxFunctions invalid: requires an array of {name: String, fn: Function}")
+        return funcsDict.map { (dict: [String: Any]) -> (String, Int)? in
+            if let name = dict["name"] as? String  {
+                let index = (name, idx)
+                idx += 1
+                return index
+            } else {
+                return nil
             }
-            let index = (name, idx)
-            idx += 1
-            return index
         }
+        .compactMap { $0 }
+
     }
 
     var funcList: [String] {
         let names: [String] = funcs.map { (t: (String, Int)) -> String in t.0 }
-
         if filterText.isEmpty {
             return names
-        } else {
-            return names.substringSearchFiltered(search: filterText)
         }
+        return names.substringSearchFiltered(search: filterText)
     }
 
     func selected(name: String) -> (String, Int)? {
@@ -156,11 +157,10 @@ class JSFuncService: NSObject {
 
     func reload() {
         setup()
-
         repl(noCutboxJSHelp)
-        let cutBoxJSLocation = prefs.cutBoxJSLocation
 
-        guard let cutboxJS = getStringFromFile(cutBoxJSLocation) else {
+        guard let cutBoxJSLocation = prefs?.cutBoxJSLocation,
+              let cutboxJS = getStringFromFile(cutBoxJSLocation) else {
             return
         }
 
