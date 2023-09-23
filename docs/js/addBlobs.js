@@ -16,7 +16,9 @@ function setColorBlobs(row) {
   let td = row.cells.item(0);
   var blobs = [1,2,3].map( (i) => classes[row.cells.item(i).classList[0]] );
 
-  td.innerHTML = `<nobr>${blobs.join("")}${td.innerHTML}</nobr>`;
+  if (row != document.querySelector("tr:last-child")) {
+    td.innerHTML = `<nobr>${blobs.join("")}${td.innerHTML}</nobr>`;
+  }
 }
 
 function removeBranchColumn(row) {
