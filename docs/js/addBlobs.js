@@ -27,7 +27,7 @@ function removeBranchColumn(row) {
 }
 
 function ready() {
-  let rows = document.querySelector("tr");
+  let rows = document.querySelectorAll("tr");
   rows.forEach( r => {
     setColorBlobs(r);
     removeBranchColumn(r);
