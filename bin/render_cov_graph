@@ -3,7 +3,7 @@
 import argparse
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
-from datetime import datetime
+import datetime as dt
 import json
 import sys
 import numpy as np
@@ -73,6 +73,9 @@ parser.add_argument("--title", required=True, help="Chart title")
 # Parse the command-line arguments
 args = parser.parse_args()
 
+title = args.title
+output_filename = args.output
+
 # Read JSON data from stdin
 try:
     data = json.load(sys.stdin)
@@ -93,7 +96,7 @@ ln_percentages = [float(node["line"].split()[0].replace("%", "")) for node in da
 percentages = [fn_percentages, ln_percentages]
 
 # Convert datetime strings to datetime objects
-datetimes = [datetime.fromisoformat(node["datetime"][:-6]) for node in data]
+datetimes = [dt.datetime.fromisoformat(node["datetime"][:-6]) for node in data]
 line_colors = ["#106A77","#50486C"]
 labels = ["Function","Line"]
 
@@ -118,9 +121,14 @@ with plt.style.context('dark_background'):
         plt.plot(datetimes, percentages[i], label=labels[i], linewidth=2, color=line_colors[i])
         annotate_callout(plt, latest[i], text_y[i], line_colors[i])
 
-    plt.xlabel("Time", **hsubtitle)
+    plt.xlabel("Last 7 Days", **hsubtitle)
     plt.ylabel("Coverage %",**hsmall)
-    plt.title(f"{args.title}", **htitle)
+    plt.title(f"{title}", **htitle)
+
+    today = dt.datetime.now()
+    a_week_ago = today - dt.timedelta(days = 7)
+
+    plt.xlim([a_week_ago, today])
 
     plt.legend(frameon=False)
 
@@ -129,7 +137,7 @@ with plt.style.context('dark_background'):
     plt.box(False)
 
     # Save the plot directly as SVG without converting text to paths
-    plt.savefig(args.output, format="svg")
+    plt.savefig(output_filename, format="svg")
 
 # Optionally, display a message indicating that the SVG file has been saved
-print(f"Line chart saved as {args.output}")
+print(f"Line chart saved as {output_filename}")
