@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2023-09-24T04:59:01.361046</dc:date>
+    <dc:date>2023-09-24T08:41:40.555186</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -32,23 +32,23 @@ z
    <g id="matplotlib.axis_1">
     <g id="xtick_1">
      <g id="line2d_1">
-      <path d="M 124.206853 448.56 
-L 124.206853 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+      <path d="M 169.002965 448.56 
+L 169.002965 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
      <g id="line2d_2">
       <defs>
-       <path id="m91fd76afc2" d="M 0 0 
+       <path id="mf3da5e6ca4" d="M 0 0 
 L 0 3.5 
 " style="stroke: #ffffff; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m91fd76afc2" x="124.206853" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#mf3da5e6ca4" x="169.002965" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
      <g id="text_1">
-      <!-- Sep 04 -->
-      <g style="fill: #ffffff" transform="translate(113.347478 461.0875) scale(0.08 -0.08)">
+      <!-- Sep 18 -->
+      <g style="fill: #ffffff" transform="translate(158.14359 461.0875) scale(0.08 -0.08)">
        <defs>
         <path id="GillSans-53" d="M 1563 1831 
 L 1088 2119 
@@ -123,205 +123,13 @@ Q 1750 2344 1350 2344
 z
 " transform="scale(0.015625)"/>
         <path id="GillSans-20" transform="scale(0.015625)"/>
-        <path id="GillSans-30" d="M 1625 4422 
-Q 2225 4422 2617 3792 
-Q 3009 3163 3009 2194 
-Q 3009 1200 2617 578 
-Q 2225 -44 1600 -44 
-Q 966 -44 581 565 
-Q 197 1175 197 2181 
-Q 197 3175 594 3798 
-Q 991 4422 1625 4422 
-z
-M 1631 3828 
-L 1600 3828 
-Q 1241 3828 1030 3386 
-Q 819 2944 819 2188 
-Q 819 1413 1025 972 
-Q 1231 531 1594 531 
-Q 1956 531 2165 972 
-Q 2375 1413 2375 2169 
-Q 2375 2928 2173 3378 
-Q 1972 3828 1631 3828 
-z
-" transform="scale(0.015625)"/>
-        <path id="GillSans-34" d="M 2272 4422 
-L 2528 4422 
-L 2528 1972 
-L 3016 1972 
-L 3016 1441 
-L 2528 1441 
-L 2528 0 
+        <path id="GillSans-31" d="M 1294 4366 
+L 1919 4366 
 L 1919 0 
-L 1919 1441 
-L 72 1441 
-L 72 1709 
-L 2272 4422 
-z
-M 1919 1972 
-L 1919 3238 
-L 909 1972 
-L 1919 1972 
+L 1294 0 
+L 1294 4366 
 z
 " transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-30" x="171.484375"/>
-       <use xlink:href="#GillSans-34" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_2">
-     <g id="line2d_3">
-      <path d="M 155.035081 448.56 
-L 155.035081 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_4">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="155.035081" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_2">
-      <!-- Sep 05 -->
-      <g style="fill: #ffffff" transform="translate(144.175706 461.0875) scale(0.08 -0.08)">
-       <defs>
-        <path id="GillSans-35" d="M 647 4366 
-L 2584 4366 
-L 2584 3809 
-L 1216 3809 
-L 1216 2706 
-Q 1281 2713 1350 2713 
-Q 1984 2713 2393 2327 
-Q 2803 1941 2803 1344 
-Q 2803 728 2398 342 
-Q 1994 -44 1350 -44 
-Q 819 -44 319 213 
-L 319 856 
-Q 791 550 1241 550 
-Q 1634 550 1901 779 
-Q 2169 1009 2169 1344 
-Q 2169 1691 1878 1923 
-Q 1588 2156 1153 2156 
-Q 781 2156 647 2094 
-L 647 4366 
-z
-" transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-30" x="171.484375"/>
-       <use xlink:href="#GillSans-35" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_3">
-     <g id="line2d_5">
-      <path d="M 185.863309 448.56 
-L 185.863309 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_6">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="185.863309" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_3">
-      <!-- Sep 06 -->
-      <g style="fill: #ffffff" transform="translate(175.003934 461.0875) scale(0.08 -0.08)">
-       <defs>
-        <path id="GillSans-36" d="M 1966 4378 
-L 2028 4422 
-L 2406 3944 
-Q 1906 3622 1576 3240 
-Q 1247 2859 1069 2344 
-Q 1416 2522 1759 2522 
-Q 2275 2522 2628 2156 
-Q 2981 1791 2981 1259 
-Q 2981 713 2597 331 
-Q 2213 -50 1663 -50 
-Q 1047 -50 667 383 
-Q 288 816 288 1516 
-Q 288 2041 483 2561 
-Q 678 3081 1045 3536 
-Q 1413 3991 1966 4378 
-z
-M 934 1697 
-Q 909 1550 909 1369 
-Q 909 1000 1123 762 
-Q 1338 525 1672 525 
-Q 1972 525 2167 728 
-Q 2363 931 2363 1241 
-Q 2363 1556 2155 1751 
-Q 1947 1947 1606 1947 
-Q 1431 1947 1289 1894 
-Q 1147 1841 934 1697 
-z
-" transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-30" x="171.484375"/>
-       <use xlink:href="#GillSans-36" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_4">
-     <g id="line2d_7">
-      <path d="M 216.691537 448.56 
-L 216.691537 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_8">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="216.691537" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_4">
-      <!-- Sep 07 -->
-      <g style="fill: #ffffff" transform="translate(205.832162 461.0875) scale(0.08 -0.08)">
-       <defs>
-        <path id="GillSans-37" d="M 313 4366 
-L 3138 4366 
-L 1159 -50 
-L 603 184 
-L 2203 3769 
-L 313 3769 
-L 313 4366 
-z
-" transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-30" x="171.484375"/>
-       <use xlink:href="#GillSans-37" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_5">
-     <g id="line2d_9">
-      <path d="M 247.519766 448.56 
-L 247.519766 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_10">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="247.519766" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_5">
-      <!-- Sep 08 -->
-      <g style="fill: #ffffff" transform="translate(236.660391 461.0875) scale(0.08 -0.08)">
-       <defs>
         <path id="GillSans-38" d="M 306 3194 
 Q 306 3706 690 4064 
 Q 1075 4422 1631 4422 
@@ -364,25 +172,25 @@ z
        <use xlink:href="#GillSans-65" x="45.800781"/>
        <use xlink:href="#GillSans-70" x="93.701172"/>
        <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-30" x="171.484375"/>
+       <use xlink:href="#GillSans-31" x="171.484375"/>
        <use xlink:href="#GillSans-38" x="221.484375"/>
       </g>
      </g>
     </g>
-    <g id="xtick_6">
-     <g id="line2d_11">
-      <path d="M 278.347994 448.56 
-L 278.347994 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 264.660108 448.56 
+L 264.660108 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_12">
+     <g id="line2d_4">
       <g>
-       <use xlink:href="#m91fd76afc2" x="278.347994" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#mf3da5e6ca4" x="264.660108" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_6">
-      <!-- Sep 09 -->
-      <g style="fill: #ffffff" transform="translate(267.488619 461.0875) scale(0.08 -0.08)">
+     <g id="text_2">
+      <!-- Sep 19 -->
+      <g style="fill: #ffffff" transform="translate(253.800733 461.0875) scale(0.08 -0.08)">
        <defs>
         <path id="GillSans-39" d="M 1197 -50 
 L 813 403 
@@ -414,80 +222,25 @@ z
        <use xlink:href="#GillSans-65" x="45.800781"/>
        <use xlink:href="#GillSans-70" x="93.701172"/>
        <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-30" x="171.484375"/>
+       <use xlink:href="#GillSans-31" x="171.484375"/>
        <use xlink:href="#GillSans-39" x="221.484375"/>
       </g>
      </g>
     </g>
-    <g id="xtick_7">
-     <g id="line2d_13">
-      <path d="M 309.176222 448.56 
-L 309.176222 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 360.317251 448.56 
+L 360.317251 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_14">
+     <g id="line2d_6">
       <g>
-       <use xlink:href="#m91fd76afc2" x="309.176222" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#mf3da5e6ca4" x="360.317251" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_7">
-      <!-- Sep 10 -->
-      <g style="fill: #ffffff" transform="translate(298.316847 461.0875) scale(0.08 -0.08)">
-       <defs>
-        <path id="GillSans-31" d="M 1294 4366 
-L 1919 4366 
-L 1919 0 
-L 1294 0 
-L 1294 4366 
-z
-" transform="scale(0.015625)"/>
-       </defs>
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-30" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_8">
-     <g id="line2d_15">
-      <path d="M 340.00445 448.56 
-L 340.00445 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_16">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="340.00445" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_8">
-      <!-- Sep 11 -->
-      <g style="fill: #ffffff" transform="translate(329.145075 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-31" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_9">
-     <g id="line2d_17">
-      <path d="M 370.832679 448.56 
-L 370.832679 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_18">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="370.832679" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_9">
-      <!-- Sep 12 -->
-      <g style="fill: #ffffff" transform="translate(359.973304 461.0875) scale(0.08 -0.08)">
+     <g id="text_3">
+      <!-- Sep 20 -->
+      <g style="fill: #ffffff" transform="translate(349.457876 461.0875) scale(0.08 -0.08)">
        <defs>
         <path id="GillSans-32" d="M 1319 603 
 L 2981 603 
@@ -512,30 +265,98 @@ Q 2016 1434 1453 763
 L 1319 603 
 z
 " transform="scale(0.015625)"/>
+        <path id="GillSans-30" d="M 1625 4422 
+Q 2225 4422 2617 3792 
+Q 3009 3163 3009 2194 
+Q 3009 1200 2617 578 
+Q 2225 -44 1600 -44 
+Q 966 -44 581 565 
+Q 197 1175 197 2181 
+Q 197 3175 594 3798 
+Q 991 4422 1625 4422 
+z
+M 1631 3828 
+L 1600 3828 
+Q 1241 3828 1030 3386 
+Q 819 2944 819 2188 
+Q 819 1413 1025 972 
+Q 1231 531 1594 531 
+Q 1956 531 2165 972 
+Q 2375 1413 2375 2169 
+Q 2375 2928 2173 3378 
+Q 1972 3828 1631 3828 
+z
+" transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#GillSans-53"/>
        <use xlink:href="#GillSans-65" x="45.800781"/>
        <use xlink:href="#GillSans-70" x="93.701172"/>
        <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
+       <use xlink:href="#GillSans-32" x="171.484375"/>
+       <use xlink:href="#GillSans-30" x="221.484375"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 455.974394 448.56 
+L 455.974394 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#mf3da5e6ca4" x="455.974394" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <!-- Sep 21 -->
+      <g style="fill: #ffffff" transform="translate(445.115019 461.0875) scale(0.08 -0.08)">
+       <use xlink:href="#GillSans-53"/>
+       <use xlink:href="#GillSans-65" x="45.800781"/>
+       <use xlink:href="#GillSans-70" x="93.701172"/>
+       <use xlink:href="#GillSans-20" x="143.701172"/>
+       <use xlink:href="#GillSans-32" x="171.484375"/>
+       <use xlink:href="#GillSans-31" x="221.484375"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 551.631537 448.56 
+L 551.631537 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#mf3da5e6ca4" x="551.631537" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <!-- Sep 22 -->
+      <g style="fill: #ffffff" transform="translate(540.772162 461.0875) scale(0.08 -0.08)">
+       <use xlink:href="#GillSans-53"/>
+       <use xlink:href="#GillSans-65" x="45.800781"/>
+       <use xlink:href="#GillSans-70" x="93.701172"/>
+       <use xlink:href="#GillSans-20" x="143.701172"/>
+       <use xlink:href="#GillSans-32" x="171.484375"/>
        <use xlink:href="#GillSans-32" x="221.484375"/>
       </g>
      </g>
     </g>
-    <g id="xtick_10">
-     <g id="line2d_19">
-      <path d="M 401.660907 448.56 
-L 401.660907 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 647.288679 448.56 
+L 647.288679 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_20">
+     <g id="line2d_12">
       <g>
-       <use xlink:href="#m91fd76afc2" x="401.660907" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#mf3da5e6ca4" x="647.288679" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_10">
-      <!-- Sep 13 -->
-      <g style="fill: #ffffff" transform="translate(390.801532 461.095) scale(0.08 -0.08)">
+     <g id="text_6">
+      <!-- Sep 23 -->
+      <g style="fill: #ffffff" transform="translate(636.429304 461.095) scale(0.08 -0.08)">
        <defs>
         <path id="GillSans-33" d="M 1153 2541 
 L 1191 2541 
@@ -572,255 +393,46 @@ z
        <use xlink:href="#GillSans-65" x="45.800781"/>
        <use xlink:href="#GillSans-70" x="93.701172"/>
        <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-33" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_11">
-     <g id="line2d_21">
-      <path d="M 432.489135 448.56 
-L 432.489135 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_22">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="432.489135" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_11">
-      <!-- Sep 14 -->
-      <g style="fill: #ffffff" transform="translate(421.62976 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-34" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_12">
-     <g id="line2d_23">
-      <path d="M 463.317363 448.56 
-L 463.317363 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_24">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="463.317363" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_12">
-      <!-- Sep 15 -->
-      <g style="fill: #ffffff" transform="translate(452.457988 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-35" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_13">
-     <g id="line2d_25">
-      <path d="M 494.145592 448.56 
-L 494.145592 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_26">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="494.145592" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_13">
-      <!-- Sep 16 -->
-      <g style="fill: #ffffff" transform="translate(483.286217 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-36" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_14">
-     <g id="line2d_27">
-      <path d="M 524.97382 448.56 
-L 524.97382 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_28">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="524.97382" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_14">
-      <!-- Sep 17 -->
-      <g style="fill: #ffffff" transform="translate(514.114445 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-37" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_15">
-     <g id="line2d_29">
-      <path d="M 555.802048 448.56 
-L 555.802048 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_30">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="555.802048" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_15">
-      <!-- Sep 18 -->
-      <g style="fill: #ffffff" transform="translate(544.942673 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-38" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_16">
-     <g id="line2d_31">
-      <path d="M 586.630276 448.56 
-L 586.630276 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_32">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="586.630276" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_16">
-      <!-- Sep 19 -->
-      <g style="fill: #ffffff" transform="translate(575.770901 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-31" x="171.484375"/>
-       <use xlink:href="#GillSans-39" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_17">
-     <g id="line2d_33">
-      <path d="M 617.458505 448.56 
-L 617.458505 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_34">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="617.458505" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_17">
-      <!-- Sep 20 -->
-      <g style="fill: #ffffff" transform="translate(606.59913 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-32" x="171.484375"/>
-       <use xlink:href="#GillSans-30" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_18">
-     <g id="line2d_35">
-      <path d="M 648.286733 448.56 
-L 648.286733 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_36">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="648.286733" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_18">
-      <!-- Sep 21 -->
-      <g style="fill: #ffffff" transform="translate(637.427358 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-32" x="171.484375"/>
-       <use xlink:href="#GillSans-31" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_19">
-     <g id="line2d_37">
-      <path d="M 679.114961 448.56 
-L 679.114961 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_38">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="679.114961" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_19">
-      <!-- Sep 22 -->
-      <g style="fill: #ffffff" transform="translate(668.255586 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-32" x="171.484375"/>
-       <use xlink:href="#GillSans-32" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="xtick_20">
-     <g id="line2d_39">
-      <path d="M 709.943189 448.56 
-L 709.943189 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_40">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="709.943189" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_20">
-      <!-- Sep 23 -->
-      <g style="fill: #ffffff" transform="translate(699.083814 461.095) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
        <use xlink:href="#GillSans-32" x="171.484375"/>
        <use xlink:href="#GillSans-33" x="221.484375"/>
       </g>
      </g>
     </g>
-    <g id="xtick_21">
-     <g id="line2d_41">
-      <path d="M 740.771418 448.56 
-L 740.771418 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 742.945822 448.56 
+L 742.945822 60.48 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_42">
+     <g id="line2d_14">
       <g>
-       <use xlink:href="#m91fd76afc2" x="740.771418" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#mf3da5e6ca4" x="742.945822" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_21">
+     <g id="text_7">
       <!-- Sep 24 -->
-      <g style="fill: #ffffff" transform="translate(729.912043 461.0875) scale(0.08 -0.08)">
+      <g style="fill: #ffffff" transform="translate(732.086447 461.0875) scale(0.08 -0.08)">
+       <defs>
+        <path id="GillSans-34" d="M 2272 4422 
+L 2528 4422 
+L 2528 1972 
+L 3016 1972 
+L 3016 1441 
+L 2528 1441 
+L 2528 0 
+L 1919 0 
+L 1919 1441 
+L 72 1441 
+L 72 1709 
+L 2272 4422 
+z
+M 1919 1972 
+L 1919 3238 
+L 909 1972 
+L 1919 1972 
+z
+" transform="scale(0.015625)"/>
+       </defs>
        <use xlink:href="#GillSans-53"/>
        <use xlink:href="#GillSans-65" x="45.800781"/>
        <use xlink:href="#GillSans-70" x="93.701172"/>
@@ -830,116 +442,211 @@ L 740.771418 60.48
       </g>
      </g>
     </g>
-    <g id="xtick_22">
-     <g id="line2d_43">
-      <path d="M 771.599646 448.56 
-L 771.599646 60.48 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
-     </g>
-     <g id="line2d_44">
-      <g>
-       <use xlink:href="#m91fd76afc2" x="771.599646" y="448.56" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
-      </g>
-     </g>
-     <g id="text_22">
-      <!-- Sep 25 -->
-      <g style="fill: #ffffff" transform="translate(760.740271 461.0875) scale(0.08 -0.08)">
-       <use xlink:href="#GillSans-53"/>
-       <use xlink:href="#GillSans-65" x="45.800781"/>
-       <use xlink:href="#GillSans-70" x="93.701172"/>
-       <use xlink:href="#GillSans-20" x="143.701172"/>
-       <use xlink:href="#GillSans-32" x="171.484375"/>
-       <use xlink:href="#GillSans-35" x="221.484375"/>
-      </g>
-     </g>
-    </g>
-    <g id="text_23">
-     <!-- Time -->
-     <g style="fill: #ffffff" transform="translate(428.287031 476.478125) scale(0.14 -0.14)">
+    <g id="text_8">
+     <!-- Last 7 Days -->
+     <g style="fill: #ffffff" transform="translate(409.97 476.478125) scale(0.14 -0.14)">
       <defs>
-       <path id="GillSans-54" d="M 109 4372 
-L 3756 4372 
-L 3756 3816 
-L 2234 3816 
-L 2234 0 
-L 1606 0 
-L 1606 3816 
-L 109 3816 
-L 109 4372 
+       <path id="GillSans-4c" d="M 481 4366 
+L 1106 4366 
+L 1106 569 
+L 3072 569 
+L 3072 0 
+L 481 0 
+L 481 4366 
 z
 " transform="scale(0.015625)"/>
-       <path id="GillSans-69" d="M 697 4084 
-Q 838 4084 938 3987 
-Q 1038 3891 1038 3750 
-Q 1038 3613 938 3513 
-Q 838 3413 697 3413 
-Q 566 3413 466 3514 
-Q 366 3616 366 3750 
-Q 366 3881 466 3982 
-Q 566 4084 697 4084 
+       <path id="GillSans-61" d="M 2209 1728 
+L 2209 506 
+Q 2209 359 2309 359 
+Q 2413 359 2631 513 
+L 2631 166 
+Q 2438 41 2320 -4 
+Q 2203 -50 2075 -50 
+Q 1709 -50 1644 238 
+Q 1281 -44 872 -44 
+Q 572 -44 372 154 
+Q 172 353 172 653 
+Q 172 925 367 1139 
+Q 563 1353 922 1478 
+L 1650 1728 
+L 1650 1881 
+Q 1650 2400 1131 2400 
+Q 666 2400 225 1919 
+L 225 2541 
+Q 556 2931 1178 2931 
+Q 1644 2931 1925 2688 
+Q 2019 2609 2094 2479 
+Q 2169 2350 2189 2220 
+Q 2209 2091 2209 1728 
 z
-M 416 2875 
-L 984 2875 
-L 984 0 
-L 416 0 
-L 416 2875 
+M 1650 569 
+L 1650 1422 
+L 1269 1275 
+Q 978 1159 858 1042 
+Q 738 925 738 750 
+Q 738 572 852 459 
+Q 966 347 1147 347 
+Q 1419 347 1650 569 
 z
 " transform="scale(0.015625)"/>
-       <path id="GillSans-6d" d="M 2759 2088 
-L 2759 0 
-L 2188 0 
-L 2188 1600 
-Q 2188 2078 2059 2267 
-Q 1931 2456 1613 2456 
-Q 1434 2456 1286 2375 
-Q 1138 2294 947 2088 
-L 947 0 
-L 378 0 
-L 378 2875 
-L 947 2875 
-L 947 2497 
-Q 1381 2931 1797 2931 
-Q 2344 2931 2644 2413 
-Q 3100 2938 3597 2938 
-Q 4016 2938 4286 2631 
-Q 4556 2325 4556 1697 
-L 4556 0 
-L 3988 0 
-L 3988 1703 
-Q 3988 2063 3841 2253 
-Q 3694 2444 3419 2444 
-Q 3066 2444 2759 2088 
+       <path id="GillSans-73" d="M 263 206 
+L 263 819 
+Q 503 650 754 545 
+Q 1006 441 1178 441 
+Q 1356 441 1484 528 
+Q 1613 616 1613 738 
+Q 1613 863 1530 945 
+Q 1447 1028 1172 1184 
+Q 622 1491 451 1708 
+Q 281 1925 281 2181 
+Q 281 2513 539 2722 
+Q 797 2931 1203 2931 
+Q 1625 2931 2069 2694 
+L 2069 2131 
+Q 1563 2438 1241 2438 
+Q 1075 2438 973 2367 
+Q 872 2297 872 2181 
+Q 872 2081 964 1990 
+Q 1056 1900 1288 1772 
+L 1491 1656 
+Q 2209 1250 2209 756 
+Q 2209 403 1932 176 
+Q 1656 -50 1222 -50 
+Q 966 -50 766 4 
+Q 566 59 263 206 
+z
+" transform="scale(0.015625)"/>
+       <path id="GillSans-74" d="M 0 2419 
+L 1069 3469 
+L 1069 2875 
+L 1978 2875 
+L 1978 2363 
+L 1069 2363 
+L 1069 953 
+Q 1069 459 1478 459 
+Q 1784 459 2125 666 
+L 2125 134 
+Q 1797 -50 1409 -50 
+Q 1019 -50 759 178 
+Q 678 247 625 333 
+Q 572 419 536 558 
+Q 500 697 500 1088 
+L 500 2363 
+L 0 2363 
+L 0 2419 
+z
+" transform="scale(0.015625)"/>
+       <path id="GillSans-37" d="M 313 4366 
+L 3138 4366 
+L 1159 -50 
+L 603 184 
+L 2203 3769 
+L 313 3769 
+L 313 4366 
+z
+" transform="scale(0.015625)"/>
+       <path id="GillSans-44" d="M 488 6 
+L 488 4366 
+L 1959 4366 
+Q 2850 4366 3369 4098 
+Q 3888 3831 4194 3312 
+Q 4500 2794 4500 2181 
+Q 4500 1744 4331 1344 
+Q 4163 944 3850 641 
+Q 3531 328 3109 169 
+Q 2863 72 2656 39 
+Q 2450 6 1869 6 
+L 488 6 
+z
+M 1894 3809 
+L 1113 3809 
+L 1113 563 
+L 1913 563 
+Q 2381 563 2640 627 
+Q 2900 691 3073 789 
+Q 3247 888 3391 1031 
+Q 3853 1500 3853 2216 
+Q 3853 2919 3378 3363 
+Q 3203 3528 2976 3634 
+Q 2750 3741 2547 3775 
+Q 2344 3809 1894 3809 
+z
+" transform="scale(0.015625)"/>
+       <path id="GillSans-79" d="M 2163 2875 
+L 2803 2875 
+L 769 -1466 
+L 134 -1466 
+L 1113 616 
+L 0 2875 
+L 647 2875 
+L 1422 1253 
+L 2163 2875 
 z
 " transform="scale(0.015625)"/>
       </defs>
-      <use xlink:href="#GillSans-54"/>
-      <use xlink:href="#GillSans-69" x="60.400391"/>
-      <use xlink:href="#GillSans-6d" x="82.324219"/>
-      <use xlink:href="#GillSans-65" x="159.423828"/>
+      <use xlink:href="#GillSans-4c"/>
+      <use xlink:href="#GillSans-61" x="49.023438"/>
+      <use xlink:href="#GillSans-73" x="91.699219"/>
+      <use xlink:href="#GillSans-74" x="130.175781"/>
+      <use xlink:href="#GillSans-20" x="163.476562"/>
+      <use xlink:href="#GillSans-37" x="191.259766"/>
+      <use xlink:href="#GillSans-20" x="241.259766"/>
+      <use xlink:href="#GillSans-44" x="269.042969"/>
+      <use xlink:href="#GillSans-61" x="344.042969"/>
+      <use xlink:href="#GillSans-79" x="386.71875"/>
+      <use xlink:href="#GillSans-73" x="430.517578"/>
      </g>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
-     <g id="line2d_45">
+     <g id="line2d_15">
       <path d="M 108 424.002353 
 L 777.6 424.002353 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_46">
+     <g id="line2d_16">
       <defs>
-       <path id="m99be5459c1" d="M 0 0 
+       <path id="ma480da9a9c" d="M 0 0 
 L -3.5 0 
 " style="stroke: #ffffff; stroke-width: 0.8"/>
       </defs>
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="424.002353" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="424.002353" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_24">
+     <g id="text_9">
       <!-- 96.5 -->
       <g style="fill: #ffffff" transform="translate(87.24625 426.731103) scale(0.08 -0.08)">
        <defs>
+        <path id="GillSans-36" d="M 1966 4378 
+L 2028 4422 
+L 2406 3944 
+Q 1906 3622 1576 3240 
+Q 1247 2859 1069 2344 
+Q 1416 2522 1759 2522 
+Q 2275 2522 2628 2156 
+Q 2981 1791 2981 1259 
+Q 2981 713 2597 331 
+Q 2213 -50 1663 -50 
+Q 1047 -50 667 383 
+Q 288 816 288 1516 
+Q 288 2041 483 2561 
+Q 678 3081 1045 3536 
+Q 1413 3991 1966 4378 
+z
+M 934 1697 
+Q 909 1550 909 1369 
+Q 909 1000 1123 762 
+Q 1338 525 1672 525 
+Q 1972 525 2167 728 
+Q 2363 931 2363 1241 
+Q 2363 1556 2155 1751 
+Q 1947 1947 1606 1947 
+Q 1431 1947 1289 1894 
+Q 1147 1841 934 1697 
+z
+" transform="scale(0.015625)"/>
         <path id="GillSans-2e" d="M 697 697 
 Q 856 697 968 587 
 Q 1081 478 1081 319 
@@ -951,6 +658,27 @@ Q 319 478 428 587
 Q 538 697 697 697 
 z
 " transform="scale(0.015625)"/>
+        <path id="GillSans-35" d="M 647 4366 
+L 2584 4366 
+L 2584 3809 
+L 1216 3809 
+L 1216 2706 
+Q 1281 2713 1350 2713 
+Q 1984 2713 2393 2327 
+Q 2803 1941 2803 1344 
+Q 2803 728 2398 342 
+Q 1994 -44 1350 -44 
+Q 819 -44 319 213 
+L 319 856 
+Q 791 550 1241 550 
+Q 1634 550 1901 779 
+Q 2169 1009 2169 1344 
+Q 2169 1691 1878 1923 
+Q 1588 2156 1153 2156 
+Q 781 2156 647 2094 
+L 647 4366 
+z
+" transform="scale(0.015625)"/>
        </defs>
        <use xlink:href="#GillSans-39"/>
        <use xlink:href="#GillSans-36" x="50"/>
@@ -960,17 +688,17 @@ z
      </g>
     </g>
     <g id="ytick_2">
-     <g id="line2d_47">
+     <g id="line2d_17">
       <path d="M 108 374.590588 
 L 777.6 374.590588 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_48">
+     <g id="line2d_18">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="374.590588" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="374.590588" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_25">
+     <g id="text_10">
       <!-- 97.0 -->
       <g style="fill: #ffffff" transform="translate(87.24625 377.319338) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-39"/>
@@ -981,17 +709,17 @@ L 777.6 374.590588
      </g>
     </g>
     <g id="ytick_3">
-     <g id="line2d_49">
+     <g id="line2d_19">
       <path d="M 108 325.178824 
 L 777.6 325.178824 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_50">
+     <g id="line2d_20">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="325.178824" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="325.178824" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_26">
+     <g id="text_11">
       <!-- 97.5 -->
       <g style="fill: #ffffff" transform="translate(87.24625 327.907574) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-39"/>
@@ -1002,17 +730,17 @@ L 777.6 325.178824
      </g>
     </g>
     <g id="ytick_4">
-     <g id="line2d_51">
+     <g id="line2d_21">
       <path d="M 108 275.767059 
 L 777.6 275.767059 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_52">
+     <g id="line2d_22">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="275.767059" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="275.767059" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_27">
+     <g id="text_12">
       <!-- 98.0 -->
       <g style="fill: #ffffff" transform="translate(87.24625 278.495809) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-39"/>
@@ -1023,17 +751,17 @@ L 777.6 275.767059
      </g>
     </g>
     <g id="ytick_5">
-     <g id="line2d_53">
+     <g id="line2d_23">
       <path d="M 108 226.355294 
 L 777.6 226.355294 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_54">
+     <g id="line2d_24">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="226.355294" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="226.355294" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_28">
+     <g id="text_13">
       <!-- 98.5 -->
       <g style="fill: #ffffff" transform="translate(87.24625 229.084044) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-39"/>
@@ -1044,17 +772,17 @@ L 777.6 226.355294
      </g>
     </g>
     <g id="ytick_6">
-     <g id="line2d_55">
+     <g id="line2d_25">
       <path d="M 108 176.943529 
 L 777.6 176.943529 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_56">
+     <g id="line2d_26">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="176.943529" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="176.943529" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_29">
+     <g id="text_14">
       <!-- 99.0 -->
       <g style="fill: #ffffff" transform="translate(87.24625 179.672279) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-39"/>
@@ -1065,17 +793,17 @@ L 777.6 176.943529
      </g>
     </g>
     <g id="ytick_7">
-     <g id="line2d_57">
+     <g id="line2d_27">
       <path d="M 108 127.531765 
 L 777.6 127.531765 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_58">
+     <g id="line2d_28">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="127.531765" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="127.531765" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_30">
+     <g id="text_15">
       <!-- 99.5 -->
       <g style="fill: #ffffff" transform="translate(87.24625 130.260515) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-39"/>
@@ -1086,17 +814,17 @@ L 777.6 127.531765
      </g>
     </g>
     <g id="ytick_8">
-     <g id="line2d_59">
+     <g id="line2d_29">
       <path d="M 108 78.12 
 L 777.6 78.12 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #444444; stroke-width: 0.8; stroke-linecap: square"/>
      </g>
-     <g id="line2d_60">
+     <g id="line2d_30">
       <g>
-       <use xlink:href="#m99be5459c1" x="108" y="78.12" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
+       <use xlink:href="#ma480da9a9c" x="108" y="78.12" style="fill: #ffffff; stroke: #ffffff; stroke-width: 0.8"/>
       </g>
      </g>
-     <g id="text_31">
+     <g id="text_16">
       <!-- 100.0 -->
       <g style="fill: #ffffff" transform="translate(83.24625 80.84875) scale(0.08 -0.08)">
        <use xlink:href="#GillSans-31"/>
@@ -1107,7 +835,7 @@ L 777.6 78.12
       </g>
      </g>
     </g>
-    <g id="text_32">
+    <g id="text_17">
      <!-- Coverage % -->
      <g style="fill: #ffffff" transform="translate(77.41375 273.955) rotate(-90) scale(0.08 -0.08)">
       <defs>
@@ -1173,40 +901,6 @@ L 1013 0
 L 441 0 
 L 441 2875 
 L 1013 2875 
-z
-" transform="scale(0.015625)"/>
-       <path id="GillSans-61" d="M 2209 1728 
-L 2209 506 
-Q 2209 359 2309 359 
-Q 2413 359 2631 513 
-L 2631 166 
-Q 2438 41 2320 -4 
-Q 2203 -50 2075 -50 
-Q 1709 -50 1644 238 
-Q 1281 -44 872 -44 
-Q 572 -44 372 154 
-Q 172 353 172 653 
-Q 172 925 367 1139 
-Q 563 1353 922 1478 
-L 1650 1728 
-L 1650 1881 
-Q 1650 2400 1131 2400 
-Q 666 2400 225 1919 
-L 225 2541 
-Q 556 2931 1178 2931 
-Q 1644 2931 1925 2688 
-Q 2019 2609 2094 2479 
-Q 2169 2350 2189 2220 
-Q 2209 2091 2209 1728 
-z
-M 1650 569 
-L 1650 1422 
-L 1269 1275 
-Q 978 1159 858 1042 
-Q 738 925 738 750 
-Q 738 572 852 459 
-Q 966 347 1147 347 
-Q 1419 347 1650 569 
 z
 " transform="scale(0.015625)"/>
        <path id="GillSans-67" d="M 256 1881 
@@ -1317,23 +1011,19 @@ z
      </g>
     </g>
    </g>
-   <g id="line2d_61">
-    <path d="M 138.436364 78.12 
-L 197.557341 78.12 
-L 199.457702 430.92 
-L 747.163636 430.92 
-L 747.163636 430.92 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #106a77; stroke-width: 2; stroke-linecap: square"/>
+   <g id="line2d_31">
+    <path d="M -1 430.92 
+L 777.572822 430.92 
+L 777.572822 430.92 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #106a77; stroke-width: 2; stroke-linecap: square"/>
    </g>
-   <g id="line2d_62">
-    <path d="M 138.436364 78.12 
-L 197.557341 78.12 
-L 199.457702 170.025882 
-L 747.163636 170.025882 
-L 747.163636 170.025882 
-" clip-path="url(#pd88dd56bdc)" style="fill: none; stroke: #50486c; stroke-width: 2; stroke-linecap: square"/>
+   <g id="line2d_32">
+    <path d="M -1 170.025882 
+L 777.572822 170.025882 
+L 777.572822 170.025882 
+" clip-path="url(#p1c82fac1f4)" style="fill: none; stroke: #50486c; stroke-width: 2; stroke-linecap: square"/>
    </g>
-   <g id="text_33">
+   <g id="text_18">
     <g id="patch_2">
      <path d="M 757.512 436.70475 
 L 792.252 436.70475 
@@ -1357,7 +1047,7 @@ z
      <use xlink:href="#GillSans-25" x="221.923828"/>
     </g>
    </g>
-   <g id="text_34">
+   <g id="text_19">
     <g id="patch_3">
      <path d="M 757.512 169.125221 
 L 792.252 169.125221 
@@ -1381,7 +1071,7 @@ z
      <use xlink:href="#GillSans-25" x="221.923828"/>
     </g>
    </g>
-   <g id="text_35">
+   <g id="text_20">
     <!-- CutBox CLI coverage progress -->
     <g style="fill: #ffffff" transform="translate(279.109688 54.48) scale(0.26 -0.26)">
      <defs>
@@ -1402,26 +1092,6 @@ L 2234 2875
 L 2803 2875 
 L 2803 0 
 L 2234 0 
-z
-" transform="scale(0.015625)"/>
-      <path id="GillSans-74" d="M 0 2419 
-L 1069 3469 
-L 1069 2875 
-L 1978 2875 
-L 1978 2363 
-L 1069 2363 
-L 1069 953 
-Q 1069 459 1478 459 
-Q 1784 459 2125 666 
-L 2125 134 
-Q 1797 -50 1409 -50 
-Q 1019 -50 759 178 
-Q 678 247 625 333 
-Q 572 419 536 558 
-Q 500 697 500 1088 
-L 500 2363 
-L 0 2363 
-L 0 2419 
 z
 " transform="scale(0.015625)"/>
       <path id="GillSans-42" d="M 1959 0 
@@ -1473,15 +1143,6 @@ L 1569 1888
 L 2388 2875 
 z
 " transform="scale(0.015625)"/>
-      <path id="GillSans-4c" d="M 481 4366 
-L 1106 4366 
-L 1106 569 
-L 3072 569 
-L 3072 0 
-L 481 0 
-L 481 4366 
-z
-" transform="scale(0.015625)"/>
       <path id="GillSans-49" d="M 488 4366 
 L 1113 4366 
 L 1113 0 
@@ -1505,33 +1166,6 @@ Q 819 1859 819 1441
 Q 819 1000 1086 740 
 Q 1353 481 1806 481 
 Q 2134 481 2559 672 
-z
-" transform="scale(0.015625)"/>
-      <path id="GillSans-73" d="M 263 206 
-L 263 819 
-Q 503 650 754 545 
-Q 1006 441 1178 441 
-Q 1356 441 1484 528 
-Q 1613 616 1613 738 
-Q 1613 863 1530 945 
-Q 1447 1028 1172 1184 
-Q 622 1491 451 1708 
-Q 281 1925 281 2181 
-Q 281 2513 539 2722 
-Q 797 2931 1203 2931 
-Q 1625 2931 2069 2694 
-L 2069 2131 
-Q 1563 2438 1241 2438 
-Q 1075 2438 973 2367 
-Q 872 2297 872 2181 
-Q 872 2081 964 1990 
-Q 1056 1900 1288 1772 
-L 1491 1656 
-Q 2209 1250 2209 756 
-Q 2209 403 1932 176 
-Q 1656 -50 1222 -50 
-Q 966 -50 766 4 
-Q 566 59 263 206 
 z
 " transform="scale(0.015625)"/>
      </defs>
@@ -1566,13 +1200,13 @@ z
     </g>
    </g>
    <g id="legend_1">
-    <g id="line2d_63">
+    <g id="line2d_33">
      <path d="M 719.91125 70.48 
 L 727.91125 70.48 
 L 735.91125 70.48 
 " style="fill: none; stroke: #106a77; stroke-width: 2; stroke-linecap: square"/>
     </g>
-    <g id="text_36">
+    <g id="text_21">
      <!-- Function -->
      <g style="fill: #ffffff" transform="translate(742.31125 73.28) scale(0.08 -0.08)">
       <defs>
@@ -1607,6 +1241,23 @@ L 391 2875
 L 972 2875 
 z
 " transform="scale(0.015625)"/>
+       <path id="GillSans-69" d="M 697 4084 
+Q 838 4084 938 3987 
+Q 1038 3891 1038 3750 
+Q 1038 3613 938 3513 
+Q 838 3413 697 3413 
+Q 566 3413 466 3514 
+Q 366 3616 366 3750 
+Q 366 3881 466 3982 
+Q 566 4084 697 4084 
+z
+M 416 2875 
+L 984 2875 
+L 984 0 
+L 416 0 
+L 416 2875 
+z
+" transform="scale(0.015625)"/>
       </defs>
       <use xlink:href="#GillSans-46"/>
       <use xlink:href="#GillSans-75" x="46.923828"/>
@@ -1618,13 +1269,13 @@ z
       <use xlink:href="#GillSans-6e" x="301.123047"/>
      </g>
     </g>
-    <g id="line2d_64">
+    <g id="line2d_34">
      <path d="M 719.91125 81.9125 
 L 727.91125 81.9125 
 L 735.91125 81.9125 
 " style="fill: none; stroke: #50486c; stroke-width: 2; stroke-linecap: square"/>
     </g>
-    <g id="text_37">
+    <g id="text_22">
      <!-- Line -->
      <g style="fill: #ffffff" transform="translate(742.31125 84.7125) scale(0.08 -0.08)">
       <use xlink:href="#GillSans-4c"/>
@@ -1637,7 +1288,7 @@ L 735.91125 81.9125
   </g>
  </g>
  <defs>
-  <clipPath id="pd88dd56bdc">
+  <clipPath id="p1c82fac1f4">
    <rect x="108" y="60.48" width="669.6" height="388.08"/>
   </clipPath>
  </defs>
