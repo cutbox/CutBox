@@ -34,3 +34,6 @@ check_l7n_languages ::
 
 install :: swiftlint check_l7n_app check_l7n_languages test build
 	bin/use_build_as_local_app
+
+test_cov_graph ::
+	bin/render_cov_graph --title "CutBox.app coverage TEST" --output test.cov.svg < docs/App/cov_progress.json

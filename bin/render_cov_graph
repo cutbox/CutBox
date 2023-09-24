@@ -47,7 +47,7 @@ def annotate_callout(ctx, percent, text_y, color):
                  backgroundcolor=color,
                  bbox=dict(boxstyle='round', edgecolor=color, facecolor=color, pad=0.4))
 
-fontName = 'Gill Sans'
+fontName = 'Avenir Next'
 
 hsmall = {
     'family': fontName,
@@ -75,6 +75,9 @@ args = parser.parse_args()
 
 title = args.title
 output_filename = args.output
+time_limit_days_ago = 10
+width = 12
+height = 7
 
 # Read JSON data from stdin
 try:
@@ -86,8 +89,11 @@ except json.JSONDecodeError as e:
 # Sort data by datetime
 data.sort(key=lambda x: x["datetime"])
 
-width = 12
-height = 7
+today = dt.datetime.utcnow()
+time_limit = today - dt.timedelta(days = time_limit_days_ago)
+
+results = filter(lambda x: x["datetime"] > time_limit.isoformat(), data)
+data = list(results)
 
 # Extract percentage values from fn, line, and region
 fn_percentages = [float(node["fn"].split()[0].replace("%", "")) for node in data]
@@ -102,11 +108,15 @@ labels = ["Function","Line"]
 
 # Create a time series plot
 latest = (fn_percentages[-1], ln_percentages[-1])
+
 perc_max = max(max(fn_percentages), max(ln_percentages))
+perc_max = min(100, perc_max + 10)
 perc_min = min(min(fn_percentages), min(ln_percentages))
+perc_min = max(0, perc_min - 10)
+
 perc_range = (perc_max / 100) - (perc_min / 100)
 normalised = [(perc - perc_min) / perc_range for perc in latest]
-text_y = [(perc / 100) for perc in adjust_spacing(normalised, 12)]
+text_y = [(perc / 100) for perc in adjust_spacing(normalised, 10)]
 
 with plt.style.context('dark_background'):
     plt.rcParams['font.family'] = fontName
@@ -121,14 +131,11 @@ with plt.style.context('dark_background'):
         plt.plot(datetimes, percentages[i], label=labels[i], linewidth=2, color=line_colors[i])
         annotate_callout(plt, latest[i], text_y[i], line_colors[i])
 
-    plt.xlabel("Last 7 Days", **hsubtitle)
+    plt.xlabel(f"Last {time_limit_days_ago} Days", **hsubtitle)
     plt.ylabel("Coverage %",**hsmall)
     plt.title(f"{title}", **htitle)
 
-    today = dt.datetime.now()
-    a_week_ago = today - dt.timedelta(days = 7)
-
-    plt.xlim([a_week_ago, today])
+    plt.ylim([max(0, perc_min - 10), min(100, perc_max + 10)])
 
     plt.legend(frameon=False)
 
