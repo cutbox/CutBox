@@ -206,7 +206,7 @@ class CutBoxPreferencesService {
             self.cutBoxJSLocation = defaultLocation
             return defaultLocation
         }
-        
+
         set {
             defaults.set(newValue, forKey: Constants.kCutBoxJSLocation)
         }

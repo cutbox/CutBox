@@ -94,7 +94,7 @@ class JSFuncService: NSObject {
 
         var idx = 0
         return funcsDict.map { (dict: [String: Any]) -> (String, Int)? in
-            if let name = dict["name"] as? String  {
+            if let name = dict["name"] as? String {
                 let index = (name, idx)
                 idx += 1
                 return index

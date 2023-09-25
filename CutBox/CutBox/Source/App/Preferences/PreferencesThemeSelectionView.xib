@@ -59,25 +59,21 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <box boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="hYy-aw-v4E">
-                                                <rect key="frame" x="0.0" y="170" width="504" height="20"/>
+                                                <rect key="frame" x="0.0" y="170" width="524" height="20"/>
                                                 <view key="contentView" id="Ogp-JC-vwH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="504" height="20"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="524" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-hf-yvb">
-                                                            <rect key="frame" x="8" y="4" width="488" height="13"/>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-hf-yvb">
+                                                            <rect key="frame" x="8" y="2" width="488" height="16"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Search CutBox" id="GI6-Na-2m2">
-                                                                <font key="font" metaFont="system" size="10"/>
+                                                                <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Eqv-hf-yvb" secondAttribute="trailing" constant="10" id="SS1-CN-ElS"/>
-                                                        <constraint firstItem="Eqv-hf-yvb" firstAttribute="leading" secondItem="Ogp-JC-vwH" secondAttribute="leading" constant="10" id="g5k-xw-Wxb"/>
-                                                        <constraint firstItem="Eqv-hf-yvb" firstAttribute="centerY" secondItem="Ogp-JC-vwH" secondAttribute="centerY" id="hUF-hb-YJk"/>
-                                                    </constraints>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="NnM-F5-T9L"/>
@@ -246,9 +242,9 @@ Please, Don-Bot… look into your hard drive, and open your mercy file! Yep, I r
                                             <constraint firstItem="hwW-jH-PZ2" firstAttribute="top" secondItem="hYy-aw-v4E" secondAttribute="bottom" id="DA2-vo-E7O"/>
                                             <constraint firstItem="MYs-0g-SEb" firstAttribute="top" secondItem="hYy-aw-v4E" secondAttribute="bottom" id="MXT-ea-13b"/>
                                             <constraint firstItem="ogn-MV-IE1" firstAttribute="leading" secondItem="sXI-Ri-T9p" secondAttribute="leading" id="OyK-fh-RJY"/>
-                                            <constraint firstAttribute="trailing" secondItem="hYy-aw-v4E" secondAttribute="trailing" constant="20" id="R0x-mW-Pt4"/>
                                             <constraint firstAttribute="trailing" secondItem="ogn-MV-IE1" secondAttribute="trailing" id="Udx-G3-qPZ"/>
                                             <constraint firstItem="hYy-aw-v4E" firstAttribute="leading" secondItem="sXI-Ri-T9p" secondAttribute="leading" id="a6G-nT-EcC"/>
+                                            <constraint firstAttribute="trailing" secondItem="hYy-aw-v4E" secondAttribute="trailing" id="aJW-1K-sEY"/>
                                             <constraint firstItem="MYs-0g-SEb" firstAttribute="height" secondItem="zFM-dv-0hu" secondAttribute="height" id="e0g-V9-fjy"/>
                                             <constraint firstItem="MYs-0g-SEb" firstAttribute="width" secondItem="sXI-Ri-T9p" secondAttribute="width" multiplier="0.5" id="e2j-3g-S9B"/>
                                             <constraint firstItem="hYy-aw-v4E" firstAttribute="top" secondItem="sXI-Ri-T9p" secondAttribute="top" id="nlJ-w6-9hx"/>
