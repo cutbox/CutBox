@@ -268,6 +268,11 @@ When build is complete it'll automatically open **System Preferences** >
 
 This is so **CutBox.app** can paste.
 
+Assuming you are able to build, run, and use the new CutBox.app, you can use
+`make install` to generate a complete new build and install it, as you would
+with the multi step process above. Note that `make install` will also run lints,
+checks and tests.
+
 # Troubleshooting
 
 [Visit Gitter chat here, if you have problems getting up and running](https://gitter.im/CutBox/Lobby) 
