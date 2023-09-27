@@ -230,7 +230,7 @@ If you find a bug, [click here to tell me what happened.](https://github.com/cut
 
 ### Clone and setup dependencies
 
-```sh
+```text
 git clone git@github.com:CutBox/CutBox
 ```
 
@@ -258,7 +258,15 @@ To use the newly built **CutBox.app** and move it to `/Applications/CutBox.app`:
 bin/use_build_as_local_app
 ```
 
-It will also prompt you to set accessibility & input monitoring so **CutBox.app** can paste.
+When build is complete it'll automatically open **System Preferences** >
+**Security & Privacy** > **Privacy**. Select the **Accessibility** list and add
+**/Applications/CutBox.app** 
+
+(Note if there is already a CutBox entry, remove it first, and add the new one.  For any app, each build must be assigned permissions specifically.)
+
+<img width="550px" src="https://github.com/cutbox/CutBox/wiki/images/apple-security-accessibility.png" alt="Apple System Preferences  -> Security & Privacy -> Privacy -> Accessibility">
+
+This is so **CutBox.app** can paste.
 
 # Troubleshooting
 
