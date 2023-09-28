@@ -70,11 +70,11 @@ class PreferencesPastePipelineView: CutBoxBaseView {
             .title = "preferences_javascript_clear_button".l7n
 
         self.javascriptClearReplButton.rx.tap
-            .bind { _ in self.javascriptTransformREPLOutput.string = "" }
+            .bind(onNext: { self.javascriptTransformREPLOutput.string = "" })
             .disposed(by: disposeBag)
 
         self.javascriptTransformReloadButton.rx.tap
-            .bind { _ in self.prefs.loadJavascript() }
+            .bind(onNext: self.prefs.loadJavascript)
             .disposed(by: disposeBag)
     }
 
