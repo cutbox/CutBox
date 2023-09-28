@@ -17,13 +17,11 @@ extension PreferencesGeneralView {
         self.showAllHiddenDialogBoxesButton
             .rx
             .tap
-            .bind { [self] in
-                self.resetAllHiddenDialogBoxes()
-            }
+            .bind(onNext: resetAllHiddenDialogBoxes)
             .disposed(by: disposeBag)
     }
 
-    func resetAllHiddenDialogBoxes() {
+    func resetAllHiddenDialogBoxes(_: Any?) {
         self.prefs.resetSuppressedDialogBoxes()
     }
 }

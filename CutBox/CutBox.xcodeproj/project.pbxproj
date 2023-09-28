@@ -29,6 +29,7 @@
 		962D6DB92ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6DB82ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift */; };
 		962D6DBB2ABF239A0097D269 /* CutBoxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6DBA2ABF239A0097D269 /* CutBoxSpec.swift */; };
 		962D6DBD2ABFE0FD0097D269 /* PreferencesPastePipelineViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6DBC2ABFE0FD0097D269 /* PreferencesPastePipelineViewSpec.swift */; };
+		962D6DBF2AC55EB50097D269 /* PreferencesGeneralView+ShowHiddenDialogButtonSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962D6DBE2AC55EB50097D269 /* PreferencesGeneralView+ShowHiddenDialogButtonSpec.swift */; };
 		962E68B42AB6BFDC0074CE72 /* SearchTextViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */; };
 		9636FFFD284B1F7700CF4C39 /* UserDefaultsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9667650620B1486C00DE369A /* UserDefaultsMock.swift */; };
 		963AA6442071C95000779697 /* AboutPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 963AA6432071C95000779697 /* AboutPanel.xib */; };
@@ -411,6 +412,7 @@
 		962D6DB82ABEDC860097D269 /* CutBoxThemeLoaderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxThemeLoaderSpec.swift; sourceTree = "<group>"; };
 		962D6DBA2ABF239A0097D269 /* CutBoxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CutBoxSpec.swift; sourceTree = "<group>"; };
 		962D6DBC2ABFE0FD0097D269 /* PreferencesPastePipelineViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesPastePipelineViewSpec.swift; sourceTree = "<group>"; };
+		962D6DBE2AC55EB50097D269 /* PreferencesGeneralView+ShowHiddenDialogButtonSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreferencesGeneralView+ShowHiddenDialogButtonSpec.swift"; sourceTree = "<group>"; };
 		962E68B32AB6BFDC0074CE72 /* SearchTextViewSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextViewSpec.swift; sourceTree = "<group>"; };
 		963AA6432071C95000779697 /* AboutPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutPanel.xib; sourceTree = "<group>"; };
 		963AA6452071E15900779697 /* KeyCombo+Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyCombo+Archive.swift"; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 				969B0A472ABC825200807318 /* SearchAndPreviewViewBaseSpec.swift */,
 				969B0A492ABDF39E00807318 /* ClipItemTableRowTextViewSpec.swift */,
 				962D6DBC2ABFE0FD0097D269 /* PreferencesPastePipelineViewSpec.swift */,
+				962D6DBE2AC55EB50097D269 /* PreferencesGeneralView+ShowHiddenDialogButtonSpec.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1800,6 +1803,7 @@
 				9653494E2843486B000FD0A1 /* CutBoxPreferencesService+HistoryLimitSpec.swift in Sources */,
 				963F92332AB55DB20094C280 /* PopupControllerSpec.swift in Sources */,
 				965348EC28434735000FD0A1 /* PreferencesThemePreview.swift in Sources */,
+				962D6DBF2AC55EB50097D269 /* PreferencesGeneralView+ShowHiddenDialogButtonSpec.swift in Sources */,
 				9653494428434862000FD0A1 /* OrderedSetSpec.swift in Sources */,
 				9653490228434742000FD0A1 /* JSFuncSearchAndPreviewView+KeyDown.swift in Sources */,
 				96C07DBD2AAF5502001983ED /* CutBoxGetStatusItemSpec.swift in Sources */,
