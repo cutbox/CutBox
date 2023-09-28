@@ -21,8 +21,7 @@ extension JSFuncSearchAndPreviewView {
             }
 
         case (kVK_ANSI_T, [.command]):
-            self.events
-                .onNext(.cycleTheme)
+            self.events.onNext(.cycleTheme)
 
         case (kVK_Return, _):
             self.events.onNext(.closeAndPaste)

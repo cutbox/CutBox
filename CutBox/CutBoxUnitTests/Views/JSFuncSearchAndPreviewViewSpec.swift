@@ -13,7 +13,7 @@ import Carbon
 
 class JSFuncSearchAndPreviewViewSpec: QuickSpec {
     override func spec() {
-        let subject = JSFuncSearchAndPreviewView()
+        var subject: JSFuncSearchAndPreviewView!
         let mainContainer = CutBoxBaseStackView()
         let container = CutBoxBaseStackView()
         let mainTopConstraint = NSLayoutConstraint()
@@ -26,6 +26,7 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
         let mockPrefs = CutBoxPreferencesService(defaults: mockDefaults)
 
         beforeEach {
+            subject = JSFuncSearchAndPreviewView()
             subject.prefs = mockPrefs
             subject.mainContainer = mainContainer
             subject.container = container
@@ -78,7 +79,10 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
 
                 context("handles key events") {
                     var result: SearchJSFuncViewEvents?
-                    _ = subject.events.subscribe(onNext: { result = $0 })
+
+                    beforeEach {
+                        _ = subject.events.subscribe(onNext: { result = $0 })
+                    }
 
                     it("Cmd+T cycle color themes") {
                         if let keyEvent = fakeKey(kVK_ANSI_T, [.command]) {
@@ -86,6 +90,23 @@ class JSFuncSearchAndPreviewViewSpec: QuickSpec {
                             expect(result) == .cycleTheme
                         } else {
                             fail("Could not unwrap fake key event")
+                        }
+                    }
+
+                    it("just closes on Esc") {
+                        if let keyEvent = fakeKey(kVK_Escape, [.command]) {
+                            subject.keyDown(with: keyEvent)
+                            expect(result) == .justClose
+                        } else {
+                            fail("Could not unwrap fake key event")
+                        }
+                    }
+
+                    it("handles default") {
+                        if let keyEvent = fakeKey(kVK_F1, [.command]) {
+                            expect {
+                                subject.keyDown(with: keyEvent)
+                            }.toNot(throwAssertion())
                         }
                     }
 
