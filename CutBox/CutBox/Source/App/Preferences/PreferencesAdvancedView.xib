@@ -9,11 +9,11 @@
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView misplaced="YES" id="DMd-LY-Kdz" userLabel="Advanced" customClass="PreferencesAdvancedView" customModule="CutBox" customModuleProvider="target">
+        <customView id="DMd-LY-Kdz" userLabel="Advanced" customClass="PreferencesAdvancedView" customModule="CutBox" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="443" height="344"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9k-cb-OS5">
+                <stackView distribution="fillProportionally" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M9k-cb-OS5">
                     <rect key="frame" x="10" y="10" width="423" height="324"/>
                     <subviews>
                         <stackView distribution="fillProportionally" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSq-jc-XQh">
