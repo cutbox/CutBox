@@ -15,6 +15,33 @@ class CutBoxHotkeyProviderSpec: QuickSpec {
     @objc public func noopSelector() {}
 
     override func spec() {
+        describe("HotKeyService") {
+            let provider = CutBoxHotkeyProvider()
+            let subject = HotKeyService(hotkeyProvider: provider)
+
+            beforeEach {
+                provider.testing = true
+            }
+
+            it("should configure a default key combo") {
+                subject.configure()
+                expect(provider.createWasCalled).to(beTrue())
+            }
+
+            it("should reset default key combo") {
+                subject.resetDefaultGlobalToggle()
+                expect(provider.createWasCalled).to(beTrue())
+            }
+
+            it("should search") {
+                var result: HotKeyEvents?
+                _ = subject.events.bind(onNext: { result = $0 })
+                subject.search(NSObject())
+
+                expect(result) == HotKeyEvents.search
+            }
+        }
+
         describe("CutBoxHotkeyProvider") {
             describe("create") {
                 context("test mode") {

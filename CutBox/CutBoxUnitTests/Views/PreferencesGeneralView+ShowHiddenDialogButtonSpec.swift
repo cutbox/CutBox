@@ -15,7 +15,7 @@ class PreferencesGeneralView_ShowHiddenDialogButtonSpec: QuickSpec {
 
             class MockPrefs: CutBoxPreferencesService {
                 var resetSuppressedDialogBoxesCalled = false
-                override func resetSuppressedDialogBoxes() {
+                @objc override func resetSuppressedDialogBoxes() {
                     resetSuppressedDialogBoxesCalled = true
                 }
             }
