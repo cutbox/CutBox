@@ -16,6 +16,10 @@
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/cutbox)&nbsp;&nbsp;[![](https://badges.gitter.im/cutbox/CutBox.png)](https://gitter.im/CutBox/Lobby)
 
+<h1>1.6.0 Final Release</h1>
+
+<h1>About CutBox</h1>
+
 CutBox is a clipboard manager for MacOS, designed for developers. Search using fuzzy matching or regular expressions. Multiple clipboard items can be pasted at once.  You can also filter to a time limit, e.g. "10 min" will show items copied in the last 10 min, you can text search on just those items. 
 
 - - -
