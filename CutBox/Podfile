@@ -1,5 +1,5 @@
 abstract_target 'CutBoxAll' do
-    platform :osx, '13.0'
+    platform :osx, '12.0'
 
     pod 'RxSwift'
 
