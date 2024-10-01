@@ -61,9 +61,9 @@ jobs:
           bin/ci_is_production
 
       - name: Setup tmate session
-        if: "${{ github.event.inputs.debug == 'true' }}"
+        # if: "${{ github.event.inputs.debug == 'true' }}"
         uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
+        timeout-minutes: 60
         with:
           limit-access-to-actor: true
           
