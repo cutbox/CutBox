@@ -4,6 +4,15 @@ on:
   push:
     branches: [ "master" ]
   workflow_dispatch:
+    inputs:
+      debug:
+        description: Debug this build?
+        type: choice
+        required: true
+        default: 'false'
+        options:
+          - 'true'
+          - 'false'
 
 jobs:
   build:
@@ -56,11 +65,12 @@ jobs:
           make setup
 
       # Temporary debugging for tests
-      # - name: Setup tmate session
-      #   uses: mxschmitt/action-tmate@v3
-      #   timeout-minutes: 15
-      #   with:
-      #     limit-access-to-actor: true
+      - name: Setup tmate session
+        if: "${{ github.event.inputs.<INPUT_NAME> != '' }}"
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
+        with:
+          limit-access-to-actor: true
 
       - name: Run Tests
         run: |
