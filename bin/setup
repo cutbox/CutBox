@@ -68,8 +68,16 @@ npm_check() {
 }
 
 if [ -x "$(which brew)" ]; then
-  message "Running brew bundle, npm install and pip install -r requirements.txt"
-  brew bundle
+  message "Running brew installs, npm install and pip install -r requirements.txt"
+
+  brew install coreutils
+  brew install node
+  brew install ripgrep
+  brew install cmark
+  brew install cocoapods
+  brew install carthage
+  brew install llvm
+
   npm install
   pip install -r requirements.txt
 else
