@@ -60,17 +60,16 @@ jobs:
         run: |
           bin/ci_is_production
 
-      - name: Setup
-        run: |
-          make setup
-
-      # Temporary debugging for tests
       - name: Setup tmate session
-        if: "${{ github.event.inputs.<INPUT_NAME> != '' }}"
+        if: "${{ github.event.inputs.debug == 'true' }}"
         uses: mxschmitt/action-tmate@v3
         timeout-minutes: 15
         with:
           limit-access-to-actor: true
+          
+      - name: Setup
+        run: |
+          make setup
 
       - name: Run Tests
         run: |
